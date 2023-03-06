@@ -1,7 +1,10 @@
 package kr.codesquad;
 
+import kr.codesquad.Controller.LadderController;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        LadderController ladderController = new LadderController();
+        ladderController.run();
     }
 }
