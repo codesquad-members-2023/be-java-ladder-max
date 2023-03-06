@@ -8,13 +8,10 @@ public class Ladder {
 
         String[][] ladder = new String[ladderHeight][(playerCount*2) - 1];
 
-        // player line(세로 줄) 추가
         for(int row = 0; row < ladder.length; row++) {
             addPlayerLine(ladder, row);
+            addBridge(ladder, row);
         }
-
-        // bridge(가로 줄) 추가
-        addBridge(ladder);
 
         return ladder;
     }
@@ -27,13 +24,9 @@ public class Ladder {
         return ladder;
     }
 
-    private String[][] addBridge(String[][] ladder) {
-        for(int i = 0; i < ladder.length; i++) {
-            for(int j = 0; j < ladder[i].length; j++) {
-                if(j%2 != 0 && shouldBuildingBridge()) {
-                    ladder[i][j] = "-";
-                }
-            }
+    private String[][] addBridge(String[][] ladder, int row) {
+        for (int col = 1; col < ladder[0].length; col += 2) {
+            insertBridge(ladder, row, col);
         }
 
         return ladder;
@@ -41,6 +34,12 @@ public class Ladder {
 
     private boolean shouldBuildingBridge() {
         return (int)(Math.random() * 2) == 1? true : false;
+    }
+
+    private void insertBridge(String[][] ladder, int row, int col) {
+        if (shouldBuildingBridge()) {
+            ladder[row][col] = "-";
+        }
     }
 
 }
