@@ -8,14 +8,18 @@ public class Ladder {
 
     public Ladder(int player, int height) {
         map = new LadderPart[height][player * 2 - 1];
-        makeMap();
+        initMap();
     }
 
-    private void makeMap() {
+    private void initMap() {
         for (int y = 0; y < map.length; y++) {
-            for (int x = 0; x < map[0].length; x++) {
-                map[y][x] = LadderPart.create(x);
-            }
+            initWidthLine(y);
+        }
+    }
+
+    private void initWidthLine(int y) {
+        for (int x = 0; x < map[0].length; x++) {
+            map[y][x] = LadderPart.create(x);
         }
     }
 
