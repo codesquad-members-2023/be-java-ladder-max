@@ -1,5 +1,7 @@
 package kr.codesquad.ladder;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Ladder {
@@ -38,6 +40,15 @@ public class Ladder {
                 ladder[i][j] = BLANK_LETTER;
             }
         }
+    }
+
+    public String getLadderStatus() {
+        StringBuilder sb = new StringBuilder();
+        for (char[] row : ladder) {
+            sb.append(row);
+            sb.append(System.lineSeparator());
+        }
+        return String.valueOf(sb);
     }
 
 }

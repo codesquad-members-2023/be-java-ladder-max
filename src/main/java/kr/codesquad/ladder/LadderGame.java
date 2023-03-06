@@ -3,6 +3,7 @@ package kr.codesquad.ladder;
 public class LadderGame {
 
     private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
     private Ladder ladder;
 
     public void setLadder() {
@@ -14,6 +15,7 @@ public class LadderGame {
     public void startLadder() {
         ladder.fillLine();
         ladder.fillRandomWidthLine();
+        outputView.printLadder(ladder.getLadderStatus());
     }
 
 }
