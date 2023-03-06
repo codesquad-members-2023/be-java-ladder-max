@@ -14,6 +14,7 @@ public class LadderGame {
 	public void startLadderGame() {
 		final List<String> input = getInputFromUser();
 		final Ladder ladder = createLadder(input);
+		printFigureOfLadder(ladder);
 	}
 
 	private List<String> getInputFromUser() {
@@ -30,5 +31,9 @@ public class LadderGame {
 		final Ladder ladder = new Ladder(input);
 		ladder.createFigureOfLadder();
 		return ladder;
+	}
+
+	private void printFigureOfLadder(final Ladder ladder) {
+		outputView.printFigureOfLadder(ladder);
 	}
 }
