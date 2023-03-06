@@ -1,9 +1,7 @@
-# Java Lotto
+# 사다리 게임 
+### step1. 기본기능 구현하기
+제약사항
+1. 메서드 길이 10줄 넘어가지 않게 구현하기!
 
-- Last Update: 2022-12-28
-
-## 코드 리뷰
-
-* [텍스트와 이미지로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://github.com/code-squad/codesquad-docs/blob/master/codereview/README.md)
-
-* [동영상으로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://youtube.com/watch?v=lFinZfu3QO0&si=EnSIkaIECMiOmarE)
+객체지향 생각하지 않고 그냥 기본 기능만 구현.<br>
+메서드를 입력, 사다리 만들기, 출력 세 가지로 나눠서 메서드 길이 10줄 넘어가지 않게 구현했다.
