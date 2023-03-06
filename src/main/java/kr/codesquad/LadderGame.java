@@ -1,18 +1,13 @@
 package kr.codesquad;
 
-import java.util.Scanner;
-
 public class LadderGame {
-    private final int playerNumber;
-    private final int ladderHeight;
+    private final Ladder ladder;
 
-    private LadderGame(int playerNumber, int ladderHeight) {
-        this.playerNumber = playerNumber;
-        this.ladderHeight = ladderHeight;
+    private LadderGame(Ladder ladder) {
+        this.ladder = ladder;
     }
 
     public LadderGame() {
-        this(Screen.inputPlayerNumber(), Screen.inputLadderHeight());
+        this(new Ladder(Screen.inputPlayerNumber(), Screen.inputLadderHeight()));
     }
-
 }
