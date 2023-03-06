@@ -21,6 +21,6 @@
 ## 학습 계획
 
 - [x] 1, 2단계 요구 사항 분석, 정리하기
-- [ ] 1단계 구현하기
+- [x] 1단계 구현하기
 - [ ] String, StringBuilder, StringBuffer 공부하기
 - [ ] coding convention 찾아보기

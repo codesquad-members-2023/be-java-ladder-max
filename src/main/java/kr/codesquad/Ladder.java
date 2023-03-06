@@ -27,14 +27,11 @@ public class Ladder {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < maxHeight; i++) {
             for (int j = 0; j < n - 1; j++) {
-                result.append('|');
-                if (legs[i][j]) {
-                    result.append('-');
-                } else {
-                    result.append(' ');
-                }
+                char leg = ' ';
+                if (legs[i][j]) leg = '-';
+                result.append('|').append(leg);
             }
-            result.append("|\n");
+            result.append('|').append('\n');
         }
         return result.toString();
     }

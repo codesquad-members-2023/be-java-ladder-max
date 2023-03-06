@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: 1,2단계 요구사항 / 학습 계획 정리">
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/InputView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat: 사다리 게임 진행하기">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,19 +68,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\codesquad\be-java-ladder-max\src\main\java\kr\codesquad" />
@@ -165,6 +163,7 @@
       <workItem from="1678074949459" duration="369000" />
       <workItem from="1678078897304" duration="3405000" />
       <workItem from="1678083936841" duration="146000" />
+      <workItem from="1678084092199" duration="1405000" />
     </task>
     <task id="LOCAL-00001" summary="docs: 1,2단계 요구사항 / 학습 계획 정리">
       <created>1678075249563</created>
@@ -173,7 +172,28 @@
       <option name="project" value="LOCAL" />
       <updated>1678075249563</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: 참여할 사람 수와 사다리 높이 입력받기">
+      <created>1678084218575</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678084218575</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: 사다리 만들고 출력하기">
+      <created>1678084239453</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678084239453</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: 사다리 게임 진행하기">
+      <created>1678084340453</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678084340453</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +210,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="step1" />
+                        <option value="origin/step1" />
                       </list>
                     </value>
                   </entry>
@@ -204,6 +224,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="docs: 1,2단계 요구사항 / 학습 계획 정리" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 1,2단계 요구사항 / 학습 계획 정리" />
+    <MESSAGE value="feat: 참여할 사람 수와 사다리 높이 입력받기" />
+    <MESSAGE value="feat: 사다리 만들고 출력하기" />
+    <MESSAGE value="feat: 사다리 게임 진행하기" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 사다리 게임 진행하기" />
   </component>
 </project>
