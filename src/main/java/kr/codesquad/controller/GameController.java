@@ -12,7 +12,7 @@ public class GameController {
     private InputView inputView = new InputView();
     private OutputView outputView = new OutputView();
 
-    public void runApplication() throws IOException {
+    public void runLadderGame() throws IOException {
         int playerCount = inputView.inputPlayerCount();
         int ladderHeight = inputView.inputLadderHeight();
         String[][] newLadder = ladder.makeLadder(playerCount, ladderHeight);
