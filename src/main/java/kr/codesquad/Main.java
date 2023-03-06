@@ -9,12 +9,11 @@ public class Main {
 
         try {
             int[] input_data = input.input();
-
-            ladder.createLine(input_data[0], input_data[1]);
-
-            ladder.print();
+            ladder.createRadder(input_data[0], input_data[1]);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        ladder.printRadder();
     }
 }
