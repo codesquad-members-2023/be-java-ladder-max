@@ -9,8 +9,9 @@ public class Ladder {
 
     private final Supplier<Boolean> randomBoolean = random::nextBoolean;
 
-    boolean[][] create(int peopleCount, int ladderHeight) {
-        return create(peopleCount, ladderHeight, randomBoolean);
+    String create(int peopleCount, int ladderHeight) {
+        boolean[][] ladderState = create(peopleCount, ladderHeight, randomBoolean);
+        return draw(ladderState);
     }
 
     boolean[][] create(int peopleCount, int ladderHeight, Supplier<Boolean> condition) {
@@ -21,6 +22,19 @@ public class Ladder {
             }
         }
         return result;
+    }
+
+    String draw(boolean[][] ladder) {
+        StringBuilder result = new StringBuilder();
+        for (boolean[] row : ladder) {
+            result.append("|");
+            for (boolean column : row) {
+                result.append(column ? "-" : " ")
+                    .append("|");
+            }
+            result.append("\n");
+        }
+        return result.toString();
     }
 
 }
