@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         // step-1, step-2
         Console console = new Console();
-        console.askParticipants();
+        console.askParticipantsNumber();
         int participantNumber = console.returnIntInput();
         console.askLadderHeight();
         int ladderHeight = console.returnIntInput();
@@ -16,7 +16,9 @@ public class Main {
         ladder.printLadder();
 
         // step-3, step-4
-        ShapeConsole shapeConsole = new ShapeConsole();
-        List<String> participantList = List.of(shapeConsole.returnStringInput().split(","));
+        console.askParticipantsName();
+        List<String> participantList = List.of(console.returnStringInput().split(","));
+        console.askLadderHeight();
+        int ladderShapeHeight = console.returnIntInput();
     }
 }

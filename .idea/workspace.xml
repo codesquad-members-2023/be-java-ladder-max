@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: 내용 삭제">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Printer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/ShapeConsole.java" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat: 사다리 모양 클래스 틀 짜기&#10;&#10;원래는 step-1, step-2 부분을 주석 처리 후&#10;Console 클래스를 재사용할 생각이었지만,&#10;인터페이스 이용해서 겹치는 메서드를 오버라이딩 해주기로 결정했다&#10;ArrayList, Generic와 split 메서드로 참여할 사람 이름의 리스트에 넣어준다.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderShape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Console.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/ShapeConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/ShapeConsole.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -121,7 +119,7 @@
       <updated>1672210428730</updated>
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678068503024" duration="2671000" />
-      <workItem from="1678077123619" duration="1918000" />
+      <workItem from="1678077123619" duration="2629000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자">
       <created>1678069392649</created>
@@ -186,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678077190805</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="feat: 사다리 모양 클래스 틀 짜기&#10;&#10;원래는 step-1, step-2 부분을 주석 처리 후&#10;Console 클래스를 재사용할 생각이었지만,&#10;인터페이스 이용해서 겹치는 메서드를 오버라이딩 해주기로 결정했다&#10;ArrayList, Generic와 split 메서드로 참여할 사람 이름의 리스트에 넣어준다.">
+      <created>1678079370557</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1678079370557</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +207,7 @@
     <MESSAGE value="refactor(Ladder): print 방식을 StringBuilder 방식으로 변경&#10;&#10;static으로 StringBuilder 정의 후 개행마다 new StringBuilder() 재정의&#10;아직도 엄청 깔끔하진 않음" />
     <MESSAGE value="refactor(Ladder): 랜덤으로 letter 선택하는 기능 메서드 분리&#10;&#10;분리 안 했으면 if문이 2개였음" />
     <MESSAGE value="docs: 내용 삭제" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 내용 삭제" />
+    <MESSAGE value="feat: 사다리 모양 클래스 틀 짜기&#10;&#10;원래는 step-1, step-2 부분을 주석 처리 후&#10;Console 클래스를 재사용할 생각이었지만,&#10;인터페이스 이용해서 겹치는 메서드를 오버라이딩 해주기로 결정했다&#10;ArrayList, Generic와 split 메서드로 참여할 사람 이름의 리스트에 넣어준다." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 사다리 모양 클래스 틀 짜기&#10;&#10;원래는 step-1, step-2 부분을 주석 처리 후&#10;Console 클래스를 재사용할 생각이었지만,&#10;인터페이스 이용해서 겹치는 메서드를 오버라이딩 해주기로 결정했다&#10;ArrayList, Generic와 split 메서드로 참여할 사람 이름의 리스트에 넣어준다." />
   </component>
 </project>
