@@ -11,9 +11,10 @@ public class LadderShape {
 
     private final List<String> participantList;
     private final int ladderShapeHeight;
-    private List<String> points = new ArrayList<>();
-    private boolean isMinusSign = false;
 
+    private List<String> points = new ArrayList<>();
+
+    private boolean isMinusSign = false;
 
     public LadderShape(List<String> participantList, int ladderShapeHeight) {
         this.participantList = participantList;
@@ -34,15 +35,14 @@ public class LadderShape {
 
     private void printParticipants() {
         for (String participant : participantList) {
-            System.out.print(participant);
-            printRepeatBlank(2);
+            System.out.printf("%5s ", participant);
         }
 
         printNewLine();
     }
 
     private void printLadderRows() {
-        printRepeatBlank(2);
+        printRepeatBlank(3);
         for (int i = 0; i < participantList.size() + participantList.size() - 1; i++) {
             chooseLetter(i);
         }
@@ -88,17 +88,25 @@ public class LadderShape {
         appendBlank(); // 5번 append
     }
 
+    // @Test
     public void appendMinusSign() {
         isMinusSign = true;
         Stream.generate(() -> "-")
                 .limit(5)
                 .forEach(points::add);
     }
-    private void appendBlank() {
+
+    // @Test
+    public void appendBlank() {
         isMinusSign = false;
         Stream.generate(() -> " ")
                 .limit(5)
                 .forEach(points::add);
+    }
+
+    // @Test
+    public List<String> getPoints() {
+        return points;
     }
 
     private void printRepeatBlank(int n) {
