@@ -22,4 +22,8 @@ public class InputOutputManager {
         outputHandler.outPut("최대 사다리 높이는 몇 개인가요?");
         ladder.setLadderHeight(Integer.parseInt(inputHandler.getInput(br)));
     }
+
+    public void printLadder(Ladder ladder){
+        outputHandler.printLadder(ladder);
+    }
 }

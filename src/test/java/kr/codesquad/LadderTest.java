@@ -15,10 +15,11 @@ class LadderTest {
         ladderForTest.setLadderHeight(5);
 
         ladderForTest.makeLadder();
+        char[][] testladder = ladderForTest.getLadder();
         StringBuilder sb = new StringBuilder();
         for(int i=0;i<5;i++){
             for(int j =0;j<9;j++){
-                sb.append(ladderForTest.ladder[i][j]);
+                sb.append(testladder[i][j]);
             }
             sb.append("\n");
         }

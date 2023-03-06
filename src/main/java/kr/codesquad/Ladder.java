@@ -5,7 +5,19 @@ import java.util.Random;
 public class Ladder {
     private int peopleNum;
     private int ladderHeight;
-    char [][] ladder;
+    private char [][] ladder;
+
+    public int getPeopleNum() {
+        return peopleNum;
+    }
+
+    public int getLadderHeight() {
+        return ladderHeight;
+    }
+
+    public char[][] getLadder() {
+        return ladder;
+    }
 
     public void setPeopleNum(int peopleNum) {
         this.peopleNum = peopleNum;
