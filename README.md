@@ -21,7 +21,7 @@
 
 <img width="668" alt="스크린샷 2023-03-06 오후 3 50 38" src="https://user-images.githubusercontent.com/62871026/223038807-d8e8c7e6-eae5-42c2-a01d-0b3f84076348.png">
 
-## 에러 해결
+## 논리적 오류 해결
 
 - `|-----|-----|` 모양과 같이 가로 라인이 겹치는 경우 어느 방향으로 이동할지 결정할 수 없다.
   - 위 요구 사항을 뒤늦게 봐서 boolean 깃발을 이용하는 방식으로 해결했다.
@@ -29,3 +29,12 @@
 
 <img width="652" alt="스크린샷 2023-03-06 오후 4 05 19" src="https://user-images.githubusercontent.com/62871026/223041329-21a1cb85-2f59-44f9-bfad-8a6757a35c22.png">
 <img width="656" alt="스크린샷 2023-03-06 오후 4 08 05" src="https://user-images.githubusercontent.com/62871026/223041795-be1689a5-08f7-4ae2-bb5d-5060544199d8.png">
+
+## 두번째 논리적 오류 해결
+
+- 위와 같은 방법은 사다리의 개수에 따른 해결 방법이 아님
+- Participants 수에 따라 깃발의 접근 방식이 나뉘어야 하는데 그걸 인지하지 못했음
+  - 깃발의 위치 수정
+  - 한줄 한줄 출력할 때 깃발을 false로 바꿔줘야 위와 같은 논리적 오류가 발생하지 않음
+
+<img width="652" alt="스크린샷 2023-03-06 오후 4 16 27" src="https://user-images.githubusercontent.com/62871026/223043213-8d5d50ac-98ee-4561-bee7-c579e8f31ab7.png">
