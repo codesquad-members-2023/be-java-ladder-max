@@ -5,8 +5,8 @@
 - 버전을 계속 관리하면서 했던 작업들을 다 기록하기
 ## ver 0.1 기능 체크리스트
 - [ ] Input Class - 값을 입력 받는 class
-  - [ ] inputPlayers() - 참여할 인원을 입력받고 정수형으로 반환
-  - [ ] inputHeight() - 최대 사다리 높이를 입력받고 정수형으로 반환
+  - [x] inputPlayers() - 참여할 인원을 입력받고 반환
+  - [ ] inputHeight() - 최대 사다리 높이를 입력받고 반환
 - [ ] Ladder Class - 사다리를 만들고 관리하는 class
   - [ ] instance variable
     - int players - 참여하는 인원
