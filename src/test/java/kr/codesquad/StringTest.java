@@ -4,9 +4,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class StringTest {
+
     @Test
     @DisplayName("String, StringBuilder, StringBuffer 객체간의 주소변화를 확인하는 테스트")
-    public void testcase1(){
+    public void testcase1() {
         String str = "String";
         StringBuilder sb = new StringBuilder();
         StringBuffer sbf = new StringBuffer();
@@ -31,7 +32,7 @@ public class StringTest {
 
     @Test
     @DisplayName("문자열 상수를 이용한 문자열 객체와 new String을 통한 문자열 객체간의 차이를 확인하는 테스트")
-    public void testcase2(){
+    public void testcase2() {
         String str1 = "hello";
         String str2 = "hello";
         String str3 = new String("hello");

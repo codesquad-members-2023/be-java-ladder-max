@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ConsoleInput {
+
     private final BufferedReader br;
     private final LadderValidator validator;
 
@@ -13,13 +14,13 @@ public class ConsoleInput {
         this.validator = validator;
     }
 
-    public int inputPerson(){
+    public int inputPerson() {
         String text;
-        while(true){
+        while (true) {
             try {
                 ConsoleOutput.printInputPersonIntro();
                 text = br.readLine();
-                if(!validator.validatePerson(text)){
+                if (!validator.validatePerson(text)) {
                     throw new InvalidPersonNumber();
                 }
                 break;
@@ -32,13 +33,13 @@ public class ConsoleInput {
         return Integer.parseInt(text);
     }
 
-    public int inputMaximumLadderHeight(){
+    public int inputMaximumLadderHeight() {
         String text;
-        while(true){
+        while (true) {
             try {
                 ConsoleOutput.printInputMaximumLadderHeightIntro();
                 text = br.readLine();
-                if(!validator.validateLadderHeight(text)){
+                if (!validator.validateLadderHeight(text)) {
                     throw new InvalidMaximumLadderHeight();
                 }
                 break;
