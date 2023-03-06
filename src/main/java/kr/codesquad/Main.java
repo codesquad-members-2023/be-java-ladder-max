@@ -24,10 +24,11 @@ public class Main {
 
         StringTokenizer stringTokenizer = new StringTokenizer(console.returnStringInput(), ",");
         while (stringTokenizer.hasMoreTokens()) {
-            if (stringTokenizer.nextToken().length() > 5) {
+            String token = stringTokenizer.nextToken();
+            if (token.length() > 5) {
                 throw new IOException("[ERROR] 플레이어의 이름은 최대 5글자까지 부여할 수 있습니다.");
             }
-            participantList.add(stringTokenizer.nextToken());
+            participantList.add(token);
         }
         console.askLadderHeight();
         int ladderShapeHeight = console.returnIntInput();
