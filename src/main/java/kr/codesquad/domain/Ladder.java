@@ -9,7 +9,9 @@ public class Ladder {
         String[][] ladder = new String[ladderHeight][(playerCount*2) - 1];
 
         // player line(세로 줄) 추가
-        addPlayerLine(ladder);
+        for(int row = 0; row < ladder.length; row++) {
+            addPlayerLine(ladder, row);
+        }
 
         // bridge(가로 줄) 추가
         addBridge(ladder);
@@ -17,13 +19,9 @@ public class Ladder {
         return ladder;
     }
 
-    private String[][] addPlayerLine(String[][] ladder) {
-        for(int i = 0; i < ladder.length; i++) {
-            for(int j = 0; j < ladder[i].length; j++) {
-                if(j%2 == 0) {
-                    ladder[i][j] = "|";
-                }
-            }
+    private String[][] addPlayerLine(String[][] ladder, int row) {
+        for(int col = 0; col < ladder[0].length; col += 2) {
+            ladder[row][col] = "|";
         }
 
         return ladder;
