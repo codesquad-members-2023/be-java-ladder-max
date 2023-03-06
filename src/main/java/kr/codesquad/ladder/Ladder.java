@@ -15,4 +15,12 @@ public class Ladder {
         return new Ladder(new char[height][participantCount * 2 - 1]);
     }
 
+    public void fillLine() {
+        for (int i = 0; i < ladder.length; i++) {
+            for (int j = 0; j < ladder[0].length; j += 2) {
+                ladder[i][j] = LADDER_LINE;
+            }
+        }
+    }
+
 }
