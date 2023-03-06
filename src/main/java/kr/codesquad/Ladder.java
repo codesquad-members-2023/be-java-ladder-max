@@ -5,7 +5,7 @@ public class Ladder {
 
     public String[][] makeLadder(int n, int m) {
         createLadderEmpty(n, m);
-        makeLadderLength();
+        makeLadderLength(n, m);
 
         return new String[0][];
     }
@@ -14,7 +14,11 @@ public class Ladder {
         laddersFrame = new String[m][n + 2];
     }
 
-    private void makeLadderLength() {
-
+    private void makeLadderLength(int n, int m) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n + 2; j = j + 2) {
+                laddersFrame[i][j] = "|";
+            }
+        }
     }
 }

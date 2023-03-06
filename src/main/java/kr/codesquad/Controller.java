@@ -9,6 +9,13 @@ public class Controller {
     private Validation validation;
     private Ladder ladder;
 
+    public Controller() {
+        this.ladder = new Ladder();
+        this.output = new Output();
+        this.validation = new Validation();
+        this.input = new Input();
+    }
+
     public void run() throws IOException {
         output.printMessageN();
         String n = input.inputN();
