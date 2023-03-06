@@ -7,13 +7,18 @@ public class Name {
 
     public Name(String name) {
         validateName(name);
-        this.name = name;
+        this.name = String.format("%-6s", name);
     }
 
-    public void validateName(String name) {
+    private void validateName(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException(NAME_LENGTH_EXCEPTION_MESSAGE);
         }
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 
 }
