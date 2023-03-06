@@ -1,7 +1,5 @@
 package kr.codesquad.domain;
 
-import java.util.Random;
-
 public class Ladder {
 
     public String[][] makeLadder(int playerCount, int ladderHeight) {
