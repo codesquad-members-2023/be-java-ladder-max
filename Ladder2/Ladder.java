@@ -13,26 +13,27 @@ public class Ladder {
     }
 
     private void createRandomBridges() {
-        for (int i = 0; i <ladder.length; i++){
-            this.putBridges(i,ladder[0].length);
+        for (int i = 0; i <this.ladder.size(); i++){
+            this.putBridges(i,ladder.get(0).size());
         }
     }
 
     private void putBridges(int i, int rowSize) {
-        for(int j = 1; j < rowSize; j+= 2){
+        for(int j = 1; j < rowSize; j+= 6){
             this.putRandomBridge(i,j, this.coinflip());
         }
     }
 
     private void putRandomBridge(int i, int j, boolean coinflip) {
-        if(j > 1 && coinflip && this.ladder[i][j - 2] == " "){
-            this.ladder[i][j] = "-";
+        if(j > 1 && coinflip && this.ladder.get(i).get(j - 2) == "     "){
+            this.ladder.get(i).set(j, "-----");
         }
 
         if(j == 1 && coinflip) {
-            this.ladder[i][j] = "-";
+            this.ladder.get(i).set(j, "-----");
         }
     }
+
     private boolean coinflip() {
         Random random = new Random();
         return random.nextBoolean();
@@ -48,9 +49,10 @@ public class Ladder {
     private void initRow(int i, int rowSize) {
         ArrayList<String> row = new ArrayList<>();
         for(int j = 0; j < rowSize; j++){
-            row.add("|-----");
+            row.add("|");
+            row.add("     ");
         }
-        row.subList(row.size()-6,row.size()-1).clear();
+        row.subList(row.size()-2,row.size()-1).clear();
         ladder.add(row);
     }
 }
