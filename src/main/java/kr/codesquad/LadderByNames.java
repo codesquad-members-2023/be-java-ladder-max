@@ -9,6 +9,7 @@ public class LadderByNames implements Ladder {
     public static final String FAIL_DELIMITER = "     ";
     public static final String PEOPLE_DELIMITER = "|";
     public static final String NEXT_LINE = "\n";
+    public static final String PREFIX = "   ";
     private final Random random = new Random();
 
     @Override
@@ -18,23 +19,20 @@ public class LadderByNames implements Ladder {
 
     String create(int peopleCount, int ladderHeight, Supplier<Boolean> condition) {
         StringBuilder result = new StringBuilder();
-        boolean possible = true;
-        for (int i = 0 ; i < ladderHeight ; i++) {
-            possible = addRow(peopleCount, condition, result, possible);
+        for (int i = 0; i < ladderHeight; i++) {
+            addRow(peopleCount, condition, result);
         }
         return result.toString();
     }
 
-    private static boolean addRow(int peopleCount, Supplier<Boolean> condition, StringBuilder result,
-        boolean possible) {
-        result.append("   ");
-        result.append(PEOPLE_DELIMITER);
-        for (int j = 0 ; j < peopleCount -1 ; j++) {
+    private static void addRow(int peopleCount, Supplier<Boolean> condition, StringBuilder result) {
+        boolean possible = true;
+        result.append(PREFIX)
+            .append(PEOPLE_DELIMITER);
+        for (int j = 0; j < peopleCount - 1; j++) {
             possible = addSuccess(condition, result, possible);
         }
-        possible = true;
         result.append(NEXT_LINE);
-        return possible;
     }
 
     private static boolean addSuccess(Supplier<Boolean> condition, StringBuilder result, boolean possible) {
