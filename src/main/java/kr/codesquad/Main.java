@@ -9,5 +9,8 @@ public class Main {
         int participantNumber = console.returnInput();
         console.askLadderHeight();
         int ladderHeight = console.returnInput();
+
+        Ladder ladder = new Ladder(participantNumber, ladderHeight);
+        ladder.printLadder();
     }
 }

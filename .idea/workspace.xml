@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat(Console): 기본 생성자 추가하고, int형 변환&#10;&#10;정수를 입력받는데 String으로 리턴해버렸네..">
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat(Ladder): 사다리 시스템을 관리하는 Ladder 클래스 생성 후 구현&#10;&#10;틀 설계 후 print 메서드 생성">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +115,7 @@
       <option name="presentableId" value="Default" />
       <updated>1672210428730</updated>
       <workItem from="1672210432725" duration="156000" />
-      <workItem from="1678068503024" duration="1340000" />
+      <workItem from="1678068503024" duration="2337000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자">
       <created>1678069392649</created>
@@ -136,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678069807759</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat(Ladder): 사다리 시스템을 관리하는 Ladder 클래스 생성 후 구현&#10;&#10;틀 설계 후 print 메서드 생성">
+      <created>1678070145800</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678070145800</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +155,7 @@
     <MESSAGE value="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자" />
     <MESSAGE value="feat: 입력받는 콘솔 기능 추가&#10;&#10;Main에서 그냥 한번에 입력받고, 출력하려고 했지만&#10;Console이라는 클래스를 만들어서 최대한 메서드 분리할 예정" />
     <MESSAGE value="feat(Console): 기본 생성자 추가하고, int형 변환&#10;&#10;정수를 입력받는데 String으로 리턴해버렸네.." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Console): 기본 생성자 추가하고, int형 변환&#10;&#10;정수를 입력받는데 String으로 리턴해버렸네.." />
+    <MESSAGE value="feat(Ladder): 사다리 시스템을 관리하는 Ladder 클래스 생성 후 구현&#10;&#10;틀 설계 후 print 메서드 생성" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Ladder): 사다리 시스템을 관리하는 Ladder 클래스 생성 후 구현&#10;&#10;틀 설계 후 print 메서드 생성" />
   </component>
 </project>
