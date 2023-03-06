@@ -48,6 +48,12 @@
 
 - Last Update: 2023-03-06
 
+### 구현 결과
+![ex1](https://user-images.githubusercontent.com/57451700/223053238-f18c4736-4bfa-447d-8523-7b41c78737da.png)    
+![ex2](https://user-images.githubusercontent.com/57451700/223053325-ac5e56fc-ad65-4853-b21c-24ccdd033d0c.png)    
+![result](https://user-images.githubusercontent.com/57451700/223053367-cc43a79e-c92a-4bfb-9d24-85f13e9e9c70.png)    
+
+
 ## 코드 리뷰
 
 * [텍스트와 이미지로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://github.com/code-squad/codesquad-docs/blob/master/codereview/README.md)
