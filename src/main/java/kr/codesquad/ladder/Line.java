@@ -16,14 +16,20 @@ public class Line {
     public static Line createLine(int count) {
         List<Boolean> booleans = new ArrayList<>();
 
-        for (int i = 0; i < count; i++) {
+        for (int index = 0; index < count; index++) {
             boolean randomBoolean = randomBoolean();
-            if (randomBoolean) {
-                i++;
-            }
             booleans.add(randomBoolean);
+            if (index >= 1 && booleans.get(index - 1)) {
+                booleans.set(index, false);
+            }
         }
         return new Line(booleans);
     }
 
+    @Override
+    public String toString() {
+        return "Line{" +
+                "line=" + line +
+                '}';
+    }
 }
