@@ -1,9 +1,17 @@
-# Java Lotto
+# Java 사다리 게임
 
-- Last Update: 2022-12-28
+- Last Update: 2023-03-06
 
-## 코드 리뷰
+## 학습계획
+1. 루카스 Java Programming의 자바 문자열 파트를 학습한다.
+2. 사다리 게임 1단계 기능을 구현한다.
+3. 2단계 요구사항대로 리팩토링을 진행한다.
+4. 리스트와 제네릭 파트를 학습한다.
+5. 3단계 기능을 ArrayList를 사용해서 구현한다.
+6. 4단계 요구사항대로 리팩토링을 진행한다.
+7. 구현 내용 및 학습한 내용을 정리한다.
 
-* [텍스트와 이미지로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://github.com/code-squad/codesquad-docs/blob/master/codereview/README.md)
+## 자바 문자열
+### 
 
-* [동영상으로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://youtube.com/watch?v=lFinZfu3QO0&si=EnSIkaIECMiOmarE)
+## 1단계 - 기본 기능 구현
