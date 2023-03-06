@@ -28,4 +28,12 @@ public class InputView {
         System.out.println("사다리 높이는 몇 개인가요?");
         return Integer.parseInt(readInput());
     }
+
+    public void stop() {
+        try {
+            bufferedReader.close();
+        } catch (IOException e) {
+            throw new RuntimeException("InputView 종료 시 문제 발생");
+        }
+    }
 }
