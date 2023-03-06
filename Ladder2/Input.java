@@ -29,8 +29,8 @@ public class Input {
         return names;
     }
 
-    private static void createLadder(int pplNumber, int ladderHeight) {
-        Ladder ladder = new Ladder(pplNumber, ladderHeight);
+    private static void createLadder(ArrayList<String> pplNames, int ladderHeight) {
+        Ladder ladder = new Ladder(pplNames, ladderHeight);
     }
 
     private static int takeInt() throws IOException {
