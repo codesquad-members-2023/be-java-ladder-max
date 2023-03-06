@@ -38,8 +38,8 @@ public class Ladder {
     }
     private void smallIfSentence2InFunctionForMakeLadder2(int j) {
         if (j % 2 == 0 && ladderBoard[i][j-1] == "     " && random.nextboolean == false))) {
-                ladderBoard[i][j] = "-----";
-            }
+            ladderBoard[i][j] = "-----";
+        }
     }
     private void smallIfSentence3InFunctionForMakeLadder2(int j) {
         if (j % 2 == 0 && ladderBoard[i][j-1] == "-----" && random.nextboolean == false))) {
