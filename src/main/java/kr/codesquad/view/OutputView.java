@@ -3,11 +3,15 @@ package kr.codesquad.view;
 public class OutputView {
 
     public void printLadder(String[][] ladder) {
-        for(int i = 0; i < ladder.length; i++) {
-            for (int j = 0; j < ladder[i].length; j++) {
-                System.out.print(ladder[i][j] == null? " " : ladder[i][j]);
-            }
-            System.out.println();
+        for(int row = 0; row < ladder.length; row++) {
+            printLadderRow(ladder[row]);
         }
+    }
+
+    private void printLadderRow(String[] ladderRow) {
+        for (int col = 0; col < ladderRow.length; col++) {
+            System.out.print(ladderRow[col] == null? " " : ladderRow[col]);
+        }
+        System.out.println();
     }
 }
