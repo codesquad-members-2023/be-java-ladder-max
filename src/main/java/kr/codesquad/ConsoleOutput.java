@@ -11,6 +11,7 @@ public class ConsoleOutput {
 
     public static void printInvalidInputNumber(String message){
         System.out.println(message);
+        System.out.println();
     }
 
     public static void printLadderBoard(String ladder){
