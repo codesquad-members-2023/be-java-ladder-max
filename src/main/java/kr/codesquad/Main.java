@@ -9,7 +9,7 @@ public class Main {
         int numberOfUsers = InputView.inputNumberOfUsers();
         int ladderHeight = InputView.inputLadderHeight();
         Ladder ladder = new Ladder(numberOfUsers, ladderHeight);
-        OutputView.printLadder(ladder.toString());
+        OutputView.printLadder(ladder);
         InputView.close();
     }
 }
