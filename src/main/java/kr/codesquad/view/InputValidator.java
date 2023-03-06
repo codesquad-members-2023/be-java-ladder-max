@@ -1,6 +1,6 @@
-package view;
+package kr.codesquad.view;
 
-import message.ErrorMessage;
+import kr.codesquad.message.ErrorMessage;
 
 public class InputValidator {
 

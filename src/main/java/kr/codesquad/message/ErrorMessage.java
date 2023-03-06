@@ -1,4 +1,4 @@
-package message;
+package kr.codesquad.message;
 
 public enum ErrorMessage {
 

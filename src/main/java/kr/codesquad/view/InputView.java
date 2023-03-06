@@ -1,7 +1,7 @@
-package view;
+package kr.codesquad.view;
 
 import java.util.Scanner;
-import message.ErrorMessage;
+import kr.codesquad.message.ErrorMessage;
 
 public class InputView {
 
