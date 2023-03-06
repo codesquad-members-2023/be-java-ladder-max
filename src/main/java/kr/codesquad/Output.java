@@ -8,4 +8,8 @@ public class Output {
     public void printMessageM() {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
     }
+
+    public void printLadder(String result) {
+        System.out.println(result);
+    }
 }

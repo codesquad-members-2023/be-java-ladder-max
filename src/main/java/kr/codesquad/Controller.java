@@ -27,5 +27,6 @@ public class Controller {
         int afterM = validation.validationInputM(m);
         String[][] ladders = ladder.makeLadder(afterN, afterM);
         String result = encoding.encodeLadder(ladders);
+        output.printLadder(result);
     }
 }
