@@ -15,6 +15,3 @@
   - 리팩토링만 한 것이기 때문에
 
 ## step 3
-
-- Merge 후 branch 삭제하려 했는데 그러면 PR할 때마다 모든 파일이 전송된다.
-  - step 3부터는 local의 step 1, step 2 branch를 삭제하고 시작
