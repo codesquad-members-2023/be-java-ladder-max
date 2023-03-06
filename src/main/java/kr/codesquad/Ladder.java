@@ -51,6 +51,10 @@ public class Ladder {
             return;
         }
 
+        chooseRandomLetter();
+    }
+
+    private void chooseRandomLetter() {
         if (new Random().nextInt(2) == 0) {
             appendMinusSign();
             return;
