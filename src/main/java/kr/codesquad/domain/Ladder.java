@@ -33,7 +33,7 @@ public class Ladder {
     }
 
     private boolean shouldBuildingBridge() {
-        return (int)(Math.random() * 2) == 1? true : false;
+        return (int)(Math.random() * 2) == 1;
     }
 
     private void insertBridge(String[][] ladder, int row, int col) {
