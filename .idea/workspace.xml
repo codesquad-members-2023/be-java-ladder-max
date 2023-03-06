@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat: 사용자 입력에 따른 검증 기능&#10;&#10;* 사용자가 사람 명수 또는 최대 사다리 높이 입력시 올바른 입력형식과 범위를 갖는지 검증">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGame.java" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat: 클라이언트 코드">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/ConsoleInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/ConsoleInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/ConsoleOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/ConsoleOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +179,7 @@
       <updated>1672210428730</updated>
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678073406171" duration="515000" />
-      <workItem from="1678074074442" duration="9531000" />
+      <workItem from="1678074074442" duration="10354000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1678073802573</created>
@@ -271,7 +265,49 @@
       <option name="project" value="LOCAL" />
       <updated>1678083496727</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="docs: 기능 요구사항 체크 및 동작 예시 수정&#10;&#10;* 사람 또는 사다리 높이 적절하지 입력이 발생하면 경고 메시지를 출력합니다. 이때 경고 메시지를 출력후 한라인 더 개행하도록 동작 예시를 수정하였습니다.">
+      <created>1678084634807</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1678084634807</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add: 사용자 입력시 안내 메시지 출력 추가&#10;&#10;* 사람 또는 사다리 높이 사용자 입력시 안내 메시지를 출력합니다.">
+      <created>1678084689778</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1678084689778</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add: 개행 추가">
+      <created>1678084700866</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1678084700866</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: 문자열 2차원 배열을 문자열로 변환하는 기능&#10;&#10;* 이차원 배열에 저장되어 있는 사다리 문자들을 하나의 문자열로 변환하는 기능입니다.">
+      <created>1678084809587</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1678084809587</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat: 사다리게임 시작 기능&#10;&#10;* LadderGame 객체는 사용자로부터 사람과 사다리 높이를 입력받아 랜덤한 사다리를 생성하고 출력하는 기능을 수행합니다.">
+      <created>1678084854770</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1678084854770</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat: 클라이언트 코드">
+      <created>1678084866610</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1678084866610</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,6 +337,12 @@
     <MESSAGE value="feat: 콘솔을 이용한 메시지 출력&#10;&#10;* 사용자에게 콘솔을 이용하여 입력 안내 메시지를 전달&#10;* 사용자가 적절하지 않은 입력시 경고 메시지 전달&#10;* 여러행으로 구성된 사다리(ladder) 문자열을 출력" />
     <MESSAGE value="feat: 사람 및 최대 사다리 높이 예외 기능&#10;&#10;* 사용자가 사람 또는 최대 사다리 높이를 잘못 입력하는 경우 발생되는 예외" />
     <MESSAGE value="feat: 사용자 입력에 따른 검증 기능&#10;&#10;* 사용자가 사람 명수 또는 최대 사다리 높이 입력시 올바른 입력형식과 범위를 갖는지 검증" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 사용자 입력에 따른 검증 기능&#10;&#10;* 사용자가 사람 명수 또는 최대 사다리 높이 입력시 올바른 입력형식과 범위를 갖는지 검증" />
+    <MESSAGE value="docs: 기능 요구사항 체크 및 동작 예시 수정&#10;&#10;* 사람 또는 사다리 높이 적절하지 입력이 발생하면 경고 메시지를 출력합니다. 이때 경고 메시지를 출력후 한라인 더 개행하도록 동작 예시를 수정하였습니다." />
+    <MESSAGE value="add: 사용자 입력시 안내 메시지 출력 추가&#10;&#10;* 사람 또는 사다리 높이 사용자 입력시 안내 메시지를 출력합니다." />
+    <MESSAGE value="add: 개행 추가" />
+    <MESSAGE value="feat: 문자열 2차원 배열을 문자열로 변환하는 기능&#10;&#10;* 이차원 배열에 저장되어 있는 사다리 문자들을 하나의 문자열로 변환하는 기능입니다." />
+    <MESSAGE value="feat: 사다리게임 시작 기능&#10;&#10;* LadderGame 객체는 사용자로부터 사람과 사다리 높이를 입력받아 랜덤한 사다리를 생성하고 출력하는 기능을 수행합니다." />
+    <MESSAGE value="feat: 클라이언트 코드" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 클라이언트 코드" />
   </component>
 </project>
