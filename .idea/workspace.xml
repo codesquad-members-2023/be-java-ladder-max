@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="refactor(Main): StringTokenizer를 Iterable로 리팩토링&#10;&#10;추가로 메서드도 나눠서 main()의 코드 수 줄임">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: StringTokenizer 변경 관련 리드미 업데이트">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/ladder/domain/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/ladder/view/Ladder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/ladder/view/LadderShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/ladder/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,11 +112,11 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.ladder.Main" />
       <module name="java-lotto.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.*" />
+          <option name="PATTERN" value="kr.codesquad.ladder.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -137,7 +141,7 @@
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678068503024" duration="2671000" />
       <workItem from="1678077123619" duration="4416000" />
-      <workItem from="1678081715723" duration="6902000" />
+      <workItem from="1678081715723" duration="7863000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자">
       <created>1678069392649</created>
@@ -314,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678088412522</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="docs: StringTokenizer 변경 관련 리드미 업데이트">
+      <created>1678088912152</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1678088912152</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,7 +343,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자" />
     <MESSAGE value="feat: 입력받는 콘솔 기능 추가&#10;&#10;Main에서 그냥 한번에 입력받고, 출력하려고 했지만&#10;Console이라는 클래스를 만들어서 최대한 메서드 분리할 예정" />
     <MESSAGE value="feat(Console): 기본 생성자 추가하고, int형 변환&#10;&#10;정수를 입력받는데 String으로 리턴해버렸네.." />
     <MESSAGE value="feat(Ladder): 사다리 시스템을 관리하는 Ladder 클래스 생성 후 구현&#10;&#10;틀 설계 후 print 메서드 생성" />
@@ -357,6 +367,7 @@
     <MESSAGE value="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드" />
     <MESSAGE value="docs: 참여자 수, 사다리 높이 늘린 실행 결과 추가 업로드&#10;&#10;이제 step4로 넘어가야지" />
     <MESSAGE value="refactor(Main): StringTokenizer를 Iterable로 리팩토링&#10;&#10;추가로 메서드도 나눠서 main()의 코드 수 줄임" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(Main): StringTokenizer를 Iterable로 리팩토링&#10;&#10;추가로 메서드도 나눠서 main()의 코드 수 줄임" />
+    <MESSAGE value="docs: StringTokenizer 변경 관련 리드미 업데이트" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: StringTokenizer 변경 관련 리드미 업데이트" />
   </component>
 </project>

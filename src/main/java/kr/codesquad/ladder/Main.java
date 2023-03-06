@@ -1,10 +1,13 @@
-package kr.codesquad;
+package kr.codesquad.ladder;
+
+import kr.codesquad.ladder.view.Console;
+import kr.codesquad.ladder.domain.Ladder;
+import kr.codesquad.ladder.domain.LadderShape;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {

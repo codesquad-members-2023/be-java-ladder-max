@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.ladder.view;
 
 import java.io.BufferedReader;
 import java.io.IOException;
