@@ -1,4 +1,22 @@
 # Java Ladder
+## 1주차 학습 계획
+### 1단계
+- [ ] 이중 배열을 다룰 경우 이중 for문 말고 다른 좋은 방법은 없나 찾아보기
+- [x] Enum 활용하기
+- [x] Input-Validation-Ladder-Encoding-Output 패턴으로 구현하기
+
+### 2단계
+- [ ] 리팩토링 개념 학습
+- [ ] depth를 2 -> 1 로 변경하기 
+
+### 3단계
+- [ ] List, ArrayList, Generic 학습
+
+### 4단계
+- [ ] 단위 테스트 하기
+- [ ] 객체지향생활체조원칙 학습
+- [ ] 접근제어자 학습
+
 ## Mission. 사다리 게임 1단계 - 기본 기능 구현
 ### 미션 설계
 1. Application 클래스
