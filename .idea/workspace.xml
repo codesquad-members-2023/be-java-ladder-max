@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="refactor(Ladder): 랜덤으로 letter 선택하는 기능 메서드 분리&#10;&#10;분리 안 했으면 if문이 2개였음">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: 내용 삭제">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Printer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/ShapeConsole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +26,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -33,6 +39,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
       <RecentBranches>
         <option name="branchesForRepo">
@@ -114,6 +121,7 @@
       <updated>1672210428730</updated>
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678068503024" duration="2671000" />
+      <workItem from="1678077123619" duration="1918000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자">
       <created>1678069392649</created>
@@ -171,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678076460238</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="docs: 내용 삭제">
+      <created>1678077190805</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678077190805</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +201,7 @@
     <MESSAGE value="refactor(Ladder): 들여쓰기 한번으로만 수정" />
     <MESSAGE value="refactor(Ladder): print 방식을 StringBuilder 방식으로 변경&#10;&#10;static으로 StringBuilder 정의 후 개행마다 new StringBuilder() 재정의&#10;아직도 엄청 깔끔하진 않음" />
     <MESSAGE value="refactor(Ladder): 랜덤으로 letter 선택하는 기능 메서드 분리&#10;&#10;분리 안 했으면 if문이 2개였음" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(Ladder): 랜덤으로 letter 선택하는 기능 메서드 분리&#10;&#10;분리 안 했으면 if문이 2개였음" />
+    <MESSAGE value="docs: 내용 삭제" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 내용 삭제" />
   </component>
 </project>
