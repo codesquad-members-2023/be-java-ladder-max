@@ -1,8 +1,12 @@
-package kr.codesquad;
+package kr.codesquad.model;
 
 import java.util.Random;
 
 public class Ladder {
+    public final char BAR = '|';
+    public final char BLANK = ' ';
+    public final char LEG = '-';
+
     private final int n;
     private final int maxHeight;
     private final boolean[][] legs;
@@ -31,14 +35,25 @@ public class Ladder {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < maxHeight; i++) {
-            for (int j = 0; j < n - 1; j++) {
-                char leg = ' ';
-                if (legs[i][j]) leg = '-';
-                result.append('|').append(leg);
-            }
-            result.append('|').append('\n');
+        for (boolean[] row : legs) {
+            result.append(rowToString(row)).append('\n');
         }
         return result.toString();
+    }
+
+    private String rowToString(boolean[] row) {
+        StringBuilder rowToString = new StringBuilder();
+        for (boolean leg : row) {
+            rowToString.append(BAR).append(leg(leg));
+        }
+        rowToString.append(BAR);
+        return rowToString.toString();
+    }
+
+    private char leg(boolean leg) {
+        if (leg) {
+            return LEG;
+        }
+        return BLANK;
     }
 }
