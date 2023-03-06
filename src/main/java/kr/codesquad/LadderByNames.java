@@ -30,15 +30,19 @@ public class LadderByNames implements Ladder {
         result.append(PREFIX)
             .append(PEOPLE_DELIMITER);
         for (int j = 0; j < peopleCount - 1; j++) {
-            possible = addSuccess(condition, result, possible);
+            possible = addLadder(condition, result, possible);
         }
         result.append(NEXT_LINE);
     }
 
-    private static boolean addSuccess(Supplier<Boolean> condition, StringBuilder result, boolean possible) {
+    private static boolean addLadder(Supplier<Boolean> condition, StringBuilder result, boolean possible) {
         Boolean randomBoolean = condition.get();
-        result.append(randomBoolean && possible ? SUCCESS_DELIMITER : FAIL_DELIMITER)
-            .append(PEOPLE_DELIMITER);
+        addLadder(result, possible, randomBoolean);
         return !(randomBoolean && possible);
+    }
+
+    static void addLadder(StringBuilder result, boolean beforeIsTrue, boolean currentIsPossible) {
+        result.append(currentIsPossible && beforeIsTrue ? SUCCESS_DELIMITER : FAIL_DELIMITER)
+            .append(PEOPLE_DELIMITER);
     }
 }

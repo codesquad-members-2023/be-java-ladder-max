@@ -20,7 +20,7 @@ public class LadderPrinter {
         System.out.println(drawnLadder);
     }
 
-    private static String limitName(String requestName) {
+    static String limitName(String requestName) {
         if (requestName.length() > LIMIT_LENGTH) {
             requestName = requestName.substring(0, LIMIT_LENGTH);
         }
