@@ -10,9 +10,9 @@ public class LadderLine {
 	private final List<Boolean> isExistsLine;
 
 	public LadderLine(final int countOfPerson) {
-		this.width = countOfPerson;
+		this.width = countOfPerson - 1;
 		this.isExistsLine = new ArrayList<>();
-		for (int i = 0; i < countOfPerson; i++) {
+		for (int i = 0; i < countOfPerson - 1; i++) {
 			isExistsLine.add(false);
 		}
 	}
@@ -40,9 +40,9 @@ public class LadderLine {
 	@Override
 	public String toString() {
 		StringBuilder ladderLineFigure = new StringBuilder();
-		ladderLineFigure.append("|");
-		for (int pos = 0; pos < isExistsLine.size(); pos++) {
-			drawLine(ladderLineFigure, isExistsLine.get(pos));
+		ladderLineFigure.append("  |");
+		for (final Boolean isFill : isExistsLine) {
+			drawLine(ladderLineFigure, isFill);
 		}
 		return ladderLineFigure.toString();
 	}
