@@ -12,4 +12,9 @@ public class InputView {
     public String[] inputNames() throws IOException {
         return bufferedReader.readLine().split(NAME_SEPARATOR);
     }
+
+    public int inputHeight() throws IOException {
+        return Integer.parseInt(bufferedReader.readLine());
+    }
+
 }
