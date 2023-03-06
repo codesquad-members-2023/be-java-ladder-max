@@ -1,9 +1,9 @@
-# Java Lotto
+# 학습 계획
 
-- Last Update: 2022-12-28
+- 처음부터 다음 단계까지 생각하면서 구현하지 않고 단계별로 요구사항을 지키면서 구현  
+- 목요일까지는 미션을 끝내고 금요일은 부족한 부분이나 개념을 정리하는 식으로 학습  
 
-## 코드 리뷰
+## 사다리 게임
 
-* [텍스트와 이미지로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://github.com/code-squad/codesquad-docs/blob/master/codereview/README.md)
-
-* [동영상으로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://youtube.com/watch?v=lFinZfu3QO0&si=EnSIkaIECMiOmarE)
+- 사다리 객체 클래스를 만들고 사다리를 이루는 부품은 Enum 클래스로 생성합니다.  
+- 일단은 사다리의 연결 다리가 랜덤하게 생성이 되도록 하지만, 나중에는 같은 높이에서 연결 다리가 연속되게 생성되지 않도록 변경하는 것이 좋을 것 같습니다.  
