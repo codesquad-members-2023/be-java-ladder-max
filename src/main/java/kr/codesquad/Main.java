@@ -34,6 +34,6 @@ public class Main {
         int ladderShapeHeight = console.returnIntInput();
 
         LadderShape ladderShape = new LadderShape(participantList, ladderShapeHeight);
-        ladderShape.printLadderShape();
+        ladderShape.printLadder();
     }
 }

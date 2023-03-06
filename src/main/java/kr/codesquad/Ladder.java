@@ -2,7 +2,7 @@ package kr.codesquad;
 
 import java.util.Random;
 
-public class Ladder {
+public class Ladder implements LadderManager {
     // "|" 개수: participantNumber
     // "-", " " 개수: participantNumber - 1, "-" 혹은 " "은 둘 중 하나로 랜덤 출력한다.
 
@@ -15,6 +15,7 @@ public class Ladder {
         this.ladderHeight = ladderHeight;
     }
 
+    @Override
     public void printLadder() {
         for (int i = 0; i < ladderHeight; i++) {
             printLadderRows();
@@ -23,18 +24,21 @@ public class Ladder {
         }
     }
 
-    private void printLadderRows() {
+    @Override
+    public void printLadderRows() {
         for (int i = 0; i < (participantNumber) + (participantNumber - 1); i++) {
             chooseLetter(i);
         }
     }
 
-    private void chooseLetter(int i) {
+    @Override
+    public void chooseLetter(int i) {
         appendVerticalBar(i);
         appendRandomLadderRows(i);
     }
 
-    private void appendVerticalBar(int i) {
+    @Override
+    public void appendVerticalBar(int i) {
         // i가 짝수일 때, 즉 "|" 출력
         // 즉, 짝수가 아니면 리턴
         if (i % 2 != 0) {
@@ -44,7 +48,8 @@ public class Ladder {
         stringBuilder.append("|");
     }
 
-    private void appendRandomLadderRows(int i) {
+    @Override
+    public void appendRandomLadderRows(int i) {
         // i가 홀수일 때, 즉 "-" 혹은 " " 랜덤 출력
         // 즉, 홀수가 아니면 리턴
         if (i % 2 != 1) {
@@ -54,7 +59,8 @@ public class Ladder {
         chooseRandomLetter();
     }
 
-    private void chooseRandomLetter() {
+    @Override
+    public void chooseRandomLetter() {
         if (new Random().nextInt(2) == 0) {
             appendMinusSign();
             return;
@@ -63,11 +69,13 @@ public class Ladder {
         appendBlank();
     }
 
-    private void appendMinusSign() {
+    @Override
+    public void appendMinusSign() {
         stringBuilder.append("-");
     }
 
-    private void appendBlank() {
+    @Override
+    public void appendBlank() {
         stringBuilder.append(" ");
     }
 }
