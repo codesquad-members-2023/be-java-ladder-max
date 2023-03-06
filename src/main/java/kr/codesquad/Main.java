@@ -35,16 +35,16 @@ public class Main {
         List<String> people = Arrays.stream(sc.nextLine().split(","))
                 .collect(Collectors.toList());
 
-        if(checkName(people)) {
+        if(!isValidNames(people)) {
             throw new RuntimeException();
         }
         return people;
     }
 
-    private static boolean checkName(List<String> people) {
+    public static boolean isValidNames(List<String> people) {
         return people.stream()
                 .filter(o -> o.length() > 5)
-                .findFirst().isPresent();
+                .findFirst().isEmpty();
     }
 
 }
