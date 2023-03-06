@@ -1,7 +1,6 @@
 package kr.codesquad;
 
-import static kr.codesquad.Ladder.m;
-import static kr.codesquad.Ladder.n;
+import static kr.codesquad.Ladder.*;
 
 public class Output {
     public void printPeopleRequest() {
@@ -16,11 +15,16 @@ public class Output {
         System.out.print("\n");
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m * 2 - 1; j++) {
-                sb.append(Ladder.ladder[i][j]);
-            }
-            sb.append("\n");
+            sb.append(getRow(i)).append("\n");
         }
         System.out.print(sb);
+    }
+
+    public String getRow(int i) {
+        StringBuilder sb = new StringBuilder();
+        for (int j = 0; j < m * 2 - 1; j++) {
+            sb.append(ladder[i][j]);
+        }
+        return sb.toString();
     }
 }
