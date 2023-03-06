@@ -12,7 +12,7 @@ public class LadderShape {
     private static StringBuilder stringBuilder = new StringBuilder();
 
 
-    public LadderShape(Ladder ladder, List<String> participantList, int ladderShapeHeight) {
+    public LadderShape(List<String> participantList, int ladderShapeHeight) {
         this.participantList = participantList;
         this.ladderShapeHeight = ladderShapeHeight;
     }
@@ -26,7 +26,7 @@ public class LadderShape {
     }
 
     private void printLadderRows() {
-        for (int i = 0; i < participantList.size(); i++) {
+        for (int i = 0; i < participantList.size() + participantList.size() - 1; i++) {
             chooseLetter(i);
         }
     }
@@ -38,8 +38,9 @@ public class LadderShape {
     }
 
     private void appendVerticalBar(int i) {
-        // 6번마다 "|" 반복
-        if (i % 6 != 0) {
+        // i가 짝수일 때, 즉 "|" 출력
+        // 즉, 짝수가 아니면 리턴
+        if (i % 2 != 0) {
             return;
         }
 
@@ -47,8 +48,9 @@ public class LadderShape {
     }
 
     private void appendRandomLadderRows(int i) {
-        // "|"와 안 겹치게
-        if (i % 6 == 0) {
+        // i가 홀수일 때, 즉 "-" 혹은 " " 랜덤 출력
+        // 즉, 홀수가 아니면 리턴
+        if (i % 2 != 1) {
             return;
         }
 
