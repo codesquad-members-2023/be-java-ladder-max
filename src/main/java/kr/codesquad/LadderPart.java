@@ -3,7 +3,7 @@ package kr.codesquad;
 public enum LadderPart {
     POLES("|"),
     CROSSBAR("-----"),
-    NONE("     ");
+    EMPTY("     ");
 
     private final String shape;
 
@@ -11,7 +11,11 @@ public enum LadderPart {
         this.shape = shape;
     }
 
-    public static LadderPart create(int width) {
+    public String getShape() {
+        return shape;
+    }
+
+    public static LadderPart from(int width) {
         if (width % 2 == 0) {
             return POLES;
         }
@@ -20,11 +24,6 @@ public enum LadderPart {
             return CROSSBAR;
         }
 
-        return NONE;
-    }
-
-    @Override
-    public String toString() {
-        return shape;
+        return EMPTY;
     }
 }

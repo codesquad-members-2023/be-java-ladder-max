@@ -22,19 +22,19 @@ public class Ladder {
 
     private void initWidthLine(int width, int y) {
         for (int x = 0; x < width; x++) {
-            map.get(y).add(LadderPart.create(x));
+            map.get(y).add(LadderPart.from(x));
         }
     }
 
-    public List<String> makeMapToString() {
+    public List<String> createOutputLines() {
         return map.stream()
-                .map(Ladder::makeLadderLineToString)
+                .map(Ladder::toOutputLine)
                 .collect(Collectors.toList());
     }
 
-    private static String makeLadderLineToString(List<LadderPart> ladderWidthLine) {
+    private static String toOutputLine(List<LadderPart> ladderWidthLine) {
         return ladderWidthLine.stream()
-                .map(LadderPart::toString)
+                .map(LadderPart::getShape)
                 .collect(Collectors.joining());
     }
 }

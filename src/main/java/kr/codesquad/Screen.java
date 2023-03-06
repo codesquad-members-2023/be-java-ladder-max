@@ -22,25 +22,15 @@ public class Screen {
     }
 
     public static void printResult(List<String> playerNames, List<String> ladderMap) {
-        StringBuilder stringBuilder = new StringBuilder();
+        System.out.println("\n실행결과\n");
 
-        stringBuilder.append("\n").append("실행결과").append("\n\n");
-
-        printPlayerNames(playerNames, stringBuilder);
-        printLadderMap(ladderMap, stringBuilder);
-
-        System.out.println(stringBuilder);
+        System.out.println(makePlayerNamesFormat(playerNames));
+        System.out.println(String.join("\n", ladderMap));
     }
 
-    private static void printPlayerNames(List<String> playerNames, StringBuilder stringBuilder) {
-        for (String playerName : playerNames) {
-            stringBuilder.append(String.format("%-6s", playerName));
-        }
-
-        stringBuilder.append("\n");
-    }
-
-    private static void printLadderMap(List<String> ladderMap, StringBuilder stringBuilder) {
-        ladderMap.forEach(ladderLine -> stringBuilder.append(ladderLine).append("\n"));
+    private static String makePlayerNamesFormat(List<String> playerNames) {
+        return playerNames.stream()
+                .map(playerName -> String.format("%-6s", playerName))
+                .collect(Collectors.joining());
     }
 }
