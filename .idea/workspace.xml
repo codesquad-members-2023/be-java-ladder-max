@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat : InputView 종료 시 BufferedReader를 닫기 위한 메서드 추가">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ladder/LadderGame.java" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat : 사다리를 만들고 관리할 Worker를 갖는 LadderGame 객체를 작성&#10;&#10;OutputView 객체 대신 정보를 가장 잘 알고 있는 Ladder 객체가 사다리를 출력하도록 수정했다.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ladder/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ladder/Ladder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ladder/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ladder/Worker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,15 +38,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/yeon/Documents/be-java-ladder-max",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/yeon/Documents/be-java-ladder-max&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.LadderGame">
     <configuration name="LadderGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ladder.LadderGame" />
@@ -135,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678089885024</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat : 사다리를 만들고 관리할 Worker를 갖는 LadderGame 객체를 작성&#10;&#10;OutputView 객체 대신 정보를 가장 잘 알고 있는 Ladder 객체가 사다리를 출력하도록 수정했다.">
+      <created>1678091536986</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678091536987</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +176,7 @@
     <MESSAGE value="feat : 참여할 사람의 수와 사다리의 높이를 생성자 파라미터로 받는 Ladder 객체 작성&#10;&#10;space는 선과 선 사이의 공간을 말한다.&#10;사다리는 (참여하는 사람의 수 - 1)개의 공간을 갖는다.&#10;&#10;Ladder 객체를 생성하면 makeRandomLine 메서드를 통해 사다리의 발판의 존재 유무가 무작위로 결정된다." />
     <MESSAGE value="feat : 사다리를 만드는 Worker 객체 생성&#10;&#10;InputView를 통해 참여할 사람의 수와 사다리의 높이 정보를 받아와 Ladder 객체를 생성한다." />
     <MESSAGE value="feat : InputView 종료 시 BufferedReader를 닫기 위한 메서드 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : InputView 종료 시 BufferedReader를 닫기 위한 메서드 추가" />
+    <MESSAGE value="feat : 사다리를 만들고 관리할 Worker를 갖는 LadderGame 객체를 작성&#10;&#10;OutputView 객체 대신 정보를 가장 잘 알고 있는 Ladder 객체가 사다리를 출력하도록 수정했다." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : 사다리를 만들고 관리할 Worker를 갖는 LadderGame 객체를 작성&#10;&#10;OutputView 객체 대신 정보를 가장 잘 알고 있는 Ladder 객체가 사다리를 출력하도록 수정했다." />
   </component>
 </project>
