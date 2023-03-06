@@ -1,5 +1,6 @@
 package kr.codesquad.domain;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -38,5 +39,13 @@ public class Ladder {
 			}
 			figureOfLadder[row][col] = " ";
 		}
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder figure = new StringBuilder();
+		Arrays.stream(figureOfLadder)
+			.forEach(line -> figure.append(String.join("", line)).append("\n"));
+		return figure.toString();
 	}
 }
