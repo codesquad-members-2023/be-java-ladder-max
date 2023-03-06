@@ -53,3 +53,10 @@ StringBuilder와 StringBuffer는 둘 다 String의 불변성으로 인한 문제
 그래서 단일쓰레드 환경에서는 동기화 처리를 하지 않는 StringBuilder의 성능이 더 좋다.
 
 ## 1단계 - 기본 기능 구현
+### 입력을 받는 Input 클래스
+- input() : 사람 수와 사다리 높이를 입력받아 int[]로 리턴해준다.
+### 사다리에 관련된 기능을 하는 Ladder 클래스
+- 사다리 높이 height와 사다리 라인 char 이차원 배열 line을 가진다.
+- createLine() : n과 m을 입력 받아서 [n-1][m] 크기의 이차원 배열에 랜덤하게 라인을 생성한다.
+- getRandomLine() : 랜덤하게 '-' 또는 ' ' 을 리턴한다.
+- print() : 사다리 전체를 출력한다.
