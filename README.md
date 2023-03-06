@@ -38,3 +38,4 @@
   - 한줄 한줄 출력할 때 깃발을 false로 바꿔줘야 위와 같은 논리적 오류가 발생하지 않음
 
 <img width="652" alt="스크린샷 2023-03-06 오후 4 16 27" src="https://user-images.githubusercontent.com/62871026/223043213-8d5d50ac-98ee-4561-bee7-c579e8f31ab7.png">
+<img width="809" alt="스크린샷 2023-03-06 오후 4 28 22" src="https://user-images.githubusercontent.com/62871026/223045385-7b77c4a4-89ea-4364-be76-2aa7fa3eb27b.png">

@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: 문제 요구사항에 맞게 재구현한 실행 결과 이미지 업로드">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderShape.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +43,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="step4" />
+                    <option name="lastUsedInstant" value="1678087366" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="step2" />
                     <option name="lastUsedInstant" value="1678073586" />
@@ -131,7 +133,7 @@
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678068503024" duration="2671000" />
       <workItem from="1678077123619" duration="4416000" />
-      <workItem from="1678081715723" duration="5230000" />
+      <workItem from="1678081715723" duration="5871000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자">
       <created>1678069392649</created>
@@ -280,7 +282,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678086520124</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="feat: 공백, 마이너스 기호 출력에서 논리적 오류 해결&#10;&#10;isMinusSign 위치를 출력하는 메서드 안에 넣어줘서 줄이 바뀔 때마다 초기화시켜줌&#10;letter를 append하는 메서드에 깃발 변경 기능 넣어줌">
+      <created>1678087146360</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1678087146360</updated>
+    </task>
+    <task id="LOCAL-00023" summary="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드">
+      <created>1678087183343</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1678087183343</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,6 +335,8 @@
     <MESSAGE value="docs: step3 실행 결과 이미지 업로드" />
     <MESSAGE value="fix: MinusSign이 전에 존재한다면 Blank로 출력하도록 구현&#10;&#10;&quot;&quot;|-----|-----| 모양과 같이 가로 라인이 겹치는 경우 어느 방향으로 이동할지 결정할 수 없다.&quot;&#10;boolean을 이용하여 위의 요구사항 재구현" />
     <MESSAGE value="docs: 문제 요구사항에 맞게 재구현한 실행 결과 이미지 업로드" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 문제 요구사항에 맞게 재구현한 실행 결과 이미지 업로드" />
+    <MESSAGE value="feat: 공백, 마이너스 기호 출력에서 논리적 오류 해결&#10;&#10;isMinusSign 위치를 출력하는 메서드 안에 넣어줘서 줄이 바뀔 때마다 초기화시켜줌&#10;letter를 append하는 메서드에 깃발 변경 기능 넣어줌" />
+    <MESSAGE value="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드" />
   </component>
 </project>
