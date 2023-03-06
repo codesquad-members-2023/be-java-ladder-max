@@ -4,7 +4,11 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.lang.reflect.Field;
+import java.util.Random;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class LadderTest {
     @Test
@@ -14,6 +18,10 @@ class LadderTest {
         int n = 2;
         int m = 2;
         Ladder ladder = new Ladder(n, m);
+        //mocking
+        Random mockRandom = mock(Random.class);
+        when(mockRandom.nextBoolean()).thenReturn(true, false);
+        setRandomCreateLine(ladder, mockRandom);
         //when
         String[][] actual = ladder.generate();
         //then
@@ -29,6 +37,10 @@ class LadderTest {
         int n = 3;
         int m = 5;
         Ladder ladder = new Ladder(n, m);
+        //mocking
+        Random mockRandom = mock(Random.class);
+        when(mockRandom.nextBoolean()).thenReturn(true, false, false, true, true, true, false, true, true, false);
+        setRandomCreateLine(ladder, mockRandom);
         //when
         String[][] actual = ladder.generate();
         //then
@@ -39,4 +51,16 @@ class LadderTest {
                                {"|","-","|"," ","|"}};
         Assertions.assertThat(actual).isEqualTo(expected);
     }
+
+    private void setRandomCreateLine(Ladder ladder, Random mockRandom){
+        try {
+            Field field = Ladder.class.getDeclaredField("randomCreateLine");
+            field.setAccessible(true);
+            field.set(ladder, mockRandom);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 }
