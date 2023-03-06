@@ -16,13 +16,15 @@ public class Screen {
     }
 
     public static int inputLadderHeight() {
-        System.out.println("최대 사다리 높이는 몇 개인가요?");
+        System.out.println("\n최대 사다리 높이는 몇 개인가요?");
 
         return scanner.nextInt();
     }
 
     public static void printResult(List<String> playerNames, List<String> ladderMap) {
         StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append("\n").append("실행결과").append("\n\n");
 
         printPlayerNames(playerNames, stringBuilder);
         printLadderMap(ladderMap, stringBuilder);
