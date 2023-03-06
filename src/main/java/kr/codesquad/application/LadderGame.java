@@ -2,6 +2,7 @@ package kr.codesquad.application;
 
 import java.util.List;
 
+import kr.codesquad.domain.Ladder;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
@@ -11,7 +12,8 @@ public class LadderGame {
 	private final OutputView outputView = new OutputView();
 
 	public void startLadderGame() {
-		List<String> input = getInputFromUser();
+		final List<String> input = getInputFromUser();
+		final Ladder ladder = createLadder(input);
 	}
 
 	private List<String> getInputFromUser() {
@@ -22,5 +24,11 @@ public class LadderGame {
 		final String heightOfLadder = inputView.getInputFromUser();
 
 		return List.of(countOfUser, heightOfLadder);
+	}
+
+	private Ladder createLadder(final List<String> input) {
+		final Ladder ladder = new Ladder(input);
+		ladder.createFigureOfLadder();
+		return ladder;
 	}
 }
