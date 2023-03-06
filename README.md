@@ -24,9 +24,10 @@
   - inputN(), n을 입력받는다.
   - inputM(), m을 입력받는다.
 - Validation 클래스
-  - validationInputN(int) : n이 int형이 아니면 예외처리
-  - validationInputM(int) : m이 int형이 아니면 예외처리
-  - validateInput(String)
+  - validationInputN(int) : n이 int형이 아니면 예외처리, n이 0보다 크지 않으면 예외처리
+  - validationInputM(int) : m이 int형이 아니면 예외처리, m이 0보다 크지 않으면 예외처리
+  - validationInputInteger(String)
+  - validationInputPositive(int)
 - Ladder 클래스
   - createLadder(int[])
     - createLadderEmpty(int[]) : String[m][n+2] 크기로 빈 배열 생성
