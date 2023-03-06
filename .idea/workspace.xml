@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat: 클라이언트 코드">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="add: jar manifest 속성 추가&#10;&#10;* java jar 파일로 실행시 main 메서드의 위치릘 명시하기 위해서 추가하였습니다.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +179,7 @@
       <updated>1672210428730</updated>
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678073406171" duration="515000" />
-      <workItem from="1678074074442" duration="10354000" />
+      <workItem from="1678074074442" duration="10565000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1678073802573</created>
@@ -307,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678084866610</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add: jar manifest 속성 추가&#10;&#10;* java jar 파일로 실행시 main 메서드의 위치릘 명시하기 위해서 추가하였습니다.">
+      <created>1678085490372</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1678085490372</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,6 +350,7 @@
     <MESSAGE value="feat: 문자열 2차원 배열을 문자열로 변환하는 기능&#10;&#10;* 이차원 배열에 저장되어 있는 사다리 문자들을 하나의 문자열로 변환하는 기능입니다." />
     <MESSAGE value="feat: 사다리게임 시작 기능&#10;&#10;* LadderGame 객체는 사용자로부터 사람과 사다리 높이를 입력받아 랜덤한 사다리를 생성하고 출력하는 기능을 수행합니다." />
     <MESSAGE value="feat: 클라이언트 코드" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 클라이언트 코드" />
+    <MESSAGE value="add: jar manifest 속성 추가&#10;&#10;* java jar 파일로 실행시 main 메서드의 위치릘 명시하기 위해서 추가하였습니다." />
+    <option name="LAST_COMMIT_MESSAGE" value="add: jar manifest 속성 추가&#10;&#10;* java jar 파일로 실행시 main 메서드의 위치릘 명시하기 위해서 추가하였습니다." />
   </component>
 </project>

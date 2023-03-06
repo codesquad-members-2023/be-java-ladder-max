@@ -56,3 +56,9 @@ abc
 | |-|
 |-| |
 ```
+
+## 빌드 및 실행
+```shell
+$ ./gradlew build
+$ java -jar ./build/libs/java-lotto-1.0-SNAPSHOT.jar
+```
