@@ -12,10 +12,11 @@
    - Output 클래스에 의존
    - run()
      - output.printMessageN()
-     - output.printMessageM()
      - input.intputN()
+     - validation.validateInputN()
+     - output.printMessageM()
      - input.intputM()
-     - validation.validateInput(String, String)
+     - validation.validateInputM()
      - ladder.createLadder(int[])
      - encoding.encodeOutput(String[][])
      - output.printLadder(String)
@@ -23,9 +24,9 @@
   - inputN(), n을 입력받는다.
   - inputM(), m을 입력받는다.
 - Validation 클래스
+  - validationInputN(int) : n이 int형이 아니면 예외처리
+  - validationInputM(int) : m이 int형이 아니면 예외처리
   - validateInput(String)
-  - n과 m 중 하나라도 int형이 아니면 예외처리
-  - 위의 조건 통과하면 int[] 형으로 n, m 반환
 - Ladder 클래스
   - createLadder(int[])
     - createLadderEmpty(int[]) : String[m][n+2] 크기로 빈 배열 생성

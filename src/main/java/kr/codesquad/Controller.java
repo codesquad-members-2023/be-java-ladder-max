@@ -12,9 +12,10 @@ public class Controller {
     public void run() throws IOException {
         output.printMessageN();
         String n = input.inputN();
+        int afterN = validation.validationInputN(n);
         output.printMessageM();
         String m = input.inputM();
-        int[] input = validation.validationInput(n, m);
-        String[][] ladders = ladder.makeLadder(input);
+        int afterM = validation.validationInputM(m);
+        String[][] ladders = ladder.makeLadder(afterN, afterM);
     }
 }
