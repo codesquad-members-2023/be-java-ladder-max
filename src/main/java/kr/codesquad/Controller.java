@@ -7,6 +7,7 @@ public class Controller {
     private Output output;
     private Input input;
     private Validation validation;
+    private Ladder ladder;
 
     public void run() throws IOException {
         output.printMessageN();
@@ -14,5 +15,6 @@ public class Controller {
         output.printMessageM();
         String m = input.inputM();
         int[] input = validation.validationInput(n, m);
+        String[][] ladders = ladder.makeLadder(input);
     }
 }
