@@ -3,7 +3,7 @@ package ladder;
 public class Ladder {
     private final int space;
     private final int height;
-    private boolean[][] ladders;
+    private final boolean[][] ladders;
 
     public Ladder(int participants, int height) {
         this.space = participants - 1;
@@ -19,5 +19,20 @@ public class Ladder {
                 ladders[i][j] = random[(int) (Math.random() * 2)];
             }
         }
+    }
+
+    public void drawLadder() {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < space; j++) {
+                if (j == 0) drawLine();
+                System.out.print(ladders[i][j] ? "-" : " ");
+                drawLine();
+            }
+            System.out.println();
+        }
+    }
+
+    private void drawLine() {
+        System.out.print("|");
     }
 }

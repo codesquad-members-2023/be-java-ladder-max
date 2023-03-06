@@ -1,7 +1,7 @@
 package ladder;
 
 public class Worker {
-    private InputView inputView;
+    private final InputView inputView;
     private Ladder ladder;
 
     public Worker() {
@@ -11,6 +11,12 @@ public class Worker {
     public void makeLadder() {
         int participants = inputView.getNumberOfParticipants();
         int height = inputView.getNumberOfLadderHeight();
-        this.ladder = new Ladder(participants, height);
+        ladder = new Ladder(participants, height);
     }
+
+    public void showLadder() {
+        ladder.drawLadder();
+        inputView.stop();
+    }
+
 }
