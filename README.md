@@ -11,6 +11,11 @@
     - char[] 배열을 String 배열로 변환
     - 참고: https://da-nyee.github.io/posts/intellij-console-encoding-issue/
 
+- 2 단계 : 코드 리팩토링
+  - else문 제거
+  - 들여쓰기가 2이상인 메소드 분리
+  - Naming Convention
+
 ## 코드 리뷰
 
 * [텍스트와 이미지로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://github.com/code-squad/codesquad-docs/blob/master/codereview/README.md)
