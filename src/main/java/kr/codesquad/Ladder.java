@@ -9,16 +9,7 @@ public class Ladder {
         createLadderEmpty(n, m);
         makeLadderLength();
         makeLadderWidth();
-
-        return new String[0][];
-    }
-
-    private void makeLadderWidth() {
-        for (int i = 0; i < length; i++) {
-            for (int j = 1; j < width; j += 2) {
-                laddersFrame[i][j] = LadderLine.takeRandom();
-            }
-        }
+        return laddersFrame;
     }
 
     private void createLadderEmpty(int n, int m) {
@@ -31,6 +22,14 @@ public class Ladder {
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < width; j += 2) {
                 laddersFrame[i][j] = "|";
+            }
+        }
+    }
+
+    private void makeLadderWidth() {
+        for (int i = 0; i < length; i++) {
+            for (int j = 1; j < width; j += 2) {
+                laddersFrame[i][j] = LadderLine.takeRandom();
             }
         }
     }
