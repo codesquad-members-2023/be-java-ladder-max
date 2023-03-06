@@ -9,7 +9,7 @@ public class Ladder {
     Ladder(ArrayList<String> pplNames, int ladderHeight){
         this.initLadder(pplNames, ladderHeight);
         this.createRandomBridges();
-        Output output = new Output(this.ladder);
+        Output output = new Output(this.ladder, pplNames);
     }
 
     private void createRandomBridges() {
@@ -19,7 +19,7 @@ public class Ladder {
     }
 
     private void putBridges(int i, int rowSize) {
-        for(int j = 1; j < rowSize; j+= 6){
+        for(int j = 1; j < rowSize; j++){
             this.putRandomBridge(i,j, this.coinflip());
         }
     }
@@ -52,7 +52,7 @@ public class Ladder {
             row.add("|");
             row.add("     ");
         }
-        row.subList(row.size()-2,row.size()-1).clear();
+        row.subList(row.size()-1,row.size()).clear();
         ladder.add(row);
     }
 }
