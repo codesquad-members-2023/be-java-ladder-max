@@ -10,15 +10,20 @@ public class Main {
         Console console = new Console();
 
         // step-1, step-2
-//        console.askParticipantsNumber();
-//        int participantNumber = console.returnIntInput();
-//        console.askLadderHeight();
-//        int ladderHeight = console.returnIntInput();
-//
-//        Ladder ladder = new Ladder(participantNumber, ladderHeight);
-//        ladder.printLadder();
+        startStep1_2();
+        console.askParticipantsNumber();
+        int participantNumber = console.returnIntInput();
+        console.askLadderHeight();
+        int ladderHeight = console.returnIntInput();
+
+        Ladder ladder = new Ladder(participantNumber, ladderHeight);
+        ladder.printLadder();
+
+        // 개행
+        System.out.println();
 
         // step-3, step-4
+        startStep3_4();
         List<String> participantList = new ArrayList<>();
         console.askParticipantsName();
 
@@ -33,7 +38,16 @@ public class Main {
         console.askLadderHeight();
         int ladderShapeHeight = console.returnIntInput();
 
-        LadderShape ladderShape = new LadderShape(participantList, ladderShapeHeight);
+        LadderShape ladderShape = new LadderShape(ladder, participantList, ladderShapeHeight);
         ladderShape.printLadder();
+    }
+
+    private static void startStep1_2() {
+        System.out.println("------------step-1, step-2 시작------------");
+    }
+
+    private static void startStep3_4() {
+        System.out.println();
+        System.out.println("------------step-3, step-4 시작------------");
     }
 }
