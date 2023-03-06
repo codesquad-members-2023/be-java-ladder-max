@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: 사다리 게임 사람 입력범위 수정&#10;&#10;* 사람 명수 입력시 최소 1명 이상에서 최소 2명이사으로 수정">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="test: 랜덤한 사다리 생성 테스트 케이스 추가&#10;&#10;* 사람=2, 사다리=2 테스트 케이스&#10;* 사람=3, 사다리=5 테스트 케이스">
       <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/kr/codesquad/LadderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/kr/codesquad/LadderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kr/codesquad/LadderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +73,7 @@
       <recent name="kr.codesquad" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.LadderTest.generate">
+  <component name="RunManager" selected="Gradle.LadderTest">
     <configuration name="kr.codesquad.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="jbr-11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -87,6 +88,29 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="LadderTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;kr.codesquad.LadderTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="LadderTest.generate" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -111,8 +135,33 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="LadderTest.generate_testcase1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;kr.codesquad.LadderTest.generate_testcase1&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.LadderTest" />
+        <item itemvalue="Gradle.LadderTest.generate_testcase1" />
         <item itemvalue="Gradle.LadderTest.generate" />
         <item itemvalue="애플리케이션.kr.codesquad.Main" />
       </list>
@@ -128,7 +177,7 @@
       <updated>1672210428730</updated>
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678073406171" duration="515000" />
-      <workItem from="1678074074442" duration="1698000" />
+      <workItem from="1678074074442" duration="4004000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1678073802573</created>
@@ -151,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678074869031</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="test: 랜덤한 사다리 생성 테스트 케이스 추가&#10;&#10;* 사람=2, 사다리=2 테스트 케이스&#10;* 사람=3, 사다리=5 테스트 케이스">
+      <created>1678076611152</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678076611152</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +228,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="docs: 학습 목표 및 미션 요구사항 작성&#10;&#10;* String과 관련된 학습 목표 작성&#10;* 사다리 게임에 대한 요구사항 작성" />
     <MESSAGE value="docs: 사다리 게임 사람 입력범위 수정&#10;&#10;* 사람 명수 입력시 최소 1명 이상에서 최소 2명이사으로 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 사다리 게임 사람 입력범위 수정&#10;&#10;* 사람 명수 입력시 최소 1명 이상에서 최소 2명이사으로 수정" />
+    <MESSAGE value="test: 랜덤한 사다리 생성 테스트 케이스 추가&#10;&#10;* 사람=2, 사다리=2 테스트 케이스&#10;* 사람=3, 사다리=5 테스트 케이스" />
+    <option name="LAST_COMMIT_MESSAGE" value="test: 랜덤한 사다리 생성 테스트 케이스 추가&#10;&#10;* 사람=2, 사다리=2 테스트 케이스&#10;* 사람=3, 사다리=5 테스트 케이스" />
   </component>
 </project>
