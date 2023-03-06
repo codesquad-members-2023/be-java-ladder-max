@@ -12,12 +12,11 @@ public class LadderShape {
     private static StringBuilder stringBuilder = new StringBuilder();
 
 
-    public LadderShape(List<String> participantList, int ladderShapeHeight) {
+    public LadderShape(Ladder ladder, List<String> participantList, int ladderShapeHeight) {
         this.participantList = participantList;
         this.ladderShapeHeight = ladderShapeHeight;
     }
 
-    @Override
     public void printLadder() {
         for (int i = 0; i < ladderShapeHeight; i++) {
             printLadderRows();
@@ -26,22 +25,19 @@ public class LadderShape {
         }
     }
 
-    @Override
-    public void printLadderRows() {
+    private void printLadderRows() {
         for (int i = 0; i < participantList.size(); i++) {
             chooseLetter(i);
         }
     }
 
-    @Override
-    public void chooseLetter(int i) {
+    private void chooseLetter(int i) {
         // Letter를 총 5번 append
         appendVerticalBar(i);
         appendRandomLadderRows(i);
     }
 
-    @Override
-    public void appendVerticalBar(int i) {
+    private void appendVerticalBar(int i) {
         // 6번마다 "|" 반복
         if (i % 6 != 0) {
             return;
@@ -50,8 +46,7 @@ public class LadderShape {
         stringBuilder.append("|");
     }
 
-    @Override
-    public void appendRandomLadderRows(int i) {
+    private void appendRandomLadderRows(int i) {
         // "|"와 안 겹치게
         if (i % 6 == 0) {
             return;
@@ -60,8 +55,7 @@ public class LadderShape {
         chooseRandomLetter();
     }
 
-    @Override
-    public void chooseRandomLetter() {
+    private void chooseRandomLetter() {
         if (new Random().nextInt(2) == 0) {
             appendMinusSign(); // 5번 append
             return;
@@ -70,13 +64,11 @@ public class LadderShape {
         appendBlank(); // 5번 append
     }
 
-    @Override
-    public void appendMinusSign() {
+    private void appendMinusSign() {
         stringBuilder.append("-".repeat(5));
     }
 
-    @Override
-    public void appendBlank() {
+    private void appendBlank() {
         stringBuilder.append(" ".repeat(5));
     }
 }

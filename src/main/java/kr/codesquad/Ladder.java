@@ -2,7 +2,7 @@ package kr.codesquad;
 
 import java.util.Random;
 
-public class Ladder implements LadderManager {
+public class Ladder {
     // "|" 개수: participantNumber
     // "-", " " 개수: participantNumber - 1, "-" 혹은 " "은 둘 중 하나로 랜덤 출력한다.
 
@@ -15,7 +15,6 @@ public class Ladder implements LadderManager {
         this.ladderHeight = ladderHeight;
     }
 
-    @Override
     public void printLadder() {
         for (int i = 0; i < ladderHeight; i++) {
             printLadderRows();
@@ -24,21 +23,18 @@ public class Ladder implements LadderManager {
         }
     }
 
-    @Override
-    public void printLadderRows() {
+    private void printLadderRows() {
         for (int i = 0; i < (participantNumber) + (participantNumber - 1); i++) {
             chooseLetter(i);
         }
     }
 
-    @Override
-    public void chooseLetter(int i) {
+    private void chooseLetter(int i) {
         appendVerticalBar(i);
         appendRandomLadderRows(i);
     }
 
-    @Override
-    public void appendVerticalBar(int i) {
+    private void appendVerticalBar(int i) {
         // i가 짝수일 때, 즉 "|" 출력
         // 즉, 짝수가 아니면 리턴
         if (i % 2 != 0) {
@@ -48,8 +44,7 @@ public class Ladder implements LadderManager {
         stringBuilder.append("|");
     }
 
-    @Override
-    public void appendRandomLadderRows(int i) {
+    private void appendRandomLadderRows(int i) {
         // i가 홀수일 때, 즉 "-" 혹은 " " 랜덤 출력
         // 즉, 홀수가 아니면 리턴
         if (i % 2 != 1) {
@@ -59,8 +54,7 @@ public class Ladder implements LadderManager {
         chooseRandomLetter();
     }
 
-    @Override
-    public void chooseRandomLetter() {
+    private void chooseRandomLetter() {
         if (new Random().nextInt(2) == 0) {
             appendMinusSign();
             return;
@@ -69,13 +63,11 @@ public class Ladder implements LadderManager {
         appendBlank();
     }
 
-    @Override
-    public void appendMinusSign() {
+    private void appendMinusSign() {
         stringBuilder.append("-");
     }
 
-    @Override
-    public void appendBlank() {
+    private void appendBlank() {
         stringBuilder.append(" ");
     }
 }
