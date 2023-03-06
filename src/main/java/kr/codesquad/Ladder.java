@@ -8,29 +8,19 @@ public class Ladder {
 
     private final int participantNumber;
     private final int ladderHeight;
+    private static StringBuilder stringBuilder = new StringBuilder();
 
     public Ladder(int participantNumber, int ladderHeight) {
         this.participantNumber = participantNumber;
         this.ladderHeight = ladderHeight;
     }
 
-    // refactor
-    private void printVerticalBar(int i) {
-        // i가 짝수일 때, 즉 "|" 출력
-        // 즉, 짝수가 아니면 리턴
-        if (i % 2 != 0) {
-            return;
+    public void printLadder() {
+        for (int i = 0; i < ladderHeight; i++) {
+            printLadderRows();
+            System.out.println(stringBuilder);
+            stringBuilder = new StringBuilder();
         }
-
-        System.out.print("|");
-    }
-
-    private void printMinusSign() {
-        System.out.print("-");
-    }
-
-    private void printBlank() {
-        System.out.print(" ");
     }
 
     private void printLadderRows() {
@@ -40,36 +30,40 @@ public class Ladder {
     }
 
     private void chooseLetter(int i) {
-        printVerticalBar(i);
-        printRandomLadderRows(i);
+        appendVerticalBar(i);
+        appendRandomLadderRows(i);
     }
 
-    // refactor
-    private void printRandomLadderRows(int i) {
+    private void appendVerticalBar(int i) {
+        // i가 짝수일 때, 즉 "|" 출력
+        // 즉, 짝수가 아니면 리턴
+        if (i % 2 != 0) {
+            return;
+        }
+
+        stringBuilder.append("|");
+    }
+
+    private void appendRandomLadderRows(int i) {
         // i가 홀수일 때, 즉 "-" 혹은 " " 랜덤 출력
         // 즉, 홀수가 아니면 리턴
         if (i % 2 != 1) {
             return;
         }
 
-        Random random = new Random();
-        int randomNumber = random.nextInt(2);
-        if (randomNumber == 0) {
-            printMinusSign();
+        if (new Random().nextInt(2) == 0) {
+            appendMinusSign();
             return;
         }
 
-        printBlank();
+        appendBlank();
     }
 
-    public void printLadder() {
-        for (int i = 0; i < ladderHeight; i++) {
-            printLadderRows();
-            printNewline();
-        }
+    private void appendMinusSign() {
+        stringBuilder.append("-");
     }
 
-    private void printNewline() {
-        System.out.println();
+    private void appendBlank() {
+        stringBuilder.append(" ");
     }
 }
