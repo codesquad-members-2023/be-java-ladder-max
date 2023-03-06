@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="fix: Ladder 의 toString 메소드 10줄 이하로 줄이기">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="refactor: Ladder 의 generateLegs depth 1로 줄이기">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/InputView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/OutputView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/LadderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/InputView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/model/Ladder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +83,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -98,7 +105,7 @@
       <module name="java-lotto.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.*" />
+          <option name="PATTERN" value="kr.codesquad.view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -168,7 +175,7 @@
       <workItem from="1678074949459" duration="369000" />
       <workItem from="1678078897304" duration="3405000" />
       <workItem from="1678083936841" duration="146000" />
-      <workItem from="1678084092199" duration="5807000" />
+      <workItem from="1678084092199" duration="8794000" />
     </task>
     <task id="LOCAL-00001" summary="docs: 1,2단계 요구사항 / 학습 계획 정리">
       <created>1678075249563</created>
@@ -205,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678085662533</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactor: Ladder 의 generateLegs depth 1로 줄이기">
+      <created>1678090564396</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678090564396</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +236,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="step1" />
+                        <option value="step2" />
                       </list>
                     </value>
                   </entry>
@@ -240,6 +254,7 @@
     <MESSAGE value="feat: 사다리 만들고 출력하기" />
     <MESSAGE value="feat: 사다리 게임 진행하기" />
     <MESSAGE value="fix: Ladder 의 toString 메소드 10줄 이하로 줄이기" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: Ladder 의 toString 메소드 10줄 이하로 줄이기" />
+    <MESSAGE value="refactor: Ladder 의 generateLegs depth 1로 줄이기" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: Ladder 의 generateLegs depth 1로 줄이기" />
   </component>
 </project>
