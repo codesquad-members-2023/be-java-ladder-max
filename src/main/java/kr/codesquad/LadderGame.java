@@ -10,4 +10,8 @@ public class LadderGame {
     public LadderGame() {
         this(new Ladder(Screen.inputPlayerNumber(), Screen.inputLadderHeight()));
     }
+
+    public void run() {
+        ladder.print();
+    }
 }

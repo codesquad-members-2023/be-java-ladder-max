@@ -16,11 +16,16 @@ public enum LadderPart {
             return POLES;
         }
 
-        
+
         if (Math.random() > 0.6) {
             return CROSSBAR;
         }
 
         return NONE;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(shape);
     }
 }
