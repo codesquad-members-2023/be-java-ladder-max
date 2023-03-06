@@ -4,22 +4,22 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class LadderTest {
+class LadderByPeopleCountTest {
 
-    private Ladder ladder;
+    private LadderByPeopleCount ladderByPeopleCount;
 
     @BeforeEach
     void setLadder() {
-        ladder = new Ladder();
+        ladderByPeopleCount = new LadderByPeopleCount();
     }
 
     @Test
     void create() {
-        boolean[][] booleans = ladder.create(3, 4, () -> false);
+        boolean[][] booleans = ladderByPeopleCount.create(3, 4, () -> false);
         boolean[][] result = {{false, false}, {false, false}, {false, false}, {false, false}};
         Assertions.assertThat(booleans).isEqualTo(result);
 
-        booleans = ladder.create(5, 3, () -> true);
+        booleans = ladderByPeopleCount.create(5, 3, () -> true);
         result = new boolean[][]{{true, true, true, true}, {true, true, true, true}, {true, true, true, true}};
         Assertions.assertThat(booleans).isEqualTo(result);
     }
@@ -32,7 +32,7 @@ class LadderTest {
                 result[i][j] = true;
             }
         }
-        String draw = ladder.draw(result);
+        String draw = ladderByPeopleCount.draw(result);
         Assertions.assertThat(draw).isEqualTo(
             "|-|-|-|-|\n"
                 + "|-|-|-|-|\n"
