@@ -16,10 +16,16 @@ public class Ladder {
     public void generateLegs() {
         Random random = new Random();
         for (int i = 0; i < maxHeight; i++) {
-            for (int j = 0; j < n - 1; j++) {
-                legs[i][j] = random.nextBoolean();
-            }
+            legs[i] = generateRow(random, n - 1);
         }
+    }
+
+    private boolean[] generateRow(Random random, int length) {
+        boolean[] row = new boolean[length];
+        for (int i = 0; i < length; i++) {
+            row[i] = random.nextBoolean();
+        }
+        return row;
     }
 
     @Override
