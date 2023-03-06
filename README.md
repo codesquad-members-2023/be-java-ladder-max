@@ -60,13 +60,13 @@ body
 ### 사다리 게임 3단계 - 사다리 모양 개선
 
 * 구현해야할 기능 목록
-* [ ] 사용자로부터 참여할 사람 이름과 최대 사다리 높이를 입력받는다. (branch. feature/#3-input)
+* [x] 사용자로부터 참여할 사람 이름과 최대 사다리 높이를 입력받는다. (branch. feature/#3-input)
     * 사람 이름을 최대 `5글자`까지 부여할 수 있다.
     * 사람 이름은 `,`로 구분한다.
     * 5글자를 넘거나 `,`로 구분되지 않은 입력은 `IllegalArgumentException`을 던지도록한 후 다시 입력받도록 한다.
-* [ ] 사람 수에 따른 사다리를 생성한다. (branch. feature/#3-create_ladder)
+* [x] 사람 수에 따른 사다리를 생성한다. (branch. feature/#3-create_ladder)
     * 사다리 라인이 겹치치 않도록 생성한다.
-* [ ] 사다리의 상태를 출력한다. (branch. feature/#3-print_ladder)
+* [x] 사다리의 상태를 출력한다. (branch. feature/#3-print_ladder)
 
 구현시 고려해야할 사항들을 지키며 구현하자.<br>
 또한 아래를 만족하며 구현하자.
