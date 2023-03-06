@@ -42,7 +42,7 @@ public class Ladder {
         ladder.add("     ");
     }
 
-    void printLadder() {
+    private void printLadder() {
         printPeople();
         for(List<String> ladder : ladders) {
             System.out.print("    |");
