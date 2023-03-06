@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="style(LadderShape): 출력 규칙대로 하느라 depth가 2단계 됨&#10;&#10;그냥 Blank를 2번씩 계속 줘도 큰 상관 없으므로 이렇게 쓰자">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat(LadderShape): 최대 5글자까지 출력하도록 기능 추가&#10;&#10;원래는 공백으로만 출력했는데, String.format()으로 공백을 포함하여 무조건 5글자가 되게 만들었다.&#10;이제 테스트에 이 글자 수만 equal한지 확인만 하면 된다.&#10;나머지는 밥먹고..">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/ladder/domain/LadderShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/ladder/domain/LadderShape.java" afterDir="false" />
@@ -80,27 +80,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/Users/wonjunjeong/codesquad/java/be-java-ladder-max",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/wonjunjeong/codesquad/java/be-java-ladder-max&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -110,7 +110,7 @@
       <recent name="kr.codesquad" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.LadderShapeTest.최대_5글자_출력_여부_체크">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kr.codesquad.ladder.Main" />
       <module name="java-lotto.main" />
@@ -189,7 +189,9 @@
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678068503024" duration="2671000" />
       <workItem from="1678077123619" duration="4416000" />
-      <workItem from="1678081715723" duration="13366000" />
+      <workItem from="1678081715723" duration="13814000" />
+      <workItem from="1678101633325" duration="4000" />
+      <workItem from="1678105085769" duration="1379000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자">
       <created>1678069392649</created>
@@ -408,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678093383663</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="feat(LadderShape): 최대 5글자까지 출력하도록 기능 추가&#10;&#10;원래는 공백으로만 출력했는데, String.format()으로 공백을 포함하여 무조건 5글자가 되게 만들었다.&#10;이제 테스트에 이 글자 수만 equal한지 확인만 하면 된다.&#10;나머지는 밥먹고..">
+      <created>1678095399314</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1678095399314</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,7 +435,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor(Ladder): print 방식을 StringBuilder 방식으로 변경&#10;&#10;static으로 StringBuilder 정의 후 개행마다 new StringBuilder() 재정의&#10;아직도 엄청 깔끔하진 않음" />
     <MESSAGE value="refactor(Ladder): 랜덤으로 letter 선택하는 기능 메서드 분리&#10;&#10;분리 안 했으면 if문이 2개였음" />
     <MESSAGE value="docs: 내용 삭제" />
     <MESSAGE value="feat: 사다리 모양 클래스 틀 짜기&#10;&#10;원래는 step-1, step-2 부분을 주석 처리 후&#10;Console 클래스를 재사용할 생각이었지만,&#10;인터페이스 이용해서 겹치는 메서드를 오버라이딩 해주기로 결정했다&#10;ArrayList, Generic와 split 메서드로 참여할 사람 이름의 리스트에 넣어준다." />
@@ -451,6 +459,7 @@
     <MESSAGE value="test: LadderShapeTest 테스트 코드 생성&#10;&#10;테스트 메서드 틀까진 일단 만들어 뒀는데&#10;이제부터 어떡할까" />
     <MESSAGE value="refactor(LadderShape): StringBuilder 방법을 List&lt;String&gt; 방법으로 재구현&#10;&#10;의미 없었던 static 없애기" />
     <MESSAGE value="style(LadderShape): 출력 규칙대로 하느라 depth가 2단계 됨&#10;&#10;그냥 Blank를 2번씩 계속 줘도 큰 상관 없으므로 이렇게 쓰자" />
-    <option name="LAST_COMMIT_MESSAGE" value="style(LadderShape): 출력 규칙대로 하느라 depth가 2단계 됨&#10;&#10;그냥 Blank를 2번씩 계속 줘도 큰 상관 없으므로 이렇게 쓰자" />
+    <MESSAGE value="feat(LadderShape): 최대 5글자까지 출력하도록 기능 추가&#10;&#10;원래는 공백으로만 출력했는데, String.format()으로 공백을 포함하여 무조건 5글자가 되게 만들었다.&#10;이제 테스트에 이 글자 수만 equal한지 확인만 하면 된다.&#10;나머지는 밥먹고.." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(LadderShape): 최대 5글자까지 출력하도록 기능 추가&#10;&#10;원래는 공백으로만 출력했는데, String.format()으로 공백을 포함하여 무조건 5글자가 되게 만들었다.&#10;이제 테스트에 이 글자 수만 equal한지 확인만 하면 된다.&#10;나머지는 밥먹고.." />
   </component>
 </project>

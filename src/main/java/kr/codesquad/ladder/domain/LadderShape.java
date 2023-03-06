@@ -3,6 +3,7 @@ package kr.codesquad.ladder.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class LadderShape {
@@ -33,12 +34,22 @@ public class LadderShape {
         }
     }
 
-    private void printParticipants() {
-        for (String participant : participantList) {
-            System.out.printf("%5s ", participant);
-        }
 
+
+    // 테스트를 위해서는 printf가 아닌 String.format() 형태로 List에 저장해야 됨
+    // @Test
+    private List<String> formatList;
+    public void printParticipants() {
+        formatList = participantList.stream()
+                .map(participant -> String.format("%5s ", participant))
+                .collect(Collectors.toList());
+        formatList.forEach(System.out::print);
         printNewLine();
+    }
+
+    // @Test
+    public List<String> getFormatList() {
+        return formatList;
     }
 
     private void printLadderRows() {
