@@ -1,20 +1,27 @@
 import java.util.Random;
+import java.util.ArrayList;
 
 public class Ladder {
-    public void gameInit() {
-        System.out.println("몇 인용인가요?")
-        System.out.println("몇 단계로 할까요?")
-        System.out.println(System.lineSeparator());
-    }
     private int width;
     private int height;
     private String[][] ladderBoard;
+    private List<String> names;
     public void init() {
         width = inputer.getManNum();
         height = inputer.getLadderNum();
         makeLadder();
     }
-    public void makeLadder() {
+//    private int manNum = manNumFake * (manNumFake - 1);
+    private void makeNames() {
+        String[] str = inputer.getNames().split(",");
+        names = new ArrayList<String>();
+        for (int i = 0; i < str.length; i++) {
+            names.add(str[i]);
+        }
+    }
+
+    private void makeLadder() {
+        makeNames();
         ladderBoard = new String[height][width];
         Random random = new Random();
         for (int i = 0; i < height; i++) {
