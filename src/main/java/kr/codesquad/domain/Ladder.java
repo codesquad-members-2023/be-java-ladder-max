@@ -13,9 +13,9 @@ public class Ladder {
 	private final int height;
 	private final String[][] figureOfLadder;
 
-	public Ladder(final List<String> input) {
-		this.width = Integer.parseInt(input.get(0)) * 2 - 1;
-		this.height = Integer.parseInt(input.get(1));
+	public Ladder(final Input input) {
+		this.width = input.getNamesOfPerson().size() * 2 - 1;
+		this.height = input.getHeightOfLadder();
 		this.figureOfLadder = new String[height][width];
 	}
 

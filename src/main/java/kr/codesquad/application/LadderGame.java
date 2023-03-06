@@ -1,7 +1,6 @@
 package kr.codesquad.application;
 
-import java.util.List;
-
+import kr.codesquad.domain.Input;
 import kr.codesquad.domain.Ladder;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
@@ -12,22 +11,27 @@ public class LadderGame {
 	private final OutputView outputView = new OutputView();
 
 	public void startLadderGame() {
-		final List<String> input = getInputFromUser();
-		final Ladder ladder = createLadder(input);
-		printFigureOfLadder(ladder);
+		try {
+			final Input input = getInputFromUser();
+			final Ladder ladder = createLadder(input);
+			printFigureOfLadder(ladder);
+		} catch (final IllegalArgumentException e) {
+			outputView.printErrorMsg(e);
+			startLadderGame();
+		}
 	}
 
-	private List<String> getInputFromUser() {
-		outputView.printGetCountOfPersonMsg();
-		final String countOfUser = inputView.getInputFromUser();
+	private Input getInputFromUser() {
+		outputView.printGetNamesOfPersonMsg();
+		final String namesOfPerson = inputView.getInputFromUser();
 
 		outputView.printGetHeightOfLadderMsg();
 		final String heightOfLadder = inputView.getInputFromUser();
 
-		return List.of(countOfUser, heightOfLadder);
+		return new Input(namesOfPerson, heightOfLadder);
 	}
 
-	private Ladder createLadder(final List<String> input) {
+	private Ladder createLadder(final Input input) {
 		final Ladder ladder = new Ladder(input);
 		ladder.createFigureOfLadder();
 		return ladder;
