@@ -14,6 +14,7 @@ public class Input {
         System.out.println("최대 사다리 높이는??");
         int len = Integer.parseInt(br.readLine());
 
+        System.out.println();
         br.close();
 
         return new int[]{num, len};
