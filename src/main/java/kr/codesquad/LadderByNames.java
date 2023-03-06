@@ -27,6 +27,7 @@ public class LadderByNames implements Ladder {
 
     private static boolean addRow(int peopleCount, Supplier<Boolean> condition, StringBuilder result,
         boolean possible) {
+        result.append("   ");
         result.append(PEOPLE_DELIMITER);
         for (int j = 0 ; j < peopleCount -1 ; j++) {
             possible = addSuccess(condition, result, possible);
