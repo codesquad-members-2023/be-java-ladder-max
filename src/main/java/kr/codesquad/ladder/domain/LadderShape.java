@@ -9,12 +9,9 @@ import java.util.stream.Stream;
 public class LadderShape {
     // participantNumber == participantList.size()
     // 위와 같은 사실을 이용하여 step-1과 비슷하게 로직을 짠다.
-
     private final List<String> participantList;
     private final int ladderShapeHeight;
-
     private List<String> points = new ArrayList<>();
-
     private boolean isMinusSign = false;
 
     public LadderShape(List<String> participantList, int ladderShapeHeight) {
@@ -112,6 +109,11 @@ public class LadderShape {
         Stream.generate(() -> " ")
                 .limit(5)
                 .forEach(points::add);
+    }
+
+    // @Test
+    public boolean isMinusSign() {
+        return isMinusSign;
     }
 
     // @Test
