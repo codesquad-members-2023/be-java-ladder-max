@@ -15,9 +15,9 @@ public class Ladder {
     }
 
     boolean[][] create(int peopleCount, int ladderHeight, Supplier<Boolean> condition) {
-        boolean[][] result = new boolean[peopleCount - 1][ladderHeight];
-        for (int i = 0; i < peopleCount - 1; i++) {
-            for (int j = 0; j < ladderHeight; j++) {
+        boolean[][] result = new boolean[ladderHeight][peopleCount - 1];
+        for (int i = 0; i < ladderHeight; i++) {
+            for (int j = 0; j < peopleCount - 1; j++) {
                 result[i][j] = condition.get();
             }
         }
