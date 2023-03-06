@@ -1,9 +1,75 @@
-# Java Lotto
+# Java Ladder
 
-- Last Update: 2022-12-28
+## DAY01. 230306 월
 
-## 코드 리뷰
+- Java Programming 공부
+  - [ ] (1). 프로그래밍 학습이 어려운 이유
+  - [ ] (2). 자바 클린 코딩 기초
+  - [ ] (3). 자바 문자열  
 
-* [텍스트와 이미지로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://github.com/code-squad/codesquad-docs/blob/master/codereview/README.md)
 
-* [동영상으로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://youtube.com/watch?v=lFinZfu3QO0&si=EnSIkaIECMiOmarE)
+- 사다리 게임 1단계
+  - 입력 클래스
+    - [ ] 사람 명수(n) 입력 가능
+    - [ ] 사다리 개수(m) 입력 가능
+  - 사다리 클래스
+    - 2차원 배열 생성
+      - [ ] line String 2차원 배열 생성([m][n-1]) 
+      - [ ] person String 2차원 배열 생성([m][n]) 
+    - [ ] person 배열에 모두 | 넣기
+    - [ ] line 배열에 - 또는 공백 랜덤으로 넣기
+  - 출력 클래스
+    - [ ] 사다리 클래스의 2차원 배열 출력
+---
+## DAY02. 230307 화
+
+- Java Programming 공부
+    - [ ] (4). 리스트와 제네릭
+    - [ ] (5). Java Collection Framework
+    - [ ] (6). TDD Basic
+
+
+- 사다리 게임 2단계
+  - [ ] 들여쓰기 depth 줄이기
+  - [ ] else 사용 없애기
+  - [ ] 메서드의 크기가 최대 10라인을 넘지 않도록 구현
+
+
+---
+## DAY03. 230308 수
+
+- Java Programming 공부
+    - [ ] (7). Java Exception
+    - [ ] (8). Java Enum
+
+
+- 사다리 게임 3단계
+  - 입력 클래스
+    - [ ] 플레이어 이름 최대 5글자까지 입력 가능
+  - 사다리 클래스
+    - [ ] 쉼표 기준으로 이름 구분하여 ArrayList에 저장
+    - [ ] line과 person 배열 ArrayList로 변환
+    - [ ] line의 경우 양 옆과 가로 라인이 겹치지 않도록 구현
+    - [ ] line의 경우 "-"를 "-----"로 대체
+  - 출력 클래스
+    - [ ] 이름 출력
+
+
+---
+## DAY04. 230309 목
+
+- Java Programming 공부
+  - [ ] (9). Spark Java
+  - [ ] (10). JVM
+
+
+- 사다리 게임 4단계
+  - [ ] 각각의 역할에 맞도록 패키지 분리
+  - [ ] 알맞은 접근 제어자 사용
+  - [ ] 단위 테스트 생성
+---
+## DAY05. 230310 금
+
+- [ ] 리팩토링
+- [ ] 부족한 부분 공부
+- [ ] 스쿼드 세션 준비
