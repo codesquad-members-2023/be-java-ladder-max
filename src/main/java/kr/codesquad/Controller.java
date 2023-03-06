@@ -1,7 +1,11 @@
 package kr.codesquad;
 
 public class Controller {
-    public void run() {
 
+    private Output output;
+
+    public void run() {
+        output.printMessageN();
+        output.printMessageM();
     }
 }
