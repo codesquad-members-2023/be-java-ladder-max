@@ -32,7 +32,8 @@
     - createLadderEmpty(int[]) : String[m][n+2] 크기로 빈 배열 생성
     - makeLadderLength : 사람 수 만큼 '|' 로 세로를 채우기
     - makeLadderWidth : 가로 사다리 만들기
-      - createRandomLadderWidth() : 랜덤으로 '-'나 ' '을 반환
+      - createRandomLadderWidth() : takeRandom()에서 반환된 값을 laddersFrame에 저장
+        - LadderLine의 takeRandom()에서 랜덤으로 '-'나 ' '을 반환
   - String[][] 형으로 완성된 사다리 반환
 - Encoding 클래스
   - encoding.encodeLadder(String[][]) : String[][]으로 받은 사다리를 String 형으로 반환
@@ -40,7 +41,9 @@
   - printMessageN : N 입력을 위한 메세지 출력
   - printMessageM : M 입력을 위한 메세지 출력
   - printLadder(String) : String으로 받은 사다리를 화면에 출력
-
+- LadderLine Enum 클래스
+  - stick : "-", blank : " "
+  - takeRandom() : 랜덤으로 값을 반환
 
 - Last Update: 2023-03-06
 
