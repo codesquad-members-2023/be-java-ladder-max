@@ -28,21 +28,14 @@ public class LadderShape {
             points.forEach(System.out::print);
             printNewLine();
             points = new ArrayList<>();
-//            stringBuilder = new StringBuilder();
             isMinusSign = false;
         }
     }
 
     private void printParticipants() {
-        for (int i = 0; i < participantList.size(); i++) {
-            System.out.print(participantList.get(i));
-
-            // 리팩토링 필요
-            if (i % 2 == 0) {
-                printRepeatBlank(2);
-                continue;
-            }
-            printRepeatBlank(1);
+        for (String participant : participantList) {
+            System.out.print(participant);
+            printRepeatBlank(2);
         }
 
         printNewLine();
@@ -69,7 +62,6 @@ public class LadderShape {
         }
 
         points.add("|");
-//        stringBuilder.append("|");
     }
 
     private void appendRandomLadderRows(int i) {
