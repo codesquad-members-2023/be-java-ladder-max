@@ -11,4 +11,9 @@ public class LadderGame {
         ladder = Ladder.createLadder(height, participantCount);
     }
 
+    public void startLadder() {
+        ladder.fillLine();
+        ladder.fillRandomWidthLine();
+    }
+
 }
