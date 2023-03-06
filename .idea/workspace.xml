@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/util/InputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/util/InputHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/util/InputOutputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/util/InputOutputManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -45,6 +46,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last_opened_file_path": "C:/Users/kdjin/OneDrive/바탕 화면/프로그래밍/mastersCode/2023.3.6 사다리게임/be-java-ladder-max",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -55,7 +58,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="kr.codesquad.util" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
       <module name="java-lotto.main" />
@@ -69,9 +80,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="InputOutputManagerTest.InputOutputManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lotto.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kr.codesquad.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kr.codesquad.util" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.util.InputOutputManagerTest" />
+      <option name="METHOD_NAME" value="InputOutputManagerTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.InputOutputManagerTest.InputOutputManagerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -84,7 +112,7 @@
       <option name="presentableId" value="Default" />
       <updated>1672210428730</updated>
       <workItem from="1672210432725" duration="156000" />
-      <workItem from="1678068504319" duration="6279000" />
+      <workItem from="1678068504319" duration="8283000" />
     </task>
     <servers />
   </component>
