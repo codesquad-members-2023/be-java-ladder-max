@@ -20,21 +20,26 @@ public class Ladder {
     private void makeLine(String[] ladder) {
         Random random = new Random();
         for(int idx = 0; idx < ladder.length; idx++) {
-            int curr = random.nextInt(2);
-            if(curr == 0) {
-                ladder[idx] = "-";
-                continue;
-            }
-            ladder[idx] = " ";
+            int num = random.nextInt(2);
+            drawLine(num, idx, ladder);
         }
+    }
+
+    private void drawLine(int num, int idx, String[] ladder) {
+        if(num == 0) {
+            ladder[idx] = "-";
+            return;
+        }
+        ladder[idx] = " ";
     }
 
     void printLadder() {
         for(String[] ladder : ladders) {
             System.out.print("|");
-            System.out.print(Arrays.stream(ladder)
-                    .reduce((o1, o2) -> o1 + "|" + o2).orElse(""));
-            System.out.println("|");
+            System.out.println(Arrays.stream(ladder)
+                    .reduce(new StringBuilder(), (sb, o) ->
+                                    sb.append(o).append("|")
+                            , StringBuilder::append));
         }
     }
 }
