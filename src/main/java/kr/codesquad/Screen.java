@@ -16,4 +16,8 @@ public class Screen {
 
         return scanner.nextInt();
     }
+
+    public static void printLadderMap(String ladderMap) {
+        System.out.println(ladderMap);
+    }
 }

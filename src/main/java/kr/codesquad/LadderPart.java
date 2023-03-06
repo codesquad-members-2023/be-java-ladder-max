@@ -16,8 +16,7 @@ public enum LadderPart {
             return POLES;
         }
 
-
-        if (Math.random() > 0.6) {
+        if (Math.random() > 0.7) {
             return CROSSBAR;
         }
 

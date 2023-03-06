@@ -1,5 +1,8 @@
 package kr.codesquad;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class Ladder {
     private final LadderPart[][] map;
 
@@ -16,12 +19,15 @@ public class Ladder {
         }
     }
 
-    public void print() {
-        for (int y = 0; y < map.length; y++) {
-            for (int x = 0; x < map[0].length; x++) {
-                System.out.print(map[y][x]);
-            }
-            System.out.println();
-        }
+    public String makeMapToString() {
+        return Arrays.stream(map)
+                .map(Ladder::makeLadderLineToString)
+                .collect(Collectors.joining("\n"));
+    }
+
+    private static String makeLadderLineToString(LadderPart[] ladderWidthLine) {
+        return Arrays.stream(ladderWidthLine)
+                .map(LadderPart::toString)
+                .collect(Collectors.joining());
     }
 }
