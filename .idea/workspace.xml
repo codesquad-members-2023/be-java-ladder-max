@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: 참여자 수, 사다리 높이 늘린 실행 결과 추가 업로드&#10;&#10;이제 step4로 넘어가야지">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="step1" />
+        <entry key="$PROJECT_DIR$" value="step4" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,7 +46,11 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="step4" />
-                    <option name="lastUsedInstant" value="1678087366" />
+                    <option name="lastUsedInstant" value="1678087820" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="step3" />
+                    <option name="lastUsedInstant" value="1678087767" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="step2" />
@@ -133,7 +138,7 @@
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678068503024" duration="2671000" />
       <workItem from="1678077123619" duration="4416000" />
-      <workItem from="1678081715723" duration="5871000" />
+      <workItem from="1678081715723" duration="6595000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자">
       <created>1678069392649</created>
@@ -296,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678087183343</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="docs: 참여자 수, 사다리 높이 늘린 실행 결과 추가 업로드&#10;&#10;이제 step4로 넘어가야지">
+      <created>1678087787772</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1678087787772</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,6 +349,7 @@
     <MESSAGE value="docs: 문제 요구사항에 맞게 재구현한 실행 결과 이미지 업로드" />
     <MESSAGE value="feat: 공백, 마이너스 기호 출력에서 논리적 오류 해결&#10;&#10;isMinusSign 위치를 출력하는 메서드 안에 넣어줘서 줄이 바뀔 때마다 초기화시켜줌&#10;letter를 append하는 메서드에 깃발 변경 기능 넣어줌" />
     <MESSAGE value="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드" />
+    <MESSAGE value="docs: 참여자 수, 사다리 높이 늘린 실행 결과 추가 업로드&#10;&#10;이제 step4로 넘어가야지" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 참여자 수, 사다리 높이 늘린 실행 결과 추가 업로드&#10;&#10;이제 step4로 넘어가야지" />
   </component>
 </project>

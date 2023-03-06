@@ -2,6 +2,7 @@ package kr.codesquad;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -27,19 +28,28 @@ public class Main {
         List<String> participantList = new ArrayList<>();
         console.askParticipantsName();
 
-        StringTokenizer stringTokenizer = new StringTokenizer(console.returnStringInput(), ",");
-        while (stringTokenizer.hasMoreTokens()) {
-            String token = stringTokenizer.nextToken();
-            if (token.length() > 5) {
-                throw new IOException("[ERROR] 플레이어의 이름은 최대 5글자까지 부여할 수 있습니다.");
-            }
-            participantList.add(token);
-        }
+        addParticipantsFromTokenizer(participantList, Arrays.asList(console.returnStringInput().split(",")));
         console.askLadderHeight();
         int ladderShapeHeight = console.returnIntInput();
 
         LadderShape ladderShape = new LadderShape(participantList, ladderShapeHeight);
         ladderShape.printLadder();
+    }
+
+    private static void addParticipantsFromTokenizer(List<String> participantList, Iterable<String> iterable) {
+        // StringTokenizer -> 구식 ㅠㅠ
+        // Java 11부터 사용하지 않는 것을 권장
+        // 이제부터 Iterable<> 쓰자
+        for (String token : iterable) {
+            validatePlayerName(token);
+            participantList.add(token);
+        }
+    }
+
+    private static void validatePlayerName(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException("플레이어의 이름은 최대 5글자까지 부여할 수 있습니다.");
+        }
     }
 
     private static void startStep1_2() {
