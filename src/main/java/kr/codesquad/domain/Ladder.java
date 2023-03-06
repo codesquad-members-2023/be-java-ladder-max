@@ -14,20 +14,16 @@ public class Ladder {
         return ladder;
     }
 
-    private String[][] addPlayerLine(String[][] ladder, int row) {
+    private void addPlayerLine(String[][] ladder, int row) {
         for(int col = 0; col < ladder[0].length; col += 2) {
             ladder[row][col] = "|";
         }
-
-        return ladder;
     }
 
-    private String[][] addBridge(String[][] ladder, int row) {
+    private void addBridge(String[][] ladder, int row) {
         for (int col = 1; col < ladder[0].length; col += 2) {
             insertBridge(ladder, row, col);
         }
-
-        return ladder;
     }
 
     private boolean shouldBuildingBridge() {
