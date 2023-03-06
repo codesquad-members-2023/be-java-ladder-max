@@ -31,19 +31,25 @@ public class Ladder {
         }
     }
     private void smallIfSentence1InFunctionForMakeLadder2(int j) {
-        if (j % 2 == 0 && random.nextboolean == true))) {
+        if (j % 2 == 0 && ladderBoard[i][j-1] == "     " && random.nextboolean == true){
             ladderBoard[i][j] = "     ";
         }
     }
     private void smallIfSentence2InFunctionForMakeLadder2(int j) {
-        if (j % 2 == 0 && random.nextboolean == false))) {
+        if (j % 2 == 0 && ladderBoard[i][j-1] == "     " && random.nextboolean == false))) {
                 ladderBoard[i][j] = "-----";
             }
+    }
+    private void smallIfSentence3InFunctionForMakeLadder2(int j) {
+        if (j % 2 == 0 && ladderBoard[i][j-1] == "-----" && random.nextboolean == false))) {
+            ladderBoard[i][j] = "-----";
+        }
     }
     private void functionForMakeLadder2(int i) {
         for (int j = 0; j < width; j++) {
             smallIfSentence1InFunctionForMakeLadder2(j);
             smallIfSentence2InFunctionForMakeLadder2(j);
+            smallIfSentence3InFunctionForMakeLadder2(j);
         }
     }
     private void ifSentenceInFunctionForMakeLadder1(int j) {
