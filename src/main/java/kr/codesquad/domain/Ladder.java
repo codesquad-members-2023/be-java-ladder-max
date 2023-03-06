@@ -6,6 +6,9 @@ import java.util.Random;
 
 public class Ladder {
 
+	private static final Random random = new Random();
+	private static final List<String> horizonLineContainer = List.of("-", " ");
+
 	private final int width;
 	private final int height;
 	private final String[][] figureOfLadder;
@@ -30,14 +33,8 @@ public class Ladder {
 	}
 
 	private void createHorizonLineOfLadder(final int row) {
-		Random random = new Random();
-
 		for (int col = 1; col < width; col += 2) {
-			if (random.nextBoolean()) {
-				figureOfLadder[row][col] = "-";
-				continue;
-			}
-			figureOfLadder[row][col] = " ";
+			figureOfLadder[row][col] = horizonLineContainer.get(random.nextInt(2));
 		}
 	}
 
