@@ -17,6 +17,7 @@ public class ConsoleInput {
         String text;
         while(true){
             try {
+                ConsoleOutput.printInputPersonIntro();
                 text = br.readLine();
                 if(!validator.validatePerson(text)){
                     throw new InvalidPersonNumber();
@@ -35,9 +36,10 @@ public class ConsoleInput {
         String text;
         while(true){
             try {
+                ConsoleOutput.printInputMaximumLadderHeightIntro();
                 text = br.readLine();
                 if(!validator.validateLadderHeight(text)){
-                    throw new InvalidPersonNumber();
+                    throw new InvalidMaximumLadderHeight();
                 }
                 break;
             } catch (InvalidMaximumLadderHeight e) {
