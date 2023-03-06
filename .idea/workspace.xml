@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs : 자바 String 학습 내용 추가">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ladder/InputView.java" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat : 참여할 사람의 수와 사다리의 높이를 입력받는 InputView 클래스 작성">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ladder/Ladder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678084994052</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat : 참여할 사람의 수와 사다리의 높이를 입력받는 InputView 클래스 작성">
+      <created>1678087324196</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678087324196</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +130,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="docs : 그룹 스터디 시간에 작성한 학습 계획 업데이트" />
     <MESSAGE value="docs : 자바 String 학습 내용 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs : 자바 String 학습 내용 추가" />
+    <MESSAGE value="feat : 참여할 사람의 수와 사다리의 높이를 입력받는 InputView 클래스 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : 참여할 사람의 수와 사다리의 높이를 입력받는 InputView 클래스 작성" />
   </component>
 </project>
