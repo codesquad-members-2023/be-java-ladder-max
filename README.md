@@ -1,9 +1,9 @@
-# Java Lotto
+# 실행 결과
 
-- Last Update: 2022-12-28
+## step 1
 
-## 코드 리뷰
+- 랜덤하게 실행된다.
 
-* [텍스트와 이미지로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://github.com/code-squad/codesquad-docs/blob/master/codereview/README.md)
+<img width="370" alt="스크린샷 2023-03-06 오전 11 53 42" src="https://user-images.githubusercontent.com/62871026/223008816-16e1be3c-c96b-43f2-818e-20e64ec6bc36.png">
 
-* [동영상으로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://youtube.com/watch?v=lFinZfu3QO0&si=EnSIkaIECMiOmarE)
+<img width="373" alt="스크린샷 2023-03-06 오전 11 53 57" src="https://user-images.githubusercontent.com/62871026/223008864-890f0039-8514-4447-893e-5306fd4c8e34.png">
