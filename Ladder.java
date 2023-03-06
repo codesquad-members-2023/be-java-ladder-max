@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.util.ArrayList;
+import java.util.StringBuilder;
 
 public class Ladder {
     private int width;
@@ -63,7 +64,14 @@ public class Ladder {
         }
     }
     public void printResult() {
+        StringBuilder sb = " ";
+        for(int i = 0; i < names.size(); i++){
+            sb.append(" ");
+            sb.append(String.format(" %5s ", names.get(i).format))
+        }
+        System.out.println(sb.ToString())
         for (int i = 0; i < height; i++) {
+            System.out.print("    ")
             System.out.println(ladderBoard[i])
         }
     }
