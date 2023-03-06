@@ -2,12 +2,15 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Ladder {
-    private final String[][] line;
-    private final String[][] person;
+    protected String[][] line;
+    protected String[][] person;
 
     public Ladder(int numPerson, int numLine) {
         line = new String[numLine][numPerson - 1];
         person = new String[numLine][numPerson];
+
+        fillPerson();
+        fillLine();
     }
 
     public void fillPerson() {
@@ -16,6 +19,10 @@ public class Ladder {
 
     public void fillLine() {
         String[] str = {"-", " "};
-        Arrays.stream(line).forEach(row -> Arrays.fill(row, str[new Random().nextInt(2)]));
+        for (int i = 0; i < line.length; i++) {
+            for (int j = 0; j < line[0].length; j++) {
+                line[i][j] = str[new Random().nextInt(2)];
+            }
+        }
     }
 }
