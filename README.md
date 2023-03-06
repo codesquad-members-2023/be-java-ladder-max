@@ -52,8 +52,8 @@
 
 ## 2차원 배열
 
-- step-1, step-2에서는 StringBuilder에 저장하여 print하는 방식으로 구현했고
-- step-3에서는 List<String>에 저장하여 print하는 방식으로 구현했다.
+- step-1, step-2, step-3에서 StringBuilder에 저장하여 print하는 방식으로 구현했다.
+  - 하지만 step-3에서는 List<String>에 저장하여 print하는 방식이 맞는 것 같아 이 방법으로 재구현했다. 
 - step-4의 `추가학습거리`를 보니 2차원 배열로 만드는 것이 의도였던 것 같다.
     - 어차피 1차원 배열을 사이즈별로 출력하나, 2차원 배열로 만드나 로직은 같기 때문에 크게 신경쓰진 않을 예정이다.
 

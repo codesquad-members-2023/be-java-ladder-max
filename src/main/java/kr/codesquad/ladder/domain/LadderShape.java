@@ -1,7 +1,9 @@
 package kr.codesquad.ladder.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Stream;
 
 public class LadderShape {
     // participantNumber == participantList.size()
@@ -9,8 +11,8 @@ public class LadderShape {
 
     private final List<String> participantList;
     private final int ladderShapeHeight;
-    private static StringBuilder stringBuilder = new StringBuilder();
-    private static boolean isMinusSign = false;
+    private List<String> points = new ArrayList<>();
+    private boolean isMinusSign = false;
 
 
     public LadderShape(List<String> participantList, int ladderShapeHeight) {
@@ -23,8 +25,10 @@ public class LadderShape {
 
         for (int i = 0; i < ladderShapeHeight; i++) {
             printLadderRows();
-            System.out.println(stringBuilder);
-            stringBuilder = new StringBuilder();
+            points.forEach(System.out::print);
+            printNewLine();
+            points = new ArrayList<>();
+//            stringBuilder = new StringBuilder();
             isMinusSign = false;
         }
     }
@@ -35,16 +39,17 @@ public class LadderShape {
 
             // 리팩토링 필요
             if (i % 2 == 0) {
-                repeatBlank(2);
+                printRepeatBlank(2);
                 continue;
             }
-            repeatBlank(1);
+            printRepeatBlank(1);
         }
-        System.out.println();
+
+        printNewLine();
     }
 
     private void printLadderRows() {
-        repeatBlank(2);
+        printRepeatBlank(2);
         for (int i = 0; i < participantList.size() + participantList.size() - 1; i++) {
             chooseLetter(i);
         }
@@ -63,7 +68,8 @@ public class LadderShape {
             return;
         }
 
-        stringBuilder.append("|");
+        points.add("|");
+//        stringBuilder.append("|");
     }
 
     private void appendRandomLadderRows(int i) {
@@ -90,17 +96,24 @@ public class LadderShape {
         appendBlank(); // 5번 append
     }
 
-    private void appendMinusSign() {
+    public void appendMinusSign() {
         isMinusSign = true;
-        stringBuilder.append("-".repeat(5));
+        Stream.generate(() -> "-")
+                .limit(5)
+                .forEach(points::add);
     }
-
     private void appendBlank() {
         isMinusSign = false;
-        stringBuilder.append(" ".repeat(5));
+        Stream.generate(() -> " ")
+                .limit(5)
+                .forEach(points::add);
     }
 
-    private void repeatBlank(int n) {
+    private void printRepeatBlank(int n) {
         System.out.print(" ".repeat(n));
+    }
+
+    private void printNewLine() {
+        System.out.println();
     }
 }
