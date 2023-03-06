@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: step3 실행 결과 이미지 업로드">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: 문제 요구사항에 맞게 재구현한 실행 결과 이미지 업로드">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderShape.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,26 +71,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/wonjunjeong/codesquad/java/be-java-ladder-max&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "/Users/wonjunjeong/codesquad/java/be-java-ladder-max",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -129,7 +131,7 @@
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678068503024" duration="2671000" />
       <workItem from="1678077123619" duration="4416000" />
-      <workItem from="1678081715723" duration="4535000" />
+      <workItem from="1678081715723" duration="5230000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자">
       <created>1678069392649</created>
@@ -264,7 +266,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678085514011</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="fix: MinusSign이 전에 존재한다면 Blank로 출력하도록 구현&#10;&#10;&quot;&quot;|-----|-----| 모양과 같이 가로 라인이 겹치는 경우 어느 방향으로 이동할지 결정할 수 없다.&quot;&#10;boolean을 이용하여 위의 요구사항 재구현">
+      <created>1678086384898</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1678086384898</updated>
+    </task>
+    <task id="LOCAL-00021" summary="docs: 문제 요구사항에 맞게 재구현한 실행 결과 이미지 업로드">
+      <created>1678086520124</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1678086520124</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,6 +317,8 @@
     <MESSAGE value="feat: Ladder 클래스처럼 재구현하여 정상 실행됨&#10;&#10;이제 참여자들 이름 출력만 하면 될 듯&#10;리팩토링은 4단계에서 하자" />
     <MESSAGE value="feat: Participants 출력 구현 완료&#10;&#10;repeat 메서드 분리하여 출력&#10;이제 리팩토링 해야지" />
     <MESSAGE value="docs: step3 실행 결과 이미지 업로드" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: step3 실행 결과 이미지 업로드" />
+    <MESSAGE value="fix: MinusSign이 전에 존재한다면 Blank로 출력하도록 구현&#10;&#10;&quot;&quot;|-----|-----| 모양과 같이 가로 라인이 겹치는 경우 어느 방향으로 이동할지 결정할 수 없다.&quot;&#10;boolean을 이용하여 위의 요구사항 재구현" />
+    <MESSAGE value="docs: 문제 요구사항에 맞게 재구현한 실행 결과 이미지 업로드" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 문제 요구사항에 맞게 재구현한 실행 결과 이미지 업로드" />
   </component>
 </project>

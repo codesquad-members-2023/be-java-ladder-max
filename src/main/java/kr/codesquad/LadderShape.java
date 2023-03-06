@@ -25,6 +25,7 @@ public class LadderShape {
             printLadderRows();
             System.out.println(stringBuilder);
             stringBuilder = new StringBuilder();
+            isMinusSign = false;
         }
     }
 
@@ -74,7 +75,6 @@ public class LadderShape {
 
         if (isMinusSign) {
             appendBlank();
-            isMinusSign = false;
             return;
         }
 
@@ -84,7 +84,6 @@ public class LadderShape {
     private void chooseRandomLetter() {
         if (new Random().nextInt(2) == 0) {
             appendMinusSign(); // 5번 append
-            isMinusSign = true;
             return;
         }
 
@@ -92,10 +91,12 @@ public class LadderShape {
     }
 
     private void appendMinusSign() {
+        isMinusSign = true;
         stringBuilder.append("-".repeat(5));
     }
 
     private void appendBlank() {
+        isMinusSign = false;
         stringBuilder.append(" ".repeat(5));
     }
 
