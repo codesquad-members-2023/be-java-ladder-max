@@ -10,6 +10,7 @@ public class LadderShape {
     private final List<String> participantList;
     private final int ladderShapeHeight;
     private static StringBuilder stringBuilder = new StringBuilder();
+    private static boolean isMinusSign = false;
 
 
     public LadderShape(List<String> participantList, int ladderShapeHeight) {
@@ -71,12 +72,19 @@ public class LadderShape {
             return;
         }
 
+        if (isMinusSign) {
+            appendBlank();
+            isMinusSign = false;
+            return;
+        }
+
         chooseRandomLetter();
     }
 
     private void chooseRandomLetter() {
         if (new Random().nextInt(2) == 0) {
             appendMinusSign(); // 5번 append
+            isMinusSign = true;
             return;
         }
 

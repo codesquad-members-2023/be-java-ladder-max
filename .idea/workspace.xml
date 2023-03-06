@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat: Ladder 클래스처럼 재구현하여 정상 실행됨&#10;&#10;이제 참여자들 이름 출력만 하면 될 듯&#10;리팩토링은 4단계에서 하자">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: step3 실행 결과 이미지 업로드">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderShape.java" afterDir="false" />
     </list>
@@ -129,7 +129,7 @@
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678068503024" duration="2671000" />
       <workItem from="1678077123619" duration="4416000" />
-      <workItem from="1678081715723" duration="3556000" />
+      <workItem from="1678081715723" duration="4535000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자">
       <created>1678069392649</created>
@@ -250,7 +250,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678084766437</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="feat: Participants 출력 구현 완료&#10;&#10;repeat 메서드 분리하여 출력&#10;이제 리팩토링 해야지">
+      <created>1678085313508</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1678085313508</updated>
+    </task>
+    <task id="LOCAL-00019" summary="docs: step3 실행 결과 이미지 업로드">
+      <created>1678085514011</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1678085514011</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,6 +299,8 @@
     <MESSAGE value="fix: 다시 private으로 롤백&#10;&#10;아무리 생각해도 private이 더 중요하다는 생각이 듦" />
     <MESSAGE value="feat: step-1, step-2와 step-3, step4를 분리하지 말고 같이 출력&#10;&#10;상속 기능 사용하려다가 그냥 같이 출력하는 아이디어 접근" />
     <MESSAGE value="feat: Ladder 클래스처럼 재구현하여 정상 실행됨&#10;&#10;이제 참여자들 이름 출력만 하면 될 듯&#10;리팩토링은 4단계에서 하자" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Ladder 클래스처럼 재구현하여 정상 실행됨&#10;&#10;이제 참여자들 이름 출력만 하면 될 듯&#10;리팩토링은 4단계에서 하자" />
+    <MESSAGE value="feat: Participants 출력 구현 완료&#10;&#10;repeat 메서드 분리하여 출력&#10;이제 리팩토링 해야지" />
+    <MESSAGE value="docs: step3 실행 결과 이미지 업로드" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: step3 실행 결과 이미지 업로드" />
   </component>
 </project>
