@@ -7,6 +7,7 @@ public class Application {
 
         Ladder ladder = new Ladder(peopleNum, ladderCnt);
         ladder.makeBasicLadder();
+        ladder.makeRandomLadderLine();
         ladder.showFinalLadder();
 
     }

@@ -39,19 +39,18 @@ public class Ladder {
          사다리가 최대 들어갈 수 있는 회수는
          m * (n-1) 이다.
          */
-        Random random = new Random();
-        boolean randomBoolean = random.nextBoolean();
 
         // if -> True라면
 
 
-        for (int i = 0; i < laddder.length * laddder[i].length; i++) {
-
-        }
-        if (randomBoolean) {
-            String ladder = "-";
-
-
+        for (int i = 0; i < laddder.length; i++) {
+            for (int j = 0; j < laddder[i].length; j++) {
+                Random random = new Random();
+                boolean randomBoolean = random.nextBoolean();
+                if (randomBoolean && j % 2 == 1) {
+                    laddder[i][j] = "-";
+                }
+            }
         }
     }
 
