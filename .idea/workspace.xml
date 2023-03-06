@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat: 사다리 생성 기능&#10;&#10;* Ladder 객체는 객체 생성시 사람명수와 사다리 최대높이를 입력받고 generate 메서드 호출시 랜덤한 사다리가 생성된 2차원 배열을 반환합니다.">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: 기능 요구사항 체크">
       <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/ConsoleInput.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/ConsoleOutput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/InvalidMaximumLadderHeight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/InvalidPersonNumber.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +182,7 @@
       <updated>1672210428730</updated>
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678073406171" duration="515000" />
-      <workItem from="1678074074442" duration="7760000" />
+      <workItem from="1678074074442" duration="8251000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1678073802573</created>
@@ -232,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678079075574</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="docs: 기능 요구사항 체크">
+      <created>1678082800197</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678082800199</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +265,7 @@
     <MESSAGE value="add : Mockito 모듈 추가&#10;&#10;* 단위 테스트시 랜덤한 사다리 라인 생성시 랜덤 모듈을 모킹하기 위해서 추가하였습니다." />
     <MESSAGE value="test: 테스트케이스에 mocking 적용&#10;&#10;* Random 모듈 사용시 랜덤한 값이 나오는 대신 모킹한 값들이 나오도록 적용하였습니다." />
     <MESSAGE value="feat: 사다리 생성 기능&#10;&#10;* Ladder 객체는 객체 생성시 사람명수와 사다리 최대높이를 입력받고 generate 메서드 호출시 랜덤한 사다리가 생성된 2차원 배열을 반환합니다." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 사다리 생성 기능&#10;&#10;* Ladder 객체는 객체 생성시 사람명수와 사다리 최대높이를 입력받고 generate 메서드 호출시 랜덤한 사다리가 생성된 2차원 배열을 반환합니다." />
+    <MESSAGE value="docs: 기능 요구사항 체크" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 기능 요구사항 체크" />
   </component>
 </project>
