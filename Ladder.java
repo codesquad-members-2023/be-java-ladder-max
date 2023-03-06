@@ -1,20 +1,28 @@
 import java.util.Random;
+import java.util.ArrayList;
 
 public class Ladder {
-    public void gameInit() {
-        System.out.println("몇 인용인가요?")
-        System.out.println("몇 단계로 할까요?")
-        System.out.println(System.lineSeparator());
-    }
     private int width;
     private int height;
     private String[][] ladderBoard;
+    private List<String> names;
     public void init() {
-        width = inputer.getManNum();
+        makeNames();
+        widthIs();
         height = inputer.getLadderNum();
         makeLadder();
     }
-    public void makeLadder() {
+    private void makeNames() {
+        String[] str = inputer.getNames().split(",");
+        names = new ArrayList<String>();
+        for (int i = 0; i < str.length; i++) {
+            names.add(str[i]);
+        }
+    }
+    private void widthIs() {
+        width = (Names.size()*2) - 1);
+    }
+    private void makeLadder() {
         ladderBoard = new String[height][width];
         Random random = new Random();
         for (int i = 0; i < height; i++) {
@@ -24,18 +32,18 @@ public class Ladder {
     }
     private void smallIfSentence1InFunctionForMakeLadder2(int j) {
         if (j % 2 == 0 && random.nextboolean == true))) {
-            ladderBoard[i][j] = " ";
+            ladderBoard[i][j] = "     ";
         }
     }
-    private void ifSentenceInFunctionForMakeLadder2(int j) {
+    private void smallIfSentence2InFunctionForMakeLadder2(int j) {
         if (j % 2 == 0 && random.nextboolean == false))) {
-                ladderBoard[i][j] = "-";
+                ladderBoard[i][j] = "-----";
             }
     }
     private void functionForMakeLadder2(int i) {
         for (int j = 0; j < width; j++) {
-            ifSentence1InFunctionForMakeLadder2(j);
-            ifSentence2InFunctionForMakeLadder2(j);
+            smallIfSentence1InFunctionForMakeLadder2(j);
+            smallIfSentence2InFunctionForMakeLadder2(j);
         }
     }
     private void ifSentenceInFunctionForMakeLadder1(int j) {
