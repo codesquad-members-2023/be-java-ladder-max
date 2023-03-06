@@ -26,4 +26,8 @@ public class Ladder {
             }
         }
     }
+
+    public boolean[][] getRungs() {
+        return this.rungs;
+    }
 }
