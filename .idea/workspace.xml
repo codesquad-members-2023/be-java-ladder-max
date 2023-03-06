@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/LadderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LadderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,5 +209,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

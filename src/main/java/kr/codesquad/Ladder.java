@@ -9,7 +9,7 @@ public class Ladder {
     private final List<String> people;
     private final int height;
 
-    Ladder(List<String> people, int height) {
+    public Ladder(List<String> people, int height) {
         this.people = people;
         this.height = height;
         this.ladders = new ArrayList<>(); // 출력할 때 | 추가할거임
@@ -33,7 +33,7 @@ public class Ladder {
         return ladder;
     }
 
-    private void drawLine(boolean flag, int idx, List<String> ladder) {
+    public void drawLine(boolean flag, int idx, List<String> ladder) {
         if(flag && (idx == 0 || ladder.get(idx - 1).equals("     "))) {
             ladder.add("-----");
             return;
