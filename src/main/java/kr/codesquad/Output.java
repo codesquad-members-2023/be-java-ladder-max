@@ -16,7 +16,7 @@ public class Output {
         System.out.print("\n");
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m * 2 + 1; j++) {
+            for (int j = 0; j < m * 2 - 1; j++) {
                 sb.append(Ladder.ladder[i][j]);
             }
             sb.append("\n");
