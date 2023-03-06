@@ -4,6 +4,7 @@ import static kr.codesquad.ladder.BooleanGenerator.randomBoolean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Line {
 
@@ -28,8 +29,8 @@ public class Line {
 
     @Override
     public String toString() {
-        return "Line{" +
-                "line=" + line +
-                '}';
+        return "|" + line.stream()
+                .map(bool -> bool ? "-----|" : "     |")
+                .collect(Collectors.joining());
     }
 }
