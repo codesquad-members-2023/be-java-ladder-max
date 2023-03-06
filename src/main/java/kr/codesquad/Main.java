@@ -14,16 +14,5 @@ public class Main {
         Ladder ladder = new Ladder(width,length);
         String[][] arr = ladder.createBasicArr();;
         ladder.printGame(arr);
-
-//        for (int i = 0; i < arr.length; i++) {
-//            String[] inArr = arr[i];
-//            for (int j = 0; j < inArr.length; j++) {
-//                System.out.print(inArr[j] + " ");
-//            }
-//            System.out.println();
-//        }
-
-
-
     }
 }
