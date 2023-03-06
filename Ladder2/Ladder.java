@@ -39,18 +39,18 @@ public class Ladder {
     }
 
     private void initLadder(ArrayList<String> pplNames, int ladderHeight) {
-        this.ladder = new String[ladderHeight][((pplNames.size() - 1) * 2) - 1];
-        for (int i = 0; i <ladder.length; i++){
-            this.initRow(i,ladder[0].length);
+        this.ladder = new ArrayList<>();
+        for (int i = 0; i <ladderHeight; i++){
+            this.initRow(i,pplNames.size());
         }
     }
 
     private void initRow(int i, int rowSize) {
-        for(int j = 0; j < rowSize; j+= 2){
-            this.ladder[i][j] = "|";
+        ArrayList<String> row = new ArrayList<>();
+        for(int j = 0; j < rowSize; j++){
+            row.add("|-----");
         }
-        for(int j = 1; j < rowSize; j+= 2){
-            this.ladder[i][j] = " ";
-        }
+        row.subList(row.size()-6,row.size()-1).clear();
+        ladder.add(row);
     }
 }
