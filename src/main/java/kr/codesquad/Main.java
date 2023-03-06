@@ -9,6 +9,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
         LadderGame ladderGame = new LadderGame();
         ladderGame.setLadder();
-        ladderGame.startLadder();
+        ladderGame.drawLadder();
     }
 }
