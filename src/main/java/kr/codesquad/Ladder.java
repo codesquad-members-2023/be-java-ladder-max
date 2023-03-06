@@ -14,7 +14,14 @@ public class Ladder {
         this.ladderHeight = ladderHeight;
     }
 
-    private void printVerticalBar() {
+    // refactor
+    private void printVerticalBar(int i) {
+        // i가 짝수일 때, 즉 "|" 출력
+        // 즉, 짝수가 아니면 리턴
+        if (i % 2 != 0) {
+            return;
+        }
+
         System.out.print("|");
     }
 
@@ -28,22 +35,31 @@ public class Ladder {
 
     private void printLadderRows() {
         for (int i = 0; i < (participantNumber) + (participantNumber - 1); i++) {
-            if (i % 2 == 0) { // i가 짝수일 때, 즉 "|" 출력
-                printVerticalBar();
-            } else { // i가 홀수일 때, 즉 "-" 혹은 " " 랜덤 출력
-                printRandomLadderRows();
-            }
+            chooseLetter(i);
         }
     }
 
-    private void printRandomLadderRows() {
+    private void chooseLetter(int i) {
+        printVerticalBar(i);
+        printRandomLadderRows(i);
+    }
+
+    // refactor
+    private void printRandomLadderRows(int i) {
+        // i가 홀수일 때, 즉 "-" 혹은 " " 랜덤 출력
+        // 즉, 홀수가 아니면 리턴
+        if (i % 2 != 1) {
+            return;
+        }
+
         Random random = new Random();
         int randomNumber = random.nextInt(2);
         if (randomNumber == 0) {
             printMinusSign();
-        } else {
-            printBlank();
+            return;
         }
+
+        printBlank();
     }
 
     public void printLadder() {
