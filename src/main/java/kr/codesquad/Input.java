@@ -10,4 +10,12 @@ public class Input {
 
         return players;
     }
+
+    public int inputHeight() {
+        System.out.println("얼마나 길게 하려고?");
+        Scanner scanner = new Scanner(System.in);
+        int height = scanner.nextInt();
+
+        return height;
+    }
 }
