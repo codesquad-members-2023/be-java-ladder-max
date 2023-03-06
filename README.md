@@ -13,6 +13,7 @@
     - int height - 사다리의 높이
     - boolean[][] rungs - 사다리의 가로대
   - [x] Ladder(int players, int height) - 입력받은 인원 수와 높이에 맞춰 사다리 생성
-  - [x] buildRungs - 난수 값에 따라 가로대를 생성
+  - [x] buildRungs() - 난수 값에 따라 가로대를 생성
+  - [ ] getRungs() - 사다리의 rungs 정보를 배열로 반환
 - [ ] Output Class - 사다리를 출력하는 class
-  - [ ] printLadder(Map information) - 입력받은 사다리의 정보를 출력
+  - [ ] printLadder(boolean[][] rungs) - 입력받은 사다리의 정보를 출력
