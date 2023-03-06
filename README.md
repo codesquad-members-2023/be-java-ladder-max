@@ -39,3 +39,12 @@
 
 <img width="652" alt="스크린샷 2023-03-06 오후 4 16 27" src="https://user-images.githubusercontent.com/62871026/223043213-8d5d50ac-98ee-4561-bee7-c579e8f31ab7.png">
 <img width="809" alt="스크린샷 2023-03-06 오후 4 28 22" src="https://user-images.githubusercontent.com/62871026/223045385-7b77c4a4-89ea-4364-be76-2aa7fa3eb27b.png">
+
+# step 4
+
+## StringTokenizer
+- Java로 코딩테스트 연습을 할 때 StringTokenizer로 split를 하곤 했는데 이는 구식이라고 한다
+- Java 11부터 Iterable<>를 쓸 것으로 권장하고 있다고 하여 이를 바탕으로 리팩토링 해주었다.
+- 추가로 메서드로 분리했다. (분리하는 과정에서 for문 안에 있는 if문도 분리됨)
+
+[변경 내역](https://github.com/won4885/be-java-ladder-max/commit/05f9d538a2b996352ac46a5dd64dcd211e9ec534)

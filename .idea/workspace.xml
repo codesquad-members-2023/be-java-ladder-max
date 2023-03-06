@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: 참여자 수, 사다리 높이 늘린 실행 결과 추가 업로드&#10;&#10;이제 step4로 넘어가야지">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="refactor(Main): StringTokenizer를 Iterable로 리팩토링&#10;&#10;추가로 메서드도 나눠서 main()의 코드 수 줄임">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +137,7 @@
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678068503024" duration="2671000" />
       <workItem from="1678077123619" duration="4416000" />
-      <workItem from="1678081715723" duration="6595000" />
+      <workItem from="1678081715723" duration="6902000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자">
       <created>1678069392649</created>
@@ -308,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678087787772</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="refactor(Main): StringTokenizer를 Iterable로 리팩토링&#10;&#10;추가로 메서드도 나눠서 main()의 코드 수 줄임">
+      <created>1678088412522</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1678088412522</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,6 +356,7 @@
     <MESSAGE value="feat: 공백, 마이너스 기호 출력에서 논리적 오류 해결&#10;&#10;isMinusSign 위치를 출력하는 메서드 안에 넣어줘서 줄이 바뀔 때마다 초기화시켜줌&#10;letter를 append하는 메서드에 깃발 변경 기능 넣어줌" />
     <MESSAGE value="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드" />
     <MESSAGE value="docs: 참여자 수, 사다리 높이 늘린 실행 결과 추가 업로드&#10;&#10;이제 step4로 넘어가야지" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 참여자 수, 사다리 높이 늘린 실행 결과 추가 업로드&#10;&#10;이제 step4로 넘어가야지" />
+    <MESSAGE value="refactor(Main): StringTokenizer를 Iterable로 리팩토링&#10;&#10;추가로 메서드도 나눠서 main()의 코드 수 줄임" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(Main): StringTokenizer를 Iterable로 리팩토링&#10;&#10;추가로 메서드도 나눠서 main()의 코드 수 줄임" />
   </component>
 </project>
