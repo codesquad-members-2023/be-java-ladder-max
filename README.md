@@ -11,6 +11,8 @@
    - Encoding 클래스에 의존
    - Output 클래스에 의존
    - run()
+     - output.printMessageN()
+     - output.printMessageM()
      - input.intputN()
      - input.intputM()
      - validation.validateInput(String, String)
@@ -34,6 +36,8 @@
 - Encoding 클래스
   - encoding.encodeLadder(String[][]) : String[][]으로 받은 사다리를 String 형으로 반환
 - Output 클래스
+  - printMessageN : N 입력을 위한 메세지 출력
+  - printMessageM : M 입력을 위한 메세지 출력
   - printLadder(String) : String으로 받은 사다리를 화면에 출력
 
 
