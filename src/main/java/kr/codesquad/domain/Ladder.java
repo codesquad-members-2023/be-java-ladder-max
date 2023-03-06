@@ -24,4 +24,23 @@ public class Ladder {
             .mapToObj(n -> random.nextBoolean())
             .toArray(Boolean[]::new);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int numberOfUsers = 0; numberOfUsers < this.ladder[0].length; numberOfUsers++) {
+            putRowLadder(stringBuilder, numberOfUsers);
+        }
+
+        return stringBuilder.toString();
+    }
+
+    private void putRowLadder(StringBuilder stringBuilder, int numberOfUsers) {
+        for (int ladderHeight = 0; ladderHeight < this.ladder.length - 1; ladderHeight++) {
+            stringBuilder.append(String.format("|%s", this.ladder[ladderHeight][numberOfUsers] ? "-" : " "));
+        }
+
+        stringBuilder.append("|\n");
+    }
 }
