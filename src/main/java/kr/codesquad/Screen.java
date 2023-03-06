@@ -21,7 +21,24 @@ public class Screen {
         return scanner.nextInt();
     }
 
-    public static void printLadderMap(List<String> ladderMap) {
-        ladderMap.forEach(System.out::println);
+    public static void printResult(List<String> playerNames, List<String> ladderMap) {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        printPlayerNames(playerNames, stringBuilder);
+        printLadderMap(ladderMap, stringBuilder);
+
+        System.out.println(stringBuilder);
+    }
+
+    private static void printPlayerNames(List<String> playerNames, StringBuilder stringBuilder) {
+        for (String playerName : playerNames) {
+            stringBuilder.append(String.format("%-6s", playerName));
+        }
+
+        stringBuilder.append("\n");
+    }
+
+    private static void printLadderMap(List<String> ladderMap, StringBuilder stringBuilder) {
+        ladderMap.forEach(ladderLine -> stringBuilder.append(ladderLine).append("\n"));
     }
 }

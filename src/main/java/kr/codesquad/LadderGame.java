@@ -12,6 +12,6 @@ public class LadderGame {
     }
 
     public void run() {
-        Screen.printLadderMap(ladder.makeMapToString());
+        Screen.printResult(playerNames, ladder.makeMapToString());
     }
 }
