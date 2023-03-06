@@ -34,14 +34,13 @@ public class LadderShape {
         }
     }
 
-
-
     // 테스트를 위해서는 printf가 아닌 String.format() 형태로 List에 저장해야 됨
     // @Test
     private List<String> formatList;
+
     public void printParticipants() {
         formatList = participantList.stream()
-                .map(participant -> String.format("%5s ", participant))
+                .map(participant -> String.format("%5s", participant))
                 .collect(Collectors.toList());
         formatList.forEach(System.out::print);
         printNewLine();

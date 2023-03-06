@@ -68,3 +68,18 @@
 - `kr.codesquad.ladder` -> `Main`
 - `kr.codesquad.ladder.domain` -> `Ladder`, `LadderShape`
 - `kr.codesquad.ladder.view` -> `Console`
+
+## 단위 테스트
+
+- `domain`에서 실행 메서드를 제외한 나머지 메서드들은 전부 `private` 처리를 해주었다.
+  - 위와 같은 이유 때문에 내 지식의 한계로는 `public`으로 변경 후 테스트를 진행하는 것밖에 없었다.
+  - 테스트를 진행할 때만 `public`으로 변경 후 다시 롤백했다.
+
+### 최대_5글자_출력_여부_체크()
+
+- 기본 코드에서 접근 제한자를 public으로 바꾸고
+  - 게터를 임시로 만들어 어떻게든 통과했다.
+
+<img width="1299" alt="스크린샷 2023-03-06 오후 9 55 34" src="https://user-images.githubusercontent.com/62871026/223116525-2ef05012-5989-4cbf-9c45-533b1f4ce669.png">
+
+### minus_sign_가능_여부_체크()

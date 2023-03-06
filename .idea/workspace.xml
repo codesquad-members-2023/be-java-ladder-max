@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat(LadderShape): 최대 5글자까지 출력하도록 기능 추가&#10;&#10;원래는 공백으로만 출력했는데, String.format()으로 공백을 포함하여 무조건 5글자가 되게 만들었다.&#10;이제 테스트에 이 글자 수만 equal한지 확인만 하면 된다.&#10;나머지는 밥먹고..">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="test: 최대 5글자 출력 여부 체크를 위해 테스트 코드 생성&#10;&#10;단순 print문을 List에 저장&#10;저장 후 Test를 위해 임시 게터 사용 (이러면 안 되지만)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/ladder/domain/LadderShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/ladder/domain/LadderShape.java" afterDir="false" />
@@ -191,7 +191,7 @@
       <workItem from="1678077123619" duration="4416000" />
       <workItem from="1678081715723" duration="13814000" />
       <workItem from="1678101633325" duration="4000" />
-      <workItem from="1678105085769" duration="1379000" />
+      <workItem from="1678105085769" duration="2141000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자">
       <created>1678069392649</created>
@@ -417,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678095399314</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="test: 최대 5글자 출력 여부 체크를 위해 테스트 코드 생성&#10;&#10;단순 print문을 List에 저장&#10;저장 후 Test를 위해 임시 게터 사용 (이러면 안 되지만)">
+      <created>1678106894903</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1678106894903</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -435,7 +442,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor(Ladder): 랜덤으로 letter 선택하는 기능 메서드 분리&#10;&#10;분리 안 했으면 if문이 2개였음" />
     <MESSAGE value="docs: 내용 삭제" />
     <MESSAGE value="feat: 사다리 모양 클래스 틀 짜기&#10;&#10;원래는 step-1, step-2 부분을 주석 처리 후&#10;Console 클래스를 재사용할 생각이었지만,&#10;인터페이스 이용해서 겹치는 메서드를 오버라이딩 해주기로 결정했다&#10;ArrayList, Generic와 split 메서드로 참여할 사람 이름의 리스트에 넣어준다." />
     <MESSAGE value="feat: Console에서 모든 입력 전부 처리하도록 변경&#10;&#10;ShapeConsole 만들어서 인터페이스 생성하고 별 난리를 피웠는데 이건 너무 비효율적인 코드 같음&#10;그냥 Console에서 한꺼번에 입력 기능 처리" />
@@ -460,6 +466,7 @@
     <MESSAGE value="refactor(LadderShape): StringBuilder 방법을 List&lt;String&gt; 방법으로 재구현&#10;&#10;의미 없었던 static 없애기" />
     <MESSAGE value="style(LadderShape): 출력 규칙대로 하느라 depth가 2단계 됨&#10;&#10;그냥 Blank를 2번씩 계속 줘도 큰 상관 없으므로 이렇게 쓰자" />
     <MESSAGE value="feat(LadderShape): 최대 5글자까지 출력하도록 기능 추가&#10;&#10;원래는 공백으로만 출력했는데, String.format()으로 공백을 포함하여 무조건 5글자가 되게 만들었다.&#10;이제 테스트에 이 글자 수만 equal한지 확인만 하면 된다.&#10;나머지는 밥먹고.." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(LadderShape): 최대 5글자까지 출력하도록 기능 추가&#10;&#10;원래는 공백으로만 출력했는데, String.format()으로 공백을 포함하여 무조건 5글자가 되게 만들었다.&#10;이제 테스트에 이 글자 수만 equal한지 확인만 하면 된다.&#10;나머지는 밥먹고.." />
+    <MESSAGE value="test: 최대 5글자 출력 여부 체크를 위해 테스트 코드 생성&#10;&#10;단순 print문을 List에 저장&#10;저장 후 Test를 위해 임시 게터 사용 (이러면 안 되지만)" />
+    <option name="LAST_COMMIT_MESSAGE" value="test: 최대 5글자 출력 여부 체크를 위해 테스트 코드 생성&#10;&#10;단순 print문을 List에 저장&#10;저장 후 Test를 위해 임시 게터 사용 (이러면 안 되지만)" />
   </component>
 </project>
