@@ -1,13 +1,13 @@
 package kr.codesquad;
 
 public enum LadderPart {
-    POLES('|'),
-    CROSSBAR('-'),
-    NONE(' ');
+    POLES("|"),
+    CROSSBAR("-----"),
+    NONE("     ");
 
-    private final char shape;
+    private final String shape;
 
-    LadderPart(char shape) {
+    LadderPart(String shape) {
         this.shape = shape;
     }
 
@@ -16,7 +16,7 @@ public enum LadderPart {
             return POLES;
         }
 
-        if (Math.random() > 0.7) {
+        if (Math.random() > 0.5) {
             return CROSSBAR;
         }
 
@@ -25,6 +25,6 @@ public enum LadderPart {
 
     @Override
     public String toString() {
-        return String.valueOf(shape);
+        return shape;
     }
 }

@@ -1,36 +1,39 @@
 package kr.codesquad;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Ladder {
-    private final LadderPart[][] map;
+    private final List<List<LadderPart>> map = new ArrayList<>();
 
     public Ladder(int player, int height) {
-        map = new LadderPart[height][player * 2 - 1];
-        initMap();
+        initMap(player, height);
     }
 
-    private void initMap() {
-        for (int y = 0; y < map.length; y++) {
-            initWidthLine(y);
+    private void initMap(int player, int height) {
+        int width = player * 2 - 1;
+
+        for (int y = 0; y < height; y++) {
+            map.add(y, new ArrayList<>());
+            initWidthLine(width, y);
         }
     }
 
-    private void initWidthLine(int y) {
-        for (int x = 0; x < map[0].length; x++) {
-            map[y][x] = LadderPart.create(x);
+    private void initWidthLine(int width, int y) {
+        for (int x = 0; x < width; x++) {
+            map.get(y).add(LadderPart.create(x));
         }
     }
 
-    public String makeMapToString() {
-        return Arrays.stream(map)
+    public List<String> makeMapToString() {
+        return map.stream()
                 .map(Ladder::makeLadderLineToString)
-                .collect(Collectors.joining("\n"));
+                .collect(Collectors.toList());
     }
 
-    private static String makeLadderLineToString(LadderPart[] ladderWidthLine) {
-        return Arrays.stream(ladderWidthLine)
+    private static String makeLadderLineToString(List<LadderPart> ladderWidthLine) {
+        return ladderWidthLine.stream()
                 .map(LadderPart::toString)
                 .collect(Collectors.joining());
     }

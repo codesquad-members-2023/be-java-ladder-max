@@ -1,14 +1,18 @@
 package kr.codesquad;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Screen {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static int inputPlayerNumber() {
-        System.out.println("참여할 사람은 몇 명인가요?");
+    public static List<String> inputPlayerNames() {
+        System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
 
-        return scanner.nextInt();
+        return Arrays.stream(scanner.nextLine().split(","))
+                .collect(Collectors.toList());
     }
 
     public static int inputLadderHeight() {
@@ -17,7 +21,7 @@ public class Screen {
         return scanner.nextInt();
     }
 
-    public static void printLadderMap(String ladderMap) {
-        System.out.println(ladderMap);
+    public static void printLadderMap(List<String> ladderMap) {
+        ladderMap.forEach(System.out::println);
     }
 }

@@ -1,10 +1,14 @@
 package kr.codesquad;
 
+import java.util.List;
+
 public class LadderGame {
+    private final List<String> playerNames;
     private final Ladder ladder;
 
     public LadderGame() {
-        ladder = new Ladder(Screen.inputPlayerNumber(), Screen.inputLadderHeight());
+        playerNames = Screen.inputPlayerNames();
+        ladder = new Ladder(playerNames.size(), Screen.inputLadderHeight());
     }
 
     public void run() {
