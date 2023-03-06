@@ -18,6 +18,8 @@ public class LadderShape {
     }
 
     public void printLadder() {
+        printParticipants();
+
         for (int i = 0; i < ladderShapeHeight; i++) {
             printLadderRows();
             System.out.println(stringBuilder);
@@ -25,7 +27,22 @@ public class LadderShape {
         }
     }
 
+    private void printParticipants() {
+        for (int i = 0; i < participantList.size(); i++) {
+            System.out.print(participantList.get(i));
+
+            // 리팩토링 필요
+            if (i % 2 == 0) {
+                repeatBlank(2);
+                continue;
+            }
+            repeatBlank(1);
+        }
+        System.out.println();
+    }
+
     private void printLadderRows() {
+        repeatBlank(2);
         for (int i = 0; i < participantList.size() + participantList.size() - 1; i++) {
             chooseLetter(i);
         }
@@ -72,5 +89,9 @@ public class LadderShape {
 
     private void appendBlank() {
         stringBuilder.append(" ".repeat(5));
+    }
+
+    private void repeatBlank(int n) {
+        System.out.print(" ".repeat(n));
     }
 }
