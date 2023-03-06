@@ -10,19 +10,17 @@ public class Ladder {
 	private static final Random random = new Random();
 
 	private final List<LadderLine> ladderLines;
-	private final int width;
 	private final int height;
 
 	public Ladder(final Input input) {
 		this.ladderLines = new ArrayList<>();
-		this.width = input.getNamesOfPerson().size();
 		this.height = input.getHeightOfLadder();
-		initLadderLines();
+		initLadderLines(input.getNamesOfPerson().size());
 	}
 
-	private void initLadderLines() {
+	private void initLadderLines(final int countOfPerson) {
 		for (int i = 0; i < height; i++) {
-			ladderLines.add(new LadderLine(width));
+			ladderLines.add(new LadderLine(countOfPerson));
 		}
 	}
 
