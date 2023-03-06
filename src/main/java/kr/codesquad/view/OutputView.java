@@ -12,6 +12,10 @@ public class OutputView {
 		System.out.println("최대 사다리 높이는 몇 개인가요?");
 	}
 
+	public void printErrorMsg(final Exception e) {
+		System.out.println(e.getMessage());
+	}
+
 	public void printFigureOfLadder(final Ladder ladder) {
 		System.out.println(ladder);
 	}

@@ -15,7 +15,8 @@ public class LadderGame {
 			final Input input = getInputFromUser();
 			final Ladder ladder = createLadder(input);
 			printFigureOfLadder(ladder);
-		} catch (IllegalArgumentException e) {
+		} catch (final IllegalArgumentException e) {
+			outputView.printErrorMsg(e);
 			startLadderGame();
 		}
 	}
