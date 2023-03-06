@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Console.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat: 입력받는 콘솔 기능 추가&#10;&#10;Main에서 그냥 한번에 입력받고, 출력하려고 했지만&#10;Console이라는 클래스를 만들어서 최대한 메서드 분리할 예정">
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +77,10 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -112,11 +113,31 @@
       <option name="presentableId" value="Default" />
       <updated>1672210428730</updated>
       <workItem from="1672210432725" duration="156000" />
-      <workItem from="1678068503024" duration="669000" />
+      <workItem from="1678068503024" duration="1007000" />
     </task>
+    <task id="LOCAL-00001" summary="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자">
+      <created>1678069392649</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678069392649</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: 입력받는 콘솔 기능 추가&#10;&#10;Main에서 그냥 한번에 입력받고, 출력하려고 했지만&#10;Console이라는 클래스를 만들어서 최대한 메서드 분리할 예정">
+      <created>1678069440486</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678069440486</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자" />
+    <MESSAGE value="feat: 입력받는 콘솔 기능 추가&#10;&#10;Main에서 그냥 한번에 입력받고, 출력하려고 했지만&#10;Console이라는 클래스를 만들어서 최대한 메서드 분리할 예정" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 입력받는 콘솔 기능 추가&#10;&#10;Main에서 그냥 한번에 입력받고, 출력하려고 했지만&#10;Console이라는 클래스를 만들어서 최대한 메서드 분리할 예정" />
   </component>
 </project>
