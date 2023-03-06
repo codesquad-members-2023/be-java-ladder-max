@@ -10,6 +10,11 @@ public class InputView {
         return readInt();
     }
 
+    public static int readLadderSize() {
+        System.out.println("최대 사다리 높이는 몇 개인가요?");
+        return readInt();
+    }
+
     private static int readInt() {
         try {
             return Integer.parseInt(readLine());
