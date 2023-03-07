@@ -14,7 +14,7 @@ public class Ladder {
 
     private void createLadderEmpty(int n, int m) {
         this.length = m;
-        this.width = n + 2;
+        this.width = n + (n - 1);
         laddersFrame = new String[length][width];
     }
 
