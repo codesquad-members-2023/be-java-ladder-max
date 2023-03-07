@@ -2,6 +2,12 @@ package kr.codesquad;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Input input = new Input();
+        int players = input.inputPlayers();
+        int height = input.inputHeight();
+        Ladder ladder = new Ladder(players, height);
+        Output output= new Output();
+
+        output.printLadder(ladder.getRungs());
     }
 }
