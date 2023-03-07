@@ -6,42 +6,40 @@ import java.util.Random;
 
 public class LadderLine {
 
-	private final int width;
-	private final List<Boolean> isExistsLine;
+	private final List<Boolean> points;
+
+	public LadderLine(final List<Boolean> points) {
+		this.points = points;
+	}
 
 	public LadderLine(final int countOfPerson) {
-		this.width = countOfPerson - 1;
-		this.isExistsLine = new ArrayList<>();
-		for (int i = 0; i < countOfPerson - 1; i++) {
-			isExistsLine.add(false);
-		}
+		this(drawLineRandomly(new Random(), countOfPerson - 1));
 	}
 
-	public void drawLineRandomly(final Random random) {
-		for (int i = 0; i < width; i++) {
-			drawLine(i, random.nextBoolean());
+	private static List<Boolean> drawLineRandomly(final Random random, final int countOfPerson) {
+		List<Boolean> points = new ArrayList<>();
+
+		for (int pos = 0; pos < countOfPerson; pos++) {
+			points.add(drawLine(pos, random, points));
 		}
+		return points;
 	}
 
-	private void drawLine(final int pos, boolean isDraw) {
+	private static boolean drawLine(final int pos, final Random random, final List<Boolean> line) {
 		if (pos == 0) {
-			isExistsLine.set(pos, isDraw);
-			return;
+			return random.nextBoolean();
 		}
-		if (pos == width - 1 && !isExistsLine.get(pos - 1)) {
-			isExistsLine.set(width - 1, isDraw);
-			return;
+		if (line.get(pos - 1)) {
+			return false;
 		}
-		if (!isExistsLine.get(pos - 1) && !isExistsLine.get(pos + 1)) {
-			isExistsLine.set(pos, isDraw);
-		}
+		return random.nextBoolean();
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder ladderLineFigure = new StringBuilder();
 		ladderLineFigure.append("  |");
-		for (final Boolean isFill : isExistsLine) {
+		for (final Boolean isFill : points) {
 			drawLine(ladderLineFigure, isFill);
 		}
 		return ladderLineFigure.toString();

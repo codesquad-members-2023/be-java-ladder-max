@@ -41,9 +41,7 @@ public class LadderGame {
 	}
 
 	private Ladder createLadder(final int countOfPerson, final int height) {
-		final Ladder ladder = new Ladder(countOfPerson, height);
-		ladder.createFigureOfLadder();
-		return ladder;
+		return new Ladder(countOfPerson, height);
 	}
 
 	private void printStateOfLadder(final List<String> names, final Ladder ladder) {
