@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.view;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ public class LadderPrinter {
 
     public static final int LIMIT_LENGTH = 5;
 
-    void print(String drawnLadder) {
+    public void print(String drawnLadder) {
         System.out.println(drawnLadder);
     }
 
@@ -20,7 +20,7 @@ public class LadderPrinter {
         System.out.println(drawnLadder);
     }
 
-    private static String limitName(String requestName) {
+    static String limitName(String requestName) {
         if (requestName.length() > LIMIT_LENGTH) {
             requestName = requestName.substring(0, LIMIT_LENGTH);
         }

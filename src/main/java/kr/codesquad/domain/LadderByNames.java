@@ -1,15 +1,15 @@
-package kr.codesquad;
+package kr.codesquad.domain;
 
 import java.util.Random;
 import java.util.function.Supplier;
 
 public class LadderByNames implements Ladder {
 
-    public static final String SUCCESS_DELIMITER = "-----";
-    public static final String FAIL_DELIMITER = "     ";
-    public static final String PEOPLE_DELIMITER = "|";
-    public static final String NEXT_LINE = "\n";
-    public static final String PREFIX = "   ";
+    static final String SUCCESS_DELIMITER = "-----";
+    static final String FAIL_DELIMITER = "     ";
+    static final String PEOPLE_DELIMITER = "|";
+    static final String NEXT_LINE = "\n";
+    static final String PREFIX = "   ";
     private final Random random = new Random();
 
     @Override
@@ -30,15 +30,19 @@ public class LadderByNames implements Ladder {
         result.append(PREFIX)
             .append(PEOPLE_DELIMITER);
         for (int j = 0; j < peopleCount - 1; j++) {
-            possible = addSuccess(condition, result, possible);
+            possible = addLadder(condition, result, possible);
         }
         result.append(NEXT_LINE);
     }
 
-    private static boolean addSuccess(Supplier<Boolean> condition, StringBuilder result, boolean possible) {
+    private static boolean addLadder(Supplier<Boolean> condition, StringBuilder result, boolean possible) {
         Boolean randomBoolean = condition.get();
-        result.append(randomBoolean && possible ? SUCCESS_DELIMITER : FAIL_DELIMITER)
-            .append(PEOPLE_DELIMITER);
+        addLadder(result, possible, randomBoolean);
         return !(randomBoolean && possible);
+    }
+
+    static void addLadder(StringBuilder result, boolean beforeIsTrue, boolean currentIsPossible) {
+        result.append(currentIsPossible && beforeIsTrue ? SUCCESS_DELIMITER : FAIL_DELIMITER)
+            .append(PEOPLE_DELIMITER);
     }
 }

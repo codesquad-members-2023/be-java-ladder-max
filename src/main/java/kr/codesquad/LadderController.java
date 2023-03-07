@@ -1,6 +1,10 @@
 package kr.codesquad;
 
 import java.util.List;
+import kr.codesquad.domain.Ladder;
+import kr.codesquad.domain.LadderByNames;
+import kr.codesquad.view.InputRequest;
+import kr.codesquad.view.LadderPrinter;
 
 public class LadderController {
 
@@ -8,7 +12,7 @@ public class LadderController {
     private final Ladder ladder = new LadderByNames();
     private final LadderPrinter ladderPrinter = new LadderPrinter();
 
-    void start() {
+    public void start() {
 //        request();
         requestNames();
     }

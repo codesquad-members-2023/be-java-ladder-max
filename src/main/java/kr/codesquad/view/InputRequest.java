@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.view;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,10 +10,10 @@ public class InputRequest {
 
 
     private final static String DIGIT_PATTERN = "^[1-9][0-9]*$";
-    public static final String REQUEST_PEOPLE_COUNT = "참여할 사람은 몇 명인가요?";
-    public static final String REQUEST_RADDER_HEIGHT = "최대 사다리 높이는 몇 개인가요?";
-    public static final String REQUEST_NAMES = "참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)";
-    public static final String NAMES_FORMATTER = "^[a-z]+(,[a-z]+)+$";
+    private static final String REQUEST_PEOPLE_COUNT = "참여할 사람은 몇 명인가요?";
+    private static final String REQUEST_RADDER_HEIGHT = "최대 사다리 높이는 몇 개인가요?";
+    private static final String REQUEST_NAMES = "참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)";
+    private static final String NAMES_FORMATTER = "^[a-z]+(,[a-z]+)+$";
 
     public List<String> requestNames() {
         System.out.println(REQUEST_NAMES);
