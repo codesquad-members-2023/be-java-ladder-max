@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: private 메서드 테스트 지양 학습">
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderPartGenerator.java" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="style: 도메인 객체 변경에 따른 코드 정리">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/kr/codesquad/LadderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kr/codesquad/LadderPartGeneratorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/kr/codesquad/LadderPartGeneratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kr/codesquad/LadderPartGeneratorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +217,7 @@
       <workItem from="1678074074442" duration="19450000" />
       <workItem from="1678105710161" duration="298000" />
       <workItem from="1678109953408" duration="747000" />
-      <workItem from="1678196064947" duration="5141000" />
+      <workItem from="1678196064947" duration="5688000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1678073802573</created>
@@ -376,7 +373,35 @@
       <option name="project" value="LOCAL" />
       <updated>1678199107273</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="modify: 기존 랜덤한 사다리를 생성하는 기능을 LadderPartGenerator 객체에게 이전함&#10;&#10;* 사다리는 인원수와 최대사다리 높이라는 상태를 가진 객체로써 랜덤한 사다리를 생성하는 기능은 LadderPartGenerator 객체가 하는 것이 더 적절하다고 생각하여 사다리(Ladder) 객체를 도메인 객체로써 수정하였습니다.&#10;* 사다리 객체는 자신의 상태인 인원수와 사다리최대높이를 이용하여 인원수와 높이에 따른 2차원 문자열 배열을 생성하는 기능을 가지고 있습니다.">
+      <created>1678202018663</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1678202018663</updated>
+    </task>
+    <task id="LOCAL-00024" summary="feat: 사다리 부품 생성 기능&#10;&#10;* 기존 사다리(Ladder) 객체의 랜덤한 사다리 생성 기능을 이전받은 객체입니다.&#10;* 객체 생성시 사다리와 랜덤 모듈을 주입받아서 사다리 객체에 따른 랜덤한 사다리(2차원 문자열 배열)을 생성합니다.">
+      <created>1678202089735</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1678202089735</updated>
+    </task>
+    <task id="LOCAL-00025" summary="modify : LadderPartGenerator 객체 생성시 Random 객체를 생성하여 주입하도록 변경">
+      <created>1678202182379</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1678202182379</updated>
+    </task>
+    <task id="LOCAL-00026" summary="style: 도메인 객체 변경에 따른 코드 정리">
+      <created>1678202226096</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1678202226096</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +419,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit" />
     <MESSAGE value="docs: 학습 목표 및 미션 요구사항 작성&#10;&#10;* String과 관련된 학습 목표 작성&#10;* 사다리 게임에 대한 요구사항 작성" />
     <MESSAGE value="docs: 사다리 게임 사람 입력범위 수정&#10;&#10;* 사람 명수 입력시 최소 1명 이상에서 최소 2명이사으로 수정" />
     <MESSAGE value="test: 랜덤한 사다리 생성 테스트 케이스 추가&#10;&#10;* 사람=2, 사다리=2 테스트 케이스&#10;* 사람=3, 사다리=5 테스트 케이스" />
@@ -416,7 +440,11 @@
     <MESSAGE value="docs: README에 사다리게임 빌드 및 실행 추가" />
     <MESSAGE value="docs: 학습목표의 String, StringBuilder, StringBuffer 학습" />
     <MESSAGE value="docs: private 메서드 테스트 지양 학습" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: private 메서드 테스트 지양 학습" />
+    <MESSAGE value="modify: 기존 랜덤한 사다리를 생성하는 기능을 LadderPartGenerator 객체에게 이전함&#10;&#10;* 사다리는 인원수와 최대사다리 높이라는 상태를 가진 객체로써 랜덤한 사다리를 생성하는 기능은 LadderPartGenerator 객체가 하는 것이 더 적절하다고 생각하여 사다리(Ladder) 객체를 도메인 객체로써 수정하였습니다.&#10;* 사다리 객체는 자신의 상태인 인원수와 사다리최대높이를 이용하여 인원수와 높이에 따른 2차원 문자열 배열을 생성하는 기능을 가지고 있습니다." />
+    <MESSAGE value="feat: 사다리 부품 생성 기능&#10;&#10;* 기존 사다리(Ladder) 객체의 랜덤한 사다리 생성 기능을 이전받은 객체입니다.&#10;* 객체 생성시 사다리와 랜덤 모듈을 주입받아서 사다리 객체에 따른 랜덤한 사다리(2차원 문자열 배열)을 생성합니다." />
+    <MESSAGE value="modify : LadderPartGenerator 객체 생성시 Random 객체를 생성하여 주입하도록 변경" />
+    <MESSAGE value="style: 도메인 객체 변경에 따른 코드 정리" />
+    <option name="LAST_COMMIT_MESSAGE" value="style: 도메인 객체 변경에 따른 코드 정리" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -26,11 +26,10 @@ class LadderPartGeneratorTest {
         m = 2;
         random = new Random();
         ladder = new Ladder(n, m);
-        generator = new LadderPartGenerator(ladder, random);
         //mocking
-        Random mockRandom = mock(Random.class);
+        Random mockRandom = mock(random.getClass());
         when(mockRandom.nextBoolean()).thenReturn(true, false);
-        setRandomBridge(generator, mockRandom);
+        generator = new LadderPartGenerator(ladder, mockRandom);
         //when
         String[][] actual = generator.generate();
         //then
@@ -48,12 +47,11 @@ class LadderPartGeneratorTest {
         m = 5;
         random = new Random();
         ladder = new Ladder(n, m);
-        generator = new LadderPartGenerator(ladder, random);
         //mocking
-        Random mockRandom = mock(Random.class);
+        Random mockRandom = mock(random.getClass());
         when(mockRandom.nextBoolean()).thenReturn(true, false, false, true, true, true, false, true,
             true, false);
-        setRandomBridge(generator, mockRandom);
+        generator = new LadderPartGenerator(ladder, mockRandom);
         //when
         String[][] actual = generator.generate();
         //then
@@ -65,16 +63,5 @@ class LadderPartGeneratorTest {
                 {"|", "-", "|", " ", "|"}};
         Assertions.assertThat(actual).isEqualTo(expected);
     }
-
-    private void setRandomBridge(LadderPartGenerator generator, Random mockRandom) {
-        try {
-            Field field = generator.getClass().getDeclaredField("random");
-            field.setAccessible(true);
-            field.set(generator, mockRandom);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
 
 }
