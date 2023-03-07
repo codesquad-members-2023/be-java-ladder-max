@@ -83,9 +83,10 @@ $ java -jar ./build/libs/java-lotto-1.0-SNAPSHOT.jar
     - static 메서드와 객체 메서드가 저장되는 위치
     - static 메서드와 객체 메서드의 성능(시간, 메모리공간)의 차이
 - [ ] 콘솔 출력을 위해서 static 메서드 대신 더욱 효율적인 방법을 탐색해보기
-- [ ] Early Return Pattern
+- [x] [Return Early Pattern](#Return-Early-Pattern)
 - [ ] private 메서드 테스트 지양해야 하는 이유 학습
 - [ ] 클린 코딩 기초 학습
+- [ ] PR 머지 승인전에 브랜치를 따서 해당 브랜치 기반으로 작업하여 다시 PR할 경우 커밋이 딸려오는 문제해결하기
 
 ## String, StringBuilder, StringBuffer 비교
 
@@ -272,9 +273,9 @@ str1,str2와 str3간에 주소가 다른 이유는 **문자열 상수값("hello"
 - String 타입 변수에 문자열 상수값("hello") 저장 : 힙영역의 String Pool 공간에 저장
 - new String("hello")로 저장 : 힙 영역의 String Pool 공간이 아닌 곳에 저장
 
-## Early Return Pattern
+## Return Early Pattern
 
-### Early Return Pattern 필요성
+### Return Early Pattern 필요성
 
 예를 들어 다음과 같은 코드가 있습니다.
 
@@ -324,13 +325,13 @@ class Example {
   코드의 모양이 마치 화살과 같다고 붙여진 패턴이름입니다.
   위 예제와 같이 중첩된 if문과 루프로 인해서 만들어집니다.
 
-### Early Return Pattern 개념
+### Return Early Pattern 개념
 
-- Early Return은 함수 혹은 메서드를 작성하는 방법으로, Early Return을 사용하여
+- Return Early은 함수 혹은 메서드를 작성하는 방법으로, Return Early을 사용하여
   예상하는 결과가 함수의 끝에서 리턴하도록 하는 패턴입니다.
 - 조건이 충족되지 않았을때 코드의 나머지 부분이 실행문을 종료(예외처리를 리턴함으로써)시킵니다.
 
-다음 코드는 위 anti-pattern을 가지고 있는 예제를 Early Return 패턴으로 적용한 예제입니다.
+다음 코드는 위 anti-pattern을 가지고 있는 예제를 Return Early 패턴으로 적용한 예제입니다.
 
 ```java
 class Example {
@@ -368,11 +369,62 @@ class Example {
   싶으면 맨 밑만 확인하면 됩니다.)
 - 이 사고 과정을 활용하여 에러를 가장 먼저 찾는데 주의를 기울일 수 있습니다.
   이렇게 되면 비즈니스 로직을 나중에 구현하여 안정적으로 구현할 수 있습니다.
+- 예외 케이스를 먼저 처리하기 때문에 테스트 코드를 작성하기 쉽게 해줍니다.
+- 함수는 에러가 발생하는 즉시 종료되기에, 의도하지 않게 코드가 실행될 가능성을 방지하게 합니다.
+
+### Return Early 마인드 셋을 사용하여 쓸 수 있는 디자인 패턴
+
+#### Fail Fast
+
+- 2004년 Jim Shore와 Martin Folwer가 Fail Fast 컨셉을 창안
+- Fail Fast 디자인 패턴은 Return Early 규칙의 기초입니다.
+- 초기에 코드 실행이 종료될 수 있는 조건을 찾는데 집중하는 디자인 패턴입니다.
+- Fail Fast 디자인 패턴을 사용하여 버그를 찾고 고치는 것을 쉽게 해줍니다.
+
+#### Guard Clause
+
+- `Guard Clause`는 return문이나 예외를 사용하여 즉각적으로 함수를 종료시키는 방식(if문을 뒤집은 방식)입니다.
+    - if문을 뒤집은 방식은 성공했을때 if문 안쪽의 로직을 실행하는 것이 아닌 실패하는 조건을 검사하여
+      예외를 발생시키는 방식이라고 생각합니다.
+- Guard Clause 디자인 패턴을 사용하여 가능성이 있는 에러 케이스를 식별하고
+  적절한 예외를 반환하여 각 처리를 수행합니다.
+
+![](img/img_5.png)
+
+위 그림의 함수에서 happy path은 어떠한 validation rule도 에러를 일으키지 않는데 있습니다.
+
+실행문이 끝까지 성공적으로 지속되게 하여 긍정적인 응답을 반환하는 것이 happy path입니다.
+
+#### Bouncer Pattern
+
+- Bouncer Pattern은 에러가 발생하는지 검사하고 에러가 발생하는 조건이라면 에외를 던져서 판별하는 방법입니다.
+- 판별 코드가 복잡하고 다양한 케이스에 대해 검증할때 특히 유용합니다.
+- Return Early 패턴을 보완합니다.
+
+```java
+class Example {
+
+    private void validateArgument1(SomeObject argument1) {
+        if (!argument1.isValid()) {
+            throw new Exception();
+        }
+        if (!argument2.isValid()) {
+            throw new Exception();
+        }
+    }
+
+    public void doStuff(String argument1) {
+        validateArgument(argument1);
+        // do more stuff;
+    }
+}
+```
 
 ## References
 
 - [\[Java\] String, StringBuffer, StringBuilder 차이 및 장단점](https://dev-jwblog.tistory.com/108#3.%20StringBuffer%20/%20StringBuilder)
 - [StringBuffer, StringBuilder 가 String 보다 성능이 좋은 이유와 원리](https://cjh5414.github.io/why-StringBuffer-and-StringBuilder-are-better-than-String/)
+- [\[디자인 패턴\]Early return pattern이란?](https://woonys.tistory.com/m/entry/Design-PatternJavaEarly-return-pattern%EC%9D%B4%EB%9E%80)
 
 - [\[Java\] Private 메소드를 테스트하는 방법과 이를 지양해야 하는 이유](https://mangkyu.tistory.com/235)
 - [정적 메소드, 너 써도 될까?](https://tecoble.techcourse.co.kr/post/2020-07-16-static-method/)

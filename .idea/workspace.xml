@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="test: 랜덤한 사다리 생성 테스트 케이스 추가&#10;&#10;* 사람=2, 사다리=2 테스트 케이스&#10;* 사람=3, 사다리=5 테스트 케이스">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: 학습 계획 작성 및 Early Return Pattern 내용 작성&#10;&#10;* 2023-03-07 날 학습할 계획성 작성&#10;* Early Return Pattern에 대한 내용 작성">
+      <change afterPath="$PROJECT_DIR$/img/img_5.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -216,6 +217,7 @@
       <workItem from="1678074074442" duration="19450000" />
       <workItem from="1678105710161" duration="298000" />
       <workItem from="1678109953408" duration="747000" />
+      <workItem from="1678172764958" duration="2015000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1678073802573</created>
@@ -364,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678093053266</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="docs: 학습 계획 작성 및 Early Return Pattern 내용 작성&#10;&#10;* 2023-03-07 날 학습할 계획성 작성&#10;* Early Return Pattern에 대한 내용 작성">
+      <created>1678172458322</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1678172458322</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +412,8 @@
     <MESSAGE value="docs: README에 사다리게임 빌드 및 실행 추가" />
     <MESSAGE value="docs: 학습목표의 String, StringBuilder, StringBuffer 학습" />
     <MESSAGE value="test: 랜덤한 사다리 생성 테스트 케이스 추가&#10;&#10;* 사람=2, 사다리=2 테스트 케이스&#10;* 사람=3, 사다리=5 테스트 케이스" />
-    <option name="LAST_COMMIT_MESSAGE" value="test: 랜덤한 사다리 생성 테스트 케이스 추가&#10;&#10;* 사람=2, 사다리=2 테스트 케이스&#10;* 사람=3, 사다리=5 테스트 케이스" />
+    <MESSAGE value="docs: 학습 계획 작성 및 Early Return Pattern 내용 작성&#10;&#10;* 2023-03-07 날 학습할 계획성 작성&#10;* Early Return Pattern에 대한 내용 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 학습 계획 작성 및 Early Return Pattern 내용 작성&#10;&#10;* 2023-03-07 날 학습할 계획성 작성&#10;* Early Return Pattern에 대한 내용 작성" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
