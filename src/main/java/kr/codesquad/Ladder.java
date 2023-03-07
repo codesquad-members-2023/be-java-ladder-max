@@ -37,8 +37,11 @@ public class Ladder {
             ladder.add("  ");
             for (int j = 0; j < (ladderWidth) * 2 - 1; j++) {
                 if (j % 2 != 0) {
-                    ladder.add(random() ? "-----" : "     ");
-
+                    if (randomCheck()) {
+                        ladder.add(random() ? "-----" : "     ");
+                    } else {
+                        ladder.add("     ");
+                    }
                 } else {
                     ladder.add("|");
                 }
@@ -46,6 +49,12 @@ public class Ladder {
             ladder.add("\n");
         }
 
+    }
+
+    boolean randomCheck() {
+        if (!ladder.get(ladder.size() - 2).equals("-----"))
+            return true;
+        return false;
     }
 
     public ArrayList getLadder() {
