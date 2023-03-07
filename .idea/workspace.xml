@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs : 1단계 체크리스트 작성">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="refactor : LadderGenerator 클래스 로직 수정 및 메서드명 변경&#10;&#10;사다리의 요소를 만드는 메서드와 그 요소들을 결합하는 메서드로 분리해 로직을 수정했습니다.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/OutputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/OutputView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +98,7 @@
       <updated>1672210428730</updated>
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678091934798" duration="1550000" />
-      <workItem from="1678143731220" duration="17755000" />
+      <workItem from="1678143731220" duration="20624000" />
     </task>
     <task id="LOCAL-00001" summary="docs : 1단계 체크리스트 작성">
       <created>1678144272811</created>
@@ -138,6 +138,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="docs : 1단계 체크리스트 작성" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs : 1단계 체크리스트 작성" />
+    <MESSAGE value="refactor : LadderGenerator 클래스 로직 수정 및 메서드명 변경&#10;&#10;사다리의 요소를 만드는 메서드와 그 요소들을 결합하는 메서드로 분리해 로직을 수정했습니다." />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor : LadderGenerator 클래스 로직 수정 및 메서드명 변경&#10;&#10;사다리의 요소를 만드는 메서드와 그 요소들을 결합하는 메서드로 분리해 로직을 수정했습니다." />
   </component>
 </project>

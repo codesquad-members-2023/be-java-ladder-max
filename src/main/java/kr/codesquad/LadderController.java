@@ -16,8 +16,8 @@ public class LadderController {
         outputView.printMaxHeight();
         int maxHeight = inputView.userInput();
 
-        this.ladderGenerator = new LadderGenerator(joinMembers, maxHeight);
-        String[][] ladder = ladderGenerator.makeLadder();
+        this.ladderGenerator = new LadderGenerator(joinMembers, maxHeight); // 다른 방법 찾아보기
+        String[][] ladder = ladderGenerator.generateLadder();
         outputView.printLadderState(ladder);
     }
 }

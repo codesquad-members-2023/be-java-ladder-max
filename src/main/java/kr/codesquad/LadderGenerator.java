@@ -12,19 +12,23 @@ public class LadderGenerator {
         ladder = new String[this.maxHeight = maxHeight][column];
     }
 
-    public String[][] makeLadder() {
-        String[][] ladder = new String[maxHeight][column];
+    public String[][] generateLadder() {
+        generateLadderArray();
+        generateRandomLine();
+        generateBorderLine();
+        return ladder;
+    }
+
+    public void generateLadderArray() {
+        ladder = new String[maxHeight][column];
         for (int i = 0; i < ladder.length; i++) {
             for (int j = 0; j < ladder[i].length; j++) {
                 ladder[i][j] = " ";
             }
         }
-        makeRandomLine(ladder);
-        makeBorderLine(ladder);
-        return ladder;
     }
 
-    public void makeRandomLine(String[][] ladder) {
+    public void generateRandomLine() {
         for (int i = 0; i < ladder.length; i++) {
             for (int j = 0; j < ladder[i].length; j++) {
                 if (j % 2 != 0) {
@@ -35,7 +39,7 @@ public class LadderGenerator {
         }
     }
 
-    public String[][] makeBorderLine(String[][] ladder) {
+    public void generateBorderLine() {
         for (int i = 0; i < ladder.length; i++) {
             for (int j = 0; j < ladder[i].length; j++) {
                 if (ladder[i][j].equals("true")) {
@@ -49,6 +53,5 @@ public class LadderGenerator {
                 ladder[i][j] = "|";
             }
         }
-        return ladder;
     }
 }
