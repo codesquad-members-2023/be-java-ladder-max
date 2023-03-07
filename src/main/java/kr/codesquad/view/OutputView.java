@@ -1,9 +1,11 @@
 package kr.codesquad.view;
 
+import kr.codesquad.domain.Ladder;
+
 public class OutputView {
 
-    public void printLadder(String[][] ladder) {
-        for(String[] ladderRow : ladder) {
+    public void printLadder(Ladder ladder) {
+        for(String[] ladderRow : ladder.getLadder()) {
             printLadderRow(ladderRow);
         }
     }

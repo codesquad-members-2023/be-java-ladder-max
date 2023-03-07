@@ -1,27 +1,45 @@
 package kr.codesquad.domain;
 
 public class Ladder {
+    private final String PLAYER_LINE = "|";
+    private final String BRIDGE = "-";
 
-    public String[][] makeLadder(int playerCount, int ladderHeight) {
+    private final String[][] ladder;
+    private final int rowSize;
+    private final int columnSize;
 
-        String[][] ladder = new String[ladderHeight][(playerCount*2) - 1];
+    public Ladder(int playerCount, int ladderHeight) {
+        this.rowSize = ladderHeight;
+        this.columnSize = (playerCount * 2) - 1;
+        this.ladder = makeLadder();
+    }
 
-        for(int row = 0; row < ladder.length; row++) {
-            addPlayerLine(ladder, row);
-            addBridge(ladder, row);
+    /* getter */
+    public String[][] getLadder() {
+        return ladder;
+    }
+
+    /* private method */
+    private String[][] makeLadder() {
+
+        String[][] ladder = new String[rowSize][columnSize];
+
+        for(int row = 0; row < rowSize; row++) {
+            addPlayerLineIntoRow(ladder, row);
+            addBridgeIntoRow(ladder, row);
         }
 
         return ladder;
     }
 
-    private void addPlayerLine(String[][] ladder, int row) {
-        for(int col = 0; col < ladder[0].length; col += 2) {
-            ladder[row][col] = "|";
+    private void addPlayerLineIntoRow(String[][] ladder, int row) {
+        for(int col = 0; col < columnSize; col += 2) {
+            insertPlayerLine(ladder, row, col);
         }
     }
 
-    private void addBridge(String[][] ladder, int row) {
-        for (int col = 1; col < ladder[0].length; col += 2) {
+    private void addBridgeIntoRow(String[][] ladder, int row) {
+        for (int col = 1; col < columnSize; col += 2) {
             insertBridge(ladder, row, col);
         }
     }
@@ -30,9 +48,13 @@ public class Ladder {
         return (int)(Math.random() * 2) == 1;
     }
 
-    private void insertBridge(String[][] ladder, int row, int col) {
+    private void insertPlayerLine(String[][] ladder, int row, int column) {
+        ladder[row][column] = PLAYER_LINE;
+    }
+
+    private void insertBridge(String[][] ladder, int row, int column) {
         if (shouldBuildingBridge()) {
-            ladder[row][col] = "-";
+            ladder[row][column] = BRIDGE;
         }
     }
 
