@@ -34,4 +34,20 @@ class InputViewTest {
         InputView inputView = new InputView();
         Assertions.assertThat(inputView.isRightNamesPattern(input)).isFalse();
     }
+    @DisplayName("결과 패턴에 매치 된다")
+    @ParameterizedTest
+    @ValueSource(strings = {"꽝,5000,꽝", "꽝,5000,2000,1000"})
+    void isRightResultPattern_True(String input) {
+        InputView inputView = new InputView();
+        Assertions.assertThat(inputView.isRightResultPattern(input)).isTrue();
+
+    }
+
+    @DisplayName("결과 패턴에 매치 안된다")
+    @ParameterizedTest
+    @ValueSource(strings = {"꽁,5000,꽝", "깡,5000,2000,1000"})
+    void isRightResultPattern_Fail(String input) {
+        InputView inputView = new InputView();
+        Assertions.assertThat(inputView.isRightResultPattern(input)).isFalse();
+    }
 }
