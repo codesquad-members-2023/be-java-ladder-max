@@ -1,7 +1,5 @@
 package kr.codesquad.ladder;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Ladder {
@@ -21,25 +19,37 @@ public class Ladder {
 
     public void fillLine() {
         for (int i = 0; i < ladder.length; i++) {
-            for (int j = 0; j < ladder[0].length; j += 2) {
-                ladder[i][j] = LADDER_LINE;
-            }
+            fillVerticalLine(i);
         }
     }
 
-    public void fillRandomWidthLine() {
-        for (int i = 0; i < ladder.length; i++) {
-            for (int j = 1; j < ladder[0].length; j += 2) {
-                boolean randomBoolean = Stream.generate(() -> (int) (Math.random() * 2))
-                        .limit(1).anyMatch(x -> x == 1);
-
-                if (randomBoolean) {
-                    ladder[i][j] = BAR_LETTER;
-                    continue;
-                }
-                ladder[i][j] = BLANK_LETTER;
-            }
+    private void fillVerticalLine(int i) {
+        for (int j = 0; j < ladder[0].length; j += 2) {
+            ladder[i][j] = LADDER_LINE;
         }
+    }
+
+    public void fillWidthLine() {
+        for (int i = 0; i < ladder.length; i++) {
+            fillRandomWidthLine(i);
+        }
+    }
+
+    private void fillRandomWidthLine(int i) {
+        for (int j = 1; j < ladder[0].length; j += 2) {
+            fillValuesByRandom(i, j);
+        }
+    }
+
+    private void fillValuesByRandom(int i, int j) {
+        boolean randomBoolean = Stream.generate(() -> (int) (Math.random() * 2))
+                .limit(1).anyMatch(x -> x == 1);
+
+        if (randomBoolean) {
+            ladder[i][j] = BAR_LETTER;
+            return;
+        }
+        ladder[i][j] = BLANK_LETTER;
     }
 
     public String getLadderStatus() {

@@ -12,9 +12,9 @@ public class LadderGame {
         ladder = Ladder.createLadder(height, participantCount);
     }
 
-    public void startLadder() {
+    public void drawLadder() {
         ladder.fillLine();
-        ladder.fillRandomWidthLine();
+        ladder.fillWidthLine();
         outputView.printLadder(ladder.getLadderStatus());
     }
 
