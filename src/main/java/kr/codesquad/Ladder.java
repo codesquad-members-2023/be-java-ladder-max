@@ -6,24 +6,25 @@ public class Ladder {
 
     public void makeLadderShape(int[] userInput) {
         ladder = new String[userInput[1]][userInput[0] * 2 - 1];
-        for (int i = 0; i < ladder.length; i++){
-            fillLadderLine(ladder[i]);
+        for (String[] strings : ladder) {
+            fillLadderLine(strings);
         }
     }
 
-    private void fillLadderLine(String[] customLadder) {
-        for (int i = 0; i < customLadder.length; i++){
-            if (i % 2 == 0)
-                customLadder[i] = "|";
-            else
-                customLadder[i] = randomLadderStep();
+    private void fillLadderLine(String[] customLadderLine) {
+        for (int i = 0; i < customLadderLine.length; i++){
+            fillRandomLadderStep(i, customLadderLine);
         }
     }
 
-    private String randomLadderStep() {
-        double rand = Math.random();
-        String result = (rand <= 0.5) ? " " : "-";
-        return result;
+    private void fillRandomLadderStep(int index, String[] customLadderLine) {
+        String randomStep = (Math.random() > 0.5) ? " " : "-";
+        if (index % 2 == 0) {
+            customLadderLine[index] = "|";
+        }
+        else if (index % 2 == 1) {
+            customLadderLine[index] = randomStep;
+        }
     }
 
     public String[][] getLadder() {
