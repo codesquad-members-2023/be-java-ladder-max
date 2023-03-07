@@ -24,7 +24,7 @@
 
 
 
-### Step1 설명
+### Step1 diagram
 
 ![step1_diagram(final)](https://raw.githubusercontent.com/CDBchan/Typora-img/main/img/step1_diagram(final).PNG)
 
@@ -46,11 +46,11 @@ InputHandler, OutputHandler(입출력) 클래스를 제어한다.
 
 ### 사다리 게임 Step3
 
-- [ ] 플레이어를 이름을 사용해서 추가 (이름은 최대 5글자)
-- [ ] 사람이름은 쉼표를 기준으로 구분
-- [ ] 사람 이름은 5글자를 기준으로 사다리 폭 증가
-- [ ] 사다리 라인이 겹치지 않도록 한다.
-- [ ] 요구사항
+- [x] 플레이어를 이름을 사용해서 추가 (이름은 최대 5글자)
+- [x] 사람이름은 쉼표를 기준으로 구분
+- [x] 사람 이름은 5글자를 기준으로 사다리 폭 증가
+- [x] 사다리 라인이 겹치지 않도록 한다.
+- [x] 요구사항
 
 > 구현을 할때 아래와 같은 **요구사항** 을 만족시키며 구현한다.
 >
@@ -59,3 +59,14 @@ InputHandler, OutputHandler(입출력) 클래스를 제어한다.
 > - else 사용 X
 > - ArrayList 와 Generic을 활용해 구현
 
+
+
+### Step3 diagram
+
+![step3_diagram](https://raw.githubusercontent.com/CDBchan/Typora-img/main/img/step3_diagram.PNG)
+
+
+
+### Step3 결과
+
+![step3_result](https://raw.githubusercontent.com/CDBchan/Typora-img/main/img/step3_result.PNG)

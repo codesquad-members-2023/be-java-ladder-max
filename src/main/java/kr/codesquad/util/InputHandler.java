@@ -42,7 +42,7 @@ public class InputHandler {
 
     private String validate(String str) {
         if (str.length() > 5) {
-            throw new RuntimeException("5글자 이상인 이름 발견 " + str+ "재입력 할것");
+            throw new RuntimeException("5글자 이상인 이름 발견 (" + str+ ") 재입력 할것 ");
         }
         return str;
     }
