@@ -1,5 +1,5 @@
-## Mission. 사다리 게임 1단계 - 기본 기능 구현
-### 미션 설계
+# Mission1. 사다리 게임 1단계 - 기본 기능 구현
+## 미션 설계
 1. Application 클래스
     - Controller 클래스에 의존
     - main 메서드 안에서 run()
@@ -46,7 +46,7 @@
     - takeRandom() : 랜덤으로 값을 반환
 
 
-### 구현 결과
+## 구현 결과
 ![ex1](https://user-images.githubusercontent.com/57451700/223053238-f18c4736-4bfa-447d-8523-7b41c78737da.png)    
 ![ex2](https://user-images.githubusercontent.com/57451700/223053325-ac5e56fc-ad65-4853-b21c-24ccdd033d0c.png)    
 ![result](https://user-images.githubusercontent.com/57451700/223053367-cc43a79e-c92a-4bfb-9d24-85f13e9e9c70.png)    
