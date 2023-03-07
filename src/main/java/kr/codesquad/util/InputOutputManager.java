@@ -12,17 +12,13 @@ public class InputOutputManager {
     OutputHandler outputHandler = new OutputHandler();
     InputHandler inputHandler = new InputHandler();
 
-    final String[] promptMessages = {"참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)",
-            "최대 사다리 높이는 몇 개인가요?"};
-
-    public ArrayList getInputFromUser() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        ArrayList<Integer> arrForHeightAndWidth = new ArrayList<>();
-        for (String prompt : promptMessages) {
-            outputHandler.outPut(prompt);
-            arrForHeightAndWidth.add(Integer.parseInt(inputHandler.getInput(br)));
-        }
-        return arrForHeightAndWidth;
+    public ArrayList getNameAndHeightFromUser() throws IOException {
+        ArrayList listForNameAndHeight = new ArrayList();
+        outputHandler.outputParticipantNamePrompt();
+        inputHandler.getName(listForNameAndHeight);
+        outputHandler.outputLadderHeightPrompt();
+        listForNameAndHeight.add(inputHandler.getHeight());
+        return listForNameAndHeight;
     }
 
     public void printLadder(Ladder ladder){
