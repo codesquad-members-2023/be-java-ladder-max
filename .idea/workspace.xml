@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat : 2차원 배열 ladders를 List로 변경&#10;&#10;기존의 boolean[][] ladders를 List&lt;List&lt;Boolean&gt;&gt; ladders로 변경합니다.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ladder/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ladder/Ladder.java" afterDir="false" />
-    </list>
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs : 학습 계획 업데이트 및 진행한 학습 체크" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,43 +34,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/yeon/Documents/be-java-ladder-max",
-    "settings.editor.selected.configurable": "preferences.editor",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/yeon/Documents/be-java-ladder-max&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.LadderGame">
-    <configuration name="LadderGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ladder.LadderGame" />
-      <module name="java-lotto.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ladder.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
-      <module name="java-lotto.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="kr.codesquad.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+}</component>
+  <component name="RunManager" selected="JUnit.CollectionTest.hashSet">
     <configuration name="ArrayListTest.arrayList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -88,6 +59,29 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;study.ArrayListTest.arrayList&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="CollectionTest.hashSet" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;study.CollectionTest.hashSet&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -143,13 +137,29 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="CollectionTest.hashSet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lotto.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="study.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="study" />
+      <option name="MAIN_CLASS_NAME" value="study.CollectionTest" />
+      <option name="METHOD_NAME" value="hashSet" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CollectionTest.hashSet" />
+        <item itemvalue="Gradle.CollectionTest.hashSet" />
         <item itemvalue="Gradle.ListTest.arrayList" />
         <item itemvalue="Gradle.ListTest.linkedList" />
         <item itemvalue="Gradle.ArrayListTest.arrayList" />
-        <item itemvalue="Application.LadderGame" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -275,7 +285,28 @@
       <option name="project" value="LOCAL" />
       <updated>1678179169527</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="feat : 같은 높이의 연속된 발판이 있는지 확인 후 제거">
+      <created>1678181187442</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1678181187442</updated>
+    </task>
+    <task id="LOCAL-00018" summary="docs : 진행한 학습 체크 및 학습 계획 업데이트">
+      <created>1678182421518</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1678182421518</updated>
+    </task>
+    <task id="LOCAL-00019" summary="docs : 학습 계획 업데이트 및 진행한 학습 체크">
+      <created>1678199674555</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1678199674555</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,6 +352,9 @@
     <MESSAGE value="feat : 이름 라벨을 만들고 출력하는 기능 추가&#10;&#10;Worker가 이름 라벨을 만들고 사다리를 그리기 전에 먼저 출력하도록 합니다.&#10;라벨은 고정된 길이 6을 가지며 이름은 중앙에 오도록 배치합니다." />
     <MESSAGE value="fix : 이름 뒤에 패딩이 붙지 않는 오류 수정&#10;&#10;이름의 길이가 라벨의 공간보다 짧을 때 종종 앞에만 패딩이 붙는 오류를 수정합니다." />
     <MESSAGE value="feat : 2차원 배열 ladders를 List로 변경&#10;&#10;기존의 boolean[][] ladders를 List&lt;List&lt;Boolean&gt;&gt; ladders로 변경합니다." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : 2차원 배열 ladders를 List로 변경&#10;&#10;기존의 boolean[][] ladders를 List&lt;List&lt;Boolean&gt;&gt; ladders로 변경합니다." />
+    <MESSAGE value="feat : 같은 높이의 연속된 발판이 있는지 확인 후 제거" />
+    <MESSAGE value="docs : 진행한 학습 체크 및 학습 계획 업데이트" />
+    <MESSAGE value="docs : 학습 계획 업데이트 및 진행한 학습 체크" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs : 학습 계획 업데이트 및 진행한 학습 체크" />
   </component>
 </project>
