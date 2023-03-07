@@ -1,9 +1,12 @@
 package kr.codesquad.ladder;
 
-import static kr.codesquad.ladder.OutputView.printString;
+import static kr.codesquad.ladder.view.OutputView.printString;
 
 import java.io.IOException;
 import java.util.List;
+import kr.codesquad.ladder.domain.Ladder;
+import kr.codesquad.ladder.domain.Names;
+import kr.codesquad.ladder.view.InputView;
 
 public class LadderGame {
 

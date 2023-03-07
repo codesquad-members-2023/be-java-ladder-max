@@ -1,4 +1,4 @@
-package kr.codesquad.ladder;
+package kr.codesquad.ladder.view;
 
 public class OutputView {
 

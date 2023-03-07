@@ -1,6 +1,5 @@
-package kr.codesquad.ladder;
+package kr.codesquad.ladder.domain;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -1,6 +1,6 @@
-package kr.codesquad.ladder;
+package kr.codesquad.ladder.domain;
 
-import static kr.codesquad.ladder.BooleanGenerator.randomBoolean;
+import static kr.codesquad.ladder.domain.BooleanGenerator.randomBoolean;
 
 import java.util.ArrayList;
 import java.util.List;
