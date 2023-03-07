@@ -6,7 +6,7 @@ import kotlin.random.Random.Default.nextBoolean
 class Ladder {
 
 
-    fun existLineMap(peopleCount: Int, ladderHeight: Int): Array<Array<Boolean>> {
+    fun createExistLineMap(peopleCount: Int, ladderHeight: Int): Array<Array<Boolean>> {
         val arr = Array(ladderHeight) {
             Array(peopleCount - 1) { false }
         }
@@ -15,7 +15,27 @@ class Ladder {
                 arr[i][j] = nextBoolean()
             }
         }
-        println(arr.contentDeepToString())
         return arr
     }
+
+    fun draw(existLineMap: Array<Array<Boolean>>): String {
+        val st = StringBuilder()
+        existLineMap.indices.forEach { i ->
+            st.append("|")
+            (0 until existLineMap[0].size).forEach { j ->
+                when {
+                    existLineMap[i][j] -> {
+                        st.append("-")
+                    }
+                    else -> {
+                        st.append(" ")
+                    }
+                }
+                st.append("|")
+            }
+            st.append("\n")
+        }
+        return st.toString()
+    }
+
 }
