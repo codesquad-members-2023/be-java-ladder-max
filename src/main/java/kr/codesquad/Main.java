@@ -1,9 +1,6 @@
 package kr.codesquad;
 
 import kr.codesquad.controller.GameController;
-import kr.codesquad.domain.Ladder;
-import kr.codesquad.view.OutputView;
-import kr.codesquad.view.InputView;
 
 import java.io.IOException;
 
