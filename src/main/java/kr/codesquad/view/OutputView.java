@@ -5,15 +5,18 @@ import kr.codesquad.domain.Ladder;
 public class OutputView {
 
     public void printLadder(Ladder ladder) {
-        for(String[] ladderRow : ladder.getLadder()) {
-            printLadderRow(ladderRow);
+        StringBuilder sb = new StringBuilder();
+        for(char[] ladderRow : ladder.getLadder()) {
+            appendLadderRowToStringBuilder(ladderRow, sb);
         }
+
+        System.out.println(sb.toString());
     }
 
-    private void printLadderRow(String[] ladderRow) {
-        for(String cell : ladderRow) {
-            System.out.print(cell == null? " " : cell);
+    private void appendLadderRowToStringBuilder(char[] ladderRow, StringBuilder sb) {
+        for(char cell : ladderRow) {
+            sb.append(cell);
         }
-        System.out.println();
+        sb.append(System.lineSeparator());
     }
 }
