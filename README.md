@@ -162,22 +162,22 @@ class Species{
 
    <details>
    <summary>참고자료</summary>
-
-- Guard Clause   
-  https://codify.tistory.com/137
-- 성능과 가독성을 높이는 분기 처리 방법
-  https://jeaha.dev/80
-- 조건부 로직 간소화
-  https://sungjk.github.io/2021/04/17/refactoring-04.html
-- 객체지향 생활체조 원칙   
-  https://devwooks.tistory.com/59
-- 더 나은 소프트웨어를 향한 9단계: 객체지향 생활 체조
-  https://developerfarm.wordpress.com/2012/02/03/object_calisthenics_summary/
-- 일급 컬렉션의 소개와 써야할 이유
-  https://jojoldu.tistory.com/412
-- 래퍼 클래스
-  http://www.tcpschool.com/java/java_api_wrapper
-  </details>    
+    
+  - Guard Clause   
+    https://codify.tistory.com/137
+  - 성능과 가독성을 높이는 분기 처리 방법
+    https://jeaha.dev/80
+  - 조건부 로직 간소화
+    https://sungjk.github.io/2021/04/17/refactoring-04.html
+  - 객체지향 생활체조 원칙   
+    https://devwooks.tistory.com/59
+  - 더 나은 소프트웨어를 향한 9단계: 객체지향 생활 체조
+    https://developerfarm.wordpress.com/2012/02/03/object_calisthenics_summary/
+  - 일급 컬렉션의 소개와 써야할 이유
+    https://jojoldu.tistory.com/412
+  - 래퍼 클래스
+    http://www.tcpschool.com/java/java_api_wrapper
+    </details>    
 
 </details>
 
