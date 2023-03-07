@@ -31,7 +31,7 @@ public class Main {
         List<String> participantList = new ArrayList<>();
         console.askParticipantsName();
 
-        addParticipantsFromTokenizer(participantList, Arrays.asList(console.returnStringInput().split(",")));
+        addParticipantsFromTokenizer(participantList, Arrays.asList(console.returnStringInput().split("\\s*" + "," + "\\s*")));
         console.askLadderHeight();
         int ladderShapeHeight = console.returnIntInput();
 
