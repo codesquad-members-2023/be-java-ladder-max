@@ -79,36 +79,23 @@
 
 # step-2 구현
 
-## 메서드 크기 줄이기
-|클래스.메서드|설명|
-|-----|-----|
-|GameController.runApplication()|프로그램 흐름 제어|
-|Ladder.makeLadder()            |사다리 만들기|
-|Ladder.addPlayerLine()         |사다리에 세로줄 추가하기|
-|Ladder.addBridge()             |사다리에 가로줄 추가하기|
-|Ladder.shouldBuildingBridge()  |사다리 배열에 가로줄을 추가할 지 결정|
-|InputView.inputPlayerCount()   |참여할 사람의 수 입력받기|
-|InputView.inputLadderHeight()  |사다리의 높이 입력받기|
-|OutputView.printLadder()       |사다리 출력하기|
-|Main.main()                    |프로그램 실행하기, 예외처리|
+## 1. depth 개선
+### step-2 1차 개선
+| 클래스.메서드                         | 설명                             | 개선 전 depth | 개선 후 depth |
+|---------------------------------|--------------------------------|------------|------------|
+| GameController.runApplication() | 프로그램 흐름 제어                     | 0          | 0          |
+| Ladder.makeLadder()             | 사다리 만들기                        | 0          | 1          |
+| Ladder.addPlayerLine()          | 사다리에 세로줄 추가하기                  | 3          | 1          |
+| Ladder.addBridge()              | 사다리에 가로줄 추가하기                  | 3          | 1          |
+| Ladder.shouldBuildingBridge()   | 사다리 배열에 가로줄을 추가할 지 결정          | 0          | 0          |
+| + Ladder.insertBridge()         | 사다리에 가로줄 추가하기(addBridge에서 분리됨) | -          | 1          |
+| InputView.inputPlayerCount()    | 참여할 사람의 수 입력받기                 | 0          | 0          |
+| InputView.inputLadderHeight()   | 사다리의 높이 입력받기                   | 0          | 0          |
+| OutputView.printLadder()        | 사다리 출력하기                       | 2          | 1          |
+| + OutputView.printLadderRow()   | 사다리 이차원 배열의 행 출력하기             | -          | 1          |
+| Main.main()                     | 프로그램 반복 실행하기, ~~예외처리~~         | 2          | 1          |
+| + Main.runApplication()         | 프로그램 실행하기, 예외처리                | -          | 1          |
 
-### Main.main() -> 프로그램 실행과 예외처리 분리하기
-
-## 들여쓰기 줄이기
-| 클래스.메서드                         | 개선 전 depth | 개선 후 depth |
-|---------------------------------|------------|------------|
-| GameController.runApplication() | 0          | 0          |
-| Ladder.makeLadder()             | 0          | 0          |
-| Ladder.addPlayerLine()          | 3          | 1          |
-| Ladder.addBridge()              | 3          | 1          |
-| Ladder.shouldBuildingBridge()   | 0          | 0          |
-| + Ladder.insertBridge()         | -          | 1          |
-| InputView.inputPlayerCount()    | 0          | 0          |
-| InputView.inputLadderHeight()   | 0          | 0          |
-| OutputView.printLadder()        | 2          | 1          |
-| + OutputView.printLadderRow()   | -          | 1          |
-| Main.main()                     | 2          | 1          |
-| + Main.runApplication()         | -          | 1          |
 
 ### Ladder.addPlayerLine() depth 개선
 ```java
@@ -346,3 +333,26 @@ public class Main {
 - game 실행과 예외처리 부분은 runApplication()에 따로 분리
   - depth는 개선되었으나, 여전히 runApplication()은 프로그램 실행과 예외처리를 담당한다
   - ? 예외처리를 완전히 분리할 순 없는건가 ?
+
+## 2. Ladder 개선 - 생성자를 통해 인스턴스를 생성하도록 변경
+- 기존 방식은 `String[][] ladder = new Ladder.makeLadder(int, int)`로 사다리를 만들었다
+  - 이 방식은 ladder가 다른 곳에서 변경될 가능성이 있기 때문에 Ladder 객체에 ladder의 상태를 보관하고, Ladder 가 ladder의 상태를 스스로 관리하는 방식으로 변경함
+
+## step-2 최종 변경 사항
+| 클래스.메서드                         | 설명                             | depth |
+|---------------------------------|--------------------------------|-------|
+| GameController.runApplication() | 프로그램 흐름 제어                     | 0     |
+| + Ladder()                      | Ladder의 생성자                    | 0     |
+| + Ladder.getLadder()            | 사다리 이차원 배열을 반환(depp copy하여 반환) | 1     |
+| Ladder.makeLadder()             | 사다리 만들기                        | 1     |
+| Ladder.addPlayerLineIntoRow()   | 사라디 이차원 배열 열에 세로줄 추가하기         | 1     |
+| Ladder.addBridgeIntoRow()       | 사라디 이차원 배열 열에 가로줄 추가하기         | 1     |
+| Ladder.shouldBuildingBridge()   | 사다리 배열에 가로줄을 추가할 지 결정          | 0     |
+| + Ladder.insertPlayerLine()     | 사다리 이차원 배열의 지정된 위치에 세로줄 삽입     | 0     |
+| + Ladder.insertBridge()         | 사다리 이차원 배열의 지정된 위치에 가로줄 삽입     | 1|
+| InputView.inputPlayerCount()    | 참여할 사람의 수 입력받기                 | 0     |
+| InputView.inputLadderHeight()   | 사다리의 높이 입력받기                   | 0     |
+| OutputView.printLadder()        | 사다리 출력하기                       | 1     |
+| + OutputView.printLadderRow()   | 사다리 이차원 배열의 행 출력하기             | 1     |
+| Main.main()                     | 프로그램 반복 실행하기, ~~예외처리~~         | 1     |
+| + Main.runApplication()         | 프로그램 실행하기, 예외처리                | 1     |
