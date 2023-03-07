@@ -35,24 +35,17 @@ class LadderShapeTest {
     // 사다리 길이인 줄 알고 멘붕왔는데 참가자 글자 수 말하는 거였음
     // String.format() 이용해서 5글자로 맞추자!
     @Test
-    public void 최대_5글자_출력_여부_체크() {
-/*
-        final LadderShape ladderShape = new LadderShape(new ArrayList<>(List.of("pobi", "honux", "crong", "jk")), 5);
-        try {
-            Method method = ladderShape.getClass().getDeclaredMethod("printParticipants");
-            method.setAccessible(true);
-            method.invoke(ladderShape);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException | IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
-        final List<String> format = ladderShape.getFormatList();
+    public void 최대_5글자_출력_여부_체크() throws Exception {
+        // 메서드 호출해서 participantList 생성
+        LadderShape ladderShape = new LadderShape(new ArrayList<>(List.of("pobi", "honux", "crong", "jk")), 5);
+        Method method = ladderShape.getClass().getDeclaredMethod("printParticipants");
+        method.setAccessible(true);
+        method.invoke(ladderShape);
 
-        // when
-
-        // then
-        assertThat(format.stream().allMatch(participant -> participant.length() <= 5)).isTrue();
-*/
+        // participantList 필드값으로 가져와서 비교
+        Field field = ladderShape.getClass().getDeclaredField("participantList");
+        field.setAccessible(true);
+        List<String> participantList = (List<String>) field.get(ladderShape);
+        assertThat(participantList.stream().allMatch(participant -> participant.length() <= 5)).isTrue();
     }
 }
