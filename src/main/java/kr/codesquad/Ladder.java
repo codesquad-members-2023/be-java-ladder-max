@@ -3,7 +3,7 @@ package kr.codesquad;
 public class Ladder {
     private final int players;
     private final int height;
-    private boolean[][] rungs;
+    private final boolean[][] rungs;
 
     Ladder(int players, int height) {
         this.players = players;
