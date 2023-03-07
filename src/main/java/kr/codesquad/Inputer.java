@@ -19,7 +19,7 @@ public class Inputer {
     }
 
     private void setLadderValue() {
-        System.out.println("사다리 층 수는 몇층인가요?");
+        System.out.println("사다리 층 수는 몇인가요?");
         ladderNum = sc.nextInt();
 //        System.out.println(System.lineSeparator());
     }

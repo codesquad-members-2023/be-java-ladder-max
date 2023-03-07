@@ -72,11 +72,10 @@ public class Ladder {
     }
 
     private void smallIfSentence3InFunctionForMakeLadder2(int i, int j) {
-        if (j % 2 == 1 && ladderBoard[i][j - 2] == "-----" && random.nextBoolean() == false) {
+        if (j % 2 == 1 && ladderBoard[i][j - 1] == "-----" && random.nextBoolean() == false) {
             ladderBoard[i][j] = "-----";
         }
     }
-
     public void printResult() {
         StringBuilder sb = new StringBuilder();
         sb.append(" ");
@@ -89,7 +88,10 @@ public class Ladder {
 
         for (int i = 0; i < height; i++) {
             System.out.print("    ");
-            System.out.println(Arrays.toString(ladderBoard[i]));
+            for(String j : ladderBoard[i]){
+                System.out.print(j);
+            }
+            System.out.print("\r\n");
         }
     }
 }
