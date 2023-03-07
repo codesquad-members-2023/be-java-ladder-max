@@ -1,11 +1,8 @@
 package kr.codesquad;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class Ladder2 {
 
@@ -13,29 +10,27 @@ public class Ladder2 {
     private int column;
     private String[][] ladder;
 
-    Ladder2(){}
-    public Ladder2(int row, int column){
+    public Ladder2(){}
+    public Ladder2(int row, Player player){
         this.row = row;
-        this.column = column;
+        this.column = player.getHeadCount()*2-1;
         ladder = new String[row][column];
     }
 
-    private void makeLadder(){ // 랜덤으로 사다리 내부 만들기
-        makeBasic();
+    private void makeRandom(){ // 랜덤으로 사다리 내부 만들기
         Random random = new Random();
         for (int i=0;i<row;i++){
-            ladder[i] = Arrays.stream(ladder[i]).map((s -> s == "-----" ? (random.nextInt(3) == 0 ? "     " : "-----") : s)).toArray(String[]::new);
+            ladder[i] = Arrays.stream(ladder[i]).map((s -> s == "-----" ? (random.nextInt(4) == 0 ? "     " : "-----") : s)).toArray(String[]::new);
         }
     }
-    private void makeBasic(){ // 사다리 기본 틀 만들기기
+    private void makeBasic(){ // 사다리 기본 틀 만들기
         for (int i=0;i<row;i++){
             IntStream intStream = IntStream.range(0,column);
             ladder[i] = intStream.mapToObj(k -> k % 2 == 0 ? "|" : "-----").toArray(String[]::new);
         }
     }
-    private void checkLadder(){
-        makeLadder();
-        for (int k=0;k<column;k++){
+    private void checkLadder(){ // 가로 라인이 겹치는 경우, 앞 라인을 "     "으로 변경하기
+        for (int k=0;k<row;k++){
             String[] array = ladder[k];
             IntStream.range(1,column-2)
                     .filter(i -> i%2 !=0)
@@ -45,11 +40,11 @@ public class Ladder2 {
             ladder[k] = array;
         }
     }
-    public void printLadder(){ // 사다리 출력하기
+    public String[][] makeLadder(){
+        makeBasic();
+        makeRandom();
         checkLadder();
-        for (String[] str : ladder){
-            String tmp = Arrays.toString(str).replaceAll("\\[|\\]|,", "");
-            System.out.println(tmp);
-        }
+
+        return ladder;
     }
 }
