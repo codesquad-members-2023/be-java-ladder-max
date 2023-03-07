@@ -18,13 +18,17 @@ public class Line {
         List<Boolean> booleans = new ArrayList<>();
 
         for (int index = 0; index < count; index++) {
-            boolean randomBoolean = randomBoolean();
-            booleans.add(randomBoolean);
-            if (index >= 1 && booleans.get(index - 1)) {
-                booleans.set(index, false);
-            }
+            checkDoubleTrue(booleans, index);
         }
         return new Line(booleans);
+    }
+
+    private static void checkDoubleTrue(List<Boolean> booleans, int index) {
+        boolean randomBoolean = randomBoolean();
+        booleans.add(randomBoolean);
+        if (index >= 1 && booleans.get(index - 1)) {
+            booleans.set(index, false);
+        }
     }
 
     @Override
