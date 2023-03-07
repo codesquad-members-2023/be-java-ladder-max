@@ -5,17 +5,17 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
         Input input = new Input();
-        Ladder ladder = new Ladder();
 
         try {
-            String inputNameData = input.inputName();
+            String nameData = input.inputName();
             int height = input.inputHeight();
+            input.closeBr();
 
-            ladder.createRadder(inputNameData, height);
+            Ladder ladder = new Ladder(nameData, height);
+            ladder.createRadder();
+            ladder.printRadder();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        ladder.printRadder();
     }
 }

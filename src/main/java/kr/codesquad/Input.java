@@ -17,10 +17,12 @@ public class Input {
     public int inputHeight() throws IOException {
         System.out.println("최대 사다리 높이는??");
         int height = Integer.parseInt(br.readLine());
-
         System.out.println();
-        br.close();
 
         return height;
+    }
+
+    public void closeBr() throws IOException {
+        br.close();
     }
 }

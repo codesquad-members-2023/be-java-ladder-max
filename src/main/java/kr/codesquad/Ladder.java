@@ -7,16 +7,17 @@ public class Ladder {
 
     private int height;
     private List<List<Character>> radder = new ArrayList<>();
-
     private List<String> names = new ArrayList<>();
 
-    public void createRadder(String inputNameData, int height) {
-        String[] nameArr = inputNameData.split(",");
+    public Ladder(String nameData, int height){
+        String[] nameArr = nameData.split(",");
         for(String name : nameArr){
             names.add(name);
         }
         this.height = height;
+    }
 
+    public void createRadder() {
         for(int i=0; i<height; i++){
             radder.add(createRow());
         }
