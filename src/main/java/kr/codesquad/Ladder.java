@@ -7,7 +7,9 @@ public class Ladder {
     public void start() {
         int[] userInput = getInput();
 
-        printLadder(makeLadderShape(userInput));
+        String[][] ladder = makeLadderShape(userInput);
+
+        output.printLadder(ladder);
     }
 
     private int[] getInput() {
@@ -42,20 +44,5 @@ public class Ladder {
         double rand = Math.random();
         String result = (rand <= 0.5) ? " " : "-";
         return result;
-    }
-
-    private void printLadder(String[][] ladder) {
-        for (int i = 0; i < ladder.length; i++) {
-            printLadderLine(ladder[i]);
-        }
-    }
-
-    private void printLadderLine(String[] ladder) {
-        StringBuilder sb = new StringBuilder();
-        for (String str : ladder) {
-            sb.append(str);
-        }
-
-        System.out.println(sb);
     }
 }
