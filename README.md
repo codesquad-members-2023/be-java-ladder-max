@@ -31,4 +31,5 @@
 - [x] 1단계 구현하기
 - [ ] String, StringBuilder, StringBuffer 공부하기
 - [ ] coding convention 찾아보기
-- [ ] 3단계 요구 사항 분석, 정리하기
+- [x] 3단계 요구 사항 분석, 정리하기
+- [ ] 3단계 구현하기
