@@ -29,11 +29,11 @@ public class LadderGenerator {
     }
 
     public void generateRandomLine() {
+        Random random = new Random();
         for (int i = 0; i < ladder.length; i++) {
             for (int j = 0; j < ladder[i].length; j++) {
-                if (j % 2 != 0) {
-                    Random random = new Random();
-                    ladder[i][j] = String.valueOf(random.nextBoolean());
+                if (j % 2 != 0 && random.nextBoolean()) {
+                    ladder[i][j] = "-";
                 }
             }
         }
@@ -42,15 +42,9 @@ public class LadderGenerator {
     public void generateBorderLine() {
         for (int i = 0; i < ladder.length; i++) {
             for (int j = 0; j < ladder[i].length; j++) {
-                if (ladder[i][j].equals("true")) {
-                    ladder[i][j] = "-";
-                    continue;
+                if (j % 2 == 0) {
+                    ladder[i][j] = "|";
                 }
-                if (ladder[i][j].equals("false")) {
-                    ladder[i][j] = " ";
-                    continue;
-                }
-                ladder[i][j] = "|";
             }
         }
     }
