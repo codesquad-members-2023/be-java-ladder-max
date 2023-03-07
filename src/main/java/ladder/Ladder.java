@@ -32,6 +32,7 @@ public class Ladder {
     public void drawLadder() {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < height; i++) {
+            builder.append(" ".repeat(2));
             drawingSameHeight(builder, i);
             builder.append(System.lineSeparator());
         }

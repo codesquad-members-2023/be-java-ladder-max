@@ -19,9 +19,12 @@ public class Worker {
     private void makeNameLabel() {
         StringBuilder builder = new StringBuilder();
         for (String participant : participants) {
-            builder.append(" ".repeat((6 - participant.length()) / 2));
+            int frontBlank = (6 - participant.length()) / 2;
+            int backBlank = (6 - participant.length()) % 2;
+            boolean isNotMaxLength = participant.length() < 6;
+            builder.append(" ".repeat(frontBlank));
             builder.append(participant);
-            builder.append(" ".repeat((6 - participant.length()) % 2));
+            builder.append(" ".repeat(frontBlank == 0 && isNotMaxLength ? backBlank : frontBlank));
         }
         System.out.println(builder);
     }
@@ -31,5 +34,4 @@ public class Worker {
         ladder.drawLadder();
         inputView.stop();
     }
-
 }
