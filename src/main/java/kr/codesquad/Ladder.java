@@ -10,31 +10,32 @@ public class Ladder {
     }
 
     public String[][] makeLadder() {
-        for (int row = 0; row < laddder.length; row++) {
-            for (int column = 0; column < laddder[row].length; column++) {
-                makeBasicPeopleLine(row, column);
-                makeRandomLadderLine(row,column);
-            }
-        }
+        makeLadderRow();
         return this.laddder;
+    }
+
+    private void makeLadderRow() {
+        for (int row = 0; row < laddder.length; row++) {
+            makeLadderColumn(row);
+        }
+    }
+
+    private void makeLadderColumn(int row) {
+        for (int column = 0; column < laddder[row].length; column++) {
+            makeBasicPeopleLine(row, column);
+            makeRandomLadderLine(row, column);
+        }
     }
 
 
     private void makeBasicPeopleLine(int row, int column) {
         if (column % 2 == 0) {
             this.laddder[row][column] = "|";
-        } this.laddder[row][column] = " ";
+            return;
+        }
+        this.laddder[row][column] = " ";
     }
 
-
-//    public void makeRandomLadderLine() {
-//
-//        for (int i = 0; i < laddder.length; i++) {
-//            for (int j = 0; j < laddder[i].length; j++) {
-//                makeRandomLadderLine(i, j);
-//            }
-//        }
-//    }
 
     private void makeRandomLadderLine(int row, int column) {
         Random random = new Random();
