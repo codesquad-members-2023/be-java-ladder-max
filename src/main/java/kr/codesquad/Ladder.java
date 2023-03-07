@@ -46,7 +46,7 @@ public class Ladder {
     }
 
     private void ifSentenceInFunctionForMakeLadder1(int i, int j) {
-        if (j % 2 == 1) {
+        if (j % 2 == 0) {
             ladderBoard[i][j] = "|";
         }
     }
@@ -60,19 +60,19 @@ public class Ladder {
     }
 
     private void smallIfSentence1InFunctionForMakeLadder2(int i, int j) {
-        if (j % 2 == 0 && ladderBoard[i][j - 1] == "     " && random.nextBoolean() == true) {
+        if (j % 2 == 1 && ladderBoard[i][j - 1] == "     " && random.nextBoolean() == true) {
             ladderBoard[i][j] = "     ";
         }
     }
 
     private void smallIfSentence2InFunctionForMakeLadder2(int i, int j) {
-        if (j % 2 == 0 && ladderBoard[i][j - 1] == "     " && random.nextBoolean() == false) {
+        if (j % 2 == 1 && ladderBoard[i][j - 1] == "     " && random.nextBoolean() == false) {
             ladderBoard[i][j] = "-----";
         }
     }
 
     private void smallIfSentence3InFunctionForMakeLadder2(int i, int j) {
-        if (j % 2 == 0 && ladderBoard[i][j - 1] == "-----" && random.nextBoolean() == false) {
+        if (j % 2 == 1 && ladderBoard[i][j - 1] == "-----" && random.nextBoolean() == false) {
             ladderBoard[i][j] = "-----";
         }
     }
