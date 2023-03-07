@@ -1,9 +1,23 @@
-# Java Lotto
+# 사다리 게임 
+### step1. 기본기능 구현하기
+제약사항
+1. 메서드 길이 10줄 넘어가지 않게 구현하기!
 
-- Last Update: 2022-12-28
+객체지향 생각하지 않고 그냥 기본 기능만 구현.<br>
+메서드를 입력, 사다리 만들기, 출력 세 가지로 나눠서 메서드 길이 10줄 넘어가지 않게 구현했다.
 
-## 코드 리뷰
+### step2. 들여쓰기 1회로 제한하기
+제약사항
+1. 메서드가 한 가지 일만 하도록 최대한 작게 만들기
+2. 들여쓰기를 1단계로 줄이기
+3. else문 사용하지 않기
 
-* [텍스트와 이미지로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://github.com/code-squad/codesquad-docs/blob/master/codereview/README.md)
+시도방법
+1. 사다리 만드는 메서드를 사다리 기본틀 만드는 makeBasic()과 랜덤으로 사다리 변경하는 makeLadder() 나눴다.
+2. 스트림을 이용해 for문을 한 번만 사용했다.<br>
+   makeBasic()메서드에서 IntStream -> mapToObj()로 짝수는 '|' 홀수는 '-'로 변경했다.<br>
+   makeLadder()메서드에 makeBasic()호출 뒤 스트림 이용해 '-'을 랜덤으로 ' '으로 변경했다.<br>
+   두 메서드 모두 스트림을 Character[][]로 변환시켰는데 스트림의 toArray()메서드가 기본형 변수로 변환이 안되서 어쩔 수 없이 래퍼클래스로 반환했다.
+3. printLadder()에서 Character[] -> toString() -> replaceAll() 과정으로 쉼표와 대괄호를 제외하고 출력되게 했다.
 
-* [동영상으로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://youtube.com/watch?v=lFinZfu3QO0&si=EnSIkaIECMiOmarE)
+추가로 고민해 볼 사항 : 2차원 배열을 스트림으로 사용하기(단, 생성자에 한번에 넣어서)
