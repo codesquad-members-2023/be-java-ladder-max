@@ -10,19 +10,13 @@ public class OutputHandler {
     void printLadder(Ladder ladder){
         StringBuilder sb = new StringBuilder();
         char[][] tempLadder = ladder.getLadder();
-        int ladderHeight = ladder.getLadderHeight();
-        int ladderWidth = ladder.getPeopleNum() * 2 - 1;
-
-        for (int i = 0; i < ladderHeight; i++) {
-            appendToSb(sb, ladderWidth, tempLadder[i]);
+        for (char[] row : tempLadder) {
+            appendToSb(sb, row);
         }
         System.out.println(sb);
     }
 
-    private static void appendToSb(StringBuilder sb, int ladderWidth, char[] tempLadder) {
-        for (int j = 0; j < ladderWidth; j++) {
-            sb.append(tempLadder[j]);
-        }
-        sb.append("\n");
+    private static void appendToSb(StringBuilder sb, char[] tempLadder) {
+        sb.append(tempLadder).append("\n");
     }
 }

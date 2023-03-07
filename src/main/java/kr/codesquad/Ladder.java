@@ -1,41 +1,32 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Ladder {
-    private int peopleNum;
+    private int ladderWidth;
     private int ladderHeight;
     private char [][] ladder;
-
-    public int getPeopleNum() {
-        return peopleNum;
-    }
-
-    public int getLadderHeight() {
-        return ladderHeight;
-    }
 
     public char[][] getLadder() {
         return ladder;
     }
 
-    public void setPeopleNum(int peopleNum) {
-        this.peopleNum = peopleNum;
-    }
-
-    public void setLadderHeight(int ladderHeight) {
-        this.ladderHeight = ladderHeight;
-    }
+   public Ladder(ArrayList<Integer> arr){
+       ladderWidth = arr.get(0);
+       ladderHeight = arr.get(1);
+       makeLadder();
+   }
 
     void makeLadder() {
-        ladder = new char[ladderHeight][peopleNum * 2 - 1];
+        ladder = new char[ladderHeight][ladderWidth * 2 - 1];
         for (int i = 0; i < ladderHeight; i++) {
             fillRowWithSymbols(i);
         }
     }
 
     private void fillRowWithSymbols(int i) {
-        for (int j = 0; j < peopleNum * 2 - 1; j++) {
+        for (int j = 0; j < ladderWidth * 2 - 1; j++) {
             isOdd(i, j);
         }
     }
