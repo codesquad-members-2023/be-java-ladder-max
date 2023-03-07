@@ -8,7 +8,7 @@ public class Ladder {
     Ladder(int pplNumber, int ladderHeight){
         this.initLadder(pplNumber, ladderHeight);
         this.createRandomBridges();
-        Output output = new Output(this);
+        Output output = new Output(this.ladder);
     }
 
     private void createRandomBridges() {
