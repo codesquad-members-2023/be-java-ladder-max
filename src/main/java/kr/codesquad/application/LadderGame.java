@@ -5,6 +5,7 @@ import java.util.List;
 import kr.codesquad.domain.Height;
 import kr.codesquad.domain.Ladder;
 import kr.codesquad.domain.Participants;
+import kr.codesquad.generator.RandomLineGenerator;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
@@ -41,7 +42,7 @@ public class LadderGame {
 	}
 
 	private Ladder createLadder(final int countOfPerson, final int height) {
-		return new Ladder(countOfPerson, height);
+		return new Ladder(countOfPerson, height, new RandomLineGenerator());
 	}
 
 	private void printStateOfLadder(final List<String> names, final Ladder ladder) {
