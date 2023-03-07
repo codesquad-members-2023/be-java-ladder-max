@@ -1,8 +1,9 @@
 package kr.codesquad.kotlin
 
 fun main() {
-    val input = InputView()
-    val peopleCount = input.inputPeopleCount()
+    val inputView = InputView()
+    val peopleCount = inputView.inputPeopleCount()
+    val ladderHeight = inputView.inputLadderHeight()
     println(peopleCount)
-
+    println(ladderHeight)
 }

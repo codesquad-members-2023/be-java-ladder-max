@@ -15,6 +15,16 @@ class InputView {
         return inputPeopleCount()
     }
 
+    fun inputLadderHeight() : Int {
+        println("최대 사다리 높이는 몇 개인가요?")
+        val input = scanner.nextLine()
+        if (isDigit(input)) {
+            return input.toInt()
+        }
+        println("잘못 입력 했습니다.")
+        return inputPeopleCount()
+    }
+
     private fun isDigit(input: String): Boolean {
         return input.matches(Regex("^[1-9][0-9]*$"))
     }
