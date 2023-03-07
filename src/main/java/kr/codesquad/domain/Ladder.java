@@ -1,8 +1,9 @@
-package kr.codesquad;
+package kr.codesquad.domain;
+
+import kr.codesquad.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Ladder {
     private final List<Line> ladders;
@@ -14,7 +15,7 @@ public class Ladder {
         this.height = height;
         this.ladders = new ArrayList<>(); // 출력할 때 | 추가할거임
         makeLadder();
-        printLadder();
+        new OutputView().printLadder(people, ladders);
     }
 
     void makeLadder() {
@@ -29,24 +30,5 @@ public class Ladder {
             line.drawLine(idx);
         }
         return line;
-    }
-
-    private void printLadder() {
-        printPeople();
-        for(Line line : ladders) {
-            System.out.print("    |");
-            System.out.println(line);
-        }
-    }
-
-    private void printPeople() {
-        System.out.println();
-        System.out.println("실행결과");
-        System.out.println();
-        System.out.println(people.stream()
-                .map(o -> " " + String.format("%5s", o))
-                .reduce(new StringBuilder(), (sb, o) ->
-                                sb.append(o)
-                        , StringBuilder::append));
     }
 }

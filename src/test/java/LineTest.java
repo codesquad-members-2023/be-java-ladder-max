@@ -1,4 +1,4 @@
-import kr.codesquad.Line;
+import kr.codesquad.domain.Line;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
