@@ -5,8 +5,8 @@ public class Ladder {
     private final int height;
     private final boolean[][] ladders;
 
-    public Ladder(int participants, int height) {
-        this.space = participants - 1;
+    public Ladder(int space, int height) {
+        this.space = space;
         this.height = height;
         this.ladders = new boolean[this.height][this.space];
         this.makeRandomLadder();
@@ -41,7 +41,7 @@ public class Ladder {
     private void drawingSameHeight(StringBuilder builder, int height) {
         for (int j = 0; j < space; j++) {
             drawLeftLine(builder, j);
-            builder.append(ladders[height][j] ? "-" : " ");
+            builder.append(ladders[height][j] ? "-----" : "     ");
             drawRightLine(builder);
         }
     }
