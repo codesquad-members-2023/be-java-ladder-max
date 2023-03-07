@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="fix : 이름 뒤에 패딩이 붙지 않는 오류 수정&#10;&#10;이름의 길이가 라벨의 공간보다 짧을 때 종종 앞에만 패딩이 붙는 오류를 수정합니다.">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat : 2차원 배열 ladders를 List로 변경&#10;&#10;기존의 boolean[][] ladders를 List&lt;List&lt;Boolean&gt;&gt; ladders로 변경합니다.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ladder/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ladder/Ladder.java" afterDir="false" />
     </list>
@@ -268,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678178197849</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="feat : 2차원 배열 ladders를 List로 변경&#10;&#10;기존의 boolean[][] ladders를 List&lt;List&lt;Boolean&gt;&gt; ladders로 변경합니다.">
+      <created>1678179169527</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1678179169527</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,6 +320,7 @@
     <MESSAGE value="feat : 이름의 길이가 최대 5글자를 넘어가는 경우 다시 입력을 받도록 처리&#10;&#10;입력 받은 이름 중 길이가 6이상인 경우 안내 메시지를 출력한 뒤 다시 입력을 받도록 합니다." />
     <MESSAGE value="feat : 이름 라벨을 만들고 출력하는 기능 추가&#10;&#10;Worker가 이름 라벨을 만들고 사다리를 그리기 전에 먼저 출력하도록 합니다.&#10;라벨은 고정된 길이 6을 가지며 이름은 중앙에 오도록 배치합니다." />
     <MESSAGE value="fix : 이름 뒤에 패딩이 붙지 않는 오류 수정&#10;&#10;이름의 길이가 라벨의 공간보다 짧을 때 종종 앞에만 패딩이 붙는 오류를 수정합니다." />
-    <option name="LAST_COMMIT_MESSAGE" value="fix : 이름 뒤에 패딩이 붙지 않는 오류 수정&#10;&#10;이름의 길이가 라벨의 공간보다 짧을 때 종종 앞에만 패딩이 붙는 오류를 수정합니다." />
+    <MESSAGE value="feat : 2차원 배열 ladders를 List로 변경&#10;&#10;기존의 boolean[][] ladders를 List&lt;List&lt;Boolean&gt;&gt; ladders로 변경합니다." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : 2차원 배열 ladders를 List로 변경&#10;&#10;기존의 boolean[][] ladders를 List&lt;List&lt;Boolean&gt;&gt; ladders로 변경합니다." />
   </component>
 </project>

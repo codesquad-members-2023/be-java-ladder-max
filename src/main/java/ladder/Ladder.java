@@ -26,7 +26,17 @@ public class Ladder {
         for (int i = 0; i < space; i++) {
             hasRungs.add(getRandomBoolean());
         }
-        return hasRungs;
+        return checkContinuousRungs(hasRungs);
+    }
+
+    private List<Boolean> checkContinuousRungs(List<Boolean> rungs) {
+        for (int i = 0; i < space; i++) {
+            if (i == 0) continue;
+            if (rungs.get(i - 1)) {
+                rungs.set(i, false);
+            }
+        }
+        return rungs;
     }
 
     private boolean getRandomBoolean() {
