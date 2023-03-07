@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Ladder {
-    private final List<List<String>> ladders;
+    private final List<Line> ladders;
     private final List<String> people;
     private final int height;
 
@@ -23,32 +23,20 @@ public class Ladder {
         }
     }
 
-    private List<String> makeLine() {
+    private Line makeLine() {
         Random random = new Random();
-        List<String> ladder = new ArrayList<>();
+        Line line = new Line();
         for(int idx = 0; idx < people.size() - 1; idx++) {
-            boolean flag = random.nextBoolean();
-            drawLine(flag, idx, ladder);
+            line.drawLine(idx);
         }
-        return ladder;
-    }
-
-    public void drawLine(boolean flag, int idx, List<String> ladder) {
-        if(flag && (idx == 0 || ladder.get(idx - 1).equals("     "))) {
-            ladder.add("-----");
-            return;
-        }
-        ladder.add("     ");
+        return line;
     }
 
     private void printLadder() {
         printPeople();
-        for(List<String> ladder : ladders) {
+        for(Line line : ladders) {
             System.out.print("    |");
-            System.out.println(ladder.stream()
-                    .reduce(new StringBuilder(), (sb, o) ->
-                                    sb.append(o).append("|")
-                            , StringBuilder::append));
+            System.out.println(line);
         }
     }
 
