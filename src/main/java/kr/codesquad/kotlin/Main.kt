@@ -5,5 +5,8 @@ fun main() {
     val peopleCount = inputView.inputPeopleCount()
     val ladderHeight = inputView.inputLadderHeight()
     val ladder = Ladder()
-    ladder.existLineMap(peopleCount, ladderHeight)
+    val existLineMap = ladder.createExistLineMap(peopleCount, ladderHeight)
+    val draw = ladder.draw(existLineMap)
+    val outputView = OutputView()
+    outputView.print(draw)
 }
