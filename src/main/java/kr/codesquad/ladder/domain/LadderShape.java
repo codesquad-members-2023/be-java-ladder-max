@@ -37,7 +37,7 @@ public class LadderShape {
 
     public void printParticipants() {
         formatList = participantList.stream()
-                .map(participant -> String.format("%5s", participant))
+                .map(participant -> String.format(" %5s", participant))
                 .collect(Collectors.toList());
         formatList.forEach(System.out::print);
         printNewLine();
