@@ -41,8 +41,8 @@ public class Ladder {
     }
 
     private void initLadder(char[][] ladder) {
-        for (int i = 0; i < rowSize; i++) {
-            Arrays.fill(ladder[i], EMPTY_SPACE);
+        for (int row = 0; row < rowSize; row++) {
+            Arrays.fill(ladder[row], EMPTY_SPACE);
         }
     }
 
