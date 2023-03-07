@@ -30,14 +30,22 @@ public class Ladder {
     void makeLadder() {
         ladder = new char[ladderHeight][peopleNum * 2 - 1];
         for (int i = 0; i < ladderHeight; i++) {
-            for (int j = 0; j < peopleNum * 2 - 1; j++) {
-                if (j % 2 != 0) {
-                    ladder[i][j] = random() ? '-' : ' ';
-                } else {
-                    ladder[i][j] = '|';
-                }
-            }
+            fillRowWithSymbols(i);
         }
+    }
+
+    private void fillRowWithSymbols(int i) {
+        for (int j = 0; j < peopleNum * 2 - 1; j++) {
+            isOdd(i, j);
+        }
+    }
+
+    private void isOdd(int i, int j) {
+        if (j % 2 != 0) {
+            ladder[i][j] = random() ? '-' : ' ';
+            return;
+        }
+        ladder[i][j] = '|';
     }
 
     boolean random(){
