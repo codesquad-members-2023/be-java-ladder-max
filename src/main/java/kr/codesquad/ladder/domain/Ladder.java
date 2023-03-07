@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.ladder.domain;
 
 import java.util.Random;
 

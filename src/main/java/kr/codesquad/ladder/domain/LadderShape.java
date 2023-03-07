@@ -1,17 +1,18 @@
-package kr.codesquad;
+package kr.codesquad.ladder.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class LadderShape {
     // participantNumber == participantList.size()
     // 위와 같은 사실을 이용하여 step-1과 비슷하게 로직을 짠다.
-
     private final List<String> participantList;
     private final int ladderShapeHeight;
-    private static StringBuilder stringBuilder = new StringBuilder();
-    private static boolean isMinusSign = false;
-
+    private List<String> points = new ArrayList<>();
+    private boolean isMinusSign = false;
 
     public LadderShape(List<String> participantList, int ladderShapeHeight) {
         this.participantList = participantList;
@@ -23,28 +24,32 @@ public class LadderShape {
 
         for (int i = 0; i < ladderShapeHeight; i++) {
             printLadderRows();
-            System.out.println(stringBuilder);
-            stringBuilder = new StringBuilder();
+            points.forEach(System.out::print);
+            printNewLine();
+            points = new ArrayList<>();
             isMinusSign = false;
         }
     }
 
-    private void printParticipants() {
-        for (int i = 0; i < participantList.size(); i++) {
-            System.out.print(participantList.get(i));
+    // 테스트를 위해서는 printf가 아닌 String.format() 형태로 List에 저장해야 됨
+    // @Test
+    private List<String> formatList;
 
-            // 리팩토링 필요
-            if (i % 2 == 0) {
-                repeatBlank(2);
-                continue;
-            }
-            repeatBlank(1);
-        }
-        System.out.println();
+    public void printParticipants() {
+        formatList = participantList.stream()
+                .map(participant -> String.format("%5s", participant))
+                .collect(Collectors.toList());
+        formatList.forEach(System.out::print);
+        printNewLine();
+    }
+
+    // @Test
+    public List<String> getFormatList() {
+        return formatList;
     }
 
     private void printLadderRows() {
-        repeatBlank(2);
+        printRepeatBlank(3);
         for (int i = 0; i < participantList.size() + participantList.size() - 1; i++) {
             chooseLetter(i);
         }
@@ -63,7 +68,7 @@ public class LadderShape {
             return;
         }
 
-        stringBuilder.append("|");
+        points.add("|");
     }
 
     private void appendRandomLadderRows(int i) {
@@ -90,17 +95,37 @@ public class LadderShape {
         appendBlank(); // 5번 append
     }
 
-    private void appendMinusSign() {
+    // @Test
+    public void appendMinusSign() {
         isMinusSign = true;
-        stringBuilder.append("-".repeat(5));
+        Stream.generate(() -> "-")
+                .limit(5)
+                .forEach(points::add);
     }
 
-    private void appendBlank() {
+    // @Test
+    public void appendBlank() {
         isMinusSign = false;
-        stringBuilder.append(" ".repeat(5));
+        Stream.generate(() -> " ")
+                .limit(5)
+                .forEach(points::add);
     }
 
-    private void repeatBlank(int n) {
+    // @Test
+    public boolean isMinusSign() {
+        return isMinusSign;
+    }
+
+    // @Test
+    public List<String> getPoints() {
+        return points;
+    }
+
+    private void printRepeatBlank(int n) {
         System.out.print(" ".repeat(n));
+    }
+
+    private void printNewLine() {
+        System.out.println();
     }
 }

@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="test: 5글자 출력 여부 체크 테스트 완료&#10;&#10;성공적이었지만 기본 코드를 너무 많이 건듦">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/ladder/domain/LadderShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/ladder/domain/LadderShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/kr/codesquad/ladder/domain/LadderShapeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kr/codesquad/ladder/domain/LadderShapeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,15 +24,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="JUnit5 Test Class" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="step1" />
+        <entry key="$PROJECT_DIR$" value="step4" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,7 +48,11 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="step4" />
-                    <option name="lastUsedInstant" value="1678087366" />
+                    <option name="lastUsedInstant" value="1678087820" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="step3" />
+                    <option name="lastUsedInstant" value="1678087767" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="step2" />
@@ -73,42 +80,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/Users/wonjunjeong/codesquad/java/be-java-ladder-max",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/wonjunjeong/codesquad/java/be-java-ladder-max&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="kr.codesquad.ladder.domain" />
       <recent name="kr.codesquad" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.LadderShapeTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.ladder.Main" />
       <module name="java-lotto.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.*" />
+          <option name="PATTERN" value="kr.codesquad.ladder.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,8 +124,80 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LadderShapeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;kr.codesquad.ladder.domain.LadderShapeTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="LadderShapeTest.최대_5글자_출력_여부_체크" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;kr.codesquad.ladder.domain.LadderShapeTest.최대_5글자_출력_여부_체크&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="LadderShapeTest.minus_sign_가능_여부_체크" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;kr.codesquad.ladder.domain.LadderShapeTest.minus_sign_가능_여부_체크&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.LadderShapeTest" />
+        <item itemvalue="Gradle.LadderShapeTest.minus_sign_가능_여부_체크" />
+        <item itemvalue="Gradle.LadderShapeTest.최대_5글자_출력_여부_체크" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -133,7 +213,9 @@
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678068503024" duration="2671000" />
       <workItem from="1678077123619" duration="4416000" />
-      <workItem from="1678081715723" duration="5871000" />
+      <workItem from="1678081715723" duration="13814000" />
+      <workItem from="1678101633325" duration="4000" />
+      <workItem from="1678105085769" duration="4419000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자">
       <created>1678069392649</created>
@@ -296,7 +378,84 @@
       <option name="project" value="LOCAL" />
       <updated>1678087183343</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="docs: 참여자 수, 사다리 높이 늘린 실행 결과 추가 업로드&#10;&#10;이제 step4로 넘어가야지">
+      <created>1678087787772</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1678087787772</updated>
+    </task>
+    <task id="LOCAL-00025" summary="refactor(Main): StringTokenizer를 Iterable로 리팩토링&#10;&#10;추가로 메서드도 나눠서 main()의 코드 수 줄임">
+      <created>1678088412522</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1678088412522</updated>
+    </task>
+    <task id="LOCAL-00026" summary="docs: StringTokenizer 변경 관련 리드미 업데이트">
+      <created>1678088912152</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1678088912152</updated>
+    </task>
+    <task id="LOCAL-00027" summary="feat: 패키지 분리&#10;&#10;UI 담당: Console&#10;핵심 비즈니스 로직: Ladder, LadderShape &#10;상위 패키지: Main">
+      <created>1678089829208</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1678089829208</updated>
+    </task>
+    <task id="LOCAL-00028" summary="docs: 패키지 분리 설명 추가">
+      <created>1678089894954</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1678089894954</updated>
+    </task>
+    <task id="LOCAL-00029" summary="test: LadderShapeTest 테스트 코드 생성&#10;&#10;테스트 메서드 틀까진 일단 만들어 뒀는데&#10;이제부터 어떡할까">
+      <created>1678090269903</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1678090269903</updated>
+    </task>
+    <task id="LOCAL-00030" summary="refactor(LadderShape): StringBuilder 방법을 List&lt;String&gt; 방법으로 재구현&#10;&#10;의미 없었던 static 없애기">
+      <created>1678092966613</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1678092966613</updated>
+    </task>
+    <task id="LOCAL-00031" summary="style(LadderShape): 출력 규칙대로 하느라 depth가 2단계 됨&#10;&#10;그냥 Blank를 2번씩 계속 줘도 큰 상관 없으므로 이렇게 쓰자">
+      <created>1678093383663</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1678093383663</updated>
+    </task>
+    <task id="LOCAL-00032" summary="feat(LadderShape): 최대 5글자까지 출력하도록 기능 추가&#10;&#10;원래는 공백으로만 출력했는데, String.format()으로 공백을 포함하여 무조건 5글자가 되게 만들었다.&#10;이제 테스트에 이 글자 수만 equal한지 확인만 하면 된다.&#10;나머지는 밥먹고..">
+      <created>1678095399314</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1678095399314</updated>
+    </task>
+    <task id="LOCAL-00033" summary="test: 최대 5글자 출력 여부 체크를 위해 테스트 코드 생성&#10;&#10;단순 print문을 List에 저장&#10;저장 후 Test를 위해 임시 게터 사용 (이러면 안 되지만)">
+      <created>1678106894903</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1678106894903</updated>
+    </task>
+    <task id="LOCAL-00034" summary="test: 5글자 출력 여부 체크 테스트 완료&#10;&#10;성공적이었지만 기본 코드를 너무 많이 건듦">
+      <created>1678107478752</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1678107478752</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,15 +473,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자" />
-    <MESSAGE value="feat: 입력받는 콘솔 기능 추가&#10;&#10;Main에서 그냥 한번에 입력받고, 출력하려고 했지만&#10;Console이라는 클래스를 만들어서 최대한 메서드 분리할 예정" />
-    <MESSAGE value="feat(Console): 기본 생성자 추가하고, int형 변환&#10;&#10;정수를 입력받는데 String으로 리턴해버렸네.." />
-    <MESSAGE value="feat(Ladder): 사다리 시스템을 관리하는 Ladder 클래스 생성 후 구현&#10;&#10;틀 설계 후 print 메서드 생성" />
-    <MESSAGE value="feat(Ladder): 사다리 게임 1단계 구현 완료 &#10;&#10;row를 최대 사다리 높이만큼 출력하는 기능 구현&#10;최대한 객체지향적으로 짜보려 노력했는데 뭔가 아쉬움이 남는다.." />
-    <MESSAGE value="refactor(Ladder): 들여쓰기 한번으로만 수정" />
-    <MESSAGE value="refactor(Ladder): print 방식을 StringBuilder 방식으로 변경&#10;&#10;static으로 StringBuilder 정의 후 개행마다 new StringBuilder() 재정의&#10;아직도 엄청 깔끔하진 않음" />
-    <MESSAGE value="refactor(Ladder): 랜덤으로 letter 선택하는 기능 메서드 분리&#10;&#10;분리 안 했으면 if문이 2개였음" />
-    <MESSAGE value="docs: 내용 삭제" />
     <MESSAGE value="feat: 사다리 모양 클래스 틀 짜기&#10;&#10;원래는 step-1, step-2 부분을 주석 처리 후&#10;Console 클래스를 재사용할 생각이었지만,&#10;인터페이스 이용해서 겹치는 메서드를 오버라이딩 해주기로 결정했다&#10;ArrayList, Generic와 split 메서드로 참여할 사람 이름의 리스트에 넣어준다." />
     <MESSAGE value="feat: Console에서 모든 입력 전부 처리하도록 변경&#10;&#10;ShapeConsole 만들어서 인터페이스 생성하고 별 난리를 피웠는데 이건 너무 비효율적인 코드 같음&#10;그냥 Console에서 한꺼번에 입력 기능 처리" />
     <MESSAGE value="bug: 참여할 사람 이름 리스트 전송 중 버그 발생&#10;&#10;pobi,honux,crong,jk를 입력하면 honux,jk만 출력됨" />
@@ -337,6 +487,17 @@
     <MESSAGE value="docs: 문제 요구사항에 맞게 재구현한 실행 결과 이미지 업로드" />
     <MESSAGE value="feat: 공백, 마이너스 기호 출력에서 논리적 오류 해결&#10;&#10;isMinusSign 위치를 출력하는 메서드 안에 넣어줘서 줄이 바뀔 때마다 초기화시켜줌&#10;letter를 append하는 메서드에 깃발 변경 기능 넣어줌" />
     <MESSAGE value="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드" />
+    <MESSAGE value="docs: 참여자 수, 사다리 높이 늘린 실행 결과 추가 업로드&#10;&#10;이제 step4로 넘어가야지" />
+    <MESSAGE value="refactor(Main): StringTokenizer를 Iterable로 리팩토링&#10;&#10;추가로 메서드도 나눠서 main()의 코드 수 줄임" />
+    <MESSAGE value="docs: StringTokenizer 변경 관련 리드미 업데이트" />
+    <MESSAGE value="feat: 패키지 분리&#10;&#10;UI 담당: Console&#10;핵심 비즈니스 로직: Ladder, LadderShape &#10;상위 패키지: Main" />
+    <MESSAGE value="docs: 패키지 분리 설명 추가" />
+    <MESSAGE value="test: LadderShapeTest 테스트 코드 생성&#10;&#10;테스트 메서드 틀까진 일단 만들어 뒀는데&#10;이제부터 어떡할까" />
+    <MESSAGE value="refactor(LadderShape): StringBuilder 방법을 List&lt;String&gt; 방법으로 재구현&#10;&#10;의미 없었던 static 없애기" />
+    <MESSAGE value="style(LadderShape): 출력 규칙대로 하느라 depth가 2단계 됨&#10;&#10;그냥 Blank를 2번씩 계속 줘도 큰 상관 없으므로 이렇게 쓰자" />
+    <MESSAGE value="feat(LadderShape): 최대 5글자까지 출력하도록 기능 추가&#10;&#10;원래는 공백으로만 출력했는데, String.format()으로 공백을 포함하여 무조건 5글자가 되게 만들었다.&#10;이제 테스트에 이 글자 수만 equal한지 확인만 하면 된다.&#10;나머지는 밥먹고.." />
+    <MESSAGE value="test: 최대 5글자 출력 여부 체크를 위해 테스트 코드 생성&#10;&#10;단순 print문을 List에 저장&#10;저장 후 Test를 위해 임시 게터 사용 (이러면 안 되지만)" />
+    <MESSAGE value="test: 5글자 출력 여부 체크 테스트 완료&#10;&#10;성공적이었지만 기본 코드를 너무 많이 건듦" />
+    <option name="LAST_COMMIT_MESSAGE" value="test: 5글자 출력 여부 체크 테스트 완료&#10;&#10;성공적이었지만 기본 코드를 너무 많이 건듦" />
   </component>
 </project>
