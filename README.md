@@ -160,6 +160,7 @@ class Species{
     - 중복 오류의 극적 축소
     - 새 기능의 구현을 위한 변경의 지역화 개선
 
+
    <details>
    <summary>참고자료</summary>
     
