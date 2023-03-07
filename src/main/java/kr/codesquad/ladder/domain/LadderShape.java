@@ -9,10 +9,15 @@ import java.util.stream.Stream;
 public class LadderShape {
     // participantNumber == participantList.size()
     // 위와 같은 사실을 이용하여 step-1과 비슷하게 로직을 짠다.
+
     private final List<String> participantList;
     private final int ladderShapeHeight;
+
     private List<String> points = new ArrayList<>();
     private boolean isMinusSign = false;
+    private static final String VERTICAL_BAR = "|";
+    private static final String MINUS_SIGN = "-";
+    private static final String BLANK = " ";
 
     public LadderShape(List<String> participantList, int ladderShapeHeight) {
         this.participantList = participantList;
@@ -68,7 +73,7 @@ public class LadderShape {
             return;
         }
 
-        points.add("|");
+        points.add(VERTICAL_BAR);
     }
 
     private void appendRandomLadderRows(int i) {
@@ -98,7 +103,7 @@ public class LadderShape {
     // @Test
     public void appendMinusSign() {
         isMinusSign = true;
-        Stream.generate(() -> "-")
+        Stream.generate(() -> MINUS_SIGN)
                 .limit(5)
                 .forEach(points::add);
     }
@@ -106,7 +111,7 @@ public class LadderShape {
     // @Test
     public void appendBlank() {
         isMinusSign = false;
-        Stream.generate(() -> " ")
+        Stream.generate(() -> BLANK)
                 .limit(5)
                 .forEach(points::add);
     }
@@ -122,7 +127,7 @@ public class LadderShape {
     }
 
     private void printRepeatBlank(int n) {
-        System.out.print(" ".repeat(n));
+        System.out.print(BLANK.repeat(n));
     }
 
     private void printNewLine() {
