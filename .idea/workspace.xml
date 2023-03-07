@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="test: 랜덤한 사다리 생성 테스트 케이스 추가&#10;&#10;* 사람=2, 사다리=2 테스트 케이스&#10;* 사람=3, 사다리=5 테스트 케이스">
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/kr/codesquad/LadderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kr/codesquad/LadderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,14 +20,29 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="네모네모" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2JX36oPCnvQiefE3cZVtAUCgNFD" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -42,11 +52,31 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "C:/Users/qkdlf/BootCamp/BE/be-java-ladder-max",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "패싯",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\qkdlf\BootCamp\BE\be-java-ladder-max" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="kr.codesquad" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.LadderTest">
+    <configuration name="kr.codesquad.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="jbr-11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
       <module name="java-lotto.main" />
       <extension name="coverage">
@@ -59,9 +89,81 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LadderTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;kr.codesquad.LadderTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="LadderTest.generate" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;kr.codesquad.LadderTest.generate&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="LadderTest.generate_testcase1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;kr.codesquad.LadderTest.generate_testcase1&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.LadderTest" />
+        <item itemvalue="Gradle.LadderTest.generate_testcase1" />
+        <item itemvalue="Gradle.LadderTest.generate" />
+        <item itemvalue="애플리케이션.kr.codesquad.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -74,10 +176,59 @@
       <option name="presentableId" value="Default" />
       <updated>1672210428730</updated>
       <workItem from="1672210432725" duration="156000" />
+      <workItem from="1678073406171" duration="515000" />
+      <workItem from="1678074074442" duration="4004000" />
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1678073802573</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678073802573</updated>
+    </task>
+    <task id="LOCAL-00002" summary="docs: 학습 목표 및 미션 요구사항 작성&#10;&#10;* String과 관련된 학습 목표 작성&#10;* 사다리 게임에 대한 요구사항 작성">
+      <created>1678073848378</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678073848379</updated>
+    </task>
+    <task id="LOCAL-00003" summary="docs: 사다리 게임 사람 입력범위 수정&#10;&#10;* 사람 명수 입력시 최소 1명 이상에서 최소 2명이사으로 수정">
+      <created>1678074869030</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678074869031</updated>
+    </task>
+    <task id="LOCAL-00004" summary="test: 랜덤한 사다리 생성 테스트 케이스 추가&#10;&#10;* 사람=2, 사다리=2 테스트 케이스&#10;* 사람=3, 사다리=5 테스트 케이스">
+      <created>1678076611152</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678076611152</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="docs: 학습 목표 및 미션 요구사항 작성&#10;&#10;* String과 관련된 학습 목표 작성&#10;* 사다리 게임에 대한 요구사항 작성" />
+    <MESSAGE value="docs: 사다리 게임 사람 입력범위 수정&#10;&#10;* 사람 명수 입력시 최소 1명 이상에서 최소 2명이사으로 수정" />
+    <MESSAGE value="test: 랜덤한 사다리 생성 테스트 케이스 추가&#10;&#10;* 사람=2, 사다리=2 테스트 케이스&#10;* 사람=3, 사다리=5 테스트 케이스" />
+    <option name="LAST_COMMIT_MESSAGE" value="test: 랜덤한 사다리 생성 테스트 케이스 추가&#10;&#10;* 사람=2, 사다리=2 테스트 케이스&#10;* 사람=3, 사다리=5 테스트 케이스" />
   </component>
 </project>
