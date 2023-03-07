@@ -1,6 +1,9 @@
 package kr.codesquad.domain;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Ladder {
@@ -24,22 +27,9 @@ public class Ladder {
             .toArray(Boolean[]::new);
     }
 
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        for (int numberOfUsers = 0; numberOfUsers < this.ladder[0].length; numberOfUsers++) {
-            putRowLadder(stringBuilder, numberOfUsers);
-        }
-
-        return stringBuilder.toString();
-    }
-
-    private void putRowLadder(StringBuilder stringBuilder, int numberOfUsers) {
-        for (int ladderHeight = 0; ladderHeight < this.ladder.length - 1; ladderHeight++) {
-            stringBuilder.append(String.format("|%s", this.ladder[ladderHeight][numberOfUsers] ? "-" : " "));
-        }
-
-        stringBuilder.append("|\n");
+    public List<List<Boolean>> readLadder() {
+        return Arrays.stream(this.ladder)
+            .map(List::of)
+            .collect(Collectors.toUnmodifiableList());
     }
 }
