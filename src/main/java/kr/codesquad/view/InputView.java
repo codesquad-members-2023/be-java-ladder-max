@@ -39,7 +39,7 @@ public class InputView {
         return people;
     }
 
-    private boolean isValidNames(List<String> people) {
+    public boolean isValidNames(List<String> people) {
         return people.stream()
                 .filter(o -> o.length() > 5)
                 .findFirst().isEmpty();
