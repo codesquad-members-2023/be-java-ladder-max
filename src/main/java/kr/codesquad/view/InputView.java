@@ -22,7 +22,7 @@ public class InputView {
     }
 
     public static int readLadderSize() {
-        System.out.println("최대 사다리 높이는 몇 개인가요?");
+        System.out.println("\n최대 사다리 높이는 몇 개인가요?");
         return readInt();
     }
 
