@@ -3,36 +3,82 @@ package kr.codesquad.kotlin
 import kotlin.random.Random.Default.nextBoolean
 
 
+private const val EXIST_DELIMITER = "-----"
+
+private const val EMPTY_DELIMITER = "     "
+
+private const val USER_DELIMITER = "|"
+
+private const val NEXT_LINE = "\n"
+
+private const val PREFIX_SPACER = "   "
+
 class Ladder {
 
 
-    fun createExistLineMap(peopleCount: Int, ladderHeight: Int): Array<Array<Boolean>> {
+    fun createExistLineInfoDistant(usersCount: Int, ladderHeight: Int): List<List<Boolean>> =
+        with(ArrayList<List<Boolean>>()) {
+            for (i in 0 until ladderHeight) {
+                add(
+                    addRowExistLineInfo(usersCount)
+                )
+            }
+            this
+        }
+
+    private fun addRowExistLineInfo(usersCount: Int) = with(ArrayList<Boolean>()) {
+        for (j in 0 until usersCount - 1) {
+            val currentBoolean = nextBoolean()
+            add((currentBoolean && j == 0) || (j != 0 && currentBoolean && !get(j - 1)))
+        }
+        this
+    }
+
+
+    fun createExistLineInfo(usersCount: Int, ladderHeight: Int): Array<Array<Boolean>> {
         val arr = Array(size = ladderHeight) {
-            Array(size = peopleCount - 1) { false }
+            Array(size = usersCount - 1) { false }
         }
         (0 until ladderHeight).forEach { i ->
-            (0 until peopleCount - 1).forEach { j ->
+            (0 until usersCount - 1).forEach { j ->
                 arr[i][j] = nextBoolean()
             }
         }
         return arr
     }
 
-    fun draw(existLineMap: Array<Array<Boolean>>): String = with(StringBuilder()) {
-        existLineMap.indices.forEach { i ->
-            append("|")
-            (0 until existLineMap[0].size).forEach { j ->
+    fun draw(existLineInfo: Array<Array<Boolean>>): String = with(StringBuilder()) {
+        existLineInfo.indices.forEach { i ->
+            append(USER_DELIMITER)
+            (0 until existLineInfo[0].size).forEach { j ->
                 append(
                     when {
-                        existLineMap[i][j] -> "-"
+                        existLineInfo[i][j] -> "-"
                         else -> " "
                     }
                 )
-                append("|")
+                append(USER_DELIMITER)
             }
-            append("\n")
+            append(NEXT_LINE)
         }
         return toString()
     }
 
+    fun draw(existLineInfo: List<List<Boolean>>): String  = with(StringBuilder()) {
+        existLineInfo.indices.forEach { i ->
+            append(PREFIX_SPACER)
+            append(USER_DELIMITER)
+            (0 until existLineInfo[0].size).forEach { j ->
+                append(
+                    when {
+                        existLineInfo[i][j] -> EXIST_DELIMITER
+                        else -> EMPTY_DELIMITER
+                    }
+                )
+                append(USER_DELIMITER)
+            }
+            append(NEXT_LINE)
+        }
+        return toString()
+    }
 }

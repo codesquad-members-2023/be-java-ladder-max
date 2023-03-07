@@ -5,11 +5,11 @@ fun main() {
     val ladder = Ladder()
     val outputView = OutputView()
 
-    val peopleCount = inputView.inputPeopleCount()
+    val usersNames = inputView.inputUsersNames()
     val ladderHeight = inputView.inputLadderHeight()
 
-    val existLineMap = ladder.createExistLineMap(peopleCount, ladderHeight)
-    val draw = ladder.draw(existLineMap)
+    val existLineInfo = ladder.createExistLineInfoDistant(usersNames.size, ladderHeight)
+    val draw = ladder.draw(existLineInfo)
 
     outputView.print(draw)
 }
