@@ -16,27 +16,34 @@ public class InputHandler {
         return Integer.parseInt(br.readLine().toString());
     }
 
-    public void getName(ArrayList list) throws IOException {
+    void getName(ArrayList list) throws IOException {
         while (true) {
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            try {
-                List<String> inputList = Arrays.stream(br.readLine().split(","))
-                        .map(str -> validate(str))
-                        .collect(Collectors.toList());
-                list.addAll(inputList);
-                break;
-            } catch (RuntimeException e) {
-                System.out.println("재입력 해주세요");
-            }
+            if (validateInputList(list)) break;
         }
     }
 
-    String validate(String str) {
+    private boolean validateInputList(ArrayList list) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            parseAndValidateInputString(list, br);
+            return true;
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    private void parseAndValidateInputString(ArrayList list, BufferedReader br) throws IOException {
+        List<String> inputList = Arrays.stream(br.readLine().split(","))
+                .map(str -> validate(str))
+                .collect(Collectors.toList());
+        list.addAll(inputList);
+    }
+
+    private String validate(String str) {
         if (str.length() > 5) {
-            throw new RuntimeException("5글자 이상인 이름 발견 " + str);
+            throw new RuntimeException("5글자 이상인 이름 발견 " + str+ "재입력 할것");
         }
         return str;
     }
-
-
 }

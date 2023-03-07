@@ -14,6 +14,10 @@ public class Ladder {
         makeLadder();
     }
 
+    public ArrayList getLadder() {
+        return ladder;
+    }
+
     private void init(ArrayList list) {
         ladderHeight = Integer.parseInt(list.get(list.size() - 1).toString());
         list.remove(list.size() - 1);
@@ -21,48 +25,36 @@ public class Ladder {
         ladderWidth = nameList.size();
     }
 
-    void makeLadder() {
+
+    private void makeLadder() {
+        addNameToLadder();
+        buildLadderStructure();
+    }
+
+    private void addNameToLadder() {
         for (String str : nameList) {
-            while (str.length() < 5) {
-                if (str.length() < 5) {
-                    str += " ";
-                }
-            }
-            str = " " + str;
-            ladder.add(str);
+            String formattedStr = String.format(" %1$-5s", str);
+            ladder.add(formattedStr);
         }
         ladder.add("\n");
+    }
 
+    private void buildLadderStructure() {
         for (int i = 0; i < ladderHeight; i++) {
             ladder.add("  ");
-            for (int j = 0; j < (ladderWidth) * 2 - 1; j++) {
-                if (j % 2 != 0) {
-                    if (randomCheck()) {
-                        ladder.add(random() ? "-----" : "     ");
-                    } else {
-                        ladder.add("     ");
-                    }
-                } else {
-                    ladder.add("|");
-                }
-            }
+            buildLadderDetailStructure();
             ladder.add("\n");
         }
-
     }
 
-    boolean randomCheck() {
-        if (!ladder.get(ladder.size() - 2).equals("-----"))
-            return true;
-        return false;
+    private void buildLadderDetailStructure() {
+        for (int j = 0; j < (ladderWidth) * 2 - 1; j++) {
+            ladder.add(j % 2 == 0 ? "|" : (shouldAddLine() ? "-----" : "     "));
+        }
     }
 
-    public ArrayList getLadder() {
-        return ladder;
-    }
-
-    boolean random() {
-        Random rd = new Random();
-        return rd.nextBoolean();
+    private boolean shouldAddLine() {
+        Random rand = new Random();
+        return rand.nextBoolean() && !ladder.get(ladder.size() - 2).equals("-----");
     }
 }

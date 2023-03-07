@@ -12,15 +12,15 @@ public class LadderGameController {
         printLadder(ladder);
     }
 
-    Ladder getLadder(ArrayList listForNameAndHeight){
+    private Ladder getLadder(ArrayList listForNameAndHeight){
         return new Ladder(listForNameAndHeight);
     }
 
-    ArrayList getNameAndHeightFromManager() throws IOException {
+    private ArrayList getNameAndHeightFromManager() throws IOException {
         return manager.getNameAndHeightFromUser();
     }
 
-    void printLadder(Ladder ladder){
+    private void printLadder(Ladder ladder){
         manager.printLadder(ladder);
     }
 }
