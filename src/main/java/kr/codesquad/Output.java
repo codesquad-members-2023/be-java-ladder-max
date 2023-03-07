@@ -2,7 +2,7 @@ package kr.codesquad;
 
 public class Output {
     public void printNumberOfPeople () {
-        System.out.println("참여하는 사람은 몇명?");
+        System.out.println("참여할 사람은 몇 명인가요?");
     }
 
     public void printHeightOfLadder () {
