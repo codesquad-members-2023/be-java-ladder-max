@@ -8,17 +8,16 @@ import java.util.ArrayList;
 public class LadderGameController {
     InputOutputManager manager = new InputOutputManager();
     void startLadderGame() throws IOException {
-        ArrayList<Integer> arrForHeightAndWidth = getHeightAndWidth();
-        Ladder ladder = makeLadder(arrForHeightAndWidth);
+        Ladder ladder = getLadder(getNameAndHeightFromManager());
         printLadder(ladder);
     }
 
-    Ladder makeLadder(ArrayList<Integer> arrForHeightAndWidth){
-        return new Ladder(arrForHeightAndWidth);
+    Ladder getLadder(ArrayList listForNameAndHeight){
+        return new Ladder(listForNameAndHeight);
     }
 
-    ArrayList<Integer> getHeightAndWidth() throws IOException {
-        return manager.getInputFromUser();
+    ArrayList getNameAndHeightFromManager() throws IOException {
+        return manager.getNameAndHeightFromUser();
     }
 
     void printLadder(Ladder ladder){
