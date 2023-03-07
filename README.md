@@ -36,10 +36,10 @@ body
 ### 사다리 게임 1단계 - 기본 기능 구현
 
 * 구현해야할 기능 목록
-* [ ] 사용자로부터 n명의 사람과 m개의 사다리 개수를 입력받는다. (branch. feature/#1-input)
-* [ ] 사람 수에 따른 사다리를 생성한다. (branch. feature/#1-create_ladder)
+* [x] 사용자로부터 n명의 사람과 m개의 사다리 개수를 입력받는다. (branch. feature/#1-input)
+* [x] 사람 수에 따른 사다리를 생성한다. (branch. feature/#1-create_ladder)
     * 이때 사다리는 2차원 배열에 담는다.
-* [ ] 사다리 상태를 출력한다. (branch. feature/#1-print_ladder)
+* [x] 사다리 상태를 출력한다. (branch. feature/#1-print_ladder)
 
 구현시 아래를 생각하며 구현하자.
 
