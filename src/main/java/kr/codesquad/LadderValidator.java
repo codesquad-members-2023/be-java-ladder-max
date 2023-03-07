@@ -28,10 +28,10 @@ public class LadderValidator {
     }
 
     public String validateLadderHeight(String text) {
-        if (NUMBER_FORMAT.matcher(text).matches()) {
+        if (!NUMBER_FORMAT.matcher(text).matches()) {
             throw new InvalidMaximumLadderHeight();
         }
-        if (moreThanMinLadderHeight(text)) {
+        if (!moreThanMinLadderHeight(text)) {
             throw new InvalidMaximumLadderHeight();
         }
         return text;
