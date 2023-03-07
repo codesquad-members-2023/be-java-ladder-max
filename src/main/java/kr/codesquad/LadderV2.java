@@ -17,15 +17,30 @@ public class LadderV2 implements Ladder {
         int width = player * 2 - 1;
 
         for (int y = 0; y < height; y++) {
-            map.add(y, new ArrayList<>());
-            initWidthLine(width, y);
+            map.add(createLadderLine(width));
         }
     }
 
-    private void initWidthLine(int width, int y) {
+    private List<LadderPart> createLadderLine(int width) {
+        final List<LadderPart> ladderLine = new ArrayList<>();
+
         for (int x = 0; x < width; x++) {
-            map.get(y).add(LadderPart.from(x));
+            ladderLine.add(decideLadderPart(ladderLine, x));
         }
+
+        return ladderLine;
+    }
+
+    private LadderPart decideLadderPart(List<LadderPart> ladderLine, int x) {
+        if (isExistCrossBarOnLeft(ladderLine, x)) {
+            return LadderPart.EMPTY;
+        }
+
+        return LadderPart.from(x);
+    }
+
+    private boolean isExistCrossBarOnLeft(List<LadderPart> ladderLine, int x) {
+        return x > 2 && ladderLine.get(x - 2) == LadderPart.CROSSBAR;
     }
 
     @Override
