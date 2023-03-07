@@ -10,11 +10,23 @@ public class LadderDrawer {
     private final Ladder ladder = new LadderByNames();
     private final OutputView outputView = new OutputView();
 
-    public void runWithNames() {
-        List<String> requestNames = inputView.inputNames();
+    public void runWithNamesAndResult() {
+        List<String> names = inputView.inputNames();
+        List<String> result = inputView.inputResult(names.size());
         Integer ladderHeight = inputView.inputLadderHeight();
-        String drawnLadder = drawLadder(requestNames.size(), ladderHeight);
-        print(requestNames, drawnLadder);
+        String drawnLadder = drawLadder(names.size(), ladderHeight);
+        print(names, drawnLadder, result);
+    }
+
+    private void print(List<String> names, String drawnLadder, List<String> result) {
+        outputView.print(names, drawnLadder, result);
+    }
+
+    public void runWithNames() {
+        List<String> names = inputView.inputNames();
+        Integer ladderHeight = inputView.inputLadderHeight();
+        String drawnLadder = drawLadder(names.size(), ladderHeight);
+        print(names, drawnLadder);
     }
 
     private void print(List<String> requestNames, String drawnLadder) {
