@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat : 사다리를 만들고 관리할 Worker를 갖는 LadderGame 객체를 작성&#10;&#10;OutputView 객체 대신 정보를 가장 잘 알고 있는 Ladder 객체가 사다리를 출력하도록 수정했다.">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="refactor : 2차원 배열을 사용하기 위해 작성했던 이중 반복문 분리">
+      <change afterPath="$PROJECT_DIR$/src/test/java/study/ListTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ladder/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ladder/Ladder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +46,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.LadderGame">
+  <component name="RunManager" selected="Gradle.ListTest.arrayList">
     <configuration name="LadderGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ladder.LadderGame" />
       <module name="java-lotto.main" />
@@ -74,8 +73,80 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ArrayListTest.arrayList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;study.ArrayListTest.arrayList&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ListTest.arrayList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;study.ListTest.arrayList&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ListTest.linkedList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;study.ListTest.linkedList&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ListTest.arrayList" />
+        <item itemvalue="Gradle.ListTest.linkedList" />
+        <item itemvalue="Gradle.ArrayListTest.arrayList" />
         <item itemvalue="Application.LadderGame" />
         <item itemvalue="Application.Main" />
       </list>
@@ -140,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678091536987</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="refactor : 2차원 배열을 사용하기 위해 작성했던 이중 반복문 분리">
+      <created>1678106369703</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678106369703</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,7 +235,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feature1" />
+                        <option value="feature2" />
                       </list>
                     </value>
                   </entry>
@@ -177,6 +255,7 @@
     <MESSAGE value="feat : 사다리를 만드는 Worker 객체 생성&#10;&#10;InputView를 통해 참여할 사람의 수와 사다리의 높이 정보를 받아와 Ladder 객체를 생성한다." />
     <MESSAGE value="feat : InputView 종료 시 BufferedReader를 닫기 위한 메서드 추가" />
     <MESSAGE value="feat : 사다리를 만들고 관리할 Worker를 갖는 LadderGame 객체를 작성&#10;&#10;OutputView 객체 대신 정보를 가장 잘 알고 있는 Ladder 객체가 사다리를 출력하도록 수정했다." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : 사다리를 만들고 관리할 Worker를 갖는 LadderGame 객체를 작성&#10;&#10;OutputView 객체 대신 정보를 가장 잘 알고 있는 Ladder 객체가 사다리를 출력하도록 수정했다." />
+    <MESSAGE value="refactor : 2차원 배열을 사용하기 위해 작성했던 이중 반복문 분리" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor : 2차원 배열을 사용하기 위해 작성했던 이중 반복문 분리" />
   </component>
 </project>
