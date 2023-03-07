@@ -17,4 +17,19 @@ class InputRequestTest {
     void isDigitFalse(String input) {
         Assertions.assertThat(InputRequest.isDigit(input)).isFalse();
     }
+
+
+    @ParameterizedTest
+    @ValueSource(strings = {"jack,john", "fia,june,jk"})
+    void isRightNamesPattern_True(String input) {
+        InputRequest inputRequest = new InputRequest();
+        Assertions.assertThat(inputRequest.isRightNamesPattern(input)).isTrue();
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"jack1,john", "fia!june,jk"})
+    void isRightNamesPattern_False(String input) {
+        InputRequest inputRequest = new InputRequest();
+        Assertions.assertThat(inputRequest.isRightNamesPattern(input)).isFalse();
+    }
 }
