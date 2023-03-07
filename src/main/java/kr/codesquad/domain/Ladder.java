@@ -1,6 +1,7 @@
 package kr.codesquad.domain;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Ladder {
     private final char PLAYER_LINE = '|';
@@ -59,7 +60,7 @@ public class Ladder {
     }
 
     private boolean shouldBuildingBridge() {
-        return (int)(Math.random() * 2) == 1;
+        return new Random().nextBoolean();
     }
 
     private void insertPlayerLine(char[][] ladder, int row, int column) {
