@@ -2,7 +2,9 @@ package kr.codesquad.domain;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class LadderByNames implements Ladder {
 
@@ -22,6 +24,11 @@ public class LadderByNames implements Ladder {
         }
         moveAndSaveUsers(ladderExistStateArray);
         return result.toString();
+    }
+
+    public Map<Integer, Integer> getUsersOfResult() {
+        return usersOfResult.entrySet().stream()
+            .collect(Collectors.toMap(Entry::getKey, Entry::getValue));
     }
 
     private void moveAndSaveUsers(boolean[][] ladderExistStateArray) {

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import kr.codesquad.domain.Result;
+import kr.codesquad.domain.SearchInfo;
 import kr.codesquad.domain.SearchType;
 
 public class InputView {
@@ -22,17 +22,17 @@ public class InputView {
     public static final String RESULT_PATTERN = "^(꽝|([0-9]+[1-9]*))(,(꽝|([0-9]+[1-9]*)))*$";
     private final Scanner scanner = new Scanner(System.in);
 
-    public Result inputName(List<String> names) {
+    public SearchInfo inputName(List<String> names) {
         System.out.println(INPUT_NAME);
         String input = scanner.nextLine();
         if (isSearchAll(input)) {
-            return new Result(SearchType.ALL);
+            return new SearchInfo(SearchType.ALL);
         }
         if (isClose(input)) {
-            return new Result(SearchType.CLOSE);
+            return new SearchInfo(SearchType.CLOSE);
         }
         if (names.contains(input)) {
-            return new Result(SearchType.SINGLE, input);
+            return new SearchInfo(SearchType.SINGLE, input);
         }
         return inputName(names);
     }
