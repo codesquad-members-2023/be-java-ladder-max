@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-    </list>
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat(Ladder): 사다리 게임 1단계 구현 완료 &#10;&#10;row를 최대 사다리 높이만큼 출력하는 기능 구현&#10;최대한 객체지향적으로 짜보려 노력했는데 뭔가 아쉬움이 남는다.." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,8 +15,45 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="sully" />
+                    <option name="lastUsedInstant" value="1678068509" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1678068508" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -41,7 +68,17 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/wonjunjeong/codesquad/java/be-java-ladder-max",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -74,10 +111,55 @@
       <option name="presentableId" value="Default" />
       <updated>1672210428730</updated>
       <workItem from="1672210432725" duration="156000" />
+      <workItem from="1678068503024" duration="2671000" />
     </task>
+    <task id="LOCAL-00001" summary="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자">
+      <created>1678069392649</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678069392649</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: 입력받는 콘솔 기능 추가&#10;&#10;Main에서 그냥 한번에 입력받고, 출력하려고 했지만&#10;Console이라는 클래스를 만들어서 최대한 메서드 분리할 예정">
+      <created>1678069440486</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678069440486</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat(Console): 기본 생성자 추가하고, int형 변환&#10;&#10;정수를 입력받는데 String으로 리턴해버렸네..">
+      <created>1678069807759</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678069807759</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat(Ladder): 사다리 시스템을 관리하는 Ladder 클래스 생성 후 구현&#10;&#10;틀 설계 후 print 메서드 생성">
+      <created>1678070145800</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678070145800</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat(Ladder): 사다리 게임 1단계 구현 완료 &#10;&#10;row를 최대 사다리 높이만큼 출력하는 기능 구현&#10;최대한 객체지향적으로 짜보려 노력했는데 뭔가 아쉬움이 남는다..">
+      <created>1678070996900</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678070996900</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자" />
+    <MESSAGE value="feat: 입력받는 콘솔 기능 추가&#10;&#10;Main에서 그냥 한번에 입력받고, 출력하려고 했지만&#10;Console이라는 클래스를 만들어서 최대한 메서드 분리할 예정" />
+    <MESSAGE value="feat(Console): 기본 생성자 추가하고, int형 변환&#10;&#10;정수를 입력받는데 String으로 리턴해버렸네.." />
+    <MESSAGE value="feat(Ladder): 사다리 시스템을 관리하는 Ladder 클래스 생성 후 구현&#10;&#10;틀 설계 후 print 메서드 생성" />
+    <MESSAGE value="feat(Ladder): 사다리 게임 1단계 구현 완료 &#10;&#10;row를 최대 사다리 높이만큼 출력하는 기능 구현&#10;최대한 객체지향적으로 짜보려 노력했는데 뭔가 아쉬움이 남는다.." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(Ladder): 사다리 게임 1단계 구현 완료 &#10;&#10;row를 최대 사다리 높이만큼 출력하는 기능 구현&#10;최대한 객체지향적으로 짜보려 노력했는데 뭔가 아쉬움이 남는다.." />
   </component>
 </project>
