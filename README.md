@@ -180,4 +180,6 @@ class Species{
 - 래퍼 클래스
   http://www.tcpschool.com/java/java_api_wrapper
 
+</details>
+
 ## 자바 문자열
