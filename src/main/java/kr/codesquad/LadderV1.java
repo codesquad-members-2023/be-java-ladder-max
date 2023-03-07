@@ -6,18 +6,25 @@ import java.util.stream.Collectors;
 
 public class LadderV1 implements Ladder {
     private final LadderPart[][] map;
+    private final int width;
+    private final int height;
 
     public LadderV1(int playerNumber, int height) {
-        int width = playerNumber * 2 - 1;
+        this.width = playerNumber * 2 - 1;
+        this.height = height;
         map = new LadderPart[height][width];
-        initMap(height, width);
+        initMap();
     }
 
-    private void initMap(int height, int width) {
+    private void initMap() {
         for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                map[y][x] = LadderPart.from(x);
-            }
+            initLadderWidthLine(y);
+        }
+    }
+
+    private void initLadderWidthLine(int y) {
+        for (int x = 0; x < width; x++) {
+            map[y][x] = LadderPart.from(x);
         }
     }
 
