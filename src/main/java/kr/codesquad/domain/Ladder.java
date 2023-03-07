@@ -16,7 +16,12 @@ public class Ladder {
 
     /* getter */
     public String[][] getLadder() {
-        return ladder;
+        String[][] ladderClone = new String[rowSize][columnSize];
+        for(int i = 0; i < rowSize; i++) {
+            ladderClone[i] = ladder[i].clone();
+        }
+
+        return ladderClone;
     }
 
     /* private method */
