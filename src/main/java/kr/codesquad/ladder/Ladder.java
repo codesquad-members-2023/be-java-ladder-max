@@ -1,5 +1,6 @@
 package kr.codesquad.ladder;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,6 +27,5 @@ public class Ladder {
         return ladder.stream()
                 .map(line -> line.toString())
                 .collect(Collectors.joining("\n"));
-    }
-
+  }
 }
