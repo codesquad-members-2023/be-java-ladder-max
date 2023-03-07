@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="style: 도메인 객체 변경에 따른 코드 정리">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="modify: 리플렉션 메서드 삭제&#10;&#10;* LadderPartGenerator 객체 생성시 Random 모듈을 외부에서 주입할 수 있기 때문에 리플렉션 메서드를 통해서 모킹한 객체와 바꿔치기할 필요가 없어져서 삭제하였습니다.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/kr/codesquad/LadderPartGeneratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kr/codesquad/LadderPartGeneratorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/ConsoleInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/ConsoleInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +89,7 @@
       <recent name="kr.codesquad" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.LadderPartGeneratorTest">
+  <component name="RunManager" selected="애플리케이션.kr.codesquad.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
       <module name="java-lotto.main" />
@@ -217,7 +218,7 @@
       <workItem from="1678074074442" duration="19450000" />
       <workItem from="1678105710161" duration="298000" />
       <workItem from="1678109953408" duration="747000" />
-      <workItem from="1678196064947" duration="5688000" />
+      <workItem from="1678196064947" duration="6081000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1678073802573</created>
@@ -401,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678202226096</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="modify: 리플렉션 메서드 삭제&#10;&#10;* LadderPartGenerator 객체 생성시 Random 모듈을 외부에서 주입할 수 있기 때문에 리플렉션 메서드를 통해서 모킹한 객체와 바꿔치기할 필요가 없어져서 삭제하였습니다.">
+      <created>1678202489518</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1678202489518</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +427,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docs: 학습 목표 및 미션 요구사항 작성&#10;&#10;* String과 관련된 학습 목표 작성&#10;* 사다리 게임에 대한 요구사항 작성" />
     <MESSAGE value="docs: 사다리 게임 사람 입력범위 수정&#10;&#10;* 사람 명수 입력시 최소 1명 이상에서 최소 2명이사으로 수정" />
     <MESSAGE value="test: 랜덤한 사다리 생성 테스트 케이스 추가&#10;&#10;* 사람=2, 사다리=2 테스트 케이스&#10;* 사람=3, 사다리=5 테스트 케이스" />
     <MESSAGE value="add : Mockito 모듈 추가&#10;&#10;* 단위 테스트시 랜덤한 사다리 라인 생성시 랜덤 모듈을 모킹하기 위해서 추가하였습니다." />
@@ -444,7 +451,8 @@
     <MESSAGE value="feat: 사다리 부품 생성 기능&#10;&#10;* 기존 사다리(Ladder) 객체의 랜덤한 사다리 생성 기능을 이전받은 객체입니다.&#10;* 객체 생성시 사다리와 랜덤 모듈을 주입받아서 사다리 객체에 따른 랜덤한 사다리(2차원 문자열 배열)을 생성합니다." />
     <MESSAGE value="modify : LadderPartGenerator 객체 생성시 Random 객체를 생성하여 주입하도록 변경" />
     <MESSAGE value="style: 도메인 객체 변경에 따른 코드 정리" />
-    <option name="LAST_COMMIT_MESSAGE" value="style: 도메인 객체 변경에 따른 코드 정리" />
+    <MESSAGE value="modify: 리플렉션 메서드 삭제&#10;&#10;* LadderPartGenerator 객체 생성시 Random 모듈을 외부에서 주입할 수 있기 때문에 리플렉션 메서드를 통해서 모킹한 객체와 바꿔치기할 필요가 없어져서 삭제하였습니다." />
+    <option name="LAST_COMMIT_MESSAGE" value="modify: 리플렉션 메서드 삭제&#10;&#10;* LadderPartGenerator 객체 생성시 Random 모듈을 외부에서 주입할 수 있기 때문에 리플렉션 메서드를 통해서 모킹한 객체와 바꿔치기할 필요가 없어져서 삭제하였습니다." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -6,11 +6,11 @@ import java.io.InputStreamReader;
 
 public class ConsoleInput {
 
-    private final BufferedReader br;
+    private final BufferedReader reader;
     private final LadderValidator validator;
 
-    public ConsoleInput(LadderValidator validator) {
-        this.br = new BufferedReader(new InputStreamReader(System.in));
+    public ConsoleInput(BufferedReader reader, LadderValidator validator) {
+        this.reader = reader;
         this.validator = validator;
     }
 
@@ -25,7 +25,7 @@ public class ConsoleInput {
 
     private int readNumberOfPeopleTextAndToInt() {
         try {
-            String text = br.readLine();
+            String text = reader.readLine();
             text = validator.validateNumberOfPeople(text);
             return toInt(text);
         } catch (InvalidPersonNumber e) {
@@ -47,7 +47,7 @@ public class ConsoleInput {
 
     private int readMaximumLadderHeightTextAndToInt() {
         try {
-            String text = br.readLine();
+            String text = reader.readLine();
             text = validator.validateLadderHeight(text);
             return toInt(text);
         } catch (InvalidMaximumLadderHeight e) {
