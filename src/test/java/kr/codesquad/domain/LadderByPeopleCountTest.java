@@ -1,7 +1,8 @@
-package kr.codesquad;
+package kr.codesquad.domain;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class LadderByPeopleCountTest {
@@ -13,6 +14,7 @@ class LadderByPeopleCountTest {
         ladderByPeopleCount = new LadderByPeopleCount();
     }
 
+    @DisplayName("사람 몇명 입력시 2차원 배열 생성")
     @Test
     void create() {
         boolean[][] booleans = ladderByPeopleCount.create(3, 4, () -> false);
@@ -24,6 +26,7 @@ class LadderByPeopleCountTest {
         Assertions.assertThat(booleans).isEqualTo(result);
     }
 
+    @DisplayName("draw")
     @Test
     void drawLadder() {
         boolean[][] result = new boolean[3][4];

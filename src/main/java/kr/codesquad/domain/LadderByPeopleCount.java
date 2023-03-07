@@ -1,14 +1,14 @@
-package kr.codesquad;
+package kr.codesquad.domain;
 
 import java.util.Random;
 import java.util.function.Supplier;
 
 public class LadderByPeopleCount implements Ladder{
 
-    public static final String PEOPLE_DELIMITER = "|";
-    public static final String SUCCESS_DELIMITER = "-";
-    public static final String FAIL_DELIMITER = " ";
-    public static final String NEXT_LINE = "\n";
+    static final String PEOPLE_DELIMITER = "|";
+    static final String SUCCESS_DELIMITER = "-";
+    static final String FAIL_DELIMITER = " ";
+    static final String NEXT_LINE = "\n";
     private final Random random = new Random();
 
     private final Supplier<Boolean> randomBoolean = random::nextBoolean;
