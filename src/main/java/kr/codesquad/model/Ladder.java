@@ -27,7 +27,7 @@ public class Ladder {
     private boolean[] generateRow(Random random, int length) {
         boolean[] row = new boolean[length];
         for (int i = 0; i < length; i++) {
-            row[i] = random.nextBoolean();
+            row[i] = random.nextBoolean() && (i == 0 || !row[i - 1]);
         }
         return row;
     }

@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/LadderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/LadderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/model/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/model/Ladder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/InputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/InputView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/OutputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/OutputView.java" afterDir="false" />
-    </list>
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat: 이름 입력 받기 구현, 사다리 발판 길이 늘림&#10;&#10;기존에는 인원 수만 입력받았는데, 3단계 요구사항에 맞춰 참여할 플레이어들의 이름을 입력받도록 변경&#10;사다리 위에 이름이 표시되어야&#10;하므로, 발판 길이를 기존의 1칸에서 5칸으로 늘림" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678090564396</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: 이름 입력 받기 구현, 사다리 발판 길이 늘림&#10;&#10;기존에는 인원 수만 입력받았는데, 3단계 요구사항에 맞춰 참여할 플레이어들의 이름을 입력받도록 변경&#10;사다리 위에 이름이 표시되어야&#10;하므로, 발판 길이를 기존의 1칸에서 5칸으로 늘림">
+      <created>1678168600478</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678168600478</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +253,7 @@
     <MESSAGE value="feat: 사다리 게임 진행하기" />
     <MESSAGE value="fix: Ladder 의 toString 메소드 10줄 이하로 줄이기" />
     <MESSAGE value="refactor: Ladder 의 generateLegs depth 1로 줄이기" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: Ladder 의 generateLegs depth 1로 줄이기" />
+    <MESSAGE value="feat: 이름 입력 받기 구현, 사다리 발판 길이 늘림&#10;&#10;기존에는 인원 수만 입력받았는데, 3단계 요구사항에 맞춰 참여할 플레이어들의 이름을 입력받도록 변경&#10;사다리 위에 이름이 표시되어야&#10;하므로, 발판 길이를 기존의 1칸에서 5칸으로 늘림" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 이름 입력 받기 구현, 사다리 발판 길이 늘림&#10;&#10;기존에는 인원 수만 입력받았는데, 3단계 요구사항에 맞춰 참여할 플레이어들의 이름을 입력받도록 변경&#10;사다리 위에 이름이 표시되어야&#10;하므로, 발판 길이를 기존의 1칸에서 5칸으로 늘림" />
   </component>
 </project>
