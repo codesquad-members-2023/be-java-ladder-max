@@ -24,7 +24,6 @@ public class Ladder {
     }
 
     private Line makeLine() {
-        Random random = new Random();
         Line line = new Line();
         for(int idx = 0; idx < people.size() - 1; idx++) {
             line.drawLine(idx);

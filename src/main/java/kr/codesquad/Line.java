@@ -18,14 +18,14 @@ public class Line {
         Random random = new Random();
         boolean draw = random.nextBoolean();
         if(draw && canDraw(countOfPerson)) {
-            points.add("-----");
+            addLine("-----");
             return;
         }
-        points.add("     ");
+        addLine("     ");
     }
 
-    public String get(int idx) {
-        return this.points.get(idx);
+    public void addLine(String s) {
+        points.add(s);
     }
 
     @Override
