@@ -15,13 +15,13 @@ class InputHandlerTest {
     @Test
     @DisplayName("사용자 입력에따른 player 이름을 list의 형태로 가져오는지 test")
     void getPeopleNameFromUserTest() throws IOException {
-        String input = "charlie,charlly,charles";
+        String input = "aaaa,bbbbb,ccc";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
         ArrayList actual = new ArrayList();
         handler.getName(actual);
-        ArrayList<String> expected = new ArrayList<>(Arrays.asList("charlie", "charlly", "charles"));
+        ArrayList<String> expected = new ArrayList<>(Arrays.asList("aaaa", "bbbbb", "ccc"));
 
         Assertions.assertEquals(expected, actual);
     }
