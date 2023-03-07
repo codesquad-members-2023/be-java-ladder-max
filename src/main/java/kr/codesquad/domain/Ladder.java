@@ -11,10 +11,10 @@ public class Ladder {
 	private final List<LadderLine> ladderLines;
 	private final int height;
 
-	public Ladder(final Input input) {
+	public Ladder(final int countOfPerson, final int height) {
 		this.ladderLines = new ArrayList<>();
-		this.height = input.getHeightOfLadder();
-		initLadderLines(input.getNamesOfPerson().size());
+		this.height = height;
+		initLadderLines(countOfPerson);
 	}
 
 	private void initLadderLines(final int countOfPerson) {

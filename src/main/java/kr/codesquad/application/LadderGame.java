@@ -2,8 +2,9 @@ package kr.codesquad.application;
 
 import java.util.List;
 
-import kr.codesquad.domain.Input;
+import kr.codesquad.domain.Height;
 import kr.codesquad.domain.Ladder;
+import kr.codesquad.domain.Participants;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
@@ -14,27 +15,33 @@ public class LadderGame {
 
 	public void startLadderGame() {
 		try {
-			final Input input = getInputFromUser();
-			final Ladder ladder = createLadder(input);
-			printStateOfLadder(input.getNamesOfPerson(), ladder);
+			final Participants participants = getParticipantsFromUser();
+			final Height height = getHeightFromUser();
+
+			final Ladder ladder = createLadder(participants.getParticipants().size(), height.getValue());
+			printStateOfLadder(participants.getParticipants(), ladder);
 		} catch (final IllegalArgumentException e) {
 			outputView.printErrorMsg(e);
 			startLadderGame();
 		}
 	}
 
-	private Input getInputFromUser() {
+	private Participants getParticipantsFromUser() {
 		outputView.printGetNamesOfPersonMsg();
 		final String namesOfPerson = inputView.getInputFromUser();
 
+		return new Participants(namesOfPerson);
+	}
+
+	private Height getHeightFromUser() {
 		outputView.printGetHeightOfLadderMsg();
 		final String heightOfLadder = inputView.getInputFromUser();
 
-		return new Input(namesOfPerson, heightOfLadder);
+		return new Height(heightOfLadder);
 	}
 
-	private Ladder createLadder(final Input input) {
-		final Ladder ladder = new Ladder(input);
+	private Ladder createLadder(final int countOfPerson, final int height) {
+		final Ladder ladder = new Ladder(countOfPerson, height);
 		ladder.createFigureOfLadder();
 		return ladder;
 	}
