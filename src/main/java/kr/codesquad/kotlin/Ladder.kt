@@ -7,35 +7,32 @@ class Ladder {
 
 
     fun createExistLineMap(peopleCount: Int, ladderHeight: Int): Array<Array<Boolean>> {
-        val arr = Array(ladderHeight) {
-            Array(peopleCount - 1) { false }
+        val arr = Array(size = ladderHeight) {
+            Array(size = peopleCount - 1) { false }
         }
-        for (i in 0 until ladderHeight) {
-            for (j in 0 until peopleCount - 1) {
+        (0 until ladderHeight).forEach { i ->
+            (0 until peopleCount - 1).forEach { j ->
                 arr[i][j] = nextBoolean()
             }
         }
         return arr
     }
 
-    fun draw(existLineMap: Array<Array<Boolean>>): String {
-        val st = StringBuilder()
+    fun draw(existLineMap: Array<Array<Boolean>>): String = with(StringBuilder()) {
         existLineMap.indices.forEach { i ->
-            st.append("|")
+            append("|")
             (0 until existLineMap[0].size).forEach { j ->
-                when {
-                    existLineMap[i][j] -> {
-                        st.append("-")
+                append(
+                    when {
+                        existLineMap[i][j] -> "-"
+                        else -> " "
                     }
-                    else -> {
-                        st.append(" ")
-                    }
-                }
-                st.append("|")
+                )
+                append("|")
             }
-            st.append("\n")
+            append("\n")
         }
-        return st.toString()
+        return toString()
     }
 
 }
