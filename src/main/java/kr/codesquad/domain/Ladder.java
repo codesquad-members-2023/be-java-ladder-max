@@ -1,5 +1,5 @@
 package kr.codesquad.domain;
 
 public interface Ladder {
-    String create(int peopleCount, int ladderHeight);
+    String draw(int peopleCount, int ladderHeight);
 }
