@@ -1,5 +1,7 @@
 package kr.codesquad;
 
+import java.util.Random;
+
 public class LadderGame {
 
     private final ConsoleInput consoleInput;
@@ -12,7 +14,9 @@ public class LadderGame {
         int numberOfPeople = consoleInput.readNumberOfPeople();
         int maximumLadderHeight = consoleInput.readMaximumLadderHeight();
         Ladder ladder = new Ladder(numberOfPeople, maximumLadderHeight);
-        String[][] board = ladder.generate();
+        Random random = new Random();
+        LadderPartGenerator generator = new LadderPartGenerator(ladder, random);
+        String[][] board = generator.generate();
         LadderConverter converter = new LadderConverter(board);
         String ladderStr = converter.convertToString();
         ConsoleOutput.printLadderBoard(ladderStr);
