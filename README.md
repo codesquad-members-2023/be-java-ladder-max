@@ -2,17 +2,18 @@
 
 - Last Update: 2023-3-7
 
-## 학습 계획
--[ ] 자바 클린 코딩 기초
--[ ] 자바 문자열
--[ ] 리스트와 제네릭
--[ ] Java Collection Framework
--[ ] TDD Basic
--[ ] Java Exception
--[ ] Java Enum
--[ ] SparkJava
--[ ] JVM
--[ ] 미션 구현
+## 학습 계획   
+
+-[ ] 자바 클린 코딩 기초      
+-[ ] 자바 문자열   
+-[ ] 리스트와 제네릭   
+-[ ] Java Collection Framework   
+-[ ] TDD Basic   
+-[ ] Java Exception   
+-[ ] Java Enum   
+-[ ] SparkJava   
+-[ ] JVM   
+-[ ] 미션 구현   
 
 ## 자바 클린 코딩 기초
 <details>
