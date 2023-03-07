@@ -26,7 +26,7 @@ public class ConsoleInput {
     private int readNumberOfPeopleTextAndToInt() {
         try {
             String text = br.readLine();
-            validator.validateNumberOfPeople(text);
+            text = validator.validateNumberOfPeople(text);
             return toInt(text);
         } catch (InvalidPersonNumber e) {
             ConsoleOutput.printInvalidInputNumber(e.getMessage());
@@ -48,7 +48,7 @@ public class ConsoleInput {
     private int readMaximumLadderHeightTextAndToInt() {
         try {
             String text = br.readLine();
-            validator.validateLadderHeight(text);
+            text = validator.validateLadderHeight(text);
             return toInt(text);
         } catch (InvalidPersonNumber e) {
             ConsoleOutput.printInvalidInputNumber(e.getMessage());
