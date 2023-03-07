@@ -1,11 +1,9 @@
-package kr.codesquad.controller;
-
-import kr.codesquad.view.InputView;
-import kr.codesquad.view.OutputView;
+package kr.codesquad;
 
 public class LadderController {
     OutputView outputView;
     InputView inputView;
+    LadderGenerator ladderGenerator;
 
     public LadderController(OutputView outputView, InputView inputView) {
         this.outputView = outputView;
@@ -17,5 +15,9 @@ public class LadderController {
         int joinMembers = inputView.userInput();
         outputView.printMaxHeight();
         int maxHeight = inputView.userInput();
+
+        this.ladderGenerator = new LadderGenerator(joinMembers, maxHeight);
+        String[][] ladder = ladderGenerator.makeLadder();
+        outputView.printLadderState(ladder);
     }
 }

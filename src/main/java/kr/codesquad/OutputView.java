@@ -1,4 +1,4 @@
-package kr.codesquad.view;
+package kr.codesquad;
 
 public class OutputView {
     public void printJoinMembers() {
@@ -9,7 +9,14 @@ public class OutputView {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
     }
 
-    public void printLadderState() {
-
+    public void printLadderState(String[][] ladder) {
+        for (int i = 0; i < ladder.length; i++) {
+            for (int j = 0; j < ladder[i].length; j++) {
+                System.out.print(ladder[i][j]);
+            }
+            System.out.println();
+        }
     }
+
+
 }
