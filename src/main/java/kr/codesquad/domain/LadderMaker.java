@@ -25,12 +25,20 @@ public class LadderMaker {
         List<String> oneLine = new ArrayList<>();
         for (int i = 0; i < numberOfPeople - 1; i++) {
             oneLine.add(LadderConfig.AFFIX.expression());
-            oneLine.add(numberToLadder());
+            checkLineDuplicated(oneLine, i);
         }
         oneLine.add(LadderConfig.AFFIX.expression());
         return oneLine;
     }
 
+    private void checkLineDuplicated(List<String> oneLine, int index) {
+        if (index > 0 && oneLine.get(oneLine.size() - 2).equals(LadderConfig.LADDER.expression())) {
+            oneLine.add(LadderConfig.EMPTY.expression());
+            return;
+        }
+        oneLine.add(numberToLadder());
+    }
+    
     private String numberToLadder() {
         int number = numberGenerator.generate();
         if (number == LadderConfig.EMPTY.number()) {
