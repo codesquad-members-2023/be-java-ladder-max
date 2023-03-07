@@ -19,12 +19,8 @@ public class Ladder {
 
     private void fillRandomLadderStep(int index, String[] customLadderLine) {
         String randomStep = (Math.random() > 0.5) ? " " : "-";
-        if (index % 2 == 0) {
-            customLadderLine[index] = "|";
-        }
-        else if (index % 2 == 1) {
-            customLadderLine[index] = randomStep;
-        }
+
+        customLadderLine[index] = (index % 2 == 0) ? "|" : randomStep;
     }
 
     public String[][] getLadder() {
