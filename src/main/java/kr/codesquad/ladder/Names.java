@@ -12,8 +12,8 @@ public class Names {
         this.names = names;
     }
 
-    public static Names createNames(String[] names) {
-        return new Names(Arrays.stream(names)
+    public static Names createNames(List<String> names) {
+        return new Names(names.stream()
                 .map(Name::new)
                 .collect(Collectors.toUnmodifiableList()));
     }

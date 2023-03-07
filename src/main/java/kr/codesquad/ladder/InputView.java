@@ -3,6 +3,8 @@ package kr.codesquad.ladder;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.List;
 
 public class InputView {
 
@@ -11,9 +13,9 @@ public class InputView {
     private final String NAME_SEPARATOR = ",";
     private final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-    public String[] inputNames() throws IOException {
+    public List<String> inputNames() throws IOException {
         System.out.println(REQUEST_PARTICIPANT_NAME_MESSAGE);
-        return bufferedReader.readLine().split(NAME_SEPARATOR);
+        return Arrays.asList(bufferedReader.readLine().split(NAME_SEPARATOR));
     }
 
     public int inputHeight() throws IOException {

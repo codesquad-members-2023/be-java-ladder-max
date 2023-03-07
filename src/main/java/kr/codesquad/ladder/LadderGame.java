@@ -3,6 +3,7 @@ package kr.codesquad.ladder;
 import static kr.codesquad.ladder.OutputView.printString;
 
 import java.io.IOException;
+import java.util.List;
 
 public class LadderGame {
 
@@ -10,10 +11,10 @@ public class LadderGame {
     private Ladder ladder;
 
     public void run() throws IOException {
-        String[] names = inputView.inputNames();
+        List<String> names = inputView.inputNames();
         int height = inputView.inputHeight();
 
-        ladder = Ladder.createLadder(height, names.length - 1);
+        ladder = Ladder.createLadder(height, names.size() - 1);
         printString(Names.createNames(names).toString());
         printString(ladder.toString());
     }
