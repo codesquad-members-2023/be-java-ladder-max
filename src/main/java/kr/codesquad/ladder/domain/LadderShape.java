@@ -69,7 +69,7 @@ public class LadderShape {
     private void appendVerticalBar(int i) {
         // i가 짝수일 때, 즉 "|" 출력
         // 즉, 짝수가 아니면 리턴
-        if (i % 2 != 0) {
+        if (!isEven(i)) {
             return;
         }
 
@@ -79,7 +79,7 @@ public class LadderShape {
     private void appendRandomLadderRows(int i) {
         // i가 홀수일 때, 즉 "-" 혹은 " " 랜덤 출력
         // 즉, 홀수가 아니면 리턴
-        if (i % 2 != 1) {
+        if (isEven(i)) {
             return;
         }
 
@@ -132,5 +132,9 @@ public class LadderShape {
 
     private void printNewLine() {
         System.out.println();
+    }
+
+    private boolean isEven(int i) {
+        return i % 2 == 0;
     }
 }
