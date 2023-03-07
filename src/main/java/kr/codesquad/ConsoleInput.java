@@ -24,16 +24,17 @@ public class ConsoleInput {
     }
 
     private int readNumberOfPeopleTextAndToInt() {
+        int numberOfPeople = 0;
         try {
             String text = reader.readLine();
-            text = validator.validateNumberOfPeople(text);
-            return toInt(text);
+            validator.validateNumberOfPeople(text);
+            numberOfPeople = toInt(text);
         } catch (InvalidPersonNumber e) {
             ConsoleOutput.printInvalidInputNumber(e.getMessage());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return 0;
+        return numberOfPeople;
     }
 
     public int readMaximumLadderHeight() {
@@ -46,16 +47,17 @@ public class ConsoleInput {
     }
 
     private int readMaximumLadderHeightTextAndToInt() {
+        int maximumLadderHeight = 0;
         try {
             String text = reader.readLine();
-            text = validator.validateLadderHeight(text);
-            return toInt(text);
+            validator.validateLadderHeight(text);
+            maximumLadderHeight = toInt(text);
         } catch (InvalidMaximumLadderHeight e) {
             ConsoleOutput.printInvalidInputNumber(e.getMessage());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return 0;
+        return maximumLadderHeight;
     }
 
     private int toInt(String text) {

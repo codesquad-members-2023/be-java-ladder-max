@@ -13,28 +13,26 @@ public class LadderValidator {
         this.minLadderHeight = minLadderHeight;
     }
 
-    public String validateNumberOfPeople(String text) {
+    public void validateNumberOfPeople(String text) {
         if (!NUMBER_FORMAT.matcher(text).matches()) {
             throw new InvalidPersonNumber();
         }
         if (!moreThanMinNumberOfPeople(text)) {
             throw new InvalidPersonNumber();
         }
-        return text;
     }
 
     private boolean moreThanMinNumberOfPeople(String text) {
         return Integer.parseInt(text) >= minNumberOfPeople;
     }
 
-    public String validateLadderHeight(String text) {
+    public void validateLadderHeight(String text) {
         if (!NUMBER_FORMAT.matcher(text).matches()) {
             throw new InvalidMaximumLadderHeight();
         }
         if (!moreThanMinLadderHeight(text)) {
             throw new InvalidMaximumLadderHeight();
         }
-        return text;
     }
 
     private boolean moreThanMinLadderHeight(String text) {
