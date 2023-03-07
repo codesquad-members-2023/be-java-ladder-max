@@ -26,11 +26,6 @@ public class LadderByNames implements Ladder {
         return result.toString();
     }
 
-    public Map<Integer, Integer> getUsersOfResult() {
-        return usersOfResult.entrySet().stream()
-            .collect(Collectors.toMap(Entry::getKey, Entry::getValue));
-    }
-
     private void moveAndSaveUsers(boolean[][] ladderExistStateArray) {
         int columnLength = ladderExistStateArray[0].length;
         for (int j = 0; j < columnLength + 1; j++) {
@@ -75,5 +70,10 @@ public class LadderByNames implements Ladder {
         result.append(randomBoolean && possible ? SUCCESS_DELIMITER : FAIL_DELIMITER)
             .append(PEOPLE_DELIMITER);
         return !(randomBoolean && possible);
+    }
+
+    public Map<Integer, Integer> getUsersOfResult() {
+        return usersOfResult.entrySet().stream()
+            .collect(Collectors.toMap(Entry::getKey, Entry::getValue));
     }
 }

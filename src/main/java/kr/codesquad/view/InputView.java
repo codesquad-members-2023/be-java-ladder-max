@@ -20,6 +20,7 @@ public class InputView {
     private static final String NAMES_FORMATTER = "^[a-z]+(,[a-z]+)+$";
     public static final String NAME_DELIMITER = ",";
     public static final String RESULT_PATTERN = "^(꽝|([0-9]+[1-9]*))(,(꽝|([0-9]+[1-9]*)))*$";
+    public static final String INPUT_ERROR = "잘못 입력했습니다.";
     private final Scanner scanner = new Scanner(System.in);
 
     public SearchInfo inputName(List<String> names) {
@@ -34,6 +35,7 @@ public class InputView {
         if (names.contains(input)) {
             return new SearchInfo(SearchType.SINGLE, input);
         }
+        System.out.println(INPUT_ERROR);
         return inputName(names);
     }
 
@@ -51,6 +53,7 @@ public class InputView {
         if (isRightNamesPattern(input)) {
             return Arrays.stream(input.split(NAME_DELIMITER)).collect(Collectors.toList());
         }
+        System.out.println(INPUT_ERROR);
         return inputNames();
     }
 
@@ -63,7 +66,8 @@ public class InputView {
                 return Arrays.stream(result).collect(Collectors.toList());
             }
         }
-        return inputNames();
+        System.out.println(INPUT_ERROR);
+        return inputResult(size);
     }
 
     boolean isRightResultPattern(String input) {
@@ -88,6 +92,7 @@ public class InputView {
         if (isDigit(input)) {
             return Integer.valueOf(input);
         }
+        System.out.println(INPUT_ERROR);
         return inputDigit(description);
     }
 
