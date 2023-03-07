@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.lang.StringBuilder;
+import java.util.Arrays;
 
 public class Ladder {
     private Random random = new Random();
@@ -50,7 +51,6 @@ public class Ladder {
             ladderBoard[i][j] = "|";
         }
     }
-
     private void functionForMakeLadder2(int i) {
         for (int j = 0; j < width; j++) {
             smallIfSentence1InFunctionForMakeLadder2(i, j);
@@ -72,7 +72,7 @@ public class Ladder {
     }
 
     private void smallIfSentence3InFunctionForMakeLadder2(int i, int j) {
-        if (j % 2 == 1 && ladderBoard[i][j - 1] == "-----" && random.nextBoolean() == false) {
+        if (j % 2 == 1 && ladderBoard[i][j - 2] == "-----" && random.nextBoolean() == false) {
             ladderBoard[i][j] = "-----";
         }
     }
@@ -82,13 +82,14 @@ public class Ladder {
         sb.append(" ");
         for (int i = 0; i < names.size(); i++) {
             sb.append(" ");
-
-            sb.append(String.format(" %5s ", names.get(i)));
+            sb.append(String.format("%5s", names.get(i)));
         }
-        System.out.println(sb.toString());
+        String str = sb.toString();
+        System.out.println(str);
+
         for (int i = 0; i < height; i++) {
             System.out.print("    ");
-            System.out.println(ladderBoard[i]);
+            System.out.println(Arrays.toString(ladderBoard[i]));
         }
     }
 }
