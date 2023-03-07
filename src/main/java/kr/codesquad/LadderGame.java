@@ -4,11 +4,11 @@ import java.util.List;
 
 public class LadderGame {
     private final List<String> playerNames;
-    private final Ladder ladder;
+    private final LadderV2 ladder;
 
     public LadderGame() {
         playerNames = Screen.inputPlayerNames();
-        ladder = new Ladder(playerNames.size(), Screen.inputLadderHeight());
+        ladder = new LadderV2(playerNames.size(), Screen.inputLadderHeight());
     }
 
     public void run() {
