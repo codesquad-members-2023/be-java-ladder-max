@@ -8,52 +8,66 @@ public class Ladder {
 
     private final int participantNumber;
     private final int ladderHeight;
+    private static StringBuilder stringBuilder = new StringBuilder();
 
     public Ladder(int participantNumber, int ladderHeight) {
         this.participantNumber = participantNumber;
         this.ladderHeight = ladderHeight;
     }
 
-    private void printVerticalBar() {
-        System.out.print("|");
-    }
-
-    private void printMinusSign() {
-        System.out.print("-");
-    }
-
-    private void printBlank() {
-        System.out.print(" ");
+    public void printLadder() {
+        for (int i = 0; i < ladderHeight; i++) {
+            printLadderRows();
+            System.out.println(stringBuilder);
+            stringBuilder = new StringBuilder();
+        }
     }
 
     private void printLadderRows() {
         for (int i = 0; i < (participantNumber) + (participantNumber - 1); i++) {
-            if (i % 2 == 0) { // i가 짝수일 때, 즉 "|" 출력
-                printVerticalBar();
-            } else { // i가 홀수일 때, 즉 "-" 혹은 " " 랜덤 출력
-                printRandomLadderRows();
-            }
+            chooseLetter(i);
         }
     }
 
-    private void printRandomLadderRows() {
-        Random random = new Random();
-        int randomNumber = random.nextInt(2);
-        if (randomNumber == 0) {
-            printMinusSign();
-        } else {
-            printBlank();
-        }
+    private void chooseLetter(int i) {
+        appendVerticalBar(i);
+        appendRandomLadderRows(i);
     }
 
-    public void printLadder() {
-        for (int i = 0; i < ladderHeight; i++) {
-            printLadderRows();
-            printNewline();
+    private void appendVerticalBar(int i) {
+        // i가 짝수일 때, 즉 "|" 출력
+        // 즉, 짝수가 아니면 리턴
+        if (i % 2 != 0) {
+            return;
         }
+
+        stringBuilder.append("|");
     }
 
-    private void printNewline() {
-        System.out.println();
+    private void appendRandomLadderRows(int i) {
+        // i가 홀수일 때, 즉 "-" 혹은 " " 랜덤 출력
+        // 즉, 홀수가 아니면 리턴
+        if (i % 2 != 1) {
+            return;
+        }
+
+        chooseRandomLetter();
+    }
+
+    private void chooseRandomLetter() {
+        if (new Random().nextInt(2) == 0) {
+            appendMinusSign();
+            return;
+        }
+
+        appendBlank();
+    }
+
+    private void appendMinusSign() {
+        stringBuilder.append("-");
+    }
+
+    private void appendBlank() {
+        stringBuilder.append(" ");
     }
 }

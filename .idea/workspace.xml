@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat(Ladder): 사다리 게임 1단계 구현 완료 &#10;&#10;row를 최대 사다리 높이만큼 출력하는 기능 구현&#10;최대한 객체지향적으로 짜보려 노력했는데 뭔가 아쉬움이 남는다.." />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,18 +21,21 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="step1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
       <RecentBranches>
         <option name="branchesForRepo">
@@ -39,8 +44,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="sully" />
-                    <option name="lastUsedInstant" value="1678068509" />
+                    <option name="branchName" value="step4" />
+                    <option name="lastUsedInstant" value="1678087366" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="step2" />
+                    <option name="lastUsedInstant" value="1678073586" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
@@ -70,11 +79,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last_opened_file_path": "/Users/wonjunjeong/codesquad/java/be-java-ladder-max",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
@@ -82,6 +94,14 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="kr.codesquad" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
@@ -112,6 +132,8 @@
       <updated>1672210428730</updated>
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678068503024" duration="2671000" />
+      <workItem from="1678077123619" duration="4416000" />
+      <workItem from="1678081715723" duration="5871000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자">
       <created>1678069392649</created>
@@ -148,11 +170,148 @@
       <option name="project" value="LOCAL" />
       <updated>1678070996900</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactor(Ladder): 들여쓰기 한번으로만 수정">
+      <created>1678073636564</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678073636564</updated>
+    </task>
+    <task id="LOCAL-00007" summary="refactor(Ladder): print 방식을 StringBuilder 방식으로 변경&#10;&#10;static으로 StringBuilder 정의 후 개행마다 new StringBuilder() 재정의&#10;아직도 엄청 깔끔하진 않음">
+      <created>1678075771903</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678075771903</updated>
+    </task>
+    <task id="LOCAL-00008" summary="refactor(Ladder): 랜덤으로 letter 선택하는 기능 메서드 분리&#10;&#10;분리 안 했으면 if문이 2개였음">
+      <created>1678076460238</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678076460238</updated>
+    </task>
+    <task id="LOCAL-00009" summary="docs: 내용 삭제">
+      <created>1678077190805</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678077190805</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: 사다리 모양 클래스 틀 짜기&#10;&#10;원래는 step-1, step-2 부분을 주석 처리 후&#10;Console 클래스를 재사용할 생각이었지만,&#10;인터페이스 이용해서 겹치는 메서드를 오버라이딩 해주기로 결정했다&#10;ArrayList, Generic와 split 메서드로 참여할 사람 이름의 리스트에 넣어준다.">
+      <created>1678079370557</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1678079370557</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: Console에서 모든 입력 전부 처리하도록 변경&#10;&#10;ShapeConsole 만들어서 인터페이스 생성하고 별 난리를 피웠는데 이건 너무 비효율적인 코드 같음&#10;그냥 Console에서 한꺼번에 입력 기능 처리">
+      <created>1678079944658</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678079944658</updated>
+    </task>
+    <task id="LOCAL-00012" summary="bug: 참여할 사람 이름 리스트 전송 중 버그 발생&#10;&#10;pobi,honux,crong,jk를 입력하면 honux,jk만 출력됨">
+      <created>1678080753450</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1678080753450</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: token 변수 생성 후 비교하는 방식으로 변경&#10;&#10;nextToken()이 총 2번씩 돼서 그랬던 것">
+      <created>1678081745332</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1678081745332</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat: Ladder 클래스와 비슷한 로직으로 재구현&#10;&#10;인터페이스 오버라이딩 기능 사용&#10;메서드가 겹쳐서 어쩔 수 없이 인터페이스를 사용하긴 했는데..&#10;private으로 사용하는 게 더 깔끔하다고 생각되긴 함">
+      <created>1678083721077</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1678083721077</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix: 다시 private으로 롤백&#10;&#10;아무리 생각해도 private이 더 중요하다는 생각이 듦">
+      <created>1678084173146</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1678084173146</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: step-1, step-2와 step-3, step4를 분리하지 말고 같이 출력&#10;&#10;상속 기능 사용하려다가 그냥 같이 출력하는 아이디어 접근">
+      <created>1678084438592</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1678084438592</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat: Ladder 클래스처럼 재구현하여 정상 실행됨&#10;&#10;이제 참여자들 이름 출력만 하면 될 듯&#10;리팩토링은 4단계에서 하자">
+      <created>1678084766437</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1678084766437</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat: Participants 출력 구현 완료&#10;&#10;repeat 메서드 분리하여 출력&#10;이제 리팩토링 해야지">
+      <created>1678085313508</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1678085313508</updated>
+    </task>
+    <task id="LOCAL-00019" summary="docs: step3 실행 결과 이미지 업로드">
+      <created>1678085514011</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1678085514011</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fix: MinusSign이 전에 존재한다면 Blank로 출력하도록 구현&#10;&#10;&quot;&quot;|-----|-----| 모양과 같이 가로 라인이 겹치는 경우 어느 방향으로 이동할지 결정할 수 없다.&quot;&#10;boolean을 이용하여 위의 요구사항 재구현">
+      <created>1678086384898</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1678086384898</updated>
+    </task>
+    <task id="LOCAL-00021" summary="docs: 문제 요구사항에 맞게 재구현한 실행 결과 이미지 업로드">
+      <created>1678086520124</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1678086520124</updated>
+    </task>
+    <task id="LOCAL-00022" summary="feat: 공백, 마이너스 기호 출력에서 논리적 오류 해결&#10;&#10;isMinusSign 위치를 출력하는 메서드 안에 넣어줘서 줄이 바뀔 때마다 초기화시켜줌&#10;letter를 append하는 메서드에 깃발 변경 기능 넣어줌">
+      <created>1678087146360</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1678087146360</updated>
+    </task>
+    <task id="LOCAL-00023" summary="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드">
+      <created>1678087183343</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1678087183343</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit&#10;&#10;.gitignore에 추가해도 무시되질 않네..&#10;그냥 올리자" />
@@ -160,6 +319,24 @@
     <MESSAGE value="feat(Console): 기본 생성자 추가하고, int형 변환&#10;&#10;정수를 입력받는데 String으로 리턴해버렸네.." />
     <MESSAGE value="feat(Ladder): 사다리 시스템을 관리하는 Ladder 클래스 생성 후 구현&#10;&#10;틀 설계 후 print 메서드 생성" />
     <MESSAGE value="feat(Ladder): 사다리 게임 1단계 구현 완료 &#10;&#10;row를 최대 사다리 높이만큼 출력하는 기능 구현&#10;최대한 객체지향적으로 짜보려 노력했는데 뭔가 아쉬움이 남는다.." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(Ladder): 사다리 게임 1단계 구현 완료 &#10;&#10;row를 최대 사다리 높이만큼 출력하는 기능 구현&#10;최대한 객체지향적으로 짜보려 노력했는데 뭔가 아쉬움이 남는다.." />
+    <MESSAGE value="refactor(Ladder): 들여쓰기 한번으로만 수정" />
+    <MESSAGE value="refactor(Ladder): print 방식을 StringBuilder 방식으로 변경&#10;&#10;static으로 StringBuilder 정의 후 개행마다 new StringBuilder() 재정의&#10;아직도 엄청 깔끔하진 않음" />
+    <MESSAGE value="refactor(Ladder): 랜덤으로 letter 선택하는 기능 메서드 분리&#10;&#10;분리 안 했으면 if문이 2개였음" />
+    <MESSAGE value="docs: 내용 삭제" />
+    <MESSAGE value="feat: 사다리 모양 클래스 틀 짜기&#10;&#10;원래는 step-1, step-2 부분을 주석 처리 후&#10;Console 클래스를 재사용할 생각이었지만,&#10;인터페이스 이용해서 겹치는 메서드를 오버라이딩 해주기로 결정했다&#10;ArrayList, Generic와 split 메서드로 참여할 사람 이름의 리스트에 넣어준다." />
+    <MESSAGE value="feat: Console에서 모든 입력 전부 처리하도록 변경&#10;&#10;ShapeConsole 만들어서 인터페이스 생성하고 별 난리를 피웠는데 이건 너무 비효율적인 코드 같음&#10;그냥 Console에서 한꺼번에 입력 기능 처리" />
+    <MESSAGE value="bug: 참여할 사람 이름 리스트 전송 중 버그 발생&#10;&#10;pobi,honux,crong,jk를 입력하면 honux,jk만 출력됨" />
+    <MESSAGE value="fix: token 변수 생성 후 비교하는 방식으로 변경&#10;&#10;nextToken()이 총 2번씩 돼서 그랬던 것" />
+    <MESSAGE value="feat: Ladder 클래스와 비슷한 로직으로 재구현&#10;&#10;인터페이스 오버라이딩 기능 사용&#10;메서드가 겹쳐서 어쩔 수 없이 인터페이스를 사용하긴 했는데..&#10;private으로 사용하는 게 더 깔끔하다고 생각되긴 함" />
+    <MESSAGE value="fix: 다시 private으로 롤백&#10;&#10;아무리 생각해도 private이 더 중요하다는 생각이 듦" />
+    <MESSAGE value="feat: step-1, step-2와 step-3, step4를 분리하지 말고 같이 출력&#10;&#10;상속 기능 사용하려다가 그냥 같이 출력하는 아이디어 접근" />
+    <MESSAGE value="feat: Ladder 클래스처럼 재구현하여 정상 실행됨&#10;&#10;이제 참여자들 이름 출력만 하면 될 듯&#10;리팩토링은 4단계에서 하자" />
+    <MESSAGE value="feat: Participants 출력 구현 완료&#10;&#10;repeat 메서드 분리하여 출력&#10;이제 리팩토링 해야지" />
+    <MESSAGE value="docs: step3 실행 결과 이미지 업로드" />
+    <MESSAGE value="fix: MinusSign이 전에 존재한다면 Blank로 출력하도록 구현&#10;&#10;&quot;&quot;|-----|-----| 모양과 같이 가로 라인이 겹치는 경우 어느 방향으로 이동할지 결정할 수 없다.&quot;&#10;boolean을 이용하여 위의 요구사항 재구현" />
+    <MESSAGE value="docs: 문제 요구사항에 맞게 재구현한 실행 결과 이미지 업로드" />
+    <MESSAGE value="feat: 공백, 마이너스 기호 출력에서 논리적 오류 해결&#10;&#10;isMinusSign 위치를 출력하는 메서드 안에 넣어줘서 줄이 바뀔 때마다 초기화시켜줌&#10;letter를 append하는 메서드에 깃발 변경 기능 넣어줌" />
+    <MESSAGE value="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 두번째 논리적 오류를 해결한 실행 결과 이미지 업로드" />
   </component>
 </project>
