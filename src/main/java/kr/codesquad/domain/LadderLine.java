@@ -13,7 +13,7 @@ public class LadderLine {
 	}
 
 	public LadderLine(final int countOfPerson, final RandomLineGenerator generator) {
-		this(generator.drawLineRandomly(countOfPerson));
+		this(generator.drawLineRandomly(countOfPerson - 1));
 	}
 
 	@Override
