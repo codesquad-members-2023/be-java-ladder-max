@@ -1,5 +1,7 @@
 package kr.codesquad.view;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class InputView {
@@ -9,9 +11,9 @@ public class InputView {
         scanner = new Scanner(System.in);
     }
 
-    public int getN() {
-        OutputView.printInputN();
-        return scanner.nextInt();
+    public List<String> getPeople() {
+        OutputView.printInputPeople();
+        return Arrays.asList(scanner.nextLine().split(","));
     }
 
     public int getMaxHeight() {

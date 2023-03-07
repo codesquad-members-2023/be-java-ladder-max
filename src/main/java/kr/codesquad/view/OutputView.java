@@ -2,10 +2,12 @@ package kr.codesquad.view;
 
 import kr.codesquad.model.Ladder;
 
+import java.util.List;
+
 public class OutputView {
 
-    public static void printInputN() {
-        System.out.println("참여할 사람은 몇 명인가요?");
+    public static void printInputPeople() {
+        System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
     }
 
     public static void printInputMaxHeight() {
@@ -14,5 +16,9 @@ public class OutputView {
 
     public static void printLadder(Ladder ladder) {
         System.out.println(ladder);
+    }
+
+    public static void printPeople(List<String> people) {
+        System.out.println(people);
     }
 }

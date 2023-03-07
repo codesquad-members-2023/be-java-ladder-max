@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Ladder {
     public final char BAR = '|';
-    public final char BLANK = ' ';
-    public final char LEG = '-';
+    public final String BLANK = " ".repeat(5);
+    public final String LEG = "-".repeat(5);
 
     private final int n;
     private final int maxHeight;
@@ -43,15 +43,15 @@ public class Ladder {
 
     private String rowToString(boolean[] row) {
         StringBuilder rowToString = new StringBuilder();
-        for (boolean leg : row) {
-            rowToString.append(BAR).append(leg(leg));
+        for (boolean hasLeg : row) {
+            rowToString.append(BAR).append(leg(hasLeg));
         }
         rowToString.append(BAR);
         return rowToString.toString();
     }
 
-    private char leg(boolean leg) {
-        if (leg) {
+    private String leg(boolean hasLeg) {
+        if (hasLeg) {
             return LEG;
         }
         return BLANK;
