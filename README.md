@@ -60,7 +60,6 @@ StringBuilder와 StringBuffer는 둘 다 String의 불변성으로 인한 문제
 - createLine() : n과 m을 입력 받아서 [n-1][m] 크기의 이차원 배열에 랜덤하게 라인을 생성한다.
 - getRandomLine() : 랜덤하게 '-' 또는 ' ' 을 리턴한다.
 - print() : 사다리 전체를 출력한다.
-<<<<<<< HEAD
 
 ## 2단계 - 리팩토링 맛보기
 ### 요구사항
