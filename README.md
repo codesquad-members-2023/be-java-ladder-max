@@ -16,10 +16,11 @@
 -[ ] 미션 구현   
 
 ## 자바 클린 코딩 기초
+
+### 객체지향 생활체조 원칙
 <details>
 <summary></summary>
 
-### 객체지향 생활체조 원칙
 #### 1. 한 메서드에 오직 한 단계의 들여쓰기(indent)만 한다.   
    - 한 메서드 안에 중첩된 제어구조가 있다면 다단계의 추상화를 코드로 짠 것이며, 고로 한 가지 이상의 일을 하고 있다는 뜻이다.
 정확히 한 가지 일을 하는 메서드들로 작업을 하면 코드가 달라지기 시작한다. 애플리케이션의 각 단위가 더 작아짐에 따라 재사용의 수준은 기하급수적으로 상승하기 시작한다.
@@ -103,9 +104,9 @@ class Species{
 #### 8. 일급 콜렉션을 쓴다.
 - 콜렉션을 포함한 클래스는 반드시 다른 멤버 변수가 없어야 한다.
 - 효과
-  1. 비지니스에 종속적인 자료구조
+  ##### 1. 비지니스에 종속적인 자료구조
   - 특정 조건으로만 생성 할 수 있는 자료구조를 일급 콜렉션으로 생성하여, 검증 로직 생략 가능
-  2. Collection의 불변성을 보장
+  ##### 2. Collection의 불변성을 보장
   - Java의 final은 재할당만 금지하므로, 콜렉션의 데이터를 변경할 수 있는 등 완전한 불변성을 보장하지 않는다.
     그래서 Java에서 불변성을 구현하기 위해서는 일급 콜렉션이나 래퍼 클래스를 활용한다.
   - 일급 콜렉션으로 불변 콜렉션 구현   
@@ -113,7 +114,7 @@ class Species{
   - 래퍼 클래스 (ex. Integer, Character)   
     래퍼 클래스는 불변 객체이기 때문에 한 번 값이 할당되면 변경이 불가능하다.
     
-  3. 상태와 행위를 한 곳에서 관리
+  ##### 3. 상태와 행위를 한 곳에서 관리
   ```java
     import java.util.List;
     class Animals{
@@ -151,7 +152,7 @@ class Species{
   ```
   위 코드는 상태와 행위가 animalGroups라는 한 곳에서 관리되고 있다.   
 
-  4. 이름이 있는 컬렉션
+  ##### 4. 이름이 있는 컬렉션
   - 별도의 타입으로 만듦으로써 변수명으로만 구분하는 것보다 의미가 명확해진다.
   - 타입명으로 검색이 가능해진다.
   
@@ -163,25 +164,20 @@ class Species{
     - 새 기능의 구현을 위한 변경의 지역화 개선
 
 
-   <details>
-   <summary>참고자료</summary>
-    
-  - Guard Clause   
-    https://codify.tistory.com/137
-  - 성능과 가독성을 높이는 분기 처리 방법
-    https://jeaha.dev/80
-  - 조건부 로직 간소화
-    https://sungjk.github.io/2021/04/17/refactoring-04.html
-  - 객체지향 생활체조 원칙   
-    https://devwooks.tistory.com/59
-  - 더 나은 소프트웨어를 향한 9단계: 객체지향 생활 체조
-    https://developerfarm.wordpress.com/2012/02/03/object_calisthenics_summary/
-  - 일급 컬렉션의 소개와 써야할 이유
-    https://jojoldu.tistory.com/412
-  - 래퍼 클래스
-    http://www.tcpschool.com/java/java_api_wrapper
-    </details>    
-
-</details>
+#### 참고 자료
+- Guard Clause   
+  https://codify.tistory.com/137
+- 성능과 가독성을 높이는 분기 처리 방법
+  https://jeaha.dev/80
+- 조건부 로직 간소화
+  https://sungjk.github.io/2021/04/17/refactoring-04.html
+- 객체지향 생활체조 원칙   
+  https://devwooks.tistory.com/59
+- 더 나은 소프트웨어를 향한 9단계: 객체지향 생활 체조
+  https://developerfarm.wordpress.com/2012/02/03/object_calisthenics_summary/
+- 일급 컬렉션의 소개와 써야할 이유
+  https://jojoldu.tistory.com/412
+- 래퍼 클래스
+  http://www.tcpschool.com/java/java_api_wrapper
 
 ## 자바 문자열
