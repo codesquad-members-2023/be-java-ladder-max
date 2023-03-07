@@ -8,7 +8,11 @@ public class Ladder {
 
     private final int participantNumber;
     private final int ladderHeight;
+
     private static StringBuilder stringBuilder = new StringBuilder();
+    private static final String VERTICAL_BAR = "|";
+    private static final String MINUS_SIGN = "-";
+    private static final String BLANK = " ";
 
     public Ladder(int participantNumber, int ladderHeight) {
         this.participantNumber = participantNumber;
@@ -41,7 +45,7 @@ public class Ladder {
             return;
         }
 
-        stringBuilder.append("|");
+        stringBuilder.append(VERTICAL_BAR);
     }
 
     private void appendRandomLadderRows(int i) {
@@ -64,10 +68,10 @@ public class Ladder {
     }
 
     private void appendMinusSign() {
-        stringBuilder.append("-");
+        stringBuilder.append(MINUS_SIGN);
     }
 
     private void appendBlank() {
-        stringBuilder.append(" ");
+        stringBuilder.append(BLANK);
     }
 }
