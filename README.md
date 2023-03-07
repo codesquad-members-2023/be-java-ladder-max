@@ -60,3 +60,55 @@ StringBuilder와 StringBuffer는 둘 다 String의 불변성으로 인한 문제
 - createLine() : n과 m을 입력 받아서 [n-1][m] 크기의 이차원 배열에 랜덤하게 라인을 생성한다.
 - getRandomLine() : 랜덤하게 '-' 또는 ' ' 을 리턴한다.
 - print() : 사다리 전체를 출력한다.
+
+## 2단계 - 리팩토링 맛보기
+### 요구사항
+- 메소드는 한 가지 일만 하도록 하고 최대 10라인을 넘지 않도록 구현한다.
+- 들여쓰기는 2단계에서 1단계로 줄인다.
+- else를 사용하지 않는다.
+- 구현 순서를 고려하며 프로그래밍 한다.
+- naming convention을 지킨다.
+
+### 구현 순서
+1. Input 클래스 구현
+2. Ladder 클래스 - 랜덤하게 line 문자 생성하는 메소드 구현
+3. Ladder 클래스 - line을 랜덤한 문자로 채우는 메소드 구현
+4. Ladder 클래스 - 사다리를 출력하는 메소드 구현
+
+### naming convention
+- 낙타 표기법(Camel Case) : 의미를 가지는 단어의 첫 글자는 대문자, 나머지는 소문자
+- 클래스명 첫글자는 대문자
+- 메소드명, 변수명 첫글자는 소문자
+- 클래스명과 변수명은 주로 명사, 메소드명은 주로 동사
+
+### 이중 for문 분리
+depth를 2단계에서 1단계로 줄이기 위해서 이차원 배열을 생성하고 순회하기 위한 이중 for문에서 
+내부 for문을 메소드로 분리한다.
+- 하나의 열을 생성하는 메소드 createOneColumn()으로 분리
+```java
+public void createRadder(int num, int height) {
+    this.height = height;
+    radder = new char[num-1][height];
+
+    for(int i = 0; i< radder.length; i++){
+        createOneColumn(i);
+    }
+}
+```
+- 하나의 행을 String으로 반환하는 메소드 makeOneRow()으로 분리
+```java
+public void printRadder() {
+    StringBuilder sb = new StringBuilder();
+    for(int i=0; i<height; i++){
+        sb.append(makeOneRow(i));
+        sb.append("\n");
+    }
+    System.out.println(sb);
+}
+```
+> 사다리의 라인을 가지고 있는 이차원 배열명 line이 애매한 이름인 것 같아서 line -> radder 로 변경했다.  
+> createLine() -> createRadder()  
+> print() -> printRadder()
+
+### 실행결과
+![capture1](https://user-images.githubusercontent.com/57559288/223097601-82dee291-abe4-41b9-acea-06cb0e78a034.png)

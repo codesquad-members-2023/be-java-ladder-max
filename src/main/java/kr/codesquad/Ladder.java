@@ -3,16 +3,20 @@ package kr.codesquad;
 public class Ladder {
 
     private int height;
-    private char[][] line;
+    private char[][] radder;
 
-    public void createLine(int num, int height) {
+    public void createRadder(int num, int height) {
         this.height = height;
-        line = new char[num-1][height];
+        radder = new char[num-1][height];
 
-        for(int i=0; i<line.length; i++){
-            for(int j=0; j<height; j++){
-                line[i][j] = getRandomLine();
-            }
+        for(int i = 0; i< radder.length; i++){
+            createOneColumn(i);
+        }
+    }
+
+    public void createOneColumn(int index){
+        for(int i=0; i<height; i++){
+            radder[index][i] = getRandomLine();
         }
     }
 
@@ -24,17 +28,20 @@ public class Ladder {
         return ' ';
     }
 
-    public void print() {
+    public void printRadder() {
         StringBuilder sb = new StringBuilder();
         for(int i=0; i<height; i++){
-            sb.append("|");
-            for(int j=0; j<line.length; j++){
-                sb.append(line[j][i]);
-                sb.append("|");
-            }
+            sb.append(makeOneRow(i));
             sb.append("\n");
         }
-
         System.out.println(sb);
+    }
+
+    public String makeOneRow(int row) {
+        String oneRow = "|";
+        for(int i=0; i<radder.length; i++){
+            oneRow += radder[i][row] + "|";
+        }
+        return oneRow;
     }
 }
