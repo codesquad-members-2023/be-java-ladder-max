@@ -3,6 +3,7 @@ package kr.codesquad.view;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class InputView {
     private final Scanner scanner;
@@ -13,7 +14,9 @@ public class InputView {
 
     public List<String> getPeople() {
         OutputView.printInputPeople();
-        return Arrays.asList(scanner.nextLine().split(","));
+        return Arrays.stream(scanner.nextLine().split(","))
+                .map(String::trim)
+                .collect(Collectors.toList());
     }
 
     public int getMaxHeight() {

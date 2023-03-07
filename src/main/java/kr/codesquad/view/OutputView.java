@@ -19,6 +19,9 @@ public class OutputView {
     }
 
     public static void printPeople(List<String> people) {
-        System.out.println(people);
+        StringBuilder names = new StringBuilder();
+        people.stream().map(name -> String.format("%-6s", name))
+                .forEach(names::append);
+        System.out.println(names);
     }
 }

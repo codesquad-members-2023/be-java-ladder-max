@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat: 이름 입력 받기 구현, 사다리 발판 길이 늘림&#10;&#10;기존에는 인원 수만 입력받았는데, 3단계 요구사항에 맞춰 참여할 플레이어들의 이름을 입력받도록 변경&#10;사다리 위에 이름이 표시되어야&#10;하므로, 발판 길이를 기존의 1칸에서 5칸으로 늘림" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs: 현재까지 진행한 내용 README 업데이트&#10;&#10;현재까지 진행한 3단계 내용을 README에 업데이트함.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/OutputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/OutputView.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,7 +220,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678168600478</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat: 연속된 발판 제거&#10;&#10;같은 높이에 이웃해서 발판이 생성되지 않도록 함.&#10;같은 높이에서는 왼쪽부터 발판을 생성하는데, 바로 왼쪽 칸에 발판이 있는 경우에는 발판이 생성되지 않도록 구현함.">
+      <created>1678168986266</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678168986266</updated>
+    </task>
+    <task id="LOCAL-00009" summary="docs: 현재까지 진행한 내용 README 업데이트&#10;&#10;현재까지 진행한 3단계 내용을 README에 업데이트함.">
+      <created>1678169066066</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678169066066</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,6 +271,8 @@
     <MESSAGE value="fix: Ladder 의 toString 메소드 10줄 이하로 줄이기" />
     <MESSAGE value="refactor: Ladder 의 generateLegs depth 1로 줄이기" />
     <MESSAGE value="feat: 이름 입력 받기 구현, 사다리 발판 길이 늘림&#10;&#10;기존에는 인원 수만 입력받았는데, 3단계 요구사항에 맞춰 참여할 플레이어들의 이름을 입력받도록 변경&#10;사다리 위에 이름이 표시되어야&#10;하므로, 발판 길이를 기존의 1칸에서 5칸으로 늘림" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 이름 입력 받기 구현, 사다리 발판 길이 늘림&#10;&#10;기존에는 인원 수만 입력받았는데, 3단계 요구사항에 맞춰 참여할 플레이어들의 이름을 입력받도록 변경&#10;사다리 위에 이름이 표시되어야&#10;하므로, 발판 길이를 기존의 1칸에서 5칸으로 늘림" />
+    <MESSAGE value="feat: 연속된 발판 제거&#10;&#10;같은 높이에 이웃해서 발판이 생성되지 않도록 함.&#10;같은 높이에서는 왼쪽부터 발판을 생성하는데, 바로 왼쪽 칸에 발판이 있는 경우에는 발판이 생성되지 않도록 구현함." />
+    <MESSAGE value="docs: 현재까지 진행한 내용 README 업데이트&#10;&#10;현재까지 진행한 3단계 내용을 README에 업데이트함." />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 현재까지 진행한 내용 README 업데이트&#10;&#10;현재까지 진행한 3단계 내용을 README에 업데이트함." />
   </component>
 </project>
