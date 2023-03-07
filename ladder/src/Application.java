@@ -3,6 +3,7 @@ public class Application {
         ladderController ladderController = new ladderController();
         ladderController.getInput();
         ladderController.createLadder();
+        ladderController.drawLadder();
         ladderController.testPrintLadder();
 
     }

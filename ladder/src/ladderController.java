@@ -5,6 +5,7 @@ public class ladderController {
     private String[][] ladder;
     private int ladderX;
     private int ladderY;
+    private final Random random = new Random();
 
     public void getInput(){
         UserInput userInput = new UserInput();
@@ -16,8 +17,8 @@ public class ladderController {
 
     public void createLadder() {
         ladder = new String[ladderY][ladderX * 2 - 1];
-        drawLadder();
     }
+
     public void drawLadder(){
         for(int i = 0; i < ladder.length; i++){
             ladderDrawColumn(i);
@@ -44,7 +45,6 @@ public class ladderController {
     }
 
     public boolean randomBoolean(){
-        Random random = new Random();
         return random.nextBoolean();
     }
 
