@@ -60,6 +60,7 @@ StringBuilder와 StringBuffer는 둘 다 String의 불변성으로 인한 문제
 - createLine() : n과 m을 입력 받아서 [n-1][m] 크기의 이차원 배열에 랜덤하게 라인을 생성한다.
 - getRandomLine() : 랜덤하게 '-' 또는 ' ' 을 리턴한다.
 - print() : 사다리 전체를 출력한다.
+<<<<<<< HEAD
 
 ## 2단계 - 리팩토링 맛보기
 ### 요구사항
@@ -112,3 +113,62 @@ public void printRadder() {
 
 ### 실행결과
 ![capture1](https://user-images.githubusercontent.com/57559288/223097601-82dee291-abe4-41b9-acea-06cb0e78a034.png)
+
+## 3단계 - 사다리 모양 개선
+### 리팩토링의 의미
+> 리팩토링의 정의는 결과의 변경 없이 코드의 구조를 재조정하는 것으로 주로 가독성을 높이고 유지보수를 편하게
+하기 위해 사용되고, 버그를 없애거나 새로운 기능을 추가하는 것은 리팩토링이라고 할 수 없다.
+### 리팩토링의 필요성
+- 유지보수 과정이 쉬워진다.
+- 협업을 할 때 소스 공유 과정이 쉬워진다.
+- 코드의 중복을 제거하고 변경이 용이해져 작업시간이 줄어든다.
+- 직관성 있는 네이밍으로 분석이 쉽다.  
+### JCF(Java Collection Framework)
+- 자료의 집합 형태에 대한 표준적인 Framework를 정의한 인터페이스/유틸리티들의 목록
+- java.util 패키지에 속한다.
+- **List** : 순서가 있는 데이터의 집합. 중복 허용
+- **Set** : 순서를 유지하지 않는 데이터의 집합. 중복을 허용하지 않음
+- **Map** : Key와 Value의 쌍으로 이루어진 데이터의 집합. 순서는 유지되지 않고 key는 중복을 허용하지 않음
+
+### Set
+- java.util.Set interface
+- 중복을 허용하지 않는다.
+- 대표적으로 HashSet, TreeSet(정렬가능) 이 있다.
+- **TreeSet**
+  - 오름차순이나 내림차순으로 정렬 가능
+  - Binary Search Tree를 이용하여 구현된다.
+  - Comparable이나 Comparator 인터페이스르 구현해야 된다.
+
+### HashSet\<Object>에서 원하는 Object 삭제하기
+```java
+HashSet<Point> points = new HashSet<>();
+points.add(Point.of(1,1));
+points.add(Point.of(2,2));
+points.add(Point.of(3,3));
+// 이렇게 (1,1),(2,2),(3,3) 3개의 Point가 들어있을 때
+// (1,1)을 삭제하려고 points.remove(Point.of(1,1))을 하면 삭제가 되지 않는다.
+```
+**HashSet은 remove()로 삭제할 때 해당 요소를 equals 와 hashCode 메소드로 비교하여 삭제하기 때문이다.**
+```java
+// 삭제하기 위해서는 Point 클래스의 equals()와 hashCode()를 오버라이딩 해주면 된다.
+@Override
+public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Point point = (Point) o;
+    return x == point.x && y == point.y;
+}
+
+@Override
+public int hashCode() {
+    return Objects.hash(x, y);
+}
+```
+### 참고
+https://jeongkyun-it.tistory.com/66  
+https://nesoy.github.io/articles/2018-06/Java-equals-hashcode
+
+### 사다리 모양 개선
+1. 배열을 ArrayList로 구현
+2. 참여하는 사람의 이름을 입력받고 사다리 위에 출력해준다.(출력 시 칸을 잘 맞춰서 출력)
+3. 사다리의 라인은 하나의 행에 2개가 겹치지 않도록 출력한다.

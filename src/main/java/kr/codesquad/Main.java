@@ -8,8 +8,10 @@ public class Main {
         Ladder ladder = new Ladder();
 
         try {
-            int[] input_data = input.input();
-            ladder.createRadder(input_data[0], input_data[1]);
+            String inputNameData = input.inputName();
+            int height = input.inputHeight();
+
+            ladder.createRadder(inputNameData, height);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,23 +1,34 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Ladder {
 
     private int height;
-    private char[][] radder;
+    private List<List<Character>> radder = new ArrayList<>();
 
-    public void createRadder(int num, int height) {
+    private List<String> names = new ArrayList<>();
+
+    public void createRadder(String inputNameData, int height) {
+        String[] nameArr = inputNameData.split(",");
+        for(String name : nameArr){
+            names.add(name);
+        }
         this.height = height;
-        radder = new char[num-1][height];
 
-        for(int i = 0; i< radder.length; i++){
-            createOneColumn(i);
+        for(int i=0; i<height; i++){
+            radder.add(createRow());
         }
     }
 
-    public void createOneColumn(int index){
-        for(int i=0; i<height; i++){
-            radder[index][i] = getRandomLine();
+    public List<Character> createRow() {
+        int width = names.size();
+        List<Character> row = new ArrayList<>();
+        for(int i=0; i<width-1; i++){
+            row.add(getRandomLine());
         }
+        return row;
     }
 
     public char getRandomLine() {
@@ -31,16 +42,16 @@ public class Ladder {
     public void printRadder() {
         StringBuilder sb = new StringBuilder();
         for(int i=0; i<height; i++){
-            sb.append(makeOneRow(i));
+            sb.append(makeRowString(radder.get(i)));
             sb.append("\n");
         }
         System.out.println(sb);
     }
 
-    public String makeOneRow(int row) {
+    public String makeRowString(List<Character> row) {
         String oneRow = "|";
-        for(int i=0; i<radder.length; i++){
-            oneRow += radder[i][row] + "|";
+        for(int i=0; i<row.size(); i++){
+            oneRow += row.get(i) + "|";
         }
         return oneRow;
     }
