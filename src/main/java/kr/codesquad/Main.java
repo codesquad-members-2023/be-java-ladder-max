@@ -1,7 +1,10 @@
 package kr.codesquad;
 
+import kr.codesquad.controller.GameController;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        GameController gameController = new GameController();
+        gameController.run();
     }
 }
