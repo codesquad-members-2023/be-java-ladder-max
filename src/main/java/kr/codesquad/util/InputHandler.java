@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
 public class InputHandler {
@@ -18,11 +17,25 @@ public class InputHandler {
     }
 
     public void getName(ArrayList list) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        List<String> inputList = Arrays.stream(br.readLine().split(","))
-                .map(String::trim)
-                .collect(Collectors.toList());
-        list.addAll(inputList);
+        while (true) {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            try {
+                List<String> inputList = Arrays.stream(br.readLine().split(","))
+                        .map(str -> validate(str))
+                        .collect(Collectors.toList());
+                list.addAll(inputList);
+                break;
+            } catch (RuntimeException e) {
+                System.out.println("재입력 해주세요");
+            }
+        }
+    }
+
+    String validate(String str) {
+        if (str.length() > 5) {
+            throw new RuntimeException("5글자 이상인 이름 발견 " + str);
+        }
+        return str;
     }
 
 

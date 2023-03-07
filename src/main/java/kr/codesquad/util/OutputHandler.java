@@ -19,7 +19,7 @@ public class OutputHandler {
     void printLadder(Ladder ladder) {
         StringBuilder sb = new StringBuilder();
         ArrayList<String> tempLadder = ladder.getLadder();
-
+        System.out.println("\n결과출력\n");
         for(String str: tempLadder){
             sb.append(str);
         }
