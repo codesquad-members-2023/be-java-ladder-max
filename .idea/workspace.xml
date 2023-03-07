@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs : 누락된 EOL 추가 및 학습 계획 업데이트">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="refactor : 반복된 IO 작업을 StringBuilder를 사용하여 한 번만 하도록 수정&#10;&#10;System.out을 사용하여 2차원 배열을 하나씩 출력하던 것을 StringBuilder를 사용하여 한 번만 하도록 수정합니다.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ladder/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ladder/Ladder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ladder/InputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ladder/InputView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678168998468</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="refactor : 반복된 IO 작업을 StringBuilder를 사용하여 한 번만 하도록 수정&#10;&#10;System.out을 사용하여 2차원 배열을 하나씩 출력하던 것을 StringBuilder를 사용하여 한 번만 하도록 수정합니다.">
+      <created>1678170928731</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678170928731</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,6 +280,7 @@
     <MESSAGE value="refactor : 2차원 배열을 사용하기 위해 작성했던 이중 반복문 분리" />
     <MESSAGE value="test : List 학습 테스트&#10;&#10;학습 테스트란 자바에서 제공하는 API 사용 방법을 테스트 코드를 구현해 학습하는 것을 의미한다.&#10;ArrayList와 LinkedList 학습 테스트를 따라 해보았다." />
     <MESSAGE value="docs : 누락된 EOL 추가 및 학습 계획 업데이트" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs : 누락된 EOL 추가 및 학습 계획 업데이트" />
+    <MESSAGE value="refactor : 반복된 IO 작업을 StringBuilder를 사용하여 한 번만 하도록 수정&#10;&#10;System.out을 사용하여 2차원 배열을 하나씩 출력하던 것을 StringBuilder를 사용하여 한 번만 하도록 수정합니다." />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor : 반복된 IO 작업을 StringBuilder를 사용하여 한 번만 하도록 수정&#10;&#10;System.out을 사용하여 2차원 배열을 하나씩 출력하던 것을 StringBuilder를 사용하여 한 번만 하도록 수정합니다." />
   </component>
 </project>
