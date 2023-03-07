@@ -1,64 +1,78 @@
 import java.util.Random;
 
-public class Ladder{
+public class Ladder {
     public void gameInit() {
-    System.out.println("몇 인용인가요?")
-    System.out.println("몇 단계로 할까요?")
-    System.out.println(System.lineSeparator());
-}
+        System.out.println("몇 인용인가요?")
+        System.out.println("몇 단계로 할까요?")
+        System.out.println(System.lineSeparator());
+    }
     private int width;
     private int height;
-
-    public void init(){
+    private String[][] ladderBoard;
+    public void init() {
         width = inputer.getManNum();
         height = inputer.getLadderNum();
         makeLadder();
     }
-    public void makeLadder(){
-        String[][] ladderBoard = new String[height][width];
-        Random rd = new Random();
-
+    public void makeLadder() {
+        ladderBoard = new String[height][width];
+        Random random = new Random();
         for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                if (j % 2 == 1) {
-                    ladderBoard[i][j] = "|";
-                }
-            }
-            for (int j = 0; j < width; j++) {
-                if (j % 2 == 0) {
-                    if (rd.nextboolean == true)){
-                        ladderBoard[i][j] = " ";
-                    }else{
-                        ladderBoard[i][j] = "-";
-                    }
-                }
-            }
+            functionForMakeLadder1(i);
+            functionForMakeLadder2(i);
         }
     }
-    public void makeLadder(int widthButOnlyForTest, int heightButOnlyForTest){
-        String[][] ladderBoard = new String[heightButOnlyForTest][widthButOnlyForTest];
-        Random rd = new Random();
-
-        for (int i = 0; i < heightButOnlyForTest; i++) {
-            for (int j = 0; j < width; j++) {
-                if (j % 2 == 1) {
-                    ladderBoard[i][j] = "|";
-                }
-            }
-            for (int j = 0; j < widthButOnlyForTest; j++) {
-                if (j % 2 == 0) {
-                    if (rd.nextboolean == true)){
-                        ladderBoard[i][j] = " ";
-                    }else{
-                        ladderBoard[i][j] = "-";
-                    }
-                }
-            }
+    private void smallIfSentence1InFunctionForMakeLadder2(int j) {
+        if (j % 2 == 0 && random.nextboolean == true))) {
+            ladderBoard[i][j] = " ";
         }
     }
-    public void printResult(){
-        for(int i = 0; i < height; i++){
-         System.out.println(ladderBoard[i])
+    private void ifSentenceInFunctionForMakeLadder2(int j) {
+        if (j % 2 == 0 && random.nextboolean == false))) {
+                ladderBoard[i][j] = "-";
+            }
+    }
+    private void functionForMakeLadder2(int i) {
+        for (int j = 0; j < width; j++) {
+            ifSentence1InFunctionForMakeLadder2(j);
+            ifSentence2InFunctionForMakeLadder2(j);
         }
     }
+    private void ifSentenceInFunctionForMakeLadder1(int j) {
+        if (j % 2 == 1) {
+            ladderBoard[i][j] = "|";
+        }
+    }
+    private void functionForMakeLadder1(int i) {
+        for (int j = 0; j < width; j++) {
+            ifSentenceInFunctionForMakeLadder1(int j)
+        }
+    }
+    public void printResult() {
+        for (int i = 0; i < height; i++) {
+            System.out.println(ladderBoard[i])
+        }
+    }
+//    public void makeLadder(int widthButOnlyForTest, int heightButOnlyForTest) {
+//        String[][] ladderBoard = new String[heightButOnlyForTest][widthButOnlyForTest];
+//        Random random = new Random();
+//
+//        for (int i = 0; i < heightButOnlyForTest; i++) {
+//            for (int j = 0; j < width; j++) {
+//                if (j % 2 == 1) {
+//                    ladderBoard[i][j] = "|";
+//                }
+//            }
+//            for (int j = 0; j < widthButOnlyForTest; j++) {
+//                if (j % 2 == 0) {
+//                    if (rd.nextboolean == true)){
+//                        ladderBoard[i][j] = " ";
+//                    }
+//                    if (rd.nextboolean == false)){
+//                        ladderBoard[i][j] = "-";
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
