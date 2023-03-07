@@ -50,7 +50,7 @@ public class ConsoleInput {
             String text = br.readLine();
             text = validator.validateLadderHeight(text);
             return toInt(text);
-        } catch (InvalidPersonNumber e) {
+        } catch (InvalidMaximumLadderHeight e) {
             ConsoleOutput.printInvalidInputNumber(e.getMessage());
         } catch (IOException e) {
             throw new RuntimeException(e);
