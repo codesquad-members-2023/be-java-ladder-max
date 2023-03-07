@@ -9,30 +9,48 @@ public class Ladder {
         this.space = participants - 1;
         this.height = height;
         this.ladders = new boolean[this.height][this.space];
-        this.makeRandomLine();
+        this.makeRandomLadder();
     }
 
-    private void makeRandomLine() {
-        boolean[] random = {false, true};
+    private void makeRandomLadder() {
         for (int i = 0; i < height; i++) {
-            for (int j = 0; j < space; j++) {
-                ladders[i][j] = random[(int) (Math.random() * 2)];
-            }
+            makeRandomRung(i);
         }
+    }
+
+    private void makeRandomRung(int height) {
+        for (int i = 0; i < space; i++) {
+            ladders[height][i] = getRandomBoolean();
+        }
+    }
+
+    private boolean getRandomBoolean() {
+        boolean[] random = {false, true};
+        return random[(int) (Math.random() * random.length)];
     }
 
     public void drawLadder() {
         for (int i = 0; i < height; i++) {
-            for (int j = 0; j < space; j++) {
-                if (j == 0) drawLine();
-                System.out.print(ladders[i][j] ? "-" : " ");
-                drawLine();
-            }
+            drawingSameHeight(i);
             System.out.println();
         }
     }
 
-    private void drawLine() {
+    private void drawingSameHeight(int height) {
+        for (int j = 0; j < space; j++) {
+            drawLeftLine(j);
+            System.out.print(ladders[height][j] ? "-" : " ");
+            drawRightLine();
+        }
+    }
+
+    private void drawLeftLine(int space) {
+        if (space == 0) {
+            drawRightLine();
+        }
+    }
+
+    private void drawRightLine() {
         System.out.print("|");
     }
 }
