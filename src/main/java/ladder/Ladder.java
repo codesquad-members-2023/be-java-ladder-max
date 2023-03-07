@@ -30,27 +30,29 @@ public class Ladder {
     }
 
     public void drawLadder() {
+        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < height; i++) {
-            drawingSameHeight(i);
-            System.out.println();
+            drawingSameHeight(builder, i);
+            builder.append(System.lineSeparator());
         }
+        System.out.println(builder);
     }
 
-    private void drawingSameHeight(int height) {
+    private void drawingSameHeight(StringBuilder builder, int height) {
         for (int j = 0; j < space; j++) {
-            drawLeftLine(j);
-            System.out.print(ladders[height][j] ? "-" : " ");
-            drawRightLine();
+            drawLeftLine(builder, j);
+            builder.append(ladders[height][j] ? "-" : " ");
+            drawRightLine(builder);
         }
     }
 
-    private void drawLeftLine(int space) {
+    private void drawLeftLine(StringBuilder builder, int space) {
         if (space == 0) {
-            drawRightLine();
+            drawRightLine(builder);
         }
     }
 
-    private void drawRightLine() {
-        System.out.print("|");
+    private void drawRightLine(StringBuilder builder) {
+        builder.append("|");
     }
 }

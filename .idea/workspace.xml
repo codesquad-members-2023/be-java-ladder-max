@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="refactor : 2차원 배열을 사용하기 위해 작성했던 이중 반복문 분리">
-      <change afterPath="$PROJECT_DIR$/src/test/java/study/ListTest.java" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs : 누락된 EOL 추가 및 학습 계획 업데이트">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ladder/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ladder/Ladder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,16 +37,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/yeon/Documents/be-java-ladder-max&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/yeon/Documents/be-java-ladder-max",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Gradle.ListTest.arrayList">
+}]]></component>
+  <component name="RunManager" selected="Application.LadderGame">
     <configuration name="LadderGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ladder.LadderGame" />
       <module name="java-lotto.main" />
@@ -218,7 +219,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678106369703</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="test : List 학습 테스트&#10;&#10;학습 테스트란 자바에서 제공하는 API 사용 방법을 테스트 코드를 구현해 학습하는 것을 의미한다.&#10;ArrayList와 LinkedList 학습 테스트를 따라 해보았다.">
+      <created>1678168752546</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678168752546</updated>
+    </task>
+    <task id="LOCAL-00010" summary="docs : 누락된 EOL 추가 및 학습 계획 업데이트">
+      <created>1678168998468</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1678168998468</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +271,8 @@
     <MESSAGE value="feat : InputView 종료 시 BufferedReader를 닫기 위한 메서드 추가" />
     <MESSAGE value="feat : 사다리를 만들고 관리할 Worker를 갖는 LadderGame 객체를 작성&#10;&#10;OutputView 객체 대신 정보를 가장 잘 알고 있는 Ladder 객체가 사다리를 출력하도록 수정했다." />
     <MESSAGE value="refactor : 2차원 배열을 사용하기 위해 작성했던 이중 반복문 분리" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor : 2차원 배열을 사용하기 위해 작성했던 이중 반복문 분리" />
+    <MESSAGE value="test : List 학습 테스트&#10;&#10;학습 테스트란 자바에서 제공하는 API 사용 방법을 테스트 코드를 구현해 학습하는 것을 의미한다.&#10;ArrayList와 LinkedList 학습 테스트를 따라 해보았다." />
+    <MESSAGE value="docs : 누락된 EOL 추가 및 학습 계획 업데이트" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs : 누락된 EOL 추가 및 학습 계획 업데이트" />
   </component>
 </project>
