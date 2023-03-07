@@ -15,23 +15,39 @@ class InputView {
     private val scanner = Scanner(System.`in`)
     private val inputViewValidator = InputViewValidator()
 
-    fun inputPeopleCount(): Int = getNumberInput(INPUT_PEOPLE_COUNT)
+    fun inputUsersNames(): List<String> {
+        println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)")
+        val input = scanner.nextLine()
+        if (inputViewValidator.isInputNamesFormat(input)) {
+            return input.split(',').toList()
+        }
+        println(INPUT_ERROR)
+        return inputUsersNames()
+    }
+
+    fun inputUserCount(): Int = getNumberInput(INPUT_PEOPLE_COUNT)
 
     fun inputLadderHeight(): Int = getNumberInput(INPUT_MAX_LADDER_HEIGHT)
 
     private fun getNumberInput(description: String): Int {
         println(description)
         val input = scanner.nextLine()
-        if (inputViewValidator.isNumber(input)) {
-            return input.toInt()
+        return when {
+            inputViewValidator.isNumber(input) -> {
+                input.toInt()
+            }
+
+            else -> {
+                println(INPUT_ERROR)
+                getNumberInput(description)
+            }
         }
-        println(INPUT_ERROR)
-        return getNumberInput(description)
     }
 }
 
 class InputViewValidator {
     fun isNumber(input: String): Boolean = input.matches(Regex(IS_DIGIT_PATTERN))
+    fun isInputNamesFormat(input: String): Boolean = input.matches(Regex("^[a-z]+(,[a-z]+)+\$"))
 }
 
 
