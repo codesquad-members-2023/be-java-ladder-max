@@ -9,9 +9,9 @@ public class LadderGame {
     }
 
     public void start() {
-        int minPerson = consoleInput.inputPerson();
-        int maximumLadderHeight = consoleInput.inputMaximumLadderHeight();
-        Ladder ladder = new Ladder(minPerson, maximumLadderHeight);
+        int numberOfPeople = consoleInput.readNumberOfPeople();
+        int maximumLadderHeight = consoleInput.readMaximumLadderHeight();
+        Ladder ladder = new Ladder(numberOfPeople, maximumLadderHeight);
         String[][] board = ladder.generate();
         LadderConverter converter = new LadderConverter(board);
         String ladderStr = converter.convertToString();
