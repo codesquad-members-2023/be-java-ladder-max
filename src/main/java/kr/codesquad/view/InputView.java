@@ -25,16 +25,24 @@ public class InputView {
     public Result inputName(List<String> names) {
         System.out.println(INPUT_NAME);
         String input = scanner.nextLine();
-        if (input.equals("all")) {
+        if (isSearchAll(input)) {
             return new Result(SearchType.ALL);
         }
-        if (input.equals("춘식이")){
+        if (isClose(input)) {
             return new Result(SearchType.CLOSE);
         }
         if (names.contains(input)) {
-            return new Result(SearchType.SINGLE,input);
+            return new Result(SearchType.SINGLE, input);
         }
         return inputName(names);
+    }
+
+    static boolean isClose(String input) {
+        return input.equals(SearchType.CLOSE.getValue());
+    }
+
+    static boolean isSearchAll(String input) {
+        return input.equals(SearchType.ALL.getValue());
     }
 
     public List<String> inputNames() {
