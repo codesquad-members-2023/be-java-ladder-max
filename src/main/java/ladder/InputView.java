@@ -22,7 +22,12 @@ public class InputView {
 
     public String[] getNamesOfParticipants() {
         System.out.println("참여할 사람의 이름을 입력하세요. 이름은 쉼표로 구분하세요. 하나의 이름은 최대 5글자까지 입력이 가능합니다.");
-        return validateNameLength(divideByComma(readInput()));
+        try {
+            return validateNameLength(divideByComma(readInput()));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return getNamesOfParticipants();
+        }
     }
 
     private String[] divideByComma(String input) {
