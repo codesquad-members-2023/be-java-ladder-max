@@ -1,6 +1,10 @@
 package kr.codesquad;
 
 public class Output {
+    private static final String POLE = "|";
+    private static final String RUNG = " - ";
+    private static final String BLANK = "   ";
+    
     public void printLadder(boolean[][] rungs) {
         for(boolean[] row : rungs) {
             System.out.println(writeOneRow(row));
@@ -10,19 +14,19 @@ public class Output {
     private String writeOneRow(boolean[] rungRow) {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("|");
+        sb.append(POLE);
         for(boolean rung : rungRow) {
             sb.append(convertRungToString(rung));
-            sb.append("|");
+            sb.append(POLE);
         }
         return sb.toString();
     }
 
     private String convertRungToString(boolean rung) {
         if (hasRung(rung)) {
-            return " - ";
+            return RUNG;
         }
-        return "   ";
+        return BLANK;
     }
 
     private boolean hasRung(boolean rung) {
