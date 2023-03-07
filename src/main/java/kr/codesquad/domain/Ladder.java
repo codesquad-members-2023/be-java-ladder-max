@@ -1,5 +1,6 @@
 package kr.codesquad.domain;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -7,42 +8,37 @@ import java.util.Random;
 public class Ladder {
 
 	private static final Random random = new Random();
-	private static final List<String> horizonLineContainer = List.of("-", " ");
 
-	private final int width;
+	private final List<LadderLine> ladderLines;
 	private final int height;
-	private final String[][] figureOfLadder;
 
-	public Ladder(final List<String> input) {
-		this.width = Integer.parseInt(input.get(0)) * 2 - 1;
-		this.height = Integer.parseInt(input.get(1));
-		this.figureOfLadder = new String[height][width];
+	public Ladder(final Input input) {
+		this.ladderLines = new ArrayList<>();
+		this.height = input.getHeightOfLadder();
+		initLadderLines(input.getNamesOfPerson().size());
+	}
+
+	private void initLadderLines(final int countOfPerson) {
+		for (int i = 0; i < height; i++) {
+			ladderLines.add(new LadderLine(countOfPerson));
+		}
 	}
 
 	public void createFigureOfLadder() {
 		for (int row = 0; row < height; row++) {
-			createVerticalLineOfLadder(row);
 			createHorizonLineOfLadder(row);
 		}
 	}
 
-	private void createVerticalLineOfLadder(final int row) {
-		for (int col = 0; col < width; col += 2) {
-			figureOfLadder[row][col] = "|";
-		}
-	}
-
 	private void createHorizonLineOfLadder(final int row) {
-		for (int col = 1; col < width; col += 2) {
-			figureOfLadder[row][col] = horizonLineContainer.get(random.nextInt(2));
-		}
+		ladderLines.get(row).drawLineRandomly(random);
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder figure = new StringBuilder();
-		Arrays.stream(figureOfLadder)
-			.forEach(line -> figure.append(String.join("", line)).append("\n"));
+		ladderLines
+			.forEach(ladderLine -> figure.append(ladderLine).append("\n"));
 		return figure.toString();
 	}
 }
