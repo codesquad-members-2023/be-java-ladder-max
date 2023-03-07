@@ -2,6 +2,7 @@ package kr.codesquad;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -9,9 +10,26 @@ public class Screen {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static int inputPlayerNumber() {
-        System.out.println("참여할 사람은 몇 명인가요?");
+        Optional<Integer> playerNumber = Optional.empty();
+        while (playerNumber.isEmpty()) {
+            System.out.println("참여할 사람은 몇 명인가요?");
+            playerNumber = nextInt();
+        }
+        if (playerNumber.get() < 1) {
+            System.out.println("최소 1명 이상 입력해 주세요.");
+            inputPlayerNumber();
+        }
+        return playerNumber.get();
+    }
 
-        return scanner.nextInt();
+    private static Optional<Integer> nextInt() {
+        try {
+            return Optional.of(Integer.parseInt(scanner.nextLine().trim()));
+        } catch (NumberFormatException ex) {
+            System.out.println("숫자를 입력해주세요.");
+        }
+
+        return Optional.empty();
     }
 
     public static List<String> inputPlayerNames() {

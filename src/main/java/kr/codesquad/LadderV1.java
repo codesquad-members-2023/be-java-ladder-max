@@ -12,7 +12,8 @@ public class LadderV1 implements Ladder {
     public LadderV1(int playerNumber, int height) {
         this.width = playerNumber * 2 - 1;
         this.height = height;
-        map = new LadderPart[height][width];
+        this.map = new LadderPart[height][width];
+
         initMap();
     }
 
