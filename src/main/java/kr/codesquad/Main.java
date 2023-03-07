@@ -2,7 +2,9 @@ package kr.codesquad;
 
 public class Main {
     public static void main(String[] args) {
-        final LadderGame ladderGame = new LadderGame();
+        final Ladder ladder = LadderGenerator.of(Screen.inputPlayerNames(), Screen.inputLadderHeight());
+
+        final LadderGame ladderGame = new LadderGame(ladder);
 
         ladderGame.run();
     }

@@ -21,16 +21,9 @@ public class Screen {
         return scanner.nextInt();
     }
 
-    public static void printResult(List<String> playerNames, List<String> ladderMap) {
+    public static void printResult(List<String> outputLines) {
         System.out.println("\n실행결과\n");
 
-        System.out.println(makePlayerNamesFormat(playerNames));
-        System.out.println(String.join("\n", ladderMap));
-    }
-
-    private static String makePlayerNamesFormat(List<String> playerNames) {
-        return playerNames.stream()
-                .map(playerName -> String.format("%-6s", playerName))
-                .collect(Collectors.joining());
+        System.out.println(String.join("\n", outputLines));
     }
 }
