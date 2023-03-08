@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.lang.StringBuilder;
-import java.util.Arrays;
 
 public class Ladder {
     private Random random = new Random();
     private int width;
     private int height;
-    private String[][] ladderBoard;
+    private List<List<String>> ladderBoard;
     private List<String> names;
 
     public void init(int inputerGetLadderNum, String inputerGetNames) {
@@ -21,10 +20,9 @@ public class Ladder {
     }
 
     private void makeNames(String inputerGetNames) {
-        String[] str = inputerGetNames.split(",");
-        names = new ArrayList<String>();
-        for (int i = 0; i < str.length; i++) {
-            names.add(str[i]);
+        names = new ArrayList<>();
+        for (int i = 0; i <  inputerGetNames.split(",").length; i++) {
+            names.add( inputerGetNames.split(",")[i]);
         }
     }
 
@@ -33,8 +31,9 @@ public class Ladder {
     }
 
     private void makeLadder() {
-        ladderBoard = new String[height][width];
+        ladderBoard = new ArrayList<>();
         for (int i = 0; i < height; i++) {
+            ladderBoard.add(new ArrayList<>());
             functionForMakeLadder1(i);
             functionForMakeLadder2(i);
         }
@@ -48,9 +47,10 @@ public class Ladder {
 
     private void ifSentenceInFunctionForMakeLadder1(int i, int j) {
         if (j % 2 == 0) {
-            ladderBoard[i][j] = "|";
+            ladderBoard.get(i).add("|");
         }
     }
+
     private void functionForMakeLadder2(int i) {
         for (int j = 0; j < width; j++) {
             smallIfSentence1InFunctionForMakeLadder2(i, j);
@@ -60,22 +60,23 @@ public class Ladder {
     }
 
     private void smallIfSentence1InFunctionForMakeLadder2(int i, int j) {
-        if (j % 2 == 1 && ladderBoard[i][j - 1] == "     " && random.nextBoolean() == true) {
-            ladderBoard[i][j] = "     ";
+        if (j % 2 == 1 && ladderBoard.get(i).get(j - 1) == "     " && random.nextBoolean() == true) {
+            ladderBoard.get(i).add("     ");
         }
     }
 
     private void smallIfSentence2InFunctionForMakeLadder2(int i, int j) {
-        if (j % 2 == 1 && ladderBoard[i][j - 1] == "     " && random.nextBoolean() == false) {
-            ladderBoard[i][j] = "-----";
+        if (j % 2 == 1 && ladderBoard.get(i).get(j - 1) == "     " && random.nextBoolean() == false) {
+            ladderBoard.get(i).add("-----");
         }
     }
 
     private void smallIfSentence3InFunctionForMakeLadder2(int i, int j) {
-        if (j % 2 == 1 && ladderBoard[i][j - 1] == "-----" && random.nextBoolean() == false) {
-            ladderBoard[i][j] = "-----";
+        if (j % 2 == 1 && ladderBoard.get(i).get(j - 1) == "-----" && random.nextBoolean() == false) {
+            ladderBoard.get(i).add("-----");
         }
     }
+
     public void printResult() {
         StringBuilder sb = new StringBuilder();
         sb.append(" ");
@@ -88,7 +89,7 @@ public class Ladder {
 
         for (int i = 0; i < height; i++) {
             System.out.print("    ");
-            for(String j : ladderBoard[i]){
+            for (String j : ladderBoard.get(i)) {
                 System.out.print(j);
             }
             System.out.print("\r\n");
