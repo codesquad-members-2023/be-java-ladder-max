@@ -10,7 +10,7 @@
 ## Todolist
 
 - [x] ConsoleInput 클래스의 사용자 입력 기능 리팩토링
-- [ ] 이중 반복문을 일종 반복문으로 리팩토링
+- [x] 이중 반복문을 일종 반복문으로 리팩토링
 
 ## 기능요구사항
 
@@ -80,7 +80,7 @@ $ java -jar ./build/libs/java-lotto-1.0-SNAPSHOT.jar
 - [x] [Return Early Pattern](#Return-Early-Pattern)
 - [x] [private 메서드 테스트 지양해야 하는 이유 학습](#private-메서드-테스트-지양해야-하는-이유)
 - [x] [클린 코딩 기초 학습](#클린-코딩-기초)
-- [x] [static 메서드와 인스턴스 메서드의 비교](#static-메서드와-인스턴스-메서드의-비교)
+- [ ] [static 메서드와 인스턴스 메서드의 비교](#static-메서드와-인스턴스-메서드의-비교)
 - [ ] 콘솔 출력을 위해서 static 메서드 대신 더욱 효율적인 방법을 탐색해보기
 - [ ] PR 머지 승인전에 브랜치를 따서 해당 브랜치 기반으로 작업하여 다시 PR할 경우 커밋이 딸려오는 문제해결하기
 
@@ -537,8 +537,7 @@ static Object obj = new Object();
 
 ### 인스턴스 메서드 저장 위치
 
-- 인스턴스 메서드는 컴파일 과정에서 Metaspace(자바8 아래에서는 Permanent Generation)라는
-  특별한 메모리 영역에 저장됩니다.
+- 인스턴스 메서드는 자바 8 이후 Metaspace 영역의 Method Area에 저장됩니다.
 - 인스턴스 메서드의 파라미터, 지역 변수, 반환 값들은 stack에 영역에 할당됩니다.
 
 ### 인스턴스 메서드의 특징
@@ -552,12 +551,14 @@ static Object obj = new Object();
 
 ### Metaspace는 어디에 존재하는가?
 
-- Java 8부터 JVM의 메모리 영역중 Permanent Generation 메모리 영역이 사라지고 Metaspace 영역이 생겼습니다.
-- **Metaspace 영역은 자바의 Classloader가 로드한 class들의 metadata가 저장되는 공간입니다.**
-    - metadata : JVM이 해당 클래스에 대해서 알아야하는 모든 정보
-- Permanent Generation 영역과 Metaspace 영역의 차이
-    - Metaspace는 Permanent Generation과 달리 Heap이 아닌 `Native Mememory` 영역에 위치합니다.
-    - Native Memory 영역은 네이티브 객체들을 저장하기 위한 영역입니다.
+- Method Area는 클래스, 메서드, 필드 및 상수 풀과 같은 클래스 메타데이터를 저장합니다.
+- 런타임 데이터 영역의 Method Area도 자바 8 이후 Metaspace 영역에 저장됩니다.
+- `Metaspace`는 Heap 영역이 아닌 `Native Memeory` 영역에 저장됩니다.
+- 자바 8 이전에는 Method Area가 PermGen 영역에 저장되었으나 PermGen 영역이 가득차면 "java.lang.OutOfMemoryError: PermGen
+  space" 오류가 발생했습니다. 왜냐하면 PermGen 영역은 Heap 영역에 있었기 때문입니다.
+- 그러나 Metaspace는 기본적으로 Native Memory 영역에 할당되며, PermGen 영역과 달리 동적으로 크기가 조정되기 때문에
+  이러한 문제가 발생하지 않습니다.
+- 즉, **Method Area는 Metaspace 영역에 저장되고 Metaspace 영역은 NativeMemory 영역에 저장됩니다.**
 
 ![](img/img_6.png)
 
@@ -572,3 +573,5 @@ static Object obj = new Object();
 - [\[Java\] 정적 메소드(static Method)는 언제 사용할까?](https://dev-coco.tistory.com/175)
 - [Java, 인스턴스 메소드(instance methods)와 정적 메소드(static methods)의 차이](https://ykh6242.tistory.com/entry/Java-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EB%A9%94%EC%86%8C%EB%93%9Cinstance-methods%EC%99%80-%EC%A0%95%EC%A0%81-%EB%A9%94%EC%86%8C%EB%93%9Cstatic-methods%EC%9D%98-%EC%B0%A8%EC%9D%B4)
 - [\[Java\] 자바 메타스페이스(Metaspace)에 대해 알아보자.](https://jaemunbro.medium.com/java-metaspace%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90-ac363816d35e#:~:text=%EC%9D%B4%20metadata%EB%8A%94%20heap%20%EC%99%B8%EB%B6%80,%EC%9D%B4%20%EA%B5%AC%EC%97%AD%EC%9D%B4%20Metaspace%EC%9D%B4%EB%8B%A4.)
+- [JVM Runtime Data Area- Heap, Method Area](https://mia-dahae.tistory.com/101)
+- [Java 런타임 데이터 영역](https://8iggy.tistory.com/229)
