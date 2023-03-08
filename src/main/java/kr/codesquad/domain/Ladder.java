@@ -1,48 +1,76 @@
 package kr.codesquad.domain;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Ladder {
+    private final char PLAYER_LINE = '|';
+    private final char BRIDGE = '-';
+    private final char EMPTY_SPACE = ' ';
 
-    public String[][] makeLadder(int playerCount, int ladderHeight) {
+    private final char[][] ladder;
+    private final int rowSize;
+    private final int columnSize;
 
-        String[][] ladder = new String[ladderHeight][(playerCount*2) - 1];
-
-        // player line(세로 줄) 추가
-        addPlayerLine(ladder);
-
-        // bridge(가로 줄) 추가
-        addBridge(ladder);
-
-        return ladder;
+    public Ladder(int playerCount, int ladderHeight) {
+        this.rowSize = ladderHeight;
+        this.columnSize = (playerCount * 2) - 1;
+        this.ladder = makeLadder();
     }
 
-    private String[][] addPlayerLine(String[][] ladder) {
-        for(int i = 0; i < ladder.length; i++) {
-            for(int j = 0; j < ladder[i].length; j++) {
-                if(j%2 == 0) {
-                    ladder[i][j] = "|";
-                }
-            }
+    /* getter */
+    public char[][] getLadder() {
+        char[][] ladderClone = new char[rowSize][columnSize];
+        for(int i = 0; i < rowSize; i++) {
+            ladderClone[i] = ladder[i].clone();
+        }
+
+        return ladderClone;
+    }
+
+    /* private method */
+    private char[][] makeLadder() {
+        char[][] ladder = new char[rowSize][columnSize];
+
+        initLadder(ladder);
+        for(int row = 0; row < rowSize; row++) {
+            addPlayerLineIntoRow(ladder, row);
+            addBridgeIntoRow(ladder, row);
         }
 
         return ladder;
     }
 
-    private String[][] addBridge(String[][] ladder) {
-        for(int i = 0; i < ladder.length; i++) {
-            for(int j = 0; j < ladder[i].length; j++) {
-                if(j%2 != 0 && shouldBuildingBridge()) {
-                    ladder[i][j] = "-";
-                }
-            }
+    private void initLadder(char[][] ladder) {
+        for (int row = 0; row < rowSize; row++) {
+            Arrays.fill(ladder[row], EMPTY_SPACE);
         }
+    }
 
-        return ladder;
+    private void addPlayerLineIntoRow(char[][] ladder, int row) {
+        for(int col = 0; col < columnSize; col += 2) {
+            insertPlayerLine(ladder, row, col);
+        }
+    }
+
+    private void addBridgeIntoRow(char[][] ladder, int row) {
+        for (int col = 1; col < columnSize; col += 2) {
+            insertBridge(ladder, row, col);
+        }
     }
 
     private boolean shouldBuildingBridge() {
-        return (int)(Math.random() * 2) == 1? true : false;
+        return new Random().nextBoolean();
+    }
+
+    private void insertPlayerLine(char[][] ladder, int row, int column) {
+        ladder[row][column] = PLAYER_LINE;
+    }
+
+    private void insertBridge(char[][] ladder, int row, int column) {
+        if (shouldBuildingBridge()) {
+            ladder[row][column] = BRIDGE;
+        }
     }
 
 }
