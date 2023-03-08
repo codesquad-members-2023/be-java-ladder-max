@@ -11,6 +11,7 @@ public class Screen {
 
     public static int inputPlayerNumber() {
         Optional<Integer> playerNumber = Optional.empty();
+
         while (playerNumber.isEmpty()) {
             System.out.println("참여할 사람은 몇 명인가요?");
             playerNumber = readInt();
@@ -19,18 +20,31 @@ public class Screen {
         return playerNumber.get();
     }
 
+    public static int inputLadderHeight() {
+        Optional<Integer> ladderHeight = Optional.empty();
+
+        while (ladderHeight.isEmpty()) {
+            System.out.println("\n최대 사다리 높이는 몇 개인가요?");
+            ladderHeight = readInt();
+        }
+
+        return ladderHeight.get();
+    }
+
     private static Optional<Integer> readInt() {
         try {
-            return filterPositiveNumber(Integer.parseInt(scanner.nextLine().trim()));
+            final int input = Integer.parseInt(scanner.nextLine().trim());
+            return toOptionalPositiveNumber(input);
         } catch (NumberFormatException ex) {
             System.out.println("숫자를 입력해주세요.");
         } catch (IllegalArgumentException ex) {
             System.out.println("0보다 큰 숫자를 입력해 주세요.");
         }
+
         return Optional.empty();
     }
 
-    private static Optional<Integer> filterPositiveNumber(int number) {
+    private static Optional<Integer> toOptionalPositiveNumber(int number) {
         if (number < 1) {
             throw new IllegalArgumentException();
         }
@@ -43,12 +57,6 @@ public class Screen {
 
         return Arrays.stream(scanner.nextLine().split(","))
                 .collect(Collectors.toList());
-    }
-
-    public static int inputLadderHeight() {
-        System.out.println("\n최대 사다리 높이는 몇 개인가요?");
-
-        return scanner.nextInt();
     }
 
     public static void printResult(List<String> outputLines) {
