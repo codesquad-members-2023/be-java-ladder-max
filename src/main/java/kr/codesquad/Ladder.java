@@ -9,7 +9,6 @@ public class Ladder {
 
     public Ladder(int verticalLine, int horizontalLine) {
         ladder = new String[horizontalLine][(2 * verticalLine) - 1];
-
         fillVerticalLine();
         fillHorizontalLine();
     }
