@@ -4,12 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class LadderV1 implements Ladder {
+public class PlayerNumberLadder implements Ladder {
     private final LadderPart[][] map;
     private final int width;
     private final int height;
 
-    public LadderV1(int playerNumber, int height) {
+    public PlayerNumberLadder(int playerNumber, int height) {
         this.width = playerNumber * 2 - 1;
         this.height = height;
         this.map = new LadderPart[height][width];
@@ -32,7 +32,7 @@ public class LadderV1 implements Ladder {
     @Override
     public List<String> createOutputLines() {
         return Arrays.stream(map)
-                .map(LadderV1::toOutputLine)
+                .map(PlayerNumberLadder::toOutputLine)
                 .collect(Collectors.toList());
     }
 

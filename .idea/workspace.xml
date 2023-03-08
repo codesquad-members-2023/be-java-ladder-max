@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Screen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/PlayerNumberLadder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/PlayerNameLadder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +92,7 @@
       <workItem from="1678175488458" duration="3102000" />
       <workItem from="1678178910983" duration="67000" />
       <workItem from="1678178981502" duration="2223000" />
+      <workItem from="1678249755892" duration="413000" />
     </task>
     <servers />
   </component>
