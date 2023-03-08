@@ -1,44 +1,49 @@
 package kr.codesquad.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Ladder {
-    private String[][] laddersFrame;
+    private List<List<String>> laddersFrame = new ArrayList<>();
     private int length;
     private int width;
 
-    public String[][] makeLadder(int n, int m) {
-        createLadderEmpty(n, m);
-        makeLadderVerticalLine();
-        makeLadderHorizontalLine();
+    public List<List<String>> makeLadder(List<String> users, int m) {
+        width = users.size() + (users.size() - 1);
+        length = m;
+        makeName2Ladder(users);
+        makeLine2Ladder();
         return laddersFrame;
     }
 
-    private void createLadderEmpty(int n, int m) {
-        this.length = m;
-        this.width = n + (n - 1);
-        laddersFrame = new String[length][width];
+    private void makeName2Ladder(List<String> users) {
+        List<String> userNames = new ArrayList<>();
+        for (String user : users) {
+            userNames.add(user);
+            userNames.add("");
+        }
+        userNames.remove(userNames.size() - 1);
+        laddersFrame.add(userNames);
     }
 
-    private void makeLadderVerticalLine() {
+    private void makeLine2Ladder() {
         for (int i = 0; i < length; i++) {
-            fillLadderVerticalLine(i);
+            List<String> lines = new ArrayList<>();
+            lines.add("|");
+            String before = "";
+            for (int j = 1; j < width; j += 2) {
+                if (before.equals(LadderLine.stick.getValue())) {
+                    before = LadderLine.blank.getValue();
+                } else {
+                    before = LadderLine.takeRandom();
+                }
+                lines.add(before);
+                lines.add("|");
+            }
+            laddersFrame.add(lines);
         }
     }
 
-    private void fillLadderVerticalLine(int row) {
-        for (int i = 0; i < width; i += 2) {
-            laddersFrame[row][i] = "|";
-        }
-    }
 
-    private void makeLadderHorizontalLine() {
-        for (int i = 0; i < length; i++) {
-            fillLadderHorizontalLine(i);
-        }
-    }
 
-    private void fillLadderHorizontalLine(int row) {
-        for (int j = 1; j < width; j += 2) {
-            laddersFrame[row][j] = LadderLine.takeRandom();
-        }
-    }
 }

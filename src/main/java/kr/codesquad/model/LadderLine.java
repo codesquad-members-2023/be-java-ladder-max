@@ -3,8 +3,8 @@ package kr.codesquad.model;
 import java.util.Random;
 
 public enum LadderLine {
-    stick("-"),
-    blank(" ");
+    stick("-----"),
+    blank("     ");
 
     private String value;
 
