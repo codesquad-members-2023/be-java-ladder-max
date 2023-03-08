@@ -10,7 +10,7 @@ class UserTest {
 
     @DisplayName("참여할 유저 이름이 1글자 미만일 경우 생성되지 않는다")
     @ParameterizedTest
-    @ValueSource(strings = {"", " ", "n"})
+    @ValueSource(strings = {"", " "})
     void validateMinLength(String name) {
         // given
 
@@ -32,9 +32,9 @@ class UserTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> new User(name));
     }
 
-    @DisplayName("참여할 유저 이름은 2글자 이상 5글자 이하여야 생성된다")
+    @DisplayName("참여할 유저 이름은 1글자 이상 5글자 이하여야 생성된다")
     @ParameterizedTest
-    @ValueSource(strings = {"man du", "h o", "ho", "JK", "honux"})
+    @ValueSource(strings = {"man du", "h o", "o", "JK", "honux"})
     void generate(String name) {
         // given
 

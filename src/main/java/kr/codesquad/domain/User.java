@@ -3,7 +3,7 @@ package kr.codesquad.domain;
 public class User {
 
     private static final int MAX_LENGTH = 5;
-    private static final int MIN_LENGTH = 2;
+    private static final int MIN_LENGTH = 1;
 
     private final String name;
 
