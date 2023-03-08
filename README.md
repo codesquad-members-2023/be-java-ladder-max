@@ -442,10 +442,6 @@ class Example {
 클래스를 구현할때 다음 순서를 지켜 구현합니다.
 
 ```java
-package 패키지명
-
-import ...
-
 class Ladder {
     //상수 및 클래스 변수
 
