@@ -1,9 +1,11 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Screen {
@@ -38,7 +40,7 @@ public class Screen {
         } catch (NumberFormatException ex) {
             System.out.println("숫자를 입력해주세요.");
         } catch (IllegalArgumentException ex) {
-            System.out.println("0보다 큰 숫자를 입력해 주세요.");
+            System.out.println(ex.getMessage());
         }
 
         return Optional.empty();
@@ -46,17 +48,59 @@ public class Screen {
 
     private static Optional<Integer> toOptionalPositiveNumber(int number) {
         if (number < 1) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("0보다 큰 숫자를 입력해 주세요.");
         }
 
         return Optional.of(number);
     }
 
     public static List<String> inputPlayerNames() {
-        System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
+        Optional<List<String>> playerNames = Optional.empty();
+        while (playerNames.isEmpty()) {
+            System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
+            playerNames = readPlayerNames();
+        }
 
-        return Arrays.stream(scanner.nextLine().split(","))
-                .collect(Collectors.toList());
+        return playerNames.get();
+    }
+
+    private static Optional<List<String>> readPlayerNames() {
+        try {
+            return Optional.of(toValidPlayerNames(scanner.nextLine().split(",")));
+        } catch (IllegalArgumentException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return Optional.empty();
+    }
+
+    private static List<String> toValidPlayerNames(String[] inputNames) {
+        final Set<String> validPlayerNames = parseValidNames(inputNames);
+
+        if (inputNames.length != validPlayerNames.size()) {
+            throw new IllegalArgumentException("중복된 이름이 있습니다.");
+        }
+
+        return new ArrayList<>(validPlayerNames);
+    }
+
+    private static Set<String> parseValidNames(String[] names) {
+        return Arrays.stream(names)
+                .map(Screen::parseValidName)
+                .collect(Collectors.toSet());
+    }
+
+    private static String parseValidName(String input) {
+        final String name = input.trim();
+        if (isInValidName(name)) {
+            throw new IllegalArgumentException("올바른 형식으로 입력해주세요.");
+        }
+
+        return name;
+    }
+
+    private static boolean isInValidName(String name) {
+        return !name.matches("^[a-zA-Z0-9]{1,5}$");
     }
 
     public static void printResult(List<String> outputLines) {
