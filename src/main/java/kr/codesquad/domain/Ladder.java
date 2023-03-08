@@ -6,16 +6,12 @@ import java.util.Random;
 public class Ladder {
     private int ladderWidth;
     private int ladderHeight;
-    private ArrayList ladder = new ArrayList();
+    public final ArrayList ladder = new ArrayList();
     private ArrayList<String> nameList = new ArrayList<>();
 
     public Ladder(ArrayList list) {
         init(list);
         makeLadder();
-    }
-
-    public ArrayList getLadder() {
-        return ladder;
     }
 
     private void init(ArrayList list) {
@@ -42,12 +38,12 @@ public class Ladder {
     private void buildLadderStructure() {
         for (int i = 0; i < ladderHeight; i++) {
             ladder.add("  ");
-            buildLadderDetailStructure();
+            buildLadderLine();
             ladder.add("\n");
         }
     }
 
-    private void buildLadderDetailStructure() {
+    private void buildLadderLine() {
         for (int j = 0; j < (ladderWidth) * 2 - 1; j++) {
             ladder.add(j % 2 == 0 ? "|" : (shouldAddLine() ? "-----" : "     "));
         }
