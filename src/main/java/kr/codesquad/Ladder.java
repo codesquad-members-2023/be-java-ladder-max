@@ -14,7 +14,7 @@ public class Ladder {
     private Character[][] ladder;
 
     Ladder(){}
-    Ladder(int row, int column){
+    public Ladder(int row, int column){
         this.row = row;
         this.column = column;
         ladder = new Character[row][column];
@@ -30,7 +30,6 @@ public class Ladder {
     private void makeBasic(){ // 사다리 기본 틀 만들기
         for (int i=0;i<row;i++){
             IntStream intStream = IntStream.range(0,column);
-            Random random = new Random();
             ladder[i] = intStream.mapToObj(k -> k % 2 == 0 ? '|' : '-').toArray(Character[]::new);
         }
     }
