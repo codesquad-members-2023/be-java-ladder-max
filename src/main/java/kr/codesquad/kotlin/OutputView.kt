@@ -25,6 +25,14 @@ class OutputView {
         inputResult.forEach { append(centerString(it)) }
         this@with
     }.apply { println(this@apply) }
+
+    fun printAll(matchUserAndResult: Map<String, String>) {
+        matchUserAndResult.forEach{entry -> println("${entry.key} : ${entry.value}") }
+    }
+
+    fun printSingle(result: String?) {
+        println(result)
+    }
 }
 
 private const val LIMIT_LENGTH = 5

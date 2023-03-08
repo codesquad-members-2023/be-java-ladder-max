@@ -23,15 +23,14 @@ class Ladder {
                     addRowExistLineInfo(usersCount)
                 )
             }
-            this
+            this@with
         }
-
     private fun addRowExistLineInfo(usersCount: Int) = with(ArrayList<Boolean>()) {
         for (j in 0 until usersCount - 1) {
             val currentBoolean = nextBoolean()
             add((currentBoolean && j == 0) || (j != 0 && currentBoolean && !get(j - 1)))
         }
-        this
+        this@with
     }
 
 
@@ -64,7 +63,7 @@ class Ladder {
         return toString()
     }
 
-    fun draw(existLineInfo: List<List<Boolean>>): String  = with(StringBuilder()) {
+    fun draw(existLineInfo: List<List<Boolean>>): String = with(StringBuilder()) {
         existLineInfo.indices.forEach { i ->
             append(PREFIX_SPACER)
             append(USER_DELIMITER)
@@ -80,5 +79,25 @@ class Ladder {
             append(NEXT_LINE)
         }
         return toString()
+    }
+
+    fun matchUserAndResult(
+        existLineInfo: List<List<Boolean>>,
+        usersNames: List<String>,
+        inputResult: List<String>,
+    ): Map<String, String> {
+        val resultStore = HashMap<String, String>()
+        for (i  in usersNames.indices) {
+            var currentPosition = i
+            for (j in existLineInfo.indices) {
+                if (currentPosition < usersNames.size-1 && existLineInfo[j][currentPosition]) {
+                    currentPosition++
+                } else if (currentPosition > 0 && existLineInfo[j][currentPosition-1]) {
+                    currentPosition--
+                }
+            }
+            resultStore.put(usersNames.get(i), inputResult.get(currentPosition))
+        }
+        return resultStore
     }
 }
