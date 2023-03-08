@@ -5,57 +5,44 @@ import java.util.Random;
 public class Ladder {
     private String[][] laddder;
 
-    Ladder(int n, int m) {
-        this.laddder = new String[m][2 * n - 1];
-
+    Ladder(int peoleNumber, int ladderHeight) {
+        this.laddder = new String[ladderHeight][2 * peoleNumber - 1];
     }
 
-    void makeBasicLadder() {
-        for (int i = 0; i < laddder.length; i++) {
-            for (int j = 0; j < laddder[i].length; j++) {
-                if (j % 2 == 0) {
-                    this.laddder[i][j] = "|";
-                } else this.laddder[i][j] = " ";
-            }
+    public String[][] makeLadder() {
+        makeLadderRow();
+        return this.laddder;
+    }
+
+    private void makeLadderRow() {
+        for (int row = 0; row < laddder.length; row++) {
+            makeLadderColumn(row);
         }
     }
 
-    void showFinalLadder() {
-
-        for (int i = 0; i < laddder.length; i++) {
-            for (int j = 0; j < laddder[i].length; j++) {
-                System.out.print(laddder[i][j]);
-            }
-            System.out.println();
+    private void makeLadderColumn(int row) {
+        for (int column = 0; column < laddder[row].length; column++) {
+            makeBasicPeopleLine(row, column);
+            makeRandomLadderLine(row, column);
         }
     }
 
-    void makeRandomLadderLine() {
-        /*
-         아무 위치에 사다리를 생성하는 것이 아니라,
-         2차원 배열에서 열의 인덱스가 홀수 일때
-         임의로 사다리를 그릴 수 있다.
 
-         사다리가 최대 들어갈 수 있는 회수는
-         m * (n-1) 이다.
-         */
-
-        // if -> True라면
+    private void makeBasicPeopleLine(int row, int column) {
+        if (column % 2 == 0) {
+            this.laddder[row][column] = "|";
+            return;
+        }
+        this.laddder[row][column] = " ";
+    }
 
 
-        for (int i = 0; i < laddder.length; i++) {
-            for (int j = 0; j < laddder[i].length; j++) {
-                Random random = new Random();
-                boolean randomBoolean = random.nextBoolean();
-                if (randomBoolean && j % 2 == 1) {
-                    laddder[i][j] = "-";
-                }
-            }
+    private void makeRandomLadderLine(int row, int column) {
+        Random random = new Random();
+        if (random.nextBoolean() && column % 2 == 1) {
+            laddder[row][column] = "-";
         }
     }
 
-    void printLadder() {
-        System.out.println(laddder);
-    }
 
 }
