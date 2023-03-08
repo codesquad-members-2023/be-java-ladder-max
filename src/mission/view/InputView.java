@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InputView {
-    public static final String ASKING_NUMBER_OF_PEOPLE  = "참여할 사람은 몇 명인가요?";
     public static final String ASKING_LADDER_HEIGHT = "최대 사다리 높이는 몇 개인가요?";
     public static final String ASKING_PEOPLE_NAME = "참여할 사람 이름을 입력하세요. 각 이름은 최대 5글자까지 입니다. (이름은 쉼표(,)로 구분하세요)";
     public static final String ERROR_MASSAGE_ABOUT_PEOPLE_NAME = "정해진 형식에 맞지 않습니다. 다시 입력해주세요";
@@ -18,11 +17,6 @@ public class InputView {
 
     public InputView(){
         br = new BufferedReader(new InputStreamReader(System.in));
-    }
-
-    public int getPeopleNumber() throws IOException {
-        System.out.println(ASKING_NUMBER_OF_PEOPLE);
-        return Integer.parseInt(br.readLine());
     }
 
     public int getLadderHeight() throws IOException{
