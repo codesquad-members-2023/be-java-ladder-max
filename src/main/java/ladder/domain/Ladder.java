@@ -12,22 +12,21 @@ public class Ladder {
         this.space = space;
         this.height = height;
         this.lines = new ArrayList<>();
-        this.makeRandomLadder();
     }
 
-    private void makeRandomLadder() {
+    public void makeRandomLadder() {
         for (int i = 0; i < height; i++) {
             lines.add(new Line(space));
         }
     }
 
-    public void drawLadder() {
+    public String drawLadder() {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < height; i++) {
             builder.append(" ".repeat(2));
             lines.get(i).drawLine(builder);
             builder.append(System.lineSeparator());
         }
-        System.out.println(builder);
+        return builder.toString();
     }
 }

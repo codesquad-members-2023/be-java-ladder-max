@@ -1,21 +1,22 @@
 package ladder.domain;
 
-import ladder.view.InputView;
+import ladder.view.View;
 
 public class Worker {
-    private final InputView inputView;
+    private final View view;
     private Ladder ladder;
     private String[] participants;
 
     public Worker() {
-        this.inputView = new InputView();
+        this.view = new View();
     }
 
     public void makeLadder() {
-        this.participants = inputView.getNamesOfParticipants();
+        this.participants = view.getNamesOfParticipants();
         int space = participants.length - 1;
-        int height = inputView.getNumberOfLadderHeight();
+        int height = view.getNumberOfLadderHeight();
         ladder = new Ladder(space, height);
+        ladder.makeRandomLadder();
     }
 
     private void makeNameLabel() {
@@ -33,7 +34,7 @@ public class Worker {
 
     public void showLadder() {
         makeNameLabel();
-        ladder.drawLadder();
-        inputView.stop();
+        view.printLadder(ladder.drawLadder());
+        view.stop();
     }
 }

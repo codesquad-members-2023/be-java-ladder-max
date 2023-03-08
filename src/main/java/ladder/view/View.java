@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class InputView {
+public class View {
     private final BufferedReader bufferedReader;
 
-    public InputView() {
+    public View() {
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     }
 
@@ -50,7 +50,11 @@ public class InputView {
         try {
             bufferedReader.close();
         } catch (IOException e) {
-            throw new RuntimeException("InputView 종료 시 문제 발생");
+            throw new RuntimeException("View 종료 시 문제 발생");
         }
+    }
+
+    public void printLadder(String ladder) {
+        System.out.println(ladder);
     }
 }
