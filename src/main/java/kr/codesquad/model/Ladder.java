@@ -27,23 +27,28 @@ public class Ladder {
     }
 
     private void makeLine2Ladder() {
+        List<String> lines;
         for (int i = 0; i < length; i++) {
-            List<String> lines = new ArrayList<>();
+            lines = new ArrayList<>();
             lines.add("|");
-            String before = "";
-            for (int j = 1; j < width; j += 2) {
-                if (before.equals(LadderLine.stick.getValue())) {
-                    before = LadderLine.blank.getValue();
-                } else {
-                    before = LadderLine.takeRandom();
-                }
-                lines.add(before);
-                lines.add("|");
-            }
+            fillLadderWidth(lines);
             laddersFrame.add(lines);
         }
     }
 
+    private void fillLadderWidth(List<String> lines) {
+        for (int j = 1; j < width; j += 2) {
+            String before = "";
+            before = fillLadderRandomOrStick(before);
+            lines.add(before);
+            lines.add("|");
+        }
+    }
 
-
+    private String fillLadderRandomOrStick(String before) {
+        if (before.equals(LadderLine.stick.getValue())) {
+            return LadderLine.blank.getValue();
+        }
+        return LadderLine.takeRandom();
+    }
 }
