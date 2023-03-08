@@ -6,6 +6,7 @@ fun main() {
     val outputView = OutputView()
 
     val usersNames = inputView.inputUsersNames()
+    val inputResult = inputView.inputResult(usersNames.size)
     val ladderHeight = inputView.inputLadderHeight()
 
     val existLineInfo = ladder.createExistLineInfoDistant(usersNames.size, ladderHeight)
