@@ -1,6 +1,5 @@
 package kr.codesquad.controller;
 
-import kr.codesquad.model.Users;
 import kr.codesquad.util.Encoding;
 import kr.codesquad.view.Input;
 import kr.codesquad.view.Output;
