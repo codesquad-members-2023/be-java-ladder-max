@@ -9,11 +9,15 @@ public class Ladder {
     private int width;
 
     public List<List<String>> makeLadder(List<String> users, int m) {
-        width = users.size() + (users.size() - 1);
-        length = m;
+        init(users, m);
         makeName2Ladder(users);
         makeLine2Ladder();
         return laddersFrame;
+    }
+
+    private void init(List<String> users, int m) {
+        width = users.size() + (users.size() - 1);
+        length = m;
     }
 
     private void makeName2Ladder(List<String> users) {
