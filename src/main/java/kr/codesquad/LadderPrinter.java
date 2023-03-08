@@ -5,6 +5,7 @@ import java.util.List;
 public class LadderPrinter {
 
     public static final int LIMIT_LENGTH = 5;
+    public static final String MAX_LENGTH = "%6s";
 
     void print(String drawnLadder) {
         System.out.println(drawnLadder);
@@ -14,7 +15,7 @@ public class LadderPrinter {
         StringBuilder stringBuilder = new StringBuilder();
         for (String requestName : requestNames) {
             requestName = limitName(requestName);
-            stringBuilder.append(String.format("%6s",requestName));
+            stringBuilder.append(String.format(MAX_LENGTH,requestName));
         }
         System.out.println(stringBuilder);
         System.out.println(drawnLadder);
