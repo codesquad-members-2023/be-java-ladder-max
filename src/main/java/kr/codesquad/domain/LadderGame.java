@@ -11,18 +11,18 @@ public class LadderGame {
     private final LadderByNames ladder = new LadderByNames();
     private final OutputView outputView = new OutputView();
 
-
-    public void runWithNamesAndResult() {
+    public void run() {
         List<String> names = inputView.inputNames();
-        List<String> result = inputView.inputResult(names.size());
-        Integer ladderHeight = inputView.inputLadderHeight();
-        String drawnLadder = drawLadder(names.size(), ladderHeight);
-        print(names, drawnLadder, result);
-        searchInput(names, result);
+        int nameSize = names.size();
+        List<String> resultInfo = inputView.inputResultInfo(nameSize);
+        int ladderHeight = inputView.inputLadderHeight();
+        String drawnLadder = drawLadder(nameSize, ladderHeight);
+        printLadder(names, drawnLadder, resultInfo);
+        inputSearchInfo(names, resultInfo);
     }
 
-    private void searchInput(List<String> names, List<String> result) {
-        SearchInfo searchInfo = inputView.inputName(names);
+    private void inputSearchInfo(List<String> names, List<String> result) {
+        SearchInfo searchInfo = inputView.inputSearchInfo(names);
         SearchType searchType = searchInfo.getSearchType();
         switch (searchType) {
             case CLOSE:
@@ -40,17 +40,14 @@ public class LadderGame {
                 break;
             }
         }
-        searchInput(names, result);
+        inputSearchInfo(names, result);
     }
 
-    private void print(List<String> names, String drawnLadder, List<String> result) {
+    private void printLadder(List<String> names, String drawnLadder, List<String> result) {
         outputView.print(names, drawnLadder, result);
     }
-
 
     private String drawLadder(Integer peopleCount, Integer ladderHeight) {
         return ladder.draw(peopleCount, ladderHeight);
     }
-
-
 }
