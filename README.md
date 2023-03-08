@@ -5,7 +5,7 @@
 
 # Java Ladder
 
-- Last Update: 2022-3-6
+- Last Update: 2022-3-8
 
 ## Todolist
 
@@ -80,11 +80,7 @@ $ java -jar ./build/libs/java-lotto-1.0-SNAPSHOT.jar
 - [x] [Return Early Pattern](#Return-Early-Pattern)
 - [x] [private 메서드 테스트 지양해야 하는 이유 학습](#private-메서드-테스트-지양해야-하는-이유)
 - [x] [클린 코딩 기초 학습](#클린-코딩-기초)
-- [ ] static 메서드와 객체 메서드의 비교
-    - 어떤 경우에 static 메서드를 사용해야 하는가?
-    - static 메서드 사용시 단점
-    - static 메서드와 객체 메서드가 저장되는 위치
-    - static 메서드와 객체 메서드의 성능(시간, 메모리공간)의 차이
+- [x] [static 메서드와 인스턴스 메서드의 비교](#static-메서드와-인스턴스-메서드의-비교)
 - [ ] 콘솔 출력을 위해서 static 메서드 대신 더욱 효율적인 방법을 탐색해보기
 - [ ] PR 머지 승인전에 브랜치를 따서 해당 브랜치 기반으로 작업하여 다시 PR할 경우 커밋이 딸려오는 문제해결하기
 
@@ -474,11 +470,105 @@ class Ladder {
 - else를 사용하지 않으려면 if 절에서 값을 바로 return해서 메서드를 종료하는 방법을 사용합니다.
     - [Return Early](#Return-Early-Pattern)
 
+## static 메서드와 인스턴스 메서드의 비교
+
+### 어떤 경우에 static 메서드를 사용해야 하는가?
+
+- 변화를 가정하지 않는 경우
+- 메서드가 인스턴스 변수를 사용하지 않는 경우
+- 인스턴스 생성에 의존하지 않는 경우
+- 메서드가 공유되고 있다면 정적 메서드로 추출할 수 있는 경우
+- 메서드가 변환하지 않고 오버라이딩 되지 않는 메서드인 경우
+
+대표적인 유틸리티 정적 메서드는 Math 클래스의 max나 min과 같은 메서드가 존재합니다.
+
+### static 메서드 사용시 단점
+
+- **static 메서드 사용시 객체 지향에서 멀어지게 됩니다.**
+    - static은 객체 지향보다는 절차 지향에 가까운 키워드입니다.
+    - static 키워드는 C의 전역변수/함수와 성격이 비슷합니다. 정적 메소드는 객체의 생성, 제거와 관계없이 프로그램
+      시작부터 끝까지 메모리에 남아있기 때문입니다.
+- **static 메서드는 객체 지향의 메시지 전달을 위반합니다.**
+    - 객체 지향에서는 객체들이 서로 관계를 맺고 메시지를 통해 정보를 교환하고 결과를 반환합니다.
+    - 이는 static 메서드가 객체에게 행위를 지시하는 것이 아닌 것을 알 수 있습니다.
+    - 또한 다른 객체와 관계를 맺지도 않습니다. 즉, 메시지 전달이 아닌 절차 지향의 함수 호출에 가깝습니다.
+- **static 메서드를 사용하면 해당 메서드는 메서드 재정의(오버라이딩)을 할 수 없어 객체의 다형성을 활용할 수 없습니다.**
+    - static 메서드는 오버라이딩이 불가능하기 때문에 인터페이스를 구현할 수 없습니다.
+    - 왜냐하면 static 메서드는 런타임 이전 컴파일 타임에 정적 바인딩이 이루어지기 때문입니다.
+        - 정적 바인딩이란 어떤 정적 변수나 메서드가 컴파일 타임에 값이나 타입이 정해진다는 의미입니다.
+- **static 메서드는 메모리 효율이 떨어질 수 있습니다.**
+    - static 메서드는 반복적으로 객체를 생성하지 않아도 되니 메모리 효율에 좋을 것 같다는 생각이 듭니다.
+    - 그러나, 런타임 중 동적으로 생성된 것들은 가비지 컬렉션의 대상이 되는 반면, static 키워드가 붙은 것들은
+      가비지 컬렉션의 대상이 안됩니다. static으로 할당된 영역이 클수록 가비지 컬렉션의 효율이 떨어지고 프로그램이
+      끝날 때까지 그 영역은 메모리에서 내릴 수 없습니다.
+    - 즉, **static 영역이 지나치게 많은 메모리를 차지하고 있다면 메모리 부족 현상이 발생할 수 있습니다.**
+
+### static 메서드 저장 위치
+
+- static 메서드는 static 메서드가 속한 클래스와 함께 컴파일 과정에서 Metaspace(자바 8 아래에서는 Permanent Gneration)
+  라는 특별한 메모리 영역에 저장됩니다.
+- static 메서드의 파라미터, 지역 변수, 반환 값들은 stack 영역에 저장됩니다.
+
+### static 메서드 특징
+
+- 객체 생성없이 클래스명을 통해 호출할 수 있습니다.
+    - ex) Person.calculateAge("1990-01-01")
+- 같은 클래스를 통해서 생성된 객체들간에 같은 코드를 사용하는 것을 보장하기 위해서 사용합니다.
+- 정적 메서드는 오버라이드(Override) 될 수 없습니다. 컴파일 과정에서 정적 바인딩이 되어 메서드 타입이 정해집니다.
+    - 부모 클래스와 자식 클래스 간 같은 이름의 메서드를 정의할 수는 있지만 항상 상위 클래스의 정적 메서드만 호출됩니다.
+
+### static 변수가 다른 객체를 참조하는 경우
+
+```
+static int i = 1;
+static Object obj = new Object();
+```
+
+- 정적 변수의 값 1은 Metaspace에 저장됩니다.
+- **obj는 Metaspace에 저장되나 Object 클래스의 객체는 heap 영역에 적재됩니다.**
+- **참조 변수 obj에 담기는 Object의 참조값(메모리 주소)는 Metaspace에 저장됩니다.**
+
+### static 메서드와 인스턴스 메서드 비교
+
+- 인스턴스 메서드는 인스턴스 메서드와 인스턴스 변수를 직접 호출 가능합니다.
+- 인스턴스 메서드는 정적 변수와 정적 메서드를 직접 호출 할 수 있습니다.
+- static 메서드는 정적 변수와 정적 메서드를 직접 호출할 수 있습니다.
+- static 메서드는 인스턴스 메서드와 인스턴스 변수를 호출할 수 없습니다.
+
+### 인스턴스 메서드 저장 위치
+
+- 인스턴스 메서드는 컴파일 과정에서 Metaspace(자바8 아래에서는 Permanent Generation)라는
+  특별한 메모리 영역에 저장됩니다.
+- 인스턴스 메서드의 파라미터, 지역 변수, 반환 값들은 stack에 영역에 할당됩니다.
+
+### 인스턴스 메서드의 특징
+
+- 인스턴스 메서드는 클래스의 객체에 속해있는 것이지 클래스에 속해있는 것이 아닙니다.
+  즉, 클래스로 객체를 생성하고서 그 객체를 통해서만 호출할 수 있습니다.
+- 인스턴스 메서드라고 해서 매번 객체가 생성될 때마다 함께 생성되는 것이 아닙니다.
+  메모리에서 한번 할당이 되고 각 생성된 객체들은 그 메서드가 메모리 어디에 존재하는지를 알 뿐입니다.
+  객체가 메모리가 할당된 메모리 주소를 담고 있어서 메서드를 호출하면 메모리 주소를 통해 메서드를 호출하게 됩니다.
+- 오버라이드가 가능합니다. 런타임 중 동적 바인딩을 통해 메서드의 타입이 결정됩니다.
+
+### Metaspace는 어디에 존재하는가?
+
+- Java 8부터 JVM의 메모리 영역중 Permanent Generation 메모리 영역이 사라지고 Metaspace 영역이 생겼습니다.
+- **Metaspace 영역은 자바의 Classloader가 로드한 class들의 metadata가 저장되는 공간입니다.**
+    - metadata : JVM이 해당 클래스에 대해서 알아야하는 모든 정보
+- Permanent Generation 영역과 Metaspace 영역의 차이
+    - Metaspace는 Permanent Generation과 달리 Heap이 아닌 `Native Mememory` 영역에 위치합니다.
+    - Native Memory 영역은 네이티브 객체들을 저장하기 위한 영역입니다.
+
+![](img/img_6.png)
+
 ## References
 
 - [\[Java\] String, StringBuffer, StringBuilder 차이 및 장단점](https://dev-jwblog.tistory.com/108#3.%20StringBuffer%20/%20StringBuilder)
 - [StringBuffer, StringBuilder 가 String 보다 성능이 좋은 이유와 원리](https://cjh5414.github.io/why-StringBuffer-and-StringBuilder-are-better-than-String/)
 - [\[디자인 패턴\]Early return pattern이란?](https://woonys.tistory.com/m/entry/Design-PatternJavaEarly-return-pattern%EC%9D%B4%EB%9E%80)
-
 - [\[Java\] Private 메소드를 테스트하는 방법과 이를 지양해야 하는 이유](https://mangkyu.tistory.com/235)
+
 - [정적 메소드, 너 써도 될까?](https://tecoble.techcourse.co.kr/post/2020-07-16-static-method/)
+- [\[Java\] 정적 메소드(static Method)는 언제 사용할까?](https://dev-coco.tistory.com/175)
+- [Java, 인스턴스 메소드(instance methods)와 정적 메소드(static methods)의 차이](https://ykh6242.tistory.com/entry/Java-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EB%A9%94%EC%86%8C%EB%93%9Cinstance-methods%EC%99%80-%EC%A0%95%EC%A0%81-%EB%A9%94%EC%86%8C%EB%93%9Cstatic-methods%EC%9D%98-%EC%B0%A8%EC%9D%B4)
+- [\[Java\] 자바 메타스페이스(Metaspace)에 대해 알아보자.](https://jaemunbro.medium.com/java-metaspace%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90-ac363816d35e#:~:text=%EC%9D%B4%20metadata%EB%8A%94%20heap%20%EC%99%B8%EB%B6%80,%EC%9D%B4%20%EA%B5%AC%EC%97%AD%EC%9D%B4%20Metaspace%EC%9D%B4%EB%8B%A4.)
