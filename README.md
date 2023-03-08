@@ -79,7 +79,7 @@ $ java -jar ./build/libs/java-lotto-1.0-SNAPSHOT.jar
 - [x] [String과 new String() 차이](#String과-new-String()-차이)
 - [x] [Return Early Pattern](#Return-Early-Pattern)
 - [x] [private 메서드 테스트 지양해야 하는 이유 학습](#private-메서드-테스트-지양해야-하는-이유)
-- [ ] 클린 코딩 기초 학습
+- [x] [클린 코딩 기초 학습](#클린-코딩-기초)
 - [ ] static 메서드와 객체 메서드의 비교
     - 어떤 경우에 static 메서드를 사용해야 하는가?
     - static 메서드 사용시 단점
