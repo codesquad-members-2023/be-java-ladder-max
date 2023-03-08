@@ -4,21 +4,23 @@ import java.util.Random;
 
 public class LadderGame {
 
-    private final ConsoleInput consoleInput;
+    private final LadderConsoleReader ladderConsoleReader;
+    private final LadderWriter ladderWriter;
 
-    public LadderGame(ConsoleInput consoleInput) {
-        this.consoleInput = consoleInput;
+    public LadderGame(LadderConsoleReader ladderConsoleReader, LadderWriter ladderWriter) {
+        this.ladderConsoleReader = ladderConsoleReader;
+        this.ladderWriter = ladderWriter;
     }
 
     public void start() {
-        int numberOfPeople = consoleInput.readNumberOfPeople();
-        int maximumLadderHeight = consoleInput.readMaximumLadderHeight();
+        int numberOfPeople = ladderConsoleReader.readNumberOfPeople();
+        int maximumLadderHeight = ladderConsoleReader.readMaximumLadderHeight();
         Ladder ladder = new Ladder(numberOfPeople, maximumLadderHeight);
         Random random = new Random();
         LadderPartGenerator generator = new LadderPartGenerator(random);
         String[][] board = generator.generate(ladder);
         LadderConverter converter = new LadderConverter(board);
         String ladderStr = converter.convertToString();
-        ConsoleOutput.printLadderBoard(ladderStr);
+        ladderWriter.writeLadder(ladderStr);
     }
 }

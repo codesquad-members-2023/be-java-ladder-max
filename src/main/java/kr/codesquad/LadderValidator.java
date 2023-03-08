@@ -15,10 +15,10 @@ public class LadderValidator {
 
     public void validateNumberOfPeople(String text) {
         if (!NUMBER_FORMAT.matcher(text).matches()) {
-            throw new InvalidPersonNumber();
+            throw new InvalidNumberOfPeopleException();
         }
         if (!moreThanMinNumberOfPeople(text)) {
-            throw new InvalidPersonNumber();
+            throw new InvalidNumberOfPeopleException();
         }
     }
 
@@ -28,10 +28,10 @@ public class LadderValidator {
 
     public void validateLadderHeight(String text) {
         if (!NUMBER_FORMAT.matcher(text).matches()) {
-            throw new InvalidMaximumLadderHeight();
+            throw new InvalidNumberOfMaximumLadderHeightException();
         }
         if (!moreThanMinLadderHeight(text)) {
-            throw new InvalidMaximumLadderHeight();
+            throw new InvalidNumberOfMaximumLadderHeightException();
         }
     }
 
