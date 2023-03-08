@@ -17,6 +17,10 @@ public class Names {
                 .collect(Collectors.toUnmodifiableList()));
     }
 
+    public int getSize() {
+        return names.size();
+    }
+
     @Override
     public String toString() {
         return names.stream()
