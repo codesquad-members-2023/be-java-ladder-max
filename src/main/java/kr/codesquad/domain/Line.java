@@ -13,7 +13,7 @@ public class Line {
     }
 
     public boolean canDraw (int countOfPerson) {
-        return countOfPerson == 0 || points.get(countOfPerson - 1).equals(false);
+        return countOfPerson == 0 || !points.get(countOfPerson - 1).booleanValue();
     }
 
     public void drawLine(boolean draw, int countOfPerson) {
