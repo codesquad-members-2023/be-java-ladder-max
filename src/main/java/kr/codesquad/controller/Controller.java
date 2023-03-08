@@ -8,6 +8,7 @@ import kr.codesquad.util.Validation;
 import kr.codesquad.model.Ladder;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Controller {
 
@@ -26,15 +27,15 @@ public class Controller {
     }
 
     public void run() throws IOException {
-        output.printMessageN();
+        output.printMessageNames();
         String names = input.inputNames();
+        List<String> afterNames = validation.validateInputNames(names);
 
-        int afterN = validation.validateInputN(names);
         output.printMessageM();
         String m = input.inputM();
         int afterM = validation.validateInputM(m);
 
-        String[][] ladders = ladder.makeLadder(afterN, afterM);
+        String[][] ladders = ladder.makeLadder(afterNames.size(), afterM);
         String result = encoding.encodeLadder(ladders);
         output.printLadder(result);
     }
