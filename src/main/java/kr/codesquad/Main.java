@@ -17,6 +17,8 @@ public class Main {
             System.out.println(e.getMessage());
         } catch (IOException e) {
             throw new RuntimeException(e);
+        } finally {
+            System.out.println();
         }
     }
 
