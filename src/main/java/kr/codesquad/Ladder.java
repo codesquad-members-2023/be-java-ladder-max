@@ -16,7 +16,7 @@ public class Ladder {
             fillRandomLadderStep(i, customLadderLine);
         }
     }
-
+    
     private void fillRandomLadderStep(int index, String[] customLadderLine) {
         String randomStep = (Math.random() > 0.5) ? " " : "-";
 
