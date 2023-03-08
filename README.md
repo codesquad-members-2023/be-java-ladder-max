@@ -471,12 +471,12 @@ class Ladder {
 - 메소드 이름 예 : getFirstName(), cancelOrder(), isDeleted()
 
 ### 클린 코드 지향
+
 - 들여쓰기를 줄이는 가장 좋은 방법은 메서드를 분리하는 것입니다.
 - 들여쓰기가 2 이상인 메서드의 경우 메서드를 분리하는 방법을 찾습니다.
 - 메서드 라인이 10라인을 넘어가는 경우 메서드를 분리합니다.
 - else를 사용하지 않으려면 if 절에서 값을 바로 return해서 메서드를 종료하는 방법을 사용합니다.
-  - [Return Early](#Return-Early-Pattern)
-
+    - [Return Early](#Return-Early-Pattern)
 
 ## References
 
