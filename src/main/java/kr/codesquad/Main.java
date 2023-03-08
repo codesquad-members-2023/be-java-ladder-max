@@ -13,6 +13,8 @@ public class Main {
             controller.runLadderGame();
         } catch (NumberFormatException e) {
             System.out.println("잘못된 값을 입력하였습니다. 다시 입력해 주세요.");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
