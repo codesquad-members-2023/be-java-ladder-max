@@ -3,8 +3,8 @@ package kr.codesquad;
 import java.io.IOException;
 
 public class Main {
-    static OutputView outputView;
-    static InputView inputView;
+    static OutputView outputView = new OutputView();
+    static InputView inputView = new InputView();
     public static void main(String[] args) throws IOException {
         int countOfUser = getCountOfUser();
         int heightOfLadder = getHeightOfLadder();
