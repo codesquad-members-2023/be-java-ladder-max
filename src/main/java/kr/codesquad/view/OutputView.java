@@ -1,7 +1,6 @@
 package kr.codesquad.view;
 
 import java.util.List;
-import java.util.Map;
 
 public class OutputView {
 
@@ -42,18 +41,14 @@ public class OutputView {
         System.out.println(SEARCH_CLOSE_DESCRIPTION);
     }
 
-    public void printAll(List<String> names, List<String> result, Map<Integer, Integer> usersOfResult) {
+    public void printAll(String searchAll) {
         System.out.println(SEARCH_RESULT_DESCRIPTION);
-        usersOfResult.forEach((key, value) -> {
-            System.out.print(names.get(key));
-            System.out.print(" : ");
-            System.out.println(result.get(value));
-        });
+        System.out.println(searchAll);
     }
 
-    public void printSingleResult(List<String> result, int resultIndex) {
+    public void printSingleResult(String singleResult) {
         System.out.println(SEARCH_RESULT_DESCRIPTION);
-        System.out.println(result.get(resultIndex));
+        System.out.println(singleResult);
     }
 
     static class StringCenterSorter {

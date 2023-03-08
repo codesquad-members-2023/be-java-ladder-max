@@ -1,7 +1,6 @@
 package kr.codesquad.domain;
 
 import java.util.List;
-import java.util.Map;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
@@ -44,13 +43,14 @@ public class LadderGame {
                 outputView.printClose();
                 return;
             case ALL: {
-                Map<Integer, Integer> usersOfResult = ladderResultRepository.getAll();
-                outputView.printAll(names, result, usersOfResult);
+                String searchAll = ladderResultRepository.searchAll(names, result);
+                outputView.printAll(searchAll);
                 break;
             }
             case SINGLE: {
                 int index = names.indexOf(searchInfo.getName());
-                outputView.printSingleResult(result, ladderResultRepository.get(index));
+                String singleResult = ladderResultRepository.searchSingleResult(index, result);
+                outputView.printSingleResult(singleResult);
                 break;
             }
         }
