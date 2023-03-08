@@ -9,7 +9,7 @@ public class Name {
 
     public Name(String name) {
         validateName(name);
-        this.name = String.format("%-6s", name);
+        this.name = name;
     }
 
     private void validateName(String name) {
@@ -20,7 +20,7 @@ public class Name {
 
     @Override
     public String toString() {
-        return name;
+        return String.format("%-6s", name);
     }
 
     @Override
