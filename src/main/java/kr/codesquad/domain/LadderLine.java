@@ -16,6 +16,22 @@ public class LadderLine {
 		this(generator.drawLineRandomly(countOfPerson - 1));
 	}
 
+	public int ride(final int pos) {
+		if (pos == points.size() && points.get(pos - 1)) {
+			return pos - 1;
+		}
+		if (pos == points.size()) {
+			return pos;
+		}
+		if (points.get(pos)) {
+			return pos + 1;
+		}
+		if (pos - 1 >= 0 && points.get(pos - 1)) {
+			return pos - 1;
+		}
+		return pos;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder ladderLineFigure = new StringBuilder();

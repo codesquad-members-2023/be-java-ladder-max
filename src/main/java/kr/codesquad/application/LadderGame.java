@@ -1,5 +1,6 @@
 package kr.codesquad.application;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kr.codesquad.domain.Height;
@@ -23,6 +24,7 @@ public class LadderGame {
 
 			final Ladder ladder = createLadder(participants.getParticipants().size(), height.getValue());
 			printStateOfLadder(participants.getParticipants(), results.getResults(), ladder);
+			List<Integer> resultPos = rideLadder(ladder, participants, results);
 		} catch (final IllegalArgumentException e) {
 			outputView.printErrorMsg(e);
 			startLadderGame();
@@ -58,5 +60,13 @@ public class LadderGame {
 		outputView.printNameOfPeople(names);
 		outputView.printFigureOfLadder(ladder);
 		outputView.printResultsOfGame(results);
+	}
+
+	private List<Integer> rideLadder(final Ladder ladder, final Participants participants, final Results results) {
+		List<Integer> resultPos = new ArrayList<>();
+		for (String participant : participants.getParticipants()) {
+			resultPos.add(ladder.ride(participants.findPosOfParticipant(participant)));
+		}
+		return resultPos;
 	}
 }

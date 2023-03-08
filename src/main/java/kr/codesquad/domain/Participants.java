@@ -1,18 +1,25 @@
 package kr.codesquad.domain;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Participants {
 
-	private final List<String> participants;
+	private final List<Participant> participants;
 
 	public Participants(final String participants) {
 		validate(participants);
-		this.participants = Arrays.stream(participants.split(","))
-			.map(String::trim)
-			.collect(Collectors.toList());
+		this.participants = convertToList(participants.split(","));
+	}
+
+	private List<Participant> convertToList(final String[] names) {
+		List<Participant> participants = new ArrayList<>();
+		for (int idx = 0; idx < names.length; idx++) {
+			participants.add(new Participant(names[idx], idx));
+		}
+		return participants;
 	}
 
 	private void validate(final String participants) {
@@ -25,7 +32,17 @@ public class Participants {
 			});
 	}
 
+	public int findPosOfParticipant(final String name) {
+		return participants.stream()
+			.filter(participant -> participant.toString().equals(name))
+			.findFirst()
+			.get()
+			.getPos();
+	}
+
 	public List<String> getParticipants() {
-		return participants;
+		return participants.stream()
+			.map(Participant::toString)
+			.collect(Collectors.toList());
 	}
 }
