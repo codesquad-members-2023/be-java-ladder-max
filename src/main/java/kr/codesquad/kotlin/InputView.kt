@@ -8,6 +8,8 @@ private const val INPUT_USER_NAME = "참여할 사람 이름을 입력하세요.
 private const val IS_DIGIT_PATTERN = "^[1-9][0-9]*$"
 private const val INPUT_ERROR = "잘못 입력 했습니다."
 
+private const val INPUT_SEARCH_INFO = "결과를 보고 싶은 사람은?"
+
 class InputView {
     private val scanner = Scanner(System.`in`)
     private val inputViewValidator = InputViewValidator()
@@ -22,7 +24,23 @@ class InputView {
         return inputUsersNames()
     }
 
-    fun inputResult(usersSize:Int) : List<String> {
+    fun inputSearchInfo(names: List<String>): SearchInfo {
+        println(INPUT_SEARCH_INFO)
+        val input: String = scanner.nextLine()
+        if (input == SearchType.ALL.value) {
+            return SearchInfo(SearchType.ALL,SearchType.ALL.value)
+        }
+        if (input == SearchType.CLOSE.value) {
+            return SearchInfo(SearchType.CLOSE,SearchType.CLOSE.value)
+        }
+        if (names.contains(input)) {
+            return SearchInfo(SearchType.SINGLE, input)
+        }
+        println(INPUT_ERROR)
+        return inputSearchInfo(names)
+    }
+
+    fun inputResult(usersSize: Int): List<String> {
         println(INPUT_USER_NAME)
         val input = scanner.nextLine()
         if (inputViewValidator.isRightResultPattern(input)) {
@@ -55,11 +73,16 @@ class InputView {
     }
 }
 
+data class SearchInfo(val searchType: SearchType, val name: String)
+
+enum class SearchType(val value: String) { ALL("all"), SINGLE(""), CLOSE("춘식이") }
+
 class InputViewValidator {
     fun isNumber(input: String): Boolean = input.matches(Regex(IS_DIGIT_PATTERN))
     fun isInputNamesFormat(input: String): Boolean = input.matches(Regex("^[a-z]+(,[a-z]+)+\$"))
     fun isRightResultPattern(input: String): Boolean =
         input.matches(Regex("^(꽝|([0-9]+[1-9]*))(,(꽝|([0-9]+[1-9]*)))*\$"))
+
 
 }
 

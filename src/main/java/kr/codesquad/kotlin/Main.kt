@@ -12,5 +12,16 @@ fun main() {
     val existLineInfo = ladder.createExistLineInfoDistant(usersNames.size, ladderHeight)
     val draw = ladder.draw(existLineInfo)
 
-    outputView.print(usersNames,draw,inputResult)
+    outputView.print(usersNames, draw, inputResult)
+    while (true) {
+        val searchInfo = inputView.inputSearchInfo(usersNames)
+        when (searchInfo.searchType) {
+            SearchType.ALL -> println("all")
+            SearchType.SINGLE -> println("single = ${searchInfo.name}")
+            SearchType.CLOSE -> {
+                println("끝")
+                return
+            }
+        }
+    }
 }
