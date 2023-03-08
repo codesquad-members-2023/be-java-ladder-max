@@ -6,26 +6,25 @@ private const val RESULT_DES = "실행결과"
 
 class OutputView {
     fun print(drawnLadder: String) = println(NEW_LINE.repeat(2) + drawnLadder)
-    fun print(names: List<String>, drawnLadder: String) = with(StringBuilder()) {
-        append(NEW_LINE.repeat(2))
-        append(RESULT_DES)
-        append(NEW_LINE.repeat(2))
-        names.forEach { append(centerString(it)) }
-        append(NEW_LINE)
-        append(drawnLadder)
-        println(this)
+    fun print(names: List<String>, drawnLadder: String) = formatNamesAndDrawnLadder(names, drawnLadder).apply { println(this) }
+
+    private fun formatNamesAndDrawnLadder(names: List<String>, drawnLadder: String) : String {
+        with(StringBuilder()) {
+            this.append(NEW_LINE.repeat(2))
+                .append(RESULT_DES)
+                .append(NEW_LINE.repeat(2))
+            names.forEach { append(centerString(it)) }
+            this.append(NEW_LINE)
+                .append(drawnLadder)
+            return toString()
+        }
     }
 
     fun print(usersNames: List<String>, drawnLadder: String, inputResult: List<String>) = with(StringBuilder()) {
-        append(NEW_LINE.repeat(2))
-        append(RESULT_DES)
-        append(NEW_LINE.repeat(2))
-        usersNames.forEach { append(centerString(it)) }
-        append(NEW_LINE)
-        append(drawnLadder)
-        inputResult.forEach{append(centerString(it)) }
-        println(this)
-    }
+        append(formatNamesAndDrawnLadder(usersNames,drawnLadder))
+        inputResult.forEach { append(centerString(it)) }
+        this@with
+    }.apply { println(this@apply) }
 }
 
 private const val LIMIT_LENGTH = 5
