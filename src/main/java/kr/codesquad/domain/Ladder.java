@@ -88,10 +88,26 @@ public class Ladder {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for(List<Character> ladderRow : ladder) {
-            for(char cell : ladderRow) {
-                sb.append(cell);
-            }
+            sb.append(buildLadderRow(ladderRow));
             sb.append(System.lineSeparator());
+        }
+
+        return sb.toString();
+    }
+
+    private String buildLadderRow(List<Character> ladderRow) {
+        StringBuilder sb = new StringBuilder();
+
+        // playerLine(세로줄) 처리
+        for(int col = 0; col < columnSize; col += 2) {
+            sb.append(ladderRow.get(col));
+        }
+
+        // bridge 구간(가로줄) 처리
+        int sbPointer = 1;
+        for (int col = 1; col < columnSize; col += 2) {
+            sb.insert(sbPointer, String.valueOf(ladderRow.get(col)).repeat(5));
+            sbPointer += 6;
         }
 
         return sb.toString();
