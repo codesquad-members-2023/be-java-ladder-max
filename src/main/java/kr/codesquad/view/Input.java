@@ -8,11 +8,6 @@ public class Input {
 
     private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-//    public String inputN() throws IOException {
-//        String input = br.readLine();
-//        return input;
-//    }
-
     public String inputNames() throws IOException {
         String input = br.readLine();
         return input;

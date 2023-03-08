@@ -20,7 +20,7 @@ public class Ladder {
         List<String> userNames = new ArrayList<>();
         for (String user : users) {
             userNames.add(user);
-            userNames.add("");
+            userNames.add(" ".repeat(6 - user.length()));
         }
         userNames.remove(userNames.size() - 1);
         laddersFrame.add(userNames);
@@ -37,8 +37,8 @@ public class Ladder {
     }
 
     private void fillLadderWidth(List<String> lines) {
+        String before = "";
         for (int j = 1; j < width; j += 2) {
-            String before = "";
             before = fillLadderRandomOrStick(before);
             lines.add(before);
             lines.add("|");

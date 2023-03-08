@@ -37,7 +37,7 @@ public class Controller {
 
         List<List<String>> ladders = ladder.makeLadder(afterNames, afterM);
 
-//        String result = encoding.encodeLadder(ladders);
-//        output.printLadder(result);
+        String result = encoding.encodeLadder(ladders);
+        output.printLadder(result);
     }
 }

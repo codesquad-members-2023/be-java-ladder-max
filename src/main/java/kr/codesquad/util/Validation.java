@@ -7,11 +7,6 @@ import java.util.regex.Pattern;
 
 public class Validation {
 
-    public int validateInputN(String n) {
-        int input = validateInputInteger(n);
-        return validateInputPositive(input);
-    }
-
     public int validateInputM(String m) {
         int input = validateInputInteger(m);
         return validateInputPositive(input);    }

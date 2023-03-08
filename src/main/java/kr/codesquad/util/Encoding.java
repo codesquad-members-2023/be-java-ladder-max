@@ -1,14 +1,16 @@
 package kr.codesquad.util;
 
+import java.util.List;
+
 public class Encoding {
-    public String encodeLadder(String[][] ladders) {
+
+    public String encodeLadder(List<List<String>> ladders) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < ladders.length; i++) {
-            for (int j = 0; j < ladders[i].length; j++) {
-                sb.append(ladders[i][j]);
-            }
+        for (List<String> ladder : ladders) {
+            sb.append(String.join("", ladder));
             sb.append("\n");
         }
+        sb.deleteCharAt(sb.length() - 1);
         return sb.toString();
     }
 }
