@@ -1,26 +1,27 @@
 ## 사다리 게임
 
-- [x] commit 메세지 작성 방법
+- [x] 사다리게임 Step1
 
-- [x] java 문자열 관련 학습자료 참고해서 공부하기
+- [x] 사다리게임 Step2 (리팩토링)
 
-- [x] 사다리게임 1단계 구현하기
+- [x] 사다리게임 Step3
 
-- [x] 클린코드 관련 학습자료 참고해서 공부하기
+- [ ] 사다리게임 Step4 (리팩토링)
 
-- [x] 사다리게임 2단계 구현하기
+- [ ] 사다리게임 Step5
 
-- [ ] 사다리게임 3단계 구현하기
-
-- [ ] 사다리게임 4단계 구현하기
+- [ ] 사다리게임 Step6
 
 
 
-### 사다리 게임 Step1
+
+
+## 사다리 게임 Step1
 
 - [x] n명의 사람과 m개의 사다리 개수를 입력한다.
 - [x] 사다리 라인은 랜덤하게 있거나 없다. (`" - "` or `"  "`)
 - [x] 사다리 생성 후 출력
+- [x] StringBuilder & String Buffer
 
 
 
@@ -28,23 +29,20 @@
 
 ![step1_diagram(final)](https://raw.githubusercontent.com/CDBchan/Typora-img/main/img/step1_diagram(final).PNG)
 
-**InputOutputManager**
-
-InputHandler, OutputHandler(입출력) 클래스를 제어한다.
 
 
-**ladder**
-
-랜덤한사다리를 만들어주는 클래스 이다.
-
-### 사다리 게임 Step2
+## 사다리 게임 Step2
 
 - [x] 메서드의 크기가 최대 10라인을 넘지 않도록 구현한다.
+
 - [x] 들여쓰기(indent) depth를 2단계에서 1단계로 줄인다.
 - [x] else를 사용하지 않는다.
+- [x] commitMessage 작성요령
+- [x] 클린코딩
 
 
-### 사다리 게임 Step3
+
+## 사다리 게임 Step3
 
 - [x] 플레이어를 이름을 사용해서 추가 (이름은 최대 5글자)
 - [x] 사람이름은 쉼표를 기준으로 구분
@@ -70,3 +68,18 @@ InputHandler, OutputHandler(입출력) 클래스를 제어한다.
 ### Step3 결과
 
 ![step3_result](https://raw.githubusercontent.com/CDBchan/Typora-img/main/img/step3_result.PNG)
+
+
+
+## 사다리게임 Step4
+
+- [ ] 객체지향생활체조 원칙
+- [ ] 코드 리팩토링
+- [ ] 패키지분리 및 적절한 접근제어자 사용
+- [ ] 로직을 구현하는 코드에 단위 테스트 구현
+- [ ] Mockito
+
+
+
+
+
