@@ -5,36 +5,19 @@ import java.util.Map;
 
 public class OutputView {
 
-    public static final int LIMIT_LENGTH = 5;
     public static final String DRAW_LADDER_DESCRIPTION = "사다리 결과";
     public static final String SEARCH_CLOSE_DESCRIPTION = "게임을 종료합니다.";
     public static final String SEARCH_RESULT_DESCRIPTION = "실행 결과";
+    public static final int LIMIT_LENGTH = 5;
+    public static final int NAME_AREA = 6;
 
-    public void print(String drawnLadder) {
-        System.out.println(drawnLadder);
-    }
-
-    public void print(List<String> names, String drawnLadder) {
-        StringBuilder resultSB = addNames(names)
-            .append("\n")
-            .append(drawnLadder);
-        System.out.println(resultSB);
-    }
-
-    static String limitName(String userName) {
-        if (userName.length() > LIMIT_LENGTH) {
-            userName = userName.substring(0, LIMIT_LENGTH);
-        }
-        return userName;
-    }
-
-    public void print(List<String> names, String drawnLadder, List<String> result) {
+    public void printLadder(List<String> names, String drawnLadder, List<String> result) {
         System.out.println(DRAW_LADDER_DESCRIPTION);
         StringBuilder resultSB = addNames(names)
             .append("\n")
             .append(drawnLadder);
         for (String eachResult : result) {
-            resultSB.append(StringUtils.center(eachResult, 6));
+            resultSB.append(StringCenterSorter.center(eachResult, NAME_AREA));
         }
         System.out.println(resultSB);
     }
@@ -43,9 +26,16 @@ public class OutputView {
         StringBuilder resultSB = new StringBuilder();
         for (String userName : names) {
             userName = limitName(userName);
-            resultSB.append(StringUtils.center(userName, 6));
+            resultSB.append(StringCenterSorter.center(userName, NAME_AREA));
         }
         return resultSB;
+    }
+
+    static String limitName(String userName) {
+        if (userName.length() > LIMIT_LENGTH) {
+            userName = userName.substring(0, LIMIT_LENGTH);
+        }
+        return userName;
     }
 
     public void printClose() {
@@ -61,12 +51,12 @@ public class OutputView {
         });
     }
 
-    public void printSingle( List<String> result, int resultIndex) {
+    public void printSingleResult(List<String> result, int resultIndex) {
         System.out.println(SEARCH_RESULT_DESCRIPTION);
         System.out.println(result.get(resultIndex));
     }
 
-    static class StringUtils {
+    static class StringCenterSorter {
 
         public static final char SPACER = ' ';
 

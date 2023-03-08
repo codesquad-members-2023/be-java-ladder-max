@@ -36,7 +36,7 @@ public class LadderGame {
             case SINGLE: {
                 Map<Integer, Integer> usersOfResult = ladder.getUsersOfResult();
                 int index = names.indexOf(searchInfo.getName());
-                outputView.printSingle(result, usersOfResult.get(index));
+                outputView.printSingleResult(result, usersOfResult.get(index));
                 break;
             }
         }
@@ -44,7 +44,7 @@ public class LadderGame {
     }
 
     private void printLadder(List<String> names, String drawnLadder, List<String> result) {
-        outputView.print(names, drawnLadder, result);
+        outputView.printLadder(names, drawnLadder, result);
     }
 
     private String drawLadder(Integer peopleCount, Integer ladderHeight) {
