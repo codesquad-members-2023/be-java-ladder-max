@@ -18,7 +18,7 @@ public class LadderGame {
         Integer ladderHeight = inputView.inputLadderHeight();
         String drawnLadder = drawLadder(names.size(), ladderHeight);
         print(names, drawnLadder, result);
-        searchInput(names,result);
+        searchInput(names, result);
     }
 
     private void searchInput(List<String> names, List<String> result) {
@@ -30,13 +30,13 @@ public class LadderGame {
                 return;
             case ALL: {
                 Map<Integer, Integer> usersOfResult = ladder.getUsersOfResult();
-                outputView.printAll(names,result,usersOfResult);
+                outputView.printAll(names, result, usersOfResult);
                 break;
             }
             case SINGLE: {
                 Map<Integer, Integer> usersOfResult = ladder.getUsersOfResult();
                 int index = names.indexOf(searchInfo.getName());
-                outputView.printSingle(result,usersOfResult.get(index));
+                outputView.printSingle(result, usersOfResult.get(index));
                 break;
             }
         }
@@ -47,31 +47,10 @@ public class LadderGame {
         outputView.print(names, drawnLadder, result);
     }
 
-    public void runWithNames() {
-        List<String> names = inputView.inputNames();
-        Integer ladderHeight = inputView.inputLadderHeight();
-        String drawnLadder = drawLadder(names.size(), ladderHeight);
-        print(names, drawnLadder);
-    }
-
-    private void print(List<String> requestNames, String drawnLadder) {
-        outputView.print(requestNames, drawnLadder);
-    }
-
-    private void runWithPeopleCount() {
-        Integer peopleCount = inputView.inputPeopleCount();
-        Integer ladderHeight = inputView.inputLadderHeight();
-        String drawnLadder = drawLadder(peopleCount, ladderHeight);
-        print(drawnLadder);
-
-    }
 
     private String drawLadder(Integer peopleCount, Integer ladderHeight) {
         return ladder.draw(peopleCount, ladderHeight);
     }
 
-    private void print(String drawnLadder) {
-        outputView.print(drawnLadder);
-    }
 
 }
