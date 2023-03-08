@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import static org.assertj.core.api.Assertions.*;
 
 public class LineTest {
-   Line line;
+   private Line line;
 
     @BeforeEach
     void setUp() {

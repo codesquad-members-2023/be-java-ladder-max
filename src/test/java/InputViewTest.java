@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.*;
 
 public class InputViewTest {
 
-    InputView inputView;
+    private InputView inputView;
 
     @BeforeEach
     void setUp() {

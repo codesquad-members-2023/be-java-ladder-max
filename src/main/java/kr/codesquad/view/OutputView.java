@@ -18,8 +18,9 @@ public class OutputView {
         System.out.println();
         System.out.println("실행결과");
         System.out.println();
-        System.out.println(people.stream()
-                .map(o -> " " + String.format("%5s", o))
+        System.out.println(" " + people.stream()
+                .map(o -> " ".repeat((6 - o.length()) / 2) + o
+                        + " ".repeat(6 - o.length()))
                 .reduce(new StringBuilder(), (sb, o) ->
                                 sb.append(o)
                         , StringBuilder::append));
