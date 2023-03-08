@@ -12,6 +12,7 @@ public class LadderGame {
     private final OutputView outputView;
     private final LineStateRandomCreator linesStateRandomCreator;
     private final LadderResultCalculator ladderResultCalculator;
+    private final LadderResultRepository ladderResultRepository;
 
     public LadderGame() {
         this.inputView = new InputView();
@@ -19,6 +20,7 @@ public class LadderGame {
         this.outputView = new OutputView();
         this.linesStateRandomCreator = new LineStateRandomCreator();
         this.ladderResultCalculator = new LadderResultCalculator();
+        this.ladderResultRepository = new LadderResultRepository();
     }
 
     public void run() {
@@ -29,7 +31,8 @@ public class LadderGame {
         List<List<Boolean>> linesStateInfo = linesStateRandomCreator.create(nameSize, ladderHeight);
         String drawnLadder = drawLadder(linesStateInfo);
         printLadder(names, drawnLadder, resultInfo);
-        ladderResultCalculator.calculator(linesStateInfo);
+        ladderResultCalculator.calculator(linesStateInfo,ladderResultRepository);
+
         inputSearchInfo(names, resultInfo);
     }
 
@@ -41,14 +44,13 @@ public class LadderGame {
                 outputView.printClose();
                 return;
             case ALL: {
-                Map<Integer, Integer> usersOfResult = ladderResultCalculator.getLadderResult();
+                Map<Integer, Integer> usersOfResult = ladderResultRepository.getAll();
                 outputView.printAll(names, result, usersOfResult);
                 break;
             }
             case SINGLE: {
-                Map<Integer, Integer> usersOfResult = ladderResultCalculator.getLadderResult();
                 int index = names.indexOf(searchInfo.getName());
-                outputView.printSingleResult(result, usersOfResult.get(index));
+                outputView.printSingleResult(result, ladderResultRepository.get(index));
                 break;
             }
         }
