@@ -6,49 +6,61 @@ import java.io.InputStreamReader;
 
 public class ConsoleInput {
 
-    private final BufferedReader br;
+    private final BufferedReader reader;
     private final LadderValidator validator;
 
-    public ConsoleInput(LadderValidator validator) {
-        this.br = new BufferedReader(new InputStreamReader(System.in));
+    public ConsoleInput(BufferedReader reader, LadderValidator validator) {
+        this.reader = reader;
         this.validator = validator;
     }
 
-    public int inputPerson() {
-        String text;
-        while (true) {
-            try {
-                ConsoleOutput.printInputPersonIntro();
-                text = br.readLine();
-                if (!validator.validatePerson(text)) {
-                    throw new InvalidPersonNumber();
-                }
-                break;
-            } catch (InvalidPersonNumber e) {
-                ConsoleOutput.printInvalidInputNumber(e.getMessage());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+    public int readNumberOfPeople() {
+        int numberOfPeople = 0;
+        while (numberOfPeople == 0) {
+            ConsoleOutput.printInputPersonIntro();
+            numberOfPeople = readNumberOfPeopleTextAndToInt();
         }
-        return Integer.parseInt(text);
+        return numberOfPeople;
     }
 
-    public int inputMaximumLadderHeight() {
-        String text;
-        while (true) {
-            try {
-                ConsoleOutput.printInputMaximumLadderHeightIntro();
-                text = br.readLine();
-                if (!validator.validateLadderHeight(text)) {
-                    throw new InvalidMaximumLadderHeight();
-                }
-                break;
-            } catch (InvalidMaximumLadderHeight e) {
-                ConsoleOutput.printInvalidInputNumber(e.getMessage());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+    private int readNumberOfPeopleTextAndToInt() {
+        int numberOfPeople = 0;
+        try {
+            String text = reader.readLine();
+            validator.validateNumberOfPeople(text);
+            numberOfPeople = toInt(text);
+        } catch (InvalidPersonNumber e) {
+            ConsoleOutput.printInvalidInputNumber(e.getMessage());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+        return numberOfPeople;
+    }
+
+    public int readMaximumLadderHeight() {
+        int maximumLadderHeight = 0;
+        while (maximumLadderHeight == 0) {
+            ConsoleOutput.printInputMaximumLadderHeightIntro();
+            maximumLadderHeight = readMaximumLadderHeightTextAndToInt();
+        }
+        return maximumLadderHeight;
+    }
+
+    private int readMaximumLadderHeightTextAndToInt() {
+        int maximumLadderHeight = 0;
+        try {
+            String text = reader.readLine();
+            validator.validateLadderHeight(text);
+            maximumLadderHeight = toInt(text);
+        } catch (InvalidMaximumLadderHeight e) {
+            ConsoleOutput.printInvalidInputNumber(e.getMessage());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return maximumLadderHeight;
+    }
+
+    private int toInt(String text) {
         return Integer.parseInt(text);
     }
 }

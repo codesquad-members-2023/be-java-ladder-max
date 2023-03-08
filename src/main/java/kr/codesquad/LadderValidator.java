@@ -5,24 +5,34 @@ import java.util.regex.Pattern;
 public class LadderValidator {
 
     private final Pattern NUMBER_FORMAT = Pattern.compile("\\d+");
-    private final int minPerson;
+    private final int minNumberOfPeople;
     private final int minLadderHeight;
 
-    public LadderValidator(int minPerson, int minLadderHeight) {
-        this.minPerson = minPerson;
+    public LadderValidator(int minNumberOfPeople, int minLadderHeight) {
+        this.minNumberOfPeople = minNumberOfPeople;
         this.minLadderHeight = minLadderHeight;
     }
 
-    public boolean validatePerson(String text) {
-        return NUMBER_FORMAT.matcher(text).matches() && moreThanMinPerson(text);
+    public void validateNumberOfPeople(String text) {
+        if (!NUMBER_FORMAT.matcher(text).matches()) {
+            throw new InvalidPersonNumber();
+        }
+        if (!moreThanMinNumberOfPeople(text)) {
+            throw new InvalidPersonNumber();
+        }
     }
 
-    private boolean moreThanMinPerson(String text) {
-        return Integer.parseInt(text) >= minPerson;
+    private boolean moreThanMinNumberOfPeople(String text) {
+        return Integer.parseInt(text) >= minNumberOfPeople;
     }
 
-    public boolean validateLadderHeight(String text) {
-        return NUMBER_FORMAT.matcher(text).matches() && moreThanMinLadderHeight(text);
+    public void validateLadderHeight(String text) {
+        if (!NUMBER_FORMAT.matcher(text).matches()) {
+            throw new InvalidMaximumLadderHeight();
+        }
+        if (!moreThanMinLadderHeight(text)) {
+            throw new InvalidMaximumLadderHeight();
+        }
     }
 
     private boolean moreThanMinLadderHeight(String text) {
