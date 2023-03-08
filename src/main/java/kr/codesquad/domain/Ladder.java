@@ -1,12 +1,11 @@
 package kr.codesquad.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Ladder {
     private final char PLAYER_LINE = '|';
     private final char BRIDGE = '-';
+    private final char EMPTY_SPACE = ' ';
 
     private final List<List<Character>> ladder;
     private final int rowSize;
@@ -29,12 +28,27 @@ public class Ladder {
     private List<List<Character>> makeLadder() {
         List<List<Character>> ladder = new ArrayList<>(rowSize);
 
+        initLadder(ladder);
         for(int row = 0; row < rowSize; row++) {
             addPlayerLineIntoRow(ladder, row);
             addBridgeIntoRow(ladder, row);
         }
 
         return ladder;
+    }
+
+    private void initLadder(List<List<Character>> ladder) {
+        for(int row = 0; row < rowSize; row++) {
+            ladder.add(row, makeLadderRow());
+        }
+    }
+
+    private List<Character> makeLadderRow() {
+        List<Character> ladderRow = new ArrayList<>();
+        for(int col = 0; col < columnSize; col++) {
+            ladderRow.add(EMPTY_SPACE);
+        }
+        return ladderRow;
     }
 
     private void addPlayerLineIntoRow(List<List<Character>> ladder, int row) {
