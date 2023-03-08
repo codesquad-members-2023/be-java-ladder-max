@@ -9,6 +9,8 @@ public class Main {
         int countOfUser = getCountOfUser();
         int heightOfLadder = getHeightOfLadder();
         Ladder ladder = new Ladder(countOfUser, heightOfLadder);
+        StringBuilder sb = ladder.makeLadder();
+        outputView.printLadder(sb);
     }
     public static int getCountOfUser() {
         outputView.inputPeople();
