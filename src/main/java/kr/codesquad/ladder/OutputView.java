@@ -2,7 +2,7 @@ package kr.codesquad.ladder;
 
 public class OutputView {
 
-    public void printLadder(String ladderStatus) {
-        System.out.println(ladderStatus);
+    public static void printString(String format) {
+        System.out.println(format);
     }
 }
