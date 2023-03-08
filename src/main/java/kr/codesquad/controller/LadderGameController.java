@@ -1,4 +1,7 @@
-package kr.codesquad.domain;
+package kr.codesquad.controller;
+
+import kr.codesquad.controller.InputOutputController;
+import kr.codesquad.domain.Ladder;
 
 import java.io.IOException;
 import java.util.ArrayList;

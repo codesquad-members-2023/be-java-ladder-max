@@ -1,5 +1,7 @@
-package kr.codesquad.domain;
+package kr.codesquad.controller;
 
+import kr.codesquad.domain.InputParser;
+import kr.codesquad.domain.Ladder;
 import kr.codesquad.view.InputHandler;
 import kr.codesquad.view.OutputHandler;
 
