@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         int countOfUser = getCountOfUser();
         int heightOfLadder = getHeightOfLadder();
+        Ladder ladder = new Ladder(countOfUser, heightOfLadder);
     }
     public static int getCountOfUser() {
         outputView.inputPeople();
