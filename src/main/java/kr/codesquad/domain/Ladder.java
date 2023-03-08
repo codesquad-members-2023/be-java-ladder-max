@@ -18,7 +18,7 @@ public class Ladder {
         new OutputView().printLadder(people, ladders);
     }
 
-    void makeLadder() {
+    private void makeLadder() {
         for(int idx = 0; idx < height; idx++) {
             ladders.add(makeLine());
         }

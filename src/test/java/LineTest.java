@@ -2,6 +2,9 @@ import kr.codesquad.domain.Line;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class LineTest {
@@ -13,12 +16,15 @@ public class LineTest {
     }
 
     @Test
-    void 그리기_가능_테스트() {
-        assertThat(line.canDraw(0)).isTrue();
+    void 그리기_가능_테스트() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Method booleanMethod = Line.class.getDeclaredMethod("canDraw", int.class);
+        booleanMethod.setAccessible(true);
+
+        assertThat((boolean)booleanMethod.invoke(line, 0)).isTrue();
         line.addLine(true);
-        assertThat(line.canDraw(1)).isFalse();
+        assertThat((boolean)booleanMethod.invoke(line, 1)).isFalse();
         line.addLine(false);
-        assertThat(line.canDraw(2)).isTrue();
+        assertThat((boolean)booleanMethod.invoke(line, 2)).isTrue();
     }
 
 }

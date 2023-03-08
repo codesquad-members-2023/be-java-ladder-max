@@ -12,7 +12,7 @@ public class Line {
         this.points = new ArrayList<>();
     }
 
-    public boolean canDraw (int countOfPerson) {
+    private boolean canDraw (int countOfPerson) {
         return countOfPerson == 0 || !points.get(countOfPerson - 1).booleanValue();
     }
 
