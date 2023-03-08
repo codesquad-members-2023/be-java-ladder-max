@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-public class LadderByNames implements Ladder {
+public class LadderDrawerByNames implements LadderDrawer {
 
     static final String SUCCESS_DELIMITER = "-----";
     static final String FAIL_DELIMITER = "     ";

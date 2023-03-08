@@ -2,7 +2,7 @@ package kr.codesquad.domain;
 
 import java.util.Random;
 
-public class LadderByPeopleCount implements Ladder{
+public class LadderDrawerByPeopleCount implements LadderDrawer {
 
     static final String PEOPLE_DELIMITER = "|";
     static final String SUCCESS_DELIMITER = "-";

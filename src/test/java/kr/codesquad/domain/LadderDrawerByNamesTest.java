@@ -1,14 +1,14 @@
 package kr.codesquad.domain;
 
-import static kr.codesquad.domain.LadderByNames.FAIL_DELIMITER;
-import static kr.codesquad.domain.LadderByNames.connectLine;
+import static kr.codesquad.domain.LadderDrawerByNames.FAIL_DELIMITER;
+import static kr.codesquad.domain.LadderDrawerByNames.connectLine;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-class LadderByNamesTest {
+class LadderDrawerByNamesTest {
 
     @DisplayName("사다리 추가의 실패")
     @ParameterizedTest
