@@ -1,6 +1,7 @@
 package kr.codesquad.domain;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
@@ -14,6 +15,24 @@ public class LadderDrawer {
     static final String NEXT_LINE = "\n";
     static final String PREFIX = "   ";
     private final Map<Integer, Integer> usersOfResult = new HashMap<>();
+
+    public String draw(List<List<Boolean>> linesStateInfo) {
+        StringBuilder result = new StringBuilder();
+        for (List<Boolean> rowLineStateInfo : linesStateInfo) {
+            connectLines(rowLineStateInfo, result);
+        }
+        return result.toString();
+    }
+
+    private void connectLines(List<Boolean> rowLineStateInfo, StringBuilder result) {
+        result.append(PREFIX)
+            .append(PEOPLE_DELIMITER);
+        for (Boolean isExist : rowLineStateInfo) {
+            result.append(isExist ? SUCCESS_DELIMITER : FAIL_DELIMITER)
+                .append(PEOPLE_DELIMITER);
+        }
+        result.append(NEXT_LINE);
+    }
 
     public String draw(int peopleCount, int ladderHeight) {
         StringBuilder result = new StringBuilder();

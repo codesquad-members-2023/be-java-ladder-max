@@ -7,16 +7,25 @@ import kr.codesquad.view.OutputView;
 
 public class LadderGame {
 
-    private final InputView inputView = new InputView();
-    private final LadderDrawer ladder = new LadderDrawer();
-    private final OutputView outputView = new OutputView();
+    private final InputView inputView;
+    private final LadderDrawer ladderDrawer;
+    private final OutputView outputView;
+    private final LineStateRandomCreator linesStateRandomCreator;
+
+    public LadderGame() {
+        this.inputView = new InputView();
+        this.ladderDrawer = new LadderDrawer();
+        this.outputView = new OutputView();
+        this.linesStateRandomCreator = new LineStateRandomCreator();
+    }
 
     public void run() {
         List<String> names = inputView.inputNames();
         int nameSize = names.size();
         List<String> resultInfo = inputView.inputResultInfo(nameSize);
         int ladderHeight = inputView.inputLadderHeight();
-        String drawnLadder = drawLadder(nameSize, ladderHeight);
+        List<List<Boolean>> linesStateInfo = linesStateRandomCreator.create(nameSize, ladderHeight);
+        String drawnLadder = drawLadder(linesStateInfo);
         printLadder(names, drawnLadder, resultInfo);
         inputSearchInfo(names, resultInfo);
     }
@@ -29,12 +38,12 @@ public class LadderGame {
                 outputView.printClose();
                 return;
             case ALL: {
-                Map<Integer, Integer> usersOfResult = ladder.getUsersOfResult();
+                Map<Integer, Integer> usersOfResult = ladderDrawer.getUsersOfResult();
                 outputView.printAll(names, result, usersOfResult);
                 break;
             }
             case SINGLE: {
-                Map<Integer, Integer> usersOfResult = ladder.getUsersOfResult();
+                Map<Integer, Integer> usersOfResult = ladderDrawer.getUsersOfResult();
                 int index = names.indexOf(searchInfo.getName());
                 outputView.printSingleResult(result, usersOfResult.get(index));
                 break;
@@ -47,7 +56,7 @@ public class LadderGame {
         outputView.printLadder(names, drawnLadder, result);
     }
 
-    private String drawLadder(Integer peopleCount, Integer ladderHeight) {
-        return ladder.draw(peopleCount, ladderHeight);
+    private String drawLadder(List<List<Boolean>> linesStateInfo) {
+        return ladderDrawer.draw(linesStateInfo);
     }
 }
