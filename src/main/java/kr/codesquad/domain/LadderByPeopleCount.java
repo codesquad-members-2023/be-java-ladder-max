@@ -1,7 +1,6 @@
 package kr.codesquad.domain;
 
 import java.util.Random;
-import java.util.function.Supplier;
 
 public class LadderByPeopleCount implements Ladder{
 
@@ -9,38 +8,37 @@ public class LadderByPeopleCount implements Ladder{
     static final String SUCCESS_DELIMITER = "-";
     static final String FAIL_DELIMITER = " ";
     static final String NEXT_LINE = "\n";
-    private final Random random = new Random();
 
-    private final Supplier<Boolean> randomBoolean = random::nextBoolean;
 
-    public String create(int peopleCount, int ladderHeight) {
-        boolean[][] ladderState = create(peopleCount, ladderHeight, randomBoolean);
-        return draw(ladderState);
+    public String draw(int peopleCount, int ladderHeight) {
+        boolean[][] ladderState = drawLine(peopleCount, ladderHeight);
+        return connectLines(ladderState);
     }
 
-    boolean[][] create(int peopleCount, int ladderHeight, Supplier<Boolean> condition) {
+    boolean[][] drawLine(int peopleCount, int ladderHeight) {
         boolean[][] result = new boolean[ladderHeight][peopleCount - 1];
         for (int i = 0; i < ladderHeight; i++) {
-            addRandomLadder(peopleCount, condition, result[i]);
+            drawLineByRandom(peopleCount, result[i]);
         }
         return result;
     }
 
-    private static void addRandomLadder(int peopleCount, Supplier<Boolean> condition, boolean[] result) {
+    private static void drawLineByRandom(int peopleCount, boolean[] result) {
+        Random random = new Random();
         for (int j = 0; j < peopleCount - 1; j++) {
-            result[j] = condition.get();
+            result[j] = random.nextBoolean();
         }
     }
 
-    String draw(boolean[][] ladder) {
+    String connectLines(boolean[][] ladder) {
         StringBuilder result = new StringBuilder();
         for (boolean[] row : ladder) {
-            addLadder(result, row);
+            connectLine(result, row);
         }
         return result.toString();
     }
 
-    private static void addLadder(StringBuilder result, boolean[] row) {
+    private static void connectLine(StringBuilder result, boolean[] row) {
         result.append(PEOPLE_DELIMITER);
         for (boolean column : row) {
             result.append(column ? SUCCESS_DELIMITER : FAIL_DELIMITER)
