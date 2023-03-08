@@ -11,33 +11,46 @@ public class Ladder {
         this.length = length;
     }
 
-    public String[][] createBasicArr (){
+    private String[][] createBasicArr (){
         String[][] arr = new String[length][width];
         for(int i = 0; i<length; i++) {
-            for(int j = 0 ; j<width; j++) {
-                arr[i][j] = (j%2==0?"|":" ");
-            }
+            createStick(arr,i);
         }
         randomBar(arr);
         return arr;
     }
-    public void randomBar(String [][] arr) {
-        String arr2[][] = arr;
-        Random random = new Random();
+    private void randomBar(String [][] arr) {
         for(int i = 0; i<length; i++) {
-            for (int j =1; j<width; j+=2) {
-                    arr[i][j] =(random.nextBoolean()?"-":" ");
-            }
+            createRandomBar(arr,i);
         }
     }
 
-    public void printGame(String [][] arr) {
+    private void createStick(String[][] arr,int i){
+            for(int j = 0 ; j<width; j++) {
+                arr[i][j] = (j%2==0?"|":" ");
+        }
+    }
+
+    private void createRandomBar(String[][] arr,int i){
+        Random random = new Random();
+        for (int j =1; j<width; j+=2) {
+            arr[i][j] =(random.nextBoolean()?"-":" ");
+        }
+
+    }
+
+    public void printGame() {
+        String[][] arr = createBasicArr();
         for (int i = 0; i < arr.length; i++) {
             String[] inArr = arr[i];
-            for (int j = 0; j < inArr.length; j++) {
-                System.out.print(inArr[j] + " ");
-            }
+            printArrFlat(inArr);
             System.out.println();
+        }
+    }
+
+    private void printArrFlat (String inArr[]) {
+        for (int j = 0; j < inArr.length; j++) {
+            System.out.print(inArr[j] + " ");
         }
     }
 

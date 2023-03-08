@@ -34,3 +34,37 @@ Hello world!
 |   | - | - | - | 
 
 ```
+
+# step-2 구현 결과
+
+```java
+public String[][] createBasicArr (){
+        String[][] arr = new String[length][width];
+        for(int i = 0; i<length; i++) {
+            for(int j = 0 ; j<width; j++) {
+                arr[i][j] = (j%2==0?"|":" ");
+            }
+        }
+        randomBar(arr);
+        return arr;
+    }
+```
+
+```java
+private String[][] createBasicArr (){
+            String[][] arr = new String[length][width];
+            for(int i = 0; i<length; i++) {
+                createStick(arr,i);
+            }
+            randomBar(arr);
+            return arr;
+    }
+
+private void createStick(String[][] arr,int i){
+            for(int j = 0 ; j<width; j++) {
+            arr[i][j] = (j%2==0?"|":" ");
+            }
+    }
+```
+- 다음과 같이 2중 포문을 사용하는 함수는 배열과 인덱스를 인자로 보내 새로운 함수에 for문을 돌려서 뎁스를 줄임
+- 외부에서 사용하지 않는 함수들은 접근제어자를 public에서 private로 변경
