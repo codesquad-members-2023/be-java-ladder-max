@@ -1,8 +1,9 @@
 package kr.codesquad.ladder;
 
-import kr.codesquad.ladder.view.Console;
+import kr.codesquad.ladder.view.ConsoleInput;
 import kr.codesquad.ladder.domain.Ladder;
 import kr.codesquad.ladder.domain.LadderShape;
+import kr.codesquad.ladder.view.ConsoleOutput;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,14 +12,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Console console = new Console();
-
         // step-1, step-2
         startStep1_2();
-        console.askParticipantsNumber();
-        int participantNumber = console.returnIntInput();
-        console.askLadderHeight();
-        int ladderHeight = console.returnIntInput();
+        ConsoleOutput.askParticipantsNumber();
+        int participantNumber = ConsoleInput.returnIntInput();
+        ConsoleOutput.askLadderHeight();
+        int ladderHeight = ConsoleInput.returnIntInput();
 
         Ladder ladder = new Ladder(participantNumber, ladderHeight);
         ladder.printLadder();
@@ -29,11 +28,11 @@ public class Main {
         // step-3, step-4
         startStep3_4();
         List<String> participantList = new ArrayList<>();
-        console.askParticipantsName();
+        ConsoleOutput.askParticipantsName();
 
-        addParticipantsFromTokenizer(participantList, Arrays.asList(console.returnStringInput().split(",")));
-        console.askLadderHeight();
-        int ladderShapeHeight = console.returnIntInput();
+        addParticipantsFromTokenizer(participantList, Arrays.asList(ConsoleInput.returnStringInput().split("\\s*" + "," + "\\s*")));
+        ConsoleOutput.askLadderHeight();
+        int ladderShapeHeight = ConsoleInput.returnIntInput();
 
         LadderShape ladderShape = new LadderShape(participantList, ladderShapeHeight);
         ladderShape.printLadder();

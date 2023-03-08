@@ -4,15 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class LadderShape {
     // participantNumber == participantList.size()
     // 위와 같은 사실을 이용하여 step-1과 비슷하게 로직을 짠다.
+
     private final List<String> participantList;
     private final int ladderShapeHeight;
+
     private List<String> points = new ArrayList<>();
     private boolean isMinusSign = false;
+
+    private static final String VERTICAL_BAR = "|";
+    private static final String MINUS_SIGN = "-";
+    private static final String BLANK = " ";
 
     public LadderShape(List<String> participantList, int ladderShapeHeight) {
         this.participantList = participantList;
@@ -21,38 +28,34 @@ public class LadderShape {
 
     public void printLadder() {
         printParticipants();
-
-        for (int i = 0; i < ladderShapeHeight; i++) {
-            printLadderRows();
-            points.forEach(System.out::print);
-            printNewLine();
-            points = new ArrayList<>();
-            isMinusSign = false;
-        }
+        loopLadder();
     }
 
-    // 테스트를 위해서는 printf가 아닌 String.format() 형태로 List에 저장해야 됨
-    // @Test
-    private List<String> formatList;
-
-    public void printParticipants() {
-        formatList = participantList.stream()
-                .map(participant -> String.format("%5s", participant))
-                .collect(Collectors.toList());
-        formatList.forEach(System.out::print);
+    private void printParticipants() {
+        participantList.stream()
+                .map(participant -> String.format(" %5s", participant))
+                .forEach(System.out::print);
         printNewLine();
     }
 
-    // @Test
-    public List<String> getFormatList() {
-        return formatList;
+    private void loopLadder() {
+        for (int i = 0; i < ladderShapeHeight; i++) {
+            manageLadder();
+        }
+    }
+
+    private void manageLadder() {
+        printLadderRows();
+        points.forEach(System.out::print);
+        printNewLine();
+        points = new ArrayList<>();
+        isMinusSign = false;
     }
 
     private void printLadderRows() {
         printRepeatBlank(3);
-        for (int i = 0; i < participantList.size() + participantList.size() - 1; i++) {
-            chooseLetter(i);
-        }
+        IntStream.range(0, participantList.size() * 2 - 1)
+                .forEach(this::chooseLetter);
     }
 
     private void chooseLetter(int i) {
@@ -64,17 +67,17 @@ public class LadderShape {
     private void appendVerticalBar(int i) {
         // i가 짝수일 때, 즉 "|" 출력
         // 즉, 짝수가 아니면 리턴
-        if (i % 2 != 0) {
+        if (!isEven(i)) {
             return;
         }
 
-        points.add("|");
+        points.add(VERTICAL_BAR);
     }
 
     private void appendRandomLadderRows(int i) {
         // i가 홀수일 때, 즉 "-" 혹은 " " 랜덤 출력
         // 즉, 홀수가 아니면 리턴
-        if (i % 2 != 1) {
+        if (isEven(i)) {
             return;
         }
 
@@ -95,37 +98,29 @@ public class LadderShape {
         appendBlank(); // 5번 append
     }
 
-    // @Test
-    public void appendMinusSign() {
+    private void appendMinusSign() {
         isMinusSign = true;
-        Stream.generate(() -> "-")
+        Stream.generate(() -> MINUS_SIGN)
                 .limit(5)
                 .forEach(points::add);
     }
 
-    // @Test
-    public void appendBlank() {
+    private void appendBlank() {
         isMinusSign = false;
-        Stream.generate(() -> " ")
+        Stream.generate(() -> BLANK)
                 .limit(5)
                 .forEach(points::add);
-    }
-
-    // @Test
-    public boolean isMinusSign() {
-        return isMinusSign;
-    }
-
-    // @Test
-    public List<String> getPoints() {
-        return points;
     }
 
     private void printRepeatBlank(int n) {
-        System.out.print(" ".repeat(n));
+        System.out.print(BLANK.repeat(n));
     }
 
     private void printNewLine() {
         System.out.println();
+    }
+
+    private boolean isEven(int i) {
+        return i % 2 == 0;
     }
 }
