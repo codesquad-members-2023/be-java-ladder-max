@@ -13,23 +13,29 @@ public class Screen {
         Optional<Integer> playerNumber = Optional.empty();
         while (playerNumber.isEmpty()) {
             System.out.println("참여할 사람은 몇 명인가요?");
-            playerNumber = nextInt();
+            playerNumber = readInt();
         }
-        if (playerNumber.get() < 1) {
-            System.out.println("최소 1명 이상 입력해 주세요.");
-            inputPlayerNumber();
-        }
+
         return playerNumber.get();
     }
 
-    private static Optional<Integer> nextInt() {
+    private static Optional<Integer> readInt() {
         try {
-            return Optional.of(Integer.parseInt(scanner.nextLine().trim()));
+            return filterPositiveNumber(Integer.parseInt(scanner.nextLine().trim()));
         } catch (NumberFormatException ex) {
             System.out.println("숫자를 입력해주세요.");
+        } catch (IllegalArgumentException ex) {
+            System.out.println("0보다 큰 숫자를 입력해 주세요.");
+        }
+        return Optional.empty();
+    }
+
+    private static Optional<Integer> filterPositiveNumber(int number) {
+        if (number < 1) {
+            throw new IllegalArgumentException();
         }
 
-        return Optional.empty();
+        return Optional.of(number);
     }
 
     public static List<String> inputPlayerNames() {
