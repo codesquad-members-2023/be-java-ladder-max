@@ -23,9 +23,13 @@ public class OutputViewTest {
     @Test
     void 이름들_출력_테스트() {
         List<String> people = new ArrayList<>();
-        people.add("abcde");
+        // pobi,honux,crong,jk
+        people.add("pobi");
+        people.add("honux");
+        people.add("crong");
+        people.add("jk");
         outputView.printPeople(people);
-        assertThat(outputMessage.toString()).isEqualToIgnoringWhitespace("\n실행결과\n\n" + " abcde");
+        assertThat(outputMessage.toString()).isEqualToIgnoringWhitespace("\n실행결과\n\n" + "  pobi  honux crong   jk");
         // 의문점: 왜 isEqualToIgnoringWhitespace으로 공백을 제거해줘야 할까?
     }
 
