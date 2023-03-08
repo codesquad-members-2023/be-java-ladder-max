@@ -11,20 +11,19 @@ import kr.codesquad.domain.SearchType;
 public class InputView {
 
 
-    public static final String INPUT_NAME = "결과를 보고 싶은 사람은?";
-    private final static String DIGIT_PATTERN = "^[1-9][0-9]*$";
-    private static final String REQUEST_PEOPLE_COUNT = "참여할 사람은 몇 명인가요?";
+    public static final String INPUT_SEARCH_INFO = "결과를 보고 싶은 사람은?";
     private static final String INPUT_RADDER_HEIGHT = "최대 사다리 높이는 몇 개인가요?";
     private static final String INPUT_NAMES = "참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)";
-    private static final String INPUT_RESULT = "실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)";
-    private static final String NAMES_FORMATTER = "^[a-z]+(,[a-z]+)+$";
+    private static final String INPUT_RESULT_INFO = "실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)";
     public static final String NAME_DELIMITER = ",";
+    private static final String NAMES_PATTERN = "^[a-z]+(,[a-z]+)+$";
     public static final String RESULT_PATTERN = "^(꽝|([0-9]+[1-9]*))(,(꽝|([0-9]+[1-9]*)))*$";
+    private final static String DIGIT_PATTERN = "^[1-9][0-9]*$";
     public static final String INPUT_ERROR = "잘못 입력했습니다.";
     private final Scanner scanner = new Scanner(System.in);
 
     public SearchInfo inputSearchInfo(List<String> names) {
-        System.out.println(INPUT_NAME);
+        System.out.println(INPUT_SEARCH_INFO);
         String input = scanner.nextLine();
         if (isSearchAll(input)) {
             return new SearchInfo(SearchType.ALL);
@@ -57,10 +56,14 @@ public class InputView {
         return inputNames();
     }
 
+    boolean isRightNamesPattern(String input) {
+        return Pattern.matches(NAMES_PATTERN, input);
+    }
+
     public List<String> inputResultInfo(int size) {
-        System.out.println(INPUT_RESULT);
+        System.out.println(INPUT_RESULT_INFO);
         String input = scanner.nextLine();
-        if (isRightResultPattern(input)) {
+        if (isRightResultInfoPattern(input)) {
             String[] result = input.split(NAME_DELIMITER);
             if (result.length == size) {
                 return Arrays.stream(result).collect(Collectors.toList());
@@ -70,30 +73,18 @@ public class InputView {
         return inputResultInfo(size);
     }
 
-    boolean isRightResultPattern(String input) {
+    boolean isRightResultInfoPattern(String input) {
         return Pattern.matches(RESULT_PATTERN, input);
     }
 
-    boolean isRightNamesPattern(String input) {
-        return Pattern.matches(NAMES_FORMATTER, input);
-    }
-
-    public Integer inputPeopleCount() {
-        return inputDigit(REQUEST_PEOPLE_COUNT);
-    }
-
     public Integer inputLadderHeight() {
-        return inputDigit(INPUT_RADDER_HEIGHT);
-    }
-
-    private Integer inputDigit(String description) {
-        System.out.println(description);
+        System.out.println(INPUT_RADDER_HEIGHT);
         String input = scanner.nextLine();
         if (isDigit(input)) {
             return Integer.valueOf(input);
         }
         System.out.println(INPUT_ERROR);
-        return inputDigit(description);
+        return inputLadderHeight();
     }
 
     static boolean isDigit(String input) {
