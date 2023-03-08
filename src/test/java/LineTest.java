@@ -14,11 +14,10 @@ public class LineTest {
 
     @Test
     void 그리기_가능_테스트() {
-        String tLine = "-----", fLine = "     ";
         assertThat(line.canDraw(0)).isTrue();
-        line.addLine(tLine);
+        line.addLine(true);
         assertThat(line.canDraw(1)).isFalse();
-        line.addLine(fLine);
+        line.addLine(false);
         assertThat(line.canDraw(2)).isTrue();
     }
 
