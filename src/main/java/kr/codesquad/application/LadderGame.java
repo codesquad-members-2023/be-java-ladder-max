@@ -22,7 +22,7 @@ public class LadderGame {
 			final Height height = getHeightFromUser();
 
 			final Ladder ladder = createLadder(participants.getParticipants().size(), height.getValue());
-			printStateOfLadder(participants.getParticipants(), ladder);
+			printStateOfLadder(participants.getParticipants(), results.getResults(), ladder);
 		} catch (final IllegalArgumentException e) {
 			outputView.printErrorMsg(e);
 			startLadderGame();
@@ -54,8 +54,9 @@ public class LadderGame {
 		return new Ladder(countOfPerson, height, new RandomLineGenerator());
 	}
 
-	private void printStateOfLadder(final List<String> names, final Ladder ladder) {
+	private void printStateOfLadder(final List<String> names, final List<String> results, final Ladder ladder) {
 		outputView.printNameOfPeople(names);
 		outputView.printFigureOfLadder(ladder);
+		outputView.printResultsOfGame(results);
 	}
 }

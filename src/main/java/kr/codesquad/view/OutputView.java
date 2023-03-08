@@ -28,7 +28,16 @@ public class OutputView {
 		System.out.println(nameBuilder);
 	}
 
+	public void printResultsOfGame(final List<String> results) {
+		StringBuilder resultBuilder = new StringBuilder();
+		results.forEach(result -> resultBuilder.append(centerAligned(result, 5)));
+		System.out.println(resultBuilder);
+	}
+
 	private String centerAligned(final String name, final int length) {
+		if (name.length() > length) {
+			return String.format("%s", name);
+		}
 		if (name.length() == 4) {
 			return String.format(" %s ", name);
 		}
@@ -36,10 +45,10 @@ public class OutputView {
 			return String.format("%s ", name);
 		}
 		final int padding = (length - name.length()) / 2;
-		return String.format(" %" + padding + "s%s%" + padding + "s ", "", name, "");
+		return String.format("%" + padding + "s%s%" + padding + "s ", "", name, "");
 	}
 
 	public void printFigureOfLadder(final Ladder ladder) {
-		System.out.println(ladder);
+		System.out.print(ladder);
 	}
 }

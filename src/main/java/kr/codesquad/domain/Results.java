@@ -17,4 +17,8 @@ public class Results {
 			.stream(results.split(","))
 			.collect(Collectors.toList()));
 	}
+
+	public List<String> getResults() {
+		return resultContainer;
+	}
 }
