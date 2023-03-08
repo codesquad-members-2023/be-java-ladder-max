@@ -11,5 +11,5 @@ fun main() {
     val existLineInfo = ladder.createExistLineInfoDistant(usersNames.size, ladderHeight)
     val draw = ladder.draw(existLineInfo)
 
-    outputView.print(draw)
+    outputView.print(usersNames,draw)
 }
