@@ -36,10 +36,10 @@ public class Validation {
     public List<String> validateInputNames(String names) throws IOException {
         String[] userNames = names.split(",");
         validateInputString(userNames);
+        validateInputNameSize(userNames);
         return List.of(userNames);
     }
 
-    // ^[a-zA-Z]*$
     private void validateInputString(String[] userNames) throws IOException {
         String regex = "^[a-zA-Z]*$";
         String allUserNames = String.join("", userNames);
@@ -49,5 +49,15 @@ public class Validation {
         }
     }
 
+    private void validateInputNameSize(String[] userNames) throws IOException {
+        for (String userName : userNames) {
+            validateNameMaxSize(userName);
+        }
+    }
 
+    private void validateNameMaxSize(String userName) throws IOException {
+        if (userName.length() > 5) {
+            throw new IOException("이름은 최대 5글자까지 부여할 수 있습니다.");
+        }
+    }
 }
