@@ -15,6 +15,17 @@ class OutputView {
         append(drawnLadder)
         println(this)
     }
+
+    fun print(usersNames: List<String>, drawnLadder: String, inputResult: List<String>) = with(StringBuilder()) {
+        append(NEW_LINE.repeat(2))
+        append(RESULT_DES)
+        append(NEW_LINE.repeat(2))
+        usersNames.forEach { append(centerString(it)) }
+        append(NEW_LINE)
+        append(drawnLadder)
+        inputResult.forEach{append(centerString(it)) }
+        println(this)
+    }
 }
 
 private const val LIMIT_LENGTH = 5
