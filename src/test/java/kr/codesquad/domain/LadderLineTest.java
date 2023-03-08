@@ -25,6 +25,6 @@ class LadderLineTest {
         line.createLine();
         line.points.add(true);
         line.points.add(true);
-        assertThrows(IllegalArgumentException.class, () -> line.pointsValidate());
+        assertThrows(IllegalStateException.class, () -> line.pointsValidate());
     }
 }

@@ -41,7 +41,7 @@ public class LadderLine {
 
     private void throwException(int i) {
         if (points.get(i) && points.get(i + 1)) {
-            throw new IllegalArgumentException("연속적인 true 존재");
+            throw new IllegalStateException("연속적인 true 존재");
         }
     }
 
