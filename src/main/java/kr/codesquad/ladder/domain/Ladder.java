@@ -6,19 +6,10 @@ import java.util.stream.Collectors;
 
 public class Ladder {
 
-    private final List<Line> ladder;
+    private final List<Line> ladder = new ArrayList<>();
 
-    private Ladder(List<Line> ladder) {
-        this.ladder = ladder;
-    }
-
-    public static Ladder createLadder(int height, int playerCount) {
-        List<Line> lines = new ArrayList<>();
-
-        for (int i = 0; i < height; i++) {
-            lines.add(Line.createLine(playerCount));
-        }
-        return new Ladder(lines);
+    public void addLine(Line line) {
+        ladder.add(line);
     }
 
     @Override
