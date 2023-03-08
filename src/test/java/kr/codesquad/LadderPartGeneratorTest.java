@@ -29,9 +29,9 @@ class LadderPartGeneratorTest {
         //mocking
         Random mockRandom = mock(random.getClass());
         when(mockRandom.nextBoolean()).thenReturn(true, false);
-        generator = new LadderPartGenerator(ladder, mockRandom);
+        generator = new LadderPartGenerator(mockRandom);
         //when
-        String[][] actual = generator.generate();
+        String[][] actual = generator.generate(ladder);
         //then
         String[][] expected =
             {{"|", "-", "|"},
@@ -51,9 +51,9 @@ class LadderPartGeneratorTest {
         Random mockRandom = mock(random.getClass());
         when(mockRandom.nextBoolean()).thenReturn(true, false, false, true, true, true, false, true,
             true, false);
-        generator = new LadderPartGenerator(ladder, mockRandom);
+        generator = new LadderPartGenerator(mockRandom);
         //when
-        String[][] actual = generator.generate();
+        String[][] actual = generator.generate(ladder);
         //then
         String[][] expected =
             {{"|", "-", "|", " ", "|"},

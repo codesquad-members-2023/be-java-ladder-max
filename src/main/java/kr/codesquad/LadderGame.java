@@ -15,8 +15,8 @@ public class LadderGame {
         int maximumLadderHeight = consoleInput.readMaximumLadderHeight();
         Ladder ladder = new Ladder(numberOfPeople, maximumLadderHeight);
         Random random = new Random();
-        LadderPartGenerator generator = new LadderPartGenerator(ladder, random);
-        String[][] board = generator.generate();
+        LadderPartGenerator generator = new LadderPartGenerator(random);
+        String[][] board = generator.generate(ladder);
         LadderConverter converter = new LadderConverter(board);
         String ladderStr = converter.convertToString();
         ConsoleOutput.printLadderBoard(ladderStr);
