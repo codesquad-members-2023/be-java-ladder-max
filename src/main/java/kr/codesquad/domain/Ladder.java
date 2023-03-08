@@ -110,6 +110,9 @@ public class Ladder {
             sbPointer += 6;
         }
 
+        // 맨 앞에 2칸씩 공백 삽입
+        sb.insert(0, "  ");
+
         return sb.toString();
     }
 }

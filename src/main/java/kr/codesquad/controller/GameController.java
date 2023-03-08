@@ -14,6 +14,7 @@ public class GameController {
     public void runLadderGame() throws IOException {
         Players players = new Players(inputView.inputPlayerNames());
         Ladder ladder = new Ladder(players.getPlayerCount(), inputView.inputLadderHeight());
+        outputView.printPlayerNames(players);
         outputView.printLadder(ladder);
     }
 
