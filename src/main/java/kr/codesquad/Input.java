@@ -1,23 +1,22 @@
 package kr.codesquad;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Input {
-    private static final String INPUT_PLAYERS_MESSAGE = "몇분이서 오셨어요?";
-    private static final String INPUT_HEIGHT_MESSAGE = "얼마나 길게 하려고?";
+    private final Scanner sc = new Scanner(System.in);
 
-    public int inputPlayers() {
-        System.out.println(INPUT_PLAYERS_MESSAGE);
-        Scanner scanner = new Scanner(System.in);
-        int players = scanner.nextInt();
+    public List<String> inputPlayers() {
+        System.out.println("참가자 명부를 주시오");
+        String[] splitPlayers = this.sc.nextLine().split(",");
 
-        return players;
+        return Arrays.asList(splitPlayers);
     }
 
     public int inputHeight() {
-        System.out.println(INPUT_HEIGHT_MESSAGE);
-        Scanner scanner = new Scanner(System.in);
-        int height = scanner.nextInt();
+        System.out.println("얼마나 길게 만들길 원하시오?");
+        int height = this.sc.nextInt();
 
         return height;
     }
