@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Ladder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Line.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +85,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.InputViewTest.유효한_이름인지_테스트">
+  <component name="RunManager" selected="Gradle.LineTest.그리기_가능_테스트">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
       <module name="java-lotto.main" />
@@ -191,8 +193,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.InputViewTest.유효한_이름인지_테스트" />
         <item itemvalue="Gradle.LineTest.그리기_가능_테스트" />
+        <item itemvalue="Gradle.InputViewTest.유효한_이름인지_테스트" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.LineTest.그리기_테스트" />
         <item itemvalue="Gradle.MainTest.유효한_이름인지_테스트" />

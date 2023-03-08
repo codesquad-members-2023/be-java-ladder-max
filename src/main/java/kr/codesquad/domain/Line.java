@@ -16,9 +16,7 @@ public class Line {
         return countOfPerson == 0 || points.get(countOfPerson - 1).equals(BLANK);
     }
 
-    public void drawLine(int countOfPerson) {
-        Random random = new Random();
-        boolean draw = random.nextBoolean();
+    public void drawLine(boolean draw, int countOfPerson) {
         if(draw && canDraw(countOfPerson)) {
             addLine(LEG);
             return;
