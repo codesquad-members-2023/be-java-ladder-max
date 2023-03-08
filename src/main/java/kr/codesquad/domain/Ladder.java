@@ -67,12 +67,19 @@ public class Ladder {
         return new Random().nextBoolean();
     }
 
+    private boolean validateBridgePlacement(List<List<Character>> ladder, int row, int column) {
+        if(column == 1 || (column > 2 && ladder.get(row).get(column-2) == EMPTY_SPACE)) {
+            return true;
+        }
+        return false;
+    }
+
     private void insertPlayerLine(List<List<Character>> ladder, int row, int column) {
         ladder.get(row).set(column, PLAYER_LINE);
     }
 
     private void insertBridge(List<List<Character>> ladder, int row, int column) {
-        if (shouldBuildingBridge()) {
+        if (shouldBuildingBridge() && validateBridgePlacement(ladder, row, column)) {
             ladder.get(row).set(column, BRIDGE);
         }
     }
