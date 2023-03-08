@@ -1,5 +1,6 @@
 package kr.codesquad.controller;
 
+import kr.codesquad.model.Users;
 import kr.codesquad.util.Encoding;
 import kr.codesquad.view.Input;
 import kr.codesquad.view.Output;
@@ -27,10 +28,11 @@ public class Controller {
     public void run() throws IOException {
         output.printMessageN();
         String names = input.inputNames();
-        int afterN = validation.validationInputN(names);
+
+        int afterN = validation.validateInputN(names);
         output.printMessageM();
         String m = input.inputM();
-        int afterM = validation.validationInputM(m);
+        int afterM = validation.validateInputM(m);
 
         String[][] ladders = ladder.makeLadder(afterN, afterM);
         String result = encoding.encodeLadder(ladders);
