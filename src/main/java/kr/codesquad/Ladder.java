@@ -7,18 +7,18 @@ import java.util.stream.IntStream;
 public class Ladder {
     protected String[][] ladder;
 
-    public Ladder(int numPerson, int numLine) {
-        ladder = new String[numLine][(2 * numPerson) - 1];
+    public Ladder(int verticalLine, int horizontalLine) {
+        ladder = new String[horizontalLine][(2 * verticalLine) - 1];
 
-        fillPerson();
-        fillLine();
+        fillVerticalLine();
+        fillHorizontalLine();
     }
 
-    public void fillPerson() {
+    public void fillVerticalLine() {
         Arrays.stream(ladder).forEach(row -> Arrays.fill(row, "|"));
     }
 
-    public void fillLine() {
+    public void fillHorizontalLine() {
         String[] str = {"-", " "};
         IntStream.range(0, ladder.length)
                 .forEach(x -> IntStream.range(0, ladder[0].length)
