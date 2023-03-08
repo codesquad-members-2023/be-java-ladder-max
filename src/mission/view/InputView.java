@@ -24,18 +24,13 @@ public class InputView {
         return Integer.parseInt(br.readLine());
     }
 
-    public List<String> getPeopleName() throws IOException {
+    public String[] getPeopleName() throws IOException {
         System.out.println(ASKING_PEOPLE_NAME);
         return makeArrayFromString(br.readLine());
     }
 
-    private List<String> makeArrayFromString(String string) throws IOException {
-        String[] correctPeopleName = checkCorrectPeopleName(string.split(","));
-        List<String> peopleNameList = new ArrayList<>();
-        for (String peopleName : correctPeopleName) {
-            peopleNameList.add(peopleName);
-        }
-        return peopleNameList;
+    private String[] makeArrayFromString(String string) throws IOException {
+        return checkCorrectPeopleName(string.split(","));
     }
 
     private String[] checkCorrectPeopleName(String[] peopleNameArray) throws IOException {
