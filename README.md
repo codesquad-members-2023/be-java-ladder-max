@@ -6,7 +6,7 @@
 
 - [x] 사다리게임 Step3
 
-- [ ] 사다리게임 Step4 (리팩토링)
+- [x] 사다리게임 Step4 (리팩토링)
 
 - [ ] 사다리게임 Step5
 
@@ -26,6 +26,8 @@
 
 
 ### Step1 diagram
+
+
 
 ![step1_diagram(final)](https://raw.githubusercontent.com/CDBchan/Typora-img/main/img/step1_diagram(final).PNG)
 
@@ -73,11 +75,18 @@
 
 ## 사다리게임 Step4
 
-- [ ] 객체지향생활체조 원칙
-- [ ] 코드 리팩토링
-- [ ] 패키지분리 및 적절한 접근제어자 사용
-- [ ] 로직을 구현하는 코드에 단위 테스트 구현
-- [ ] Mockito
+- [x] 객체지향생활체조 원칙
+- [x] 코드 리팩토링
+- [x] 패키지분리 및 적절한 접근제어자 사용
+- [x] 로직을 구현하는 코드에 단위 테스트 구현
+
+
+
+### Step4 diagram
+
+![step4_diagram](https://raw.githubusercontent.com/CDBchan/Typora-img/main/img/step4_diagram.PNG)
+
+
 
 
 
