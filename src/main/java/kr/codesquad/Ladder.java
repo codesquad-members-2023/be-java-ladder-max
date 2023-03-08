@@ -5,16 +5,17 @@ import java.util.List;
 
 public class Ladder {
 
+    private int width;
     private int height;
     private List<List<String>> radder = new ArrayList<>();
-    private List<String> names = new ArrayList<>();
+
+    private Names names;
 
     public Ladder(String nameData, int height){
         String[] nameArr = nameData.split(",");
-        for(String name : nameArr){
-            names.add(name);
-        }
+        this.width = nameArr.length-1;
         this.height = height;
+        names = new Names(nameArr);
     }
 
     public void createRadder() {
@@ -26,7 +27,7 @@ public class Ladder {
     public List<String> createRow() {
         List<String> row = new ArrayList<>();
         String prevLine = "";
-        for(int i=0; i<names.size()-1; i++){
+        for(int i=0; i<width; i++){
             String line = getRandomLine(prevLine);
             row.add(line);
             prevLine = line;
@@ -47,41 +48,14 @@ public class Ladder {
 
     public void printRadder() {
         StringBuilder sb = new StringBuilder();
-        sb.append(makeNameRow() + "\n");
+        // 이름 row 생성
+        sb.append(names.makeNameRow() + "\n");
+        // 사다리 row 생성
         for(int i=0; i<height; i++){
             sb.append(makeRowString(radder.get(i)));
             sb.append("\n");
         }
         System.out.println(sb);
-    }
-
-    public String makeNameRow() {
-        String nameRow = "";
-
-        for(String name: names){
-            nameRow += makeName(name) + " ";
-        }
-
-        return nameRow;
-    }
-
-    public String makeName(String name) {
-        int len = name.length();
-        switch (len){
-            case 1:
-                name = "  " + name + "  ";
-                break;
-            case 2:
-                name = "  " + name + " ";
-                break;
-            case 3:
-                name = " " + name + " ";
-                break;
-            case 4:
-                name = name + " ";
-                break;
-        }
-        return name;
     }
 
     public String makeRowString(List<String> row) {
