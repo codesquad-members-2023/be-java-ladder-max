@@ -8,7 +8,7 @@ import kr.codesquad.view.OutputView;
 public class LadderGame {
 
     private final InputView inputView = new InputView();
-    private final LadderDrawerByNames ladder = new LadderDrawerByNames();
+    private final LadderDrawer ladder = new LadderDrawer();
     private final OutputView outputView = new OutputView();
 
     public void run() {
