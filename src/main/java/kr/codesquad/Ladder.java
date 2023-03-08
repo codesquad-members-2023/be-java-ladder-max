@@ -7,30 +7,38 @@ public class Ladder {
 
     public String[][] makeLadder(int n, int m) {
         createLadderEmpty(n, m);
-        makeLadderLength();
-        makeLadderWidth();
+        makeLadderVerticalLine();
+        makeLadderHorizontalLine();
         return laddersFrame;
     }
 
     private void createLadderEmpty(int n, int m) {
         this.length = m;
-        this.width = n + 2;
+        this.width = n + (n - 1);
         laddersFrame = new String[length][width];
     }
 
-    private void makeLadderLength() {
+    private void makeLadderVerticalLine() {
         for (int i = 0; i < length; i++) {
-            for (int j = 0; j < width; j += 2) {
-                laddersFrame[i][j] = "|";
-            }
+            fillLadderVerticalLine(i);
         }
     }
 
-    private void makeLadderWidth() {
+    private void fillLadderVerticalLine(int row) {
+        for (int i = 0; i < width; i += 2) {
+            laddersFrame[row][i] = "|";
+        }
+    }
+
+    private void makeLadderHorizontalLine() {
         for (int i = 0; i < length; i++) {
-            for (int j = 1; j < width; j += 2) {
-                laddersFrame[i][j] = LadderLine.takeRandom();
-            }
+            fillLadderHorizontalLine(i);
+        }
+    }
+
+    private void fillLadderHorizontalLine(int row) {
+        for (int j = 1; j < width; j += 2) {
+            laddersFrame[row][j] = LadderLine.takeRandom();
         }
     }
 }
