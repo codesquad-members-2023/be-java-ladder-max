@@ -11,7 +11,9 @@
 
 ### 3단계 - 2023.03.08까지
 - [ ] List, ArrayList, Generic 학습
-- [ ] BufferedReader는 언제 닫아주는 것이 좋은가 알아보기
+- [ ] BufferedReader는 언제 닫아주는 것이 좋은가 알아보기 - gc가 자동으로 닫아주긴 함..
+- [ ] git rebase/merge 학습 - rebase는 로그 추적하기 어렵다?, rebase는 임시 저장용...
+- [ ] step3 구현
 
 ### 4단계 - 2023.03.09까지
 - [ ] 단위 테스트 하기
@@ -19,7 +21,7 @@
 - [ ] 접근제어자 학습
 
 
-- Last Update: 2023-03-07
+- Last Update: 2023-03-08
 
 
 ## 코드 리뷰

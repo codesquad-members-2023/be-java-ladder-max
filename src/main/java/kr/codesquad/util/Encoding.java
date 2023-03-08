@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.util;
 
 public class Encoding {
     public String encodeLadder(String[][] ladders) {

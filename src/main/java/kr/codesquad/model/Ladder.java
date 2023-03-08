@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.model;
 
 public class Ladder {
     private String[][] laddersFrame;

@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.view;
 
 public class Output {
     public void printMessageN() {
