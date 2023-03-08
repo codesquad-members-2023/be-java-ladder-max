@@ -17,12 +17,6 @@ public class OutputHandler {
     }
 
     public void printLadder(Ladder ladder) {
-        StringBuilder sb = new StringBuilder();
-        ArrayList<String> tempLadder = ladder.ladder;
-        System.out.println("\n결과출력\n");
-        for(String str: tempLadder){
-            sb.append(str);
-        }
-        System.out.println(sb);
+        System.out.println(ladder.toString());
     }
 }

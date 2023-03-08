@@ -1,56 +1,42 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
-import java.util.Random;
+
+import static kr.codesquad.domain.LadderLine.drawLine;
 
 public class Ladder {
-    private int ladderWidth;
-    private int ladderHeight;
-    public final ArrayList ladder = new ArrayList();
+    private final int countOfPeople;
+    private final int ladderHeight;
+    private  ArrayList<LadderLine> ladder;
     private ArrayList<String> nameList = new ArrayList<>();
 
-    public Ladder(ArrayList list) {
-        init(list);
-        makeLadder();
+
+    public Ladder(ArrayList<String> inputList) {
+        ladderHeight = Integer.parseInt(inputList.remove(inputList.size() - 1));
+        countOfPeople = inputList.size();
+        nameList.addAll(inputList);
+        createLadder();
     }
 
-    private void init(ArrayList list) {
-        ladderHeight = Integer.parseInt(list.get(list.size() - 1).toString());
-        list.remove(list.size() - 1);
-        nameList.addAll(list);
-        ladderWidth = nameList.size();
-    }
-
-
-    private void makeLadder() {
-        addNameToLadder();
-        buildLadderStructure();
-    }
-
-    private void addNameToLadder() {
-        for (String str : nameList) {
-            String formattedStr = String.format(" %1$-5s", str);
-            ladder.add(formattedStr);
-        }
-        ladder.add("\n");
-    }
-
-    private void buildLadderStructure() {
+    private void createLadder() {
+        ladder = new ArrayList<>();
         for (int i = 0; i < ladderHeight; i++) {
-            ladder.add("  ");
-            buildLadderLine();
-            ladder.add("\n");
+            ladder.add(new LadderLine(countOfPeople));
         }
     }
 
-    private void buildLadderLine() {
-        for (int j = 0; j < (ladderWidth) * 2 - 1; j++) {
-            ladder.add(j % 2 == 0 ? "|" : (shouldAddLine() ? "-----" : "     "));
+    private void drawName(StringBuilder sb){
+        for(String name: nameList){
+            sb.append(String.format(" %1$-5s", name));
         }
+        sb.append("\n");
     }
 
-    private boolean shouldAddLine() {
-        Random rand = new Random();
-        return rand.nextBoolean() && !ladder.get(ladder.size() - 2).equals("-----");
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        drawName(sb);
+        drawLine(ladder,sb);
+        return sb.toString();
     }
 }
