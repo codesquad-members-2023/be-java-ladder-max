@@ -20,7 +20,7 @@ public class Ladder2 {
     private void makeRandom(){ // 랜덤으로 사다리 내부 만들기
         Random random = new Random();
         for (int i=0;i<row;i++){
-            ladder[i] = Arrays.stream(ladder[i]).map((s -> s == "-----" ? (random.nextInt(4) == 0 ? "     " : "-----") : s)).toArray(String[]::new);
+            ladder[i] = Arrays.stream(ladder[i]).map((s -> s == "-----" ? (random.nextInt(2) == 0 ? "     " : "-----") : s)).toArray(String[]::new);
         }
     }
     private void makeBasic(){ // 사다리 기본 틀 만들기
@@ -30,6 +30,7 @@ public class Ladder2 {
         }
     }
     private void checkLadder(){ // 가로 라인이 겹치는 경우, 앞 라인을 "     "으로 변경하기
+        Random random = new Random();
         for (int k=0;k<row;k++){
             String[] array = ladder[k];
             IntStream.range(1,column-2)
