@@ -9,9 +9,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Screen {
-    private static final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
-    public static int inputPlayerNumber() {
+    public int inputPlayerNumber() {
         Optional<Integer> playerNumber = Optional.empty();
 
         while (playerNumber.isEmpty()) {
@@ -22,7 +22,7 @@ public class Screen {
         return playerNumber.get();
     }
 
-    public static int inputLadderHeight() {
+    public int inputLadderHeight() {
         Optional<Integer> ladderHeight = Optional.empty();
 
         while (ladderHeight.isEmpty()) {
@@ -33,7 +33,7 @@ public class Screen {
         return ladderHeight.get();
     }
 
-    private static Optional<Integer> readInt() {
+    private Optional<Integer> readInt() {
         try {
             final int input = Integer.parseInt(scanner.nextLine().trim());
             return toOptionalPositiveNumber(input);
@@ -54,7 +54,7 @@ public class Screen {
         return Optional.of(number);
     }
 
-    public static List<String> inputPlayerNames() {
+    public List<String> inputPlayerNames() {
         Optional<List<String>> playerNames = Optional.empty();
         while (playerNames.isEmpty()) {
             System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
@@ -64,7 +64,7 @@ public class Screen {
         return playerNames.get();
     }
 
-    private static Optional<List<String>> readPlayerNames() {
+    private Optional<List<String>> readPlayerNames() {
         try {
             return Optional.of(toValidPlayerNames(scanner.nextLine().split(",")));
         } catch (IllegalArgumentException ex) {
@@ -74,7 +74,7 @@ public class Screen {
         return Optional.empty();
     }
 
-    private static List<String> toValidPlayerNames(String[] inputNames) {
+    private List<String> toValidPlayerNames(String[] inputNames) {
         final Set<String> validPlayerNames = parseValidNames(inputNames);
 
         if (inputNames.length != validPlayerNames.size()) {
@@ -84,13 +84,13 @@ public class Screen {
         return new ArrayList<>(validPlayerNames);
     }
 
-    private static Set<String> parseValidNames(String[] names) {
+    private Set<String> parseValidNames(String[] names) {
         return Arrays.stream(names)
-                .map(Screen::parseValidName)
+                .map(this::parseValidName)
                 .collect(Collectors.toSet());
     }
 
-    private static String parseValidName(String input) {
+    private String parseValidName(String input) {
         final String name = input.trim();
         if (isInValidName(name)) {
             throw new IllegalArgumentException("올바른 형식으로 입력해주세요.");
@@ -99,11 +99,11 @@ public class Screen {
         return name;
     }
 
-    private static boolean isInValidName(String name) {
+    private boolean isInValidName(String name) {
         return !name.matches("^[a-zA-Z0-9]{1,5}$");
     }
 
-    public static void printResult(List<String> outputLines) {
+    public void printResult(List<String> outputLines) {
         System.out.println("\n실행결과\n");
 
         System.out.println(String.join("\n", outputLines));
