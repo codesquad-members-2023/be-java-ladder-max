@@ -10,8 +10,8 @@ public class Ladder {
 
     private final Boolean[][] ladder;
 
-    public Ladder(int numberOfUsers, int ladderHeight) {
-        this.ladder = generateLadder(numberOfUsers, ladderHeight);
+    public Ladder(Users numberOfUsers, LadderHeight ladderHeight) {
+        this.ladder = generateLadder(numberOfUsers.count(), ladderHeight.getHeight());
     }
 
     private Boolean[][] generateLadder(int numberOfUsers, int ladderHeight) {

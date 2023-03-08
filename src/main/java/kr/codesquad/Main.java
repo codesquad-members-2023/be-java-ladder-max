@@ -1,6 +1,7 @@
 package kr.codesquad;
 
 import kr.codesquad.domain.Ladder;
+import kr.codesquad.domain.LadderHeight;
 import kr.codesquad.domain.Users;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
@@ -8,8 +9,8 @@ import kr.codesquad.view.OutputView;
 public class Main {
     public static void main(String[] args) {
         Users users = InputView.inputNumberOfUsers();
-        int ladderHeight = InputView.inputLadderHeight();
-        Ladder ladder = new Ladder(users.count(), ladderHeight);
+        LadderHeight ladderHeight = InputView.inputLadderHeight();
+        Ladder ladder = new Ladder(users, ladderHeight);
         OutputView.printLadder(ladder);
         InputView.close();
     }
