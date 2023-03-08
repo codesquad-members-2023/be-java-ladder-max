@@ -19,7 +19,7 @@ public class Worker {
         ladder.makeRandomLadder();
     }
 
-    private void makeNameLabel() {
+    private String makeNameLabel() {
         StringBuilder builder = new StringBuilder();
         for (String participant : participants) {
             int frontBlank = (6 - participant.length()) / 2;
@@ -29,12 +29,11 @@ public class Worker {
             builder.append(participant);
             builder.append(" ".repeat(frontBlank == 0 && isNotMaxLength ? backBlank : frontBlank));
         }
-        System.out.println(builder);
+        return builder.toString();
     }
 
     public void showLadder() {
-        makeNameLabel();
-        view.printLadder(ladder.drawLadder());
+        view.printLadder(makeNameLabel(), ladder.drawLadder());
         view.stop();
     }
 }

@@ -54,7 +54,8 @@ public class View {
         }
     }
 
-    public void printLadder(String ladder) {
+    public void printLadder(String nameLabel, String ladder) {
+        System.out.println(nameLabel);
         System.out.println(ladder);
     }
 }
