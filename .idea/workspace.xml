@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="test : 연속된 라인을 만드는지 검증하는 테스트코드 작성">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Input.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,11 +20,56 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="java-lotto" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="java-lotto" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="java-lotto" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProjectId" id="2JX36oPCnvQiefE3cZVtAUCgNFD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -42,10 +82,26 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "actions.on.save",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="kr.codesquad.generator" />
+      <recent name="kr.codesquad.domain" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
       <module name="java-lotto.main" />
@@ -59,9 +115,77 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ParticipantsTest.givenOverLengthParticipants_whenCreateParticipants_thenThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lotto.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kr.codesquad.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.ParticipantsTest" />
+      <option name="METHOD_NAME" value="givenOverLengthParticipants_whenCreateParticipants_thenThrowsException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParticipantsTest.givenRightParticipants_whenCreateParticipants_thenSuccessCreate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lotto.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kr.codesquad.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.ParticipantsTest" />
+      <option name="METHOD_NAME" value="givenRightParticipants_whenCreateParticipants_thenSuccessCreate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RandomLineGeneratorTest.assertIsCreateContinuousLine" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lotto.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kr.codesquad.generator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kr.codesquad.generator" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.generator.RandomLineGeneratorTest" />
+      <option name="METHOD_NAME" value="assertIsCreateContinuousLine" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RandomLineGeneratorTest.givenCountOfPerson_whenGenerateLine_thenSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lotto.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kr.codesquad.generator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kr.codesquad.generator" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.generator.RandomLineGeneratorTest" />
+      <option name="METHOD_NAME" value="givenCountOfPerson_whenGenerateLine_thenSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.RandomLineGeneratorTest.assertIsCreateContinuousLine" />
+        <item itemvalue="JUnit.RandomLineGeneratorTest.givenCountOfPerson_whenGenerateLine_thenSuccess" />
+        <item itemvalue="JUnit.ParticipantsTest.givenOverLengthParticipants_whenCreateParticipants_thenThrowsException" />
+        <item itemvalue="JUnit.ParticipantsTest.givenRightParticipants_whenCreateParticipants_thenSuccessCreate" />
       </list>
     </recent_temporary>
   </component>
@@ -74,10 +198,101 @@
       <option name="presentableId" value="Default" />
       <updated>1672210428730</updated>
       <workItem from="1672210432725" duration="156000" />
+      <workItem from="1678167456672" duration="320000" />
+      <workItem from="1678174367202" duration="41000" />
+      <workItem from="1678178784735" duration="1531000" />
+      <workItem from="1678238717892" duration="425000" />
+      <workItem from="1678243247560" duration="1281000" />
     </task>
+    <task id="LOCAL-00001" summary="style : 불필요한 import문 제거">
+      <created>1678158288728</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678158288728</updated>
+    </task>
+    <task id="LOCAL-00002" summary="refactor : Ladder 클래스의 Input 클래스 의존성 제거&#10;&#10;사람 이름도 5글자를 넘지 않아야 된다는 로직을 가지고 사다리의 높이도 1이상이여야 한다는 로직을 가지고 있기 때문에 두 도메인을 클래스로 분리해야겠다는 생각이 들어 각각 Participants, Height 클래스로 분리&#10;이에 따른 로직 수정">
+      <created>1678160346808</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678160346808</updated>
+    </task>
+    <task id="LOCAL-00003" summary="refactor : Ladder가 생성될 때 자연스럽게 LadderLine도 생성되어야 한다고 생각해 LadderLine 생성자에서 LadderLine을 생성&#10;&#10;LadderLine 클래스는 한 라인의 좌표 값만 가지고 있으면 된다고 생각을 해서 width 멤버변수를 제거&#10;위 변경사항에 따른 나머지 로직 수정">
+      <created>1678163121660</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678163121660</updated>
+    </task>
+    <task id="LOCAL-00004" summary="refactor : 사다리의 라인을 생성하는 행위의 책임을 분리&#10;&#10;기존 LadderLine 클래스이 가지고 있던 사다리의 라인이 연속되지 않게 생성하는 책임을 RandomLineGenerator로 분리했다.&#10;위와 같이 분리하게 되면서 연속되지 않게 생성하는 로직을 테스트할 수 있게 되었다.">
+      <created>1678163548648</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678163548648</updated>
+    </task>
+    <task id="LOCAL-00005" summary="refactor : 사다리의 라인을 생성하는 행위의 책임을 분리&#10;&#10;기존 LadderLine 클래스이 가지고 있던 사다리의 라인이 연속되지 않게 생성하는 책임을 RandomLineGenerator로 분리했다.&#10;위와 같이 분리하게 되면서 연속되지 않게 생성하는 로직을 테스트할 수 있게 되었다.">
+      <created>1678163609018</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678163609018</updated>
+    </task>
+    <task id="LOCAL-00006" summary="test : 사다리 높이 도메인에 대한 테스트 코드 작성">
+      <created>1678164294424</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678164294424</updated>
+    </task>
+    <task id="LOCAL-00007" summary="test : 참가자 리스트 도메인 테스트코드 작성">
+      <created>1678164751432</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678164751432</updated>
+    </task>
+    <task id="LOCAL-00008" summary="refactor : 참가자 수보다 하나 적은 세로라인을 만들도록 수정">
+      <created>1678165077351</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678165077351</updated>
+    </task>
+    <task id="LOCAL-00009" summary="test : 연속된 라인을 만드는지 검증하는 테스트코드 작성">
+      <created>1678165956824</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678165956824</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="style : 불필요한 import문 제거" />
+    <MESSAGE value="refactor : Ladder 클래스의 Input 클래스 의존성 제거&#10;&#10;사람 이름도 5글자를 넘지 않아야 된다는 로직을 가지고 사다리의 높이도 1이상이여야 한다는 로직을 가지고 있기 때문에 두 도메인을 클래스로 분리해야겠다는 생각이 들어 각각 Participants, Height 클래스로 분리&#10;이에 따른 로직 수정" />
+    <MESSAGE value="refactor : Ladder가 생성될 때 자연스럽게 LadderLine도 생성되어야 한다고 생각해 LadderLine 생성자에서 LadderLine을 생성&#10;&#10;LadderLine 클래스는 한 라인의 좌표 값만 가지고 있으면 된다고 생각을 해서 width 멤버변수를 제거&#10;위 변경사항에 따른 나머지 로직 수정" />
+    <MESSAGE value="refactor : 사다리의 라인을 생성하는 행위의 책임을 분리&#10;&#10;기존 LadderLine 클래스이 가지고 있던 사다리의 라인이 연속되지 않게 생성하는 책임을 RandomLineGenerator로 분리했다.&#10;위와 같이 분리하게 되면서 연속되지 않게 생성하는 로직을 테스트할 수 있게 되었다." />
+    <MESSAGE value="test : 사다리 높이 도메인에 대한 테스트 코드 작성" />
+    <MESSAGE value="test : 참가자 리스트 도메인 테스트코드 작성" />
+    <MESSAGE value="refactor : 참가자 수보다 하나 적은 세로라인을 만들도록 수정" />
+    <MESSAGE value="test : 연속된 라인을 만드는지 검증하는 테스트코드 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="test : 연속된 라인을 만드는지 검증하는 테스트코드 작성" />
   </component>
 </project>
