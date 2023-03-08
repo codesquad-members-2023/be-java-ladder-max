@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="feat : 사다리를 만들고 관리할 Worker를 갖는 LadderGame 객체를 작성&#10;&#10;OutputView 객체 대신 정보를 가장 잘 알고 있는 Ladder 객체가 사다리를 출력하도록 수정했다.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ladder/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ladder/Ladder.java" afterDir="false" />
-    </list>
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs : 학습 계획 업데이트 및 진행한 학습 체크" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,40 +40,126 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/yeon/Documents/be-java-ladder-max&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.LadderGame">
-    <configuration name="LadderGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ladder.LadderGame" />
-      <module name="java-lotto.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ladder.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunManager" selected="JUnit.CollectionTest.hashSet">
+    <configuration name="ArrayListTest.arrayList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;study.ArrayListTest.arrayList&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
-      <module name="java-lotto.main" />
+    <configuration name="CollectionTest.hashSet" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;study.CollectionTest.hashSet&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ListTest.arrayList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;study.ListTest.arrayList&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ListTest.linkedList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;study.ListTest.linkedList&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="CollectionTest.hashSet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lotto.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.*" />
+          <option name="PATTERN" value="study.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="study" />
+      <option name="MAIN_CLASS_NAME" value="study.CollectionTest" />
+      <option name="METHOD_NAME" value="hashSet" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LadderGame" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.CollectionTest.hashSet" />
+        <item itemvalue="Gradle.CollectionTest.hashSet" />
+        <item itemvalue="Gradle.ListTest.arrayList" />
+        <item itemvalue="Gradle.ListTest.linkedList" />
+        <item itemvalue="Gradle.ArrayListTest.arrayList" />
       </list>
     </recent_temporary>
   </component>
@@ -140,7 +222,91 @@
       <option name="project" value="LOCAL" />
       <updated>1678091536987</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="refactor : 2차원 배열을 사용하기 위해 작성했던 이중 반복문 분리">
+      <created>1678106369703</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678106369703</updated>
+    </task>
+    <task id="LOCAL-00009" summary="test : List 학습 테스트&#10;&#10;학습 테스트란 자바에서 제공하는 API 사용 방법을 테스트 코드를 구현해 학습하는 것을 의미한다.&#10;ArrayList와 LinkedList 학습 테스트를 따라 해보았다.">
+      <created>1678168752546</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678168752546</updated>
+    </task>
+    <task id="LOCAL-00010" summary="docs : 누락된 EOL 추가 및 학습 계획 업데이트">
+      <created>1678168998468</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1678168998468</updated>
+    </task>
+    <task id="LOCAL-00011" summary="refactor : 반복된 IO 작업을 StringBuilder를 사용하여 한 번만 하도록 수정&#10;&#10;System.out을 사용하여 2차원 배열을 하나씩 출력하던 것을 StringBuilder를 사용하여 한 번만 하도록 수정합니다.">
+      <created>1678170928731</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678170928731</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat : 참여하는 사람의 수 대신 이름을 입력 받도록 InputView를 수정&#10;&#10;참여할 사람의 이름을 입력 받고 이름의 길이가 최대 5글자를 넘어가는지 검사하도록 메서드를 수정합니다.">
+      <created>1678173413536</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1678173413536</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat : 이름의 길이가 최대 5글자를 넘어가는 경우 다시 입력을 받도록 처리&#10;&#10;입력 받은 이름 중 길이가 6이상인 경우 안내 메시지를 출력한 뒤 다시 입력을 받도록 합니다.">
+      <created>1678174100556</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1678174100556</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat : 이름 라벨을 만들고 출력하는 기능 추가&#10;&#10;Worker가 이름 라벨을 만들고 사다리를 그리기 전에 먼저 출력하도록 합니다.&#10;라벨은 고정된 길이 6을 가지며 이름은 중앙에 오도록 배치합니다.">
+      <created>1678176758819</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1678176758819</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix : 이름 뒤에 패딩이 붙지 않는 오류 수정&#10;&#10;이름의 길이가 라벨의 공간보다 짧을 때 종종 앞에만 패딩이 붙는 오류를 수정합니다.">
+      <created>1678178197849</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1678178197849</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat : 2차원 배열 ladders를 List로 변경&#10;&#10;기존의 boolean[][] ladders를 List&lt;List&lt;Boolean&gt;&gt; ladders로 변경합니다.">
+      <created>1678179169527</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1678179169527</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat : 같은 높이의 연속된 발판이 있는지 확인 후 제거">
+      <created>1678181187442</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1678181187442</updated>
+    </task>
+    <task id="LOCAL-00018" summary="docs : 진행한 학습 체크 및 학습 계획 업데이트">
+      <created>1678182421518</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1678182421518</updated>
+    </task>
+    <task id="LOCAL-00019" summary="docs : 학습 계획 업데이트 및 진행한 학습 체크">
+      <created>1678199674555</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1678199674555</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,7 +323,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feature1" />
+                        <option value="feature2" />
                       </list>
                     </value>
                   </entry>
@@ -177,6 +343,18 @@
     <MESSAGE value="feat : 사다리를 만드는 Worker 객체 생성&#10;&#10;InputView를 통해 참여할 사람의 수와 사다리의 높이 정보를 받아와 Ladder 객체를 생성한다." />
     <MESSAGE value="feat : InputView 종료 시 BufferedReader를 닫기 위한 메서드 추가" />
     <MESSAGE value="feat : 사다리를 만들고 관리할 Worker를 갖는 LadderGame 객체를 작성&#10;&#10;OutputView 객체 대신 정보를 가장 잘 알고 있는 Ladder 객체가 사다리를 출력하도록 수정했다." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : 사다리를 만들고 관리할 Worker를 갖는 LadderGame 객체를 작성&#10;&#10;OutputView 객체 대신 정보를 가장 잘 알고 있는 Ladder 객체가 사다리를 출력하도록 수정했다." />
+    <MESSAGE value="refactor : 2차원 배열을 사용하기 위해 작성했던 이중 반복문 분리" />
+    <MESSAGE value="test : List 학습 테스트&#10;&#10;학습 테스트란 자바에서 제공하는 API 사용 방법을 테스트 코드를 구현해 학습하는 것을 의미한다.&#10;ArrayList와 LinkedList 학습 테스트를 따라 해보았다." />
+    <MESSAGE value="docs : 누락된 EOL 추가 및 학습 계획 업데이트" />
+    <MESSAGE value="refactor : 반복된 IO 작업을 StringBuilder를 사용하여 한 번만 하도록 수정&#10;&#10;System.out을 사용하여 2차원 배열을 하나씩 출력하던 것을 StringBuilder를 사용하여 한 번만 하도록 수정합니다." />
+    <MESSAGE value="feat : 참여하는 사람의 수 대신 이름을 입력 받도록 InputView를 수정&#10;&#10;참여할 사람의 이름을 입력 받고 이름의 길이가 최대 5글자를 넘어가는지 검사하도록 메서드를 수정합니다." />
+    <MESSAGE value="feat : 이름의 길이가 최대 5글자를 넘어가는 경우 다시 입력을 받도록 처리&#10;&#10;입력 받은 이름 중 길이가 6이상인 경우 안내 메시지를 출력한 뒤 다시 입력을 받도록 합니다." />
+    <MESSAGE value="feat : 이름 라벨을 만들고 출력하는 기능 추가&#10;&#10;Worker가 이름 라벨을 만들고 사다리를 그리기 전에 먼저 출력하도록 합니다.&#10;라벨은 고정된 길이 6을 가지며 이름은 중앙에 오도록 배치합니다." />
+    <MESSAGE value="fix : 이름 뒤에 패딩이 붙지 않는 오류 수정&#10;&#10;이름의 길이가 라벨의 공간보다 짧을 때 종종 앞에만 패딩이 붙는 오류를 수정합니다." />
+    <MESSAGE value="feat : 2차원 배열 ladders를 List로 변경&#10;&#10;기존의 boolean[][] ladders를 List&lt;List&lt;Boolean&gt;&gt; ladders로 변경합니다." />
+    <MESSAGE value="feat : 같은 높이의 연속된 발판이 있는지 확인 후 제거" />
+    <MESSAGE value="docs : 진행한 학습 체크 및 학습 계획 업데이트" />
+    <MESSAGE value="docs : 학습 계획 업데이트 및 진행한 학습 체크" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs : 학습 계획 업데이트 및 진행한 학습 체크" />
   </component>
 </project>

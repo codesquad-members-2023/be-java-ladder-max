@@ -1,27 +1,42 @@
 package ladder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Ladder {
     private final int space;
     private final int height;
-    private final boolean[][] ladders;
+    private final List<List<Boolean>> ladders;
 
-    public Ladder(int participants, int height) {
-        this.space = participants - 1;
+    public Ladder(int space, int height) {
+        this.space = space;
         this.height = height;
-        this.ladders = new boolean[this.height][this.space];
+        this.ladders = new ArrayList<>();
         this.makeRandomLadder();
     }
 
     private void makeRandomLadder() {
         for (int i = 0; i < height; i++) {
-            makeRandomRung(i);
+            ladders.add(makeRandomRung());
         }
     }
 
-    private void makeRandomRung(int height) {
+    private List<Boolean> makeRandomRung() {
+        List<Boolean> hasRungs = new ArrayList<>();
         for (int i = 0; i < space; i++) {
-            ladders[height][i] = getRandomBoolean();
+            hasRungs.add(getRandomBoolean());
         }
+        return checkContinuousRungs(hasRungs);
+    }
+
+    private List<Boolean> checkContinuousRungs(List<Boolean> rungs) {
+        for (int i = 0; i < space; i++) {
+            if (i == 0) continue;
+            if (rungs.get(i - 1)) {
+                rungs.set(i, false);
+            }
+        }
+        return rungs;
     }
 
     private boolean getRandomBoolean() {
@@ -30,27 +45,30 @@ public class Ladder {
     }
 
     public void drawLadder() {
+        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < height; i++) {
-            drawingSameHeight(i);
-            System.out.println();
+            builder.append(" ".repeat(2));
+            drawingSameHeight(builder, ladders.get(i));
+            builder.append(System.lineSeparator());
         }
+        System.out.println(builder);
     }
 
-    private void drawingSameHeight(int height) {
+    private void drawingSameHeight(StringBuilder builder, List<Boolean> spaces) {
         for (int j = 0; j < space; j++) {
-            drawLeftLine(j);
-            System.out.print(ladders[height][j] ? "-" : " ");
-            drawRightLine();
+            drawLeftLine(builder, j);
+            builder.append(spaces.get(j) ? "-----" : "     ");
+            drawRightLine(builder);
         }
     }
 
-    private void drawLeftLine(int space) {
+    private void drawLeftLine(StringBuilder builder, int space) {
         if (space == 0) {
-            drawRightLine();
+            drawRightLine(builder);
         }
     }
 
-    private void drawRightLine() {
-        System.out.print("|");
+    private void drawRightLine(StringBuilder builder) {
+        builder.append("|");
     }
 }
