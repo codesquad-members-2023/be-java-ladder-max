@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/PrintLadder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/PrintLadder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +100,7 @@
       <workItem from="1678114108030" duration="2214000" />
       <workItem from="1678116989078" duration="2197000" />
       <workItem from="1678151606985" duration="20729000" />
-      <workItem from="1678238903787" duration="8051000" />
+      <workItem from="1678238903787" duration="9131000" />
     </task>
     <servers />
   </component>
