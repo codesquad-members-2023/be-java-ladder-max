@@ -1,55 +1,60 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Ladder {
-    private int peopleNum;
+    private int ladderWidth;
     private int ladderHeight;
-    private char [][] ladder;
+    private ArrayList ladder = new ArrayList();
+    private ArrayList<String> nameList = new ArrayList<>();
 
-    public int getPeopleNum() {
-        return peopleNum;
+    public Ladder(ArrayList list) {
+        init(list);
+        makeLadder();
     }
 
-    public int getLadderHeight() {
-        return ladderHeight;
-    }
-
-    public char[][] getLadder() {
+    public ArrayList getLadder() {
         return ladder;
     }
 
-    public void setPeopleNum(int peopleNum) {
-        this.peopleNum = peopleNum;
+    private void init(ArrayList list) {
+        ladderHeight = Integer.parseInt(list.get(list.size() - 1).toString());
+        list.remove(list.size() - 1);
+        nameList.addAll(list);
+        ladderWidth = nameList.size();
     }
 
-    public void setLadderHeight(int ladderHeight) {
-        this.ladderHeight = ladderHeight;
+
+    private void makeLadder() {
+        addNameToLadder();
+        buildLadderStructure();
     }
 
-    void makeLadder() {
-        ladder = new char[ladderHeight][peopleNum * 2 - 1];
+    private void addNameToLadder() {
+        for (String str : nameList) {
+            String formattedStr = String.format(" %1$-5s", str);
+            ladder.add(formattedStr);
+        }
+        ladder.add("\n");
+    }
+
+    private void buildLadderStructure() {
         for (int i = 0; i < ladderHeight; i++) {
-            fillRowWithSymbols(i);
+            ladder.add("  ");
+            buildLadderDetailStructure();
+            ladder.add("\n");
         }
     }
 
-    private void fillRowWithSymbols(int i) {
-        for (int j = 0; j < peopleNum * 2 - 1; j++) {
-            isOdd(i, j);
+    private void buildLadderDetailStructure() {
+        for (int j = 0; j < (ladderWidth) * 2 - 1; j++) {
+            ladder.add(j % 2 == 0 ? "|" : (shouldAddLine() ? "-----" : "     "));
         }
     }
 
-    private void isOdd(int i, int j) {
-        if (j % 2 != 0) {
-            ladder[i][j] = random() ? '-' : ' ';
-            return;
-        }
-        ladder[i][j] = '|';
-    }
-
-    boolean random(){
-        Random rd = new Random();
-        return rd.nextBoolean();
+    private boolean shouldAddLine() {
+        Random rand = new Random();
+        return rand.nextBoolean() && !ladder.get(ladder.size() - 2).equals("-----");
     }
 }

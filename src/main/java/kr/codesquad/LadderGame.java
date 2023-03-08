@@ -2,9 +2,9 @@ package kr.codesquad;
 
 import java.io.IOException;
 
-public class Main {
+public class LadderGame {
     public static void main(String[] args) throws IOException {
-        LadderController controller = new LadderController();
+        LadderGameController controller = new LadderGameController();
         controller.startLadderGame();
     }
 }

@@ -5,22 +5,20 @@ import kr.codesquad.Ladder;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class InputOutputManager {
 
     OutputHandler outputHandler = new OutputHandler();
     InputHandler inputHandler = new InputHandler();
 
-    public InputOutputManager(Ladder ladder) throws IOException {
-        getInput(ladder);
-    }
-
-    void getInput(Ladder ladder) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        outputHandler.outPut("참여할 사람은 몇 명인가요?");
-        ladder.setPeopleNum(Integer.parseInt(inputHandler.getInput(br)));
-        outputHandler.outPut("최대 사다리 높이는 몇 개인가요?");
-        ladder.setLadderHeight(Integer.parseInt(inputHandler.getInput(br)));
+    public ArrayList getNameAndHeightFromUser() throws IOException {
+        ArrayList listForNameAndHeight = new ArrayList();
+        outputHandler.outputParticipantNamePrompt();
+        inputHandler.getName(listForNameAndHeight);
+        outputHandler.outputLadderHeightPrompt();
+        listForNameAndHeight.add(inputHandler.getHeight());
+        return listForNameAndHeight;
     }
 
     public void printLadder(Ladder ladder){
