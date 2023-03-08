@@ -14,4 +14,5 @@
     OCP 법칙을 잘 지키기
     책임 주도 설계
 # 출력 결과
-<img width="311" alt="image" src="https://user-images.githubusercontent.com/75569293/223040171-739dc958-bba9-4d8a-9929-9fe6a725cd59.png">
+<img width="441" alt="image" src="https://user-images.githubusercontent.com/75569293/223055550-9b3e840d-ce45-4cf2-a453-b41a43b49c30.png">
+
