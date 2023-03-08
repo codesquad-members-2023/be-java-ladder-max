@@ -5,6 +5,7 @@ import java.util.List;
 import kr.codesquad.domain.Height;
 import kr.codesquad.domain.Ladder;
 import kr.codesquad.domain.Participants;
+import kr.codesquad.domain.Results;
 import kr.codesquad.generator.RandomLineGenerator;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
@@ -17,6 +18,7 @@ public class LadderGame {
 	public void startLadderGame() {
 		try {
 			final Participants participants = getParticipantsFromUser();
+			final Results results = getResultsFromUser();
 			final Height height = getHeightFromUser();
 
 			final Ladder ladder = createLadder(participants.getParticipants().size(), height.getValue());
@@ -32,6 +34,13 @@ public class LadderGame {
 		final String namesOfPerson = inputView.getInputFromUser();
 
 		return new Participants(namesOfPerson);
+	}
+
+	private Results getResultsFromUser() {
+		outputView.printGetResultsMsg();
+		final String results = inputView.getInputFromUser();
+
+		return new Results(results);
 	}
 
 	private Height getHeightFromUser() {
