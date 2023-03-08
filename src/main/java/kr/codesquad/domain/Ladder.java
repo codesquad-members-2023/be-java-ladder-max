@@ -1,37 +1,25 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
+
+import kr.codesquad.generator.RandomLineGenerator;
 
 public class Ladder {
-
-	private static final Random random = new Random();
 
 	private final List<LadderLine> ladderLines;
 	private final int height;
 
-	public Ladder(final Input input) {
+	public Ladder(final int countOfPerson, final int height, final RandomLineGenerator generator) {
 		this.ladderLines = new ArrayList<>();
-		this.height = input.getHeightOfLadder();
-		initLadderLines(input.getNamesOfPerson().size());
+		this.height = height;
+		initLadderLines(countOfPerson, generator);
 	}
 
-	private void initLadderLines(final int countOfPerson) {
+	private void initLadderLines(final int countOfPerson, final RandomLineGenerator generator) {
 		for (int i = 0; i < height; i++) {
-			ladderLines.add(new LadderLine(countOfPerson));
+			ladderLines.add(new LadderLine(countOfPerson, generator));
 		}
-	}
-
-	public void createFigureOfLadder() {
-		for (int row = 0; row < height; row++) {
-			createHorizonLineOfLadder(row);
-		}
-	}
-
-	private void createHorizonLineOfLadder(final int row) {
-		ladderLines.get(row).drawLineRandomly(random);
 	}
 
 	@Override
