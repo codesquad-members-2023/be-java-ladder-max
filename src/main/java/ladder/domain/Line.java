@@ -4,28 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Line {
-    private final List<Boolean> rungs;
+    private final List<Boolean> rungs = new ArrayList<>();
 
-    public Line(int space) {
-        rungs = makeRandomRung(space);
-    }
+    public Line() { }
 
-    private List<Boolean> makeRandomRung(int space) {
-        List<Boolean> hasRungs = new ArrayList<>();
+    public Line makeRungsRandomly(int space) {
         for (int i = 0; i < space; i++) {
-            hasRungs.add(getRandomBoolean());
+            rungs.add(getRandomBoolean());
         }
-        return checkContinuousRungs(hasRungs, space);
+        checkContinuousRungs(rungs);
+        return this;
     }
 
-    private List<Boolean> checkContinuousRungs(List<Boolean> rungs, int space) {
-        for (int i = 0; i < space; i++) {
+    private void checkContinuousRungs(List<Boolean> rungs) {
+        for (int i = 0; i < rungs.size(); i++) {
             if (i == 0) continue;
             if (rungs.get(i - 1)) {
                 rungs.set(i, false);
             }
         }
-        return rungs;
     }
 
     private boolean getRandomBoolean() {

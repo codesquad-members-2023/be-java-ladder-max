@@ -16,7 +16,7 @@ public class Ladder {
 
     public void makeRandomLadder() {
         for (int i = 0; i < height; i++) {
-            lines.add(new Line(space));
+            lines.add(new Line().makeRungsRandomly(space));
         }
     }
 

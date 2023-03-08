@@ -10,12 +10,12 @@ public class LadderGame {
         this.view = new View();
     }
 
-    public void makeLadder(int space, int height) {
+    private void makeLadder(int space, int height) {
         ladder = new Ladder(space, height);
         ladder.makeRandomLadder();
     }
 
-    public String makeNameLabel(String[] names) {
+    private String makeNameLabel(String[] names) {
         StringBuilder builder = new StringBuilder();
         for (String name : names) {
             int frontBlank = (6 - name.length()) / 2;
