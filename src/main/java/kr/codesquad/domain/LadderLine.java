@@ -6,19 +6,25 @@ import java.util.Random;
 public class LadderLine {
 
     private final int lineWidth;
-    private ArrayList<Boolean> points = new ArrayList();
+
+    //TestCode를 위해 default로 설정
+    ArrayList<Boolean> points = new ArrayList();
 
     public LadderLine(int countOfPeople) {
         lineWidth = countOfPeople - 1;
-        buildLadderLine();
     }
 
-    private ArrayList buildLadderLine() {
+    void createLine(){
+        buildLadderLine();
+        pointsValidate();
+    }
+
+    private void buildLadderLine() {
         for (int i = 0; i < lineWidth; i++) {
             points.add(hasRung() ? true : false);
         }
-        return points;
     }
+
 
     private boolean hasRung() {
         if (points.isEmpty()) {
@@ -27,8 +33,20 @@ public class LadderLine {
         return new Random().nextBoolean() && !points.get(points.size() - 1);
     }
 
-    static void drawLine(ArrayList<LadderLine> ladder,StringBuilder sb){
-        for(LadderLine line: ladder){
+    void pointsValidate() {
+        for (int i = 0; i < points.size() - 1; i++) {
+            throwException(i);
+        }
+    }
+
+    private void throwException(int i) {
+        if (points.get(i) && points.get(i + 1)) {
+            throw new IllegalArgumentException("연속적인 true 존재");
+        }
+    }
+
+    static void drawLine(ArrayList<LadderLine> ladder, StringBuilder sb) {
+        for (LadderLine line : ladder) {
             sb.append("  |");
             drawRung(sb, line);
             sb.append("\n");

@@ -7,7 +7,7 @@ import static kr.codesquad.domain.LadderLine.drawLine;
 public class Ladder {
     private final int countOfPeople;
     private final int ladderHeight;
-    private  ArrayList<LadderLine> ladder;
+    private  ArrayList ladder;
     private ArrayList<String> nameList = new ArrayList<>();
 
 
@@ -21,7 +21,9 @@ public class Ladder {
     private void createLadder() {
         ladder = new ArrayList<>();
         for (int i = 0; i < ladderHeight; i++) {
-            ladder.add(new LadderLine(countOfPeople));
+            LadderLine ladderLine = new LadderLine(countOfPeople);
+            ladderLine.createLine();
+            ladder.add(ladderLine);
         }
     }
 
