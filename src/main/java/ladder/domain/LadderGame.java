@@ -1,4 +1,4 @@
-package ladder;
+package ladder.domain;
 
 public class LadderGame {
     private final Worker worker;
@@ -10,10 +10,5 @@ public class LadderGame {
     public void start() {
         worker.makeLadder();
         worker.showLadder();
-    }
-
-    public static void main(String[] args) {
-        LadderGame ladderGame = new LadderGame();
-        ladderGame.start();
     }
 }

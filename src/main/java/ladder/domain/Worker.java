@@ -1,4 +1,6 @@
-package ladder;
+package ladder.domain;
+
+import ladder.view.InputView;
 
 public class Worker {
     private final InputView inputView;
