@@ -68,12 +68,12 @@ public class Ladder {
     }
 
     private void insertPlayerLine(List<List<Character>> ladder, int row, int column) {
-        ladder.get(row).add(column, PLAYER_LINE);
+        ladder.get(row).set(column, PLAYER_LINE);
     }
 
     private void insertBridge(List<List<Character>> ladder, int row, int column) {
         if (shouldBuildingBridge()) {
-            ladder.get(row).add(column, BRIDGE);
+            ladder.get(row).set(column, BRIDGE);
         }
     }
 
