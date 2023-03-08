@@ -1,0 +1,37 @@
+package kr.codesquad.domain;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.stream.IntStream;
+
+public class RandomRowLineGenerator {
+
+    private final Random random;
+    private final int numberOfUsers;
+
+    public RandomRowLineGenerator(int numberOfUsers) {
+        this.random = new Random();
+        this.numberOfUsers = numberOfUsers;
+    }
+
+    public List<Boolean> generate() {
+        List<Boolean> result = new ArrayList<>();
+        result.add(random.nextBoolean());
+
+        IntStream.range(1, this.numberOfUsers - 1)
+            .forEach(index -> {
+                Boolean previousLine = result.get(index - 1);
+                result.add(getLine(previousLine));
+            });
+        return result;
+    }
+
+    private boolean getLine(boolean previousLine) {
+        if (!previousLine) {
+            return random.nextBoolean();
+        }
+
+        return false;
+    }
+}
