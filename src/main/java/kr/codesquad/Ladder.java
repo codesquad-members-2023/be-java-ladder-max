@@ -1,11 +1,16 @@
 package kr.codesquad;
 
+import kr.codesquad.view.InputView;
+
 import java.util.Random;
 
 public class Ladder {
     private String[][] laddder;
 
+    private final InputView inputView = new InputView();
+
     Ladder(int peoleNumber, int ladderHeight) {
+        inputView.inputPeopleName();
         this.laddder = new String[ladderHeight][2 * peoleNumber - 1];
     }
 
