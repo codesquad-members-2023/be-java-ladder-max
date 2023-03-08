@@ -17,26 +17,22 @@ public class LadderPartGenerator {
     }
 
     public String[][] generate() {
-        String[][] board = ladder.createLadderBoard();
-        makeLadderBar(board);
-        makeLadderBridge(board);
+        String[][] board = ladder.createEmptyLadderBoard();
+        for (int i = 0; i < board.length; i++) {
+            board[i] = createRandomLadderByLadder();
+        }
         return board;
     }
 
-    private void makeLadderBar(String[][] board) {
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j += 2) {
-                board[i][j] = generateBar();
-            }
+    private String[] createRandomLadderByLadder() {
+        String[] ladderColumns = ladder.createEmptyLadderColumns();
+        for (int col = 0; col < ladderColumns.length; col += 2) {
+            ladderColumns[col] = generateBar();
         }
-    }
-
-    private void makeLadderBridge(String[][] board) {
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 1; j < board[i].length; j += 2) {
-                board[i][j] = generateBridge();
-            }
+        for (int col = 1; col < ladderColumns.length; col += 2) {
+            ladderColumns[col] = generateBridge();
         }
+        return ladderColumns;
     }
 
     private String generateBridge() {
@@ -52,9 +48,5 @@ public class LadderPartGenerator {
 
     private String generateBar() {
         return BAR;
-    }
-
-    private boolean isBarColumn(int column) {
-        return column % 2 == 0;
     }
 }
