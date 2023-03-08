@@ -25,13 +25,19 @@ public class Ladder {
 
     public List<String> createRow() {
         List<String> row = new ArrayList<>();
+        String prevLine = "";
         for(int i=0; i<names.size()-1; i++){
-            row.add(getRandomLine());
+            String line = getRandomLine(prevLine);
+            row.add(line);
+            prevLine = line;
         }
         return row;
     }
 
-    public String getRandomLine() {
+    public String getRandomLine(String prevLine) {
+        if(prevLine.equals("-----")){
+            return "     ";
+        }
         int random = (int)(Math.random()*2);
         if(random == 1) {
             return "-----";
