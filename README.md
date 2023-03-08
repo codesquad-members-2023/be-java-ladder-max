@@ -10,10 +10,12 @@
 - [x] depth를 2 -> 1 로 변경하기 
 
 ### 3단계 - 2023.03.08까지
-- [ ] List, ArrayList, Generic 학습
-- [ ] BufferedReader는 언제 닫아주는 것이 좋은가 알아보기 - gc가 자동으로 닫아주긴 함..
+- [x] List, ArrayList
+- [x] step3 구현
+- [x] BufferedReader는 언제 닫아주는 것이 좋은가 알아보기 - gc가 자동으로 닫아주긴 함..
 - [ ] git rebase/merge 학습 - rebase는 로그 추적하기 어렵다?, rebase는 임시 저장용...
-- [ ] step3 구현
+- [ ] Generic 학습
+
 
 ### 4단계 - 2023.03.09까지
 - [ ] 단위 테스트 하기
