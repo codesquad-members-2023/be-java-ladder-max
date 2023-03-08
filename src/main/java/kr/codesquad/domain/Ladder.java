@@ -63,4 +63,16 @@ public class Ladder {
         }
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for(List<Character> ladderRow : ladder) {
+            for(char cell : ladderRow) {
+                sb.append(cell);
+            }
+            sb.append(System.lineSeparator());
+        }
+
+        return sb.toString();
+    }
 }
