@@ -3,6 +3,7 @@ package kr.codesquad.view;
 import java.util.List;
 import java.util.stream.Collectors;
 import kr.codesquad.domain.Ladder;
+import kr.codesquad.domain.Users;
 
 public class OutputView {
 
@@ -23,5 +24,9 @@ public class OutputView {
             .map(connect -> String.format("%s%s", LINE, connect ? CONNECTION : NOT_CONNECTION))
             .collect(Collectors.joining())
             .concat(LINE);
+    }
+
+    public static void printUsers(Users users) {
+        System.out.printf("%s\n", users);
     }
 }

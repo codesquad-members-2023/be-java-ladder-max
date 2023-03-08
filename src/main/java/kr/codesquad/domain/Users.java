@@ -31,4 +31,11 @@ public class Users {
     public int count() {
         return this.users.size();
     }
+
+    @Override
+    public String toString() {
+        return this.users.stream()
+            .map(User::toString)
+            .collect(Collectors.joining());
+    }
 }
