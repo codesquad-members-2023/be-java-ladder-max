@@ -1,14 +1,14 @@
 package kr.codesquad.domain;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Ladder {
     private final char PLAYER_LINE = '|';
     private final char BRIDGE = '-';
-    private final char EMPTY_SPACE = ' ';
 
-    private final char[][] ladder;
+    private final List<List<Character>> ladder;
     private final int rowSize;
     private final int columnSize;
 
@@ -20,19 +20,15 @@ public class Ladder {
 
     /* getter */
     public char[][] getLadder() {
-        char[][] ladderClone = new char[rowSize][columnSize];
-        for(int i = 0; i < rowSize; i++) {
-            ladderClone[i] = ladder[i].clone();
-        }
-
-        return ladderClone;
+        /* toString 으로 대체하여 삭제할 예정 */
+        /* OutputView와의 의존성 때문에 일단 남겨 놓았음 */
+        return null;
     }
 
     /* private method */
-    private char[][] makeLadder() {
-        char[][] ladder = new char[rowSize][columnSize];
+    private List<List<Character>> makeLadder() {
+        List<List<Character>> ladder = new ArrayList<>(rowSize);
 
-        initLadder(ladder);
         for(int row = 0; row < rowSize; row++) {
             addPlayerLineIntoRow(ladder, row);
             addBridgeIntoRow(ladder, row);
@@ -41,19 +37,13 @@ public class Ladder {
         return ladder;
     }
 
-    private void initLadder(char[][] ladder) {
-        for (int row = 0; row < rowSize; row++) {
-            Arrays.fill(ladder[row], EMPTY_SPACE);
-        }
-    }
-
-    private void addPlayerLineIntoRow(char[][] ladder, int row) {
+    private void addPlayerLineIntoRow(List<List<Character>> ladder, int row) {
         for(int col = 0; col < columnSize; col += 2) {
             insertPlayerLine(ladder, row, col);
         }
     }
 
-    private void addBridgeIntoRow(char[][] ladder, int row) {
+    private void addBridgeIntoRow(List<List<Character>> ladder, int row) {
         for (int col = 1; col < columnSize; col += 2) {
             insertBridge(ladder, row, col);
         }
@@ -63,13 +53,13 @@ public class Ladder {
         return new Random().nextBoolean();
     }
 
-    private void insertPlayerLine(char[][] ladder, int row, int column) {
-        ladder[row][column] = PLAYER_LINE;
+    private void insertPlayerLine(List<List<Character>> ladder, int row, int column) {
+        ladder.get(row).add(column, PLAYER_LINE);
     }
 
-    private void insertBridge(char[][] ladder, int row, int column) {
+    private void insertBridge(List<List<Character>> ladder, int row, int column) {
         if (shouldBuildingBridge()) {
-            ladder[row][column] = BRIDGE;
+            ladder.get(row).add(column, BRIDGE);
         }
     }
 
