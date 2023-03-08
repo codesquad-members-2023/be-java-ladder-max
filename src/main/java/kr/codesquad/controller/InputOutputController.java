@@ -15,9 +15,9 @@ public class InputOutputController {
     private InputParser inputParser;
 
     public InputOutputController(){
-        inputHandler = new InputHandler();
-        outputHandler = new OutputHandler();
-        inputParser = new InputParser();
+        this.inputHandler = new InputHandler();
+        this.outputHandler = new OutputHandler();
+        this.inputParser = new InputParser();
     }
 
     public ArrayList getNameAndHeightFromUser() throws IOException {

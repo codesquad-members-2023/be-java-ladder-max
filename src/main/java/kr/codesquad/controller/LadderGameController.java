@@ -7,7 +7,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class LadderGameController {
-    InputOutputController manager = new InputOutputController();
+    InputOutputController manager;
+
+    public LadderGameController(){
+        this.manager = new InputOutputController();
+    }
     public void startLadderGame() throws IOException {
         Ladder ladder = getLadder(getNameAndHeightFromManager());
         printLadder(ladder);

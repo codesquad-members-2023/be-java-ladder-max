@@ -11,7 +11,7 @@ public class LadderLine {
     ArrayList<Boolean> points = new ArrayList();
 
     public LadderLine(int countOfPeople) {
-        lineWidth = countOfPeople - 1;
+        this.lineWidth = countOfPeople - 1;
     }
 
     void createLine(){
