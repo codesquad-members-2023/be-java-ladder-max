@@ -5,7 +5,7 @@ import java.util.Map;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
-public class LadderDrawer {
+public class LadderGame {
 
     private final InputView inputView = new InputView();
     private final LadderByNames ladder = new LadderByNames();
