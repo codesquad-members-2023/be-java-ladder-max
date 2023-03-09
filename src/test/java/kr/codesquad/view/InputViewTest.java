@@ -31,7 +31,7 @@ class InputViewTest {
         assertThat(InputView.isDigit(input)).isFalse();
     }
 
-    @DisplayName("이름패턴에 매치된다")
+    @DisplayName("이름패턴에 매치 된다")
     @ParameterizedTest
     @ValueSource(strings = {"jack,john", "fia,june,jk"})
     void isRightNamesPattern_True(String input) {
