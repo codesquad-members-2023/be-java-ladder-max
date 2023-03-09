@@ -21,10 +21,26 @@ public class Ladder {
 
     private void initColumn(int rowIndex){
         for(int columnIndex = 0; columnIndex < COLUMN_SIZE; columnIndex++){
-            ladder[rowIndex][columnIndex] = LadderLine.VERTICAL.isProperLocation(columnIndex) ? LadderLine.VERTICAL
-                    : LadderLine.HORIZONTAL.isProperLocation(columnIndex) ? LadderLine.HORIZONTAL
+            //TODO: 함수로 분리
+            ladder[rowIndex][columnIndex] = LadderLine.VERTICAL.validate(columnIndex) ? LadderLine.VERTICAL
+                    : LadderLine.HORIZONTAL.validate(columnIndex) ? LadderLine.HORIZONTAL
                     : null ;
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        for(int rowIndex = 0; rowIndex < ROW_SIZE; rowIndex++){
+            for(int columnIndex = 0; columnIndex < COLUMN_SIZE; columnIndex++){
+                LadderLine line = ladder[rowIndex][columnIndex];
+                sb.append(line == null ? " " : line.getLine());
+            }
+            sb.append("\n");
+        }
+
+        return sb.toString();
     }
 
     public void print(){
