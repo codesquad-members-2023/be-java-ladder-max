@@ -69,13 +69,13 @@ class LadderPartGeneratorTest {
     @DisplayName("사다리의 한 라인에 브리지가 2개 이상 연속적으로 나오지 않는지 테스트")
     public void generateLadderPart_testcase3() {
         //given
-        List<String> namesOfPeople = new ArrayList<>(List.of("pobi", "honux"));
+        List<String> namesOfPeople = new ArrayList<>(List.of("pobi", "honux", "crong"));
         m = 1;
         random = new Random();
         ladder = new Ladder(namesOfPeople, m);
         //mocking
         Random mockRandom = mock(random.getClass());
-        when(mockRandom.nextBoolean()).thenReturn(true, true, false);
+        when(mockRandom.nextBoolean()).thenReturn(true, true);
         generator = new LadderPartGenerator(mockRandom);
         //when
         List<List<String>> actual = generator.generateLadderPart(ladder);
