@@ -22,7 +22,7 @@ public class LadderGame {
     }
 
     private void makeGame() {
-        players = new Players(view.getNamesOfParticipants());
+        players = new Players(view.getNamesOfPlayers());
         final int width = players.getNumberOfPlayers() - 1;
         final int height = view.getLadderHeight();
         ladder = new Ladder(width, height);
