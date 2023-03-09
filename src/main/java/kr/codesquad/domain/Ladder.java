@@ -7,7 +7,7 @@ public class Ladder {
     private final char BRIDGE = '-';
     private final char EMPTY_SPACE = ' ';
 
-    private final List<List<Character>> ladder;
+    private final List<LadderRow> ladder;
     private final int rowSize;
     private final int columnSize;
 
@@ -18,8 +18,8 @@ public class Ladder {
     }
 
     /* private method */
-    private List<List<Character>> makeLadder() {
-        List<List<Character>> ladder = new ArrayList<>(rowSize);
+    private List<LadderRow> makeLadder() {
+        List<LadderRow> ladder = new ArrayList<>(rowSize);
 
         initLadder(ladder);
         for(int row = 0; row < rowSize; row++) {
@@ -30,27 +30,19 @@ public class Ladder {
         return ladder;
     }
 
-    private void initLadder(List<List<Character>> ladder) {
+    private void initLadder(List<LadderRow> ladder) {
         for(int row = 0; row < rowSize; row++) {
-            ladder.add(row, makeLadderRow());
+            ladder.add(row, new LadderRow(columnSize));
         }
     }
 
-    private List<Character> makeLadderRow() {
-        List<Character> ladderRow = new ArrayList<>();
-        for(int col = 0; col < columnSize; col++) {
-            ladderRow.add(EMPTY_SPACE);
-        }
-        return ladderRow;
-    }
-
-    private void addPlayerLineIntoRow(List<List<Character>> ladder, int row) {
+    private void addPlayerLineIntoRow(List<LadderRow> ladder, int row) {
         for(int col = 0; col < columnSize; col += 2) {
             insertPlayerLine(ladder, row, col);
         }
     }
 
-    private void addBridgeIntoRow(List<List<Character>> ladder, int row) {
+    private void addBridgeIntoRow(List<LadderRow> ladder, int row) {
         for (int col = 1; col < columnSize; col += 2) {
             insertBridge(ladder, row, col);
         }
@@ -60,27 +52,27 @@ public class Ladder {
         return new Random().nextBoolean();
     }
 
-    private boolean validateBridgePlacement(List<List<Character>> ladder, int row, int column) {
-        if(column == 1 || (column > 2 && ladder.get(row).get(column-2) == EMPTY_SPACE)) {
+    private boolean validateBridgePlacement(List<LadderRow> ladder, int row, int column) {
+        if(column == 1 || (column > 2 && !ladder.get(row).isBridge(column-2))) {
             return true;
         }
         return false;
     }
 
-    private void insertPlayerLine(List<List<Character>> ladder, int row, int column) {
-        ladder.get(row).set(column, PLAYER_LINE);
+    private void insertPlayerLine(List<LadderRow> ladder, int row, int column) {
+        ladder.get(row).setPlayerLine(column);
     }
 
-    private void insertBridge(List<List<Character>> ladder, int row, int column) {
+    private void insertBridge(List<LadderRow> ladder, int row, int column) {
         if (shouldBuildingBridge() && validateBridgePlacement(ladder, row, column)) {
-            ladder.get(row).set(column, BRIDGE);
+            ladder.get(row).setBridge(column);
         }
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for(List<Character> ladderRow : ladder) {
+        for(LadderRow ladderRow : ladder) {
             sb.append(buildLadderRow(ladderRow));
             sb.append(System.lineSeparator());
         }
@@ -88,18 +80,18 @@ public class Ladder {
         return sb.toString();
     }
 
-    private String buildLadderRow(List<Character> ladderRow) {
+    private String buildLadderRow(LadderRow ladderRow) {
         StringBuilder sb = new StringBuilder();
 
         // playerLine(세로줄) 처리
         for(int col = 0; col < columnSize; col += 2) {
-            sb.append(ladderRow.get(col));
+            sb.append(PLAYER_LINE);
         }
 
         // bridge 구간(가로줄) 처리
         int sbPointer = 1;
         for (int col = 1; col < columnSize; col += 2) {
-            sb.insert(sbPointer, String.valueOf(ladderRow.get(col)).repeat(5));
+            sb.insert(sbPointer, ladderRow.isBridge(col)? "-----" : "     ");
             sbPointer += 6;
         }
 
