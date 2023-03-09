@@ -1,12 +1,15 @@
 package kr.codesquad;
 
 public class OutputView {
-    public void printJoinMembers() {
-        System.out.println("참여할 사람은 몇 명인가요?");
+    private String PARTICIPANTS_PROMPT = "참여할 사람은 몇 명인가요?";
+    private String MAX_HEIGHT_PROMPT = "최대 사다리 높이는 몇 개인가요?";
+
+    public void printParticipantsPrompt() {
+        System.out.println(PARTICIPANTS_PROMPT);
     }
 
-    public void printMaxHeight() {
-        System.out.println("최대 사다리 높이는 몇 개인가요?");
+    public void printMaxHeightPrompt() {
+        System.out.println(MAX_HEIGHT_PROMPT);
     }
 
     public void printLadderState(String[][] ladder) {

@@ -48,14 +48,10 @@ public class LadderGenerator {
     private void generateBorderLine() {
         for (int i = 0; i < ladder.length; i++) {
             for (int j = 0; j < ladder[i].length; j++) {
-                if (isaBoolean(j)) {
+                if (j % 2 == 0) {
                     ladder[i][j] = "|";
                 }
             }
         }
-    }
-
-    private static boolean isaBoolean(int j) {
-        return j % 2 == 0;
     }
 }

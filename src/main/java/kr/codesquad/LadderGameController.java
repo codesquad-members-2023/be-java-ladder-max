@@ -11,9 +11,9 @@ public class LadderGameController {
     }
 
     public void startLadderGame() {
-        outputView.printJoinMembers();
+        outputView.printParticipantsPrompt();
         int joinMembers = inputView.userInput();
-        outputView.printMaxHeight();
+        outputView.printMaxHeightPrompt();
         int maxHeight = inputView.userInput();
 
         this.ladderGenerator = new LadderGenerator(joinMembers, maxHeight); // 다른 방법 찾아보기
