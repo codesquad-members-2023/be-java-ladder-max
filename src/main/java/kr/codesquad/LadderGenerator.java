@@ -3,7 +3,7 @@ package kr.codesquad;
 import java.util.Random;
 
 public class LadderGenerator {
-    int maxHeight;
+    private int maxHeight;
     int column;
     String[][] ladder;
 
@@ -20,7 +20,7 @@ public class LadderGenerator {
     }
 
     // 이중 for문이 반복되고 있는데 개선 방법 고민해보기
-    public void generateLadderArray() {
+    private void generateLadderArray() {
         for (int i = 0; i < ladder.length; i++) {
             for (int j = 0; j < ladder[i].length; j++) {
                 ladder[i][j] = " ";
@@ -28,7 +28,7 @@ public class LadderGenerator {
         }
     }
 
-    public void generateRandomLine() {
+    private void generateRandomLine() {
         Random random = new Random();
         for (int i = 0; i < ladder.length; i++) {
             for (int j = 0; j < ladder[i].length; j++) {
@@ -39,13 +39,17 @@ public class LadderGenerator {
         }
     }
 
-    public void generateBorderLine() {
+    private void generateBorderLine() {
         for (int i = 0; i < ladder.length; i++) {
             for (int j = 0; j < ladder[i].length; j++) {
-                if (j % 2 == 0) {
+                if (isaBoolean(j)) {
                     ladder[i][j] = "|";
                 }
             }
         }
+    }
+
+    private static boolean isaBoolean(int j) {
+        return j % 2 == 0;
     }
 }

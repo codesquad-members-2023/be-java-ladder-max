@@ -5,9 +5,9 @@ public class LadderController {
     InputView inputView;
     LadderGenerator ladderGenerator;
 
-    public LadderController(OutputView outputView, InputView inputView) {
-        this.outputView = outputView;
-        this.inputView = inputView;
+    public LadderController() {
+        this.outputView = new OutputView();
+        this.inputView = new InputView();
     }
 
     public void startLadderGame() {
