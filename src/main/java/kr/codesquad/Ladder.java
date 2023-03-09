@@ -14,7 +14,7 @@ public class Ladder {
 
     public void init(int inputerGetLadderNum, String inputerGetNames) {
         makeNames(inputerGetNames);
-        widthIs();
+//        widthIs();
         height = inputerGetLadderNum;
         makeLadder();
     }
@@ -26,9 +26,9 @@ public class Ladder {
         }
     }
 
-    private void widthIs() {
-        width = (names.size() * 2 - 1);
-    }
+//    private void widthIs() {
+//        width = (names.size() * 2 - 1);
+//    }
 
     private void makeLadder() {
         ladderBoard = new ArrayList<>();
@@ -40,7 +40,7 @@ public class Ladder {
     }
 
     void forInForInMakeLadder(int i) {
-        for (int j = 0; j < width; j++) {
+        for (int j = 0; j < names.size()-1; j++) {
             boolean temp = random.nextBoolean();
             int x = 0;
             if (temp) {
