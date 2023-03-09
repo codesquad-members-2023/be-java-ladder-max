@@ -1,5 +1,6 @@
 import kr.codesquad.domain.Line;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.InvocationTargetException;
@@ -16,7 +17,8 @@ public class LineTest {
     }
 
     @Test
-    void 그리기_가능_테스트() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    @DisplayName("그리기 가능 여부 테스트")
+    void canDraw_test() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Method booleanMethod = Line.class.getDeclaredMethod("canDraw", int.class);
         booleanMethod.setAccessible(true);
 

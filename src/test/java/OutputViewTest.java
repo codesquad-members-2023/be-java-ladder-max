@@ -1,5 +1,6 @@
 import kr.codesquad.view.OutputView;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -21,7 +22,8 @@ public class OutputViewTest {
     }
 
     @Test
-    void 이름들_출력_테스트() {
+    @DisplayName("이름들 출력 테스트")
+    void printPeople_test() {
         List<String> people = new ArrayList<>();
         // pobi,honux,crong,jk
         people.add("pobi");
@@ -30,7 +32,6 @@ public class OutputViewTest {
         people.add("jk");
         outputView.printPeople(people);
         assertThat(outputMessage.toString()).isEqualTo("\r\n실행결과\r\n\r\n" + "  pobi  honux crong   jk    \r\n");
-        // 의문점: 왜 isEqualToIgnoringNewLines로 개행문자를 제거해줘야 할까? 스트림 문제?
     }
 
 }
