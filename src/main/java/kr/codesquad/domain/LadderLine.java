@@ -8,24 +8,20 @@ public class LadderLine {
     private final List<LadderPart> ladderParts = new ArrayList<>();
 
     public LadderLine(int playerNumber) {
-        validatePlayerNumber(playerNumber);
-        addParts(playerNumber * 2 - 1);
-    }
-
-    private void validatePlayerNumber(int playerNumber) {
         if (playerNumber < 1) {
             throw new IllegalArgumentException("사다리 라인을 만들 수 없습니다.");
         }
-    }
 
+        addParts(playerNumber * 2 - 1);
+    }
 
     private void addParts(int width) {
         for (int x = 0; x < width; x++) {
-            ladderParts.add(createPart(x));
+            ladderParts.add(makePart(x));
         }
     }
 
-    private LadderPart createPart(int x) {
+    private LadderPart makePart(int x) {
         if (isExistCrossBarOnLeft(x)) {
             return LadderPart.EMPTY;
         }

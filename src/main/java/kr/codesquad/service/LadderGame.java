@@ -3,16 +3,13 @@ package kr.codesquad.service;
 import kr.codesquad.domain.Ladder;
 import kr.codesquad.view.Screen;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class LadderGame {
-    private final LadderGenerator ladderGenerator;
     private final Screen screen;
 
-    public LadderGame(LadderGenerator ladderGenerator, Screen screen) {
-        this.ladderGenerator = ladderGenerator;
+    public LadderGame(Screen screen) {
         this.screen = screen;
     }
 
@@ -20,14 +17,12 @@ public class LadderGame {
         final List<String> playerNames = inputPlayerNames();
         final int height = inputLadderHeight();
 
-        final Ladder ladder = ladderGenerator.generate(playerNames.size(), height);
+        final Ladder ladder = new Ladder(playerNames.size(), height);
 
         showResult(playerNames, ladder);
     }
 
     private void showResult(List<String> playerNames, Ladder ladder) {
-        final List<String> result = new ArrayList<>();
-
         screen.printResult(playerNames, ladder.createOutputLines());
     }
 

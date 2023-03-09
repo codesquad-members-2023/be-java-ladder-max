@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Ladder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderPart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/service/LadderGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/service/LadderGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/service/LadderGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/kr/codesquad/PlayerNameLadderTest.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,11 +25,52 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="java-lotto" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="java-lotto" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="java-lotto" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="testCompileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="java-lotto" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="java-lotto" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="org.mockito:mockito-inline:4.8.0" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Enum" />
+        <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -59,6 +110,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="kr.codesquad.domain" />
       <recent name="kr.codesquad" />
     </key>
   </component>
@@ -68,7 +120,7 @@
       <module name="java-lotto.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.domain.*" />
+          <option name="PATTERN" value="kr.codesquad.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -76,17 +128,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerNameLadderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LadderPartTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-lotto.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.domain.*" />
+          <option name="PATTERN" value="kr.codesquad.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="kr.codesquad" />
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.PlayerNameLadderTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderPartTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -95,7 +148,7 @@
       <module name="java-lotto.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.domain.*" />
+          <option name="PATTERN" value="kr.codesquad.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,7 +164,7 @@
       <module name="java-lotto.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.domain.*" />
+          <option name="PATTERN" value="kr.codesquad.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -142,7 +195,7 @@
       <module name="java-lotto.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.domain.*" />
+          <option name="PATTERN" value="kr.codesquad.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -157,10 +210,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.ScreenTest" />
+        <item itemvalue="JUnit.LadderPartTest.test" />
         <item itemvalue="JUnit.PlayerNameLadderTest.ladderOutputTest" />
-        <item itemvalue="JUnit.ScreenTest.inputLadderHeightTest (2)" />
-        <item itemvalue="JUnit.PlayerNameLadderTest" />
+        <item itemvalue="JUnit.ScreenTest" />
       </list>
     </recent_temporary>
   </component>
@@ -185,7 +237,8 @@
       <workItem from="1678278409003" duration="2240000" />
       <workItem from="1678281436143" duration="6443000" />
       <workItem from="1678336754547" duration="2096000" />
-      <workItem from="1678338875329" duration="8924000" />
+      <workItem from="1678338875329" duration="11321000" />
+      <workItem from="1678357410152" duration="2625000" />
     </task>
     <servers />
   </component>
