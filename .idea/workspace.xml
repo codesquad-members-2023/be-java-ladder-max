@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="refactor : calculateMaxWidth() 메서드 추가 및 변수명 변경&#10;&#10;1. 변수명 변경&#10;  - column -&gt; maxWidth&#10;2. calculateMaxWidth() 메서드 추가&#10;  - 생성자에서 계산하던 로직을 메서드 분리를 통해 수정">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="refactor : OutputView 클래스의 메서드명 변경 및 필드 추가&#10;&#10;1. 필드 추가&#10;  - PARTICIPANTS_PROMPT, MAX_HEIGHT_PROMPT&#10;2. 메서드명 변경&#10;  - printJoinMembers() -&gt; printParticipantsPrompt()&#10;  - printMaxHeight() -&gt; printMaxHeightPrompt()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/OutputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/OutputView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +100,7 @@
       <workItem from="1678091934798" duration="1550000" />
       <workItem from="1678143731220" duration="25412000" />
       <workItem from="1678289995396" duration="974000" />
-      <workItem from="1678324581213" duration="12585000" />
+      <workItem from="1678324581213" duration="13297000" />
     </task>
     <task id="LOCAL-00001" summary="docs : 1단계 체크리스트 작성">
       <created>1678144272811</created>
@@ -132,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678346711250</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="refactor : OutputView 클래스의 메서드명 변경 및 필드 추가&#10;&#10;1. 필드 추가&#10;  - PARTICIPANTS_PROMPT, MAX_HEIGHT_PROMPT&#10;2. 메서드명 변경&#10;  - printJoinMembers() -&gt; printParticipantsPrompt()&#10;  - printMaxHeight() -&gt; printMaxHeightPrompt()">
+      <created>1678348775989</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678348775989</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +171,7 @@
     <MESSAGE value="refactor : LadderGenerator 클래스 로직 수정 및 메서드명 변경&#10;&#10;사다리의 요소를 만드는 메서드와 그 요소들을 결합하는 메서드로 분리해 로직을 수정했습니다." />
     <MESSAGE value="refactor : LadderGenerator 클래스 로직 수정&#10;&#10;각 메서드 마다 중복 작업이 있어 로직을 수정했습니다." />
     <MESSAGE value="refactor : calculateMaxWidth() 메서드 추가 및 변수명 변경&#10;&#10;1. 변수명 변경&#10;  - column -&gt; maxWidth&#10;2. calculateMaxWidth() 메서드 추가&#10;  - 생성자에서 계산하던 로직을 메서드 분리를 통해 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor : calculateMaxWidth() 메서드 추가 및 변수명 변경&#10;&#10;1. 변수명 변경&#10;  - column -&gt; maxWidth&#10;2. calculateMaxWidth() 메서드 추가&#10;  - 생성자에서 계산하던 로직을 메서드 분리를 통해 수정" />
+    <MESSAGE value="refactor : OutputView 클래스의 메서드명 변경 및 필드 추가&#10;&#10;1. 필드 추가&#10;  - PARTICIPANTS_PROMPT, MAX_HEIGHT_PROMPT&#10;2. 메서드명 변경&#10;  - printJoinMembers() -&gt; printParticipantsPrompt()&#10;  - printMaxHeight() -&gt; printMaxHeightPrompt()" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor : OutputView 클래스의 메서드명 변경 및 필드 추가&#10;&#10;1. 필드 추가&#10;  - PARTICIPANTS_PROMPT, MAX_HEIGHT_PROMPT&#10;2. 메서드명 변경&#10;  - printJoinMembers() -&gt; printParticipantsPrompt()&#10;  - printMaxHeight() -&gt; printMaxHeightPrompt()" />
   </component>
 </project>

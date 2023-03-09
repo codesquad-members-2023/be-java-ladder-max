@@ -13,11 +13,14 @@ public class OutputView {
     }
 
     public void printLadderState(String[][] ladder) {
-        for (int i = 0; i < ladder.length; i++) {
-            for (int j = 0; j < ladder[i].length; j++) {
-                System.out.print(ladder[i][j]);
+        for (int i = 0; i < ladder.length * ladder[0].length; i++) {
+            int row = i / ladder[0].length;
+            int column = i % ladder[0].length;
+            System.out.print(ladder[row][column]);
+
+            if (column == ladder[0].length - 1) {
+                System.out.println();
             }
-            System.out.println();
         }
     }
 }
