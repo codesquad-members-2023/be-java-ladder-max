@@ -59,8 +59,19 @@
   - Input Class 관련 사항
     - 이름을 입력받는 기능 추가
     - 입력받은 이름들을 검증하는 기능 추가
+  - Validator Class
+    - 입력받은 값을 검증하는 클래스
+    - players만 검증합니다.
+  - InputHandler 클래스
+    - Input과 Validator 클래스를 동시에 사용하는 클래스
+    - 검증된 값들을 리턴해줍니다.
   - Ladder Class 관련 사항
-    - rungs 인스턴스 변수를 리스트로 구현(이중 리스트)
-    - 사다리의 가로대가 양옆에 있지 않게 하는 기능
+    - 인스턴스 변수 변경
+      - players를 int에서 List<String>으로 변경
+      - rungs를 line으로 이름 변경
+      - line을 boolean[][]에서 List<Line>으로 타입 변환
+  - Line Class 생성
+    - 사다리의 하나의 줄을 담당하는 클래스
+    - 본래 ladder class에 있었던 랜덤하게 다리 만드는 기능을 이 클래스로 옮김 
   - Output Class 관련 사항
     - 매개변수로 받던 2차원 array를 list로 바꿀 것.
