@@ -10,10 +10,13 @@ import static org.assertj.core.api.Assertions.*;
 
 public class LineTest {
    private Line line;
+   private Method addMethod;
 
     @BeforeEach
-    void setUp() {
-        line = new Line();
+    void setUp() throws NoSuchMethodException {
+        this.line = new Line();
+        this.addMethod = Line.class.getDeclaredMethod("addLine", boolean.class);
+        this.addMethod.setAccessible(true);
     }
 
     @Test
@@ -23,10 +26,19 @@ public class LineTest {
         booleanMethod.setAccessible(true);
 
         assertThat((boolean)booleanMethod.invoke(line, 0)).isTrue();
-        line.addLine(true);
+        addMethod.invoke(line, true);
         assertThat((boolean)booleanMethod.invoke(line, 1)).isFalse();
-        line.addLine(false);
+        addMethod.invoke(line, false);
         assertThat((boolean)booleanMethod.invoke(line, 2)).isTrue();
     }
 
+    @Test
+    @DisplayName("사다리 타기 테스트")
+    void goLine_test() throws InvocationTargetException, IllegalAccessException {
+        addMethod.invoke(line, false);
+        addMethod.invoke(line, true);
+        assertThat(line.goLine(0)).isEqualTo(0);
+        assertThat(line.goLine(1)).isEqualTo(2);
+        assertThat(line.goLine(2)).isEqualTo(1);
+    }
 }

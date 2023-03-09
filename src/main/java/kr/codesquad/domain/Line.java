@@ -24,7 +24,7 @@ public class Line {
         addLine(false);
     }
 
-    public void addLine(boolean b) {
+    private void addLine(boolean b) {
         points.add(b);
     }
 
