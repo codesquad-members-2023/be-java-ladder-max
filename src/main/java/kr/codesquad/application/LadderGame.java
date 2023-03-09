@@ -24,7 +24,7 @@ public class LadderGame {
 
 			final Ladder ladder = createLadder(participants.getParticipants().size(), height.getValue());
 			printStateOfLadder(participants.getParticipants(), results.getResults(), ladder);
-			List<Integer> resultPos = rideLadder(ladder, participants, results);
+			List<Integer> resultPos = rideLadder(ladder, participants);
 		} catch (final IllegalArgumentException e) {
 			outputView.printErrorMsg(e);
 			startLadderGame();
@@ -32,22 +32,19 @@ public class LadderGame {
 	}
 
 	private Participants getParticipantsFromUser() {
-		outputView.printGetNamesOfPersonMsg();
-		final String namesOfPerson = inputView.getInputFromUser();
+		final String namesOfPerson = inputView.getParticipantNames();
 
 		return new Participants(namesOfPerson);
 	}
 
 	private Results getResultsFromUser() {
-		outputView.printGetResultsMsg();
-		final String results = inputView.getInputFromUser();
+		final String results = inputView.getExecutionResults();
 
 		return new Results(results);
 	}
 
 	private Height getHeightFromUser() {
-		outputView.printGetHeightOfLadderMsg();
-		final String heightOfLadder = inputView.getInputFromUser();
+		final String heightOfLadder = inputView.getHeightOfLadder();
 
 		return new Height(heightOfLadder);
 	}
@@ -62,7 +59,7 @@ public class LadderGame {
 		outputView.printResultsOfGame(results);
 	}
 
-	private List<Integer> rideLadder(final Ladder ladder, final Participants participants, final Results results) {
+	private List<Integer> rideLadder(final Ladder ladder, final Participants participants) {
 		List<Integer> resultPos = new ArrayList<>();
 		for (String participant : participants.getParticipants()) {
 			resultPos.add(ladder.ride(participants.findPosOfParticipant(participant)));
