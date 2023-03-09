@@ -35,7 +35,7 @@ public class LadderRow {
     }
 
     public boolean isBridge(int column) {
-        return ladderRow.get(column) == true;
+        return column % 2 == 1 && ladderRow.get(column);
     }
 
 }
