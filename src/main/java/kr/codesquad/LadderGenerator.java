@@ -4,15 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LadderGenerator {
-    public Ladder generate(List<String> playerNames, int height) {
-        final List<List<LadderPart>> map = makeMap(playerNames.size(), height);
+    public Ladder generate(int playerNumber, int height) {
+        if (isInValidNumber(playerNumber) || isInValidNumber(height)) {
+            throw new IllegalArgumentException("사다리를 생성할 수 없습니다.");
+        }
+
+        final List<List<LadderPart>> map = makeMap(playerNumber, height);
 
         return new PlayerNameLadder(map);
     }
 
-    private List<List<LadderPart>> makeMap(int player, int height) {
+    private boolean isInValidNumber(int number) {
+        return number < 1;
+    }
+
+    private List<List<LadderPart>> makeMap(int playerNumber, int height) {
         final List<List<LadderPart>> map = new ArrayList<>();
-        int width = player * 2 - 1;
+        int width = playerNumber * 2 - 1;
 
         for (int y = 0; y < height; y++) {
             map.add(createLadderLine(width));
