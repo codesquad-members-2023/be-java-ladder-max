@@ -3,6 +3,7 @@ package mission.view;
 import java.util.List;
 
 public class OutputView {
+    private static final int DEFAULT_WIDTH = 6;
     StringBuilder sb;
 
     public OutputView(){
@@ -26,7 +27,7 @@ public class OutputView {
     }
 
     public void addBlank(String peopleName, int ladderHeight){
-        for (int i = 0; i < 5 - peopleName.length(); i++) {
+        for (int i = 0; i < DEFAULT_WIDTH - peopleName.length(); i++) {
             sb.append(" ");
         }
     }

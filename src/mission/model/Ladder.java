@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Ladder {
+    private static final int DEFAULT_LADDER_GROUP_WIDTH = 6;
     private List<List<String>> ladder;
 
     public Ladder(){
@@ -21,7 +22,7 @@ public class Ladder {
 
     private void makeLadderColumnBundle(List<String> ladderLine, int peopleNumber){
         for (int i = 0; i < peopleNumber-1; i++) { // 열 넣기 (뭉태기 개수)
-            for (int j = 0; j < 6; j++) { // 한 뭉태기 안의 요소 넣기
+            for (int j = 0; j < DEFAULT_LADDER_GROUP_WIDTH; j++) { // 한 뭉태기 안의 요소 넣기
                 makePipe(ladderLine, j);
                 makeHyphenOrBlank(ladderLine,i, j, peopleNumber);
             }

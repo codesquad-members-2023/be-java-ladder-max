@@ -13,6 +13,8 @@ public class InputView {
     public static final String ASKING_LADDER_HEIGHT = "최대 사다리 높이는 몇 개인가요?";
     public static final String ASKING_PEOPLE_NAME = "참여할 사람 이름을 입력하세요. 각 이름은 최대 5글자까지 입니다. (이름은 쉼표(,)로 구분하세요)";
     public static final String ERROR_MASSAGE_ABOUT_PEOPLE_NAME = "정해진 형식에 맞지 않습니다. 다시 입력해주세요";
+    public static final int MIN_NAME_LENGTH = 1;
+    public static final int MAX_NAME_LENGTH = 5;
     BufferedReader br;
 
     public InputView(){
@@ -56,7 +58,7 @@ public class InputView {
     }
 
     private int isInNumber(String peopleName){
-        if (peopleName.length() > 0 && peopleName.length() <= 5){
+        if (peopleName.length() >= MIN_NAME_LENGTH && peopleName.length() <= MAX_NAME_LENGTH){
             return 1;
         }
         return 0;
