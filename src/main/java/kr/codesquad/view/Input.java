@@ -9,26 +9,26 @@ public class Input {
 
     public String inputName() throws IOException {
         System.out.println("참여할 사람 이름을 입력하세요.(이름은 쉼표(,)로 구분)");
-        return validationName(br.readLine());
+        return validateName(br.readLine());
     }
 
     public int inputHeight() throws IOException {
         System.out.println("사다리 높이를 입력하세요.");
-        return validationHeight(Integer.parseInt(br.readLine()));
+        return validateHeight(Integer.parseInt(br.readLine()));
     }
 
     public void closeBr() throws IOException {
         br.close();
     }
 
-    public String validationName(String inputData) {
+    public String validateName(String inputData) {
         if(!inputData.matches(".+,.+")){
             throw new RuntimeException("참여할 사람은 2명 이상 이어야 합니다.");
         }
         return inputData;
     }
 
-    public int validationHeight(int height) {
+    public int validateHeight(int height) {
         if(height < 0){
             throw new RuntimeException("사다리의 높이는 1이상 이어야 합니다.");
         }
