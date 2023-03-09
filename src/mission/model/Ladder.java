@@ -40,9 +40,10 @@ public class Ladder {
         }
     }
 
-    // 여기서 뭉터기란! pipe(|)를 기준으로 나눴을 때, 나머지 부분을 이야기 한다.
+    // 여기서 그룹이란! pipe(|)를 기준으로 나눴을 때, 나머지 부분을 이야기 한다.
     private void makeHyphenOrBlank(List<String> ladderLine, int i, int j, int peopleNumber){
         // 뭉터기의 시작을 판단하는 3가지 메서드
+        // 그룹의 시작 문자를 판단하는 3가지 메서드
         // 공백이나 하이픈을 랜덤으로 넣어도 되는 경우
         if (j == 1) {
             checkRandomHyphenOrBlank(ladderLine, i, peopleNumber);
@@ -52,7 +53,7 @@ public class Ladder {
             checkHyphen(ladderLine, i, peopleNumber);
         }
         if (j > 1) {
-            // 뭉터기의 중간~끝 부분일 경우 (뭉터기의 시작이 아닐 경우), 뭉터기의 시작(윗부분에서 판가름 해서 넣은)을 반복해서 넣는다.
+            // 그룹의 중간~끝 부분일 경우 (그룹의 시작이 아닐 경우), 그룹의 시작(윗부분에서 판가름 해서 넣은)을 반복해서 넣는다.
             addFirstChar(ladderLine, i);
         }
     }
@@ -65,26 +66,26 @@ public class Ladder {
         return " "; // false
     }
 
-    // 맨 앞일 경우 || (맨 마지막 뭉태기가 아니면서 && 그 전의 뭉터기가 공백이었을 경우)
+    // 맨 앞일 경우 || (checkHyphen의 경우가 아니면서 && 그 전의 그룹이 공백이었을 경우)
     private void checkRandomHyphenOrBlank(List<String> ladderLine, int i, int peopleNumber){
         if (i == 0 || ladderLine.get(ladderLine.size() - 3).equals(" ")) {
             ladderLine.add(randomChar());
         }
     }
-    // 맨 앞이 아니면서 && 그 전의 뭉터기가 Hyphen 이었을 경우
+    // 맨 앞이 아니면서 && 그 전의 그룹이 Hyphen 이었을 경우
     private void checkBlank(List<String> ladderLine, int i){
         if (i != 0 && ladderLine.get(ladderLine.size()-3).equals("-")) {
             ladderLine.add(" ");
         }
     }
-    // 맨 마지막 뭉터기면서 (사람수-2 == i) && 여태까지 "-"가 한번도 넣어진 적 없는 경우
+    // 맨 마지막 그룹이면서 (사람수-2 == i) && 여태까지 "-"가 한번도 넣어진 적 없는 경우
     private void checkHyphen(List<String> ladderLine, int i, int peopleNumber){
         if ((i == peopleNumber - 2) && !ladderLine.contains("-")) {
             ladderLine.add("-");
         }
     }
 
-    // 뭉터기의 시작 부분을 반복해서 ladderLine에 넣는다.
+    // 그룹의 시작 부분을 반복해서 ladderLine에 넣는다.
     private void addFirstChar(List<String> ladderLine, int i){
         ladderLine.add(ladderLine.get((i * 6) + 1)); // 현재 뭉터기의 첫 부분
     }
