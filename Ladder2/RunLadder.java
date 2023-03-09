@@ -1,9 +1,22 @@
 package Ladder2;
 
+import Ladder2.domain.Ladder;
+import Ladder2.domain.Name;
+import Ladder2.domain.Participants;
+import Ladder2.view.Input;
+import Ladder2.view.Output;
+
 import java.io.IOException;
+import java.util.List;
 
 public class RunLadder {
     public static void main(String[] args) throws IOException {
-        Input.takeInput();
+        Participants participants = new Participants();
+        Ladder ladder = new Ladder(participants.getNames());
+
+
+        Output output = new Output();
+        output.print(participants.toString());
+        output.print(ladder.toString());
     }
 }
