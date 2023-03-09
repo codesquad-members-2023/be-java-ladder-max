@@ -5,35 +5,35 @@ import ladder.view.View;
 public class LadderGame {
     private final View view;
     private Ladder ladder;
+    private Players players;
 
     public LadderGame() {
         this.view = new View();
     }
 
-    private void makeLadder(int space, int height) {
-        ladder = new Ladder(space, height);
-        ladder.makeRandomLadder();
-    }
-
-    private String makeNameLabel(String[] names) {
-        StringBuilder builder = new StringBuilder();
-        for (String name : names) {
-            int frontBlank = (6 - name.length()) / 2;
-            int backBlank = (6 - name.length()) % 2;
-            boolean isNotMaxLength = name.length() < 6;
-            builder.append(" ".repeat(frontBlank));
-            builder.append(name);
-            builder.append(" ".repeat(frontBlank == 0 && isNotMaxLength ? backBlank : frontBlank));
-        }
-        return builder.toString();
-    }
-
     public void start() {
-        String[] participants = view.getNamesOfParticipants();
-        int space = participants.length - 1;
-        int height = view.getNumberOfLadderHeight();
-        makeLadder(space, height);
-        view.printLadder(makeNameLabel(participants), ladder.drawLadder());
+        try {
+            makeGame();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            makeGame();
+        }
+        printGame();
+    }
+
+    private void makeGame() {
+        players = new Players(view.getNamesOfParticipants());
+        final int width = players.getNumberOfPlayers() - 1;
+        final int height = view.getLadderHeight();
+        ladder = new Ladder(width, height);
+        ladder.makeLadder();
+    }
+
+    private void printGame() {
+        final int LABEL_SIZE = 6;
+        String builder = players.makeNameLabels(LABEL_SIZE) +
+                ladder.drawLadder();
+        view.print(builder);
         view.stop();
     }
 }
