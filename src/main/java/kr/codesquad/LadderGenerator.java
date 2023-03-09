@@ -11,7 +11,7 @@ public class LadderGenerator {
 
         final List<LadderLine> ladderLines = createLadderLines(playerNumber, height);
 
-        return new PlayerNameLadder(ladderLines);
+        return new Ladder(ladderLines);
     }
 
     private boolean isInValidNumber(int number) {
