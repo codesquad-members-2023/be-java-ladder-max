@@ -10,9 +10,14 @@ public class Ladder {
         this.maximumLadderHeight = maximumLadderHeight;
     }
 
-    public String[][] createLadderBoard() {
+    public String[][] createEmptyLadderBoard() {
         int height = maximumLadderHeight;
         int width = numberOfPeople * 2 - 1;
         return new String[height][width];
+    }
+
+    public String[] createEmptyLadderColumns() {
+        int width = numberOfPeople * 2 - 1;
+        return new String[width];
     }
 }

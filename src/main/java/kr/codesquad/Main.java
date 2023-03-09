@@ -6,8 +6,11 @@ import java.io.InputStreamReader;
 public class Main {
 
     public static void main(String[] args) {
-        ConsoleInput consoleInput = new ConsoleInput(
-            new BufferedReader(new InputStreamReader(System.in)), new LadderValidator(2, 1));
+        ConsoleInput consoleInput =
+            new ConsoleInput(
+                new BufferedReader(new InputStreamReader(System.in)),
+                new LadderValidator(2, 1)
+            );
         LadderGame game = new LadderGame(consoleInput);
         game.start();
     }

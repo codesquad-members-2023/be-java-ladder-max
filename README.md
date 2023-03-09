@@ -77,15 +77,15 @@ $ java -jar ./build/libs/java-lotto-1.0-SNAPSHOT.jar
 
 - [x] [String, StringBuilder, StringBuffer 비교](#String,-StringBuilder,-StringBuffer-비교)
 - [x] [String과 new String() 차이](#String과-new-String()-차이)
+- [x] [Return Early Pattern](#Return-Early-Pattern)
+- [x] [private 메서드 테스트 지양해야 하는 이유 학습](#private-메서드-테스트-지양해야-하는-이유)
+- [ ] 클린 코딩 기초 학습
 - [ ] static 메서드와 객체 메서드의 비교
     - 어떤 경우에 static 메서드를 사용해야 하는가?
     - static 메서드 사용시 단점
     - static 메서드와 객체 메서드가 저장되는 위치
     - static 메서드와 객체 메서드의 성능(시간, 메모리공간)의 차이
 - [ ] 콘솔 출력을 위해서 static 메서드 대신 더욱 효율적인 방법을 탐색해보기
-- [x] [Return Early Pattern](#Return-Early-Pattern)
-- [x] [private 메서드 테스트 지양해야 하는 이유 학습](#private-메서드-테스트-지양해야-하는-이유)
-- [ ] 클린 코딩 기초 학습
 - [ ] PR 머지 승인전에 브랜치를 따서 해당 브랜치 기반으로 작업하여 다시 PR할 경우 커밋이 딸려오는 문제해결하기
 
 ## String, StringBuilder, StringBuffer 비교
@@ -434,6 +434,45 @@ class Example {
 
 - 테스트 대상을 private 메서드가 아닌 private 메서드를 사용하는 public 메서드를 테스트해야 합니다.
 - 실패하는 케이스와 성공하는 케이스를 나누어 private 메서드까지 커버할 수 있는 여러개의 매개변수로 테스트합니다.
+
+## 클린 코딩 기초
+
+### 클래스 구현 순서
+
+클래스를 구현할때 다음 순서를 지켜 구현합니다.
+
+```java
+class Ladder {
+    //상수 및 클래스 변수
+
+    //인스턴스 변수
+
+    //생성자
+
+    //메서드
+}
+```
+
+### Naming Convention
+
+- 자바 언어는 `Camel Case`를 따릅니다.
+    - Camel Case : 중간 글자들은 대문자로 시작하지만 첫 글자가 소문자인 케이스
+    - ex) personNumber, studentAge
+- 클래스명은 `대문자`로 시작합니다.
+- 변수와 메서드는 `소문자`로 시작합니다.
+- 클래스와 변수명은 `명사` 형태를 사용합니다.
+- 메서드명은 `동사`로 시작합니다.
+- 클래스 이름 예 : Rectangle, LaundryList, StudentDirectory
+- 변수 이름 예 : firstName, description, mediaController
+- 메소드 이름 예 : getFirstName(), cancelOrder(), isDeleted()
+
+### 클린 코드 지향
+
+- 들여쓰기를 줄이는 가장 좋은 방법은 메서드를 분리하는 것입니다.
+- 들여쓰기가 2 이상인 메서드의 경우 메서드를 분리하는 방법을 찾습니다.
+- 메서드 라인이 10라인을 넘어가는 경우 메서드를 분리합니다.
+- else를 사용하지 않으려면 if 절에서 값을 바로 return해서 메서드를 종료하는 방법을 사용합니다.
+    - [Return Early](#Return-Early-Pattern)
 
 ## References
 
