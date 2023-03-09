@@ -23,10 +23,12 @@ public class InputView {
         System.out.println(INVALID_INPUT_NAMEFORMAT);
         return inputPeopleName();
     }
+    public int inputPeopleSize(){
+        return inputPeopleName().size();
+    }
 
     private boolean validateNameFormat(String input) {
-        boolean result = Pattern.matches(NAME_FORMAT, input);
-        return result;
+        return Pattern.matches(NAME_FORMAT, input);
     }
 
     public int inputLadderHeight() {
