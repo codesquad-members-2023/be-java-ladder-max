@@ -6,9 +6,11 @@ public class LadderGame implements Runnable {
   private final int MIN_SIZE_OF_PEOPLE = 2;
   private final int MIN_SIZE_OF_LADDER = 1;
   private final Console console;
+  private final RandomLadderGenerator generator;
 
-  public LadderGame(Console console) {
+  public LadderGame(Console console, RandomLadderGenerator generator) {
     this.console = console;
+    this.generator = generator;
   }
 
   @Override
@@ -26,6 +28,8 @@ public class LadderGame implements Runnable {
       }
     }
 
+    Ladder ladder = generator.generate(sizeOfPeople,sizeOfLadder);
+    System.out.println(ladder);
   }
 
   private int parse(String inputString, int limit) throws IOException {
