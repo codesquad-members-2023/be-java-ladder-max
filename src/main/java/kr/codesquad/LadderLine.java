@@ -5,14 +5,14 @@ import java.util.Random;
 public enum LadderLine {
     VERTICAL("|"){
         @Override
-        boolean isProperLocation(int index) {
+        boolean validate(int index) {
             return isOdd(index);
         }
     },
     HORIZONTAL("-"){
         @Override
-        boolean isProperLocation(int index) {
-            return !isOdd(index) && isRand(index);
+        boolean validate(int index) {
+            return !isOdd(index) && isRand();
         }
     };
     
@@ -22,7 +22,7 @@ public enum LadderLine {
         this.line = line;
     }
 
-    abstract boolean isProperLocation(int index);
+    abstract boolean validate(int index);
 
     private static boolean isOdd(int index){
         return index%2 == 0;
