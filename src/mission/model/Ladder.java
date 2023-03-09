@@ -30,10 +30,6 @@ public class Ladder {
         ladderLine.add("|");
     }
 
-//    private void makeLadderBundleChar(List<String> ladderLine, int peopleNumber){
-//
-//    }
-
     private void makePipe(List<String> ladderLine, int j){
         if (j == 0) {
             ladderLine.add("|");
