@@ -11,6 +11,7 @@ public class Main {
         Main main = new Main();
         int n = main.inputPeople();
         int m = main.inputLadder();
+        //new Ladder().printVerticalLine(n, m);
     private int inputPeople() throws IOException {
         printInputPeople();
         return input();
