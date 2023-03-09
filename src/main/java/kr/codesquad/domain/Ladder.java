@@ -52,19 +52,12 @@ public class Ladder {
         return new Random().nextBoolean();
     }
 
-    private boolean validateBridgePlacement(List<LadderRow> ladder, int row, int column) {
-        if(column == 1 || (column > 2 && !ladder.get(row).isBridge(column-2))) {
-            return true;
-        }
-        return false;
-    }
-
     private void insertPlayerLine(List<LadderRow> ladder, int row, int column) {
         ladder.get(row).setPlayerLine(column);
     }
 
     private void insertBridge(List<LadderRow> ladder, int row, int column) {
-        if (shouldBuildingBridge() && validateBridgePlacement(ladder, row, column)) {
+        if (shouldBuildingBridge()) {
             ladder.get(row).setBridge(column);
         }
     }

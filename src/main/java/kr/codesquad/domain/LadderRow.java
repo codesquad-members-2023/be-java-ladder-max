@@ -18,6 +18,10 @@ public class LadderRow {
         return ladderRow;
     }
 
+    private boolean validateBridgePlacement(int column) {
+        return column == 1 || (column > 2 && !ladderRow.get(column-2));
+    }
+
     public void setPlayerLine(int column) {
         if(column % 2 == 0) {
             ladderRow.set(column, true);
@@ -25,7 +29,7 @@ public class LadderRow {
     }
 
     public void setBridge(int column) {
-        if(column % 2 == 1) {
+        if(column % 2 == 1 && validateBridgePlacement(column)) {
             ladderRow.set(column, true);
         }
     }
