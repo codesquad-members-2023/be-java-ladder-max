@@ -32,12 +32,18 @@ public class InputOutputController {
 
     private void getName(ArrayList listForNameAndHeight){
         outputHandler.outputParticipantNamePrompt();
-        listForNameAndHeight.addAll(nameValidator.getValidNameFromUser(inputHandler));
+        while(true){
+            if(nameValidator.getValidNameFromUser(listForNameAndHeight,inputHandler))
+                break;
+        }
     }
 
     private void getHeight(ArrayList listForNameAndHeight){
         outputHandler.outputLadderHeightPrompt();
-        listForNameAndHeight.add(heightValidator.getValidHeightFromUser(inputHandler));
+        while(true){
+            if(heightValidator.getValidHeightFromUser(listForNameAndHeight,inputHandler))
+                break;
+        }
     }
 
     public void printLadder(Ladder ladder) {

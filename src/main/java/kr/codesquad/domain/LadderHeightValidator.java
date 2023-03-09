@@ -3,17 +3,18 @@ package kr.codesquad.domain;
 import kr.codesquad.view.InputView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class LadderHeightValidator {
-    public String getValidHeightFromUser(InputView inputHandler){
-        while(true){
+    public boolean getValidHeightFromUser(ArrayList list,InputView inputHandler){
             try{
                 String height =inputHandler.getInput();
-                return validateHeight(height);
+                list.add(validateHeight(height));
+                return true;
             }catch (RuntimeException | IOException e){
                 System.out.println(e.getMessage());
             }
-        }
+            return false;
     }
 
     private static String validateHeight(String height) {
