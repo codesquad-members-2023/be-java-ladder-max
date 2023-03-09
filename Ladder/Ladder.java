@@ -19,13 +19,17 @@ public class Ladder {
 
     private void putBridges(int i, int rowSize) {
         for(int j = 1; j < rowSize; j+= 2){
-            this.checkAndPut(i,j, this.coinflip());
+            this.putRandomBridge(i,j, this.coinflip());
         }
     }
 
-    private void checkAndPut(int i, int j, boolean coinflip) {
+    private void putRandomBridge(int i, int j, boolean coinflip) {
         if(j > 1 && coinflip && this.ladder[i][j - 2] == " "){
-            this.ladder[i][j-1] = "-";
+            this.ladder[i][j] = "-";
+        }
+
+        if(j == 1 && coinflip) {
+            this.ladder[i][j] = "-";
         }
     }
     private boolean coinflip() {

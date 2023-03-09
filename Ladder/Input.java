@@ -12,7 +12,6 @@ public class Input {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
         int ladderHeight = takeInt();
         createLadder(pplNumber, ladderHeight);
-
     }
 
     private static void createLadder(int pplNumber, int ladderHeight) {
