@@ -17,13 +17,6 @@ public class Ladder {
         this.ladder = makeLadder();
     }
 
-    /* getter */
-    public char[][] getLadder() {
-        /* toString 으로 대체하여 삭제할 예정 */
-        /* OutputView와의 의존성 때문에 일단 남겨 놓았음 */
-        return null;
-    }
-
     /* private method */
     private List<List<Character>> makeLadder() {
         List<List<Character>> ladder = new ArrayList<>(rowSize);
