@@ -19,11 +19,15 @@ public class LadderRow {
     }
 
     public void setPlayerLine(int column) {
-        ladderRow.set(column, true);
+        if(column % 2 == 0) {
+            ladderRow.set(column, true);
+        }
     }
 
     public void setBridge(int column) {
-        ladderRow.set(column, true);
+        if(column % 2 == 1) {
+            ladderRow.set(column, true);
+        }
     }
 
     public boolean isBridge(int column) {
