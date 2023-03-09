@@ -27,7 +27,14 @@ public class Ladder {
         }
     }
 
-
-
+    public void print(){
+        for(int rowIndex = 0; rowIndex < ROW_SIZE; rowIndex++){
+            for(int columnIndex = 0; columnIndex < COLUMN_SIZE; columnIndex++){
+                LadderLine line = ladder[rowIndex][columnIndex];
+                System.out.print(line == null ? " " : line.getLine());
+            }
+            System.out.println();
+        }
+    }
 
 }
