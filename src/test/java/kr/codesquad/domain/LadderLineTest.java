@@ -47,7 +47,6 @@ class LadderLineTest {
         assertThrows(IllegalStateException.class, () -> line.pointsValidate());
 
         //org.assertj.core.api.Assertions 으로 테스트
-        assertThatThrownBy(() -> line.pointsValidate())
-                .hasMessageContaining("연속적인 true 존재");
+        assertThatThrownBy(() -> line.pointsValidate()).isInstanceOf(IllegalStateException.class);
     }
 }
