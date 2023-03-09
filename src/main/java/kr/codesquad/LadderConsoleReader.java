@@ -2,8 +2,14 @@ package kr.codesquad;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.regex.Pattern;
 
 public class LadderConsoleReader implements LadderReader {
+
+    private static final Pattern NAME_DELIMITER = Pattern.compile("\\s*,\\s*");
 
     private final BufferedReader reader;
     private final LadderValidator validator;
@@ -18,27 +24,34 @@ public class LadderConsoleReader implements LadderReader {
     }
 
     @Override
-    public int readNumberOfPeople() {
-        int numberOfPeople = 0;
-        while (numberOfPeople == 0) {
-            ladderWriter.writeNumberOfPeopleIntro();
-            numberOfPeople = readNumberOfPeopleTextAndToInt();
+    public List<String> readNameOfPeople() {
+        List<String> namesOfPeople = new ArrayList<>();
+        while (namesOfPeople.size() == 0) {
+            ladderWriter.writeNamesOfPeopleIntro();
+            namesOfPeople = readNamesOfPeopleTextAndToStringList();
         }
-        return numberOfPeople;
+        return namesOfPeople;
     }
 
-    private int readNumberOfPeopleTextAndToInt() {
-        int numberOfPeople = 0;
+    private List<String> readNamesOfPeopleTextAndToStringList() {
+        List<String> namesOfPeople = new ArrayList<>();
         try {
             String text = reader.readLine();
-            validator.validateNumberOfPeople(text);
-            numberOfPeople = toInt(text);
-        } catch (InvalidNumberOfPeopleException e) {
+            validator.validateNamesOfPeople(text, NAME_DELIMITER.pattern());
+            namesOfPeople = toList(text);
+        } catch (InvalidNumberOfMaximumLadderHeightException e) {
             ladderWriter.writeInvalidReadNumber(e.getMessage());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return numberOfPeople;
+        return namesOfPeople;
+    }
+
+    private List<String> toList(String text) {
+        List<String> namesOfPeople = new ArrayList<>();
+        String[] nameArr = text.split(NAME_DELIMITER.pattern());
+        Collections.addAll(namesOfPeople, nameArr);
+        return namesOfPeople;
     }
 
     @Override

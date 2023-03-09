@@ -1,8 +1,10 @@
 package kr.codesquad;
 
+import java.util.List;
+
 public interface LadderReader {
 
-    int readNumberOfPeople();
+    List<String> readNameOfPeople();
 
     int readMaximumLadderHeight();
 }
