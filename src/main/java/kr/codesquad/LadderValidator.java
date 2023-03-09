@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class LadderValidator {
 
-    private final Pattern NUMBER_FORMAT = Pattern.compile("\\d+");
+    private static final Pattern NUMBER_FORMAT = Pattern.compile("\\d+");
     private final int minNumberOfPeople;
     private final int minLadderHeight;
 
