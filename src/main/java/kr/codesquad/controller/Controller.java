@@ -1,5 +1,6 @@
 package kr.codesquad.controller;
 
+import kr.codesquad.domain.Line;
 import kr.codesquad.util.Encoding;
 import kr.codesquad.view.Input;
 import kr.codesquad.view.Output;
@@ -18,7 +19,7 @@ public class Controller {
     private Encoding encoding;
 
     public Controller() {
-        this.ladder = new Ladder();
+        this.ladder = new Ladder(new Line());
         this.output = new Output();
         this.validation = new Validation();
         this.input = new Input();
