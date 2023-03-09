@@ -1,4 +1,4 @@
-# Mission2. 사다리 게임 2단계 - 리팩토링 맛보기
+# Step2. 사다리 게임 2단계 - 리팩토링 맛보기
 ## 미션 구현
 - [x] Ladder 클래스의 메서드들이 depth가 1이 되도록 리팩터링
   - makeLadderLength() -> makeLadderVerticalLine() : 메서드 이름 변경(더 직관적)

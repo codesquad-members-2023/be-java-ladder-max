@@ -1,4 +1,4 @@
-# Mission1. 사다리 게임 1단계 - 기본 기능 구현
+# Step1. 사다리 게임 1단계 - 기본 기능 구현
 ## 미션 설계
 1. Application 클래스
     - Controller 클래스에 의존
