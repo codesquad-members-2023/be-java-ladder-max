@@ -1,13 +1,8 @@
-package mission.view;
-
-import mission.model.Ladder;
+package ladder.view;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class InputView {
     public static final String ASKING_LADDER_HEIGHT = "최대 사다리 높이는 몇 개인가요?";

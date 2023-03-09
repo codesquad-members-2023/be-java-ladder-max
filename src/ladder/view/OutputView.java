@@ -1,4 +1,4 @@
-package mission.view;
+package ladder.view;
 
 import java.util.List;
 

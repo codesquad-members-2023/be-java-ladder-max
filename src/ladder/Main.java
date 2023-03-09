@@ -1,6 +1,6 @@
-package mission;
+package ladder;
 
-import mission.controller.LadderGameController;
+import ladder.domain.LadderGameController;
 
 import java.io.IOException;
 

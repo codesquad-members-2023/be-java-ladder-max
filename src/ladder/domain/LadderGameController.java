@@ -1,8 +1,8 @@
-package mission.controller;
+package ladder.domain;
 
-import mission.model.Ladder;
-import mission.view.InputView;
-import mission.view.OutputView;
+import ladder.domain.Ladder;
+import ladder.view.InputView;
+import ladder.view.OutputView;
 
 import java.io.IOException;
 
