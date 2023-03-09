@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class LadderV2 implements Ladder {
+public class PlayerNameLadder implements Ladder {
     private final List<List<LadderPart>> map = new ArrayList<>();
     private final List<String> playerNames;
 
-    public LadderV2(List<String> playerNames, int height) {
+    public PlayerNameLadder(List<String> playerNames, int height) {
         this.playerNames = playerNames;
         initMap(playerNames.size(), height);
     }
@@ -54,7 +54,7 @@ public class LadderV2 implements Ladder {
 
     private List<String> makeLadderShape() {
         return map.stream()
-                .map(LadderV2::toOutputLine)
+                .map(PlayerNameLadder::toOutputLine)
                 .collect(Collectors.toList());
     }
 

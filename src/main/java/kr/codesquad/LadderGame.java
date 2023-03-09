@@ -8,6 +8,8 @@ public class LadderGame {
     }
 
     public void run() {
-        Screen.printResult(ladder.createOutputLines());
+        Screen screen = new Screen();
+
+        screen.printResult(ladder.createOutputLines());
     }
 }
