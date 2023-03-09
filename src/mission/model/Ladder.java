@@ -9,12 +9,12 @@ public class Ladder {
     private List<List<String>> ladder;
 
     public Ladder(){
-        this.ladder = new ArrayList<List<String>>(); // Generic 사용??
+        this.ladder = new ArrayList<>();
     }
 
     public void makeLadder(int peopleNumber, int ladderHeight) {
         for (int i = 0; i < ladderHeight; i++) { // 행 넣기
-            List<String> ladderLine = new ArrayList<String>(); // Generic 사용?
+            List<String> ladderLine = new ArrayList<>();
             makeLadderColumnBundle(ladderLine, peopleNumber);
             ladder.add(ladderLine);
         }
