@@ -7,7 +7,7 @@ public class OutputView {
     public void inputLadder() {
         System.out.println("최대 사다리 높이는 몇개 인가요 ? ");
     }
-    public void printLadder(StringBuilder sb) {
-        System.out.println(sb);
+    public void printLadder(Ladder ladder) {
+        System.out.println(ladder);
     }
 }
