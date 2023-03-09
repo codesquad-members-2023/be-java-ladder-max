@@ -1,7 +1,6 @@
 package kr.codesquad;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Output {
     public static void print(ArrayList<String> names, Ladder ladder) {
