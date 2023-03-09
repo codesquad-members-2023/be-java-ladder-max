@@ -18,6 +18,6 @@ public class LadderGameController {
 
         this.ladderGenerator = new LadderGenerator(joinMembers, maxHeight); // 다른 방법 찾아보기
         String[][] ladder = ladderGenerator.generateLadder();
-        outputView.printLadderState(ladder);
+        outputView.printLadder(ladder);
     }
 }

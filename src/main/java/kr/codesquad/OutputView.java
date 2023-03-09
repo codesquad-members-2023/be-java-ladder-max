@@ -12,11 +12,11 @@ public class OutputView {
         System.out.println(MAX_HEIGHT_PROMPT);
     }
 
-    public void printLadderState(String[][] ladder) {
-        extracted(ladder);
+    public void printLadder(String[][] ladder) {
+        drawLadderDiagram(ladder);
     }
 
-    private void extracted(String[][] ladder) {
+    private void drawLadderDiagram(String[][] ladder) {
         for (int i = 0; i < ladder.length * ladder[0].length; i++) {
             int row = i / ladder[0].length;
             int column = i % ladder[0].length;
