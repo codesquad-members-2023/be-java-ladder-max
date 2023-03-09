@@ -37,11 +37,15 @@ public class Ladder {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for(String[] row : ladder) {
-            for(String cell : row) {
-                sb.append(cell);
-            }
-            sb.append("\n");
+            appendRow(sb, row);
         }
         return sb.toString();
+    }
+
+    private static void appendRow(StringBuilder sb, String[] row) {
+        for(String cell : row) {
+            sb.append(cell);
+        }
+        sb.append("\n");
     }
 }
