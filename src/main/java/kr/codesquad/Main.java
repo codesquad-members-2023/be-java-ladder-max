@@ -5,13 +5,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
     public static void main(String[] args) throws IOException {
         Main main = new Main();
         int n = main.inputPeople();
         int m = main.inputLadder();
+
+        Ladder ladder = new Ladder(n, m);
+        ladder.printLadder();
+
         //new Ladder().printVerticalLine(n, m);
+    }
+
     private int inputPeople() throws IOException {
         printInputPeople();
         return input();
