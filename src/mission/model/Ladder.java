@@ -15,12 +15,12 @@ public class Ladder {
     public void makeLadder(int peopleNumber, int ladderHeight) {
         for (int i = 0; i < ladderHeight; i++) { // 행 넣기
             List<String> ladderLine = new ArrayList<>();
-            makeLadderColumnBundle(ladderLine, peopleNumber);
+            makeLadderColumnGroup(ladderLine, peopleNumber);
             ladder.add(ladderLine);
         }
     }
 
-    private void makeLadderColumnBundle(List<String> ladderLine, int peopleNumber){
+    private void makeLadderColumnGroup(List<String> ladderLine, int peopleNumber){
         for (int i = 0; i < peopleNumber-1; i++) { // 열 넣기 (뭉태기 개수)
             for (int j = 0; j < DEFAULT_LADDER_GROUP_WIDTH; j++) { // 한 뭉태기 안의 요소 넣기
                 makePipe(ladderLine, j);
