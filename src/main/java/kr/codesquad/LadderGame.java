@@ -13,7 +13,7 @@ public class LadderGame {
     }
 
     public void run() {
-        final Ladder ladder = ladderGenerator.create(inputPlayerNames(), inputLadderHeight());
+        final Ladder ladder = ladderGenerator.generate(inputPlayerNames(), inputLadderHeight());
 
         screen.printResult(ladder.createOutputLines());
     }
