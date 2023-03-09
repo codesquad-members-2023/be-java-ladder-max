@@ -1,18 +1,19 @@
 package kr.codesquad;
 
-import java.util.Scanner;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        OutputView outputView = new OutputView();
 
-        Output output = new Output();
-        output.printPeopleRequest();
-        int people = sc.nextInt();
-        output.printHeightRequest();
-        int height = sc.nextInt();
+        outputView.printNamesRequest();
+        ArrayList<String> nameList = new InputCheck().putNameList();
 
-        new Ladder().makeLadder(people, height);
-        output.printLadder();
+        outputView.printHeightRequest();
+        int height = new InputCheck().putHeight();
+
+        new Ladder().makeLadder(nameList.size(), height);
+        new OutputView().printLadder(nameList, height);
     }
 }
