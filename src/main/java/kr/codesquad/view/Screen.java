@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.view;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,7 @@
-package kr.codesquad;
+package kr.codesquad.service;
+
+import kr.codesquad.domain.Ladder;
+import kr.codesquad.domain.LadderLine;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;

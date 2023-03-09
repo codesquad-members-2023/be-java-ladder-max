@@ -1,5 +1,7 @@
 package kr.codesquad;
 
+import kr.codesquad.domain.Ladder;
+import kr.codesquad.service.LadderGenerator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 
