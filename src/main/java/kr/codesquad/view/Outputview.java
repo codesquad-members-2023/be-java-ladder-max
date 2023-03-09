@@ -1,5 +1,6 @@
 package kr.codesquad.view;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Outputview {
@@ -14,6 +15,13 @@ public class Outputview {
             System.out.println();
         }
 //        System.out.print(sb.toString());
+    }
+
+    public void printPeopleList(List<String> nameList){
+        for (int i = 0; i < nameList.size(); i++) {
+            System.out.print(nameList.get(i)+" ");
+        }
+        System.out.println();
     }
 
 //    public static void printLadder(String[][] ladder) {
