@@ -1,22 +1,16 @@
 package kr.codesquad.view;
 
 import kr.codesquad.domain.Ladder;
+import kr.codesquad.domain.Players;
 
 public class OutputView {
 
     public void printLadder(Ladder ladder) {
-        StringBuilder sb = new StringBuilder();
-        for(char[] ladderRow : ladder.getLadder()) {
-            appendLadderRowToStringBuilder(ladderRow, sb);
-        }
-
-        System.out.println(sb.toString());
+        System.out.println(ladder.toString());
     }
 
-    private void appendLadderRowToStringBuilder(char[] ladderRow, StringBuilder sb) {
-        for(char cell : ladderRow) {
-            sb.append(cell);
-        }
-        sb.append(System.lineSeparator());
+    public void printPlayerNames(Players players) {
+        System.out.println(players.toString());
     }
+
 }
