@@ -11,9 +11,9 @@ public class Ladder {
     ArrayList<LadderRow> ladder;
     int height;
 
-    public Ladder(List<Name> participants) throws IOException {
+    public Ladder(int ladderLength) throws IOException {
         this.height = new LadderHeight().getHeight();
-        this.createLadder(participants.size(), height);
+        this.createLadder(ladderLength, height);
     }
 
     private void createLadder(int size, int ladderHeight) throws IOException {

@@ -9,11 +9,11 @@ public class Output {
     }
 
     public void promptGetHeight(){
-        System.out.print("최대 사다리 높이는 몇개 인가요?");
+        System.out.println("최대 사다리 높이는 몇개 인가요?");
     }
 
     public void print(String s) {
-        System.out.println(s);
+        System.out.print(s);
     }
 
 }
