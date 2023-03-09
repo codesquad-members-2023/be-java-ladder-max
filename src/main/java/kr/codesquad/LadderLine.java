@@ -34,4 +34,7 @@ public enum LadderLine {
         return (rand.nextInt()%5) == 0;
     }
 
+    public String getLine() {
+        return line;
+    }
 }
