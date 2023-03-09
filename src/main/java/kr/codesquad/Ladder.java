@@ -35,17 +35,31 @@ public class Ladder {
         for (int i = 0; i < height; i++) {
             ladderBoard.add(new ArrayList<>());
             ladderBoard.get(i).add("|");
+            forInForInMakeLadder(i);
+        }
+    }
 
-            for (int j = 0; j < width; j++) {
-                boolean temp = random.nextBoolean();
-                if (temp) {
-                    ladderBoard.get(i).add("-----");
-                    ladderBoard.get(i).add("|");
-                    continue;
-                }
+    void forInForInMakeLadder(int i) {
+        for (int j = 0; j < width; j++) {
+            boolean temp = random.nextBoolean();
+            int x = 0;
+            if (temp) {
+                x = 1;
+            }
+            switchInForInForInMakeLadder(i, x);
+        }
+    }
+
+    void switchInForInForInMakeLadder(int i, int x) {
+        switch (x) {
+            case 1:
+                ladderBoard.get(i).add("-----");
+                ladderBoard.get(i).add("|");
+                break;
+            case 0:
                 ladderBoard.get(i).add("     ");
                 ladderBoard.get(i).add("|");
-            }
+                break;
         }
     }
 
