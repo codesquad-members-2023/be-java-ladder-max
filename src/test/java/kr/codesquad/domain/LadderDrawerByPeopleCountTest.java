@@ -5,13 +5,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class LadderByPeopleCountTest {
+class LadderDrawerByPeopleCountTest {
 
-    private LadderByPeopleCount ladderByPeopleCount;
+    private LadderDrawerByPeopleCount ladderByPeopleCount;
 
     @BeforeEach
     void setLadder() {
-        ladderByPeopleCount = new LadderByPeopleCount();
+        ladderByPeopleCount = new LadderDrawerByPeopleCount();
     }
 
 

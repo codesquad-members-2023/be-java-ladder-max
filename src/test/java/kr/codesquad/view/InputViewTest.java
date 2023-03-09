@@ -49,7 +49,7 @@ class InputViewTest {
     @ParameterizedTest
     @ValueSource(strings = {"꽝,5000,꽝", "꽝,5000,2000,1000"})
     void isRightResultPattern_True(String input) {
-        assertThat(inputView.isRightResultPattern(input)).isTrue();
+        assertThat(inputView.isRightResultInfoPattern(input)).isTrue();
 
     }
 
@@ -57,7 +57,7 @@ class InputViewTest {
     @ParameterizedTest
     @ValueSource(strings = {"꽁,5000,꽝", "깡,5000,2000,1000"})
     void isRightResultPattern_Fail(String input) {
-        assertThat(inputView.isRightResultPattern(input)).isFalse();
+        assertThat(inputView.isRightResultInfoPattern(input)).isFalse();
     }
 
 
