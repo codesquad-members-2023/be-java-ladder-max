@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,5 +32,14 @@ public class LadderRow {
             rowString += row.get(i) + "|";
         }
         return rowString;
+    }
+
+    public boolean isRowHasLine() {
+        for (String s : row) {
+            if(s.equals("-----")){
+                return true;
+            }
+        }
+        return false;
     }
 }
