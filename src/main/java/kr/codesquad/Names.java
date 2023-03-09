@@ -11,7 +11,7 @@ public class Names {
         return namesRow.toString();
     }
 
-    public String putSpaces(String name) {
+    private String putSpaces(String name) {
         StringBuilder sb = new StringBuilder();
         switch (name.length()) {
             case 1 -> sb.append("  ").append(name).append("  ");
