@@ -2,7 +2,7 @@ package kr.codesquad.controller;
 
 import kr.codesquad.domain.Ladder;
 import kr.codesquad.domain.LadderHeightValidator;
-import kr.codesquad.domain.PlayerNameValidator;
+import kr.codesquad.domain.PlayerValidator;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
@@ -12,14 +12,14 @@ public class InputOutputController {
 
     private OutputView outputHandler;
     private InputView inputHandler;
-    private PlayerNameValidator nameValidator;
+    private PlayerValidator playerValidator;
     private LadderHeightValidator heightValidator;
 
 
     public InputOutputController() {
         this.inputHandler = new InputView();
         this.outputHandler = new OutputView();
-        this.nameValidator = new PlayerNameValidator();
+        this.playerValidator = new PlayerValidator();
         this.heightValidator = new LadderHeightValidator();
     }
 
@@ -32,7 +32,7 @@ public class InputOutputController {
 
     private void getName(ArrayList listForNameAndHeight){
         outputHandler.outputParticipantNamePrompt();
-        while(!nameValidator.getValidNameFromUser(listForNameAndHeight, inputHandler));
+        while(!playerValidator.playerValidator(listForNameAndHeight, inputHandler));
     }
 
     private void getHeight(ArrayList listForNameAndHeight){

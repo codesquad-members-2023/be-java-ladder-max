@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PlayerNameValidatorTest {
 
-    PlayerNameValidator nameValidator = new PlayerNameValidator();
+    PlayerValidator playerValidator = new PlayerValidator();
     InputView inputHandler = new InputView();
     @Test
     @DisplayName("모든 playerName이 5글자 이하일떄 test")
@@ -23,7 +23,7 @@ class PlayerNameValidatorTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertTrue(nameValidator.getValidNameFromUser(list,inputHandler));
+        assertTrue(playerValidator.playerValidator(list,inputHandler));
     }
 
     @Test
@@ -34,7 +34,7 @@ class PlayerNameValidatorTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertFalse(nameValidator.getValidNameFromUser(list,inputHandler));
+        assertFalse(playerValidator.playerValidator(list,inputHandler));
     }
 
 }
