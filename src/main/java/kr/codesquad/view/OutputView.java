@@ -30,4 +30,20 @@ public class OutputView {
                                 sb.append(o)
                         , StringBuilder::append));
     }
+
+    public void printResults() {
+        System.out.println();
+        System.out.println("실행 결과");
+    }
+
+    public void insertError() {
+        System.out.println();
+        System.out.println("잘못된 사람을 입력하셨습니다. 다시 입력해주세요.");
+    }
+
+    public void exit() {
+        System.out.println();
+        System.out.print("게임을 종료합니다.");
+        System.exit(0);
+    }
 }

@@ -39,4 +39,14 @@ public class Line {
                                 sb.append(o).append("|")
                         , StringBuilder::append).toString();
     }
+
+    public int goLine(int curr) {
+        if(curr > 0 && points.get(curr - 1).booleanValue()) {
+            return curr - 1;
+        }
+        if(curr < points.size() && points.get(curr).booleanValue()) {
+            return curr + 1;
+        }
+        return curr;
+    }
 }
