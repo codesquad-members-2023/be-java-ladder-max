@@ -33,8 +33,8 @@ public class InputView {
     }
 
     private void validatePlayerName(String playerName) {
-        if(playerName.length() > 5) {
-            throw new IllegalArgumentException("이름은 5글자 이내로 입력해 주세요.(※ " + playerName + ")");
+        if(playerName.length() > 5 || playerName.length() < 1) {
+            throw new IllegalArgumentException("이름은 1글자 이상, 5글자 이하로 입력해 주세요.(※ " + playerName + ")");
         }
     }
 }
