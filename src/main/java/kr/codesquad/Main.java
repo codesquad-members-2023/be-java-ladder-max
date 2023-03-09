@@ -6,6 +6,7 @@ import kr.codesquad.view.InputView;
 
 public class Main {
     public static void main(String[] args) {
-        new InputView().enterCommand();
+        InputView inputView = new InputView();
+        inputView.enterCommand();
     }
 }
