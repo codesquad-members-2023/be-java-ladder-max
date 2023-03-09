@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/PlayerNameLadder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/kr/codesquad/PlayerNameLadderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kr/codesquad/PlayerNameLadderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Screen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +65,7 @@
       <recent name="kr.codesquad" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ScreenTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
       <module name="java-lotto.main" />
@@ -162,9 +159,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ScreenTest" />
         <item itemvalue="JUnit.PlayerNameLadderTest.ladderOutputTest" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ScreenTest.inputLadderHeightTest (2)" />
         <item itemvalue="JUnit.PlayerNameLadderTest" />
       </list>
@@ -191,7 +188,7 @@
       <workItem from="1678278409003" duration="2240000" />
       <workItem from="1678281436143" duration="6443000" />
       <workItem from="1678336754547" duration="2096000" />
-      <workItem from="1678338875329" duration="8036000" />
+      <workItem from="1678338875329" duration="8584000" />
     </task>
     <servers />
   </component>

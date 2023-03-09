@@ -1,5 +1,6 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +19,13 @@ public class LadderGame {
 
         final Ladder ladder = ladderGenerator.generate(playerNames.size(), height);
 
-        screen.printResult(ladder.createOutputLines());
+        showResult(playerNames, ladder);
+    }
+
+    private void showResult(List<String> playerNames, Ladder ladder) {
+        final List<String> result = new ArrayList<>();
+
+        screen.printResult(playerNames, ladder.createOutputLines());
     }
 
     private int inputLadderHeight() {

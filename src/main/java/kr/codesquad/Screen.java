@@ -88,9 +88,16 @@ public class Screen {
         return !name.matches("^[a-zA-Z0-9]{1,5}$");
     }
 
-    public void printResult(List<String> outputLines) {
+    public String toPlayerLine(List<String> playerNames) {
+        return playerNames.stream()
+                .map(name -> String.format("%-6s", name))
+                .collect(Collectors.joining());
+    }
+
+    public void printResult(List<String> playerNames, List<String> outputLines) {
         System.out.println("\n실행결과\n");
 
+        System.out.println(toPlayerLine(playerNames));
         System.out.println(String.join("\n", outputLines));
     }
 }
