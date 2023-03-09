@@ -1,13 +1,42 @@
 package mission.view;
 
-public class OutputView {
+import java.util.List;
 
-    public void printStrings(String[][] strings){
-        for (String[] row: strings) {
-            for (String column: row) {
-                System.out.print(column);
+public class OutputView {
+    StringBuilder sb;
+
+    public OutputView(){
+         sb = new StringBuilder();
+    }
+
+    public void printPeopleNameAndLadder(String[] peopleNames,int ladderHeight, List<List<String>> ladder){
+        appendPeopleName(peopleNames, ladderHeight);
+        appendLadder(ladder);
+
+        System.out.println(sb); // 모아서 출력
+        sb.setLength(0); // stringBuilder 초기화 (리셋)
+    }
+
+    public void appendPeopleName(String[] peopleNames, int ladderHeight){
+        for (String peopleName : peopleNames) {
+            sb.append(peopleName);
+            addBlank(peopleName, ladderHeight);
+        }
+        sb.append("\n");
+    }
+
+    public void addBlank(String peopleName, int ladderHeight){
+        for (int i = 0; i < 5 - peopleName.length(); i++) {
+            sb.append(" ");
+        }
+    }
+
+    public void appendLadder(List<List<String>> ladders){ // 일단 2중 for문 사용
+        for (List<String> ladder : ladders) {
+            for (String str : ladder) {
+                sb.append(str);
             }
-            System.out.println();
+            sb.append("\n");
         }
     }
 

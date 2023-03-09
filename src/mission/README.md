@@ -38,3 +38,31 @@ label 명 step-2, branch 명 feature2
 3. 안내문 상수 처리.
 4. 메서드 이름 변경.
 5. depth 2단계에서 1단계로 수정하기.
+
+-----
+# 3️⃣ 미션 정리3
+label 명 step-3, branch 명 feature3
+
+## 설계 순서
+1. step-2의 리팩토링 하기 위한 구현 순서를 정한다.
+2. 구현 순서를 정하고 Application의 리팩토링까지 마친 후, Ladder를 리팩토링 하기 위해서 Generic 을 알아본다.
+### 구현 순서
+#### InputView
+##### input 받은 사람 이름을 배열로 만들어 return 하는 메서드 추가
+1. 사람 이름을 묻는 message 상수에 추가
+2. 입력받은 문자가 올바른 문자인지 확인
+   1. 1~5글자 사이가 아니면 다시 입력 받는다.
+   2. 쉼표 기준으로 나눈 문자열의 길이가 0이면 다시 입력 받는다.
+3. 올바른 문자로 된 ArrayList 를 return 한다.
+#### OutputView
+##### 사람 이름 출력을 위한 output 메서드 추가
+1. ArrayList 로 된 사람 이름을 사다리 너비에 맞게 가공한다.
+   - ArrayList (사람 이름)는 parameter로 입력 받는다.
+2. 가공 된 ArrayList를 출력한다.
+#### Application (main())
+##### 사람 이름을 Application에 저장한다.
+- 여기에 저장하는게 맞는지는 잘 모르겠다.
+#### Ladder
+1. 사람 이름에 따른 사다리의 폭 수정
+2. 라인 겹치게 불가 ex) |-|-| 불가, | |-| 가능.
+3. 배열 대신 ArrayList와 Generic 사용
