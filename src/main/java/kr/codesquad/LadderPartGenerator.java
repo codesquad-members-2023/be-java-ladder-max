@@ -27,16 +27,16 @@ public class LadderPartGenerator {
     private List<String> createRandomLadderByLadder(Ladder ladder) {
         List<String> partLine = new ArrayList<>();
         for (int col = 0; col < ladder.calLineColumnSize(); col++) {
-            partLine.add(generatePart(col));
+            partLine.add(generatePart(partLine, col));
         }
         return partLine;
     }
 
-    private String generatePart(int col) {
+    private String generatePart(List<String> partLine, int col) {
         if (isBarColumn(col)) {
             return generateBar();
         }
-        return generateBridge();
+        return generateBridge(partLine, col);
     }
 
     private boolean isBarColumn(int col) {
@@ -47,8 +47,11 @@ public class LadderPartGenerator {
         return BAR;
     }
 
-    private String generateBridge() {
+    private String generateBridge(List<String> partLine, int col) {
         if (!buildOrNotBridge()) {
+            return EMPTY;
+        }
+        if (existBridgeOnLeft(partLine, col)) {
             return EMPTY;
         }
         return BRIDGE;
@@ -56,6 +59,10 @@ public class LadderPartGenerator {
 
     private boolean buildOrNotBridge() {
         return random.nextBoolean();
+    }
+
+    private boolean existBridgeOnLeft(List<String> partLine, int col) {
+        return col >= 3 && partLine.get(col - 2).equals(BRIDGE);
     }
 
 
