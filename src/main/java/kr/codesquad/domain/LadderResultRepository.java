@@ -7,16 +7,19 @@ import java.util.Map;
 public class LadderResultRepository {
 
     private final Map<Integer, Integer> ladderResult = new HashMap<>();
+    private List<String> names;
+    private List<String> resultInfo;
+
 
     public void put(int position, int resultNum) {
         ladderResult.put(position, resultNum);
     }
 
-    public String searchSingleResult(int index, List<String> result) {
-        return result.get(ladderResult.get(index));
+    public String searchSingleResult(String name) {
+        return resultInfo.get(ladderResult.get(names.indexOf(name)));
     }
 
-    public String searchAll(List<String> names, List<String> resultInfo) {
+    public String searchAll() {
         StringBuilder answer = new StringBuilder();
         ladderResult.forEach((key, value) -> answer.append(names.get(key))
             .append(" : ")
@@ -26,4 +29,12 @@ public class LadderResultRepository {
     }
 
 
+    public void save(List<String> names, List<String> resultInfo) {
+        this.names = names;
+        this.resultInfo = resultInfo;
+    }
+
+    public boolean containsName(String name) {
+        return names.contains(name);
+    }
 }

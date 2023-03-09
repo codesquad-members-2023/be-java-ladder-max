@@ -30,31 +30,30 @@ public class LadderGame {
         List<LineInfo> linesStateInfo = linesStateRandomCreator.create(nameSize, ladderHeight);
         String drawnLadder = drawLadder(linesStateInfo);
         printLadder(names, drawnLadder, resultInfo);
-        ladderResultCalculator.calculator(linesStateInfo,ladderResultRepository);
-
-        inputSearchInfo(names, resultInfo);
+        ladderResultRepository.save(names, resultInfo);
+        ladderResultCalculator.calculator(linesStateInfo, ladderResultRepository);
+        inputSearchInfo();
     }
 
-    private void inputSearchInfo(List<String> names, List<String> result) {
-        SearchInfo searchInfo = inputView.inputSearchInfo(names);
+    private void inputSearchInfo() {
+        SearchInfo searchInfo = inputView.inputSearchInfo(ladderResultRepository);
         SearchType searchType = searchInfo.getSearchType();
         switch (searchType) {
             case CLOSE:
                 outputView.printClose();
                 return;
             case ALL: {
-                String searchAll = ladderResultRepository.searchAll(names, result);
+                String searchAll = ladderResultRepository.searchAll();
                 outputView.printAll(searchAll);
                 break;
             }
             case SINGLE: {
-                int index = names.indexOf(searchInfo.getName());
-                String singleResult = ladderResultRepository.searchSingleResult(index, result);
+                String singleResult = ladderResultRepository.searchSingleResult(searchInfo.getName());
                 outputView.printSingleResult(singleResult);
                 break;
             }
         }
-        inputSearchInfo(names, result);
+        inputSearchInfo();
     }
 
     private void printLadder(List<String> names, String drawnLadder, List<String> result) {
