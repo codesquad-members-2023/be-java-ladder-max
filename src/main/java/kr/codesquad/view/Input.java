@@ -22,7 +22,7 @@ public class Input {
     }
 
     public String validationName(String inputData) {
-        if(!inputData.matches(".,.")){
+        if(!inputData.matches(".+,.+")){
             throw new RuntimeException("참여할 사람은 2명 이상 이어야 합니다.");
         }
         return inputData;
