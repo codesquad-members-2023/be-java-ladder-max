@@ -1,7 +1,7 @@
 package kr.codesquad.controller;
 
 import kr.codesquad.domain.Ladder;
-import kr.codesquad.domain.NameValidator;
+import kr.codesquad.domain.PlayerNameValidator;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
@@ -11,12 +11,12 @@ public class InputOutputController {
 
     private OutputView outputHandler;
     private InputView inputHandler;
-    private NameValidator inputParser;
+    private PlayerNameValidator inputParser;
 
     public InputOutputController() {
         this.inputHandler = new InputView();
         this.outputHandler = new OutputView();
-        this.inputParser = new NameValidator();
+        this.inputParser = new PlayerNameValidator();
     }
 
     public ArrayList getNameAndHeightFromUser(){
