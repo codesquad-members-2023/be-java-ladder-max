@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class LadderGameController {
-    InputOutputController manager;
+    InputOutputController controller;
 
     public LadderGameController(){
-        this.manager = new InputOutputController();
+        this.controller = new InputOutputController();
     }
     public void startLadderGame() throws IOException {
         Ladder ladder = getLadder(getNameAndHeightFromManager());
@@ -21,11 +21,11 @@ public class LadderGameController {
         return new Ladder(listForNameAndHeight);
     }
 
-    private ArrayList getNameAndHeightFromManager() throws IOException {
-        return manager.getNameAndHeightFromUser();
+    private ArrayList getNameAndHeightFromManager(){
+        return controller.getNameAndHeightFromUser();
     }
 
     private void printLadder(Ladder ladder){
-        manager.printLadder(ladder);
+        controller.printLadder(ladder);
     }
 }
