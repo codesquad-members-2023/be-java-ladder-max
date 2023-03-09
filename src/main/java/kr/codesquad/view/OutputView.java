@@ -2,8 +2,6 @@ package kr.codesquad.view;
 
 import java.util.List;
 
-import kr.codesquad.domain.Ladder;
-
 public class OutputView {
 
 	public void printErrorMsg(final Exception e) {
@@ -36,7 +34,7 @@ public class OutputView {
 		return String.format("%" + padding + "s%s%" + padding + "s ", "", name, "");
 	}
 
-	public void printFigureOfLadder(final Ladder ladder) {
+	public void printFigureOfLadder(final String ladder) {
 		System.out.print(ladder);
 	}
 
