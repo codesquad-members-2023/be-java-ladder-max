@@ -12,8 +12,8 @@ public class RowLines {
 
     private final List<Boolean> rowLines;
 
-    public RowLines(RandomRowLineGenerator randomRowLineGenerator) {
-        this.rowLines = randomRowLineGenerator.generate();
+    public RowLines(RandomRowLinesGenerator randomRowLinesGenerator) {
+        this.rowLines = randomRowLinesGenerator.generate();
     }
 
     @Override
