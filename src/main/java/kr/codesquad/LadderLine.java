@@ -12,7 +12,7 @@ public enum LadderLine {
     HORIZONTAL("-"){
         @Override
         boolean validate(int index) {
-            return !isOdd(index) && isRand();
+            return !isOdd(index) && isPicked();
         }
     };
     
@@ -28,7 +28,7 @@ public enum LadderLine {
         return index%2 == 0;
     }
 
-    private static boolean isRand(){
+    private static boolean isPicked(){
         Random rand = new Random();
 
         return (rand.nextInt()%5) == 0;
