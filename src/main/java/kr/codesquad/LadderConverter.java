@@ -1,17 +1,13 @@
 package kr.codesquad;
 
+import java.util.List;
+
 public class LadderConverter {
 
-    private final String[][] board;
-
-    public LadderConverter(String[][] board) {
-        this.board = board;
-    }
-
-    public String convertToString() {
+    public String convertToString(List<List<String>> partLines) {
         StringBuilder result = new StringBuilder();
-        for (String[] row : board) {
-            result.append(String.join("", row)).append("\n");
+        for (List<String> line : partLines) {
+            result.append(String.join("", line)).append("\n");
         }
         return result.toString();
     }
