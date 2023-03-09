@@ -17,3 +17,7 @@
 //            System.out.print("|");
 //        }
 //    }
+    private boolean randomBoolean() {
+        Random random = new Random();
+        return random.nextBoolean();
+    }
