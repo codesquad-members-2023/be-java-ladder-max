@@ -14,23 +14,35 @@ public class LadderPartGenerator {
         this.random = random;
     }
 
-    public String[][] generate(Ladder ladder) {
-        String[][] board = ladder.createEmptyLadderBoard();
-        for (int i = 0; i < board.length; i++) {
-            board[i] = createRandomLadderByLadder(ladder);
+    public String[][] generateLadderPart(Ladder ladder) {
+        String[][] partLines = ladder.createEmptyLadderLines();
+        for (int i = 0; i < partLines.length; i++) {
+            partLines[i] = createRandomLadderByLadder(ladder);
         }
-        return board;
+        return partLines;
     }
 
     private String[] createRandomLadderByLadder(Ladder ladder) {
-        String[] ladderColumns = ladder.createEmptyLadderColumns();
-        for (int col = 0; col < ladderColumns.length; col += 2) {
-            ladderColumns[col] = generateBar();
+        String[] partLine = ladder.createEmptyLadderColumns();
+        for (int col = 0; col < partLine.length; col++) {
+            partLine[col] = generatePart(col);
         }
-        for (int col = 1; col < ladderColumns.length; col += 2) {
-            ladderColumns[col] = generateBridge();
+        return partLine;
+    }
+
+    private String generatePart(int col) {
+        if (isBarColumn(col)) {
+            return generateBar();
         }
-        return ladderColumns;
+        return generateBridge();
+    }
+
+    private boolean isBarColumn(int col) {
+        return col % 2 == 0;
+    }
+
+    private String generateBar() {
+        return BAR;
     }
 
     private String generateBridge() {
@@ -44,7 +56,5 @@ public class LadderPartGenerator {
         return random.nextBoolean();
     }
 
-    private String generateBar() {
-        return BAR;
-    }
+
 }
