@@ -13,11 +13,12 @@ public class LadderGame {
     }
 
     public void run() {
-        final List<String> playerNames = inputPlayerNames();
-        final Integer ladderHeight = inputLadderHeight();
+        final Ladder ladder = ladderGenerator.create(inputPlayerNames(), inputLadderHeight());
+
+        screen.printResult(ladder.createOutputLines());
     }
 
-    private Integer inputLadderHeight() {
+    private int inputLadderHeight() {
         Optional<Integer> ladderHeight = Optional.empty();
 
         while (ladderHeight.isEmpty()) {
@@ -36,4 +37,5 @@ public class LadderGame {
 
         return playerNames.get();
     }
+
 }

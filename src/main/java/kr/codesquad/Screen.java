@@ -14,7 +14,13 @@ public class Screen {
     public Optional<Integer> inputLadderHeight() {
         System.out.println("\n최대 사다리 높이는 몇 개인가요?");
 
-        return Optional.of(readInt(scanner.nextLine()));
+        try {
+            return Optional.of(readInt(scanner.nextLine()));
+        } catch (IllegalArgumentException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return Optional.empty();
     }
 
     private int readInt(String input) {
@@ -36,7 +42,13 @@ public class Screen {
     public Optional<List<String>> inputPlayerNames() {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
 
-        return Optional.of(readPlayerNames(scanner.nextLine()));
+        try {
+            return Optional.of(readPlayerNames(scanner.nextLine()));
+        } catch (IllegalArgumentException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return Optional.empty();
     }
 
     private List<String> readPlayerNames(String input) {
