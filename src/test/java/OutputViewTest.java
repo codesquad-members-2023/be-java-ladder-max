@@ -29,8 +29,8 @@ public class OutputViewTest {
         people.add("crong");
         people.add("jk");
         outputView.printPeople(people);
-        assertThat(outputMessage.toString()).isEqualToIgnoringWhitespace("\n실행결과\n\n" + "  pobi  honux crong   jk");
-        // 의문점: 왜 isEqualToIgnoringWhitespace으로 공백을 제거해줘야 할까?
+        assertThat(outputMessage.toString()).isEqualToIgnoringNewLines("실행결과" + "  pobi  honux crong   jk    ");
+        // 의문점: 왜 isEqualToIgnoringNewLines로 개행문자를 제거해줘야 할까? 스트림 문제?
     }
 
 }
