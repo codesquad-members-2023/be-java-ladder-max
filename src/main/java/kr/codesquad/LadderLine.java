@@ -28,7 +28,7 @@ public enum LadderLine {
         return index%2 == 0;
     }
 
-    private static boolean isRand(int index){
+    private static boolean isRand(){
         Random rand = new Random();
 
         return (rand.nextInt()%5) == 0;
