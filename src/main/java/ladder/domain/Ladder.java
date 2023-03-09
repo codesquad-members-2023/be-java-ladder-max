@@ -4,27 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ladder {
-    private final int space;
+    private final int width;
     private final int height;
     private final List<Line> lines;
 
-    public Ladder(int space, int height) {
-        this.space = space;
+    public Ladder(int width, int height) {
+        this.width = width;
         this.height = height;
         this.lines = new ArrayList<>();
     }
 
-    public void makeRandomLadder() {
+    public void makeLadder() {
         for (int i = 0; i < height; i++) {
-            lines.add(new Line().makeRungsRandomly(space));
+            Line line = new Line();
+            line.makeRungs(width);
+            lines.add(line);
         }
     }
 
     public String drawLadder() {
         StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < height; i++) {
-            builder.append(" ".repeat(2));
-            lines.get(i).drawLine(builder);
+        final int SPACE = 2;
+        for (Line line : lines) {
+            builder.append(" ".repeat(SPACE));
+            builder.append(line.drawLine());
             builder.append(System.lineSeparator());
         }
         return builder.toString();
