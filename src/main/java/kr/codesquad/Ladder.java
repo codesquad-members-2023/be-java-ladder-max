@@ -7,7 +7,7 @@ import java.lang.StringBuilder;
 
 public class Ladder {
     private final Random random = new Random();
-    private int width;
+    //    private int width;
     private int height;
     private List<List<String>> ladderBoard;
     private List<String> names;
@@ -33,17 +33,23 @@ public class Ladder {
     private void makeLadder() {
         ladderBoard = new ArrayList<>();
         for (int i = 0; i < height; i++) {
-            ladderBoard.add(new ArrayList<>());
+            ladderBoard.add(new ArrayList<>());     // 세로줄 생성
             ladderBoard.get(i).add("|");
-            forInForInMakeLadder(i);
+            forInForInMakeLadder(i);                // 가로줄 생성
         }
     }
 
     void forInForInMakeLadder(int i) {
-        for (int j = 0; j < names.size()-1; j++) {
-            boolean temp = random.nextBoolean();
-            int x = 0;
-            if (temp) {
+        boolean temp = random.nextBoolean();
+        int x = 0;
+        if (temp) {
+            x = 1;
+        }
+        switchInForInForInMakeLadder(i, x);
+        for (int j = 1; j < names.size() - 1; j++) {
+            temp = random.nextBoolean();
+            x = 0;
+            if (temp && ladderBoard.get(i).get(j - 1) == "     ") {
                 x = 1;
             }
             switchInForInForInMakeLadder(i, x);
@@ -68,15 +74,17 @@ public class Ladder {
         printLadder();
 
     }
+
     private void printNames() {
         StringBuilder sb = new StringBuilder();
-//        sb.append(" ");
+        sb.append(" ");
         for (int i = 0; i < names.size(); i++) {
             sb.append(" ");
-            sb.append(String.format("%5s", names.get(i)));
+            sb.append(String.format("%5s", names.get(i)));      // 가운데정렬 안됨
         }
         System.out.println(sb);
     }
+
     private void printLadder() {
         for (int i = 0; i < height; i++) {
             System.out.print("    ");
@@ -90,6 +98,4 @@ public class Ladder {
             System.out.print(j);
         }
     }
-
-
 }
