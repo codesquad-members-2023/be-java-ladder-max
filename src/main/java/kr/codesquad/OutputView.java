@@ -21,10 +21,13 @@ public class OutputView {
             int row = i / ladder[0].length;
             int column = i % ladder[0].length;
             System.out.print(ladder[row][column]);
+            printLineBreak(ladder, column);
+        }
+    }
 
-            if (column == ladder[0].length - 1) {
-                System.out.println();
-            }
+    private void printLineBreak(String[][] ladder, int column) {
+        if (column == ladder[0].length - 1) {
+            System.out.println();
         }
     }
 }
