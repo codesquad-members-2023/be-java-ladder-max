@@ -21,9 +21,6 @@ public class Ladder {
 
     private void makeNames(ArrayList inputerGetNames) {
         names = inputerGetNames;
-//        for (int i = 0; i < inputerGetNames.split(",").length; i++) {
-//            names.add(inputerGetNames.split(",")[i]);
-//        }
     }
 
 //    private void widthIs() {
@@ -53,8 +50,8 @@ public class Ladder {
         }
     }
 
-    private void ifInForInForInForInMakeLadder (boolean temp, int i, int j, int x) {
-        if (temp && ladderBoard.get(i).get(j - 1) == "     ") {
+    private void ifInForInForInForInMakeLadder(boolean temp, int i, int j, int x) {
+        if (temp && ladderBoard.get(i).get(j - 1).equals("     ")) {
             x = 1;
         }
         reusedSwitchInForInForInMakeLadder(i, x);
@@ -72,6 +69,7 @@ public class Ladder {
                 break;
         }
     }
+
     private void reusedSwitchInForInForInMakeLadder(int i, int x) {
         switch (x) {
             case 1:
@@ -84,6 +82,7 @@ public class Ladder {
                 break;
         }
     }
+
     public void printResult() {
         printNames();
         printLadder();

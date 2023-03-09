@@ -1,7 +1,6 @@
 package kr.codesquad;
 
 import java.util.Scanner;
-import java.util.List;
 import java.util.ArrayList;
 
 public class Inputer {
@@ -33,7 +32,6 @@ public class Inputer {
     }
 
     public int getLadderNum() {
-        int temp = ladderNum;
-        return temp;
+        return ladderNum;
     }
 }
