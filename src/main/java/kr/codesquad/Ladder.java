@@ -30,9 +30,9 @@ public class Ladder {
     private void makeLadder() {
         ladderBoard = new ArrayList<>();
         for (int i = 0; i < height; i++) {
-            ladderBoard.add(new ArrayList<>());     // 세로줄 생성
+            ladderBoard.add(new ArrayList<>());
             ladderBoard.get(i).add("|");
-            forInForInMakeLadder(i);                // 가로줄 생성
+            forInForInMakeLadder(i);
         }
     }
 
