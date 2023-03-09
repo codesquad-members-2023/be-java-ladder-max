@@ -191,3 +191,35 @@ public String getRandomLine(String prevLine) {
     return "     ";
 }
 ```
+## 4단계 - 리팩토링 2
+### 학습 키워드
+- 객체지향생활체조 원칙
+- SOLID
+- 단위 테스트
+- JUnit
+- 패키지 분리
+
+### 객체지향 생활 체조 원칙
+1. 한 메서드에서 들여쓰기는 1단계만
+2. else 예약어를 사용하지 않는다.
+3. 모든 원시값과 문자열을 포장한다.
+4. 한 줄에 점을 하나만 쓴다.
+5. 줄여 쓰지 않는다.
+6. 모든 엔티티를 작게 유지한다.
+7. 3개 이상의 인스턴스 변수를 가진 클래스를 쓰지 않는다.
+8. 일급 컬렉션을 쓴다.
+9. getter/setter/property를 쓰지 않는다.  
+
+[이유와 솔루션으로 정리하는 객체지향 생활체조 원칙](https://hudi.blog/thoughtworks-anthology-object-calisthenics/)
+### SOLID 원칙
+객체지향 프로그래밍의 특성과 장점을 최대한으로 끌어올리기 위해서는 프로그램을 어떻게 설계해야 될까  
+https://velog.io/@haero_kim/SOLID-%EC%9B%90%EC%B9%99-%EC%96%B4%EB%A0%B5%EC%A7%80-%EC%95%8A%EB%8B%A4
+
+### JUnit
+main method 테스트의 문제점을 해결하기 위해 등장한 단위 테스트 도구  
+### JUnit 5
+- @BeforeAll : 테스트 클래스 실행 시 1번만 호출
+- @BeforeEach : 테스트 케이스 시작 전 각각 호출
+- @AfterAll : 테스트 클래스 모든 테스트 케이스 완료 시 1번만 호출
+- @AfterEach : 테스트 케이스 완료 시 각각 호출
+

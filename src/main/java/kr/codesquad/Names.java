@@ -1,9 +1,10 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Names {
-    private List<String> names;
+    private List<String> names = new ArrayList<>();
 
     public Names(String[] nameArr) {
         for(String name : nameArr){
