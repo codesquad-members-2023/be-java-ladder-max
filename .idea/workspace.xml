@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment=".gitignore에 불필요한 파일 추가&#10;&#10;./idea/로 추가했으나 파일이 올라가서 gradle.xml, workspace.xml 로 추가해줬다.">
-      <change afterPath="$PROJECT_DIR$/src/test/java/LadderRowTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/NamesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/Input.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Ladder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderRow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Names.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Names.java" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="라인 유무를 확인하는 테스트와 이름 최대 5자 확인 테스트 코드를 작성했다.&#10;&#10;LadderRow 클래스에 isRowHasLine()메소드를 구현해서 row에 라인이 있는지를 확인할 수 있도록 했다.">
+      <change beforePath="$PROJECT_DIR$/src/test/java/LadderRowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LadderRowTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +122,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678349383547</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="domain 패키지와 view 패키지를 생성하고 해당하는 클래스를 옮겨줬다.&#10;&#10;domain 패키지(핵심 비지니스 로직) : Controller, Ladder, LadderRow, Names&#10;view 패키지(UI 관련 클래스) : Input">
+      <created>1678352444170</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678352444170</updated>
+    </task>
+    <task id="LOCAL-00004" summary="라인 유무를 확인하는 테스트와 이름 최대 5자 확인 테스트 코드를 작성했다.&#10;&#10;LadderRow 클래스에 isRowHasLine()메소드를 구현해서 row에 라인이 있는지를 확인할 수 있도록 했다.">
+      <created>1678352526171</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678352526171</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,7 +157,9 @@
     <MESSAGE value="리드미에 3단계 구현 내용 추가&#10;&#10;Names 클래스 분리, 겹치지 않게 출력하는 방법에 대해 정리했다." />
     <MESSAGE value="LadderRow 클래스를 만들어서 List&lt;List&lt;String&gt;&gt;을 List&lt;LadderRow&gt;로 수정했다.&#10;&#10;사다리의 한 row의 라인 리스트를 가지고 있는 RadderRow 클래스를 만들어서 사다리 라인 전체를 가지는 radder를 List&lt;List&lt;String&gt;&gt; 에서 List&lt;LadderRow&gt;로 수정했다.&#10;main 메소드에서 로직을 실행하지 않게 Controller 클래스를 생성했다.&#10;클래스를 나눔으로써 클래스의 역할이 더 명확해지고 코드도 간단해졌다." />
     <MESSAGE value=".gitignore에 불필요한 파일 추가&#10;&#10;./idea/로 추가했으나 파일이 올라가서 gradle.xml, workspace.xml 로 추가해줬다." />
-    <option name="LAST_COMMIT_MESSAGE" value=".gitignore에 불필요한 파일 추가&#10;&#10;./idea/로 추가했으나 파일이 올라가서 gradle.xml, workspace.xml 로 추가해줬다." />
+    <MESSAGE value="domain 패키지와 view 패키지를 생성하고 해당하는 클래스를 옮겨줬다.&#10;&#10;domain 패키지(핵심 비지니스 로직) : Controller, Ladder, LadderRow, Names&#10;view 패키지(UI 관련 클래스) : Input" />
+    <MESSAGE value="라인 유무를 확인하는 테스트와 이름 최대 5자 확인 테스트 코드를 작성했다.&#10;&#10;LadderRow 클래스에 isRowHasLine()메소드를 구현해서 row에 라인이 있는지를 확인할 수 있도록 했다." />
+    <option name="LAST_COMMIT_MESSAGE" value="라인 유무를 확인하는 테스트와 이름 최대 5자 확인 테스트 코드를 작성했다.&#10;&#10;LadderRow 클래스에 isRowHasLine()메소드를 구현해서 row에 라인이 있는지를 확인할 수 있도록 했다." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
