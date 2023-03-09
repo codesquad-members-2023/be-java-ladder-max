@@ -2,21 +2,21 @@ package kr.codesquad.controller;
 
 import kr.codesquad.domain.InputParser;
 import kr.codesquad.domain.Ladder;
-import kr.codesquad.view.InputHandler;
-import kr.codesquad.view.OutputHandler;
+import kr.codesquad.view.InputView;
+import kr.codesquad.view.OutputView;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class InputOutputController {
 
-    private OutputHandler outputHandler;
-    private InputHandler inputHandler;
+    private OutputView outputHandler;
+    private InputView inputHandler;
     private InputParser inputParser;
 
     public InputOutputController(){
-        this.inputHandler = new InputHandler();
-        this.outputHandler = new OutputHandler();
+        this.inputHandler = new InputView();
+        this.outputHandler = new OutputView();
         this.inputParser = new InputParser();
     }
 
