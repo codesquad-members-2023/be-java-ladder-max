@@ -1,9 +1,11 @@
 package kr.codesquad;
 
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class LadderValidator {
 
+    private static final Pattern NAME_FORMAT = Pattern.compile("[a-zA-Z]{1,5}");
     private static final Pattern NUMBER_FORMAT = Pattern.compile("\\d+");
     private final int minNumberOfPeople;
     private final int minLadderHeight;
@@ -13,26 +15,35 @@ public class LadderValidator {
         this.minLadderHeight = minLadderHeight;
     }
 
-    public void validateNumberOfPeople(String text) {
-        if (!NUMBER_FORMAT.matcher(text).matches()) {
-            throw new InvalidNumberOfPeopleException();
+    public void validateNamesOfPeople(String text, String delimiter) {
+        String[] names = text.split(delimiter);
+        if (!validateNameFormat(names)) {
+            throw new InvalidNameOfPeopleException();
         }
-        if (!moreThanMinNumberOfPeople(text)) {
+        if (!moreThanMinNumberOfPeople(names)) {
             throw new InvalidNumberOfPeopleException();
         }
     }
 
-    private boolean moreThanMinNumberOfPeople(String text) {
-        return Integer.parseInt(text) >= minNumberOfPeople;
+    private boolean validateNameFormat(String[] names) {
+        return Arrays.stream(names).allMatch(name -> NAME_FORMAT.matcher(name).matches());
+    }
+
+    private boolean moreThanMinNumberOfPeople(String[] names) {
+        return names.length >= minNumberOfPeople;
     }
 
     public void validateLadderHeight(String text) {
-        if (!NUMBER_FORMAT.matcher(text).matches()) {
+        if (!validateNumberFormat(text)) {
             throw new InvalidNumberOfMaximumLadderHeightException();
         }
         if (!moreThanMinLadderHeight(text)) {
             throw new InvalidNumberOfMaximumLadderHeightException();
         }
+    }
+
+    private boolean validateNumberFormat(String text) {
+        return NUMBER_FORMAT.matcher(text).matches();
     }
 
     private boolean moreThanMinLadderHeight(String text) {
