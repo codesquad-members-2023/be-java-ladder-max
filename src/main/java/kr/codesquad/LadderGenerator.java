@@ -20,34 +20,12 @@ public class LadderGenerator {
 
     private List<LadderLine> createLadderLines(int playerNumber, int height) {
         final List<LadderLine> ladderLines = new ArrayList<>();
-        int width = playerNumber * 2 - 1;
 
         for (int y = 0; y < height; y++) {
-            ladderLines.add(createLadderLine(width));
+            ladderLines.add(new LadderLine(playerNumber));
         }
 
         return ladderLines;
     }
 
-    private LadderLine createLadderLine(int width) {
-        final List<LadderPart> ladderParts = new ArrayList<>();
-
-        for (int x = 0; x < width; x++) {
-            ladderParts.add(decideLadderPart(ladderParts, x));
-        }
-
-        return new LadderLine(ladderParts);
-    }
-
-    private LadderPart decideLadderPart(List<LadderPart> ladderLine, int x) {
-        if (isExistCrossBarOnLeft(ladderLine, x)) {
-            return LadderPart.EMPTY;
-        }
-
-        return LadderPart.from(x);
-    }
-
-    private boolean isExistCrossBarOnLeft(List<LadderPart> ladderLine, int x) {
-        return x > 2 && ladderLine.get(x - 2) == LadderPart.CROSSBAR;
-    }
 }
