@@ -68,7 +68,15 @@ public class Ladder {
         printLadder();
 
     }
-
+    private void printNames() {
+        StringBuilder sb = new StringBuilder();
+//        sb.append(" ");
+        for (int i = 0; i < names.size(); i++) {
+            sb.append(" ");
+            sb.append(String.format("%5s", names.get(i)));
+        }
+        System.out.println(sb);
+    }
     private void printLadder() {
         for (int i = 0; i < height; i++) {
             System.out.print("    ");
@@ -83,13 +91,5 @@ public class Ladder {
         }
     }
 
-    private void printNames() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(" ");
-        for (int i = 0; i < names.size(); i++) {
-            sb.append(" ");
-            sb.append(String.format("%5s", names.get(i)));
-        }
-        System.out.println(sb);
-    }
+
 }
