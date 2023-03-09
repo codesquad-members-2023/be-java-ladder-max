@@ -100,5 +100,13 @@ public class LadderGenerator {
 준비되지 않은 상태에서 내가 고민했던 과정과 해결 과정을 조리있게 말하는게 쉽지 않았다.  
 다음 리뷰부터는 내가 얘기하고자 하는 내용을 다듬어 간결하게 전달해서 동료들의 입장에서 피드백이 원활할 수 있도록 노력해보자.
 
+## 2단계 - 리팩토링(그룹리뷰 반영)
+### 이중 for문 없이 2차원 배열 출력
+이중 for문 없이 2차원 배열을 다루는 방법을 계속해서 고민했지만 답이 나오지 않아 결국 구글링을 해봤다.   
+하나의 for문으로만 2차원 배열을 출력하는 방법이 있어 **printLadderState()** 메서드에 적용해보았다.
+
+![](https://velog.velcdn.com/images/esgibtnureins/post/8cf5606b-d918-4983-a05f-fe0996de2e11/image.png)
+- 참고자료: https://coozplz.me/2011/11/09/2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4for%EB%AC%B8-%ED%95%98%EB%82%98%EB%A1%9C-%EC%B6%9C%EB%A0%A5/
+
 
 ## 3단계 - 사다리 모양 개선

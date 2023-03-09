@@ -13,6 +13,10 @@ public class OutputView {
     }
 
     public void printLadderState(String[][] ladder) {
+        extracted(ladder);
+    }
+
+    private void extracted(String[][] ladder) {
         for (int i = 0; i < ladder.length * ladder[0].length; i++) {
             int row = i / ladder[0].length;
             int column = i % ladder[0].length;
