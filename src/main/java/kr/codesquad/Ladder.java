@@ -6,7 +6,7 @@ import java.util.Random;
 import java.lang.StringBuilder;
 
 public class Ladder {
-    private Random random = new Random();   // Random은 자바 라이브러리인데 기본적으로 final이 되있지 않을까
+    private Random random = new Random();
     private int width;
     private int height;
     private List<List<String>> ladderBoard;
@@ -21,7 +21,7 @@ public class Ladder {
 
     private void makeNames(String inputerGetNames) {
         names = new ArrayList<>();
-        for (int i = 0; i < inputerGetNames.split(",").length; i++) {       //  Collection.addAll
+        for (int i = 0; i < inputerGetNames.split(",").length; i++) {
             names.add(inputerGetNames.split(",")[i]);
         }
     }
@@ -63,13 +63,10 @@ public class Ladder {
             ladderBoard.get(i).add("     ");
         }
     }
-
     private void smallIfSentence2InFunctionForMakeLadder2 ( int i, int j){
         if (j % 2 == 1 && ladderBoard.get(i).get(j - 1) == "     " && !random.nextBoolean()) {
-            ladderBoard.get(i).add("-----");
-        }
+            ladderBoard.get(i).add("-----");        }
     }
-
     private void smallIfSentence3InFunctionForMakeLadder2 ( int i, int j){
         if (j % 2 == 1 && ladderBoard.get(i).get(j - 1) == "-----" && !random.nextBoolean()) {
             ladderBoard.get(i).add("-----");
@@ -88,15 +85,17 @@ public class Ladder {
             System.out.print("\r\n");
         }
     }
+
     private void forLoopInPrintLadder ( int i){
         for (String j : ladderBoard.get(i)) {
             System.out.print(j);
         }
     }
+
     private void printNames () {
         StringBuilder sb = new StringBuilder();
         sb.append(" ");
-        for (int i = 0; i < names.size(); i++) {         // enhanced for로 바꾸면 뭐가 좋을까
+        for (int i = 0; i < names.size(); i++) {
             sb.append(" ");
             sb.append(String.format("%5s", names.get(i)));
         }
