@@ -5,16 +5,17 @@ import java.util.List;
 
 public class Ladder {
 
+    private int width;
     private int height;
-    private List<List<Character>> radder = new ArrayList<>();
-    private List<String> names = new ArrayList<>();
+    private List<List<String>> radder = new ArrayList<>();
+
+    private Names names;
 
     public Ladder(String nameData, int height){
         String[] nameArr = nameData.split(",");
-        for(String name : nameArr){
-            names.add(name);
-        }
+        this.width = nameArr.length-1;
         this.height = height;
+        names = new Names(nameArr);
     }
 
     public void createRadder() {
@@ -23,25 +24,33 @@ public class Ladder {
         }
     }
 
-    public List<Character> createRow() {
-        int width = names.size();
-        List<Character> row = new ArrayList<>();
-        for(int i=0; i<width-1; i++){
-            row.add(getRandomLine());
+    public List<String> createRow() {
+        List<String> row = new ArrayList<>();
+        String prevLine = "";
+        for(int i=0; i<width; i++){
+            String line = getRandomLine(prevLine);
+            row.add(line);
+            prevLine = line;
         }
         return row;
     }
 
-    public char getRandomLine() {
+    public String getRandomLine(String prevLine) {
+        if(prevLine.equals("-----")){
+            return "     ";
+        }
         int random = (int)(Math.random()*2);
         if(random == 1) {
-            return '-';
+            return "-----";
         }
-        return ' ';
+        return "     ";
     }
 
     public void printRadder() {
         StringBuilder sb = new StringBuilder();
+        // 이름 row 생성
+        sb.append(names.makeNameRow() + "\n");
+        // 사다리 row 생성
         for(int i=0; i<height; i++){
             sb.append(makeRowString(radder.get(i)));
             sb.append("\n");
@@ -49,8 +58,8 @@ public class Ladder {
         System.out.println(sb);
     }
 
-    public String makeRowString(List<Character> row) {
-        String oneRow = "|";
+    public String makeRowString(List<String> row) {
+        String oneRow = "  |";
         for(int i=0; i<row.size(); i++){
             oneRow += row.get(i) + "|";
         }

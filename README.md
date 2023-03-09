@@ -171,3 +171,23 @@ https://nesoy.github.io/articles/2018-06/Java-equals-hashcode
 1. 배열을 ArrayList로 구현
 2. 참여하는 사람의 이름을 입력받고 사다리 위에 출력해준다.(출력 시 칸을 잘 맞춰서 출력)
 3. 사다리의 라인은 하나의 행에 2개가 겹치지 않도록 출력한다.
+
+### Names 클래스 작성
+- 입력받은 이름을 저장한다.
+- 이름의 길이에 따라서 앞뒤에 붙이는 공백의 개수를 조절해서 위치에 맞게 출력할 수 있도록 했다.
+- 이름 목록을 클래스로 분리하면서 사다리의 폭을 결정하는 width를 Ladder 클래스에 추가했다.
+### 겹치지 않게 출력하기
+- 이전 line을 기억하고 getRandomLine()에 파라미터로 넘겨준다.
+```java
+public String getRandomLine(String prevLine) {
+    // 이전 라인이 "-----" 이면 "     " 으로 리턴한다.
+    if(prevLine.equals("-----")){
+        return "     ";
+    }
+    int random = (int)(Math.random()*2);
+    if(random == 1) {
+        return "-----";
+    }
+    return "     ";
+}
+```
