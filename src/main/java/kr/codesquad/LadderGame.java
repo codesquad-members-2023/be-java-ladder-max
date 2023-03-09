@@ -1,5 +1,7 @@
 package kr.codesquad;
 
+import kr.codesquad.controller.LadderGameController;
+
 import java.io.IOException;
 
 public class LadderGame {

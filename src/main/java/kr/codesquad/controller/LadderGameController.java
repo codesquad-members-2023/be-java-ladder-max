@@ -1,13 +1,18 @@
-package kr.codesquad;
+package kr.codesquad.controller;
 
-import kr.codesquad.util.InputOutputManager;
+import kr.codesquad.controller.InputOutputController;
+import kr.codesquad.domain.Ladder;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class LadderGameController {
-    InputOutputManager manager = new InputOutputManager();
-    void startLadderGame() throws IOException {
+    InputOutputController manager;
+
+    public LadderGameController(){
+        this.manager = new InputOutputController();
+    }
+    public void startLadderGame() throws IOException {
         Ladder ladder = getLadder(getNameAndHeightFromManager());
         printLadder(ladder);
     }
