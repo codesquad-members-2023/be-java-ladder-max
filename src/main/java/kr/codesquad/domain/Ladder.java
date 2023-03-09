@@ -17,6 +17,12 @@ public class Ladder {
     private int length;
     private int width;
 
+    private Line line;
+
+    public Ladder(Line line) {
+        this.line = line;
+    }
+
     public List<List<String>> makeLadder(List<String> users, int m) {
         init(users, m);
         makeName2Ladder(users);
@@ -60,7 +66,7 @@ public class Ladder {
     }
 
     private String fillLadderRandomOrStick(String before) {
-        if (before.equals(LadderLine.stick.getValue())) {
+        if (line.isLine(before)) {
             return LadderLine.blank.getValue();
         }
         return LadderLine.takeRandom();
