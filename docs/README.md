@@ -6,12 +6,12 @@
 - 객체 간의 협력 중점으로 고민해보기
 
 ## 학습 내용
-| 날짜       | 학습키워드          | 세부내용                               |
-|----------|----------------|------------------------------------|
-| 03.06(월) | `git`          | - 브랜치 생성 및 포크<br/>- CLI 명령어        |
-| 03.07(화) | `git`<br/>`OOP` | - PR<br/>- 오브젝트 들춰보기               |
-| 03.08(수) | `enum`<br/>`OOP` | - enum 활용 사례<br/>- 오브젝트 1장 정독 후 정리 |
-| 03.09(목) |                |                                    |
+| 날짜          | 학습키워드          | 세부내용                               |
+|-------------|----------------|------------------------------------|
+| 23.03.06(월) | `git`          | - 브랜치 생성 및 포크<br/>- CLI 명령어        |
+| 23.03.07(화) | `git`<br/>`OOP` | - PR<br/>- 오브젝트 들춰보기               |
+| 23.03.08(수) | `enum`<br/>`OOP` | - enum 활용 사례<br/>- 오브젝트 1장 정독 후 정리 |
+| 23.03.09(목) |                |                                    |
 
 
 ---
@@ -84,7 +84,7 @@ public class LadderGenerator {
 
 ## To-do
 - [x] 학습계획 작성
-- [ ] 그룹리뷰 내용을 바탕으로 코드 개선하기 // 2단계
+- [x] 그룹리뷰 내용을 바탕으로 코드 개선하기 // 2단계
 - [ ] `자바 문자열` 학습 후 정리
 - [ ] `리스트와 제네릭` 학습 후 정리
 
@@ -103,10 +103,77 @@ public class LadderGenerator {
 ## 2단계 - 리팩토링(그룹리뷰 반영)
 ### 이중 for문 없이 2차원 배열 출력
 이중 for문 없이 2차원 배열을 다루는 방법을 계속해서 고민했지만 답이 나오지 않아 결국 구글링을 해봤다.   
-하나의 for문으로만 2차원 배열을 출력하는 방법이 있어 **printLadderState()** 메서드에 적용해보았다.
+하나의 for문으로만 2차원 배열을 출력하는 방법이 있어 **printLadderState()** 메서드에 적용해보았다.   
+다른 방법을 좀 더 고민해봐야겠다..
 
 ![](https://velog.velcdn.com/images/esgibtnureins/post/8cf5606b-d918-4983-a05f-fe0996de2e11/image.png)
 - 참고자료: https://coozplz.me/2011/11/09/2%EC%B0%A8%EC%9B%90-%EB%B0%B0%EC%97%B4for%EB%AC%B8-%ED%95%98%EB%82%98%EB%A1%9C-%EC%B6%9C%EB%A0%A5/
 
+### 작업 결과
+이중 for문을 메서드로 분리해보려고 했지만 쉽지 않았다.   
+인터페이스를 이용하면 좋을 것 같은데.. 인터페이스에 대해 잘 모르기도 하고   
+시간이 많이 걸릴 것 같아 여기서 마무리하기로 했다.
 
+```java
+package kr.codesquad;
+
+import java.util.Random;
+
+public class LadderGenerator {
+    private int maxHeight;
+    private int maxWidth;
+    private int rowIndex;
+    private int columnIndex;
+    private String[][] ladder;
+
+    public LadderGenerator(int joinMembers, int maxHeight) {
+        this.maxHeight = maxHeight;
+        maxWidth = calculateMaxWidth(joinMembers);
+    }
+
+    public String[][] generateLadder() {
+        ladder = new String[maxHeight][maxWidth];
+        generateLadderArray();
+        generateBorderLine();
+        generateRandomLine();
+        return ladder;
+    }
+
+    private int calculateMaxWidth(int joinMembers) {
+        int maxWidth = joinMembers * 2 - 1;
+        return maxWidth;
+    }
+
+    private void generateLadderArray() {
+        for (rowIndex = 0; rowIndex < ladder.length; rowIndex++) {
+            for (columnIndex = 0; columnIndex < ladder[rowIndex].length; columnIndex++) {
+                ladder[rowIndex][columnIndex] = " ";
+            }
+        }
+    }
+
+    private void generateBorderLine() {
+        for (rowIndex = 0; rowIndex < ladder.length; rowIndex++) {
+            for (columnIndex = 0; columnIndex < ladder[rowIndex].length; columnIndex++) {
+                if (columnIndex % 2 == 0) {
+                    ladder[rowIndex][columnIndex] = "|";
+                }
+            }
+        }
+    }
+
+    private void generateRandomLine() {
+        Random random = new Random();
+        for (rowIndex = 0; rowIndex < ladder.length; rowIndex++) {
+            for (columnIndex = 0; columnIndex < ladder[rowIndex].length; columnIndex++) {
+                if (columnIndex % 2 != 0 && random.nextBoolean()) {
+                    ladder[rowIndex][columnIndex] = "-";
+                }
+            }
+        }
+    }
+}
+```
+---
+# 23.03.09(목)
 ## 3단계 - 사다리 모양 개선
