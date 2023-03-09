@@ -15,26 +15,37 @@ class PlayerNameValidatorTest {
 
     PlayerValidator playerValidator = new PlayerValidator();
     InputView inputHandler = new InputView();
+    ArrayList list = new ArrayList<>();
+
     @Test
     @DisplayName("모든 playerName이 5글자 이하일떄 test")
-    void parseAndValidateSuccessTest(){
-        ArrayList list = new ArrayList<>();
+    void parseAndValidateSuccessTest() {
         String input = "Tom,Dean,crong,boy";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertTrue(playerValidator.playerValidator(list,inputHandler));
+        assertTrue(playerValidator.playerValidator(list, inputHandler));
     }
 
     @Test
     @DisplayName("5글자 이상인 playerName이 존재할때 test")
-    void parseAndValidateFailTest(){
-        ArrayList list = new ArrayList<>();
+    void parseAndValidateFailTest() {
         String input = "Tom,Dean,crong,charlie";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertFalse(playerValidator.playerValidator(list,inputHandler));
+        assertFalse(playerValidator.playerValidator(list, inputHandler));
     }
+
+    @Test
+    @DisplayName("player가 1명 이하일때 test")
+    void validatePlayerNumFailTest() {
+        String input = "Tom";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        assertFalse(playerValidator.playerValidator(list, inputHandler));
+    }
+
 
 }
