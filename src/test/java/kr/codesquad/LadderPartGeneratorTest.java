@@ -83,7 +83,6 @@ class LadderPartGeneratorTest {
         List<List<String>> expected = new ArrayList<>();
         expected.add(new ArrayList<>(List.of("|", "-----", "|", "     ", "|")));
         Assertions.assertThat(actual).isEqualTo(expected);
-
     }
 
 }
