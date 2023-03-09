@@ -12,18 +12,18 @@ public class Ladder {
     private List<List<String>> ladderBoard;
     private List<String> names;
 
-    public void init(int inputerGetLadderNum, String inputerGetNames) {
+    public void init(int inputerGetLadderNum, ArrayList inputerGetNames) {
         makeNames(inputerGetNames);
 //        widthIs();
         height = inputerGetLadderNum;
         makeLadder();
     }
 
-    private void makeNames(String inputerGetNames) {
-        names = new ArrayList<>();
-        for (int i = 0; i < inputerGetNames.split(",").length; i++) {
-            names.add(inputerGetNames.split(",")[i]);
-        }
+    private void makeNames(ArrayList inputerGetNames) {
+        names = inputerGetNames;
+//        for (int i = 0; i < inputerGetNames.split(",").length; i++) {
+//            names.add(inputerGetNames.split(",")[i]);
+//        }
     }
 
 //    private void widthIs() {
@@ -39,7 +39,7 @@ public class Ladder {
         }
     }
 
-    void forInForInMakeLadder(int i) {
+    private void forInForInMakeLadder(int i) {
         boolean temp = random.nextBoolean();
         int x = 0;
         if (temp) {
@@ -53,14 +53,14 @@ public class Ladder {
         }
     }
 
-    void ifInForInForInForInMakeLadder (boolean temp, int i, int j, int x) {
+    private void ifInForInForInForInMakeLadder (boolean temp, int i, int j, int x) {
         if (temp && ladderBoard.get(i).get(j - 1) == "     ") {
             x = 1;
         }
         reusedSwitchInForInForInMakeLadder(i, x);
     }
 
-    void switchInForInForInMakeLadder(int i, int x) {
+    private void switchInForInForInMakeLadder(int i, int x) {
         switch (x) {
             case 1:
                 ladderBoard.get(i).add("-----");
@@ -72,7 +72,7 @@ public class Ladder {
                 break;
         }
     }
-    void reusedSwitchInForInForInMakeLadder(int i, int x) {
+    private void reusedSwitchInForInForInMakeLadder(int i, int x) {
         switch (x) {
             case 1:
                 ladderBoard.get(i).add("-----");
