@@ -1,7 +1,8 @@
 package kr.codesquad.application;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import kr.codesquad.domain.Height;
 import kr.codesquad.domain.Ladder;
@@ -24,7 +25,8 @@ public class LadderGame {
 
 			final Ladder ladder = createLadder(participants.getParticipants().size(), height.getValue());
 			printStateOfLadder(participants.getParticipants(), results.getResults(), ladder);
-			List<Integer> resultPos = rideLadder(ladder, participants);
+
+			rideLadderExecutionResult(rideLadder(ladder, participants, results));
 		} catch (final IllegalArgumentException e) {
 			outputView.printErrorMsg(e);
 			startLadderGame();
@@ -59,11 +61,31 @@ public class LadderGame {
 		outputView.printResultsOfGame(results);
 	}
 
-	private List<Integer> rideLadder(final Ladder ladder, final Participants participants) {
-		List<Integer> resultPos = new ArrayList<>();
+	private Map<String, String> rideLadder(final Ladder ladder, final Participants participants,
+		final Results results) {
+		Map<String, String> executionResult = new HashMap<>();
 		for (String participant : participants.getParticipants()) {
-			resultPos.add(ladder.ride(participants.findPosOfParticipant(participant)));
+			int rideResultPos = ladder.ride(participants.findPosOfParticipant(participant));
+			executionResult.put(participant, results.getResultOfPos(rideResultPos));
 		}
-		return resultPos;
+		storeTotalResultOfGame(executionResult);
+		return executionResult;
+	}
+
+	private void storeTotalResultOfGame(final Map<String, String> executionResult) {
+		StringBuilder totalResultBuilder = new StringBuilder();
+		for (Map.Entry<String, String> entry : executionResult.entrySet()) {
+			totalResultBuilder.append(entry.getKey()).append(" : ").append(entry.getValue()).append("\n");
+		}
+		executionResult.put("all", totalResultBuilder.toString());
+	}
+
+	private void rideLadderExecutionResult(final Map<String, String> executionResult) {
+		String participant = null;
+		while (!(participant = inputView.getPersonOfExecutionResult()).equals("춘식이")) {
+			String result = executionResult.get(participant);
+			outputView.printResult(result);
+		}
+		outputView.printGameOverMsg();
 	}
 }

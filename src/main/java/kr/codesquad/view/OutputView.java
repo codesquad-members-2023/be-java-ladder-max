@@ -39,4 +39,12 @@ public class OutputView {
 	public void printFigureOfLadder(final Ladder ladder) {
 		System.out.print(ladder);
 	}
+
+	public void printResult(final String executionResult) {
+		System.out.println(String.format("\n실행결과\n%s", executionResult));
+	}
+
+	public void printGameOverMsg() {
+		System.out.println("\n게임을 종료합니다.");
+	}
 }

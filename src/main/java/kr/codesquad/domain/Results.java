@@ -21,4 +21,8 @@ public class Results {
 	public List<String> getResults() {
 		return resultContainer;
 	}
+
+	public String getResultOfPos(final int pos) {
+		return resultContainer.get(pos);
+	}
 }
