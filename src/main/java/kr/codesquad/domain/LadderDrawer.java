@@ -4,7 +4,6 @@ import java.util.List;
 
 public class LadderDrawer {
 
-    static final String FAIL_DELIMITER = "     ";
     static final String PEOPLE_DELIMITER = "|";
     static final String NEXT_LINE = "\n";
     static final String PREFIX = "   ";
