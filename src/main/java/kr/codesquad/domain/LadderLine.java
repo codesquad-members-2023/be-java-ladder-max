@@ -2,6 +2,7 @@ package kr.codesquad.domain;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.stream.IntStream;
 
 public class LadderLine {
 
@@ -20,11 +21,10 @@ public class LadderLine {
     }
 
     private void buildLadderLine() {
-        for (int i = 0; i < lineWidth; i++) {
-            points.add(hasRung() ? true : false);
-        }
+        IntStream.range(0, lineWidth)
+                .mapToObj(i -> hasRung())
+                .forEach(points::add);
     }
-
 
     private boolean hasRung() {
         if (points.isEmpty()) {
@@ -34,15 +34,12 @@ public class LadderLine {
     }
 
     void pointsValidate() {
-        for (int i = 0; i < points.size() - 1; i++) {
-            throwException(i);
-        }
-    }
-
-    private void throwException(int i) {
-        if (points.get(i) && points.get(i + 1)) {
+        IntStream.range(0, points.size()-1)
+                .filter(i ->points.get(i) && points.get(i + 1))
+                .findFirst()
+                .ifPresent(i -> {
             throw new IllegalStateException("연속적인 true 존재");
-        }
+        });
     }
 
     static void drawLine(ArrayList<LadderLine> ladder, StringBuilder sb) {
@@ -54,8 +51,8 @@ public class LadderLine {
     }
 
     private static void drawRung(StringBuilder sb, LadderLine line) {
-        for (boolean hasRung : line.points) {
-            sb.append(hasRung ? "-----|" : "     |");
+        for (boolean boolInLine : line.points) {
+            sb.append(boolInLine ? "-----|" : "     |");
         }
     }
 }
