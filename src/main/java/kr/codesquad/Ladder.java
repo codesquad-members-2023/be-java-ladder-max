@@ -7,8 +7,8 @@ public class Ladder {
     private final LadderLine[][] ladder;
 
     public Ladder(int n, int m) {
-        ROW_SIZE = n * 2 + 1;
-        COLUMN_SIZE = m;
+        ROW_SIZE = m;
+        COLUMN_SIZE = n * 2 - 1;
         ladder = new LadderLine[ROW_SIZE][COLUMN_SIZE];
         init();
     }
