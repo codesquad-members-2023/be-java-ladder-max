@@ -49,11 +49,15 @@ public class Ladder {
         for (int j = 1; j < names.size() - 1; j++) {
             temp = random.nextBoolean();
             x = 0;
-            if (temp && ladderBoard.get(i).get(j - 1) == "     ") {
-                x = 1;
-            }
-            switchInForInForInMakeLadder(i, x);
+            ifInForInForInForInMakeLadder(temp, i, j, x);
         }
+    }
+
+    void ifInForInForInForInMakeLadder (boolean temp, int i, int j, int x) {
+        if (temp && ladderBoard.get(i).get(j - 1) == "     ") {
+            x = 1;
+        }
+        reusedSwitchInForInForInMakeLadder(i, x);
     }
 
     void switchInForInForInMakeLadder(int i, int x) {
@@ -68,7 +72,18 @@ public class Ladder {
                 break;
         }
     }
-
+    void reusedSwitchInForInForInMakeLadder(int i, int x) {
+        switch (x) {
+            case 1:
+                ladderBoard.get(i).add("-----");
+                ladderBoard.get(i).add("|");
+                break;
+            case 0:
+                ladderBoard.get(i).add("     ");
+                ladderBoard.get(i).add("|");
+                break;
+        }
+    }
     public void printResult() {
         printNames();
         printLadder();
