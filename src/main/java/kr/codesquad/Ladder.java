@@ -35,18 +35,22 @@ public class Ladder {
     private void makeLadderColumn(int peoleNumber, List<String> ladderRow) {
         for (int column = 0; column < 2 * peoleNumber - 1; column++) {
             makeBasicPeopleLine(ladderRow, column);
+            verifyLadderLine(ladderRow, column);
+        }
+    }
+
+    private void verifyLadderLine(List<String> ladderRow, int column) {
+        if(!ladderRow.contains("-----")){
             makeRandomLadderLine(ladderRow, column);
         }
     }
 
     private void makeBasicPeopleLine(List<String> ladderRow, int column) {
-            if (column % 2 == 0) {
-                ladderRow.add("|");
-                return;
-            }
-                ladderRow.add("     ");
-
-
+        if (column % 2 == 0) {
+            ladderRow.add("|");
+            return;
+        }
+        ladderRow.add("     ");
 
 
 //        if (column % 2 == 0) {
@@ -67,7 +71,7 @@ public class Ladder {
     private void makeRandomLadderLine(List<String> ladderRow, int column) {
         Random random = new Random();
         if (column % 2 != 0 && random.nextBoolean()) {
-                ladderRow.set(column, "-----");
+            ladderRow.set(column, "-----");
         }
     }
 
