@@ -6,9 +6,9 @@ public class Ladder {
     final int COLUMN_SIZE;
     private final LadderLine[][] ladder;
 
-    public Ladder(int n, int m) {
-        ROW_SIZE = m;
-        COLUMN_SIZE = n * 2 - 1;
+    public Ladder(int numberOfPlayer, int ladderHeight) {
+        ROW_SIZE = ladderHeight;
+        COLUMN_SIZE = numberOfPlayer * 2 - 1;
         ladder = new LadderLine[ROW_SIZE][COLUMN_SIZE];
         init();
     }
