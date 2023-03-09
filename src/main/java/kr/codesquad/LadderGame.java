@@ -1,15 +1,39 @@
 package kr.codesquad;
 
-public class LadderGame {
-    private final Ladder ladder;
+import java.util.List;
+import java.util.Optional;
 
-    public LadderGame(Ladder ladder) {
-        this.ladder = ladder;
+public class LadderGame {
+    private final LadderGenerator ladderGenerator;
+    private final Screen screen;
+
+    public LadderGame(LadderGenerator ladderGenerator, Screen screen) {
+        this.ladderGenerator = ladderGenerator;
+        this.screen = screen;
     }
 
     public void run() {
-        Screen screen = new Screen();
+        final List<String> playerNames = inputPlayerNames();
+        final Integer ladderHeight = inputLadderHeight();
+    }
 
-        screen.printResult(ladder.createOutputLines());
+    private Integer inputLadderHeight() {
+        Optional<Integer> ladderHeight = Optional.empty();
+
+        while (ladderHeight.isEmpty()) {
+            ladderHeight = screen.inputLadderHeight();
+        }
+
+        return ladderHeight.get();
+    }
+
+    private List<String> inputPlayerNames() {
+        Optional<List<String>> playerNames = Optional.empty();
+
+        while (playerNames.isEmpty()) {
+            playerNames = screen.inputPlayerNames();
+        }
+
+        return playerNames.get();
     }
 }

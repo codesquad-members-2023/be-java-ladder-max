@@ -11,77 +11,50 @@ import java.util.stream.Collectors;
 public class Screen {
     private final Scanner scanner = new Scanner(System.in);
 
-    public int inputPlayerNumber() {
-        Optional<Integer> playerNumber = Optional.empty();
+    public Optional<Integer> inputLadderHeight() {
+        System.out.println("\n최대 사다리 높이는 몇 개인가요?");
 
-        while (playerNumber.isEmpty()) {
-            System.out.println("참여할 사람은 몇 명인가요?");
-            playerNumber = readInt();
-        }
-
-        return playerNumber.get();
+        return Optional.of(readInt(scanner.nextLine()));
     }
 
-    public int inputLadderHeight() {
-        Optional<Integer> ladderHeight = Optional.empty();
-
-        while (ladderHeight.isEmpty()) {
-            System.out.println("\n최대 사다리 높이는 몇 개인가요?");
-            ladderHeight = readInt();
-        }
-
-        return ladderHeight.get();
-    }
-
-    private Optional<Integer> readInt() {
+    private int readInt(String input) {
         try {
-            final int input = Integer.parseInt(scanner.nextLine().trim());
-            return toOptionalPositiveNumber(input);
+            return toPositiveNumber(Integer.parseInt(input.trim()));
         } catch (NumberFormatException ex) {
-            System.out.println("숫자를 입력해주세요.");
-        } catch (IllegalArgumentException ex) {
-            System.out.println(ex.getMessage());
+            throw new IllegalArgumentException("숫자를 입력해주세요.");
         }
-
-        return Optional.empty();
     }
 
-    private static Optional<Integer> toOptionalPositiveNumber(int number) {
+    private int toPositiveNumber(int number) {
         if (number < 1) {
             throw new IllegalArgumentException("0보다 큰 숫자를 입력해 주세요.");
         }
 
-        return Optional.of(number);
+        return number;
     }
 
-    public List<String> inputPlayerNames() {
-        Optional<List<String>> playerNames = Optional.empty();
-        while (playerNames.isEmpty()) {
-            System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
-            playerNames = readPlayerNames();
-        }
+    public Optional<List<String>> inputPlayerNames() {
+        System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
 
-        return playerNames.get();
+        return Optional.of(readPlayerNames(scanner.nextLine()));
     }
 
-    private Optional<List<String>> readPlayerNames() {
-        try {
-            return Optional.of(toValidPlayerNames(scanner.nextLine().split(",")));
-        } catch (IllegalArgumentException ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        return Optional.empty();
+    private List<String> readPlayerNames(String input) {
+        return toPlayerNames(input.split(","));
     }
 
-    private List<String> toValidPlayerNames(String[] inputNames) {
+    private List<String> toPlayerNames(String[] inputNames) {
         final Set<String> validPlayerNames = parseValidNames(inputNames);
 
-        if (inputNames.length != validPlayerNames.size()) {
+        if (hasDuplicateName(inputNames, validPlayerNames)) {
             throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
 
         return new ArrayList<>(validPlayerNames);
+    }
+
+    private boolean hasDuplicateName(String[] inputNames, Set<String> validPlayerNames) {
+        return inputNames.length != validPlayerNames.size();
     }
 
     private Set<String> parseValidNames(String[] names) {
