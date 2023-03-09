@@ -11,10 +11,10 @@
    - 출력을 할 때 한 번에 모든 사람을 출력해줘야 한다?
    - 출력을 어떻게 해줄 수 있을까? 2단계까지 했듯이 배열
 - [X]  사람 이름은 쉼표(,)를 기준으로 구분한다.
-   - Input을 받을 때 매개로 StringTokenizer? 내지는 String 배열? 내지는 StringBuilder? StringBuffer?
+`   - Input을 받을 때 매개로 StringTokenizer? 내지는 String 배열? 내지는 StringBuilder? StringBuffer?
    - StringBuilder와 StringBuffer의 차이를 나는 잘 알고 있는가?
       - StringBuilder는 append 메서드로 받아서 출력할 때 한 번에 뽑아서 쓰곤했다.
-      - StringBuffer는 잘 모름(사용해본적이 적고 익숙하지도 않다.)
+      - StringBuffer는 잘 모름(사용해본적이 적고 익숙하지도 않다.)`
 - [ ]  사람 이름을 5자 기준으로 출력하기 때문에 사다리 폭도 넓어져야 한다.사람 이름을 5자 기준으로 출력하기 때문에 사다리 폭도 넓어져야 한다.
    - 사다리 폭이 넓어져야 한다는 말의 의미?
       - 사다리 열 사이의 간격이 “(띄어쓰기 5개)” 또는 “——-”(”-”기호 5개)와 같은 형식이란 말인가?
