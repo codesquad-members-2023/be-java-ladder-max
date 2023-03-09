@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class InputView {
+    public static final String DELIMITER = ",";
     public final Scanner SCANNER = new Scanner(System.in);
     private static final String NAME_FORMAT = "^[a-z]+(,[a-z]+)+$";
     private static final String INVALID_INPUT_NAMEFORMAT = "유효하지 않은 형식입니다.";
@@ -19,8 +20,8 @@ public class InputView {
     public List<String> inputPeopleName() {
         System.out.println(INPUT_PEOPLE_NAME);
         String input = SCANNER.nextLine();
-            if (validateNameFormat(input)) {
-            inputPeopleList =  Arrays.stream(input.split(",")).collect(Collectors.toList());
+            if (validateNameFormat(input) && validateNameSize(input)) {
+            inputPeopleList =  Arrays.stream(input.split(DELIMITER)).collect(Collectors.toList());
             return inputPeopleList;
             }
         System.out.println(INVALID_INPUT_NAMEFORMAT);
@@ -37,6 +38,16 @@ public class InputView {
 
     private boolean validateNameFormat(String input) {
         return Pattern.matches(NAME_FORMAT, input);
+    }
+
+    private boolean validateNameSize(String input) {
+        String []nameArr = input.split(DELIMITER);
+        for (String s : nameArr) {
+            if(s.length()>5){
+                return false;
+            }
+        }
+        return true;
     }
 
     public int inputLadderHeight() {
