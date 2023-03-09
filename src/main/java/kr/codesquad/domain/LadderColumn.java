@@ -8,7 +8,6 @@ public class LadderColumn {
     private final InputView inputView = new InputView();
 
     LadderColumn(){
-        inputView.inputPeopleName();
     }
 
     public void makeLadderColumn(){
