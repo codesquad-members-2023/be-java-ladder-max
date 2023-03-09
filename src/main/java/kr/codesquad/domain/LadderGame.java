@@ -30,7 +30,7 @@ public class LadderGame {
         List<LineInfo> linesStateInfo = linesStateRandomCreator.create(nameSize, ladderHeight);
         String drawnLadder = drawLadder(linesStateInfo);
         printLadder(names, drawnLadder, resultInfo);
-        ladderResultRepository.save(names, resultInfo);
+        ladderResultRepository.saveNamesAndResultINFO(names, resultInfo);
         ladderResultCalculator.calculator(linesStateInfo, ladderResultRepository);
         inputSearchInfo();
     }

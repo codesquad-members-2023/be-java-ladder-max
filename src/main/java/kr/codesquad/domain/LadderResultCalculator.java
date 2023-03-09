@@ -8,15 +8,15 @@ public class LadderResultCalculator {
         LadderResultRepository ladderResultRepository) {
         int columnLength = linesStateInfo.get(0).size();
         for (int j = 0; j < columnLength + 1; j++) {
-            moveAndSaveResult(ladderResultRepository, linesStateInfo, columnLength, j);
+            moveAndSaveResult(ladderResultRepository, linesStateInfo, j);
         }
     }
 
     private void moveAndSaveResult(LadderResultRepository ladderResultRepository, List<LineInfo> linesStateInfo,
-        int columnLength, int position) {
+        int position) {
         int resultNum = position;
         for (LineInfo lineInfo : linesStateInfo) {
-            resultNum = lineInfo.move(resultNum, columnLength);
+            resultNum = lineInfo.move(resultNum);
         }
         ladderResultRepository.put(position, resultNum);
     }

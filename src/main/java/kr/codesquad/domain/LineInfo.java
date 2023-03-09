@@ -19,10 +19,10 @@ public class LineInfo {
     public static LineInfo createRandomLineStateInfo(int namesSize) {
         Random random = new Random();
         LineInfo lineInfo = new LineInfo();
-        boolean possible = true;
+        boolean beforeIsExist = false;
         for (int j = 0; j < namesSize - 1; j++) {
-            possible = !(random.nextBoolean() && possible);
-            lineInfo.add(!possible);
+            beforeIsExist = random.nextBoolean() && !beforeIsExist;
+            lineInfo.add(beforeIsExist);
         }
         return lineInfo;
     }
@@ -45,11 +45,11 @@ public class LineInfo {
     }
 
 
-    public int move(int resultNum, int columnLength) {
+    public int move(int resultNum) {
         if (canMoveLeft(resultNum, lineInfo)) {
             return resultNum - 1;
         }
-        if (canMoveRight(columnLength, resultNum, lineInfo)) {
+        if (canMoveRight( resultNum, lineInfo)) {
             return resultNum + 1;
         }
         return resultNum;
@@ -60,7 +60,7 @@ public class LineInfo {
         return resultNum > 0 && oneRowStateInfo.get(resultNum - 1);
     }
 
-    private static boolean canMoveRight(int columnLength, int resultNum, List<Boolean> oneRowStateInfo) {
-        return resultNum < columnLength && oneRowStateInfo.get(resultNum);
+    private static boolean canMoveRight( int resultNum, List<Boolean> oneRowStateInfo) {
+        return resultNum < oneRowStateInfo.size() && oneRowStateInfo.get(resultNum);
     }
 }
