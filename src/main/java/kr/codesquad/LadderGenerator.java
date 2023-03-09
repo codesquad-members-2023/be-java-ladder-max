@@ -9,34 +9,34 @@ public class LadderGenerator {
             throw new IllegalArgumentException("사다리를 생성할 수 없습니다.");
         }
 
-        final List<List<LadderPart>> map = makeMap(playerNumber, height);
+        final List<LadderLine> ladderLines = createLadderLines(playerNumber, height);
 
-        return new PlayerNameLadder(map);
+        return new PlayerNameLadder(ladderLines);
     }
 
     private boolean isInValidNumber(int number) {
         return number < 1;
     }
 
-    private List<List<LadderPart>> makeMap(int playerNumber, int height) {
-        final List<List<LadderPart>> map = new ArrayList<>();
+    private List<LadderLine> createLadderLines(int playerNumber, int height) {
+        final List<LadderLine> ladderLines = new ArrayList<>();
         int width = playerNumber * 2 - 1;
 
         for (int y = 0; y < height; y++) {
-            map.add(createLadderLine(width));
+            ladderLines.add(createLadderLine(width));
         }
 
-        return map;
+        return ladderLines;
     }
 
-    private List<LadderPart> createLadderLine(int width) {
-        final List<LadderPart> ladderLine = new ArrayList<>();
+    private LadderLine createLadderLine(int width) {
+        final List<LadderPart> ladderParts = new ArrayList<>();
 
         for (int x = 0; x < width; x++) {
-            ladderLine.add(decideLadderPart(ladderLine, x));
+            ladderParts.add(decideLadderPart(ladderParts, x));
         }
 
-        return ladderLine;
+        return new LadderLine(ladderParts);
     }
 
     private LadderPart decideLadderPart(List<LadderPart> ladderLine, int x) {

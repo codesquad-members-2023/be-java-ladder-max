@@ -4,29 +4,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PlayerNameLadder implements Ladder {
-    private final List<List<LadderPart>> map;
+    private final List<LadderLine> ladderLines;
 
-    public PlayerNameLadder(List<List<LadderPart>> map) {
-        this.map = map;
+    public PlayerNameLadder(List<LadderLine> ladderLines) {
+        this.ladderLines = ladderLines;
     }
 
     @Override
     public List<String> createOutputLines() {
-//        outputLines.add(makePlayerNamesFormat());
-        return map.stream()
-                .map(PlayerNameLadder::toOutputLine)
+        return ladderLines.stream()
+                .map(LadderLine::toString)
                 .collect(Collectors.toList());
     }
-
-    private static String toOutputLine(List<LadderPart> ladderWidthLine) {
-        return ladderWidthLine.stream()
-                .map(LadderPart::getShape)
-                .collect(Collectors.joining());
-    }
-
-//    private String makePlayerNamesFormat() {
-//        return playerNames.stream()
-//                .map(playerName -> String.format("%-6s", playerName))
-//                .collect(Collectors.joining());
-//    }
 }
