@@ -4,7 +4,7 @@ import kr.codesquad.util.Encoding;
 import kr.codesquad.view.Input;
 import kr.codesquad.view.Output;
 import kr.codesquad.util.Validation;
-import kr.codesquad.model.Ladder;
+import kr.codesquad.domain.Ladder;
 
 import java.io.IOException;
 import java.util.List;
