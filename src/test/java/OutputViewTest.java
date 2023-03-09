@@ -29,7 +29,7 @@ public class OutputViewTest {
         people.add("crong");
         people.add("jk");
         outputView.printPeople(people);
-        assertThat(outputMessage.toString()).isEqualToIgnoringNewLines("실행결과" + "  pobi  honux crong   jk    ");
+        assertThat(outputMessage.toString()).isEqualTo("\r\n실행결과\r\n\r\n" + "  pobi  honux crong   jk    \r\n");
         // 의문점: 왜 isEqualToIgnoringNewLines로 개행문자를 제거해줘야 할까? 스트림 문제?
     }
 
