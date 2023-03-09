@@ -7,11 +7,11 @@ import mission.view.OutputView;
 import java.io.IOException;
 
 public class LadderGameController {
-        InputView inputView;
+        private InputView inputView;
 
-        Ladder ladder;
+        private Ladder ladder;
 
-        OutputView outputView;
+        private OutputView outputView;
 
         public LadderGameController() {
                 this.inputView = new InputView();
