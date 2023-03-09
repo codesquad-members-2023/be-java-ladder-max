@@ -29,7 +29,6 @@ public class Controller {
         output.printMessageNames();
         String names = input.inputNames();
         List<String> afterNames = validation.validateInputNames(names);
-
         output.printMessageM();
         String m = input.inputM();
         int afterM = validation.validateInputM(m);

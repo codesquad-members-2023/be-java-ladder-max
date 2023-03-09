@@ -12,27 +12,6 @@ public class Validation {
     private final int MAX_NAME_SIZE = 5;
     private final int MIN_NUMBER_SIZE = 0;
 
-    public int validateInputM(String m) {
-        int input = validateInputInteger(m);
-        return validateInputPositive(input);    }
-
-    private int validateInputInteger(String beforeInput) {
-        int result;
-        try {
-            result = Integer.parseInt(beforeInput);
-        } catch (NumberFormatException e) {
-            throw new NumberFormatException("잘못된 입력입니다. 정수로 다시 입력해 주십시오.");
-        }
-        return result;
-    }
-
-    private int validateInputPositive(int input) {
-        if (input <= MIN_NUMBER_SIZE) {
-            throw new NumberFormatException("잘못된 입력입니다. 양수로 다시 입력해 주십시오");
-        }
-        return input;
-    }
-
     public List<String> validateInputNames(String names) throws IOException {
         String[] userNames = names.split(STRING_SPLIT);
         validateInputString(userNames);
@@ -58,5 +37,27 @@ public class Validation {
         if (userName.length() > MAX_NAME_SIZE) {
             throw new IOException("이름은 최대 5글자까지 부여할 수 있습니다.");
         }
+    }
+
+    public int validateInputM(String m) {
+        int input = validateInputInteger(m);
+        return validateInputPositive(input);
+    }
+
+    private int validateInputInteger(String beforeInput) {
+        int result;
+        try {
+            result = Integer.parseInt(beforeInput);
+        } catch (NumberFormatException e) {
+            throw new NumberFormatException("잘못된 입력입니다. 정수로 다시 입력해 주십시오.");
+        }
+        return result;
+    }
+
+    private int validateInputPositive(int input) {
+        if (input <= MIN_NUMBER_SIZE) {
+            throw new NumberFormatException("잘못된 입력입니다. 양수로 다시 입력해 주십시오");
+        }
+        return input;
     }
 }
