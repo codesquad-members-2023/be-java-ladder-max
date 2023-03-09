@@ -1,42 +1,34 @@
 package kr.codesquad;
 
-public class Ladder {
-    private final int players;
-    private final int height;
-    private final boolean[][] rungs;
+import java.util.ArrayList;
+import java.util.List;
 
-    Ladder(int players, int height) {
+public class Ladder {
+    private final List<String> players;
+    private final int height;
+    private final List<Line> ladder = new ArrayList<>();
+
+    Ladder(List<String> players, int height) {
         this.players = players;
         this.height = height;
-        this.rungs = new boolean[height][players - 1];
-        buildRungs();
+        buildLadder();
+    }
+    
+    Ladder(List<Line> ladder) {
+        this.players = null;
+        this.height = ladder.size();
+        this.ladder.addAll(ladder);
+
     }
 
-    private void buildRungs() {
-        for(int row = 0; row < this.rungs.length; row++) {
-            this.rungs[row] = buildRungRow(height);
+    private void buildLadder() {
+        for (int cnt = 0; cnt < height; cnt++) {
+            Line l = new Line(players.size());
+            ladder.add(l);
         }
     }
 
-    private boolean[] buildRungRow(int width) {
-        boolean[] rungRow = new boolean[width];
-
-        for(int count = 0; count < rungRow.length; count++) {
-            rungRow[count] = buildSingleRung();
-        }
-        return rungRow;
-    }
-
-    private boolean buildSingleRung() {
-        double randomNumber = Math.random();
-
-        if (randomNumber >= 0.5) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean[][] getRungs() {
-        return this.rungs;
+    public List<Line> getline() {
+        return this.ladder;
     }
 }
