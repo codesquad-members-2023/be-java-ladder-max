@@ -3,11 +3,17 @@
 **구현 사항**
 
 - [x] [사다리게임 Step1 기본기능 구현(2023.3.6)](#사다리-게임-step1)
+
 - [x] [사다리게임 Step2 (리팩토링) (2023.3.6)](#사다리-게임-step2)
+
 - [x] [사다리게임 Step3 사다리 모양 개선(2023.3.7)](#사다리-게임-step3)
+
 - [x] [사다리게임 Step4 (리팩토링) (2023.3.8)](#사다리-게임-step4)
-- [ ] [사다리게임 Step4 추가구현 (2023.3.9)](#사다리-게임-step4-추가구현)
+
+- [x] [사다리게임 Step4 추가구현 (2023.3.9)](#사다리-게임-step4-추가구현)
+
 - [ ] [사다리게임 Step5]()
+
 - [ ] [사다리게임 Step6]()
 
 
@@ -23,8 +29,8 @@
 | String.format()                           | Step4           |
 | Error And Exception 종류 공부             | Step4  추가구현 |
 | Assertion (org.junit, org.assertj 차이점) | Step4 추가구현  |
-| 마스터 클래스 정리                        | Step4 추가구현  |
-| git 명령어 연습 (내가 궁금했던 명령어)    | Step4 추가구현  |
+| java.lang                                 | Step4 추가구현  |
+| ifPresent, isPresent,findFirst            | Step4 추가구현  |
 
 
 
@@ -118,17 +124,15 @@
 
 ## 사다리게임 Step4 추가구현
 
-- [ ] Error And Exception 종류 공부
+- [x] Error And Exception 종류 공부
 
-- [ ] Assertion (org.junit, org.assertj 차이점)
+- [x] Assertion (org.junit, org.assertj 차이점)
 
-- [ ] 마스터 클래스 정리
+- [x] java.lang 패키지
 
-- [ ] git 명령어 연습 (내가 궁금했던 명령어)
+- [x] git 명령어 연습
 
-- [ ] 로직에 대한 테스트 코드 추가
-
-- [ ] Ladder 만들때 이어지지 않는 사람이 있는지 체크
+- [x] 로직에 대한 테스트 코드 추가
 
   
 
