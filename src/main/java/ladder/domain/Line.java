@@ -40,4 +40,8 @@ public class Line {
         }
         return builder.toString();
     }
+
+    public boolean isRungExist(int index) {
+        return rungs.get(index);
+    }
 }
