@@ -1,11 +1,11 @@
 package kr.codesquad;
 
-public class LadderController {
+public class LadderGameController {
     OutputView outputView;
     InputView inputView;
     LadderGenerator ladderGenerator;
 
-    public LadderController() {
+    public LadderGameController() {
         this.outputView = new OutputView();
         this.inputView = new InputView();
     }

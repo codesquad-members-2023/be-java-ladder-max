@@ -4,12 +4,13 @@ import java.util.Random;
 
 public class LadderGenerator {
     private int maxHeight;
-    int column;
-    String[][] ladder;
+    private int maxWidth;
+    private String[][] ladder;
 
     public LadderGenerator(int joinMembers, int maxHeight) {
-        column = joinMembers + (joinMembers - 1);
-        ladder = new String[this.maxHeight = maxHeight][column]; // maxHeight 초기화를 먼저 해야하는지
+        this.maxHeight = maxHeight;
+        maxWidth = calculateMaxWidth(joinMembers);
+        ladder = new String[this.maxHeight][maxWidth];
     }
 
     public String[][] generateLadder() {
@@ -17,6 +18,11 @@ public class LadderGenerator {
         generateRandomLine();
         generateBorderLine();
         return ladder;
+    }
+
+    private static int calculateMaxWidth(int joinMembers) {
+        int maxWidth = joinMembers * 2 - 1;
+        return maxWidth;
     }
 
     // 이중 for문이 반복되고 있는데 개선 방법 고민해보기
