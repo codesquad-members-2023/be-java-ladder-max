@@ -17,7 +17,9 @@ class UserTest {
         // when
 
         // then
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new User(name));
+        IllegalArgumentException exception = Assertions.assertThrowsExactly(
+            IllegalArgumentException.class, () -> new User(name));
+        Assertions.assertEquals("참여할 사람의 이름은 최소 1글자입니다.", exception.getMessage());
     }
 
     @DisplayName("참여할 유저 이름이 5글자 초과할 경우 생성되지 않는다")
@@ -29,7 +31,9 @@ class UserTest {
         // when
 
         // then
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new User(name));
+        IllegalArgumentException exception = Assertions.assertThrowsExactly(
+            IllegalArgumentException.class, () -> new User(name));
+        Assertions.assertEquals("참여할 사람의 이름은 최대 5글자입니다.", exception.getMessage());
     }
 
     @DisplayName("참여할 유저 이름은 1글자 이상 5글자 이하여야 생성된다")
