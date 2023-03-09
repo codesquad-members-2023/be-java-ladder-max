@@ -8,43 +8,36 @@ public class Line {
 
     public Line() { }
 
-    public Line makeRungsRandomly(int space) {
-        for (int i = 0; i < space; i++) {
-            rungs.add(getRandomBoolean());
-        }
-        checkContinuousRungs(rungs);
-        return this;
-    }
-
-    private void checkContinuousRungs(List<Boolean> rungs) {
-        for (int i = 0; i < rungs.size(); i++) {
-            if (i == 0) continue;
-            if (rungs.get(i - 1)) {
-                rungs.set(i, false);
-            }
+    public void makeRungs(int width) {
+        rungs.add(makeRungRandomly());
+        for (int i = 1; i < width; i++) {
+            rungs.add(checkContinuousRungs(i));
         }
     }
 
-    private boolean getRandomBoolean() {
+    private boolean checkContinuousRungs(int index) {
+        final int LEFT = index - 1;
+        if (rungs.get(LEFT)) {
+            return false;
+        }
+        return makeRungRandomly();
+    }
+
+    private boolean makeRungRandomly() {
         boolean[] random = {false, true};
         return random[(int) (Math.random() * random.length)];
     }
 
-    public void drawLine(StringBuilder builder) {
-        for (int j = 0; j < rungs.size(); j++) {
-            drawLeft(builder, j);
-            builder.append(rungs.get(j) ? "-----" : "     ");
-            drawRight(builder);
+    public String drawLine() {
+        StringBuilder builder = new StringBuilder();
+        final String RUNG = "-----";
+        final String BLANK = "     ";
+        final String HANDLE = "|";
+        builder.append(HANDLE);
+        for (Boolean rung : rungs) {
+            builder.append(rung ? RUNG : BLANK);
+            builder.append(HANDLE);
         }
-    }
-
-    private void drawLeft(StringBuilder builder, int space) {
-        if (space == 0) {
-            drawRight(builder);
-        }
-    }
-
-    private void drawRight(StringBuilder builder) {
-        builder.append("|");
+        return builder.toString();
     }
 }
