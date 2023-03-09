@@ -30,6 +30,10 @@ public class LadderRow {
         }
     }
 
+    public boolean isPlayerLine(int column) {
+        return column % 2 == 0 && ladderRow.get(column);
+    }
+
     public boolean isBridge(int column) {
         return ladderRow.get(column) == true;
     }
