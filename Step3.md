@@ -36,10 +36,6 @@
 - 인덱스를 설정하기 위한 숫자들도 상수로 만들어야 하는지
 - 모르겠다!
 
-7. 푸시하려고 했는데 step3 브랜치가 아닌 시오 브랜치에서 작업하고 있음을 알게 되어 브랜치를 새로 생성하고 병합하려고 했는데 그냥 다 넘어왔다. 뭘까
-- git switch -c step3를 하니까 커밋 이력이 남아있고 push만 하면 되는 상황이었다.
-- 왜 다 안 날라간거지
-
 ### LinkedList와 ArrayList
 LinkedList와 ArrayList는 List 인터페이스를 구현한 Collection 구현체이며, 내부적으로는 다르게 동작한다.    
 
@@ -74,12 +70,23 @@ BufferedReader는 사용할 때 자원을 사용하는데 여러 사용자가 �
 ![ex2](https://user-images.githubusercontent.com/57451700/223782269-69cfe9e7-0290-4342-b5bf-6a34e09655c2.png)    
 ![result1](https://user-images.githubusercontent.com/57451700/223782199-6df07087-888d-4090-a6c9-ce9d99ce3de1.png)    
 
+## 팀원 피드백
+### 차차
+""나 1도 다 상수로 빼는 것이 좋다!
+### June
+StringBuilder 사용해서 출력할 때 마지막 인덱스 빼지말고 subString 사용하면 한번에 반환 가능    
+user를 사다리에 넣지 않고 출력할 때 쓰는 방법도 있다.
+
+### 지구(chatGPT)
+LinkedList의 peek()와 poll() 메서드는 맨 앞(head) 요소에 접근하기 때문에, 요소를 찾아가는 작업이 필요하지 않다. 이 두 메서드는 O(1)의 시간 복잡도를 가진다.    
+Encoding과 Validation 클래스가 Input과 Output을 위해서만 사용된다면 클래스를 하나로 합치던가 view 패키지 안으로 넣는게 좋을 것 같다.
 
 ## 추가로 공부할 부분
 1. Pattern, Matcher 클래스의 차이
 2. else를 왜 쓰면 안되는가
 3. generic
 4. rebase, merge 차이 및 활용 사례
+5. 값에 의한 호출, 참조에 의한 호출
 
 ## 참고
 [[Java] 빠른 입출력을 위한 BufferedReader, BufferedWriter, StringTokenizer, StringBuilder](https://rlakuku-program.tistory.com/33)
