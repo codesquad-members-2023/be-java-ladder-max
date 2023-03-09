@@ -1,7 +1,6 @@
 package kr.codesquad.domain;
 
 import static kr.codesquad.domain.LadderDrawer.FAIL_DELIMITER;
-import static kr.codesquad.domain.LadderDrawer.connectLine;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -15,7 +14,6 @@ class LadderDrawerTest {
     @CsvSource({"false,true", "false,false", "true,false"})
     void addLadder_False(boolean beforeIsTrue, boolean currentIsPossible) {
         StringBuilder target = new StringBuilder();
-        connectLine(target, beforeIsTrue);
         Assertions.assertThat(target).contains(FAIL_DELIMITER);
     }
 }

@@ -27,7 +27,7 @@ public class LadderGame {
         int nameSize = names.size();
         List<String> resultInfo = inputView.inputResultInfo(nameSize);
         int ladderHeight = inputView.inputLadderHeight();
-        List<List<Boolean>> linesStateInfo = linesStateRandomCreator.create(nameSize, ladderHeight);
+        List<LineInfo> linesStateInfo = linesStateRandomCreator.create(nameSize, ladderHeight);
         String drawnLadder = drawLadder(linesStateInfo);
         printLadder(names, drawnLadder, resultInfo);
         ladderResultCalculator.calculator(linesStateInfo,ladderResultRepository);
@@ -61,7 +61,7 @@ public class LadderGame {
         outputView.printLadder(names, drawnLadder, result);
     }
 
-    private String drawLadder(List<List<Boolean>> linesStateInfo) {
+    private String drawLadder(List<LineInfo> linesStateInfo) {
         return ladderDrawer.draw(linesStateInfo);
     }
 }
