@@ -12,17 +12,25 @@ public class InputView {
     private static final String INVALID_INPUT_NAMEFORMAT = "유효하지 않은 형식입니다.";
     private static final String INPUT_PEOPLE_NAME = "참여할 사람 이름을 입력하세요.(이름은 쉼표로 구분하세요.)";
 
+    private List<String > inputPeopleList;
+
 
 
     public List<String> inputPeopleName() {
         System.out.println(INPUT_PEOPLE_NAME);
         String input = SCANNER.nextLine();
             if (validateNameFormat(input)) {
-                return Arrays.stream(input.split(",")).collect(Collectors.toList());
+            inputPeopleList =  Arrays.stream(input.split(",")).collect(Collectors.toList());
+            return inputPeopleList;
             }
         System.out.println(INVALID_INPUT_NAMEFORMAT);
         return inputPeopleName();
     }
+
+    public List<String> getInputPeopleList() {
+        return inputPeopleList;
+    }
+
     public int inputPeopleSize(){
         return inputPeopleName().size();
     }
