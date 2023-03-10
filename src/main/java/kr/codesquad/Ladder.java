@@ -1,5 +1,7 @@
 package kr.codesquad;
 
+import java.util.Arrays;
+
 public class Ladder {
 
     final int ROW_SIZE;
@@ -24,7 +26,7 @@ public class Ladder {
             //TODO: 함수로 분리
             ladder[rowIndex][columnIndex] = LadderLine.VERTICAL.validate(columnIndex) ? LadderLine.VERTICAL
                     : LadderLine.HORIZONTAL.validate(columnIndex) ? LadderLine.HORIZONTAL
-                    : null ;
+                    : LadderLine.BLANK ;
         }
     }
 
@@ -33,10 +35,8 @@ public class Ladder {
         StringBuilder sb = new StringBuilder();
 
         for(int rowIndex = 0; rowIndex < ROW_SIZE; rowIndex++){
-            for(int columnIndex = 0; columnIndex < COLUMN_SIZE; columnIndex++){
-                LadderLine line = ladder[rowIndex][columnIndex];
-                sb.append(line == null ? " " : line.getLine());
-            }
+            Arrays.stream(ladder[rowIndex])
+                    .forEach(s -> sb.append(s == null ? " " : s.getLine()));
             sb.append("\n");
         }
 
