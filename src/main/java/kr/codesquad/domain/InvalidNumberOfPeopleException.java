@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.domain;
 
 public class InvalidNumberOfPeopleException extends RuntimeException {
 

@@ -1,4 +1,6 @@
-package kr.codesquad;
+package kr.codesquad.view;
+
+import kr.codesquad.domain.Ladder;
 
 public class LadderConsoleWriter implements LadderWriter {
 

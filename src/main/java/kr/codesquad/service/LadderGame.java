@@ -1,7 +1,12 @@
-package kr.codesquad;
+package kr.codesquad.service;
 
 import java.util.List;
 import java.util.Random;
+import kr.codesquad.domain.Ladder;
+import kr.codesquad.domain.LadderConverter;
+import kr.codesquad.domain.LadderPartGenerator;
+import kr.codesquad.view.LadderConsoleReader;
+import kr.codesquad.view.LadderWriter;
 
 public class LadderGame {
 

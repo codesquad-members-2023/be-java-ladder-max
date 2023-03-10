@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.domain;
 
 public class InvalidNumberOfMinimumLadderHeightException extends RuntimeException {
 
