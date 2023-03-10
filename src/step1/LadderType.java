@@ -1,4 +1,4 @@
-package main.java.kr.codesquad.step1;
+package step1;
 
 import java.util.stream.Stream;
 
