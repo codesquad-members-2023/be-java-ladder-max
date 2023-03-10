@@ -1,14 +1,15 @@
 package kr.codesquad.domain;
 
+import static kr.codesquad.domain.LineDelimiterType.FAIL_DELIMITER;
+import static kr.codesquad.domain.LineDelimiterType.PEOPLE_DELIMITER;
+import static kr.codesquad.domain.LineDelimiterType.SUCCESS_DELIMITER;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class LineInfo {
 
-    static final String SUCCESS_DELIMITER = "-----";
-    static final String FAIL_DELIMITER = "     ";
-    static final String PEOPLE_DELIMITER = "|";
 
     private final List<Boolean> lineInfo;
 
@@ -39,7 +40,8 @@ public class LineInfo {
     public String connectLine() {
         StringBuilder result = new StringBuilder();
         for (Boolean isExist : lineInfo) {
-            result.append(isExist ? SUCCESS_DELIMITER : FAIL_DELIMITER).append(PEOPLE_DELIMITER);
+            result.append(isExist ? SUCCESS_DELIMITER.getValue() : FAIL_DELIMITER.getValue())
+                    .append(PEOPLE_DELIMITER.getValue());
         }
         return result.toString();
     }
@@ -50,10 +52,10 @@ public class LineInfo {
 
     public int move(int resultNum) {
         if (canMoveLeft(resultNum, lineInfo)) {
-            return resultNum - 1;
+            return --resultNum;
         }
         if (canMoveRight(resultNum, lineInfo)) {
-            return resultNum + 1;
+            return ++resultNum;
         }
         return resultNum;
     }
