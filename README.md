@@ -5,7 +5,7 @@
 
 # Java Ladder
 
-- Last Update: 2022-3-9
+- Last Update: 2022-3-10
 
 ## Todolist
 
@@ -112,8 +112,8 @@ $ java -jar ./build/libs/java-lotto-1.0-SNAPSHOT.jar
 - [x] [Return Early Pattern](#Return-Early-Pattern)
 - [x] [private 메서드 테스트 지양해야 하는 이유 학습](#private-메서드-테스트-지양해야-하는-이유)
 - [x] [클린 코딩 기초 학습](#클린-코딩-기초)
-- [ ] [static 메서드와 인스턴스 메서드의 비교](#static-메서드와-인스턴스-메서드의-비교)
-- [ ] PR 머지 승인전에 브랜치를 따서 해당 브랜치 기반으로 작업하여 다시 PR할 경우 커밋이 딸려오는 문제해결하기
+- [x] [static 메서드와 인스턴스 메서드의 비교](#static-메서드와-인스턴스-메서드의-비교)
+- [ ] 객체지향생활체조 원칙
 
 ## String, StringBuilder, StringBuffer 비교
 
@@ -593,6 +593,463 @@ static Object obj = new Object();
 
 ![](img/img_6.png)
 
+## 객체지향생활체조 원칙
+
+- 규칙 1 : 한 메서드에 오직 한 단계의 들여쓰기(indent)만 합니다.
+- 규칙 2 : else 예약어를 사용하지 않습니다.
+- 규칙 3 : 모든 원시값과 문자열을 포장합니다.
+- 규칙 4 : 한 줄에 점을 하나만 찍습니다.
+- 규칙 5 : 줄여쓰지 않습니다.(축약 금지)
+- 규칙 6 : 모든 엔티티를 작게 유지합니다.
+- 규칙 7 : 3개 이상의 인스턴스 변수를 가진 클래스를 쓰지 않습니다.
+- 규칙 8 : 일급 컬렉션을 사용합니다.
+- 규칙 9 : getter/setter/proerpty를 사용하지 않습니다.
+
+## 규칙 3 : 모든 원시값과 문자열을 포장한다
+
+```
+int age = 20;           // 원시 값
+Age age = new Age(20);  // 원시 값을 포장
+```
+
+- int age = 20; : 원시 타입의 변수를 선언하는 방법입니다.
+- Age age = new Age(20); : 원시 타입의 변수를 객체로 포장한 변수를 선언하는 방법입니다.
+
+### 원시 타입의 값을 객체로 포장하면 얻을 수 있는 이점
+
+#### 자신의 상태를 객체 스스로 관리할 수 있습니다.
+
+User라는 클래스에서 사용자의 나이를 멤버로 가지고 있습니다.
+
+```java
+class User {
+
+    private int age;
+
+    public User(int age) {
+        this.age = age;
+    }
+}
+```
+
+User 객체를 생성할때 age의 값이 0보다 작다면 그것은 모순일 것입니다.
+
+따라서 생성자 안에서 다음과 같이 유효성 검사를 할 수 있을 것입니다.
+
+```java
+class User {
+
+    private int age;
+
+    public User(int age) {
+        if (age < 0) {
+            throw new RuntimeException("나이는 최소 1살 이상이어야 합니다.");
+        }
+        this.age = age;
+    }
+}
+```
+
+그런데 위와 같이 age라는 멤버 외에 다른 멤버들도 입력받을 수 있을 것입니다.
+
+매개변수가 4개정도만 하더라도 4개에 대한 유효성 검사를 생성자 안에 비대하게 넣어질 것입니다.
+
+이럴때 다음과 같이 메서드로 추출하여 유효성 검사를 하게 될 것입니다.
+
+```java
+class User {
+
+    private int age;
+    private String name;
+
+    public User(int age, String name) {
+        validateAge(age);
+        validateName(name);
+        this.age = age;
+        this.name = name;
+    }
+
+    private void validateAge(int age) {
+        if (age < 0) {
+            throw new RuntimeException("나이는 최소 1살 이상이어야 합니다.");
+        }
+    }
+
+    private void validateName(String name) {
+        if (name.length() < 2) {
+            throw new RuntimeException("이름은 최소 2글자 이상이어야 합니다.");
+        }
+    }
+}
+```
+
+그러나 위와 같이 메소드로 따로 추출하게 되면 User 클래스가 나이와 이름에 대한 상태 관리를 모두 해야합니다.
+
+따라서 이름과 나이에 대한 멤버의 원시 타입을 포장하면 다음과 같이 표현할 수 있을 것입니다.
+
+```java
+class User {
+
+    private Name name;
+    private Age age;
+
+    public User(String name, String age) {
+        this.name = new Name(name);
+        this.age = new Age(age);
+    }
+}
+
+class Name {
+
+    private Strign name;
+
+    public Name(String name) {
+        if (name.length() < 2) {
+            throw new RuntimeException("이름은 최소 2글자 이상이어야 합니다.");
+        }
+        this.name = name;
+    }
+}
+
+class Age {
+
+    private int age;
+
+    public Age(int age) {
+        if (age < 0) {
+            throw new RuntimeException("나이는 최소 1살 이상이어야 합니다.");
+        }
+        this.age = age;
+    }
+}
+```
+
+위와 같이 하면 User 클래스는 이름과 나이에 대한 상태 관리(조회, 추가,수정,삭제 등)를 Name, Age 클래스에 맡길 수 있고
+
+User 클래스에 대한 행동에 집중할 수 있습니다.
+
+즉, **User, Name, Age에 대한 책임이 명확해진 것을 확인할 수 있습니다.**
+
+#### 2. 코드의 유지보수에 도움이 됩니다.
+
+```java
+import java.util.HashMap;
+
+class LottoNumber {
+
+    private final static int MIN_LOTTO_NUMBER = 1;
+    private final static int MAX_LOTTO_NUMBER = 45;
+    private final static String OUT_OF_RANGE = "로도 번호는 1~45의 범위입니다.";
+    private final static Map<Integer, LottoNumber> NUMBERS = new HashMap<>();
+
+    private int lottoNumber;
+
+    static {
+        for (int i = MIN_LOTTO_NUMBER; i < MAX_LOTTO_NUMBER + 1; i++) {
+            NUMBERS.put(i, new LottoNumber(i));
+        }
+    }
+
+    public LottoNumber(int number) {
+        this.lottoNumber = number;
+    }
+
+    public static LottoNumber of(int number) {
+        LottoNumber lottoNumber = NUMBERS.get(number);
+        if (lottoNumber == null) {
+            throw new IllegalArgumentException(OUT_OF_RANGE);
+        }
+        return lottoNumber;
+    }
+    //...
+}
+
+public class Lotto {
+
+    //...
+    private List<LottoNumber> lottoNumbers;
+
+    public Lotto(List<LottoNumber> lottoNumbers) {
+        validateDuplication(lottoNumbers);
+        validateAmountOfNumbers(lottoNumbers);
+        this.lottoNumbers = lottoNumbers;
+    }
+    //...
+}
+
+public class WinningLotto {
+
+    //...
+    private Lotto winningLottoNumbers;
+    private int bonusNumber;
+
+    public WinningNumber(Lotto winningLottoNumbers, int bonusNumber) {
+        this.winningLottoNumbers = winningLottoNumbers;
+        if (isBonusNumberDuplicatedWithWinningNumber(winningLottoNumbers, bonusNumber)) {
+            throw new IllegalArgumentException(
+                BONUS_CANNOT_BE_DUPLICATE_WITH_WINNING_NUMBER);
+        }
+        if (bonusNumber < 1 | bonusNumber > 45) {
+            throw new RuntimeException();
+        }
+        this.bonusNumber = bonusNumber;
+    }
+    //...
+}
+```
+
+- Lotto 클래스에서는 int 값인 로또 숫자들을 LottoNumber 클래스로 포장해 사용하고 있습니다.
+    - List<Integer>가 아닌 List<LottoNumber>로 사용하고 있습니다.
+- LottoNumber 클래스로 포장하는 대신 Integer, int와 같은 자료형 타입을 사용하게 되면
+  각각의 로또 숫자 관리를 Lotto 클래스에서 하게되어 Lotto 클래스가 해야할 일이 많아지게 되는 문제가 있습니다.
+- 만약 요구사항에서 로또 숫자의 범위를 1~45에서 1~10 범위로 변경한다면 원시 타입을 사용하게 되는
+  WinningLotto 클래스(int bounusNumber)와 Lotto 클래스(List<Integer>) 모두를 고칠수밖에 없습니다.
+- 그러나 LottoNumber 클래스로 포장하게 되면 숫자 범위에 대한 요구사항이 변경되었을 때
+  LottoNumber 클래스만 변경하면 됩니다.
+
+#### 3. 자료형에 구애받지 않습니다. (여러 타입 지원이 가능)
+
+```java
+class Score {
+
+    private int score;
+
+    public Score(int score) {
+        validateScore(score);
+        this.score = score;
+    }
+}
+```
+
+위 Score 클래스는 원시 타입인 score 타입을 포장한 래핑 클래스입니다.
+
+만약 Score 객체에 연산 등의 기능이 추가되어 새로운 자료형의 지원이 필요해진다면 기존 Score 변수를 제거할 필요가 없습니다.
+
+```java
+class Score {
+
+    private int score;
+    private double doubleScore;
+
+    public Score(int score) {
+        validateScore(score);
+        this.score = score;
+    }
+
+    public Score(double score) {
+        validateScore(score);
+        this.score = score;
+    }
+}
+```
+
+위와 같이 새로운 타입의 자료형을 추가하고 생성자를 오버로딩하면 문제를 해결할 수 있습니다.
+
+원시 타입 값을 포장하게 되면, 그 변수가 의미하는 바를 명확히 나타낼 수 있습니다.
+
+책임 관계 또한 보다 명확해지고 코드의 유지, 보수에도 많은 도움이 됩니다.
+
+## 규칙 4 : 한 줄에 점을 하나만 찍습니다.
+
+- 코드를 작성할때 한 라인에 점이 여러개 생기면, 설계에 대한 고민을 해보라는 지침입니다.
+- 숨은 의미
+    - 단순히 라인에 존재하는 점의 개수를 줄이라는 의미가 아닙니다.
+    - 점을 찍는 행위는 필드나 메서드를 통해 인스턴스에 접근하는 행위를 의미합니다.
+    - 점의 개수가 많다는 것은 대상 객체의 내부에 깊이 접근하겠다는 의도를 드러냅니다.
+    - 이는 호출자와 피호출자 사이에 **강한 결합도**가 형성되었다는 것을 의미합니다.
+
+### 예시
+
+```java
+public class PaymentService {
+
+    private MemberRepository memberRepository;
+
+    public void payment(Long memberId, int accountSequenceNumber, Statement statement) {
+        Member member = memberRepository.findById(memberId);
+        member.getAccounts().get(accountSequenceNumber).getStatements().add(statement);
+        //...
+    }
+}
+```
+
+- 위 코드는 회원의 특정 계좌에 입출금 내역을 추가하기 위한 로직입니다.
+- Member 타입 인스턴스가 getter 메서드를 반복해서 거래내 역을 표현하기 위한 Statement List를 찾아내어
+  추가하는 구조로 구성되어 있습니다.
+- 문제는 이러한 패턴을 반복해서 작성할 경우, 연계된 클래스(Member안에 Account 등)의 구조가 변경되는 순간
+  이를 호출하는 모든 코드에 영향을 줄 수 있다는 의미입니다.
+- Member, Account, Statement 클래스가 서로 강한 결합으로 연결되어 독립적인 클래스의 인스턴스 기능을 할 수 없게 됩니다.
+
+### 잘못된 한줄 점을 하나씩 찍기
+
+```java
+public class PaymentService {
+
+    private MemberRepository memberRepository;
+
+    public void payment(Long memberId, int accountSequenceNumber, Statement statement) {
+        Member member = memberRepository.findById(memberId);
+        member.getAccounts()
+            .get(accountSequenceNumber)
+            .getStatements()
+            .add(statement);
+        //...
+    }
+}
+```
+
+- 위 payment 메서드안에 핵심적인 문제는 Member, Account, Statement 클래스가 getter 호출을 통해서
+  강한 결합도가 묶여있다는 점입니다.
+- 위와 같이 한줄에 하나씩만 점을 찍게 하기 위해서 개행을 추가하는 것은 눈 가리고 아웅이라고 생각합니다.
+
+### 설계에 대한 고민
+
+- 보통의 뱅킹 프로세스에서는 입출금 내역을 추가하는 시점에 해당 계좌를 알고 있는 경우가 일반적입니다.
+- 설계상 "회원의 몇번째 계좌를 찾아라"라는 프로세스를 한번에 구현할 필요가 없다는 의미입니다.
+
+```java
+public class AccountService {
+
+    private AccountRepository accountRepository;
+
+    public void payment(String accountNumber, Statement statement) {
+        Account account = accountRepository.findByAccountNumber(accountNumber);
+        account.addStatement(statement);
+    }
+}
+```
+
+- 위 코드에서 Member 클래스는 보이지 않습니다. 회원의 계좌번호는 이미 앞선 프로세스(조회 결과 화면 또는 송금 화면)을 통해 파악이
+  되어있을 것입니다.
+
+### 객체에 메시지를 보내라
+
+- 좋은 객체지향일수록 getter와 setter의 사용을 지양하게 됩니다.
+- **getter/setter를 호출하는 행위는 점을 찍음으로서, 객체의 내부 필드에 접근하도록 합니다.**
+- 이는 현재 사용중인 객체와 대화하지 않고, 내부에 존재하는 다른 객체에 접근해 대화를 하겠다는 의미입니다.
+    - 결합도가 상승하게 됩니다.
+
+```java
+public class AccountService {
+
+    private AccountRepository accountRepository;
+
+    public void payment(String accountNumber, Statement statement) {
+        Account account = accountRepository.findByAccountNumber(accountNumber);
+        account.addStatement(statement); // O
+        account.getStatements().add(statement); // X
+    }
+}
+```
+
+- 위와 같이 List와 Map과 같은 Collection 클래스를 getter로 불러와 처리하는 경우가 많습니다.
+- 이렇게 자료구조에 접근할때에도 객체지향생활체조 원칙에 위반하는 경우입니다.
+- 위와 같은 경우에는 일급 컬렉션과 같은 도메인 오브젝트 설계를 활하는 것이 좋습니다.
+
+## 규칙 5 : 줄여쓰지 않습니다.(축약 금지)
+
+- 클래스, 메서드, 변수의 명명시에 축약을 하지 말자는 규칙입니다.
+
+### 숨은 의미
+
+- 보통 이름을 축야하는 이유는 이름이 길게 되면 복잡하기 때문입니다.
+- 하지만 이름이 짧게 되면 프로젝으테서 용어의 일관성과 명확한 의미전달에 문제를 야기할 수 있습니다.
+- 이름이 길어진다는 의미는 해당 변수, 메서드, 클래스에 많은 책임이 부여되어 있다는 것을 의미합니다.
+- 따라서 이름이 길어진다는 의미는 설계를 고민해보라는 뜻을 담고 있습니다.
+- 설계의 변경을 토해 한 이름이 표현하고자 하는 의미를 가볍게 만들어 보라는 의미입니다.
+
+### 의미의 축약 - 메소드 분리
+
+- 축약은 의미를 단순화하는 방향으로 이루어져야 합니다.
+- 가장 먼저 할 수 있는 일은 메서드를 쪼개는 일입니다.
+
+```
+public void example() {
+    Customer customer = new Customer();
+    customer.modifyNameAndAge("변경후이름", 20);
+}
+```
+
+위와 같이 customer 객체는 modifyNameAndAge라는 메서드를 호출하게 되는데 이름과 나이를 수정하게 되면서
+
+메서드 이름이 길어지게 되었습니다. 따라서 위 코드는 다음과 같이 메서드를 분리할 수 있을 것입니다.
+
+```
+    public void example() {
+        Customer customer = new Customer();
+        customer.modifyName("변경후이름");
+        customer.modifyAge(20);
+    }
+```
+
+### 의미의 축약 - 시그니처 활용
+
+```java
+public class Customer {
+
+    private String name;
+    private int age;
+    //...
+
+    public Customers findRelatedCustomers(String relationStatusCode) {
+        // ...
+    }
+
+    public Customers findRelatedCustomers(String relationKindCode) {
+        // ...
+    }
+}
+```
+
+- 위 코드는 연관 고객들을 찾기 위한 메서드를 구현하고 있습니다.
+- 두 메소드는 메소드 파라미터로 String이라는 타입을 사용합니다.
+- 위와 같은 경우 동일한 메서드명과 동일한 시그니처를 지니고 있으므로 컴파일 에러가 발생합니다.
+
+위와 같은 문제를 해결하기 위해 다음과 같이 메소드 이름을 수정할 수 있습니다.
+
+```java
+public class Customer {
+
+    private String name;
+    private int age;
+    //...
+
+    public Customers findRelatedCustomersByRelationStatus(String relationStatusCode) {
+        // ...
+    }
+
+    public Customers findRelatedCustomersByRelationKind(String relationKindCode) {
+        // ...
+    }
+}
+```
+
+- 메서드의 이름을 사용해 컴파일 오류를 제거하였습니다.
+- 그러나 메서드명이 길어지는 문제가 다시 발생하였습니다.
+- 이는 파라미터의 자료형이 메소드의 책임을 표현하는데 활용되고 있지 못하기 때문입니다.
+- 메소드의 파라미터로 원시 자료형(String)을 사용하지 않고 별도의 클래스나 Enum과 같이 비즈니스적 의미를 갖는
+  클래스를 활용하면 보다 간결하게 표현할 수 있습니다.
+
+```java
+public class Customer {
+
+    private String name;
+    private int age;
+
+    public Customers findRelatedCustomers(CustomerRelationStatus relationStatus) {
+        // ...
+    }
+
+    public Customers findRelatedCustomers(CustomerRelationKind relationKind) {
+        // ...
+    }
+}
+```
+
+- CustomerRelationStatus, CustomerRlationKind는 별도의 비즈니스 로직을 담고 있는 enum입니다.
+- 위와 같이 동일한 메서드명을 유지하면서도 시그니처를 통해서 메소드의 책임을 표현할 수 있습니다.
+- 또한 입력타입을 강제하므로, 런타임 오류가 발생할 가능성도 줄일 수 있습니다.
+
 ## References
 
 - [\[Java\] String, StringBuffer, StringBuilder 차이 및 장단점](https://dev-jwblog.tistory.com/108#3.%20StringBuffer%20/%20StringBuilder)
@@ -606,3 +1063,7 @@ static Object obj = new Object();
 - [\[Java\] 자바 메타스페이스(Metaspace)에 대해 알아보자.](https://jaemunbro.medium.com/java-metaspace%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90-ac363816d35e#:~:text=%EC%9D%B4%20metadata%EB%8A%94%20heap%20%EC%99%B8%EB%B6%80,%EC%9D%B4%20%EA%B5%AC%EC%97%AD%EC%9D%B4%20Metaspace%EC%9D%B4%EB%8B%A4.)
 - [JVM Runtime Data Area- Heap, Method Area](https://mia-dahae.tistory.com/101)
 - [Java 런타임 데이터 영역](https://8iggy.tistory.com/229)
+- [원시값과 문자열 포장](https://velog.io/@jhp1115/%EC%9B%90%EC%8B%9C%EA%B0%92%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4-%ED%8F%AC%EC%9E%A5)
+- [\[객체지향 생활체조 원칙\] 규칙 4. 한 줄에 점을 하나만 찍는다](https://limdingdong.tistory.com/10)
+- [\[객체지향 생활체조 원칙\] 규칙 5. 줄여쓰지 않는다](https://limdingdong.tistory.com/11)
+- 
