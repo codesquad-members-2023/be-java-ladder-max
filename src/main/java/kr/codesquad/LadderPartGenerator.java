@@ -1,11 +1,13 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class LadderPartGenerator {
 
-    private static final String BRIDGE = "-";
-    private static final String EMPTY = " ";
+    private static final String BRIDGE = "-----";
+    private static final String EMPTY = "     ";
     private static final String BAR = "|";
 
     private final Random random;
@@ -14,27 +16,42 @@ public class LadderPartGenerator {
         this.random = random;
     }
 
-    public String[][] generate(Ladder ladder) {
-        String[][] board = ladder.createEmptyLadderBoard();
-        for (int i = 0; i < board.length; i++) {
-            board[i] = createRandomLadderByLadder(ladder);
+    public List<List<String>> generateLadderPart(Ladder ladder) {
+        List<List<String>> partLines = ladder.createEmptyLadderLines();
+        for (int i = 0; i < partLines.size(); i++) {
+            partLines.get(i).addAll(createRandomLadderByLadder(ladder));
         }
-        return board;
+        return partLines;
     }
 
-    private String[] createRandomLadderByLadder(Ladder ladder) {
-        String[] ladderColumns = ladder.createEmptyLadderColumns();
-        for (int col = 0; col < ladderColumns.length; col += 2) {
-            ladderColumns[col] = generateBar();
+    private List<String> createRandomLadderByLadder(Ladder ladder) {
+        List<String> partLine = new ArrayList<>();
+        for (int col = 0; col < ladder.calLineColumnSize(); col++) {
+            partLine.add(generatePart(partLine, col));
         }
-        for (int col = 1; col < ladderColumns.length; col += 2) {
-            ladderColumns[col] = generateBridge();
-        }
-        return ladderColumns;
+        return partLine;
     }
 
-    private String generateBridge() {
+    private String generatePart(List<String> partLine, int col) {
+        if (isBarColumn(col)) {
+            return generateBar();
+        }
+        return generateBridge(partLine, col);
+    }
+
+    private boolean isBarColumn(int col) {
+        return col % 2 == 0;
+    }
+
+    private String generateBar() {
+        return BAR;
+    }
+
+    private String generateBridge(List<String> partLine, int col) {
         if (!buildOrNotBridge()) {
+            return EMPTY;
+        }
+        if (existBridgeOnLeft(partLine, col)) {
             return EMPTY;
         }
         return BRIDGE;
@@ -44,7 +61,9 @@ public class LadderPartGenerator {
         return random.nextBoolean();
     }
 
-    private String generateBar() {
-        return BAR;
+    private boolean existBridgeOnLeft(List<String> partLine, int col) {
+        return col >= 3 && partLine.get(col - 2).equals(BRIDGE);
     }
+
+
 }
