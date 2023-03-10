@@ -3,13 +3,17 @@ package kr.codesquad;
 import java.util.Scanner;
 
 public class Input {
-    static Scanner sc = new Scanner(System.in);
+    Scanner sc;
 
-    static int inputNumberOfPlayers() {
+    public Input(Scanner sc) {
+        this.sc = sc;
+    }
+
+    int inputNumberOfPlayers() {
         return sc.nextInt();
     }
 
-    static int inputLadderHeight(){
+    int inputLadderHeight(){
         return sc.nextInt();
     }
 }
