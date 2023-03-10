@@ -29,12 +29,11 @@ public class Controller {
     public void run() throws IOException {
         output.printMessageNames();
         String names = input.inputNames();
-        List<String> afterNames = validation.validateInputNames(names);
-        output.printMessageM();
-        String m = input.inputM();
-        int afterM = validation.validateInputM(m);
 
-        List<List<String>> ladders = ladder.makeLadder(afterNames, afterM);
+        output.printMessageLadderNumber();
+        String ladderNumber = input.inputLadderNumber();
+
+        List<List<String>> ladders = ladder.makeLadder(validation.validateInputNames(names), validation.validateInputM(ladderNumber));
 
         String result = encoding.encodeLadder(ladders);
         output.printLadder(result);

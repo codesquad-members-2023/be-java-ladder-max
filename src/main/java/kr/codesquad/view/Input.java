@@ -13,7 +13,7 @@ public class Input {
         return input;
     }
 
-    public String inputM() throws IOException {
+    public String inputLadderNumber() throws IOException {
         String input = br.readLine();
         br.close();
         return input;
