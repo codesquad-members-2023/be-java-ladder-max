@@ -61,21 +61,21 @@ public class LadderRow {
         return index - 1;
     }
 
-    public int checkLeftLine(int index) {
+    private int checkLeftLine(int index) {
         if (isLine(row.get(index - 1))) {
             return index - 1;
         }
         return index;
     }
 
-    public int checkRightLine(int index) {
+    private int checkRightLine(int index) {
         if (isLine(row.get(index))) {
             return index + 1;
         }
         return index;
     }
 
-    public boolean isLine(String line) {
+    private boolean isLine(String line) {
         if (line.equals(LINE)) {
             return true;
         }
