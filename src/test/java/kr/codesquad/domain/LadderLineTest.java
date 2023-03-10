@@ -11,7 +11,6 @@ import static org.mockito.Mockito.*;
 
 @DisplayName("LadderLine 테스트")
 class LadderLineTest {
-
     @DisplayName("플레이어 수만큼 BAR('|')를 가진다.")
     @ValueSource(ints = {2, 5, 10, 100})
     @ParameterizedTest(name = "플레이어 수 : {0}")
