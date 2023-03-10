@@ -16,19 +16,28 @@ public class InputView {
     }
 
     public Ladder enterCommand() {
-        return new Ladder(insertNames(), insertResults(), insertHeight());
+        List<String> people = insertNames();
+        int peopleLen = people.size();
+        return new Ladder(people, insertResults(peopleLen), insertHeight());
     }
 
-    private List<String> insertResults() {
+    private List<String> insertResults(int len) {
         System.out.println("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
         List<String> results;
         try {
             results = parseInput();
+            validateResults(results, len);
         } catch (IllegalArgumentException e) {
-            System.out.println("각 결과의 길이는 5 이하여야 합니다.");
-            return insertResults();
+            System.out.println("각 결과의 길이는 5 이하여야 하거나 결과의 길이가 사람들의 길이가 다릅니다.");
+            return insertResults(len);
         }
         return results;
+    }
+
+    private void validateResults(List<String> results, int len) {
+        if(results.size() != len) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private int insertHeight() {
