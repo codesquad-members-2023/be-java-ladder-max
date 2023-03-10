@@ -5,9 +5,9 @@ import java.util.Random;
 public class Ladder {
     String[][] ladder;
 
-    Ladder(int people, int ladder) {
-        this.ladder = new String[ladder][];
-        for (int i = 0; i < ladder; i++) {
+    Ladder(int people, int height) {
+        this.ladder = new String[height][];
+        for (int i = 0; i < height; i++) {
             this.ladder[i] = makeLayer(people);
         }
     }

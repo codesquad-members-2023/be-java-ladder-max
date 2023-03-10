@@ -7,10 +7,10 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
         Main main = new Main();
-        int n = main.inputPeople();
-        int m = main.inputLadder();
+        int people = main.inputPeople();
+        int height = main.inputHeight();
 
-        Ladder ladder = new Ladder(n, m);
+        Ladder ladder = new Ladder(people, height);
         ladder.printLadder();
 
         //new Ladder().printVerticalLine(n, m);
@@ -21,8 +21,8 @@ public class Main {
         return input();
     }
 
-    private int inputLadder() throws IOException {
-        printInputLadder();
+    private int inputHeight() throws IOException {
+        printInputHeight();
         return input();
     }
 
@@ -35,7 +35,7 @@ public class Main {
         System.out.println("참여할 사람은 몇 명 인가요?");
     }
 
-    private void printInputLadder() {
+    private void printInputHeight() {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
     }
 }
