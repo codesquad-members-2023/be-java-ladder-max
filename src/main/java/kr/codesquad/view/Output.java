@@ -11,12 +11,12 @@ public class Output {
         printLadder(ladder);
     }
 
-    public void printNames(ArrayList<String> names) {
+    private void printNames(ArrayList<String> names) {
         names.forEach(name -> System.out.print(name + " "));
         System.out.println();
     }
 
-    public void printLadder(Ladder ladder) {
+    private void printLadder(Ladder ladder) {
         ladder.ladder.stream()
                 .map(a -> String.join("", a))
                 .forEach(System.out::println);

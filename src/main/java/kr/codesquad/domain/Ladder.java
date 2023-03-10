@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Ladder {
-    protected ArrayList<ArrayList<String>> ladder = new ArrayList<>();
+    private ArrayList<ArrayList<String>> ladder = new ArrayList<>();
 
     public Ladder(int verticalLine, int horizontalLine) {
         makeLadder(verticalLine, horizontalLine);
