@@ -45,4 +45,40 @@ public class LadderRow {
         }
         return false;
     }
+
+    public int moveLine(int index) {
+        if (index == 0) {
+            return checkRightLine(index);
+        }
+
+        if (index == row.size()) {
+            return checkLeftLine(index);
+        }
+
+        if (checkLeftLine(index) == index) {
+            return checkRightLine(index);
+        }
+        return index - 1;
+    }
+
+    public int checkLeftLine(int index) {
+        if (isLine(row.get(index - 1))) {
+            return index - 1;
+        }
+        return index;
+    }
+
+    public int checkRightLine(int index) {
+        if (isLine(row.get(index))) {
+            return index + 1;
+        }
+        return index;
+    }
+
+    public boolean isLine(String line) {
+        if (line.equals(LINE)) {
+            return true;
+        }
+        return false;
+    }
 }
