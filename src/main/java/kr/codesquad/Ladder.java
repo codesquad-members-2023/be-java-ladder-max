@@ -49,7 +49,7 @@ public class Ladder {
 
         for(int rowIndex = 0; rowIndex < ROW_SIZE; rowIndex++){
             Arrays.stream(ladder[rowIndex])
-                    .forEach(s -> sb.append(s == null ? " " : s.getLine()));
+                    .forEach(s -> sb.append(s.getLine()));
             sb.append("\n");
         }
 
