@@ -4,7 +4,7 @@ public class OutputView {
     private final String PLAYERS_PROMPT = "참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)";
     private final String MAX_HEIGHT_PROMPT = "최대 사다리 높이는 몇 개인가요?";
 
-    public void printParticipantsPrompt() {
+    public void printPlayersPrompt() {
         System.out.println(PLAYERS_PROMPT);
     }
 
