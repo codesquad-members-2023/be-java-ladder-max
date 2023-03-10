@@ -9,12 +9,11 @@ public class LadderLine {
 
     private final int lineWidth;
     ArrayList<Boolean> points;
-
     LinePointsValidator linePointsValidator;
 
     public LadderLine(int countOfPeople) {
         this.lineWidth = countOfPeople - 1;
-        this.points = new ArrayList();
+        this.points = new ArrayList<>();
         linePointsValidator = new LinePointsValidator();
     }
 
