@@ -20,7 +20,7 @@ public class RandomLadderGenerator {
     private static List<RowLines> createLadder(int numberOfUsers, int ladderHeight) {
         RandomRowLinesGenerator rowLinesGenerator = new RandomRowLinesGenerator(numberOfUsers);
         return IntStream.range(0, ladderHeight)
-            .mapToObj(index -> new RowLines(rowLinesGenerator))
+            .mapToObj(index -> new RowLines(rowLinesGenerator.generate()))
             .collect(Collectors.toList());
     }
 
