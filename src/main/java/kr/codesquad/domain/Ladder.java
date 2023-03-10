@@ -7,6 +7,7 @@ public class Ladder {
     private Elements names;
     private Elements results;
     private List<LadderRow> radder = new ArrayList<>();
+    private List<Integer> radderResult = new ArrayList<>();
 
     public Ladder(String nameData, String resultData, int height) {
         names = new Elements(nameData.split(","));
@@ -15,6 +16,20 @@ public class Ladder {
         for (int i = 0; i < height; i++) {
             radder.add(new LadderRow(names.size() - 1));
         }
+    }
+
+    public void playLadderGame() {
+        for (int i = 0; i < names.size(); i++) {
+            moveDown(i);
+        }
+    }
+
+    public void moveDown(int index) {
+        for (int i = 0; i < radder.size(); i++) {
+            LadderRow row = radder.get(i);
+            index = row.moveLine(index);
+        }
+        radderResult.add(index);
     }
 
     public void printRadder() {
