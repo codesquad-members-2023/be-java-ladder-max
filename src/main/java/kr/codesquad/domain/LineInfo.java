@@ -16,11 +16,11 @@ public class LineInfo {
         this.lineInfo = lineInfo;
     }
 
-    public static LineInfo createRandomLineStateInfo(int namesSize) {
+    public static LineInfo createRandomLineInfo(int size) {
         Random random = new Random();
         List<Boolean> store = new ArrayList<>();
         boolean hasLine = false;
-        for (int j = 0; j < namesSize - 1; j++) {
+        for (int j = 0; j < size; j++) {
             hasLine = random.nextBoolean() && !hasLine;
             store.add(hasLine);
         }

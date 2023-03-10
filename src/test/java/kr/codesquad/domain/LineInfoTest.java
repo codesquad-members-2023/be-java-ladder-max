@@ -4,6 +4,8 @@ import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class LineInfoTest {
 
@@ -26,5 +28,13 @@ class LineInfoTest {
         LineInfo lineInfo = new LineInfo(testList);
 
         Assertions.assertThat(lineInfo.size()).isEqualTo(3);
+    }
+
+
+    @DisplayName("입력한 size-1의 LineInfo 객체 생성")
+    @ParameterizedTest
+    @ValueSource(ints = {3, 5, 10})
+    void createRandomLineStateInfo(int size) {
+        Assertions.assertThat(LineInfo.createRandomLineInfo(size).size()).isEqualTo(size);
     }
 }
