@@ -17,7 +17,9 @@ class UsersTest {
         // when
 
         // then
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new Users(userNames));
+        IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class,
+            () -> new Users(userNames));
+        Assertions.assertEquals("참여할 사람의 수는 최소 2명입니다.", exception.getMessage());
     }
 
     @DisplayName("참여할 사람이 2명 이상일 경우 생성된다.")
@@ -41,7 +43,7 @@ class UsersTest {
         // when
 
         // then
-        IllegalArgumentException exception = Assertions.assertThrowsExactly(
+        IllegalArgumentException exception = Assertions.assertThrows(
             IllegalArgumentException.class, () -> new Users(names));
         Assertions.assertEquals("참여자 이름 중에 중복된 이름이 있습니다.", exception.getMessage());
     }
