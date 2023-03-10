@@ -185,4 +185,54 @@ class Species{
 
 </details>
 
-## 자바 문자열
+## 미션 구현
+
+### 시행착오
+
+```java
+public enum LadderLine {
+  VERTICAL("|") {
+    @Override
+    boolean check(int index) {
+      return isEven(index);
+    }
+  },
+  HORIZONTAL("-----") {
+    @Override
+    boolean check(int index) {
+      return !isEven(index) && isRandomPicked();
+    }
+  },
+  BLANK("     ") {
+    @Override
+    boolean check(int index) {
+      return !isEven(index);
+    }
+  };
+
+  private final String line;
+
+  LadderLine(String line) {
+    this.line = line;
+  }
+
+  abstract boolean validate(int index);
+}
+```
+위 코드에 대해서   
+  1. enum에 추상메서드는 잘 안쓴다. 
+  2. 상수를 다루기 위한 클래스라는 enum의 본질적인 목적에 맞지 않는다.   
+ 
+라는 피드백을 받았다.    
+
+여기서 두번째 피드백에 대해 좀 더 생각해보았다.
+> 상수를 다루기 위한 클래스
+
+라는 Enum의 목적을 생각해보면, 
+LadderLine에 구현할 추상 메서드는 구현된 LadderLine 객체에 대한 정보를 전달하는 것이 맞다.   
+하지만 validate()는 LadderLine 객체가 생성되기 전에 어떤 LadderLine 객체가 생성되어야 하는지 결정해주는 역할을 한다.   
+이는 해당 LadderLine 객체에 대한 정보를 전달하는 것이라고 볼 수 없다.   
+그러므로 이 기능은 LadderLine 을 생성하는 클래스에 포함되는 것이 맞다.
+
+
+
