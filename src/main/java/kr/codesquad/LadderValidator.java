@@ -35,10 +35,10 @@ public class LadderValidator {
 
     public void validateLadderHeight(String text) {
         if (!validateNumberFormat(text)) {
-            throw new InvalidNumberOfMaximumLadderHeightException();
+            throw new InvalidNumberOfMinimumLadderHeightException();
         }
         if (!moreThanMinLadderHeight(text)) {
-            throw new InvalidNumberOfMaximumLadderHeightException();
+            throw new InvalidNumberOfMinimumLadderHeightException();
         }
     }
 
