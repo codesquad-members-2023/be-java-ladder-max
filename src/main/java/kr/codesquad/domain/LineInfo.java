@@ -27,6 +27,14 @@ public class LineInfo {
         return lineInfo;
     }
 
+    private static boolean canMoveLeft(int resultNum, List<Boolean> oneRowStateInfo) {
+        return resultNum > 0 && oneRowStateInfo.get(resultNum - 1);
+    }
+
+    private static boolean canMoveRight(int resultNum, List<Boolean> oneRowStateInfo) {
+        return resultNum < oneRowStateInfo.size() && oneRowStateInfo.get(resultNum);
+    }
+
     private void add(boolean exist) {
         lineInfo.add(exist);
     }
@@ -34,8 +42,7 @@ public class LineInfo {
     public String connectLine() {
         StringBuilder result = new StringBuilder();
         for (Boolean isExist : lineInfo) {
-            result.append(isExist ? SUCCESS_DELIMITER : FAIL_DELIMITER)
-                .append(PEOPLE_DELIMITER);
+            result.append(isExist ? SUCCESS_DELIMITER : FAIL_DELIMITER).append(PEOPLE_DELIMITER);
         }
         return result.toString();
     }
@@ -43,7 +50,6 @@ public class LineInfo {
     public int size() {
         return lineInfo.size();
     }
-
 
     public int move(int resultNum) {
         if (canMoveLeft(resultNum, lineInfo)) {
@@ -53,14 +59,5 @@ public class LineInfo {
             return resultNum + 1;
         }
         return resultNum;
-    }
-
-
-    private static boolean canMoveLeft(int resultNum, List<Boolean> oneRowStateInfo) {
-        return resultNum > 0 && oneRowStateInfo.get(resultNum - 1);
-    }
-
-    private static boolean canMoveRight(int resultNum, List<Boolean> oneRowStateInfo) {
-        return resultNum < oneRowStateInfo.size() && oneRowStateInfo.get(resultNum);
     }
 }

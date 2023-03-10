@@ -81,7 +81,7 @@ class InputViewValidator {
     fun isNumber(input: String): Boolean = input.matches(Regex(IS_DIGIT_PATTERN))
     fun isInputNamesFormat(input: String): Boolean = input.matches(Regex("^[a-z]+(,[a-z]+)+\$"))
     fun isRightResultPattern(input: String): Boolean =
-        input.matches(Regex("^(꽝|([0-9]+[1-9]*))(,(꽝|([0-9]+[1-9]*)))*\$"))
+            input.matches(Regex("^(꽝|([0-9]+[1-9]*))(,(꽝|([0-9]+[1-9]*)))*\$"))
 
 
 }

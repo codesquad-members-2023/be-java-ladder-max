@@ -7,16 +7,16 @@ private const val RESULT_DES = "실행결과"
 class OutputView {
     fun print(drawnLadder: String) = println(NEW_LINE.repeat(2) + drawnLadder)
     fun print(names: List<String>, drawnLadder: String) =
-        formatNamesAndDrawnLadder(names, drawnLadder).apply { println(this) }
+            formatNamesAndDrawnLadder(names, drawnLadder).apply { println(this) }
 
     private fun formatNamesAndDrawnLadder(names: List<String>, drawnLadder: String): String {
         with(StringBuilder()) {
             this.append(NEW_LINE.repeat(2))
-                .append(RESULT_DES)
-                .append(NEW_LINE.repeat(2))
+                    .append(RESULT_DES)
+                    .append(NEW_LINE.repeat(2))
             names.forEach { append(centerString(it)) }
             this.append(NEW_LINE)
-                .append(drawnLadder)
+                    .append(drawnLadder)
             return toString()
         }
     }
@@ -51,8 +51,8 @@ fun centerString(name: String): String = with(StringBuilder()) {
 }
 
 private fun cutLength(
-    targetNameLength: Int,
-    target: String,
+        targetNameLength: Int,
+        target: String,
 ): Pair<Int, String> {
     var nameLength = targetNameLength
     var cutName = target

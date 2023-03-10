@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 
 class LadderDrawerTest {
 
-  @DisplayName("사다리 그리기")
-  @Test
-  void draw() {}
+    @DisplayName("사다리 그리기")
+    @Test
+    void draw() {
+    }
 }

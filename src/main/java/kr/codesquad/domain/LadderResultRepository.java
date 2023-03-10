@@ -12,7 +12,6 @@ public class LadderResultRepository {
     private List<String> names;
     private List<String> resultInfo;
 
-
     public void put(int position, int resultNum) {
         ladderResult.put(position, resultNum);
     }
@@ -23,13 +22,13 @@ public class LadderResultRepository {
 
     public String searchAll() {
         StringBuilder answer = new StringBuilder();
-        ladderResult.forEach((key, value) -> answer.append(names.get(key))
-            .append(NAME_RESULT_DELIMITER)
-            .append(resultInfo.get(value))
-            .append(NEXT_LINE));
+        ladderResult.forEach(
+                (key, value) -> answer.append(names.get(key))
+                        .append(NAME_RESULT_DELIMITER)
+                        .append(resultInfo.get(value))
+                        .append(NEXT_LINE));
         return answer.toString();
     }
-
 
     public void saveNamesAndResultINFO(List<String> names, List<String> resultInfo) {
         this.names = names;

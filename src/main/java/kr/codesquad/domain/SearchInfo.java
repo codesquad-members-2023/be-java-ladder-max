@@ -21,5 +21,4 @@ public class SearchInfo {
     public String getName() {
         return name;
     }
-
 }
