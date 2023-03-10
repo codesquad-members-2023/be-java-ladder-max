@@ -29,7 +29,7 @@ public class LadderGame {
         String drawnLadder = drawLadder(linesInfo);
         printLadder(names, drawnLadder, resultInfo);
 
-        linesInfo.calculator(ladderResultRepository, names, resultInfo);
+        linesInfo.calculatorAndSaveResult(ladderResultRepository, names, resultInfo,nameSize);
 
         inputSearchInfo();
     }

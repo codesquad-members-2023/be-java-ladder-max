@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LinesInfo {
+
     static final String PEOPLE_DELIMITER = "|";
     static final String NEXT_LINE = "\n";
     static final String PREFIX = "   ";
@@ -28,18 +29,16 @@ public class LinesInfo {
 
     public String draw() {
         StringBuilder result = new StringBuilder();
-        for (LineInfo lineInfo : linesInfo) {
-            result.append(PREFIX)
-                    .append(PEOPLE_DELIMITER)
-                    .append(lineInfo.connectLine())
-                    .append(NEXT_LINE);
-        }
+        linesInfo.forEach(lineInfo -> result.append(PREFIX)
+                .append(PEOPLE_DELIMITER)
+                .append(lineInfo.connectLine())
+                .append(NEXT_LINE));
         return result.toString();
     }
 
-    public void calculator(LadderResultRepository ladderResultRepository, List<String> names, List<String> resultInfo) {
-        int columnLength = linesInfo.get(0).size();
-        for (int j = 0; j < columnLength + 1; j++) {
+    public void calculatorAndSaveResult(LadderResultRepository ladderResultRepository, List<String> names,
+            List<String> resultInfo, int namesSize) {
+        for (int j = 0; j < namesSize; j++) {
             int resultNum = j;
             for (LineInfo lineInfo : linesInfo) {
                 resultNum = lineInfo.move(resultNum);
