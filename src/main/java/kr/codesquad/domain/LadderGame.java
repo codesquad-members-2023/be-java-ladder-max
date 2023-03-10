@@ -13,9 +13,9 @@ public class LadderGame {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Input input = new Input();
         ArrayList<String> names = input.inputNames(br);
-        int horizontalLine = input.input(br);
+        int countOfLadder = input.inputLadder(br);
 
-        Ladder ladder = new Ladder(names.size(), horizontalLine);
+        Ladder ladder = new Ladder(names.size(), countOfLadder);
         Output output = new Output();
         output.print(names, ladder);
     }
