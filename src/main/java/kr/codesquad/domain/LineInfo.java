@@ -49,7 +49,7 @@ public class LineInfo {
         if (canMoveLeft(resultNum, lineInfo)) {
             return resultNum - 1;
         }
-        if (canMoveRight( resultNum, lineInfo)) {
+        if (canMoveRight(resultNum, lineInfo)) {
             return resultNum + 1;
         }
         return resultNum;
@@ -60,7 +60,7 @@ public class LineInfo {
         return resultNum > 0 && oneRowStateInfo.get(resultNum - 1);
     }
 
-    private static boolean canMoveRight( int resultNum, List<Boolean> oneRowStateInfo) {
+    private static boolean canMoveRight(int resultNum, List<Boolean> oneRowStateInfo) {
         return resultNum < oneRowStateInfo.size() && oneRowStateInfo.get(resultNum);
     }
 }

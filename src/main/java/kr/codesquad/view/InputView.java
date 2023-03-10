@@ -61,17 +61,17 @@ public class InputView {
         return Pattern.matches(NAMES_PATTERN, input);
     }
 
-    public List<String> inputResultInfo(int size) {
+    public List<String> inputResultInfo(int nameSize) {
         System.out.println(INPUT_RESULT_INFO);
         String input = scanner.nextLine();
         if (isRightResultInfoPattern(input)) {
             String[] result = input.split(NAME_DELIMITER);
-            if (result.length == size) {
+            if (result.length == nameSize) {
                 return Arrays.stream(result).collect(Collectors.toList());
             }
         }
         System.out.println(INPUT_ERROR);
-        return inputResultInfo(size);
+        return inputResultInfo(nameSize);
     }
 
     boolean isRightResultInfoPattern(String input) {

@@ -28,10 +28,10 @@ class InputView {
         println(INPUT_SEARCH_INFO)
         val input: String = scanner.nextLine()
         if (input == SearchType.ALL.value) {
-            return SearchInfo(SearchType.ALL,SearchType.ALL.value)
+            return SearchInfo(SearchType.ALL, SearchType.ALL.value)
         }
         if (input == SearchType.CLOSE.value) {
-            return SearchInfo(SearchType.CLOSE,SearchType.CLOSE.value)
+            return SearchInfo(SearchType.CLOSE, SearchType.CLOSE.value)
         }
         if (names.contains(input)) {
             return SearchInfo(SearchType.SINGLE, input)

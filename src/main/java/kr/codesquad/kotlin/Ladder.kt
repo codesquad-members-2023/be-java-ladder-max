@@ -25,6 +25,7 @@ class Ladder {
             }
             this@with
         }
+
     private fun addRowExistLineInfo(usersCount: Int) = with(ArrayList<Boolean>()) {
         for (j in 0 until usersCount - 1) {
             val currentBoolean = nextBoolean()
@@ -87,12 +88,12 @@ class Ladder {
         inputResult: List<String>,
     ): Map<String, String> {
         val resultStore = HashMap<String, String>()
-        for (i  in usersNames.indices) {
+        for (i in usersNames.indices) {
             var currentPosition = i
             for (j in existLineInfo.indices) {
-                if (currentPosition < usersNames.size-1 && existLineInfo[j][currentPosition]) {
+                if (currentPosition < usersNames.size - 1 && existLineInfo[j][currentPosition]) {
                     currentPosition++
-                } else if (currentPosition > 0 && existLineInfo[j][currentPosition-1]) {
+                } else if (currentPosition > 0 && existLineInfo[j][currentPosition - 1]) {
                     currentPosition--
                 }
             }
