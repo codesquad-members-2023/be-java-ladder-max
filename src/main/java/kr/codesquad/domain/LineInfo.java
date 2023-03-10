@@ -19,10 +19,10 @@ public class LineInfo {
     public static LineInfo createRandomLineStateInfo(int namesSize) {
         Random random = new Random();
         LineInfo lineInfo = new LineInfo();
-        boolean beforeIsExist = false;
+        boolean hasLine = false;
         for (int j = 0; j < namesSize - 1; j++) {
-            beforeIsExist = random.nextBoolean() && !beforeIsExist;
-            lineInfo.add(beforeIsExist);
+            hasLine = random.nextBoolean() && !hasLine;
+            lineInfo.add(hasLine);
         }
         return lineInfo;
     }
