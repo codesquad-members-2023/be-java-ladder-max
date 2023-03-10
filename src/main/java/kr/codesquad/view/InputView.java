@@ -10,12 +10,10 @@ import java.util.stream.Collectors;
 
 public class InputView {
 
-    private final OutputView outputView;
     private final Scanner sc;
     private Ladder ladder;
 
     public InputView() {
-        this.outputView = new OutputView();
         this.sc = new Scanner(System.in);
     }
 
