@@ -1,13 +1,12 @@
 
 package kr.codesquad;
 
+import kr.codesquad.controller.MainController;
 import kr.codesquad.view.InputView;
 
 
 public class Main {
     public static void main(String[] args) {
-        InputView inputView = new InputView();
-        inputView.enterCommand();
-        inputView.seeResult();
+        new MainController().run();
     }
 }

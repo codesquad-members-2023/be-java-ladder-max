@@ -5,6 +5,7 @@ import kr.codesquad.view.OutputView;
 import java.util.List;
 
 public enum Type {
+
     ALL("all") {
         @Override
         public void execute(List<String> finals, OutputView outputView) {
