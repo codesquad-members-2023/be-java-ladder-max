@@ -1,6 +1,5 @@
-package kr.codesquad.step2;
+package kr.codesquad.step3;
 
-import java.util.OptionalInt;
 import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
