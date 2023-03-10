@@ -37,13 +37,13 @@ public class LinesInfo {
     }
 
     public void calculatorAndSaveResult(LadderResultRepository ladderResultRepository, List<String> names,
-            List<String> resultInfo, int namesSize) {
-        for (int j = 0; j < namesSize; j++) {
-            int resultNum = j;
+            List<String> resultInfo) {
+        for (int i = 0; i < names.size(); i++) {
+            int resultNum = i;
             for (LineInfo lineInfo : linesInfo) {
                 resultNum = lineInfo.move(resultNum);
             }
-            ladderResultRepository.put(names.get(j), resultInfo.get(resultNum));
+            ladderResultRepository.put(names.get(i), resultInfo.get(resultNum));
         }
     }
 }

@@ -1,9 +1,8 @@
 package kr.codesquad.domain;
 
+import java.util.List;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
-
-import java.util.List;
 
 public class LadderGame {
 
@@ -29,7 +28,7 @@ public class LadderGame {
         String drawnLadder = drawLadder(linesInfo);
         printLadder(names, drawnLadder, resultInfo);
 
-        linesInfo.calculatorAndSaveResult(ladderResultRepository, names, resultInfo,nameSize);
+        linesInfo.calculatorAndSaveResult(ladderResultRepository, names, resultInfo);
 
         inputSearchInfo();
     }

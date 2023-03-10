@@ -1,14 +1,13 @@
 package kr.codesquad.view;
 
-import kr.codesquad.domain.LadderResultRepository;
-import kr.codesquad.domain.SearchInfo;
-import kr.codesquad.domain.SearchType;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import kr.codesquad.domain.LadderResultRepository;
+import kr.codesquad.domain.SearchInfo;
+import kr.codesquad.domain.SearchType;
 
 public class InputView {
 
