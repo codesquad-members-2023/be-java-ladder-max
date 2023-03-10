@@ -4,27 +4,29 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.stream.IntStream;
 
+
 public class LadderLine {
 
     private final int lineWidth;
+    ArrayList<Boolean> points;
 
-    //TestCode를 위해 default로 설정
-    ArrayList<Boolean> points = new ArrayList();
-    private final String errorMessageForConsecutivePoints = "연속적인 true 존재";
+    LinePointsValidator linePointsValidator;
 
     public LadderLine(int countOfPeople) {
         this.lineWidth = countOfPeople - 1;
+        this.points = new ArrayList();
+        linePointsValidator = new LinePointsValidator();
     }
 
     void createLine(){
         buildLadderLine();
-        validatePointsAndThrowException();
     }
 
     private void buildLadderLine() {
         IntStream.range(0, lineWidth)
                 .mapToObj(i -> generateRungStatus())
                 .forEach(points::add);
+        linePointsValidator.validatePoints(points);
     }
 
     private boolean generateRungStatus() {
@@ -32,15 +34,6 @@ public class LadderLine {
             return new Random().nextBoolean();
         }
         return new Random().nextBoolean() && !points.get(points.size() - 1);
-    }
-
-    void validatePointsAndThrowException() {
-        IntStream.range(0, points.size()-1)
-                .filter(i ->points.get(i) && points.get(i + 1))
-                .findFirst()
-                .ifPresent(i -> {
-            throw new IllegalStateException(errorMessageForConsecutivePoints);
-        });
     }
 
     static void drawLine(ArrayList<LadderLine> ladder, StringBuilder sb) {
