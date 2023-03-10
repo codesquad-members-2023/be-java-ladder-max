@@ -38,7 +38,7 @@ class LadderConsoleReaderTest {
     }
 
     @ParameterizedTest
-    @DisplayName("사용자 이름들이 제대로 받아지는지 테스트")
+    @DisplayName("사다리 게임 이름 입력중 이름의 글자가 5를 초과하여 예외가 발생하여 실패하는지 테스트")
     @ValueSource(strings = {"pobi,honux,crong,jkweifojaewiofj", "pobi,honux,crong,jk    ", "pobi"})
     public void readNameOfPeople_fail(String input) {
         //given
