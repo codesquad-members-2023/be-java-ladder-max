@@ -37,15 +37,6 @@ public class LadderRow {
         return rowString;
     }
 
-    public boolean isRowHasLine() {
-        for (String s : row) {
-            if (s.equals(LINE)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public int moveLine(int index) {
         if (index == 0) {
             return checkRightLine(index);

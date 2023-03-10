@@ -46,4 +46,13 @@ public class Ladder {
         sb.append(results + "\n");
         System.out.println(sb);
     }
+
+    public void printAllResult() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("실행 결과\n");
+        for (int i = 0; i < names.size(); i++) {
+            sb.append(names.get(i) + " : " + results.get(radderResult.get(i)) + "\n");
+        }
+        System.out.println(sb);
+    }
 }

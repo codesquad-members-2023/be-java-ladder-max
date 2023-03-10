@@ -12,6 +12,8 @@ public class Controller {
         try {
             Ladder ladder = new Ladder(input.inputName(), input.inputResult(), input.inputHeight());
             ladder.printRadder();
+            ladder.playLadderGame();
+            ladder.printAllResult();
         } catch (IOException e) {
             e.printStackTrace();
         }
