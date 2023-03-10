@@ -1,12 +1,12 @@
-package kr.codesquad;
+package kr.codesquad.ladder;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import kr.codesquad.domain.LadderValidator;
-import kr.codesquad.service.LadderGame;
-import kr.codesquad.view.LadderConsoleReader;
-import kr.codesquad.view.LadderConsoleWriter;
-import kr.codesquad.view.LadderWriter;
+import kr.codesquad.ladder.domain.LadderValidator;
+import kr.codesquad.ladder.domain.LadderGame;
+import kr.codesquad.ladder.view.LadderConsoleReader;
+import kr.codesquad.ladder.view.LadderConsoleWriter;
+import kr.codesquad.ladder.view.LadderWriter;
 
 public class Main {
 

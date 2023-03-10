@@ -2,8 +2,8 @@ package kr.codesquad;
 
 import java.util.ArrayList;
 import java.util.List;
-import kr.codesquad.domain.Ladder;
-import kr.codesquad.domain.LadderPartGenerator;
+import kr.codesquad.ladder.domain.Ladder;
+import kr.codesquad.ladder.domain.LadderPartGenerator;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

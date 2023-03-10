@@ -1,4 +1,4 @@
-package kr.codesquad.view;
+package kr.codesquad.ladder.view;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
-import kr.codesquad.domain.InvalidNameOfPeopleException;
-import kr.codesquad.domain.InvalidNumberOfMinimumLadderHeightException;
-import kr.codesquad.domain.LadderValidator;
+import kr.codesquad.ladder.domain.InvalidNameOfPeopleException;
+import kr.codesquad.ladder.domain.InvalidNumberOfMinimumLadderHeightException;
+import kr.codesquad.ladder.domain.LadderValidator;
 
 public class LadderConsoleReader implements LadderReader {
 
