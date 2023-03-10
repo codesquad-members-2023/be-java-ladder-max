@@ -70,7 +70,7 @@ public class InputView {
             people = parseInput();
         } catch (IllegalArgumentException e) {
             System.out.println("각 이름의 길이는 5 이하여야 합니다.");
-            return insertResults();
+            return insertNames();
         }
         return people;
     }
