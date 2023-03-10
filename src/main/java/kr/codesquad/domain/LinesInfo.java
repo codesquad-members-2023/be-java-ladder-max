@@ -5,7 +5,6 @@ import java.util.List;
 
 public class LinesInfo {
 
-
     private final List<LineInfo> linesInfo;
 
     public LinesInfo() {
@@ -25,6 +24,8 @@ public class LinesInfo {
         return linesInfo;
     }
 
+
+
     public String draw() {
         StringBuilder result = new StringBuilder();
         linesInfo.forEach(lineInfo ->
@@ -41,5 +42,9 @@ public class LinesInfo {
             }
             ladderResultRepository.put(names.get(i), resultInfo.get(resultNum));
         }
+    }
+
+    public int size() {
+        return linesInfo.size();
     }
 }
