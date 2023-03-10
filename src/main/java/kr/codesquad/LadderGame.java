@@ -1,15 +1,18 @@
 package kr.codesquad;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class LadderGame {
     public static void startLadderGame() throws IOException {
-        System.out.println("참여할 사람은 몇 명인가요?");
-        int verticalLine = Input.input();
-        System.out.println("최대 사다리 높이는 몇 개인가요?");
-        int horizontalLine = Input.input();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Input input = new Input();
+        ArrayList<String> names = input.inputNames(br);
+        int horizontalLine = input.input(br);
 
-        Ladder ladder = new Ladder(verticalLine, horizontalLine);
-        Output.printLadder(ladder);
+        Ladder ladder = new Ladder(names.size(), horizontalLine);
+        Output.print(names, ladder);
     }
 }

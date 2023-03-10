@@ -1,27 +1,40 @@
 package kr.codesquad;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Random;
-import java.util.stream.IntStream;
 
 public class Ladder {
-    protected String[][] ladder;
+    protected ArrayList<ArrayList<String>> ladder = new ArrayList<>();
 
     public Ladder(int verticalLine, int horizontalLine) {
-        ladder = new String[horizontalLine][(2 * verticalLine) - 1];
-        fillVerticalLine();
-        fillHorizontalLine();
+        makeLadder(verticalLine, horizontalLine);
     }
 
-    public void fillVerticalLine() {
-        Arrays.stream(ladder).forEach(row -> Arrays.fill(row, "|"));
+    private void makeLadder(int verticalLine, int horizontalLine) {
+        for (int i = 0; i < horizontalLine; i++) {
+            ladder.add(new ArrayList<>());
+            fillLine(i, verticalLine);
+        }
     }
 
-    public void fillHorizontalLine() {
-        String[] str = {"-", " "};
-        IntStream.range(0, ladder.length)
-                .forEach(x -> IntStream.range(0, ladder[0].length)
-                        .filter(y -> y % 2 == 1)
-                        .forEach(y -> ladder[x][y] = str[new Random().nextInt(2)]));
+    private void fillLine(int row, int column) {
+        for (int j = 0; j < column - 1; j++) {
+            fillVerticalLine(row);
+            fillHorizontalLine(row, j);
+        }
+        fillVerticalLine(row);
+    }
+
+    private void fillVerticalLine(int row) {
+        ladder.get(row).add("|");
+    }
+
+    private void fillHorizontalLine(int row, int column) {
+        String[] str = {"-----", "     "};
+        if (column >= 1 && ladder.get(row).get((2 * column) - 1).equals("-----")) {
+            ladder.get(row).add("     ");
+            return;
+        }
+        ladder.get(row).add(str[new Random().nextInt(2)]);
     }
 }
