@@ -2,6 +2,7 @@ package kr.codesquad.domain;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class Line {
     private ArrayList<Integer> points = new ArrayList<>();
@@ -26,5 +27,11 @@ public class Line {
             return;
         }
         points.add(new Random().nextInt(2));
+    }
+
+    @Override
+    public String toString() {
+        String[] str = {"     ", "-----", "|"};
+        return points.stream().map(b -> str[b]).collect(Collectors.joining(""));
     }
 }
