@@ -7,7 +7,7 @@ public class LinesInfo {
 
     private final List<LineInfo> linesInfo;
 
-    public LinesInfo() {
+    private LinesInfo() {
         this.linesInfo = new ArrayList<>();
     }
 
