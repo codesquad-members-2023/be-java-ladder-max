@@ -16,52 +16,30 @@ public class Ladder {
         this.height = height;
         this.figureLadder = new String[height][countOfPerson+countOfPerson-1]; // 변수명이 printLadder가 올바른지? -> 수정 완
     }
-    void ladderFeature() {
+        private void ladderFeature() {
         for (int i = 0; i < height; i++) {
             verticalLadder(i);
             horizontalLadder(i);
         }
     }
-//    public void makeLadder() {
-//        for (int i = 0; i < height; i++) {
-//            for (int j = 0; j < countOfPerson*2 -1; j++) {
-//                printLadder[i][j] = "|";
-//                if (j % 2 != 0) {
-//                    printLadder[i][j] = randomLadder();
-//                }
-//            }
-//        }
-//      for (String s[] : printLadder) {
-//            String s1 = Arrays.stream(s).collect(Collectors.joining());
-//            sb.append(s1).append("\n");
-//        }
-//    }
-
-//    public StringBuilder stringLadder() {   -> toString으로 대체
-//        for (String s[] : printLadder) {
-//            String s1 = Arrays.stream(s).collect(Collectors.joining());
-//            sb.append(s1).append("\n");
-//        }
-//        return sb;
-//    }
-    void verticalLadder(int row) {
+    private void verticalLadder(int row) {     // 짝수 column 에 | 넣기
         for (int i = 0; i < countOfPerson*2 -1; i+=2) {
             figureLadder[row][i] = "|";
         }
     }
-    void horizontalLadder(int row) {
+    private void horizontalLadder(int row) {  // 홀수 column 에 random 으로 - 넣기
         for (int i = 1; i < countOfPerson*2 -1 ; i+=2) {
             figureLadder[row][i] = randomLadder();
         }
     }
-    String randomLadder() {
+    private String randomLadder() {
         String[] ladderRandom = {" ", "-"};
         Random random = new Random();
         return ladderRandom[random.nextInt(2)];
     }
 
     @Override
-    public String toString() {
+    public String toString() {    // 한줄로 만들어진 column 을 모아서 StringBuilder 로 사다리의 길이 만큼 합쳐 만들기
         StringBuilder sbr = new StringBuilder();
         ladderFeature();
         for (int i = 0; i < height; i++) {
