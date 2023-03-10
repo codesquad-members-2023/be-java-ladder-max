@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Names {
     public String getNames(ArrayList<String> nameList) {
         StringBuilder namesRow = new StringBuilder();
-        for (int i = 0; i < nameList.size(); i++) {
-            namesRow.append(putSpaces(nameList.get(i))).append(" ");
+        for (String s : nameList) {
+            namesRow.append(putSpaces(s)).append(" ");
         }
         return namesRow.toString();
     }
