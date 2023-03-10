@@ -6,66 +6,64 @@ import kr.codesquad.view.OutputView;
 
 public class LadderGame {
 
-    private final InputView inputView;
-    private final LadderDrawer ladderDrawer;
-    private final OutputView outputView;
-    private final LineStateRandomCreator linesStateRandomCreator;
-    private final LadderResultCalculator ladderResultCalculator;
-    private final LadderResultRepository ladderResultRepository;
+  private final InputView inputView;
+  private final OutputView outputView;
+  private final LineStateRandomCreator linesStateRandomCreator;
+  private final LadderResultRepository ladderResultRepository;
 
-    public LadderGame() {
-        this.inputView = new InputView();
-        this.ladderDrawer = new LadderDrawer();
-        this.outputView = new OutputView();
-        this.linesStateRandomCreator = new LineStateRandomCreator();
-        this.ladderResultCalculator = new LadderResultCalculator();
-        this.ladderResultRepository = new LadderResultRepository();
-    }
+  public LadderGame() {
+    this.inputView = new InputView();
+    this.outputView = new OutputView();
+    this.linesStateRandomCreator = new LineStateRandomCreator();
+    this.ladderResultRepository = new LadderResultRepository();
+  }
 
-    public void run() {
+  public void run() {
 
-        List<String> names = inputView.inputNames();
-        int nameSize = names.size();
+    List<String> names = inputView.inputNames();
+    int nameSize = names.size();
 
-        List<String> resultInfo = inputView.inputResultInfo(nameSize);
-        int ladderHeight = inputView.inputLadderHeight();
+    List<String> resultInfo = inputView.inputResultInfo(nameSize);
+    int ladderHeight = inputView.inputLadderHeight();
 
-        List<LineInfo> linesStateInfo = linesStateRandomCreator.create(nameSize, ladderHeight);
-        String drawnLadder = drawLadder(linesStateInfo);
-        printLadder(names, drawnLadder, resultInfo);
+    LinesInfo linesInfo = linesStateRandomCreator.create(nameSize, ladderHeight);
+    String drawnLadder = drawLadder(linesInfo);
+    printLadder(names, drawnLadder, resultInfo);
 
-        ladderResultRepository.saveNamesAndResultINFO(names, resultInfo);
-        ladderResultCalculator.calculator(linesStateInfo, ladderResultRepository);
+    ladderResultRepository.saveNamesAndResultINFO(names, resultInfo);
+    linesInfo.calculator(ladderResultRepository);
 
-        inputSearchInfo();
-    }
+    inputSearchInfo();
+  }
 
-    private void inputSearchInfo() {
-        SearchInfo searchInfo = inputView.inputSearchInfo(ladderResultRepository);
-        SearchType searchType = searchInfo.getSearchType();
-        switch (searchType) {
-            case CLOSE:
-                outputView.printClose();
-                return;
-            case ALL: {
-                String searchAll = ladderResultRepository.searchAll();
-                outputView.printResult(searchAll);
-                break;
-            }
-            case SINGLE: {
-                String singleResult = ladderResultRepository.searchSingleResult(searchInfo.getName());
-                outputView.printResult(singleResult);
-                break;
-            }
+  private void inputSearchInfo() {
+    SearchInfo searchInfo = inputView.inputSearchInfo(ladderResultRepository);
+    SearchType searchType = searchInfo.getSearchType();
+    switch (searchType) {
+      case CLOSE:
+        outputView.printClose();
+        return;
+      case ALL:
+        {
+          String searchAll = ladderResultRepository.searchAll();
+          outputView.printResult(searchAll);
+          break;
         }
-        inputSearchInfo();
+      case SINGLE:
+        {
+          String singleResult = ladderResultRepository.searchSingleResult(searchInfo.getName());
+          outputView.printResult(singleResult);
+          break;
+        }
     }
+    inputSearchInfo();
+  }
 
-    private void printLadder(List<String> names, String drawnLadder, List<String> result) {
-        outputView.printLadder(names, drawnLadder, result);
-    }
+  private void printLadder(List<String> names, String drawnLadder, List<String> result) {
+    outputView.printLadder(names, drawnLadder, result);
+  }
 
-    private String drawLadder(List<LineInfo> linesStateInfo) {
-        return ladderDrawer.draw(linesStateInfo);
-    }
+  private String drawLadder(LinesInfo linesInfo) {
+    return linesInfo.draw();
+  }
 }
