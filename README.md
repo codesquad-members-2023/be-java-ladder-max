@@ -15,6 +15,7 @@
 - [x] 사용자 이름 입력 및 검증 기능 구현
 - [x] 콘솔 출력을 위한 사용자 이름 및 사다리 포맷팅
 - [x] 브리지 연속으로 나오지 않게 하기
+- [ ] List<String> 타입을 Line 클래스로 래핑하기
 
 ## 기능요구사항
 
@@ -601,7 +602,7 @@ static Object obj = new Object();
 - 규칙 4 : 한 줄에 점을 하나만 찍습니다.
 - 규칙 5 : 줄여쓰지 않습니다.(축약 금지)
 - 규칙 6 : 모든 엔티티를 작게 유지합니다.
-- 규칙 7 : 3개 이상의 인스턴스 변수를 가진 클래스를 쓰지 않습니다.
+- 규칙 7 : 2개 이상의 인스턴스 변수를 가진 클래스를 쓰지 않습니다.
 - 규칙 8 : 일급 컬렉션을 사용합니다.
 - 규칙 9 : getter/setter/proerpty를 사용하지 않습니다.
 
@@ -1050,6 +1051,360 @@ public class Customer {
 - 위와 같이 동일한 메서드명을 유지하면서도 시그니처를 통해서 메소드의 책임을 표현할 수 있습니다.
 - 또한 입력타입을 강제하므로, 런타임 오류가 발생할 가능성도 줄일 수 있습니다.
 
+## 규칙 6 : 모든 엔티티를 작게 유지합니다.
+
+- 이 원칙에서 칭하는 엔티티는 클래스, 패키지를 통틀어 업무적 구분을 갖는 단위를 의미합니다.
+- '작은 엔티티'라고 판단할 수 있는 대략적인 기준은 다음과 같습니다.
+
+```
+50줄 이하의 클래스
+10개 이하의 파일을 갖는 패키지
+```
+
+### 숨은 의미
+
+- 엔티티 작성시 하나의 목적을 염두하고 설계하라는 의미입니다.
+- SOLID 원칙중 `단일 책임 원칙`과도 상통합니다.
+- 클래스의 크기를 줄여 분리하기 시작하면, 작은 역할을 하게 될것입니다.
+  이때 작은 역할을 통해 이루려는 하나의 목적을 도출할 수 있습니다. 그 목적을 이루기 위한 클래스들을 모아 패키지로 구성하면 됩니다.
+
+### 패키지와 파일이 많은 것은 나쁜게 아닙니다.
+
+- 파일이 많아지는것에 나쁘다고 생각하는 원인은 패키지를 새로 만들고 파일을 새로 만드는 행위에 대한
+  부담감을 가지고 있기 때문입니다.
+- 파일을 일정한 패턴으로 망서 관리하려면 도메인에 대한 충분한 고민이 필요합니다.
+- 리팩토링을 통해 클래스를 분리하고 새로운 관리체계를 만들면 됩니다.
+
+## 규칙 7 : 2개 이상의 인스턴스 변수를 가진 클래스를 쓰지 않습니다.
+
+- 클래스의 인스턴스 변수를 제한하라는 지침입니다.
+- 여기서의 **인스턴스 변수는 원시 타입 또는 컬렉션과 같이 기본 또는 자료구조형의 변수**를 의미합니다.
+
+### 숨은 의미
+
+- 클래스의 인스턴스 변수는 클래스가 관리하는 `상태`를 의미합니다.
+- 인스턴스 변수가 많다는 것은 클래스가 여러 종류의 정체성을 가지고 설계되었다는 것을 의미합니다.
+- 규칙 7은 규칙3의 '모든 원시값과 문자열을 포자한다'의 내용과 상통합니다.
+
+### 예시
+
+```java
+class Name {
+
+    String firstName;
+    String lastName;
+
+    //... 성과 이름에 대한 기능
+}
+```
+
+- 위 코드에서 생각해볼 점은 성, 이름이라는 서로 다른 도메인 요소를 가지고 있는 상태가 동일한 String 타입 형태로
+  한 클래스에서 관리된다는 점입니다.
+- 이 의미는 Name 클래스가 firstName과 lastName을 다루는 기능을 구현해야 한다는 의미이고 이는
+  리스크로 작용합니다.
+
+위 코드에서 인스턴스 변수인 firstName, lastName을 래핑하는 클래스를 정의합니다.
+
+```java
+public class Name {
+
+    FirstName firstName;
+    LastName lastName;
+}
+
+class FirstName {
+
+    String name;
+    // ... 이름에 대한 기능
+}
+
+class LastName {
+
+    String name;
+    // ... 성에 대한 기능
+}
+```
+
+- 위 코드는 성과 이름을 FirstName, LastName이라는 클래스로 표현하였습니다.
+- 성과 이름에 대한 특별한 동작을 각자의 클래스(FirstName, LastName)에서 처리할 수 있게 되었습니다.
+
+### 인스턴스의 '수'를 줄여라 - 클래스는 계층적인 분류로 설계해야 합니다.
+
+- 규칙 7은 규칙3의 '모든 원시값과 문자열을 포장하라'라는 지침의 내요과 큰차이가 없습니다
+- 이 의미는 원시 타입들을 포장하는 래핑 클래스들을 이용하여 클래스의 설계를 계층적으로 세워보자는 의미로 해석될 수 있습니다.
+
+![](img/img_8.png)
+
+위 그림에서 첫번째 설계보다 어떤 기준(할부 금융, 론, 신용대출, 주택금융)을 가지고 도메인적 요소를 관리하는
+
+두번째 설계가 비즈니즈적 활용도가 높을 것이라는 것을 알 수 있습니다.
+
+클래스에 빗대어 보면 금융상품이라는 클래스는 7개의 인스턴스 변수를 가지고 있었으나,
+
+두번째 설계에서 4개의 인스턴스 변수를 가지게 되었습니다.
+
+## 규칙 8 : 일급 컬렉션을 사용하세요
+
+- 일급 컬렉션은 컬렉션은 래핑하면서 컬렉션 외에 다른 필드를 가지고 있지 않은 클래스를 일급 컬렉션이라고 합니다.
+- 도메인 클래스(Person, Student, ...)를 컬렉션(List, Map, ...)으로 감싸 처리하는 경우 이를 일급 컬렉션으로 구현하라는 가이드를 제시합니다.
+
+### 숨은 의미
+
+- 일급 컬렉션은 인스턴스의 집합을 '복수형 클래스'로 정의함으로써 단수형 클래스가 가질 수 없는 비즈니스 로직을
+  구현할 수 있도록 도와주는 도메인 설계라고 볼 수 있습니다.
+
+### 예시
+
+고객이 자동차 할부 대출의 상담을 받는다고 가정할때회상의 정책이 다음과 같을 수 있습니다.
+
+```
+- 고객에게는 오직 한대의 차량에 대해서만 대출해 줄 수 있습니다.
+- H사의 차량에 대해서만 대출이 가능합니다.
+```
+
+보통의 경우 서비스레이어에 로직을 다음과 같이 구현할 수 있을 것입니다.
+
+```java
+public class AutoLoanAccountService {
+
+    private static final int AUTO_LOAN_CAR_COUNT = 1;
+    private static final String AUTO_LOAN_AVAILABLE_COMPANY = "H";
+
+    public void registerConsulation(AutoLoanConsulationRegisterDto registerDto) {
+        validateCount(registerDto.getCarList());
+        validateCompany(registerDto.getCarList());
+        // ...
+    }
+
+    private void validateCount(List<Car> carList) {
+        if (carList.size() != AUTO_LOAN_CAR_COUNT) {
+            throw new IllegalArgumentException("오직 " + AUTO_LOAN_CAR_COUNT + " 대의 자동차만 등록이 가능합니다.");
+        }
+    }
+
+    private void validateCompany(List<Car> carList) {
+        for (Car car : carList) {
+            // 제조사 검증로직 ...
+        }
+    }
+}
+```
+
+위와 같이 구현한 상태에서 회사의 정책이 변동되었다고 가정합니다.
+
+```
+고객에게는 두 대의 차량구입자금을 대출해 줄 수 있다.
+H사와 K사의 차량에 대해서 대출이 가능하다.
+서로 다른 종류의 차량만 가능하다.
+```
+
+위와 같이 비즈니스적 요구사항이 변경되었을때, 요건의 변동이 `차량`이라는 객체의 내부에서
+관리할 수 있는 책임이 아니라 `차량들`이라는 클래스의 집합에서 해결할 수 있는 책임이라면
+앞서 제시한 코드에서는 동일한 부분의 로직을 모두 다 관리해주어야 합니다.
+
+다음과 같이 일급컬렉션을 정의하면 '차량들'이라는 집합에 관한 도메인 로직을 단일
+클래스에서 관리할 수 있습니다.
+
+```java
+public class AutoLoanCars {
+
+    private static final int AUTO_LOAN_CARS_MAX_COUNT = 2;
+    private static final int AUTO_LOAN_CARS_MIN_COUNT = 1;
+
+    private List<Car> cars = new ArrayList<>();
+
+    public AutoLoanCars(List<Car> cars) {
+        validateSize(cars);
+        validateDupCarType(cars);
+        validateCompany(cars);
+        this.cars = cars;
+    }
+
+    private void validateSize(List<Car> cars) {
+        if (cars.size() < AUTO_LOAN_CARS_MIN_COUNT) {
+            throw new IllegalArgumentException(
+                "최소 " + AUTO_LOAN_CARS_MIN_COUNT + " 대의 차량은 입력해야 합니다.");
+        }
+        if (cars.size() > AUTO_LOAN_CARS_MAX_COUNT) {
+            throw new IllegalArgumentException(
+                "최대 " + AUTO_LOAN_CARS_MAX_COUNT + " 대의 차량을 입력할 수 있습니다.");
+        }
+    }
+
+    private void validateDupCarType(List<Car> cars) {
+        // ... 차량종류 중복체크
+    }
+
+    private void validateCompany(List<Car> carList) {
+        for (Car car : carList) {
+            // 제조사 검증로직 ...
+        }
+    }
+}
+
+public class AutoLoanAccountService {
+
+    public void registerConsulation(AutoLoanConsulationRegisterDto registerDto) {
+        AutoLoanCars autoLoanCars = new AutoLoanCars(registerDto.getCarList());
+        // ...
+    }
+}
+```
+
+- 위 코드는 AutoLoanCars라는 일급 컬렉션 클래스를 새로 정의하고, Car타입 리스트가 생성자로 넘겨질때
+  초기화 단계에서 검증 처리를 하도록 구현되어 있습니다.
+- 위와 같이 Car 타입 리스트의 관리를 AutoLoanCars 클래스가 가져가버려서 AutoLoanAccountService 클래스의
+  책임이 가벼워졌음을 알 수 있습니다.
+- 이제 자동차 할부대출 대상물건에 대한 요구사항이 변경되어도 AutoLoanCars 클래스 안에서만 변경하면 됩니다.
+
+### 다양한 종류의 컬렉션을 래핑할 수 있습니다.
+
+- List, Map, Stack과 같이 어떤 인스턴스들의 '집합'이라는 개념을 갖는 모든 클래스를
+  다 일급 컬렉션으로 구현할 수 있습니다.
+- **중요한 것은 집합에서 얻을 수 있는 비즈니스적 의미가 무엇이냐에 초점을 두는 것입니다.**
+
+### 컬렉션에 업무적 으미를 갖는 이름을 부여할 수 있습니다.
+
+위 코드에서 Car 인스턴스의 집합을 AutoLoanCars라는 집합으로 표현하였습니다.
+이는 복수의 자동차를 '자동차 대출과 관련된 차량들'이라는 의미로 묶은 의미입니다.
+Car 인스턴스의 집합은 다른 목적으로도 묶을 수 있습니다.
+
+```
+List<Car> autoLoanCars;
+List<Car> salesmanCars;
+=>
+AutoLoanCars autoLoanCars;
+SalesmanCars salesmanCars;
+```
+
+위 리스트 타입보다 AutoLoanCars, SalesmanCars 일급 컬렉션 클래스가 더욱 객체지향적입니다.
+클래스 타입을 명시해줌으로써, 비즈니스적 의미를 표현할 수 있고, 클래스를 사용하는 코드에서 시그니처
+로 제약을 줄 수 있습니다. 즉, 코드가 더욱 명확한 비즈니스적 표현을 할 수 있다는 의미입니다.
+
+### Iterable 인터페이스를 구현해봅니다.
+
+일급 컬렉션은 컬렉션을 한번 래핑하기 때문에 인스턴스 요소에 접근하고자 할때 다음과 같이
+어색한 코드를 작성할 수 있습니다.
+
+```
+    public void sampleService(AutoLoanCars autoLoanCars) {
+        for (Car car : autoLoanCars.getCars()) {
+            // Car 인스턴스 처리로직
+        }
+    }
+```
+
+- 위와같은 getCars와 같은 getter 메서드는 코드의 결합도를 높이게 됩니다.
+
+```java
+public class AutoLoanCars implements Iterable<Car> {
+
+    private List<Car> cars = new ArrayList<>();
+
+    @Override
+    public Iterator<Car> iterator() {
+        return cars.iterator();
+    }
+}
+```
+
+위와 같이 Iterable 인터페이스를 구현하면 다음과 같이 호출 할 수 있습니다.
+
+```
+    public void sampleService(AutoLoanCars autoLoanCars) {
+        for (Car car : autoLoanCars) {
+            // Car 인스턴스 처리로직
+        }
+    }
+```
+
+- 위와 같이 하면 getter를 제거하는 안전한 설계를 할 수 있습니다.
+
+## 규칙 9 : getter/setter/property를 쓰지 않습니다.
+
+- 도메인 오브젝트로 설계한 Entity 또는 VO 클래스에는 getter/setter/property 사용을 지양해
+  상태 노출을 최소화 하라는 지침입니다.
+
+### 숨은 의미
+
+- 캡슐화를 지키면서 객체에 메시지를 보내 스스로 상태에 대한 처리 로직을 수행하도록 하라는 의미입니다.
+- **이 지침은 데이터 전달을 목적으로 하는 DTO나 프로세스 처리를 목적으로 하는 컨트롤러, 서비스, 빈 클래스를 대상으로 하지 않습니다.**
+
+### 객체에 메시지를 전달해라
+
+- 객체가 가진 정보는 꺼내서 다른 객체가 처리할 것이 아니라 객체 스스로 처리해야 한다는 의미입니다.
+- 이 처리에 대한 명령(메서드)을 호출하는 것을 메시지를 전달한다고 표현할 수 있습니다.
+
+```java
+public class VipMemberService {
+
+    private static final BigDecimal VIP_DEPOSIT_AMOUNT = new BigDecimal("1000000000");
+
+    public void saveBenefit(Member member) {
+        if (VIP_DEPOSIT_AMOUNT.compareTo(member.getTotalDepositAmount()) > 0) {
+            throw new IllegalStateException("VIP 고객이 아닙니다.");
+        }
+        // ...
+    }
+}
+```
+
+- 위 예제코드는 VIP 고객에 대해 혜택을 부여해주는 로직을 보여주고 있습니다.
+- 혜택 부여 전에 VIP인지 판별하는 조건문을 두어 예외를 발생시키고 있는데,
+  고객의 수신 총 금액이 10억원 이상일 경우에 VIP로 판별하고 있는 것으로 보이고 있습니다.
+
+위 코드의 문제점은 **Member 클래스가 가진 정보(수신 총금액)를 직접 꺼내서 비즈니스적 판단을 위한
+근거로 활용**한다는 문제점이 있습니다.
+
+위와 같은 코드를 구현할 경우 VIP 판별 기준이 변경되는 경우에 getter를 호출하는 모든 코드를 수정해주어야 합니다.
+예를 들어 VIP 판별 기준이 체크카드를 개설하고, 신용카드 사용금액이 월 500만원이상인 경우로 변경되면
+수신 총금액이 아닌 다른 정보로 변경될 수 있습니다.
+
+또한 더 심각한 문제는 현재의 if문 조건문에 들어가는 VIP를 판별하는데 사용되는 기준인 VIP_DEPOSIT_AMOUNT 변수의 용도가
+VIP를 판별하는데에만 사용되지 않을 수 있씁니다. 수신금액이 10억원 이상이라는 기준은 VIP를 판별하기 위한
+조건 외에도 여신심사 혹은 회원가입, 연체 패널티 경감 등의 프로세스에도 활용될 수 있습니다.
+따라서 위 조건문의 심각한 문제는 **단순히 Member 클래스의 정보를 꺼내 비교하는 것 외에
+어떤 비즈니스적 의미를 표현하지 못한다는 점**입니다.
+
+```java
+public class VipMemberService {
+
+    public void saveBenefit(Member member) {
+        if (!member.isVip()) {
+            throw new IllegalStateException("VIP 고객이 아닙니다.");
+        }
+        // ...
+    }
+}
+```
+
+- 첫번째는 getter를 제거한 로직으로 리팩토링하였습니다.
+- 두번째는 변경에 용이해졌습니다. VIP 판별 기준이 바뀌더라도 멤버 클래스의 isVip 메서드 로직을
+  수정해주기만 하면, 프로젝트에 모든 VIP 판별 조건문에 적용됩니다.
+- 위와 같이 객체가 직접 처리하는 코드를 구현해야 합니다.
+
+### Entity와 VO, 그리고 DTO
+
+- Entity, VO 같은 비즈니스 로직을 갖는 클래스의 경우,
+  속성에 직접 접근해 값을 변경할 수 있는 setter의 노출은 최대한 자제해야 합니다.
+- 그러나 객체의 값을 외부로 표현해 주어야 하는 경우에는 getter를 사용할 수 밖에 없습니다.
+- 이렇게 표현을 목적으로 getter를 노출하는 경우에는 값에 의한 비즈니스적인 판단이 일어나지 않도록 유의해야 합니다.
+- DTO는 getter/setter가 필요할 수 밖에 없습니다. 대신에 DTO는 데이터의 전달이 목적이므로 비즈니스 로직을 구현해서는 안됩니다.
+
+### Unmodifiable Collection의 활용
+
+- 일급 컬렉션에서 데이터를 추출할 때에는 컬렉션의 형태로 데이터가 리턴될 수 있습니다.
+- 컬레션을 final로 선언해 리턴해도 컬렉션 변수의 재할당을 막아주는 역할밖에 하지 못합니다.
+  내부 요소는 추가하거나 제거할 수 있기 때문입니다.
+- 컬렉션의 변조를 막기 위해 생성한 컬렉션을 `변조불가컬렉션`으로 정의할 수 있습니다.
+
+```
+Collections.unmodifiableCollection(Collection<? extends T> c)
+```
+
+- 위 API를 이용하면 해당 컬렉셕은 수정할 수 없는 컬렉션이 됩니다.
+- 이는 일급 컬렉션의 데이터 산출물을 수정하는 setter의 행위를 줄일 수 있다는 의미입니다.
+
 ## References
 
 - [\[Java\] String, StringBuffer, StringBuilder 차이 및 장단점](https://dev-jwblog.tistory.com/108#3.%20StringBuffer%20/%20StringBuilder)
@@ -1066,4 +1421,7 @@ public class Customer {
 - [원시값과 문자열 포장](https://velog.io/@jhp1115/%EC%9B%90%EC%8B%9C%EA%B0%92%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4-%ED%8F%AC%EC%9E%A5)
 - [\[객체지향 생활체조 원칙\] 규칙 4. 한 줄에 점을 하나만 찍는다](https://limdingdong.tistory.com/10)
 - [\[객체지향 생활체조 원칙\] 규칙 5. 줄여쓰지 않는다](https://limdingdong.tistory.com/11)
-- 
+- [\[객체지향 생활체조 원칙\] 규칙 6. 모든 엔티티를 작게 유지한다](https://limdingdong.tistory.com/12)
+- [\[객체지향 생활체조 원칙\] 규칙 7. 2개 이상의 인스턴스 변수를 가진 클래스를 쓰지 않는다](https://limdingdong.tistory.com/13)
+- [\[객체지향 생활체조 원칙\] 규칙 8. 일급 컬렉션을 쓴다](https://limdingdong.tistory.com/14)
+- [\[객체지향 생활체조 원칙\] 규칙 9. getter/setter/property를 쓰지 않는다](https://limdingdong.tistory.com/15)
