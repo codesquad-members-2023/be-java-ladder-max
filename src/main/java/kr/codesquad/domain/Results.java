@@ -30,6 +30,10 @@ public class Results {
             .collect(Collectors.toList());
     }
 
+    public Result findByIndex(int index) {
+        return this.results.get(index);
+    }
+
     @Override
     public String toString() {
         return this.results.stream()

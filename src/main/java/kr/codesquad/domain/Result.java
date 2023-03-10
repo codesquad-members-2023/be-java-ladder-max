@@ -16,7 +16,6 @@ public class Result {
             throw new IllegalArgumentException("최소 1글자 이상 이어야 합니다.");
         }
     }
-
     public String printFormat() {
         int totalLength = 6;
         int nameLength = this.result.length();
