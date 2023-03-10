@@ -1,5 +1,6 @@
-package kr.codesquad.domain;
+package kr.codesquad.controller;
 
+import kr.codesquad.domain.Ladder;
 import kr.codesquad.view.Input;
 
 import java.io.IOException;

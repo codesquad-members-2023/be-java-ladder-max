@@ -1,6 +1,6 @@
 package kr.codesquad;
 
-import kr.codesquad.domain.Controller;
+import kr.codesquad.controller.Controller;
 
 public class Main {
     public static void main(String[] args) {
