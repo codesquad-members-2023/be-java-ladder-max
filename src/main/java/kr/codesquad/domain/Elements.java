@@ -29,7 +29,7 @@ public class Elements {
         return row;
     }
 
-    public String setFormat(String element) {
+    private String setFormat(String element) {
         int len = element.length();
         switch (len) {
             case 1:
