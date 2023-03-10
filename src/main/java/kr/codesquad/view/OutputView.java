@@ -10,6 +10,6 @@ public class OutputView {
     }
 
     public static void printUsers(Users users) {
-        System.out.println(users);
+        System.out.printf(" %s\n", users);
     }
 }

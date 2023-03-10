@@ -16,7 +16,9 @@ class LadderHeightTest {
         // when
 
         // then
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new LadderHeight(height));
+        IllegalArgumentException exception = Assertions.assertThrowsExactly(
+            IllegalArgumentException.class, () -> new LadderHeight(height));
+        Assertions.assertEquals("사다리 높이는 최소 2이상 입니다.", exception.getMessage());
     }
 
     @DisplayName("사다리 높이가 2 이상 일 경우 높이를 가져온다.")

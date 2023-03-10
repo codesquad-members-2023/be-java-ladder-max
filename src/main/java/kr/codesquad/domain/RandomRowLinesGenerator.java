@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-public class RandomRowLineGenerator {
+public class RandomRowLinesGenerator {
 
     private final Random random;
     private final int numberOfUsers;
 
-    public RandomRowLineGenerator(int numberOfUsers) {
+    public RandomRowLinesGenerator(int numberOfUsers) {
         this.random = new Random();
         this.numberOfUsers = numberOfUsers;
     }

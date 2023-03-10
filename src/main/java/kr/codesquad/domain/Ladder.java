@@ -13,9 +13,9 @@ public class Ladder {
     }
 
     private List<RowLines> generateLadder(int numberOfUsers, int ladderHeight) {
-        RandomRowLineGenerator randomRowLineGenerator = new RandomRowLineGenerator(numberOfUsers);
+        RandomRowLinesGenerator randomRowLinesGenerator = new RandomRowLinesGenerator(numberOfUsers);
         return IntStream.range(0, ladderHeight)
-            .mapToObj(index -> new RowLines(randomRowLineGenerator))
+            .mapToObj(index -> new RowLines(randomRowLinesGenerator))
             .collect(Collectors.toList());
     }
 

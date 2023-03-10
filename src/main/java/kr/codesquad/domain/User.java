@@ -1,5 +1,7 @@
 package kr.codesquad.domain;
 
+import java.util.Objects;
+
 public class User {
 
     private static final int MAX_LENGTH = 5;
@@ -27,7 +29,28 @@ public class User {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        User user = (User) o;
+        return name.equals(user.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    @Override
     public String toString() {
-        return String.format("%6s", this.name);
+        int totalLength = 6;
+        int nameLength = this.name.length();
+        int leftPadding = ((totalLength - nameLength) / 2) + ((totalLength - nameLength) % 2);
+        int rightPadding = (totalLength - nameLength) / 2;
+        return String.format("%s%s%s", " ".repeat(leftPadding), this.name, " ".repeat(rightPadding));
     }
 }
