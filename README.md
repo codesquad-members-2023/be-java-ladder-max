@@ -27,6 +27,9 @@
   - 패키지 분리는 어떻게 해야 좋은가?
   - 접근 제어자를 효율적으로 사용하려면 어떻게 해야하는지?
 
+### 5 단계 : 실행결과 출력
+  - Setter을 지양해야 하는 이유는 무엇일까?
+
 ## 코드 리뷰
 
 * [텍스트와 이미지로 살펴보는 코드스쿼드의 온라인 코드 리뷰 과정](https://github.com/code-squad/codesquad-docs/blob/master/codereview/README.md)
