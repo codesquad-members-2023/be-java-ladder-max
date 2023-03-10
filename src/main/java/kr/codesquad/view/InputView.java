@@ -2,15 +2,14 @@ package kr.codesquad.view;
 
 import kr.codesquad.domain.Ladder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class InputView {
 
     private final Scanner sc;
+    private final int maxLength = 5;
+    private final int minNum = 0;
     private Ladder ladder;
 
     public InputView() {
@@ -33,15 +32,6 @@ public class InputView {
         return results;
     }
 
-    private List<String> parseInput() {
-        List<String> list = Arrays.stream(this.sc.nextLine()
-                        .split(",")).collect(Collectors.toList());
-        if(!isValidNames(list)) {
-            throw new IllegalArgumentException();
-        }
-        return list;
-    }
-
     private int insertHeight() {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
         int height;
@@ -56,7 +46,7 @@ public class InputView {
     }
 
     private void checkMinus(int height) {
-        if(height < 0) {
+        if(height < minNum) {
             throw new NumberFormatException();
         }
     }
@@ -66,16 +56,34 @@ public class InputView {
         List<String> people;
         try {
             people = parseInput();
+            validateNames(people);
         } catch (IllegalArgumentException e) {
-            System.out.println("각 이름의 길이는 5 이하여야 합니다.");
+            System.out.println("각 이름의 길이는 5 이하여야 합니다. 중복된 이름이 들어가거나 \"춘식이\"란 이름은 사용하실 수 없습니다.");
             return insertNames();
         }
         return people;
     }
 
+    private void validateNames(List<String> people) {
+        Set<String> peopleSet = people.stream().collect(Collectors.toSet());
+        if(peopleSet.size() != people.size()
+        || peopleSet.contains("춘식이")) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private List<String> parseInput() {
+        List<String> list = Arrays.stream(this.sc.nextLine()
+                .split(",")).collect(Collectors.toList());
+        if(!isValidNames(list)) {
+            throw new IllegalArgumentException();
+        }
+        return list;
+    }
+
     public boolean isValidNames(List<String> people) {
         return people.stream()
-                .filter(o -> o.length() > 5)
+                .filter(o -> o.length() > maxLength)
                 .findFirst().isEmpty();
     }
 
