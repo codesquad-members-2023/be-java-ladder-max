@@ -25,7 +25,7 @@ public class InputView {
         return Integer.parseInt(bufferedReader.readLine());
     }
 
-    public List<String> inputResult() throws IOException {
+    public List<String> inputReward() throws IOException {
         System.out.println(REQUEST_RESULT_NAME_MESSAGE);
         return Arrays.asList(bufferedReader.readLine().split(NAME_SEPARATOR));
     }
