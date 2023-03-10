@@ -48,7 +48,7 @@ public class LadderPartGenerator {
     }
 
     private String generateBridge(List<String> partLine, int col) {
-        if (!buildOrNotBridge()) {
+        if (!isBuildBridge()) {
             return EMPTY;
         }
         if (existBridgeOnLeft(partLine, col)) {
@@ -57,7 +57,9 @@ public class LadderPartGenerator {
         return BRIDGE;
     }
 
-    private boolean buildOrNotBridge() {
+    // randomGenerateBridge()
+    // makeBridge()
+    private boolean isBuildBridge() {
         return random.nextBoolean();
     }
 
