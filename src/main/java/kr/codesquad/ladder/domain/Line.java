@@ -11,6 +11,39 @@ public class Line {
         this.line = line;
     }
 
+    public int switchIndex(int startIndex) {
+        if (isFirstOrLast(startIndex)) {
+            return firstOrLastIndex(startIndex);
+        }
+        return innerIndex(startIndex);
+    }
+
+    private boolean isFirstOrLast(int index) {
+        if (index == 0 || index == line.size()) {
+            return true;
+        }
+        return false;
+    }
+
+    private int firstOrLastIndex(int startIndex) {
+        if (startIndex == 0 && line.get(startIndex)) {
+            return ++startIndex;
+        } else if (startIndex == line.size() && line.get(startIndex - 1)) {
+            return --startIndex;
+        }
+        return startIndex;
+    }
+
+    private int innerIndex(int index) {
+        if (line.get(index)) {
+            return ++index;
+        } else if (line.get(index - 1)) {
+            return --index;
+        }
+        return index;
+    }
+
+
     @Override
     public String toString() {
         return "|" + line.stream()
