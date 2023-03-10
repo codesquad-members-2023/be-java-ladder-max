@@ -6,13 +6,13 @@ public enum LadderLine {
     VERTICAL("|"){
         @Override
         boolean validate(int index) {
-            return isOdd(index);
+            return isEven(index);
         }
     },
     HORIZONTAL("-"){
         @Override
         boolean validate(int index) {
-            return !isOdd(index) && isPicked();
+            return !isEven(index) && isPicked();
         }
     };
     
@@ -24,7 +24,7 @@ public enum LadderLine {
 
     abstract boolean validate(int index);
 
-    private static boolean isOdd(int index){
+    private static boolean isEven(int index){
         return index%2 == 0;
     }
 
