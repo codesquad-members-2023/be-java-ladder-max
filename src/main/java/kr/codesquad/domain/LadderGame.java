@@ -9,13 +9,11 @@ public class LadderGame {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private final LineStateRandomCreator linesStateRandomCreator;
     private final LadderResultRepository ladderResultRepository;
 
     public LadderGame() {
         this.inputView = new InputView();
         this.outputView = new OutputView();
-        this.linesStateRandomCreator = new LineStateRandomCreator();
         this.ladderResultRepository = new LadderResultRepository();
     }
 
@@ -27,7 +25,7 @@ public class LadderGame {
         List<String> resultInfo = inputView.inputResultInfo(nameSize);
         int ladderHeight = inputView.inputLadderHeight();
 
-        LinesInfo linesInfo = linesStateRandomCreator.create(nameSize, ladderHeight);
+        LinesInfo linesInfo = LinesInfo.create(nameSize, ladderHeight);
         String drawnLadder = drawLadder(linesInfo);
         printLadder(names, drawnLadder, resultInfo);
 

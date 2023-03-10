@@ -17,6 +17,15 @@ public class LinesInfo {
         linesInfo.add(lineInfo);
     }
 
+
+    public static LinesInfo create(int namesSize, int ladderHeight) {
+        LinesInfo linesInfo = new LinesInfo();
+        for (int i = 0; i < ladderHeight; i++) {
+            linesInfo.add(LineInfo.createRandomLineStateInfo(namesSize));
+        }
+        return linesInfo;
+    }
+
     public String draw() {
         StringBuilder result = new StringBuilder();
         for (LineInfo lineInfo : linesInfo) {
