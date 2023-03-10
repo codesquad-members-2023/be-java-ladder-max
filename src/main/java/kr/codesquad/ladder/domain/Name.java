@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Name {
 
-    private final String NAME_LENGTH_EXCEPTION_MESSAGE = "이름은 5글자를 넘을 수 없습니다.";
+    private static final String NAME_LENGTH_EXCEPTION_MESSAGE = "이름은 5글자를 넘을 수 없습니다.";
     private final String name;
 
     public Name(String name) {
@@ -16,6 +16,14 @@ public class Name {
         if (name.length() > 5) {
             throw new IllegalArgumentException(NAME_LENGTH_EXCEPTION_MESSAGE);
         }
+    }
+
+    public boolean isSame(String name) {
+        return this.name.equals(name);
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override
