@@ -1,12 +1,11 @@
 package kr.codesquad;
 
+import kr.codesquad.service.LadderGame;
+import kr.codesquad.view.Screen;
+
 public class Main {
     public static void main(String[] args) {
-//        final Ladder ladder = LadderGenerator.of(Screen.inputPlayerNumber(), Screen.inputLadderHeight());
-        final Screen screen = new Screen();
-        final Ladder ladder = LadderGenerator.of(screen.inputPlayerNames(), screen.inputLadderHeight());
-
-        final LadderGame ladderGame = new LadderGame(ladder);
+        final LadderGame ladderGame = new LadderGame(new Screen());
 
         ladderGame.run();
     }
