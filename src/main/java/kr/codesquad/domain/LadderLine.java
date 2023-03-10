@@ -25,7 +25,7 @@ public class LadderLine {
         IntStream.range(0, lineWidth)
                 .mapToObj(i -> generateRungStatus())
                 .forEach(points::add);
-        linePointsValidator.validatePoints(points);
+        linePointsValidator.validatePoints(points);//todo 예외 발생시 어떻게 할건지
     }
 
     private boolean generateRungStatus() {

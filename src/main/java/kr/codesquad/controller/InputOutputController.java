@@ -8,7 +8,7 @@ import kr.codesquad.view.OutputView;
 
 import java.util.ArrayList;
 
-public class InputOutputController {
+public class InputOutputController extends PlayerValidator {
 
     private OutputView outputHandler;
     private InputView inputHandler;
