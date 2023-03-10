@@ -1,8 +1,7 @@
-package ladder.domain;
+package main.java.kr.ladder.domain;
 
-import ladder.domain.Ladder;
-import ladder.view.InputView;
-import ladder.view.OutputView;
+import main.java.kr.ladder.view.InputView;
+import main.java.kr.ladder.view.OutputView;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package ladder.domain;
+package main.java.kr.ladder.domain;
 
 import java.util.ArrayList;
 import java.util.List;

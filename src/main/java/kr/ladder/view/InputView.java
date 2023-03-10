@@ -1,4 +1,4 @@
-package ladder.view;
+package main.java.kr.ladder.view;
 
 import java.io.BufferedReader;
 import java.io.IOException;
