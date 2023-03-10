@@ -11,10 +11,6 @@ public enum LadderPart {
         this.shape = shape;
     }
 
-    public String getShape() {
-        return shape;
-    }
-
     public static LadderPart makeRandomBridge() {
         if (isUpperThanPercent()) {
             return BRIDGE;
@@ -25,5 +21,10 @@ public enum LadderPart {
 
     private static boolean isUpperThanPercent() {
         return Math.random() > 0.7;
+    }
+
+    @Override
+    public String toString() {
+        return shape;
     }
 }

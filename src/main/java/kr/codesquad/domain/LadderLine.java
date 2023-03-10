@@ -43,7 +43,7 @@ public class LadderLine {
     @Override
     public String toString() {
         return ladderParts.stream()
-                .map(LadderPart::getShape)
+                .map(LadderPart::toString)
                 .collect(Collectors.joining());
     }
 }
