@@ -1,26 +1,11 @@
 package kr.codesquad.view;
 
-import kr.codesquad.domain.Ladder;
 import kr.codesquad.domain.LadderResult;
 import kr.codesquad.domain.Result;
-import kr.codesquad.domain.Results;
-import kr.codesquad.domain.Users;
 
 public class OutputView {
 
     private OutputView() {
-    }
-
-    public static void printLadder(Ladder ladder) {
-        System.out.println(ladder);
-    }
-
-    public static void printUsers(Users users) {
-        System.out.printf(" %s\n", users);
-    }
-
-    public static void printResults(Results results) {
-        System.out.printf("%s\n\n", results);
     }
 
     public static void printResult(Result result) {
@@ -28,7 +13,11 @@ public class OutputView {
     }
 
     public static void printLadderResult(LadderResult ladderResult) {
-        System.out.printf("\n실행 결과\n%s\n", ladderResult);
+        System.out.printf(" %s\n\n", ladderResult.printLadderResult());
+    }
+
+    public static void printAllUserAndResult(LadderResult ladderResult) {
+        System.out.printf("\n실행 결과\n%s\n", ladderResult.printAllUserAndResult());
     }
 
     public static void printExit() {

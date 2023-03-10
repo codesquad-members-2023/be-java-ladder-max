@@ -1,6 +1,6 @@
 package kr.codesquad.domain;
 
-import java.util.stream.IntStream;
+import kr.codesquad.exception.EndGameException;
 import kr.codesquad.util.RandomLadderGenerator;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
@@ -8,65 +8,51 @@ import kr.codesquad.view.OutputView;
 public class LadderGame {
 
     private static final String END_GAME_COMMAND = "춘식이";
-    private static final String ALL_RESULT_PRINT_COMMAND = "춘식이";
+    private static final String ALL_RESULT_PRINT_COMMAND = "all";
 
-    private final Users users;
-    private final Results results;
-    private final Ladder ladder;
     private final LadderResult ladderResult;
 
     public LadderGame() {
-        this.users = InputView.inputUserNames();
-        this.results = InputView.inputResults(this.users.count());
-        this.ladder = new Ladder(RandomLadderGenerator.generate(this.users.count()
+        this.ladderResult = generateLadderResult();
+    }
+
+    private LadderResult generateLadderResult() {
+        Users users = InputView.inputUserNames();
+        Results results = InputView.inputResults(users.count());
+        Ladder ladder = new Ladder(RandomLadderGenerator.generate(users.count()
             , InputView.inputLadderHeight().getHeight()));
-        this.ladderResult = new LadderResult();
+        return new LadderResult(users, results, ladder);
     }
 
     public void run() {
-        printInitDisplay();
-        calculateLadderResult();
+        OutputView.printLadderResult(this.ladderResult);
         findLadderResult();
         exit();
     }
 
     private void findLadderResult() {
-        String userName = InputView.inputUserName();
-
-        if (userName.equals(END_GAME_COMMAND)) {
-            return;
-        }
-
         try {
-            printResult(userName);
+            printResult(InputView.inputUserName());
+        } catch (EndGameException e) {
+            return;
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
-        } finally {
-            findLadderResult();
         }
-    }
 
-    private void printInitDisplay() {
-        OutputView.printUsers(this.users);
-        OutputView.printLadder(this.ladder);
-        OutputView.printResults(this.results);
-    }
-
-    private void calculateLadderResult() {
-        IntStream.range(0, this.users.count())
-            .forEach(userIndex -> {
-                int resultIndex = this.ladder.calculateResultIndex(userIndex);
-                this.ladderResult.put(this.users.findByIndex(userIndex), this.results.findByIndex(resultIndex));
-            });
+        findLadderResult();
     }
 
     private void printResult(String userName) {
+        if (userName.equals(END_GAME_COMMAND)) {
+            throw new EndGameException();
+        }
+
         if (userName.equals(ALL_RESULT_PRINT_COMMAND)) {
-            OutputView.printLadderResult(this.ladderResult);
+            OutputView.printAllUserAndResult(this.ladderResult);
             return;
         }
 
-        Result result = this.ladderResult.findByUser(this.users.findByName(userName));
+        Result result = this.ladderResult.findByUser(userName);
         OutputView.printResult(result);
     }
 
