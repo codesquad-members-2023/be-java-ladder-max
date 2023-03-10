@@ -1,4 +1,4 @@
-package step1;
+package kr.codesquad;
 
 public class GameMaker {
     public void gameStart() {

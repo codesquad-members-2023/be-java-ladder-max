@@ -1,4 +1,4 @@
-package step1;
+package kr.codesquad;
 
 import java.util.Random;
 
