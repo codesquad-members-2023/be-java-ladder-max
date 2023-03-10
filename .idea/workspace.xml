@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="라인 유무를 확인하는 테스트와 이름 최대 5자 확인 테스트 코드를 작성했다.&#10;&#10;LadderRow 클래스에 isRowHasLine()메소드를 구현해서 row에 라인이 있는지를 확인할 수 있도록 했다.">
-      <change beforePath="$PROJECT_DIR$/src/test/java/LadderRowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LadderRowTest.java" afterDir="false" />
+    <list default="true" id="dbc74ddb-12d8-49eb-b495-4208b5185b70" name="변경" comment="workspace.xml 변경내용 저장">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/Input.java" afterDir="false" />
     </list>
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="Input 클래스의 메소드명을 변경&#10;&#10;validationName -&gt; validateName&#10;validationHeight -&gt; validateHeight 로 변경했다.&#10;메소드명은 동사로 하는 것이 더 맞는 이름이기 때문에 변경했다." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,19 +38,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "project.structure.last.edited": "전역 라이브러리",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;전역 라이브러리&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.LadderRowTest">
+}</component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="Main" />
+    </option>
+  </component>
+  <component name="RunManager" selected="애플리케이션.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
       <module name="java-lotto.main" />
@@ -93,6 +99,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.Main" />
         <item itemvalue="JUnit.LadderRowTest" />
         <item itemvalue="JUnit.NamesTest" />
         <item itemvalue="JUnit.NamesTest.countOfNameLength" />
@@ -137,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678352526171</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="workspace.xml 변경내용 저장">
+      <created>1678424325339</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678424325339</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +174,8 @@
     <MESSAGE value=".gitignore에 불필요한 파일 추가&#10;&#10;./idea/로 추가했으나 파일이 올라가서 gradle.xml, workspace.xml 로 추가해줬다." />
     <MESSAGE value="domain 패키지와 view 패키지를 생성하고 해당하는 클래스를 옮겨줬다.&#10;&#10;domain 패키지(핵심 비지니스 로직) : Controller, Ladder, LadderRow, Names&#10;view 패키지(UI 관련 클래스) : Input" />
     <MESSAGE value="라인 유무를 확인하는 테스트와 이름 최대 5자 확인 테스트 코드를 작성했다.&#10;&#10;LadderRow 클래스에 isRowHasLine()메소드를 구현해서 row에 라인이 있는지를 확인할 수 있도록 했다." />
-    <option name="LAST_COMMIT_MESSAGE" value="라인 유무를 확인하는 테스트와 이름 최대 5자 확인 테스트 코드를 작성했다.&#10;&#10;LadderRow 클래스에 isRowHasLine()메소드를 구현해서 row에 라인이 있는지를 확인할 수 있도록 했다." />
+    <MESSAGE value="workspace.xml 변경내용 저장" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace.xml 변경내용 저장" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

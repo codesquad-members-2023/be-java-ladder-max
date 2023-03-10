@@ -17,10 +17,6 @@ public class Input {
         return validateHeight(Integer.parseInt(br.readLine()));
     }
 
-    public void closeBr() throws IOException {
-        br.close();
-    }
-
     public String validateName(String inputData) {
         if(!inputData.matches(".+,.+")){
             throw new RuntimeException("참여할 사람은 2명 이상 이어야 합니다.");

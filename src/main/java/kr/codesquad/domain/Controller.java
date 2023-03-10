@@ -8,13 +8,8 @@ public class Controller {
 
     public void run() {
         Input input = new Input();
-
         try {
-            String nameData = input.inputName();
-            int height = input.inputHeight();
-            input.closeBr();
-
-            Ladder ladder = new Ladder(nameData, height);
+            Ladder ladder = new Ladder(input.inputName(), input.inputHeight());
             ladder.printRadder();
         } catch (IOException e) {
             e.printStackTrace();
