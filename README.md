@@ -1,4 +1,4 @@
-# Java Lotto
+# Java Ladder
 
 - Last Update: 2022-12-28
 
