@@ -9,6 +9,7 @@ import kr.codesquad.ladder.view.InputView;
 public class Main {
     public static void main(String[] args) throws IOException {
         LadderGame ladderGame = new LadderGame(new InputView(), new RandomBooleansGenerator(), new Ladder());
-        ladderGame.run();
+        ladderGame.start();
+
     }
 }
