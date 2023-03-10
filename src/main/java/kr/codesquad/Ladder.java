@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Ladder {
-
     final int ROW_SIZE;
     final int COLUMN_SIZE;
     private final LadderLine[][] ladder;
@@ -13,21 +12,18 @@ public class Ladder {
         ROW_SIZE = ladderHeight;
         COLUMN_SIZE = numberOfPlayer * 2 - 1;
         ladder = new LadderLine[ROW_SIZE][COLUMN_SIZE];
-        init();
+        initLadder();
     }
 
-    private void init(){
+    private void initLadder(){
         for(int rowIndex = 0; rowIndex < ROW_SIZE; rowIndex++){
-            initColumn(rowIndex);
+            initRow(rowIndex);
         }
     }
 
-    private void initColumn(int rowIndex){
+    private void initRow(int rowIndex){
         for(int columnIndex = 0; columnIndex < COLUMN_SIZE; columnIndex++){
-            //TODO: 함수로 분리
-            ladder[rowIndex][columnIndex] = LadderLine.VERTICAL.validate(columnIndex) ? LadderLine.VERTICAL
-                    : LadderLine.HORIZONTAL.validate(columnIndex) ? LadderLine.HORIZONTAL
-                    : LadderLine.BLANK ;
+            ladder[rowIndex][columnIndex] = getLadderLine(columnIndex);
         }
     }
 
@@ -59,6 +55,7 @@ public class Ladder {
 
         return sb.toString();
     }
+
 
     public void print(){
         for(int rowIndex = 0; rowIndex < ROW_SIZE; rowIndex++){
