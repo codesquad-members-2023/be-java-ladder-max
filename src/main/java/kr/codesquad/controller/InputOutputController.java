@@ -1,43 +1,46 @@
 package kr.codesquad.controller;
 
-import kr.codesquad.domain.InputParser;
 import kr.codesquad.domain.Ladder;
-import kr.codesquad.view.InputHandler;
-import kr.codesquad.view.OutputHandler;
+import kr.codesquad.domain.LadderHeightValidator;
+import kr.codesquad.domain.PlayerValidator;
+import kr.codesquad.view.InputView;
+import kr.codesquad.view.OutputView;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class InputOutputController {
 
-    private OutputHandler outputHandler;
-    private InputHandler inputHandler;
-    private InputParser inputParser;
+    private OutputView outputHandler;
+    private InputView inputHandler;
+    private PlayerValidator playerValidator;
+    private LadderHeightValidator heightValidator;
 
-    public InputOutputController(){
-        this.inputHandler = new InputHandler();
-        this.outputHandler = new OutputHandler();
-        this.inputParser = new InputParser();
+
+    public InputOutputController() {
+        this.inputHandler = new InputView();
+        this.outputHandler = new OutputView();
+        this.playerValidator = new PlayerValidator();
+        this.heightValidator = new LadderHeightValidator();
     }
 
-    public ArrayList getNameAndHeightFromUser() throws IOException {
+    public ArrayList getNameAndHeightFromUser(){
         ArrayList listForNameAndHeight = new ArrayList();
-        outputHandler.outputParticipantNamePrompt();
-        AddNameToList(listForNameAndHeight);
-
-        outputHandler.outputLadderHeightPrompt();
-        listForNameAndHeight.add(inputHandler.getInput());
+        getName(listForNameAndHeight);
+        getHeight(listForNameAndHeight);
         return listForNameAndHeight;
     }
 
-    private void AddNameToList(ArrayList listForNameAndHeight) throws IOException {
-        while(true){
-            if(inputParser.parseAndValidate(listForNameAndHeight,inputHandler.getInput()))
-                break;
-        }
+    private void getName(ArrayList listForNameAndHeight){
+        outputHandler.outputParticipantNamePrompt();
+        while(!playerValidator.playerValidator(listForNameAndHeight, inputHandler));
     }
 
-    public void printLadder(Ladder ladder){
+    private void getHeight(ArrayList listForNameAndHeight){
+        outputHandler.outputLadderHeightPrompt();
+        while(!heightValidator.getValidHeightFromUser(listForNameAndHeight, inputHandler));
+    }
+
+    public void printLadder(Ladder ladder) {
         outputHandler.printLadder(ladder);
     }
 }
