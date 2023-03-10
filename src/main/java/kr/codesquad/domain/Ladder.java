@@ -20,7 +20,7 @@ public class Ladder {
         StringBuilder sb = new StringBuilder();
         sb.append("\n사다리 출력\n");
         // 이름 row
-        sb.append(names.makeNameRow() + "\n");
+        sb.append(names + "\n");
         // 사다리 row
         for(int i=0; i<radder.size(); i++){
             sb.append(radder.get(i));

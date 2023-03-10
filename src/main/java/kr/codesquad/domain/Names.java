@@ -12,17 +12,17 @@ public class Names {
         }
     }
 
-    public String makeNameRow() {
+    public String toString() {
         String nameRow = "";
 
         for(String name: names){
-            nameRow += makeName(name) + " ";
+            nameRow += setFormat(name) + " ";
         }
 
         return nameRow;
     }
 
-    public String makeName(String name) {
+    public String setFormat(String name) {
         int len = name.length();
         switch (len){
             case 1:
