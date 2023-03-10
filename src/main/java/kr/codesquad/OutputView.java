@@ -1,4 +1,4 @@
-package step1;
+package kr.codesquad;
 
 public class OutputView {
     public static void printAskParticipatePeople() {
