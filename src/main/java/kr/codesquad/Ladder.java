@@ -25,18 +25,16 @@ public class Ladder {
     String getLayer(int i) {
         if (i % 2 == 0) {
             return "|";
-        } else {
-            return getLadder();
         }
+        return getLadder();
     }
 
 
     String getLadder() {
         if (randomBoolean()) {
             return "-";
-        } else {
-            return " ";
         }
+        return " ";
     }
 
 
