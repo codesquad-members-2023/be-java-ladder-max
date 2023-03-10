@@ -15,22 +15,29 @@ public class LadderLine {
         addParts(playerNumber * 2 - 1);
     }
 
-    private void addParts(int width) {
-        for (int x = 0; x < width; x++) {
-            ladderParts.add(makePart(x));
+    private void addParts(int maxWidth) {
+        for (int width = 0; width < maxWidth; width++) {
+            ladderParts.add(decidePart(width));
         }
     }
 
-    private LadderPart makePart(int x) {
-        if (isExistCrossBarOnLeft(x)) {
+    private LadderPart decidePart(int width) {
+        if (isBarPosition(width)) {
+            return LadderPart.BAR;
+        }
+        if (isExistBridgeOnLeft(width)) {
             return LadderPart.EMPTY;
         }
 
-        return LadderPart.from(x);
+        return LadderPart.makeRandomBridge();
     }
 
-    private boolean isExistCrossBarOnLeft(int x) {
-        return x > 2 && ladderParts.get(x - 2) == LadderPart.CROSSBAR;
+    private boolean isBarPosition(int x) {
+        return x % 2 == 0;
+    }
+
+    private boolean isExistBridgeOnLeft(int x) {
+        return x > 2 && ladderParts.get(x - 2) == LadderPart.BRIDGE;
     }
 
     @Override
