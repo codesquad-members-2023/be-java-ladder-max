@@ -28,6 +28,18 @@ public class User {
         }
     }
 
+    public boolean equals(String name) {
+        return this.name.equals(name);
+    }
+
+    public String printFormat() {
+        int totalLength = 6;
+        int nameLength = this.name.length();
+        int leftPadding = ((totalLength - nameLength) / 2) + ((totalLength - nameLength) % 2);
+        int rightPadding = (totalLength - nameLength) / 2;
+        return String.format("%s%s%s", " ".repeat(leftPadding), this.name, " ".repeat(rightPadding));
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -47,10 +59,6 @@ public class User {
 
     @Override
     public String toString() {
-        int totalLength = 6;
-        int nameLength = this.name.length();
-        int leftPadding = ((totalLength - nameLength) / 2) + ((totalLength - nameLength) % 2);
-        int rightPadding = (totalLength - nameLength) / 2;
-        return String.format("%s%s%s", " ".repeat(leftPadding), this.name, " ".repeat(rightPadding));
+        return this.name;
     }
 }

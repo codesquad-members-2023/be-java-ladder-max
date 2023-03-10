@@ -25,11 +25,10 @@ public class Users {
     }
 
     private void validateDuplicationName(String[] userNames) {
-        long notBlankCount = getNotBlankStream(userNames).count();
         long distinctCount = getNotBlankStream(userNames).distinct()
             .count();
 
-        if (notBlankCount != distinctCount) {
+        if (getNotBlankStream(userNames).count() != distinctCount) {
             throw new IllegalArgumentException("참여자 이름 중에 중복된 이름이 있습니다.");
         }
     }
@@ -46,6 +45,17 @@ public class Users {
             .collect(Collectors.toList());
     }
 
+    public User findByIndex(int index) {
+        return this.users.get(index);
+    }
+
+    public User findByName(String name) {
+        return this.users.stream()
+            .filter(user -> user.equals(name))
+            .findAny()
+            .orElseThrow(() -> new IllegalArgumentException("참여한 사람 중에 해당 이름은 없습니다."));
+    }
+
     public int count() {
         return this.users.size();
     }
@@ -53,7 +63,7 @@ public class Users {
     @Override
     public String toString() {
         return this.users.stream()
-            .map(User::toString)
+            .map(User::printFormat)
             .collect(Collectors.joining());
     }
 }
