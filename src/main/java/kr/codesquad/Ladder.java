@@ -40,7 +40,7 @@ public class Ladder {
     }
 
     private void verifyLadderLine(List<String> ladderRow, int column) {
-        if(!ladderRow.contains("-----")){
+        if (!ladderRow.contains("-----")) {
             makeRandomLadderLine(ladderRow, column);
         }
     }
@@ -53,19 +53,6 @@ public class Ladder {
         ladderRow.add("     ");
 
 
-//        if (column % 2 == 0) {
-//            ladderRow.add("|");
-//        }
-//
-////        else if (random.nextBoolean() && column % 2 == 1) {
-////            ladderRow.set(column, " ----- ");
-////        }
-////        String spacing = "";
-////        for (int i = 0; i < LADDER_LINE_LENGTH - ladderRow.get(ladderRow.size() - 1).length(); i++) {
-////            spacing += " ";
-////        }
-//        else
-//        ladderRow.add("     ");
     }
 
     private void makeRandomLadderLine(List<String> ladderRow, int column) {
