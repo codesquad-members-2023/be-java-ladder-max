@@ -5,9 +5,7 @@ import java.util.List;
 
 public class LinesInfo {
 
-    static final String PEOPLE_DELIMITER = "|";
-    static final String NEXT_LINE = "\n";
-    static final String PREFIX = "   ";
+
     private final List<LineInfo> linesInfo;
 
     public LinesInfo() {
@@ -22,17 +20,15 @@ public class LinesInfo {
     public static LinesInfo create(int namesSize, int ladderHeight) {
         LinesInfo linesInfo = new LinesInfo();
         for (int i = 0; i < ladderHeight; i++) {
-            linesInfo.add(LineInfo.createRandomLineInfo(namesSize-1));
+            linesInfo.add(LineInfo.createRandomLineInfo(namesSize - 1));
         }
         return linesInfo;
     }
 
     public String draw() {
         StringBuilder result = new StringBuilder();
-        linesInfo.forEach(lineInfo -> result.append(PREFIX)
-                .append(PEOPLE_DELIMITER)
-                .append(lineInfo.connectLine())
-                .append(NEXT_LINE));
+        linesInfo.forEach(lineInfo ->
+                result.append(lineInfo.drawLine()));
         return result.toString();
     }
 

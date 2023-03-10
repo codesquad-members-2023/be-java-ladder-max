@@ -11,6 +11,8 @@ import java.util.Random;
 public class LineInfo {
 
 
+    static final String NEXT_LINE = "\n";
+    static final String PREFIX = "   ";
     private final List<Boolean> lineInfo;
 
     public LineInfo(List<Boolean> lineInfo) {
@@ -37,12 +39,16 @@ public class LineInfo {
     }
 
 
-    public String connectLine() {
+    public String drawLine() {
         StringBuilder result = new StringBuilder();
+
+        result.append(PREFIX)
+                .append(PEOPLE_DELIMITER.getValue());
         for (Boolean isExist : lineInfo) {
             result.append(isExist ? SUCCESS_DELIMITER.getValue() : FAIL_DELIMITER.getValue())
                     .append(PEOPLE_DELIMITER.getValue());
         }
+        result.append(NEXT_LINE);
         return result.toString();
     }
 

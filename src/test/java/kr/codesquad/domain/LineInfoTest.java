@@ -1,5 +1,9 @@
 package kr.codesquad.domain;
 
+import static kr.codesquad.domain.LineDelimiterType.FAIL_DELIMITER;
+import static kr.codesquad.domain.LineDelimiterType.PEOPLE_DELIMITER;
+import static kr.codesquad.domain.LineDelimiterType.SUCCESS_DELIMITER;
+
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -36,5 +40,22 @@ class LineInfoTest {
     @ValueSource(ints = {3, 5, 10})
     void createRandomLineStateInfo(int size) {
         Assertions.assertThat(LineInfo.createRandomLineInfo(size).size()).isEqualTo(size);
+    }
+
+    @DisplayName("라인을 연결하여 대응한 String으로 return")
+    @Test
+    void drawLine() {
+        List<Boolean> testList = List.of(false, true, false);
+        LineInfo lineInfo = new LineInfo(testList);
+        Assertions.assertThat(lineInfo.drawLine())
+                .isEqualTo(LineInfo.PREFIX
+                        + PEOPLE_DELIMITER.getValue()
+                        + FAIL_DELIMITER.getValue()
+                        + PEOPLE_DELIMITER.getValue()
+                        + SUCCESS_DELIMITER.getValue()
+                        + PEOPLE_DELIMITER.getValue()
+                        + FAIL_DELIMITER.getValue()
+                        + PEOPLE_DELIMITER.getValue()
+                        + LineInfo.NEXT_LINE);
     }
 }
