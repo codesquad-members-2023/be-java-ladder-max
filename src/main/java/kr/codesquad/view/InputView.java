@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-import kr.codesquad.domain.LadderResultRepository;
 import kr.codesquad.domain.SearchInfo;
 import kr.codesquad.domain.SearchType;
 
@@ -34,7 +33,7 @@ public class InputView {
         return Pattern.matches(DIGIT_PATTERN, input);
     }
 
-    public SearchInfo inputSearchInfo(LadderResultRepository ladderResultRepository) {
+    public SearchInfo inputSearchInfo() {
         System.out.println(INPUT_SEARCH_INFO);
         String input = scanner.nextLine();
         if (isSearchAll(input)) {
@@ -43,11 +42,7 @@ public class InputView {
         if (isClose(input)) {
             return new SearchInfo(SearchType.CLOSE);
         }
-        if (ladderResultRepository.containsName(input)) {
-            return new SearchInfo(SearchType.SINGLE, input);
-        }
-        System.out.println(INPUT_ERROR);
-        return inputSearchInfo(ladderResultRepository);
+        return new SearchInfo(SearchType.SINGLE, input);
     }
 
     public List<String> inputNames() {
