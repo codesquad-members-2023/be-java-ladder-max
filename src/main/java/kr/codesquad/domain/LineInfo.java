@@ -12,19 +12,19 @@ public class LineInfo {
 
     private final List<Boolean> lineInfo;
 
-    public LineInfo() {
-        lineInfo = new ArrayList<>();
+    public LineInfo(List<Boolean> lineInfo) {
+        this.lineInfo = lineInfo;
     }
 
     public static LineInfo createRandomLineStateInfo(int namesSize) {
         Random random = new Random();
-        LineInfo lineInfo = new LineInfo();
+        List<Boolean> store = new ArrayList<>();
         boolean hasLine = false;
         for (int j = 0; j < namesSize - 1; j++) {
             hasLine = random.nextBoolean() && !hasLine;
-            lineInfo.add(hasLine);
+            store.add(hasLine);
         }
-        return lineInfo;
+        return new LineInfo(store);
     }
 
     private static boolean canMoveLeft(int resultNum, List<Boolean> oneRowStateInfo) {
@@ -34,10 +34,7 @@ public class LineInfo {
     private static boolean canMoveRight(int resultNum, List<Boolean> oneRowStateInfo) {
         return resultNum < oneRowStateInfo.size() && oneRowStateInfo.get(resultNum);
     }
-
-    private void add(boolean exist) {
-        lineInfo.add(exist);
-    }
+    
 
     public String connectLine() {
         StringBuilder result = new StringBuilder();
