@@ -14,9 +14,30 @@ public class InputCheck {
         String[] names;
         do {
             names = br.readLine().split(",");
-            check = checkName(names);
+            check = checkInputLength(names);
         } while (!check);
         return new ArrayList<>(Arrays.asList(names));
+    }
+    public ArrayList<String> putResultList(int nameSize) throws IOException {
+        boolean checkLength;
+        boolean checkSize;
+        String[] results;
+        do {
+            results = br.readLine().split(",");
+            checkLength = checkInputLength(results);
+            checkSize = checkResultSize(nameSize, results.length);
+        } while (!checkLength || !checkSize);
+        return new ArrayList<>(Arrays.asList(results));
+    }
+
+    public String getName(ArrayList<String> nameList) throws IOException {
+        boolean check;
+        String name;
+        do {
+            name = br.readLine();
+            check = checkNameList(name, nameList);
+        } while (!check);
+        return name;
     }
 
     public int putHeight() throws IOException {
@@ -29,7 +50,7 @@ public class InputCheck {
         return Integer.parseInt(height);
     }
 
-    private boolean checkName(String[] names) {
+    private boolean checkInputLength(String[] names) {
         OutputView outputview = new OutputView();
         ArrayList<Boolean> checkBox = new ArrayList<>();
         boolean check;
@@ -39,6 +60,25 @@ public class InputCheck {
         }
         if (checkBox.contains(false)) {
             outputview.printNameError();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkResultSize(int nameSize, int resultSize){
+        if(nameSize == resultSize) return true;
+        new OutputView().printCountMatchError();
+        return false;
+    }
+
+    private boolean checkNameList(String name, ArrayList<String> nameList) {
+        OutputView outputview = new OutputView();
+        if (name.equals("all")) return true;
+        else if(name.equals("close")) {
+            outputview.printEnd();
+        }
+        else if (!nameList.contains(name)) {
+            outputview.printNameNull();
             return false;
         }
         return true;

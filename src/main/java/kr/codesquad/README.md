@@ -83,3 +83,13 @@ PR 코드 리뷰 과정
 ### 반복작업 진행
 14. 4단계부터 다시 진행한다. 또한 피드백 내용을 반영할 필요가 있을 경우 이를 반영하고 다시 PR을 준비한다.
 
+---
+### Mission 1
+
+### Mission 2
+
+### Mission 3
+![image](https://user-images.githubusercontent.com/118447769/223296201-afd18586-782d-4577-b67e-3cfd37709845.png)  
+
+
+![image](https://user-images.githubusercontent.com/118447769/224179845-b30583b4-d6cb-48d7-8ea3-3ad7302279d7.png)
