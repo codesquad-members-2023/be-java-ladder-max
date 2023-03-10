@@ -1,7 +1,6 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Line {
     private final ArrayList<Boolean> points;

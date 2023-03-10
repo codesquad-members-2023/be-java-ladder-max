@@ -1,9 +1,7 @@
 package kr.codesquad.domain;
 
-import kr.codesquad.view.OutputView;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
