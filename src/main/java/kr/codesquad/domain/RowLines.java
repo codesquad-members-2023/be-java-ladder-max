@@ -35,24 +35,44 @@ public class RowLines {
             });
     }
 
-    public boolean findByIndex(int index) {
+    public boolean isConnect(int index) {
         return this.rowLines.get(index);
     }
 
-    public boolean isConnectLine(int index) {
+    public boolean isMakeConnection(int index) {
         if (index == 0) {
-            return !this.rowLines.get(index + 1);
+            return !isConnectNextLine(index);
         }
 
         if (index == this.rowLines.size() - 1) {
-            return !this.rowLines.get(index - 1);
+            return !isConnectPreLine(index);
         }
 
-        return !this.rowLines.get(index - 1) && !this.rowLines.get(index + 1);
+        return !isConnectPreLine(index) && !isConnectNextLine(index);
+    }
+
+    public int moveDown(int columnIndex) {
+        if (columnIndex != 0 && isConnectPreLine(columnIndex)) {
+            return columnIndex - 1;
+        }
+
+        if (columnIndex != this.rowLines.size() && isConnect(columnIndex)) {
+            return columnIndex + 1;
+        }
+
+        return columnIndex;
     }
 
     public void connect(int index) {
         this.rowLines.set(index, true);
+    }
+
+    private Boolean isConnectPreLine(int index) {
+        return this.rowLines.get(index - 1);
+    }
+
+    private Boolean isConnectNextLine(int index) {
+        return this.rowLines.get(index + 1);
     }
 
     @Override

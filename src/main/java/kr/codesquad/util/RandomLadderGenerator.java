@@ -27,13 +27,13 @@ public class RandomLadderGenerator {
     private static void connectEmptyColumnLineRandomly(List<RowLines> ladder, int numberOfUsers) {
         IntStream.range(0, numberOfUsers - 1)
             .filter(index -> ladder.stream()
-                .noneMatch(rowLines -> rowLines.findByIndex(index)))
+                .noneMatch(rowLines -> rowLines.isConnect(index)))
             .forEach(index -> connectRandomLine(ladder, index));
     }
 
     private static void connectRandomLine(List<RowLines> ladder, int index) {
         ladder.stream().parallel()
-            .filter(rowLines -> rowLines.isConnectLine(index))
+            .filter(rowLines -> rowLines.isMakeConnection(index))
             .findAny()
             .ifPresent(rowLines -> rowLines.connect(index));
     }
