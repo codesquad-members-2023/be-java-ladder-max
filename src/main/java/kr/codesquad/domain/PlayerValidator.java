@@ -10,11 +10,14 @@ import java.util.stream.Collectors;
 
 public class PlayerValidator {
 
-    public boolean playerValidator(ArrayList list, InputView inputHandler) {
+    private final String errorMessageForNameLenght = "5글자 이상인 이름 발견 재입력 할것";
+    private final String errorMessageForPlayerNum = "player는 2명이상 필요합니다.재입력 해라";
+
+    public boolean getVaildNameFromUser(ArrayList list, InputView inputHandler) {
         try {
             String strContainsName = inputHandler.getInput();
-            list.addAll(parseInputString(strContainsName));
-            validatePlayerNum(list);
+            list.addAll(parseInputStringToValidNames(strContainsName));
+            validatePlayerNumAndThrowException(list);
             return true;
         } catch (RuntimeException | IOException e) {
             list.clear();
@@ -23,22 +26,22 @@ public class PlayerValidator {
         return false;
     }
 
-    private List<String> parseInputString(String strContainsName) {
+    private List<String> parseInputStringToValidNames(String strContainsName) {
         return Arrays.stream(strContainsName.split(","))
-                .map(str -> validateNameLength(str))
+                .map(str -> validateNameAndThrowException(str))
                 .collect(Collectors.toList());
     }
 
-    private String validateNameLength(String str) {
+    private String validateNameAndThrowException(String str) {
         if (str.length() > 5) {
-            throw new RuntimeException("5글자 이상인 이름 발견 (" + str + ") 재입력 할것 ");
+            throw new RuntimeException(errorMessageForNameLenght);
         }
         return str;
     }
 
-    private void validatePlayerNum(ArrayList list){
+    private void validatePlayerNumAndThrowException(ArrayList list){
         if(list.size()<2){
-            throw new RuntimeException("player는 2명이상 필요합니다.재입력 해라");
+            throw new RuntimeException(errorMessageForPlayerNum);
         }
     }
 

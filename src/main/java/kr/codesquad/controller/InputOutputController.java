@@ -32,7 +32,7 @@ public class InputOutputController {
 
     private void getName(ArrayList listForNameAndHeight){
         outputHandler.outputParticipantNamePrompt();
-        while(!playerValidator.playerValidator(listForNameAndHeight, inputHandler));
+        while(!playerValidator.getVaildNameFromUser(listForNameAndHeight, inputHandler));
     }
 
     private void getHeight(ArrayList listForNameAndHeight){

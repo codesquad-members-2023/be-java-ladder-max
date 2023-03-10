@@ -15,6 +15,6 @@ public class OutputView {
     }
 
     public void printLadder(Ladder ladder) {
-        System.out.println(ladder.toString());
+        System.out.println(ladder);
     }
 }

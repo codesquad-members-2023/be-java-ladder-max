@@ -10,6 +10,7 @@ public class LadderLine {
 
     //TestCode를 위해 default로 설정
     ArrayList<Boolean> points = new ArrayList();
+    private final String errorMessageForConsecutivePoints = "연속적인 true 존재";
 
     public LadderLine(int countOfPeople) {
         this.lineWidth = countOfPeople - 1;
@@ -17,28 +18,28 @@ public class LadderLine {
 
     void createLine(){
         buildLadderLine();
-        pointsValidate();
+        validatePointsAndThrowException();
     }
 
     private void buildLadderLine() {
         IntStream.range(0, lineWidth)
-                .mapToObj(i -> hasRung())
+                .mapToObj(i -> generateRungStatus())
                 .forEach(points::add);
     }
 
-    private boolean hasRung() {
+    private boolean generateRungStatus() {
         if (points.isEmpty()) {
             return new Random().nextBoolean();
         }
         return new Random().nextBoolean() && !points.get(points.size() - 1);
     }
 
-    void pointsValidate() {
+    void validatePointsAndThrowException() {
         IntStream.range(0, points.size()-1)
                 .filter(i ->points.get(i) && points.get(i + 1))
                 .findFirst()
                 .ifPresent(i -> {
-            throw new IllegalStateException("연속적인 true 존재");
+            throw new IllegalStateException(errorMessageForConsecutivePoints);
         });
     }
 

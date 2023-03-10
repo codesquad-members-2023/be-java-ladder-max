@@ -16,21 +16,21 @@ class LadderLineTest {
         LadderLine line = new LadderLine(10000);
         line.createLine();
         //org.junit.jupiter.api.Assertions 로 테스트
-        org.junit.jupiter.api.Assertions.assertDoesNotThrow(() -> line.pointsValidate());
+        org.junit.jupiter.api.Assertions.assertDoesNotThrow(() -> line.validatePointsAndThrowException());
         org.junit.jupiter.api.Assertions.assertDoesNotThrow(new Executable() {
             @Override
             public void execute() throws Throwable {
-                line.pointsValidate();
+                line.validatePointsAndThrowException();
             }
         });
 
         //org.assertj.core.api.Assertions 으로 테스트
-        org.assertj.core.api.Assertions.assertThatCode(() -> line.pointsValidate()).doesNotThrowAnyException();
+        org.assertj.core.api.Assertions.assertThatCode(() -> line.validatePointsAndThrowException()).doesNotThrowAnyException();
 
         org.assertj.core.api.Assertions.assertThatCode(new ThrowableAssert.ThrowingCallable() {
             @Override
             public void call() throws Throwable {
-                line.pointsValidate();
+                line.validatePointsAndThrowException();
             }
         }).doesNotThrowAnyException();
 
@@ -44,9 +44,9 @@ class LadderLineTest {
         line.points.add(true);
         line.points.add(true);
         //org.junit.jupiter.api.Assertions 로 테스트
-        assertThrows(IllegalStateException.class, () -> line.pointsValidate());
+        assertThrows(IllegalStateException.class, () -> line.validatePointsAndThrowException());
 
         //org.assertj.core.api.Assertions 으로 테스트
-        assertThatThrownBy(() -> line.pointsValidate()).isInstanceOf(IllegalStateException.class);
+        assertThatThrownBy(() -> line.validatePointsAndThrowException()).isInstanceOf(IllegalStateException.class);
     }
 }
