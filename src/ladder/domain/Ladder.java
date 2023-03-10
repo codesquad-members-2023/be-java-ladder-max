@@ -21,8 +21,8 @@ public class Ladder {
     }
 
     private void makeLadderColumnGroup(List<String> ladderLine, int peopleNumber){
-        for (int i = 0; i < peopleNumber-1; i++) { // 열 넣기 (뭉태기 개수)
-            for (int j = 0; j < DEFAULT_LADDER_GROUP_WIDTH; j++) { // 한 뭉태기 안의 요소 넣기
+        for (int i = 0; i < peopleNumber-1; i++) { // 열 넣기 (그룹 개수)
+            for (int j = 0; j < DEFAULT_LADDER_GROUP_WIDTH; j++) { // 한 그룹 안의 요소 넣기
                 makePipe(ladderLine, j);
                 makeHyphenOrBlank(ladderLine,i, j, peopleNumber);
             }

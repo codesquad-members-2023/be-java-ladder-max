@@ -27,7 +27,7 @@ public class InputView {
     }
 
     private String[] makeArrayFromString(String string) throws IOException {
-        return checkCorrectPeopleName(string.split(","));
+        return checkCorrectPeopleName(string.split(",")); // 메서드 수정
     }
 
     private String[] checkCorrectPeopleName(String[] peopleNameArray) throws IOException {
