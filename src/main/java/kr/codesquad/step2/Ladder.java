@@ -6,27 +6,19 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Ladder {
-    private static final int EVEN_WALL = 3;
-    private static final int ODD_WALL = 2;
+    private static final int SIDE_WALL = 2;
     private static final int BLANK_OR_ROW = 2;
     private static final int EVEN = 2;
     Random random;
-    int ladderRow;
+    int participatePeople;
     int ladderHeight;
     int[][] map;
 
     public Ladder(int participatePeople, int ladderHeight) {
-        this.ladderRow = countLadderRow(participatePeople);
+        this.participatePeople = participatePeople;
         this.ladderHeight = ladderHeight;
         map = new int[participatePeople][ladderHeight];
         random = new Random();
-    }
-
-    private int countLadderRow(int participatePeople){
-        if(participatePeople%EVEN == 0){
-            return participatePeople+EVEN_WALL;
-        }
-        return participatePeople+ODD_WALL;
     }
 
     public StringBuilder generateLadder() {
@@ -36,7 +28,7 @@ public class Ladder {
     }
 
     private String generateLadderRow(){
-        return IntStream.range(0,ladderRow)
+        return IntStream.range(0,participatePeople+SIDE_WALL)
                 .mapToObj(ladderType->getLadderType(ladderType))
                 .collect(Collectors.joining())+"\n";
     }
