@@ -9,10 +9,16 @@ public enum LadderLine {
             return isEven(index);
         }
     },
-    HORIZONTAL("-"){
+    HORIZONTAL("-----"){
         @Override
         boolean validate(int index) {
             return !isEven(index) && isPicked();
+        }
+    },
+    BLANK("     "){
+        @Override
+        boolean validate(int index) {
+            return true;
         }
     };
     
