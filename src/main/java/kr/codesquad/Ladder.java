@@ -1,6 +1,7 @@
 package kr.codesquad;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Ladder {
 
@@ -28,6 +29,22 @@ public class Ladder {
                     : LadderLine.HORIZONTAL.validate(columnIndex) ? LadderLine.HORIZONTAL
                     : LadderLine.BLANK ;
         }
+    }
+
+    private LadderLine getLadderLine(int index){
+        Random random = new Random();
+        boolean isVertical = index%2 == 0;
+        boolean isRandomPicked = random.nextBoolean();
+
+        if(isVertical){
+            return LadderLine.VERTICAL;
+        }
+
+        if(isRandomPicked){
+            return LadderLine.HORIZONTAL;
+        }
+
+        return LadderLine.BLANK;
     }
 
     @Override
