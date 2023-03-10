@@ -3,47 +3,54 @@ package kr.codesquad;
 import java.util.Random;
 
 public class LadderGenerator {
-    int maxHeight;
-    int column;
-    String[][] ladder;
+    private int maxHeight;
+    private int maxWidth;
+    private int rowIndex;
+    private int columnIndex;
+    private String[][] ladder;
 
     public LadderGenerator(int joinMembers, int maxHeight) {
-        column = joinMembers + (joinMembers - 1);
-        ladder = new String[this.maxHeight = maxHeight][column]; // maxHeight 초기화를 먼저 해야하는지
+        this.maxHeight = maxHeight;
+        maxWidth = calculateMaxWidth(joinMembers);
     }
 
     public String[][] generateLadder() {
+        ladder = new String[maxHeight][maxWidth];
         generateLadderArray();
-        generateRandomLine();
         generateBorderLine();
+        generateRandomLine();
         return ladder;
     }
 
-    // 이중 for문이 반복되고 있는데 개선 방법 고민해보기
-    public void generateLadderArray() {
-        for (int i = 0; i < ladder.length; i++) {
-            for (int j = 0; j < ladder[i].length; j++) {
-                ladder[i][j] = " ";
+    private int calculateMaxWidth(int joinMembers) {
+        int maxWidth = joinMembers * 2 - 1;
+        return maxWidth;
+    }
+
+    private void generateLadderArray() {
+        for (rowIndex = 0; rowIndex < ladder.length; rowIndex++) {
+            for (columnIndex = 0; columnIndex < ladder[rowIndex].length; columnIndex++) {
+                ladder[rowIndex][columnIndex] = " ";
             }
         }
     }
 
-    public void generateRandomLine() {
-        Random random = new Random();
-        for (int i = 0; i < ladder.length; i++) {
-            for (int j = 0; j < ladder[i].length; j++) {
-                if (j % 2 != 0 && random.nextBoolean()) {
-                    ladder[i][j] = "-";
+    private void generateBorderLine() {
+        for (rowIndex = 0; rowIndex < ladder.length; rowIndex++) {
+            for (columnIndex = 0; columnIndex < ladder[rowIndex].length; columnIndex++) {
+                if (columnIndex % 2 == 0) {
+                    ladder[rowIndex][columnIndex] = "|";
                 }
             }
         }
     }
 
-    public void generateBorderLine() {
-        for (int i = 0; i < ladder.length; i++) {
-            for (int j = 0; j < ladder[i].length; j++) {
-                if (j % 2 == 0) {
-                    ladder[i][j] = "|";
+    private void generateRandomLine() {
+        Random random = new Random();
+        for (rowIndex = 0; rowIndex < ladder.length; rowIndex++) {
+            for (columnIndex = 0; columnIndex < ladder[rowIndex].length; columnIndex++) {
+                if (columnIndex % 2 != 0 && random.nextBoolean()) {
+                    ladder[rowIndex][columnIndex] = "-";
                 }
             }
         }

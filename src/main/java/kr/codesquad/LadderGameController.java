@@ -1,23 +1,23 @@
 package kr.codesquad;
 
-public class LadderController {
+public class LadderGameController {
     OutputView outputView;
     InputView inputView;
     LadderGenerator ladderGenerator;
 
-    public LadderController(OutputView outputView, InputView inputView) {
-        this.outputView = outputView;
-        this.inputView = inputView;
+    public LadderGameController() {
+        this.outputView = new OutputView();
+        this.inputView = new InputView();
     }
 
     public void startLadderGame() {
-        outputView.printJoinMembers();
+        outputView.printParticipantsPrompt();
         int joinMembers = inputView.userInput();
-        outputView.printMaxHeight();
+        outputView.printMaxHeightPrompt();
         int maxHeight = inputView.userInput();
 
         this.ladderGenerator = new LadderGenerator(joinMembers, maxHeight); // 다른 방법 찾아보기
         String[][] ladder = ladderGenerator.generateLadder();
-        outputView.printLadderState(ladder);
+        outputView.printLadder(ladder);
     }
 }

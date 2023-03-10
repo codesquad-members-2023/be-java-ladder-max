@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="refactor : LadderGenerator 클래스 로직 수정&#10;&#10;각 메서드 마다 중복 작업이 있어 로직을 수정했습니다.">
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="refactor : OutputView 클래스 로직 수정&#10;&#10;1. printLadderState() -&gt; drawLadderDiagram()&#10;  - 접근제어자 변경으로 캡슐화(public -&gt; private)&#10;  - printLadder 메서드를 사용하기 위해 메서드명 정정&#10;2. printLadder 메서드 추가&#10;  - drawLadderDiagram()를 호출하는 public 메서드">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/OutputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/OutputView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,24 +44,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/hanawang/IdeaProjects/be-java-ladder-max&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docs" />
@@ -99,6 +101,8 @@
       <workItem from="1672210432725" duration="156000" />
       <workItem from="1678091934798" duration="1550000" />
       <workItem from="1678143731220" duration="25412000" />
+      <workItem from="1678289995396" duration="974000" />
+      <workItem from="1678324581213" duration="23458000" />
     </task>
     <task id="LOCAL-00001" summary="docs : 1단계 체크리스트 작성">
       <created>1678144272811</created>
@@ -121,7 +125,28 @@
       <option name="project" value="LOCAL" />
       <updated>1678174176133</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor : calculateMaxWidth() 메서드 추가 및 변수명 변경&#10;&#10;1. 변수명 변경&#10;  - column -&gt; maxWidth&#10;2. calculateMaxWidth() 메서드 추가&#10;  - 생성자에서 계산하던 로직을 메서드 분리를 통해 수정">
+      <created>1678346711250</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678346711250</updated>
+    </task>
+    <task id="LOCAL-00005" summary="refactor : OutputView 클래스의 메서드명 변경 및 필드 추가&#10;&#10;1. 필드 추가&#10;  - PARTICIPANTS_PROMPT, MAX_HEIGHT_PROMPT&#10;2. 메서드명 변경&#10;  - printJoinMembers() -&gt; printParticipantsPrompt()&#10;  - printMaxHeight() -&gt; printMaxHeightPrompt()">
+      <created>1678348775989</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678348775989</updated>
+    </task>
+    <task id="LOCAL-00006" summary="refactor : OutputView 클래스 로직 수정&#10;&#10;1. printLadderState() -&gt; drawLadderDiagram()&#10;  - 접근제어자 변경으로 캡슐화(public -&gt; private)&#10;  - printLadder 메서드를 사용하기 위해 메서드명 정정&#10;2. printLadder 메서드 추가&#10;  - drawLadderDiagram()를 호출하는 public 메서드">
+      <created>1678351466174</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678351466174</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,7 +163,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/feature1" />
+                        <option value="feature2" />
                       </list>
                     </value>
                   </entry>
@@ -154,6 +179,9 @@
     <MESSAGE value="docs : 1단계 체크리스트 작성" />
     <MESSAGE value="refactor : LadderGenerator 클래스 로직 수정 및 메서드명 변경&#10;&#10;사다리의 요소를 만드는 메서드와 그 요소들을 결합하는 메서드로 분리해 로직을 수정했습니다." />
     <MESSAGE value="refactor : LadderGenerator 클래스 로직 수정&#10;&#10;각 메서드 마다 중복 작업이 있어 로직을 수정했습니다." />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor : LadderGenerator 클래스 로직 수정&#10;&#10;각 메서드 마다 중복 작업이 있어 로직을 수정했습니다." />
+    <MESSAGE value="refactor : calculateMaxWidth() 메서드 추가 및 변수명 변경&#10;&#10;1. 변수명 변경&#10;  - column -&gt; maxWidth&#10;2. calculateMaxWidth() 메서드 추가&#10;  - 생성자에서 계산하던 로직을 메서드 분리를 통해 수정" />
+    <MESSAGE value="refactor : OutputView 클래스의 메서드명 변경 및 필드 추가&#10;&#10;1. 필드 추가&#10;  - PARTICIPANTS_PROMPT, MAX_HEIGHT_PROMPT&#10;2. 메서드명 변경&#10;  - printJoinMembers() -&gt; printParticipantsPrompt()&#10;  - printMaxHeight() -&gt; printMaxHeightPrompt()" />
+    <MESSAGE value="refactor : OutputView 클래스 로직 수정&#10;&#10;1. printLadderState() -&gt; drawLadderDiagram()&#10;  - 접근제어자 변경으로 캡슐화(public -&gt; private)&#10;  - printLadder 메서드를 사용하기 위해 메서드명 정정&#10;2. printLadder 메서드 추가&#10;  - drawLadderDiagram()를 호출하는 public 메서드" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor : OutputView 클래스 로직 수정&#10;&#10;1. printLadderState() -&gt; drawLadderDiagram()&#10;  - 접근제어자 변경으로 캡슐화(public -&gt; private)&#10;  - printLadder 메서드를 사용하기 위해 메서드명 정정&#10;2. printLadder 메서드 추가&#10;  - drawLadderDiagram()를 호출하는 public 메서드" />
   </component>
 </project>
