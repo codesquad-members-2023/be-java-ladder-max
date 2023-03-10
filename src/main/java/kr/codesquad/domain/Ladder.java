@@ -16,6 +16,7 @@ public class Ladder {
     public String toString() {
         return ladder.stream()
                 .map(Line::toString)
+                .map(a -> "  " + a)
                 .collect(Collectors.joining("\n"));
     }
 }
