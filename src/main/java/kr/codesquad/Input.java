@@ -3,15 +3,15 @@ package kr.codesquad;
 import java.util.Scanner;
 
 public class Input {
-    int InputNumberOfPlayers () {
+    int inputNumberOfPlayers() {
         return inputIntValue();
     }
 
-    int InputLadderHeight(){
+    int inputLadderHeight(){
         return inputIntValue();
     }
 
-    int inputIntValue(){
+    private int inputIntValue(){
         Scanner sc = new Scanner(System.in);
 
         return sc.nextInt();
