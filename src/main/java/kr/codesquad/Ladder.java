@@ -6,93 +6,110 @@ import java.util.Random;
 import java.lang.StringBuilder;
 
 public class Ladder {
-    private Random random = new Random();
-    private int width;
+    private final Random random = new Random();
+    //    private int width;
     private int height;
     private List<List<String>> ladderBoard;
     private List<String> names;
 
-    public void init(int inputerGetLadderNum, String inputerGetNames) {
+    public void init(int inputerGetLadderNum, ArrayList inputerGetNames) {
         makeNames(inputerGetNames);
-        widthIs();
+//        widthIs();
         height = inputerGetLadderNum;
         makeLadder();
     }
 
-    private void makeNames(String inputerGetNames) {
-        names = new ArrayList<>();
-        for (int i = 0; i <  inputerGetNames.split(",").length; i++) {
-            names.add( inputerGetNames.split(",")[i]);
-        }
+    private void makeNames(ArrayList inputerGetNames) {
+        names = inputerGetNames;
     }
 
-    private void widthIs() {
-        width = (names.size() * 2) - 1;
-    }
+//    private void widthIs() {
+//        width = (names.size() * 2 - 1);
+//    }
 
     private void makeLadder() {
         ladderBoard = new ArrayList<>();
         for (int i = 0; i < height; i++) {
             ladderBoard.add(new ArrayList<>());
-            functionForMakeLadder1(i);
-            functionForMakeLadder2(i);
-        }
-    }
-
-    private void functionForMakeLadder1(int i) {
-        for (int j = 0; j < width; j++) {
-            ifSentenceInFunctionForMakeLadder1(i, j);
-        }
-    }
-
-    private void ifSentenceInFunctionForMakeLadder1(int i, int j) {
-        if (j % 2 == 0) {
             ladderBoard.get(i).add("|");
+            forInForInMakeLadder(i);
         }
     }
 
-    private void functionForMakeLadder2(int i) {
-        for (int j = 0; j < width; j++) {
-            smallIfSentence1InFunctionForMakeLadder2(i, j);
-            smallIfSentence2InFunctionForMakeLadder2(i, j);
-            smallIfSentence3InFunctionForMakeLadder2(i, j);
+    private void forInForInMakeLadder(int i) {
+        boolean temp = random.nextBoolean();
+        int x = 0;
+        if (temp) {
+            x = 1;
+        }
+        switchInForInForInMakeLadder(i, x);
+        for (int j = 1; j < names.size() - 1; j++) {
+            temp = random.nextBoolean();
+            x = 0;
+            ifInForInForInForInMakeLadder(temp, i, j, x);
         }
     }
 
-    private void smallIfSentence1InFunctionForMakeLadder2(int i, int j) {
-        if (j % 2 == 1 && ladderBoard.get(i).get(j - 1) == "     " && random.nextBoolean() == true) {
-            ladderBoard.get(i).add("     ");
+    private void ifInForInForInForInMakeLadder(boolean temp, int i, int j, int x) {
+        if (temp && ladderBoard.get(i).get(j - 1).equals("     ")) {
+            x = 1;
+        }
+        reusedSwitchInForInForInMakeLadder(i, x);
+    }
+
+    private void switchInForInForInMakeLadder(int i, int x) {
+        switch (x) {
+            case 1:
+                ladderBoard.get(i).add("-----");
+                ladderBoard.get(i).add("|");
+                break;
+            case 0:
+                ladderBoard.get(i).add("     ");
+                ladderBoard.get(i).add("|");
+                break;
         }
     }
 
-    private void smallIfSentence2InFunctionForMakeLadder2(int i, int j) {
-        if (j % 2 == 1 && ladderBoard.get(i).get(j - 1) == "     " && random.nextBoolean() == false) {
-            ladderBoard.get(i).add("-----");
-        }
-    }
-
-    private void smallIfSentence3InFunctionForMakeLadder2(int i, int j) {
-        if (j % 2 == 1 && ladderBoard.get(i).get(j - 1) == "-----" && random.nextBoolean() == false) {
-            ladderBoard.get(i).add("-----");
+    private void reusedSwitchInForInForInMakeLadder(int i, int x) {
+        switch (x) {
+            case 1:
+                ladderBoard.get(i).add("-----");
+                ladderBoard.get(i).add("|");
+                break;
+            case 0:
+                ladderBoard.get(i).add("     ");
+                ladderBoard.get(i).add("|");
+                break;
         }
     }
 
     public void printResult() {
+        printNames();
+        printLadder();
+
+    }
+
+    private void printNames() {
         StringBuilder sb = new StringBuilder();
         sb.append(" ");
         for (int i = 0; i < names.size(); i++) {
             sb.append(" ");
-            sb.append(String.format("%5s", names.get(i)));
+            sb.append(String.format("%5s", names.get(i)));      // 가운데정렬 안됨
         }
-        String str = sb.toString();
-        System.out.println(str);
+        System.out.println(sb);
+    }
 
+    private void printLadder() {
         for (int i = 0; i < height; i++) {
             System.out.print("    ");
-            for (String j : ladderBoard.get(i)) {
-                System.out.print(j);
-            }
+            forLoopInPrintLadder(i);
             System.out.print("\r\n");
+        }
+    }
+
+    private void forLoopInPrintLadder(int i) {
+        for (String j : ladderBoard.get(i)) {
+            System.out.print(j);
         }
     }
 }
