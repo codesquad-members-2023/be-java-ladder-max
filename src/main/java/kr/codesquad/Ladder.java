@@ -42,13 +42,16 @@ public class Ladder {
 
     void printLadder() {
         for (String[] strings : ladder) {
-            for (String string : strings) {
-                System.out.print(string);
-            }
+            printLayer(strings);
             System.out.println();
         }
     }
 
+    private void printLayer(String[] strings) {
+        for (String string : strings) {
+            System.out.print(string);
+        }
+    }
 
 
 //    void printVerticalLine(int people, int Ladder) {
