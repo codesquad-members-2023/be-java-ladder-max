@@ -18,4 +18,13 @@ class LineInfoTest {
         Assertions.assertThat(lineInfo.move(0)).isEqualTo(0);
         Assertions.assertThat(lineInfo.move(3)).isEqualTo(3);
     }
+
+    @DisplayName("LineInfo의 사이즈 확인.")
+    @Test
+    void size() {
+        List<Boolean> testList = List.of(false, true, false);
+        LineInfo lineInfo = new LineInfo(testList);
+
+        Assertions.assertThat(lineInfo.size()).isEqualTo(3);
+    }
 }

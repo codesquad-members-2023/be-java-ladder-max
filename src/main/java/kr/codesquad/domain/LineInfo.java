@@ -34,7 +34,7 @@ public class LineInfo {
     private static boolean canMoveRight(int resultNum, List<Boolean> oneRowStateInfo) {
         return resultNum < oneRowStateInfo.size() && oneRowStateInfo.get(resultNum);
     }
-    
+
 
     public String connectLine() {
         StringBuilder result = new StringBuilder();
