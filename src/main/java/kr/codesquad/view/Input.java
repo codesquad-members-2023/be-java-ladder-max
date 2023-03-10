@@ -15,7 +15,7 @@ public class Input {
     }
 
     public String inputResult() throws IOException {
-        System.out.println("실행 결과를 입력하세요.(결과는 쉼표(,)로 구분");
+        System.out.println("실행 결과를 입력하세요.(결과는 쉼표(,)로 구분)");
         return br.readLine();
     }
 
