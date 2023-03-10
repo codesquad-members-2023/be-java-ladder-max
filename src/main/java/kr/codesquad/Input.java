@@ -7,11 +7,11 @@ public class Input {
         return inputIntValue();
     }
 
-    int inputLadderHeight(){
+    static int inputLadderHeight(){
         return inputIntValue();
     }
 
-    private int inputIntValue(){
+    private static int inputIntValue(){
         Scanner sc = new Scanner(System.in);
 
         return sc.nextInt();
