@@ -39,7 +39,7 @@ public class LadderConsoleReader implements LadderReader {
             String text = reader.readLine();
             validator.validateNamesOfPeople(text, NAME_DELIMITER.pattern());
             namesOfPeople = toList(text);
-        } catch (InvalidNumberOfMaximumLadderHeightException e) {
+        } catch (InvalidNameOfPeopleException e) {
             ladderWriter.writeInvalidReadNumber(e.getMessage());
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -70,7 +70,7 @@ public class LadderConsoleReader implements LadderReader {
             String text = reader.readLine();
             validator.validateLadderHeight(text);
             maximumLadderHeight = toInt(text);
-        } catch (InvalidNumberOfMaximumLadderHeightException e) {
+        } catch (InvalidNumberOfMinimumLadderHeightException e) {
             ladderWriter.writeInvalidReadNumber(e.getMessage());
         } catch (IOException e) {
             throw new RuntimeException(e);
