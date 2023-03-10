@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 
 public class LinePointsValidator {
 
-    private final String errorMessageForConsecutivePoints = "연속적인 true 존재";
+    private final String ERROR_MESSAGE_FOR_CONSECUTIVE_POINTS = "연속적인 true 존재";
     boolean validatePoints(ArrayList<Boolean> points) {
         try {
             validatePointsAndThrowException(points);
@@ -21,7 +21,7 @@ public class LinePointsValidator {
                 .filter(i ->points.get(i) && points.get(i + 1))
                 .findFirst()
                 .ifPresent(i -> {
-                    throw new IllegalStateException(errorMessageForConsecutivePoints);
+                    throw new IllegalStateException(ERROR_MESSAGE_FOR_CONSECUTIVE_POINTS);
                 });
     }
 }

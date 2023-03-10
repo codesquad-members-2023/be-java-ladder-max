@@ -10,8 +10,8 @@ import java.util.stream.Collectors;
 
 public class PlayerValidator {
 
-    private final String errorMessageForNameLenght = "5글자 이상인 이름 발견 재입력 할것";
-    private final String errorMessageForPlayerNum = "player는 2명이상 필요합니다.재입력 해라";
+    private final String ERROR_MESSAGE_FOR_NAME_LENGTH = "5글자 이상인 이름 발견 재입력 할것";
+    private final String ERROR_MESSAGE_FOR_PLAYER_NUMBER = "player는 2명이상 필요합니다.재입력 해라";
 
     public boolean getVaildNameFromUser(ArrayList list, InputView inputHandler) {
         try {
@@ -34,14 +34,14 @@ public class PlayerValidator {
 
     private String validateNameAndThrowException(String str) {
         if (str.length() > 5) {
-            throw new RuntimeException(errorMessageForNameLenght);
+            throw new RuntimeException(ERROR_MESSAGE_FOR_NAME_LENGTH);
         }
         return str;
     }
 
     private void validatePlayerNumAndThrowException(ArrayList list){
         if(list.size()<2){
-            throw new RuntimeException(errorMessageForPlayerNum);
+            throw new RuntimeException(ERROR_MESSAGE_FOR_PLAYER_NUMBER);
         }
     }
 
