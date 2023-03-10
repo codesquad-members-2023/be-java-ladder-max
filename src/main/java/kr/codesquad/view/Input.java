@@ -23,4 +23,9 @@ public class Input {
         System.out.println("사다리 높이를 입력하세요.");
         return Validation.validateHeight(Integer.parseInt(br.readLine()));
     }
+
+    public String inputNameCommand() throws IOException {
+        System.out.println("결과를 보고 싶은 사람의 이름을 입력하세요.");
+        return br.readLine();
+    }
 }

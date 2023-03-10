@@ -20,6 +20,10 @@ public class Elements {
         return elements.get(index);
     }
 
+    public int indexOf(String element) {
+        return elements.indexOf(element);
+    }
+
     public String toString() {
         String row = "";
         for (String element : elements) {
