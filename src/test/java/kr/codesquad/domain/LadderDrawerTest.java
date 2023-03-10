@@ -1,21 +1,26 @@
 package kr.codesquad.domain;
 
-import static kr.codesquad.domain.LadderDrawer.FAIL_DELIMITER;
-import static kr.codesquad.domain.LadderDrawer.connectLine;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-import org.assertj.core.api.Assertions;
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.api.Test;
 
 class LadderDrawerTest {
 
-    @DisplayName("사다리 추가의 실패")
-    @ParameterizedTest
-    @CsvSource({"false,true", "false,false", "true,false"})
-    void addLadder_False(boolean beforeIsTrue, boolean currentIsPossible) {
-        StringBuilder target = new StringBuilder();
-        connectLine(target, beforeIsTrue);
-        Assertions.assertThat(target).contains(FAIL_DELIMITER);
+
+    @DisplayName("사다리 그리기")
+    @Test
+    void draw() {
+        LineInfo lineSuccessInfo = mock(LineInfo.class);
+        when(lineSuccessInfo.connectLine()).thenReturn(LineInfo.SUCCESS_DELIMITER + LineInfo.PEOPLE_DELIMITER);
+        LineInfo lineFailureInfo = mock(LineInfo.class);
+        when(lineFailureInfo.connectLine()).thenReturn(LineInfo.FAIL_DELIMITER + LineInfo.PEOPLE_DELIMITER);
+        LadderDrawer ladderDrawer = new LadderDrawer();
+        assertThat(ladderDrawer.draw(List.of(lineSuccessInfo, lineFailureInfo)))
+            .isEqualTo("   |-----|\n"
+                + "   |     |\n");
     }
 }

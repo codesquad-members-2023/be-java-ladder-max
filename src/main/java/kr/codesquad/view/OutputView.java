@@ -41,14 +41,9 @@ public class OutputView {
         System.out.println(SEARCH_CLOSE_DESCRIPTION);
     }
 
-    public void printAll(String searchAll) {
+    public void printResult(String result) {
         System.out.println(SEARCH_RESULT_DESCRIPTION);
-        System.out.println(searchAll);
-    }
-
-    public void printSingleResult(String singleResult) {
-        System.out.println(SEARCH_RESULT_DESCRIPTION);
-        System.out.println(singleResult);
+        System.out.println(result);
     }
 
     static class StringCenterSorter {

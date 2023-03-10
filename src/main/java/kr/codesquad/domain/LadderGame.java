@@ -23,45 +23,49 @@ public class LadderGame {
     }
 
     public void run() {
+
         List<String> names = inputView.inputNames();
         int nameSize = names.size();
+
         List<String> resultInfo = inputView.inputResultInfo(nameSize);
         int ladderHeight = inputView.inputLadderHeight();
-        List<List<Boolean>> linesStateInfo = linesStateRandomCreator.create(nameSize, ladderHeight);
+
+        List<LineInfo> linesStateInfo = linesStateRandomCreator.create(nameSize, ladderHeight);
         String drawnLadder = drawLadder(linesStateInfo);
         printLadder(names, drawnLadder, resultInfo);
-        ladderResultCalculator.calculator(linesStateInfo,ladderResultRepository);
 
-        inputSearchInfo(names, resultInfo);
+        ladderResultRepository.saveNamesAndResultINFO(names, resultInfo);
+        ladderResultCalculator.calculator(linesStateInfo, ladderResultRepository);
+
+        inputSearchInfo();
     }
 
-    private void inputSearchInfo(List<String> names, List<String> result) {
-        SearchInfo searchInfo = inputView.inputSearchInfo(names);
+    private void inputSearchInfo() {
+        SearchInfo searchInfo = inputView.inputSearchInfo(ladderResultRepository);
         SearchType searchType = searchInfo.getSearchType();
         switch (searchType) {
             case CLOSE:
                 outputView.printClose();
                 return;
             case ALL: {
-                String searchAll = ladderResultRepository.searchAll(names, result);
-                outputView.printAll(searchAll);
+                String searchAll = ladderResultRepository.searchAll();
+                outputView.printResult(searchAll);
                 break;
             }
             case SINGLE: {
-                int index = names.indexOf(searchInfo.getName());
-                String singleResult = ladderResultRepository.searchSingleResult(index, result);
-                outputView.printSingleResult(singleResult);
+                String singleResult = ladderResultRepository.searchSingleResult(searchInfo.getName());
+                outputView.printResult(singleResult);
                 break;
             }
         }
-        inputSearchInfo(names, result);
+        inputSearchInfo();
     }
 
     private void printLadder(List<String> names, String drawnLadder, List<String> result) {
         outputView.printLadder(names, drawnLadder, result);
     }
 
-    private String drawLadder(List<List<Boolean>> linesStateInfo) {
+    private String drawLadder(List<LineInfo> linesStateInfo) {
         return ladderDrawer.draw(linesStateInfo);
     }
 }

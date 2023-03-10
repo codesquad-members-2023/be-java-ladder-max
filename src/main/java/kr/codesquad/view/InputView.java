@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import kr.codesquad.domain.LadderResultRepository;
 import kr.codesquad.domain.SearchInfo;
 import kr.codesquad.domain.SearchType;
 
@@ -22,7 +23,7 @@ public class InputView {
     public static final String INPUT_ERROR = "잘못 입력했습니다.";
     private final Scanner scanner = new Scanner(System.in);
 
-    public SearchInfo inputSearchInfo(List<String> names) {
+    public SearchInfo inputSearchInfo(LadderResultRepository ladderResultRepository) {
         System.out.println(INPUT_SEARCH_INFO);
         String input = scanner.nextLine();
         if (isSearchAll(input)) {
@@ -31,11 +32,11 @@ public class InputView {
         if (isClose(input)) {
             return new SearchInfo(SearchType.CLOSE);
         }
-        if (names.contains(input)) {
+        if (ladderResultRepository.containsName(input)) {
             return new SearchInfo(SearchType.SINGLE, input);
         }
         System.out.println(INPUT_ERROR);
-        return inputSearchInfo(names);
+        return inputSearchInfo(ladderResultRepository);
     }
 
     static boolean isClose(String input) {
