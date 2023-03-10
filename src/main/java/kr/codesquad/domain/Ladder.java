@@ -1,4 +1,4 @@
-package kr.codesquad.model;
+package kr.codesquad.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,10 +6,22 @@ import java.util.List;
 public class Ladder {
     private final String BLANK = " ";
     private final String VERTICAL_LINE = "|";
+    private final int NAME_BLANK = 6;
+    private final int LAST_INDEX = 1;
+    private final int ODD_INDEX_START = 1;
+    private final int ODD_INDEX_JUMP = 2;
+    private final int INDEX_START_ZERO = 0;
+    private final String EMPTY_STRING = "";
 
     private List<List<String>> laddersFrame = new ArrayList<>();
     private int length;
     private int width;
+
+    private Line line;
+
+    public Ladder(Line line) {
+        this.line = line;
+    }
 
     public List<List<String>> makeLadder(List<String> users, int m) {
         init(users, m);
@@ -19,7 +31,7 @@ public class Ladder {
     }
 
     private void init(List<String> users, int m) {
-        width = users.size() + (users.size() - 1);
+        width = users.size() + (users.size() - LAST_INDEX);
         length = m;
     }
 
@@ -28,15 +40,15 @@ public class Ladder {
         List<String> userNames = new ArrayList<>();
         for (String user : users) {
             userNames.add(user);
-            userNames.add(BLANK.repeat(6 - user.length()));
+            userNames.add(BLANK.repeat(NAME_BLANK - user.length()));
         }
-        userNames.remove(userNames.size() - 1);
+        userNames.remove(userNames.size() - LAST_INDEX);
         laddersFrame.add(userNames);
     }
 
     private void makeLine2Ladder() {
         List<String> lines;
-        for (int i = 0; i < length; i++) {
+        for (int i = INDEX_START_ZERO; i < length; i++) {
             lines = new ArrayList<>();
             lines.add(VERTICAL_LINE);
             fillLadderWidth(lines);
@@ -45,8 +57,8 @@ public class Ladder {
     }
 
     private void fillLadderWidth(List<String> lines) {
-        String before = "";
-        for (int j = 1; j < width; j += 2) {
+        String before = EMPTY_STRING;
+        for (int j = ODD_INDEX_START; j < width; j += ODD_INDEX_JUMP) {
             before = fillLadderRandomOrStick(before);
             lines.add(before);
             lines.add(VERTICAL_LINE);
@@ -54,7 +66,7 @@ public class Ladder {
     }
 
     private String fillLadderRandomOrStick(String before) {
-        if (before.equals(LadderLine.stick.getValue())) {
+        if (line.isLine(before)) {
             return LadderLine.blank.getValue();
         }
         return LadderLine.takeRandom();

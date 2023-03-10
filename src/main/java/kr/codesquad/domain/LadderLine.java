@@ -1,4 +1,4 @@
-package kr.codesquad.model;
+package kr.codesquad.domain;
 
 import java.util.Random;
 
