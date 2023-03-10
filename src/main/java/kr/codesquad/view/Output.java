@@ -12,13 +12,11 @@ public class Output {
     }
 
     private void printNames(ArrayList<String> names) {
-        names.forEach(name -> System.out.print(name + " "));
+        names.forEach(name -> System.out.print(String.format("%-5s", name) + " "));
         System.out.println();
     }
 
     private void printLadder(Ladder ladder) {
-        ladder.ladder.stream()
-                .map(a -> String.join("", a))
-                .forEach(System.out::println);
+        System.out.print(ladder);
     }
 }
