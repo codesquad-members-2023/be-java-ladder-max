@@ -3,6 +3,8 @@ package kr.codesquad.domain;
 import kr.codesquad.view.OutputView;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class Ladder {
@@ -52,18 +54,18 @@ public class Ladder {
     }
 
     public List<String> getPeople() {
-        return this.people;
+        return Collections.unmodifiableList(this.people);
     }
 
     public List<Line> getLines() {
-        return this.lines;
+        return Collections.unmodifiableList(this.lines);
     }
 
     public List<String> getResults() {
-        return this.results;
+        return Collections.unmodifiableList(this.results);
     }
 
     public List<String> getFinals() {
-        return this.finals;
+        return Collections.unmodifiableList(this.finals);
     }
 }
