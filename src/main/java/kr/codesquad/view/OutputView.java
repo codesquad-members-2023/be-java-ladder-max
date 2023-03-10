@@ -2,17 +2,7 @@ package kr.codesquad.view;
 
 import java.util.List;
 
-import kr.codesquad.domain.Ladder;
-
 public class OutputView {
-
-	public void printGetNamesOfPersonMsg() {
-		System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
-	}
-
-	public void printGetHeightOfLadderMsg() {
-		System.out.println("최대 사다리 높이는 몇 개인가요?");
-	}
 
 	public void printErrorMsg(final Exception e) {
 		System.out.println(e.getMessage());
@@ -24,7 +14,16 @@ public class OutputView {
 		System.out.println(nameBuilder);
 	}
 
+	public void printResultsOfGame(final List<String> results) {
+		StringBuilder resultBuilder = new StringBuilder();
+		results.forEach(result -> resultBuilder.append(centerAligned(result, 5)));
+		System.out.println(resultBuilder);
+	}
+
 	private String centerAligned(final String name, final int length) {
+		if (name.length() > length) {
+			return String.format("%s", name);
+		}
 		if (name.length() == 4) {
 			return String.format(" %s ", name);
 		}
@@ -32,10 +31,18 @@ public class OutputView {
 			return String.format("%s ", name);
 		}
 		final int padding = (length - name.length()) / 2;
-		return String.format(" %" + padding + "s%s%" + padding + "s ", "", name, "");
+		return String.format("%" + padding + "s%s%" + padding + "s ", "", name, "");
 	}
 
-	public void printFigureOfLadder(final Ladder ladder) {
-		System.out.println(ladder);
+	public void printFigureOfLadder(final String ladder) {
+		System.out.print(ladder);
+	}
+
+	public void printResult(final String executionResult) {
+		System.out.println(String.format("\n실행결과\n%s", executionResult));
+	}
+
+	public void printGameOverMsg() {
+		System.out.println("\n게임을 종료합니다.");
 	}
 }

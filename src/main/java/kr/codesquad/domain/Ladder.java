@@ -22,6 +22,13 @@ public class Ladder {
 		}
 	}
 
+	public int ride(int pos) {
+		for (LadderLine ladderLine : ladderLines) {
+			pos = ladderLine.ride(pos);
+		}
+		return pos;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder figure = new StringBuilder();
