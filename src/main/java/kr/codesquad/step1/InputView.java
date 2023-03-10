@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.step1;
 
 import java.util.Scanner;
 

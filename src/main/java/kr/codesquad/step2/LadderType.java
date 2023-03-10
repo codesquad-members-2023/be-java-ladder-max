@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.step2;
 
 import java.util.stream.Stream;
 
