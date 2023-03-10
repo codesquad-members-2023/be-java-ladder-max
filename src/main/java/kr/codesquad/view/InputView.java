@@ -2,6 +2,7 @@ package kr.codesquad.view;
 
 import java.util.Scanner;
 import kr.codesquad.domain.LadderHeight;
+import kr.codesquad.domain.Results;
 import kr.codesquad.domain.Users;
 
 public class InputView {
@@ -24,10 +25,23 @@ public class InputView {
     public static LadderHeight inputLadderHeight() {
         try {
             System.out.println("최대 사다리 높이는 몇 개 인가요?");
-            return new LadderHeight(SCANNER.nextInt());
+            return new LadderHeight(Integer.parseInt(SCANNER.nextLine()));
+        } catch (NumberFormatException e) {
+            System.out.println("숫자가 아닌 값을 입력하였습니다.\n");
+            return inputLadderHeight();
         } catch (IllegalArgumentException e) {
             System.out.printf("%s\n\n", e.getMessage());
             return inputLadderHeight();
+        }
+    }
+
+    public static Results inputResults(int userCount) {
+        try {
+            System.out.println("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
+            return new Results(SCANNER.nextLine(), userCount);
+        } catch (IllegalArgumentException e) {
+            System.out.printf("%s\n\n", e.getMessage());
+            return inputResults(userCount);
         }
     }
 
