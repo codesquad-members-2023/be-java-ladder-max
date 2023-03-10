@@ -1,9 +1,11 @@
 package kr.codesquad;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Ladder {
+    private final static int PLAYER_MAX_LENGTH = 5;
     private final List<String> players;
     private final int height;
     private final List<Line> ladder = new ArrayList<>();
@@ -18,7 +20,6 @@ public class Ladder {
         this.players = null;
         this.height = ladder.size();
         this.ladder.addAll(ladder);
-
     }
 
     private void buildLadder() {
@@ -28,7 +29,24 @@ public class Ladder {
         }
     }
 
-    public List<Line> getline() {
-        return this.ladder;
+    public List<List<>> inform() {
+        List<List<>> information = new ArrayList<>();
+
+        information.add(informPlayers());
+        information.add(informLadder());
+        return information
+    }
+
+    private List<String> informPlayers() {
+        return this.players;
+    }
+
+    private List<List<Boolean>> informLadder() {
+        List<List<Boolean>> ladder = new ArrayList<>();
+
+        for (Line l : this.ladder) {
+            ladder.add(l.getLine());
+        }
+        return ladder;
     }
 }
