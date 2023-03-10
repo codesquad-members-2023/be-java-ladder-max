@@ -1,19 +1,20 @@
 package kr.codesquad;
 
+import java.util.Scanner;
+
 public class LadderGame {
     void run(){
-        Output output = new Output();
-        Input input =new Input();
         Ladder ladder;
+        Input input = new Input(new Scanner(System.in));
         int numberOfPlayers;
         int ladderHeight;
 
-        output.printInputNumberOfPlayerQuestion();
+        Output.printInputNumberOfPlayerQuestion();
         numberOfPlayers = input.inputNumberOfPlayers();
-        output.printInputLadderHeightQuestion();
+        Output.printInputLadderHeightQuestion();
         ladderHeight = input.inputLadderHeight();
 
         ladder = new Ladder(numberOfPlayers, ladderHeight);
-        output.printLadder(ladder);
+        Output.printLadder(ladder.toString());
     }
 }
