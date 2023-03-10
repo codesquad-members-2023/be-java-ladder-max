@@ -1,6 +1,7 @@
 package kr.codesquad.view;
 
 import kr.codesquad.domain.Ladder;
+import kr.codesquad.domain.Results;
 import kr.codesquad.domain.Users;
 
 public class OutputView {
@@ -14,5 +15,9 @@ public class OutputView {
 
     public static void printUsers(Users users) {
         System.out.printf(" %s\n", users);
+    }
+
+    public static void printResults(Results results) {
+        System.out.printf("%s\n\n", results);
     }
 }

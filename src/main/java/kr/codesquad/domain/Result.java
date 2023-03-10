@@ -17,7 +17,16 @@ public class Result {
         }
     }
 
-    public String getResult() {
-        return result;
+    public String printFormat() {
+        int totalLength = 6;
+        int nameLength = this.result.length();
+        int leftPadding = ((totalLength - nameLength) / 2) + ((totalLength - nameLength) % 2);
+        int rightPadding = (totalLength - nameLength) / 2;
+        return String.format("%s%s%s", " ".repeat(leftPadding), this.result, " ".repeat(rightPadding));
+    }
+
+    @Override
+    public String toString() {
+        return this.result;
     }
 }

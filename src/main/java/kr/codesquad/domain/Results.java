@@ -29,4 +29,11 @@ public class Results {
             .map(Result::new)
             .collect(Collectors.toList());
     }
+
+    @Override
+    public String toString() {
+        return this.results.stream()
+            .map(Result::printFormat)
+            .collect(Collectors.joining());
+    }
 }
