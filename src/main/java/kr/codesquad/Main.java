@@ -1,18 +1,30 @@
 package kr.codesquad;
 
-import java.util.Scanner;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        OutputView outputView = new OutputView();
+        outputView.printInit();
+        outputView.printNamesRequest();
+        ArrayList<String> nameList = new InputCheck().putNameList();
+        outputView.printResultsRequest();
+        ArrayList<String> resultList = new InputCheck().putResultList(nameList.size());
+        outputView.printHeightRequest();
+        int height = new InputCheck().putHeight();
 
-        Output output = new Output();
-        output.printPeopleRequest();
-        int people = sc.nextInt();
-        output.printHeightRequest();
-        int height = sc.nextInt();
+        Ladder ladder = new Ladder();
+        ArrayList<Row> ladderList = ladder.makeLadder(nameList.size(), height);
+        new OutputView().printLadder(ladderList, nameList, height, resultList);
+        HashMap<String,String> results = ladder.setConnection(nameList, resultList);//사다리 로직
 
-        new Ladder().makeLadder(people, height);
-        output.printLadder();
+        String name = "";
+        while(!name.equals("close")) {
+            outputView.printPersonRequest();
+            name = new InputCheck().getName(nameList);
+            System.out.println(outputView.printResult(results, name));
+        }
     }
 }

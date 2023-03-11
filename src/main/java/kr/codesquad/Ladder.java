@@ -1,36 +1,46 @@
 package kr.codesquad;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Ladder {
-    static int m;
-    static int n;
-    static String[][] ladder;
+    int countOfPerson;
+    int ladderHeight;
+    ArrayList<Row> list;
+    ArrayList<Integer> connection = new ArrayList<>();
 
-    public void makeLadder(int people, int height) {
-        m = people;
-        n = height;
-        ladder = new String[n][m * 2 - 1];
-        for (int i = 0; i < n; i++) {
-            makeVerticalLines(i);
-            makeHorizontalLines(i);
+    public ArrayList<Row> makeLadder(int m, int n) {
+        countOfPerson = m;
+        ladderHeight = n;
+        list = new ArrayList<>();
+        for (int i = 0; i < ladderHeight; i++) {
+            list.add(new Row(countOfPerson));
         }
+        return list;
     }
 
-    public void makeVerticalLines(int i) {
-        int j = 0;
-        while (j < m * 2 - 1) {
-            ladder[i][j] = "|";
-            j += 2;
+    public HashMap<String, String> setConnection(ArrayList<String> nameList, ArrayList<String> resultList) {
+        for (int i = 0; i < countOfPerson; i++) {
+            connection.add(findConnection(i));
         }
+        return new Results().saveResult(connection, nameList, resultList);
     }
 
-    public void makeHorizontalLines(int i) {
-        Random rd = new Random();
-        int j = 1;
-        while (j < m * 2 - 1) {
-            ladder[i][j] = (rd.nextBoolean()) ? "-" : " ";
-            j += 2;
+    private int findConnection(int index) {
+        for (int i = 0; i < ladderHeight; i++) {
+            index = connectEach(i, index);
         }
+        return index;
+    }
+
+    private int connectEach(int column, int index) {
+        Row row = list.get(column);
+        if (index == 0 && !row.getBool(index)) return index;
+        else if (index == 0 && row.getBool(index)) return index + 1;
+        else if (0 < index && index < countOfPerson - 1 && row.getBool(index - 1)) return index - 1;
+        else if (0 < index && index < countOfPerson - 1 && !row.getBool(index - 1) && !row.getBool(index)) return index;
+        else if (0 < index && index < countOfPerson - 1 && row.getBool(index)) return index + 1;
+        else if (index == countOfPerson - 1 && row.getBool(index - 1)) return index - 1;
+        return index;
     }
 }
