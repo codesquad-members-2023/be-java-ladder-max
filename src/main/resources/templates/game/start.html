@@ -20,18 +20,18 @@
   <div class="row justify-content-md-center">
     <form th:action="@{/}" action="#" th:object="${inputForm}" method="post" novalidate class="row justify-content-md-center" >
       <div class="col col-lg-4">
-        <label for="names" class="form-label">참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)</label>
-        <input type="email" class="form-control" id="names" placeholder="pobi,honux,crong,jk">
+        <label for="names" class="form-label">참여할 사람 영어이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)</label>
+        <input type="text" class="form-control" th:field="*{names}" id="names" placeholder="pobi,honux,crong,jk">
         <small class="form-text text-danger" th:if="${#fields.hasErrors('names')}" th:errors="*{names}">names
           Error</small>
         <br>
-        <label for="inputResultInfo" class="form-label">실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)</label>
-        <input type="email" class="form-control" id="inputResultInfo" placeholder="꽝,5000,꽝,3000">
+        <label for="resultInfo" class="form-label">실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)</label>
+        <input type="text" class="form-control" th:field="*{resultInfo}" id="resultInfo" placeholder="꽝,5000,꽝,3000">
         <small class="form-text text-danger" th:if="${#fields.hasErrors('resultInfo')}" th:errors="*{resultInfo}">result
           Error</small>
         <br>
-        <label for="inputRadderHeight" class="form-label">실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)</label>
-        <input type="email" class="form-control" id="inputRadderHeight" placeholder="5">
+        <label for="ladderHeight" class="form-label">최대 사다리 높이는 몇 개인가요? (2~30 사이의 숫자를 입력하세요.)</label>
+        <input type="text" class="form-control" th:field="*{ladderHeight}" id="ladderHeight" placeholder="5">
         <small class="form-text text-danger" th:if="${#fields.hasErrors('ladderHeight')}" th:errors="*{ladderHeight}">result
           Error</small>
         <br>
