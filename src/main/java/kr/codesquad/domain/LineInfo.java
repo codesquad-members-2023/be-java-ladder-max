@@ -1,42 +1,54 @@
 package kr.codesquad.domain;
 
+import static kr.codesquad.domain.LineDelimiterType.FAIL_DELIMITER;
+import static kr.codesquad.domain.LineDelimiterType.PEOPLE_DELIMITER;
+import static kr.codesquad.domain.LineDelimiterType.SUCCESS_DELIMITER;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class LineInfo {
 
-    static final String SUCCESS_DELIMITER = "-----";
-    static final String FAIL_DELIMITER = "     ";
-    static final String PEOPLE_DELIMITER = "|";
 
+    static final String NEXT_LINE = "\n";
+    static final String PREFIX = "   ";
     private final List<Boolean> lineInfo;
 
-    public LineInfo() {
-        lineInfo = new ArrayList<>();
+    public LineInfo(List<Boolean> lineInfo) {
+        this.lineInfo = lineInfo;
     }
 
-    public static LineInfo createRandomLineStateInfo(int namesSize) {
+    public static LineInfo createRandomLineInfo(int size) {
         Random random = new Random();
-        LineInfo lineInfo = new LineInfo();
-        boolean beforeIsExist = false;
-        for (int j = 0; j < namesSize - 1; j++) {
-            beforeIsExist = random.nextBoolean() && !beforeIsExist;
-            lineInfo.add(beforeIsExist);
+        List<Boolean> store = new ArrayList<>();
+        boolean hasLine = false;
+        for (int j = 0; j < size; j++) {
+            hasLine = random.nextBoolean() && !hasLine;
+            store.add(hasLine);
         }
-        return lineInfo;
+        return new LineInfo(store);
     }
 
-    private void add(boolean exist) {
-        lineInfo.add(exist);
+    private static boolean canMoveLeft(int resultNum, List<Boolean> oneRowStateInfo) {
+        return resultNum > 0 && oneRowStateInfo.get(resultNum - 1);
     }
 
-    public String connectLine() {
+    private static boolean canMoveRight(int resultNum, List<Boolean> oneRowStateInfo) {
+        return resultNum < oneRowStateInfo.size() && oneRowStateInfo.get(resultNum);
+    }
+
+
+    public String drawLine() {
         StringBuilder result = new StringBuilder();
+
+        result.append(PREFIX)
+                .append(PEOPLE_DELIMITER.getValue());
         for (Boolean isExist : lineInfo) {
-            result.append(isExist ? SUCCESS_DELIMITER : FAIL_DELIMITER)
-                .append(PEOPLE_DELIMITER);
+            result.append(isExist ? SUCCESS_DELIMITER.getValue() : FAIL_DELIMITER.getValue())
+                    .append(PEOPLE_DELIMITER.getValue());
         }
+        result.append(NEXT_LINE);
         return result.toString();
     }
 
@@ -44,23 +56,13 @@ public class LineInfo {
         return lineInfo.size();
     }
 
-
     public int move(int resultNum) {
         if (canMoveLeft(resultNum, lineInfo)) {
-            return resultNum - 1;
+            return --resultNum;
         }
-        if (canMoveRight( resultNum, lineInfo)) {
-            return resultNum + 1;
+        if (canMoveRight(resultNum, lineInfo)) {
+            return ++resultNum;
         }
         return resultNum;
-    }
-
-
-    private static boolean canMoveLeft(int resultNum, List<Boolean> oneRowStateInfo) {
-        return resultNum > 0 && oneRowStateInfo.get(resultNum - 1);
-    }
-
-    private static boolean canMoveRight( int resultNum, List<Boolean> oneRowStateInfo) {
-        return resultNum < oneRowStateInfo.size() && oneRowStateInfo.get(resultNum);
     }
 }

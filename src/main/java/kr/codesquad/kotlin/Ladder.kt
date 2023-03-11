@@ -17,14 +17,15 @@ class Ladder {
 
 
     fun createExistLineInfoDistant(usersCount: Int, ladderHeight: Int): List<List<Boolean>> =
-        with(ArrayList<List<Boolean>>()) {
-            for (i in 0 until ladderHeight) {
-                add(
-                    addRowExistLineInfo(usersCount)
-                )
+            with(ArrayList<List<Boolean>>()) {
+                for (i in 0 until ladderHeight) {
+                    add(
+                            addRowExistLineInfo(usersCount)
+                    )
+                }
+                this@with
             }
-            this@with
-        }
+
     private fun addRowExistLineInfo(usersCount: Int) = with(ArrayList<Boolean>()) {
         for (j in 0 until usersCount - 1) {
             val currentBoolean = nextBoolean()
@@ -51,10 +52,10 @@ class Ladder {
             append(USER_DELIMITER)
             (0 until existLineInfo[0].size).forEach { j ->
                 append(
-                    when {
-                        existLineInfo[i][j] -> "-"
-                        else -> " "
-                    }
+                        when {
+                            existLineInfo[i][j] -> "-"
+                            else -> " "
+                        }
                 )
                 append(USER_DELIMITER)
             }
@@ -69,10 +70,10 @@ class Ladder {
             append(USER_DELIMITER)
             (0 until existLineInfo[0].size).forEach { j ->
                 append(
-                    when {
-                        existLineInfo[i][j] -> EXIST_DELIMITER
-                        else -> EMPTY_DELIMITER
-                    }
+                        when {
+                            existLineInfo[i][j] -> EXIST_DELIMITER
+                            else -> EMPTY_DELIMITER
+                        }
                 )
                 append(USER_DELIMITER)
             }
@@ -82,17 +83,17 @@ class Ladder {
     }
 
     fun matchUserAndResult(
-        existLineInfo: List<List<Boolean>>,
-        usersNames: List<String>,
-        inputResult: List<String>,
+            existLineInfo: List<List<Boolean>>,
+            usersNames: List<String>,
+            inputResult: List<String>,
     ): Map<String, String> {
         val resultStore = HashMap<String, String>()
-        for (i  in usersNames.indices) {
+        for (i in usersNames.indices) {
             var currentPosition = i
             for (j in existLineInfo.indices) {
-                if (currentPosition < usersNames.size-1 && existLineInfo[j][currentPosition]) {
+                if (currentPosition < usersNames.size - 1 && existLineInfo[j][currentPosition]) {
                     currentPosition++
-                } else if (currentPosition > 0 && existLineInfo[j][currentPosition-1]) {
+                } else if (currentPosition > 0 && existLineInfo[j][currentPosition - 1]) {
                     currentPosition--
                 }
             }

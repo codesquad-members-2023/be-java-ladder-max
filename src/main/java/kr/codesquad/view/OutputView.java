@@ -10,17 +10,6 @@ public class OutputView {
     public static final int LIMIT_LENGTH = 5;
     public static final int NAME_AREA = 6;
 
-    public void printLadder(List<String> names, String drawnLadder, List<String> result) {
-        System.out.println(DRAW_LADDER_DESCRIPTION);
-        StringBuilder resultSB = addNames(names)
-            .append("\n")
-            .append(drawnLadder);
-        for (String eachResult : result) {
-            resultSB.append(StringCenterSorter.center(eachResult, NAME_AREA));
-        }
-        System.out.println(resultSB);
-    }
-
     private static StringBuilder addNames(List<String> names) {
         StringBuilder resultSB = new StringBuilder();
         for (String userName : names) {
@@ -35,6 +24,15 @@ public class OutputView {
             userName = userName.substring(0, LIMIT_LENGTH);
         }
         return userName;
+    }
+
+    public void printLadder(List<String> names, String drawnLadder, List<String> result) {
+        System.out.println(DRAW_LADDER_DESCRIPTION);
+        StringBuilder resultSB = addNames(names).append("\n").append(drawnLadder);
+        for (String eachResult : result) {
+            resultSB.append(StringCenterSorter.center(eachResult, NAME_AREA));
+        }
+        System.out.println(resultSB);
     }
 
     public void printClose() {

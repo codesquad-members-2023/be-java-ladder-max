@@ -28,10 +28,10 @@ class InputView {
         println(INPUT_SEARCH_INFO)
         val input: String = scanner.nextLine()
         if (input == SearchType.ALL.value) {
-            return SearchInfo(SearchType.ALL,SearchType.ALL.value)
+            return SearchInfo(SearchType.ALL, SearchType.ALL.value)
         }
         if (input == SearchType.CLOSE.value) {
-            return SearchInfo(SearchType.CLOSE,SearchType.CLOSE.value)
+            return SearchInfo(SearchType.CLOSE, SearchType.CLOSE.value)
         }
         if (names.contains(input)) {
             return SearchInfo(SearchType.SINGLE, input)
@@ -81,7 +81,7 @@ class InputViewValidator {
     fun isNumber(input: String): Boolean = input.matches(Regex(IS_DIGIT_PATTERN))
     fun isInputNamesFormat(input: String): Boolean = input.matches(Regex("^[a-z]+(,[a-z]+)+\$"))
     fun isRightResultPattern(input: String): Boolean =
-        input.matches(Regex("^(꽝|([0-9]+[1-9]*))(,(꽝|([0-9]+[1-9]*)))*\$"))
+            input.matches(Regex("^(꽝|([0-9]+[1-9]*))(,(꽝|([0-9]+[1-9]*)))*\$"))
 
 
 }

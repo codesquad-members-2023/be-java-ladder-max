@@ -50,7 +50,6 @@ class InputViewTest {
     @ValueSource(strings = {"꽝,5000,꽝", "꽝,5000,2000,1000"})
     void isRightResultPattern_True(String input) {
         assertThat(inputView.isRightResultInfoPattern(input)).isTrue();
-
     }
 
     @DisplayName("결과 패턴에 매치 안된다")
@@ -59,7 +58,6 @@ class InputViewTest {
     void isRightResultPattern_Fail(String input) {
         assertThat(inputView.isRightResultInfoPattern(input)).isFalse();
     }
-
 
     @DisplayName("close 명령 체크")
     @ParameterizedTest

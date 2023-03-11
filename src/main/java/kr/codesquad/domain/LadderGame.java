@@ -6,19 +6,14 @@ import kr.codesquad.view.OutputView;
 
 public class LadderGame {
 
+    public static final String NOT_EXIST_NAME = "존재하지 않는 이름입니다.";
     private final InputView inputView;
-    private final LadderDrawer ladderDrawer;
     private final OutputView outputView;
-    private final LineStateRandomCreator linesStateRandomCreator;
-    private final LadderResultCalculator ladderResultCalculator;
     private final LadderResultRepository ladderResultRepository;
 
     public LadderGame() {
         this.inputView = new InputView();
-        this.ladderDrawer = new LadderDrawer();
         this.outputView = new OutputView();
-        this.linesStateRandomCreator = new LineStateRandomCreator();
-        this.ladderResultCalculator = new LadderResultCalculator();
         this.ladderResultRepository = new LadderResultRepository();
     }
 
@@ -30,18 +25,17 @@ public class LadderGame {
         List<String> resultInfo = inputView.inputResultInfo(nameSize);
         int ladderHeight = inputView.inputLadderHeight();
 
-        List<LineInfo> linesStateInfo = linesStateRandomCreator.create(nameSize, ladderHeight);
-        String drawnLadder = drawLadder(linesStateInfo);
+        LinesInfo linesInfo = LinesInfo.create(nameSize, ladderHeight);
+        String drawnLadder = drawLadder(linesInfo);
         printLadder(names, drawnLadder, resultInfo);
 
-        ladderResultRepository.saveNamesAndResultINFO(names, resultInfo);
-        ladderResultCalculator.calculator(linesStateInfo, ladderResultRepository);
+        linesInfo.calculatorAndSaveResult(ladderResultRepository, names, resultInfo);
 
         inputSearchInfo();
     }
 
     private void inputSearchInfo() {
-        SearchInfo searchInfo = inputView.inputSearchInfo(ladderResultRepository);
+        SearchInfo searchInfo = inputView.inputSearchInfo();
         SearchType searchType = searchInfo.getSearchType();
         switch (searchType) {
             case CLOSE:
@@ -53,8 +47,13 @@ public class LadderGame {
                 break;
             }
             case SINGLE: {
-                String singleResult = ladderResultRepository.searchSingleResult(searchInfo.getName());
-                outputView.printResult(singleResult);
+                String name = searchInfo.getName();
+                if (ladderResultRepository.containsName(name)) {
+                    String singleResult = ladderResultRepository.searchSingleResult(name);
+                    outputView.printResult(singleResult);
+                    break;
+                }
+                System.out.println(NOT_EXIST_NAME);
                 break;
             }
         }
@@ -65,7 +64,7 @@ public class LadderGame {
         outputView.printLadder(names, drawnLadder, result);
     }
 
-    private String drawLadder(List<LineInfo> linesStateInfo) {
-        return ladderDrawer.draw(linesStateInfo);
+    private String drawLadder(LinesInfo linesInfo) {
+        return linesInfo.draw();
     }
 }

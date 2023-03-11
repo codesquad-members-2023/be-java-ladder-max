@@ -1,12 +1,11 @@
 package kr.codesquad.domain;
 
-public enum SearchType {
-    ALL("all"),
-    CLOSE("춘식이"),
-    SINGLE("single");
+public enum LineDelimiterType {
+    SUCCESS_DELIMITER("-----"),FAIL_DELIMITER("     "),PEOPLE_DELIMITER("|");
+
     private final String value;
 
-    SearchType(String value) {
+    LineDelimiterType(String value) {
         this.value = value;
     }
 
