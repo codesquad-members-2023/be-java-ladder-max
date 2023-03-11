@@ -1,6 +1,7 @@
 package kr.codesquad.ladder.view;
 
 import kr.codesquad.ladder.domain.Ladder;
+import kr.codesquad.ladder.domain.Names;
 
 public class LadderConsoleWriter implements LadderWriter {
 
@@ -15,18 +16,17 @@ public class LadderConsoleWriter implements LadderWriter {
     }
 
     @Override
-    public void writeInvalidReadNumber(String message) {
+    public void write(Ladder ladder) {
+        write(ladder.toString());
+    }
+
+    @Override
+    public void write(Names names) {
+        write(names.toString());
+    }
+
+    @Override
+    public void write(String message) {
         System.out.println(message);
-        System.out.println();
-    }
-
-    @Override
-    public void writeLadder(String ladder) {
-        System.out.println(ladder);
-    }
-
-    @Override
-    public void writeNamesOfPeople(Ladder ladder) {
-        System.out.println(ladder.getNamesOfPeople());
     }
 }
