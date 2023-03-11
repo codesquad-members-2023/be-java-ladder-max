@@ -3,29 +3,30 @@ package kr.codesquad.domain;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import kr.codesquad.exception.result.ResultsSameUserCountException;
 
 public class Results {
 
     private final List<Result> results;
 
-    public Results(String inputResults, int userCount) {
-        String[] split = inputResults.split(",");
-        validateMinSize(split, userCount);
+    public Results(String results, int userCount) {
+        String[] split = results.split(",");
+        validateSameUserCount(split, userCount);
         this.results = generate(split);
     }
 
-    private void validateMinSize(String[] results, int userCount) {
+    private void validateSameUserCount(String[] results, int userCount) {
         long count = Arrays.stream(results)
             .filter(result -> !result.replace(" ", "")
                 .isBlank())
             .count();
 
-        if (count < userCount) {
-            throw new IllegalArgumentException("참여할 사람의 수와 같아야 합니다.");
+        if (count != userCount) {
+            throw new ResultsSameUserCountException();
         }
     }
-    private List<Result> generate(String[] inputResults) {
-        return Arrays.stream(inputResults)
+    private List<Result> generate(String[] results) {
+        return Arrays.stream(results)
             .map(Result::new)
             .collect(Collectors.toList());
     }
