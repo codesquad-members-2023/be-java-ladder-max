@@ -2,10 +2,13 @@ package kr.codesquad.step3.domain;
 
 import java.util.Objects;
 
+import kr.codesquad.step3.util.Validation;
+
 public class Participate {
     private final String name;
 
     public Participate(String name) {
+        Validation.validateName(name);
         this.name = name;
     }
 
