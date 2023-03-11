@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>사다리게임</title>
@@ -18,18 +18,27 @@
 <br>
 <div class="container">
   <div class="row justify-content-md-center">
-    <div class="col col-lg-4">
-      <label for="inputName" class="form-label">참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)</label>
-      <input type="email" class="form-control" id="inputName" placeholder="pobi,honux,crong,jk">
-      <br>
-      <label for="inputResultInfo" class="form-label">참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)</label>
-      <input type="email" class="form-control" id="inputResultInfo" placeholder="꽝,5000,꽝,3000">
-      <br>
-      <label for="inputRadderHeight" class="form-label">실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)</label>
-      <input type="email" class="form-control" id="inputRadderHeight" placeholder="5">
-      <br>
-      <button class="btn btn-primary justify-content-center" type="submit">제출</button>
-    </div>
+    <form th:action="@{/}" action="#" th:object="${inputForm}" method="post" novalidate class="row justify-content-md-center" >
+      <div class="col col-lg-4">
+        <label for="names" class="form-label">참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)</label>
+        <input type="email" class="form-control" id="names" placeholder="pobi,honux,crong,jk">
+        <small class="form-text text-danger" th:if="${#fields.hasErrors('names')}" th:errors="*{names}">names
+          Error</small>
+        <br>
+        <label for="inputResultInfo" class="form-label">실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)</label>
+        <input type="email" class="form-control" id="inputResultInfo" placeholder="꽝,5000,꽝,3000">
+        <small class="form-text text-danger" th:if="${#fields.hasErrors('resultInfo')}" th:errors="*{resultInfo}">result
+          Error</small>
+        <br>
+        <label for="inputRadderHeight" class="form-label">실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)</label>
+        <input type="email" class="form-control" id="inputRadderHeight" placeholder="5">
+        <small class="form-text text-danger" th:if="${#fields.hasErrors('ladderHeight')}" th:errors="*{ladderHeight}">result
+          Error</small>
+        <br>
+        <button class="btn btn-primary justify-content-center" type="submit">제출
+        </button>
+      </div>
+    </form>
   </div>
 </div>
 </body>

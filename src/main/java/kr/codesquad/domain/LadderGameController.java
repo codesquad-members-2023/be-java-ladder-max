@@ -1,10 +1,14 @@
 package kr.codesquad.domain;
 
 import java.util.List;
+import javax.validation.Valid;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class LadderGameController {
@@ -21,9 +25,18 @@ public class LadderGameController {
     }
 
     @GetMapping("/")
-    public String inputNames() {
-
+    public String indexPage(Model model) {
+        model.addAttribute(new InputForm());
         return "game/start";
+    }
+
+    @PostMapping("/")
+    public String newLadder(@Valid InputForm inputForm, Errors errors) {
+        if (errors.hasErrors()) {
+            return "game/start";
+        }
+
+        return "game/search";
     }
 
     public void run() {
