@@ -1,10 +1,12 @@
 package kr.codesquad.ladder.view;
 
 import java.util.List;
+import kr.codesquad.ladder.domain.LadderGenerator;
+import kr.codesquad.ladder.domain.Names;
 
 public interface LadderReader {
 
-    List<String> readNameOfPeople();
+    Names readNameOfPeople();
 
-    int readMaximumLadderHeight();
+    LadderGenerator readMaximumLadderHeight();
 }
