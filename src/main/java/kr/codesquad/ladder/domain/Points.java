@@ -24,6 +24,13 @@ public class Points implements Iterable<Point> {
         return points.get(index);
     }
 
+    public boolean existBridgeOnLeft(int col) {
+        if (col == 0) {
+            return false;
+        }
+        return points.get(col - 1).isBridge();
+    }
+
     @Override
     public Iterator<Point> iterator() {
         return points.iterator();
