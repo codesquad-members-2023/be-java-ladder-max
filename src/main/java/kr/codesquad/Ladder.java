@@ -14,7 +14,7 @@ public class Ladder {
     public Ladder(int countOfPerson, int height) {
         this.countOfPerson = countOfPerson;
         this.height = height;
-        this.figureLadder = new String[height][countOfPerson+countOfPerson-1]; // 변수명이 printLadder가 올바른지? -> 수정 완
+        this.figureLadder = new String[height][countOfPerson+countOfPerson-1];
     }
         private void ladderFeature() {
         for (int i = 0; i < height; i++) {
