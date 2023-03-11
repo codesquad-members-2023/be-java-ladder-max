@@ -4,42 +4,35 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.stream.IntStream;
 
+
 public class LadderLine {
 
     private final int lineWidth;
-
-    //TestCode를 위해 default로 설정
-    ArrayList<Boolean> points = new ArrayList();
+    ArrayList<Boolean> points;
+    LinePointsValidator linePointsValidator;
 
     public LadderLine(int countOfPeople) {
         this.lineWidth = countOfPeople - 1;
+        this.points = new ArrayList<>();
+        linePointsValidator = new LinePointsValidator();
     }
 
     void createLine(){
         buildLadderLine();
-        pointsValidate();
     }
 
     private void buildLadderLine() {
         IntStream.range(0, lineWidth)
-                .mapToObj(i -> hasRung())
+                .mapToObj(i -> generateRungStatus())
                 .forEach(points::add);
+        linePointsValidator.validatePoints(points);//todo 예외 발생시 어떻게 할건지
     }
 
-    private boolean hasRung() {
+    private boolean generateRungStatus() {
         if (points.isEmpty()) {
             return new Random().nextBoolean();
         }
         return new Random().nextBoolean() && !points.get(points.size() - 1);
-    }
-
-    void pointsValidate() {
-        IntStream.range(0, points.size()-1)
-                .filter(i ->points.get(i) && points.get(i + 1))
-                .findFirst()
-                .ifPresent(i -> {
-            throw new IllegalStateException("연속적인 true 존재");
-        });
     }
 
     static void drawLine(ArrayList<LadderLine> ladder, StringBuilder sb) {

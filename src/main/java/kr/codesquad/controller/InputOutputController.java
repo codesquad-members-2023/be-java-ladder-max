@@ -8,19 +8,14 @@ import kr.codesquad.view.OutputView;
 
 import java.util.ArrayList;
 
-public class InputOutputController {
+public class InputOutputController extends PlayerValidator {
 
     private OutputView outputHandler;
     private InputView inputHandler;
-    private PlayerValidator playerValidator;
-    private LadderHeightValidator heightValidator;
-
 
     public InputOutputController() {
         this.inputHandler = new InputView();
         this.outputHandler = new OutputView();
-        this.playerValidator = new PlayerValidator();
-        this.heightValidator = new LadderHeightValidator();
     }
 
     public ArrayList getNameAndHeightFromUser(){
@@ -32,10 +27,12 @@ public class InputOutputController {
 
     private void getName(ArrayList listForNameAndHeight){
         outputHandler.outputParticipantNamePrompt();
-        while(!playerValidator.playerValidator(listForNameAndHeight, inputHandler));
+        PlayerValidator playerValidator = new PlayerValidator();
+        while(!playerValidator.getVaildNameFromUser(listForNameAndHeight, inputHandler));
     }
 
     private void getHeight(ArrayList listForNameAndHeight){
+        LadderHeightValidator heightValidator = new LadderHeightValidator();
         outputHandler.outputLadderHeightPrompt();
         while(!heightValidator.getValidHeightFromUser(listForNameAndHeight, inputHandler));
     }
