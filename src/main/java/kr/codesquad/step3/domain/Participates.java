@@ -14,6 +14,13 @@ public class Participates {
         this.participatesNames = participates;
     }
 
+    public static Participates createParticipates(String participateNames){
+        List<String> eachParticipateName = makeEachParticipateNameGroup(participateNames);
+        List<Participate> participates = eachParticipateName.stream()
+                .map(Participate::new)
+                .collect(Collectors.toList());
+        return new Participates(participates);
+    }
 
     private static List<String> makeEachParticipateNameGroup(String participateNames){
         Validation.validateInputNames(participateNames);
