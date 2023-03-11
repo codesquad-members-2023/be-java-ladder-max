@@ -1,6 +1,9 @@
 package kr.codesquad.domain;
 
 import java.util.Objects;
+import kr.codesquad.exception.user.UserNameReservedCommand;
+import kr.codesquad.exception.user.UserNameMaxLengthException;
+import kr.codesquad.exception.user.UserNameMinLengthException;
 
 public class User {
 
@@ -10,21 +13,22 @@ public class User {
     private final String name;
 
     public User(String name) {
-        String emptyBlankName = name.replace(" ", "");
-        validateMinLength(emptyBlankName);
-        validateMaxLength(emptyBlankName);
-        this.name = emptyBlankName;
+        String NotBlankName = name.replace(" ", "");
+        validateMinLength(NotBlankName);
+        validateMaxLength(NotBlankName);
+        this.name = NotBlankName;
     }
+
 
     private void validateMaxLength(String name) {
         if (name.length() > MAX_LENGTH) {
-            throw new IllegalArgumentException("참여할 사람의 이름은 최대 5글자입니다.");
+            throw new UserNameMaxLengthException();
         }
     }
 
     private void validateMinLength(String name) {
         if (name.length() < MIN_LENGTH) {
-            throw new IllegalArgumentException("참여할 사람의 이름은 최소 1글자입니다.");
+            throw new UserNameMinLengthException();
         }
     }
 

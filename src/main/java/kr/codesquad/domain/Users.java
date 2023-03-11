@@ -2,8 +2,11 @@ package kr.codesquad.domain;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import kr.codesquad.exception.user.UsersDuplicationUserNameException;
+import kr.codesquad.exception.user.UsersMinUserCountException;
 
 public class Users {
 
@@ -13,27 +16,27 @@ public class Users {
 
     public Users(String inputUserNames) {
         String[] userNames = inputUserNames.split(",");
-        validateMinUserNamesCount(userNames);
+        validateMinUserCount(userNames);
         validateDuplicationName(userNames);
         this.users = generate(userNames);
     }
 
-    private void validateMinUserNamesCount(String[] userNames) {
-        if (getNotBlankStream(userNames).count() < MIN_USER_NAMES_COUNT) {
-            throw new IllegalArgumentException("참여할 사람의 수는 최소 2명입니다.");
+    private void validateMinUserCount(String[] userNames) {
+        if (getFilterNotBlankStream(userNames).count() < MIN_USER_NAMES_COUNT) {
+            throw new UsersMinUserCountException();
         }
     }
 
     private void validateDuplicationName(String[] userNames) {
-        long distinctCount = getNotBlankStream(userNames).distinct()
+        long distinctCount = getFilterNotBlankStream(userNames).distinct()
             .count();
 
-        if (getNotBlankStream(userNames).count() != distinctCount) {
-            throw new IllegalArgumentException("참여자 이름 중에 중복된 이름이 있습니다.");
+        if (getFilterNotBlankStream(userNames).count() != distinctCount) {
+            throw new UsersDuplicationUserNameException();
         }
     }
 
-    private Stream<String> getNotBlankStream(String[] userNames) {
+    private Stream<String> getFilterNotBlankStream(String[] userNames) {
         return Arrays.stream(userNames)
             .map(userName -> userName.replace(" ", ""))
             .filter(userName -> !userName.isBlank());
@@ -53,7 +56,7 @@ public class Users {
         return this.users.stream()
             .filter(user -> user.equals(name))
             .findAny()
-            .orElseThrow(() -> new IllegalArgumentException("참여한 사람 중에 해당 이름은 없습니다."));
+            .orElseThrow(() -> new NoSuchElementException("참여한 사람 중에 해당 이름은 없습니다."));
     }
 
     public int count() {
