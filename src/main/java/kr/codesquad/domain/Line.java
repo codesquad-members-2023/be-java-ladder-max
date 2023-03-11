@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public class Line {
-    private ArrayList<Integer> points = new ArrayList<>();
+    private final ArrayList<Integer> points = new ArrayList<>();
 
     public Line (int countOfPerson) {
         for (int i = 0; i < countOfPerson - 1; i++) {
