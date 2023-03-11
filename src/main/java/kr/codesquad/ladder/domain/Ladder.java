@@ -1,36 +1,21 @@
 package kr.codesquad.ladder.domain;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Ladder {
 
-    private final List<String> namesOfPeople;
-    private final int numberOfPeople;
-    private final int maximumLadderHeight;
+    private final List<Line> lines;
 
-    public Ladder(List<String> namesOfPeople, int maximumLadderHeight) {
-        this.namesOfPeople = namesOfPeople;
-        this.numberOfPeople = namesOfPeople.size();
-        this.maximumLadderHeight = maximumLadderHeight;
+    public Ladder(List<Line> lines) {
+        this.lines = lines;
     }
 
-    public List<List<String>> createEmptyLadderLines() {
-        List<List<String>> emptyLadderLines = new ArrayList<>();
-        for (int i = 0; i < maximumLadderHeight; i++) {
-            emptyLadderLines.add(new ArrayList<>());
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        for (Line line : lines) {
+            result.append(line).append("\n");
         }
-        return emptyLadderLines;
-    }
-
-    public int calLineColumnSize() {
-        return numberOfPeople * 2 - 1;
-    }
-
-    public String getNamesOfPeople() {
-        return namesOfPeople.stream()
-            .map(name -> String.format("%-5s", name))
-            .collect(Collectors.joining(" "));
+        return result.toString();
     }
 }
