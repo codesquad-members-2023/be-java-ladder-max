@@ -1,30 +1,25 @@
 package kr.codesquad.ladder.domain;
 
-import java.util.List;
 import java.util.Random;
-import kr.codesquad.ladder.view.LadderConsoleReader;
+import kr.codesquad.ladder.view.LadderReader;
 import kr.codesquad.ladder.view.LadderWriter;
 
 public class LadderGame {
 
-    private final LadderConsoleReader ladderConsoleReader;
+    private final LadderReader ladderConsoleReader;
     private final LadderWriter ladderWriter;
 
-    public LadderGame(LadderConsoleReader ladderConsoleReader, LadderWriter ladderWriter) {
+    public LadderGame(LadderReader ladderConsoleReader, LadderWriter ladderWriter) {
         this.ladderConsoleReader = ladderConsoleReader;
         this.ladderWriter = ladderWriter;
     }
 
     public void start() {
-        List<String> namesOfPeople = ladderConsoleReader.readNameOfPeople();
-        int maximumLadderHeight = ladderConsoleReader.readMaximumLadderHeight();
-        Ladder ladder = new Ladder(namesOfPeople, maximumLadderHeight);
         Random random = new Random();
-        LadderPartGenerator generator = new LadderPartGenerator(random);
-        List<List<String>> partLines = generator.generateLadderPart(ladder);
-        LadderConverter converter = new LadderConverter();
-        String ladderStr = converter.convertToString(partLines);
-        ladderWriter.writeNamesOfPeople(ladder);
-        ladderWriter.writeLadder(ladderStr);
+        Names names = ladderConsoleReader.readNameOfPeople();
+        LadderGenerator ladderGenerator = ladderConsoleReader.readMaximumLadderHeight();
+        Ladder ladder = ladderGenerator.createLines(names.size(), random);
+        ladderWriter.write(names);
+        ladderWriter.write(ladder);
     }
 }
