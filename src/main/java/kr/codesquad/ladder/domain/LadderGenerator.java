@@ -22,8 +22,16 @@ public class LadderGenerator {
     public Ladder createLines(int countOfPerson, Random random) {
         List<Line> lines = new ArrayList<>();
         for (int i = 0; i < maximumHeight; i++) {
-            lines.add(new Line(countOfPerson, random));
+            lines.add(createLine(countOfPerson, random));
         }
         return new Ladder(lines);
+    }
+
+    private Line createLine(int countOfPerson, Random random) {
+        Line line = new Line(new Points());
+        for (int i = 0; i < countOfPerson - 1; i++) {
+            line.addPoint(i, random);
+        }
+        return line;
     }
 }
