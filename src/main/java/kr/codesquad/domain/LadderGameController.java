@@ -4,14 +4,14 @@ import java.util.List;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
-public class LadderGame {
+public class LadderGameController {
 
     public static final String NOT_EXIST_NAME = "존재하지 않는 이름입니다.";
     private final InputView inputView;
     private final OutputView outputView;
     private final LadderResultRepository ladderResultRepository;
 
-    public LadderGame() {
+    public LadderGameController() {
         this.inputView = new InputView();
         this.outputView = new OutputView();
         this.ladderResultRepository = new LadderResultRepository();
