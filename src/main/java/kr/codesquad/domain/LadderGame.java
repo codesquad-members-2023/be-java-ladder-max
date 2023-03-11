@@ -10,31 +10,43 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class LadderGame {
+
+    private ArrayList<String> names;
+    private int countOfLadder;
     public void startLadderGame() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Input input = new Input();
-        ArrayList<String> names;
-        int countOfLadder;
+        boolean checkName = true, checkLadder = true;
 
-        while(true) {
+        while(checkName) {
             String answer = input.input(br, 0);
             String[] arrayNames = input.splitNames(answer);
-            if(input.validateNames(arrayNames)) {
-                names = new ArrayList<>(Arrays.asList(arrayNames));
-                break;
-            }
+            checkName = checkNames(input, arrayNames);
         }
 
-        while(true) {
+        while(checkLadder) {
             String answer = input.input(br, 1);
-            if(input.validateLadder(answer)) {
-                countOfLadder = input.inputLadder(answer);
-                break;
-            }
+            checkLadder = checkLadder(input, answer);
         }
 
         Ladder ladder = new Ladder(names.size(), countOfLadder);
         Output output = new Output();
         output.print(names, ladder);
+    }
+
+    private boolean checkNames(Input input, String[] arrayNames) {
+        if(input.validateNames(arrayNames)) {
+            names = new ArrayList<>(Arrays.asList(arrayNames));
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkLadder(Input input, String answer) {
+        if(input.validateLadder(answer)) {
+            countOfLadder = input.inputLadder(answer);
+            return false;
+        }
+        return true;
     }
 }
