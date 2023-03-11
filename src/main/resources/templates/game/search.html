@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>사다리게임</title>
+  <link rel="stylesheet" href="/component/css/bootstrap.min.css"/>
+  <style>
+    textarea {
+      resize: none;
+    }
+  </style>
+</head>
+<body>
+<br>
+<br>
+<br>
+<div class="container text-center">
+  <div class="row justify-content-md-center">
+    <h1>사다리 게임</h1>
+  </div>
+</div>
+<br>
+<br>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div th:if="${drawnLadder != null}" class="form-floating col col-lg-6 mx-20 mb-3">
+      <textarea class="form-control"  style="height: 400px" th:utext="${drawnLadder}" id="drawnLadder" disabled></textarea>
+      <label for="drawnLadder">실행결과</label>
+    </div>
+    <label class="alert alert-danger col col-lg-6 mb-3" th:if="${nameError != null}" th:text="${nameError}" ></label>
+    <form th:action="@{/search}"  method="post" th:object="${searchInfoForm} " novalidate class="row justify-content-md-center">
+      <div class="col col-lg-6 mb-3">
+        <label for="search" class="form-label">결과를 보고 싶은 사람은?(all,name,춘식이)</label>
+        <input type="text" class="form-control mb-3" id="search" th:field="*{command}">
+        <small class="form-text text-danger" th:if="${nameError != null}" th:errors="${nameError}">names Error</small>
+        <button class="btn btn-primary justify-content-center  mb-3" type="submit">제출
+        </button>
+      </div>
+    </form>
+    <label class="col col-lg-6 mb-3" th:if="${single != null}" th:text="${single}" ></label>
+    <label class="col col-lg-6 mb-3" th:if="${all != null}" th:text="${all}" ></label>
+  </div>
+</div>
+</body>
+</html>

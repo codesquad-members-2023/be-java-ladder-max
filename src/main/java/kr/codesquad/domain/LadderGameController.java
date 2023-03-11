@@ -4,97 +4,78 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
-import kr.codesquad.view.InputView;
-import kr.codesquad.view.OutputView;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LadderGameController {
 
-    public static final String NOT_EXIST_NAME = "존재하지 않는 이름입니다.";
-    private final InputView inputView;
-    private final OutputView outputView;
     private final LadderResultRepository ladderResultRepository;
+    private final LadderService ladderService;
 
-    public LadderGameController() {
-        this.inputView = new InputView();
-        this.outputView = new OutputView();
-        this.ladderResultRepository = new LadderResultRepository();
+    public LadderGameController(
+            LadderResultRepository ladderResultRepository,
+            LadderService ladderService) {
+        this.ladderResultRepository = ladderResultRepository;
+        this.ladderService = ladderService;
     }
 
+
     @GetMapping("/")
-    public String indexPage(Model model) {
+    public ModelAndView indexPage(Model model) {
         model.addAttribute(new InputForm());
-        return "game/start";
+        ladderResultRepository.clear();
+        return new ModelAndView("game/start");
     }
 
     @PostMapping("/")
-    public String newLadder(@Valid InputForm inputForm, Errors errors,Model model) {
+    public ModelAndView newLadder(@Valid InputForm inputForm, Errors errors, Model model) {
         if (errors.hasErrors()) {
-            return "game/start";
+            return new ModelAndView("game/start");
         }
 
         List<String> names = Arrays.stream(inputForm.getNames().split(",")).collect(Collectors.toList());
         List<String> resultInfo = Arrays.stream(inputForm.getResultInfo().split(",")).collect(Collectors.toList());
         if (names.size() != resultInfo.size()) {
             model.addAttribute("sizeMatchError", "이름과 결과의 수량이 일치하지 않습니다.");
-            return "game/start";
+            return new ModelAndView("game/start");
         }
 
-        return "game/search";
-    }
+        LinesInfo linesInfo = LinesInfo.create(names.size(), inputForm.getLadderHeight());
+        String drawLadder = linesInfo.draw();
+        String drawnLadder = ladderService.printLadder(names, drawLadder, resultInfo);
 
-    public void run() {
-        List<String> names = inputView.inputNames();
-        int nameSize = names.size();
-
-        List<String> resultInfo = inputView.inputResultInfo(nameSize);
-        int ladderHeight = inputView.inputLadderHeight();
-
-        LinesInfo linesInfo = LinesInfo.create(nameSize, ladderHeight);
-        String drawnLadder = drawLadder(linesInfo);
-        printLadder(names, drawnLadder, resultInfo);
-
+        model.addAttribute("drawnLadder", drawnLadder);
         linesInfo.calculatorAndSaveResult(ladderResultRepository, names, resultInfo);
-
-        inputSearchInfo();
+        model.addAttribute(new SearchInfoForm());
+        return new ModelAndView("game/search");
     }
 
-    private void inputSearchInfo() {
-        SearchInfo searchInfo = inputView.inputSearchInfo();
-        SearchType searchType = searchInfo.getSearchType();
-        switch (searchType) {
-            case CLOSE:
-                outputView.printClose();
-                return;
-            case ALL: {
-                String searchAll = ladderResultRepository.searchAll();
-                outputView.printResult(searchAll);
-                break;
-            }
-            case SINGLE: {
-                String name = searchInfo.getName();
-                if (ladderResultRepository.containsName(name)) {
-                    String singleResult = ladderResultRepository.searchSingleResult(name);
-                    outputView.printResult(singleResult);
-                    break;
-                }
-                System.out.println(NOT_EXIST_NAME);
-                break;
-            }
+    @PostMapping("/search")
+    public ModelAndView searchInfo(SearchInfoForm searchInfoForm, Model model) {
+        String command = searchInfoForm.getCommand();
+        SearchInfo searchInfo = ladderService.checkCommand(command);
+
+        String result = ladderService.inputSearchInfo(searchInfo);
+
+        if (result == null) {
+            model.addAttribute("nameError", "존재하지 않는 이름입니다.");
+            return new ModelAndView("game/search");
         }
-        inputSearchInfo();
+        if (searchInfo.getSearchType() == SearchType.SINGLE) {
+            model.addAttribute("single", result);
+            return new ModelAndView("game/search");
+        }
+        if (searchInfo.getSearchType() == SearchType.ALL) {
+            model.addAttribute("all", result);
+            return new ModelAndView("game/search");
+        }
+        return new ModelAndView("redirect:/");
     }
 
-    private void printLadder(List<String> names, String drawnLadder, List<String> result) {
-        outputView.printLadder(names, drawnLadder, result);
-    }
 
-    private String drawLadder(LinesInfo linesInfo) {
-        return linesInfo.draw();
-    }
 }
