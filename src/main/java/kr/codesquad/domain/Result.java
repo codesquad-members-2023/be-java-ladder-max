@@ -15,7 +15,7 @@ public class Result {
         String NotBlankResult = result.replace(" ", "");
         validateMinLength(NotBlankResult);
         validateMaxLength(NotBlankResult);
-        this.result = result;
+        this.result = NotBlankResult;
     }
 
     private void validateMaxLength(String result) {
