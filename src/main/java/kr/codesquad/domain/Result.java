@@ -1,5 +1,7 @@
 package kr.codesquad.domain;
 
+import java.util.Objects;
+
 public class Result {
 
     private static final int MIN_LENGTH = 1;

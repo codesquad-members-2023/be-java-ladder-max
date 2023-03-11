@@ -10,7 +10,7 @@ import kr.codesquad.exception.user.UsersMinUserCountException;
 
 public class Users {
 
-    private static final int MIN_USER_NAMES_COUNT = 2;
+    public static final int MIN_USER_NAMES_COUNT = 2;
 
     private final List<User> users;
 

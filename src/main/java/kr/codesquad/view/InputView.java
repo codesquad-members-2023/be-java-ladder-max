@@ -16,7 +16,7 @@ public class InputView {
         try {
             System.out.println("\n참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
             return new Users(SCANNER.nextLine());
-        } catch (IllegalArgumentException e) {
+        } catch (RuntimeException e) {
             System.out.println(e.getMessage());
             return inputUserNames();
         }
@@ -29,7 +29,7 @@ public class InputView {
         } catch (NumberFormatException e) {
             System.out.println("숫자가 아닌 값을 입력하였습니다.\n");
             return inputLadderHeight();
-        } catch (IllegalArgumentException e) {
+        } catch (RuntimeException e) {
             System.out.println(e.getMessage());
             return inputLadderHeight();
         }
@@ -39,7 +39,7 @@ public class InputView {
         try {
             System.out.println("\n실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
             return new Results(SCANNER.nextLine(), userCount);
-        } catch (IllegalArgumentException e) {
+        } catch (RuntimeException e) {
             System.out.println(e.getMessage());
             return inputResults(userCount);
         }

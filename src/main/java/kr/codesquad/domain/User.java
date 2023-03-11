@@ -7,8 +7,8 @@ import kr.codesquad.exception.user.UserNameMinLengthException;
 
 public class User {
 
-    private static final int MAX_LENGTH = 5;
-    private static final int MIN_LENGTH = 1;
+    public static final int MAX_LENGTH = 5;
+    public static final int MIN_LENGTH = 1;
 
     private final String name;
 
@@ -45,7 +45,7 @@ public class User {
     }
 
     public String printFormat() {
-        int totalLength = 6;
+        int totalLength = MAX_LENGTH + 1;
         int nameLength = this.name.length();
         int leftPadding = ((totalLength - nameLength) / 2) + ((totalLength - nameLength) % 2);
         int rightPadding = (totalLength - nameLength) / 2;
