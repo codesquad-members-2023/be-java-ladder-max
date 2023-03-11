@@ -1,6 +1,7 @@
 package kr.codesquad.ladder.view;
 
 import kr.codesquad.ladder.domain.Ladder;
+import kr.codesquad.ladder.domain.Names;
 
 public interface LadderWriter {
 
@@ -8,9 +9,9 @@ public interface LadderWriter {
 
     void writeMaximumLadderHeightIntro();
 
-    void writeInvalidReadNumber(String message);
+    void write(String message);
 
-    void writeLadder(String ladder);
+    void write(Ladder ladder);
 
-    void writeNamesOfPeople(Ladder ladder);
+    void write(Names names);
 }

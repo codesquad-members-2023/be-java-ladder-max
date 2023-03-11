@@ -39,7 +39,7 @@ public class LadderConsoleReader implements LadderReader {
             String text = reader.readLine();
             names = Optional.of(new Names(text, MINIMUM_PERSON));
         } catch (InvalidNameFormatOfPeopleException | InvalidCountOfPeopleException e) {
-            ladderWriter.writeInvalidReadNumber(e.getMessage());
+            ladderWriter.write(e.getMessage());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -64,7 +64,7 @@ public class LadderConsoleReader implements LadderReader {
             optionalLadderGenerator = Optional.of(
                 new LadderGenerator(maximumHeight, MINIMUM_HEIGHT));
         } catch (InvalidNumberOfMinimumLadderHeightException | NumberFormatException e) {
-            ladderWriter.writeInvalidReadNumber(e.getMessage());
+            ladderWriter.write(e.getMessage());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
