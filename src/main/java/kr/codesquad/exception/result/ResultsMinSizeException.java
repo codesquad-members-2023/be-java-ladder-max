@@ -1,6 +1,6 @@
 package kr.codesquad.exception.result;
 
-public class ResultsMinResultCountException extends RuntimeException {
+public class ResultsMinSizeException extends RuntimeException {
 
     @Override
     public String getMessage() {

@@ -1,6 +1,6 @@
 package kr.codesquad.exception.result;
 
-public class ResultsSameUserCountException extends RuntimeException {
+public class ResultsSizeSameUserCountException extends RuntimeException {
 
     @Override
     public String getMessage() {

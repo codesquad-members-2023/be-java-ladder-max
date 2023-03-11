@@ -3,8 +3,8 @@ package kr.codesquad.domain;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import kr.codesquad.exception.result.ResultsMinResultCountException;
-import kr.codesquad.exception.result.ResultsSameUserCountException;
+import kr.codesquad.exception.result.ResultsMinSizeException;
+import kr.codesquad.exception.result.ResultsSizeSameUserCountException;
 
 public class Results {
 
@@ -26,7 +26,7 @@ public class Results {
             .count();
 
         if (count < MIN_RESULTS_COUNT) {
-            throw new ResultsMinResultCountException();
+            throw new ResultsMinSizeException();
         }
     }
 
@@ -38,7 +38,7 @@ public class Results {
             .count();
 
         if (count != userCount) {
-            throw new ResultsSameUserCountException();
+            throw new ResultsSizeSameUserCountException();
         }
     }
     private List<Result> generate(String[] results) {

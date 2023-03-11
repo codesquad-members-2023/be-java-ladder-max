@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import kr.codesquad.exception.user.UsersDuplicationUserNameException;
-import kr.codesquad.exception.user.UsersMinUserCountException;
+import kr.codesquad.exception.user.UsersMinSizeException;
 
 public class Users {
 
@@ -23,7 +23,7 @@ public class Users {
 
     private void validateMinUserCount(String[] userNames) {
         if (getFilterNotBlankStream(userNames).count() < MIN_USER_NAMES_COUNT) {
-            throw new UsersMinUserCountException();
+            throw new UsersMinSizeException();
         }
     }
 

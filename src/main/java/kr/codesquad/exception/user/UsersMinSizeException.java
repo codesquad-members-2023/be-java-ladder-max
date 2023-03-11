@@ -2,7 +2,7 @@ package kr.codesquad.exception.user;
 
 import kr.codesquad.domain.Users;
 
-public class UsersMinUserCountException extends RuntimeException {
+public class UsersMinSizeException extends RuntimeException {
 
     @Override
     public String getMessage() {

@@ -1,7 +1,7 @@
 package kr.codesquad.domain;
 
 import kr.codesquad.exception.user.UsersDuplicationUserNameException;
-import kr.codesquad.exception.user.UsersMinUserCountException;
+import kr.codesquad.exception.user.UsersMinSizeException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ class UsersTest {
         // when
 
         // then
-        Assertions.assertThrows(UsersMinUserCountException.class, () -> new Users(userNames));
+        Assertions.assertThrows(UsersMinSizeException.class, () -> new Users(userNames));
     }
 
     @DisplayName("참여할 사람의 이름이 중복인 경우 생성되지 않는다.")

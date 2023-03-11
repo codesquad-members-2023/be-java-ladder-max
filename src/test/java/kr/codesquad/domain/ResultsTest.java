@@ -1,7 +1,7 @@
 package kr.codesquad.domain;
 
-import kr.codesquad.exception.result.ResultsMinResultCountException;
-import kr.codesquad.exception.result.ResultsSameUserCountException;
+import kr.codesquad.exception.result.ResultsMinSizeException;
+import kr.codesquad.exception.result.ResultsSizeSameUserCountException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,7 +18,7 @@ class ResultsTest {
         // when
 
         // then
-        Assertions.assertThrows(ResultsSameUserCountException.class
+        Assertions.assertThrows(ResultsSizeSameUserCountException.class
             , () -> new Results("꽝,5000,꽝,3000", 3));
     }
 
@@ -31,9 +31,9 @@ class ResultsTest {
 
         // then
         Assertions.assertAll(
-            () -> Assertions.assertThrows(ResultsMinResultCountException.class
+            () -> Assertions.assertThrows(ResultsMinSizeException.class
             , () -> new Results("꽝", 1)),
-            () -> Assertions.assertThrows(ResultsMinResultCountException.class
+            () -> Assertions.assertThrows(ResultsMinSizeException.class
                 , () -> new Results("", 0)));
     }
 
