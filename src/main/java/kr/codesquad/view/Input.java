@@ -1,5 +1,7 @@
 package kr.codesquad.view;
 
+import kr.codesquad.util.Validation;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,29 +11,21 @@ public class Input {
 
     public String inputName() throws IOException {
         System.out.println("참여할 사람 이름을 입력하세요.(이름은 쉼표(,)로 구분)");
-        return validateName(br.readLine());
+        return Validation.validateName(br.readLine());
+    }
+
+    public String inputResult() throws IOException {
+        System.out.println("실행 결과를 입력하세요.(결과는 쉼표(,)로 구분)");
+        return br.readLine();
     }
 
     public int inputHeight() throws IOException {
         System.out.println("사다리 높이를 입력하세요.");
-        return validateHeight(Integer.parseInt(br.readLine()));
+        return Validation.validateHeight(Integer.parseInt(br.readLine()));
     }
 
-    public void closeBr() throws IOException {
-        br.close();
-    }
-
-    public String validateName(String inputData) {
-        if(!inputData.matches(".+,.+")){
-            throw new RuntimeException("참여할 사람은 2명 이상 이어야 합니다.");
-        }
-        return inputData;
-    }
-
-    public int validateHeight(int height) {
-        if(height < 0){
-            throw new RuntimeException("사다리의 높이는 1이상 이어야 합니다.");
-        }
-        return height;
+    public String inputNameCommand() throws IOException {
+        System.out.println("결과를 보고 싶은 사람의 이름을 입력하세요.");
+        return br.readLine();
     }
 }
