@@ -2,86 +2,72 @@ package kr.codesquad.ladder.view;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.regex.Pattern;
-import kr.codesquad.ladder.domain.InvalidNameOfPeopleException;
+import java.util.Optional;
+import kr.codesquad.ladder.domain.InvalidNameFormatOfPeopleException;
 import kr.codesquad.ladder.domain.InvalidNumberOfMinimumLadderHeightException;
-import kr.codesquad.ladder.domain.LadderValidator;
+import kr.codesquad.ladder.domain.InvalidCountOfPeopleException;
+import kr.codesquad.ladder.domain.LadderGenerator;
+import kr.codesquad.ladder.domain.Names;
 
 public class LadderConsoleReader implements LadderReader {
 
-    private static final Pattern NAME_DELIMITER = Pattern.compile("\\s*,\\s*");
+    private static final int MINIMUM_PERSON = 2;
+    private static final int MINIMUM_HEIGHT = 1;
 
     private final BufferedReader reader;
-    private final LadderValidator validator;
     private final LadderWriter ladderWriter;
 
     public LadderConsoleReader(BufferedReader reader,
-        LadderValidator validator,
         LadderWriter ladderWriter) {
         this.reader = reader;
-        this.validator = validator;
         this.ladderWriter = ladderWriter;
     }
 
     @Override
-    public List<String> readNameOfPeople() {
-        List<String> namesOfPeople = new ArrayList<>();
-        while (namesOfPeople.size() == 0) {
+    public Names readNameOfPeople() {
+        Optional<Names> optionalNames = Optional.empty();
+        while (optionalNames.isEmpty()) {
             ladderWriter.writeNamesOfPeopleIntro();
-            namesOfPeople = readNamesOfPeopleTextAndToStringList();
+            optionalNames = readNamesOfPeopleTextAndToStringList();
         }
-        return namesOfPeople;
+        return optionalNames.get();
     }
 
-    private List<String> readNamesOfPeopleTextAndToStringList() {
-        List<String> namesOfPeople = new ArrayList<>();
+    private Optional<Names> readNamesOfPeopleTextAndToStringList() {
+        Optional<Names> names = Optional.empty();
         try {
             String text = reader.readLine();
-            validator.validateNamesOfPeople(text, NAME_DELIMITER.pattern());
-            namesOfPeople = toList(text);
-        } catch (InvalidNameOfPeopleException e) {
+            names = Optional.of(new Names(text, MINIMUM_PERSON));
+        } catch (InvalidNameFormatOfPeopleException | InvalidCountOfPeopleException e) {
             ladderWriter.writeInvalidReadNumber(e.getMessage());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return namesOfPeople;
-    }
-
-    private List<String> toList(String text) {
-        List<String> namesOfPeople = new ArrayList<>();
-        String[] nameArr = text.split(NAME_DELIMITER.pattern());
-        Collections.addAll(namesOfPeople, nameArr);
-        return namesOfPeople;
+        return names;
     }
 
     @Override
-    public int readMaximumLadderHeight() {
-        int maximumLadderHeight = 0;
-        while (maximumLadderHeight == 0) {
+    public LadderGenerator readMaximumLadderHeight() {
+        Optional<LadderGenerator> optionalLadderGenerator = Optional.empty();
+        while (optionalLadderGenerator.isEmpty()) {
             ladderWriter.writeMaximumLadderHeightIntro();
-            maximumLadderHeight = readMaximumLadderHeightTextAndToInt();
+            optionalLadderGenerator = readMaximumLadderHeightTextAndToInt();
         }
-        return maximumLadderHeight;
+        return optionalLadderGenerator.get();
     }
 
-    private int readMaximumLadderHeightTextAndToInt() {
-        int maximumLadderHeight = 0;
+    private Optional<LadderGenerator> readMaximumLadderHeightTextAndToInt() {
+        Optional<LadderGenerator> optionalLadderGenerator = Optional.empty();
         try {
             String text = reader.readLine();
-            validator.validateLadderHeight(text);
-            maximumLadderHeight = toInt(text);
-        } catch (InvalidNumberOfMinimumLadderHeightException e) {
+            int maximumHeight = Integer.parseInt(text);
+            optionalLadderGenerator = Optional.of(
+                new LadderGenerator(maximumHeight, MINIMUM_HEIGHT));
+        } catch (InvalidNumberOfMinimumLadderHeightException | NumberFormatException e) {
             ladderWriter.writeInvalidReadNumber(e.getMessage());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return maximumLadderHeight;
-    }
-
-    private int toInt(String text) {
-        return Integer.parseInt(text);
+        return optionalLadderGenerator;
     }
 }
