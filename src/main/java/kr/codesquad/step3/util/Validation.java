@@ -3,8 +3,8 @@ package kr.codesquad.step3.util;
 import java.util.List;
 
 public class Validation {
-    private static int MAX_NAME_LENGTH = 5;
-    private static int MIN_LADDER_HEIGHT  = 2;
+    private static final int MAX_NAME_LENGTH = 5;
+    private static final int MIN_LADDER_HEIGHT  = 2;
     public static final int MIN_PLAYER = 2;
 
     public static void validateIsMinHeight(int inputHeight) {
