@@ -1,7 +1,7 @@
 package kr.codesquad.controller;
 
 import kr.codesquad.domain.Ladder;
-import kr.codesquad.domain.Players;
+import kr.codesquad.domain.PlayerGroup;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
@@ -12,9 +12,9 @@ public class GameController {
     private OutputView outputView = new OutputView();
 
     public void runLadderGame() throws IOException {
-        Players players = new Players(inputView.inputPlayerNames());
-        Ladder ladder = new Ladder(players.getPlayerCount(), inputView.inputLadderHeight());
-        outputView.printPlayerNames(players);
+        PlayerGroup playerGroup = new PlayerGroup(inputView.inputPlayerNames());
+        Ladder ladder = new Ladder(playerGroup.getPlayerCount(), inputView.inputLadderHeight());
+        outputView.printPlayerNames(playerGroup);
         outputView.printLadder(ladder);
     }
 

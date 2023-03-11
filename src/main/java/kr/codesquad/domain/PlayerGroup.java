@@ -2,13 +2,13 @@ package kr.codesquad.domain;
 
 import java.util.Arrays;
 
-public class Players {
+public class PlayerGroup {
     private final int MAX_NAME_LENGTH = 5;
 
     private final Player[] players;
     //private String[] playerNames;
 
-    public Players(String[] playerNames) {
+    public PlayerGroup(String[] playerNames) {
         players = Arrays.stream(playerNames)
                 .map(Player::new)
                 .toArray(Player[]::new);

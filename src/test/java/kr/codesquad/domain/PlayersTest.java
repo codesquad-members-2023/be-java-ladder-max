@@ -19,10 +19,10 @@ public class PlayersTest {
         for (int i = 0; i < names.length; i++) {
             expected[i] = frontPadding[i] + names[i] + backPadding[i];
         }
-        Players players = new Players(names);
+        PlayerGroup playerGroup = new PlayerGroup(names);
 
         // 실행(Act)
-        String result = players.toString();
+        String result = playerGroup.toString();
 
         // 단언(Assert)
         int pointer = 0;
