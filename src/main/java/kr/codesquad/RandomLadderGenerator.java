@@ -1,8 +1,6 @@
 package kr.codesquad;
 
 import java.util.Random;
-import java.util.function.Supplier;
-import java.util.stream.Stream;
 
 public class RandomLadderGenerator {
   private final Random random = new Random();

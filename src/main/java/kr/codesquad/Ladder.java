@@ -10,16 +10,14 @@ public class Ladder {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    for (int row = 0; row < ladder.length; row++) {
-      for (int col = 0; col < ladder[0].length-1; col++) {
-        if (ladder[row][col]) {
-          sb.append("|-");
-          continue;
-        }
-        sb.append("| ");
+    for (boolean[] row : ladder) {
+      for (boolean hasLine : row) {
+        String line = hasLine ? "|-" : "| ";
+        sb.append(line);
       }
-      sb.append("|\n");
+      sb.append("\n");
     }
+
     return String.valueOf(sb);
   }
 }
