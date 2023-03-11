@@ -19,8 +19,9 @@
 <div class="container">
   <div class="row justify-content-md-center">
     <form th:action="@{/}" action="#" th:object="${inputForm}" method="post" novalidate class="row justify-content-md-center" >
+      <label class="alert alert-danger" th:if="${sizeMatchError != null}" th:text="${sizeMatchError}" ></label>
       <div class="col col-lg-4">
-        <label for="names" class="form-label">참여할 사람 영어이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)</label>
+        <label for="names" class="form-label">참여할 사람의 영어 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)</label>
         <input type="text" class="form-control" th:field="*{names}" id="names" placeholder="pobi,honux,crong,jk">
         <small class="form-text text-danger" th:if="${#fields.hasErrors('names')}" th:errors="*{names}">names
           Error</small>

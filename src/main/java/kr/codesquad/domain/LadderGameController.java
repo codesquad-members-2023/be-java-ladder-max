@@ -1,6 +1,8 @@
 package kr.codesquad.domain;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.validation.Valid;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
@@ -31,8 +33,15 @@ public class LadderGameController {
     }
 
     @PostMapping("/")
-    public String newLadder(@Valid InputForm inputForm, Errors errors) {
+    public String newLadder(@Valid InputForm inputForm, Errors errors,Model model) {
         if (errors.hasErrors()) {
+            return "game/start";
+        }
+
+        List<String> names = Arrays.stream(inputForm.getNames().split(",")).collect(Collectors.toList());
+        List<String> resultInfo = Arrays.stream(inputForm.getResultInfo().split(",")).collect(Collectors.toList());
+        if (names.size() != resultInfo.size()) {
+            model.addAttribute("sizeMatchError", "이름과 결과의 수량이 일치하지 않습니다.");
             return "game/start";
         }
 
