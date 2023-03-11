@@ -3,7 +3,10 @@ package kr.codesquad.domain;
 import java.util.List;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
+@Controller
 public class LadderGameController {
 
     public static final String NOT_EXIST_NAME = "존재하지 않는 이름입니다.";
@@ -17,8 +20,13 @@ public class LadderGameController {
         this.ladderResultRepository = new LadderResultRepository();
     }
 
-    public void run() {
+    @GetMapping("/app/input")
+    public String inputNames() {
 
+        return "game/start";
+    }
+
+    public void run() {
         List<String> names = inputView.inputNames();
         int nameSize = names.size();
 
