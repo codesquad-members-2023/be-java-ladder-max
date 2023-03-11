@@ -4,12 +4,13 @@ import java.util.Objects;
 
 public class Result {
 
-    private static final int MIN_LENGTH = 1;
+    public static final int MIN_LENGTH = 1;
 
     private final String result;
 
     public Result(String result) {
-        validateMinLength(result);
+        String NotBlankResult = result.replace(" ", "");
+        validateMinLength(NotBlankResult);
         this.result = result;
     }
 
@@ -18,12 +19,30 @@ public class Result {
             throw new IllegalArgumentException("최소 1글자 이상 이어야 합니다.");
         }
     }
+
     public String printFormat() {
         int totalLength = 6;
         int nameLength = this.result.length();
         int leftPadding = ((totalLength - nameLength) / 2) + ((totalLength - nameLength) % 2);
         int rightPadding = (totalLength - nameLength) / 2;
         return String.format("%s%s%s", " ".repeat(leftPadding), this.result, " ".repeat(rightPadding));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Result result1 = (Result) o;
+        return result.equals(result1.result);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(result);
     }
 
     @Override

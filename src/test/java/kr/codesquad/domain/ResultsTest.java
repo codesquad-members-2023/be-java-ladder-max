@@ -5,6 +5,8 @@ import kr.codesquad.exception.result.ResultsSameUserCountException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class ResultsTest {
 
@@ -44,5 +46,18 @@ class ResultsTest {
 
         // then
         Assertions.assertDoesNotThrow(() -> new Results("꽝,5000,꽝,3000", 4));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"꽝,0", "5000,1", "꽝,2", "3000,3"})
+    void findByIndex(String result, int index) {
+        // given
+        Results results = new Results("꽝,5000,꽝,3000", 4);
+
+        // when
+        Result actual = results.findByIndex(index);
+
+        // then
+        Assertions.assertEquals(new Result(result), actual);
     }
 }

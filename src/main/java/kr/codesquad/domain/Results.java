@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import kr.codesquad.exception.result.ResultsMinResultCountException;
 import kr.codesquad.exception.result.ResultsSameUserCountException;
-import kr.codesquad.exception.user.UsersMinUserCountException;
 
 public class Results {
 
