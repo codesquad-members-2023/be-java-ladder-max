@@ -40,8 +40,8 @@ class LadderGeneratorTest {
         //when
         Ladder actual = ladderGenerator.createLines(names.size(), mockRandom);
         //then
-        Line line1 = new Line(new Points(new ArrayList<>(List.of(Point.ofBridge()))), mockRandom);
-        Line line2 = new Line(new Points(new ArrayList<>(List.of(Point.ofEmpty()))), mockRandom);
+        Line line1 = new Line(new Points(new ArrayList<>(List.of(Point.ofBridge()))));
+        Line line2 = new Line(new Points(new ArrayList<>(List.of(Point.ofEmpty()))));
         Ladder expected = new Ladder(new ArrayList<>(List.of(line1, line2)));
 
         Assertions.assertThat(actual).isEqualTo(expected);
@@ -62,8 +62,7 @@ class LadderGeneratorTest {
         Ladder actual = ladderGenerator.createLines(names.size(), mockRandom);
         //then
         Line line1 =
-            new Line(new Points(new ArrayList<>(List.of(Point.ofBridge(), Point.ofEmpty()))),
-                mockRandom);
+            new Line(new Points(new ArrayList<>(List.of(Point.ofBridge(), Point.ofEmpty()))));
         Ladder expected = new Ladder(new ArrayList<>(List.of(line1)));
 
         Assertions.assertThat(actual).isEqualTo(expected);
