@@ -36,6 +36,22 @@ class UserTest {
         Assertions.assertThrows(UserNameMaxLengthException.class, () -> new User(name));
     }
 
+    @DisplayName("참여할 유저 이름 중에 예약된 명령어 있는 경우 생성되지 않는다.")
+    @Test
+    void validateReservedCommand() {
+        // given
+
+        // when
+
+        // then
+        Assertions.assertAll(
+            () -> Assertions.assertThrows(UserNameReservedCommand.class
+                , () -> new User(LadderGame.END_GAME_COMMAND)),
+            () -> Assertions.assertThrows(UserNameReservedCommand.class
+                , () -> new User(LadderGame.PRINT_ALL_RESULT_COMMAND))
+        );
+    }
+
     @DisplayName("참여할 유저 이름은 1글자 이상 5글자 이하여야 생성된다")
     @ParameterizedTest
     @ValueSource(strings = {"man du", "h o", "o", "JK", "honux"})

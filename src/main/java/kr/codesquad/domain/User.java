@@ -16,6 +16,7 @@ public class User {
         String NotBlankName = name.replace(" ", "");
         validateMinLength(NotBlankName);
         validateMaxLength(NotBlankName);
+        validateReservedCommand(NotBlankName);
         this.name = NotBlankName;
     }
 
@@ -29,6 +30,13 @@ public class User {
     private void validateMinLength(String name) {
         if (name.length() < MIN_LENGTH) {
             throw new UserNameMinLengthException();
+        }
+    }
+
+    private void validateReservedCommand(String name) {
+        if (name.equals(LadderGame.END_GAME_COMMAND) ||
+            name.equals(LadderGame.PRINT_ALL_RESULT_COMMAND)) {
+            throw new UserNameReservedCommand();
         }
     }
 
