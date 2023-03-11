@@ -12,4 +12,13 @@ public class OutputView {
                 .forEach(System.out::print);
         System.out.println();
     }
+
+    public static void showLadder(Ladder ladder){
+        ladder.getLadder().forEach(line -> {
+            line.ladderTypes().stream()
+                    .map(LadderType::getLadderType)
+                    .forEach(System.out::print);
+            System.out.println();
+        });
+    }
 }
