@@ -1,23 +1,29 @@
 package kr.codesquad.domain;
 
+import java.util.Arrays;
+
 public class Players {
     private final int MAX_NAME_LENGTH = 5;
 
-    private String[] playerNames;
+    private final Player[] players;
+    //private String[] playerNames;
 
     public Players(String[] playerNames) {
-        this.playerNames = playerNames;
+        players = Arrays.stream(playerNames)
+                .map(Player::new)
+                .toArray(Player[]::new);
     }
 
     public int getPlayerCount() {
-        return playerNames.length;
+
+        return players.length;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for(String name : playerNames) {
-            sb.append(String.format("%5s ", String.format("%-" + (((MAX_NAME_LENGTH - name.length()) / 2) + name.length()) + "s", name)));
+        for(Player player : players) {
+            sb.append(String.format("%5s ", String.format("%-" + (((MAX_NAME_LENGTH - player.getName().length()) / 2) + player.getName().length()) + "s", player.getName())));
         }
 
         return sb.toString();
