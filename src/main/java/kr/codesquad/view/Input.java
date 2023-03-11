@@ -11,12 +11,6 @@ public class Input {
         return br.readLine();
     }
 
-    private void limitLadderSize(int countOfLadder) {
-        if (countOfLadder <= 0) {
-            throw new IllegalArgumentException(countOfLadder + "은 0보다 작습니다.");
-        }
-    }
-
     public String[] splitNames(String answer) {
         return answer.replaceAll(" ", "").split(",");
     }
