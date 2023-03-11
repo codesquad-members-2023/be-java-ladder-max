@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 import kr.codesquad.step3.util.Validation;
 
 public class Ladder {
-    private final List<Line> ladder;
+    private final List<Row> ladder;
     private final int height;
 
     public Ladder(Participates participates, int inputHeight) {
@@ -24,10 +24,10 @@ public class Ladder {
 
     private void makeLadder(int countNumOfParticipate) {
         IntStream.range(0, height)
-                .forEach(i -> ladder.add(new Line(countNumOfParticipate)));
+                .forEach(i -> ladder.add(new Row(countNumOfParticipate)));
     }
 
-    public List<Line> getLadder() {
+    public List<Row> getLadder() {
         return ladder;
     }
 }
