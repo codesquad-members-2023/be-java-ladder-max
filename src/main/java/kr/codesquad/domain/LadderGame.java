@@ -16,17 +16,18 @@ public class LadderGame {
     public void startLadderGame() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Input input = new Input();
+        Validator validator = new Validator();
         boolean checkName = true, checkLadder = true;
 
         while(checkName) {
             String answer = input.input(br, 0);
-            String[] arrayNames = input.splitNames(answer);
-            checkName = checkNames(input, arrayNames);
+            String[] arrayNames = splitNames(answer);
+            checkName = checkNames(validator, arrayNames);
         }
 
         while(checkLadder) {
             String answer = input.input(br, 1);
-            checkLadder = checkLadder(input, answer);
+            checkLadder = checkLadder(validator, input, answer);
         }
 
         Ladder ladder = new Ladder(names.size(), countOfLadder);
@@ -34,19 +35,23 @@ public class LadderGame {
         output.print(names, ladder);
     }
 
-    private boolean checkNames(Input input, String[] arrayNames) {
-        if(input.validateNames(arrayNames)) {
+    private boolean checkNames(Validator validator, String[] arrayNames) {
+        if(validator.validateNames(arrayNames)) {
             names = new ArrayList<>(Arrays.asList(arrayNames));
             return false;
         }
         return true;
     }
 
-    private boolean checkLadder(Input input, String answer) {
-        if(input.validateLadder(answer)) {
+    private boolean checkLadder(Validator validator, Input input, String answer) {
+        if(validator.validateLadder(answer)) {
             countOfLadder = input.inputLadder(answer);
             return false;
         }
         return true;
+    }
+
+    private String[] splitNames(String answer) {
+        return answer.replaceAll(" ", "").split(",");
     }
 }
