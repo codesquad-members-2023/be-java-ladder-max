@@ -1,27 +1,37 @@
 package kr.codesquad.domain;
 
 import java.util.Objects;
+import kr.codesquad.exception.result.ResultMaxLengthException;
+import kr.codesquad.exception.result.ResultMinLengthException;
 
 public class Result {
 
     public static final int MIN_LENGTH = 1;
+    public static final int MAX_LENGTH = 5;
 
     private final String result;
 
     public Result(String result) {
         String NotBlankResult = result.replace(" ", "");
         validateMinLength(NotBlankResult);
+        validateMaxLength(NotBlankResult);
         this.result = result;
     }
 
+    private void validateMaxLength(String result) {
+        if (result.length() > MAX_LENGTH) {
+            throw new ResultMaxLengthException();
+        }
+    }
+
     private void validateMinLength(String result) {
-        if (result.isBlank() && result.length() < MIN_LENGTH) {
-            throw new IllegalArgumentException("최소 1글자 이상 이어야 합니다.");
+        if (result.length() < MIN_LENGTH) {
+            throw new ResultMinLengthException();
         }
     }
 
     public String printFormat() {
-        int totalLength = 6;
+        int totalLength = MAX_LENGTH + 1;
         int nameLength = this.result.length();
         int leftPadding = ((totalLength - nameLength) / 2) + ((totalLength - nameLength) % 2);
         int rightPadding = (totalLength - nameLength) / 2;
