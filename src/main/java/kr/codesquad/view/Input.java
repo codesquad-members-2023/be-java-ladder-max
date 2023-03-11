@@ -2,23 +2,13 @@ package kr.codesquad.view;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Input {
-    public int inputLadder(BufferedReader br) throws IOException {
-        try {
-            System.out.println("최대 사다리 높이는 몇 개인가요?");
-            int countOfLadder = Integer.parseInt(br.readLine());
-            limitLadderSize(countOfLadder);
-            return countOfLadder;
-        } catch (NumberFormatException e) {
-            System.out.println("정수가 아닙니다.");
-            return inputLadder(br);
-        } catch (IllegalArgumentException e) {
-            System.out.println("사다리 높이는 0보다 커야 합니다.");
-            return inputLadder(br);
-        }
+    public String input(BufferedReader br, int index) throws IOException {
+        String[] answer = {"참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)"
+                ,"최대 사다리 높이는 몇 개인가요?"};
+        System.out.println(answer[index]);
+        return br.readLine();
     }
 
     private void limitLadderSize(int countOfLadder) {
@@ -27,23 +17,28 @@ public class Input {
         }
     }
 
-    public ArrayList<String> inputNames(BufferedReader br) throws IOException {
+    public String[] splitNames(String answer) {
+        return answer.replaceAll(" ", "").split(",");
+    }
+
+    public boolean validateNames(String[] names) {
         try {
-            System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
-            String[] names = br.readLine().replaceAll(" ", "").split(",");
-            limitNameSize(names);
-            return new ArrayList<>(Arrays.asList(names));
+            NamesToName(names);
+            return true;
         } catch (IllegalArgumentException e) {
-            System.out.println("플레이어의 이름은 최대 5글자까지 가능합니다.");
-            return inputNames(br);
+            System.out.println("플레이어의 이름은 1글자부터 최대 5글자까지 가능합니다.");
+            return false;
+        }
+    }
+    private void NamesToName(String[] names) {
+        for (String name : names) {
+            limitNameSize(name);
         }
     }
 
-    private void limitNameSize(String[] names) {
-        for (String name : names) {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException(name+ "은 5글자보다 큽니다.");
-            }
+    private void limitNameSize(String name) {
+        if (name.length() > 5 || name.length() == 0) {
+            throw new IllegalArgumentException(name+ "은 형식에 맞지 않습니다.");
         }
     }
 }
