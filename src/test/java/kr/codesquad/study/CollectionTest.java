@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.study;
 
 import java.util.HashMap;
 import java.util.HashSet;

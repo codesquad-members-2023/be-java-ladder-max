@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.study;
 
 import java.util.Random;
 import org.assertj.core.api.Assertions;
