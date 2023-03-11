@@ -1,5 +1,6 @@
 package kr.codesquad.domain;
 
+import kr.codesquad.exception.ladder.LadderMinHeightException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,9 +17,8 @@ class LadderHeightTest {
         // when
 
         // then
-        IllegalArgumentException exception = Assertions.assertThrowsExactly(
-            IllegalArgumentException.class, () -> new LadderHeight(height));
-        Assertions.assertEquals("사다리 높이는 최소 2이상 입니다.", exception.getMessage());
+        Assertions.assertThrows(LadderMinHeightException.class
+            , () -> new LadderHeight(height));
     }
 
     @DisplayName("사다리 높이가 2 이상 일 경우 높이를 가져온다.")

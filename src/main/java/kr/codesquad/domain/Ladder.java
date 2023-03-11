@@ -2,30 +2,29 @@ package kr.codesquad.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import kr.codesquad.exception.ladder.LadderMinHeightException;
 
 public class Ladder {
 
-    private static final int MIN_SIZE = 2;
-
     private final List<RowLines> ladder;
 
-    public Ladder(List<RowLines> rowLines) {
-        validateMinSize(rowLines);
-        this.ladder = rowLines;
+    public Ladder(List<RowLines> rowLinesList) {
+        validateMinSize(rowLinesList);
+        this.ladder = rowLinesList;
     }
 
     private void validateMinSize(List<RowLines> rowLines) {
-        if (rowLines.size() < MIN_SIZE) {
-            throw new IllegalArgumentException("사다리 높이는 최소 2이상 입니다.");
+        if (rowLines.size() < LadderHeight.MIN_HEIGHT) {
+            throw new LadderMinHeightException();
         }
     }
 
-    public int calculateResultIndex(int userIndex) {
+    public int calculateResultIndex(int columnLineIndex) {
         for (RowLines rowLines : this.ladder) {
-            userIndex = rowLines.moveDown(userIndex);
+            columnLineIndex = rowLines.moveDown(columnLineIndex);
         }
 
-        return userIndex;
+        return columnLineIndex;
     }
 
     @Override
