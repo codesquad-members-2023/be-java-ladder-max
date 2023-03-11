@@ -20,7 +20,7 @@ public class LadderGameController {
         this.ladderResultRepository = new LadderResultRepository();
     }
 
-    @GetMapping("/app/input")
+    @GetMapping("/")
     public String inputNames() {
 
         return "game/start";
