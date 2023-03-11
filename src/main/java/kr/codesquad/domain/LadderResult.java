@@ -32,7 +32,7 @@ public class LadderResult {
     }
 
     public String printLadderResult() {
-        return String.format("%s\n%s\n%s", this.users, this.ladder, this.results);
+        return String.format("%s\n%s\n %s", this.users, this.ladder, this.results);
     }
 
     public String printAllUserAndResult() {

@@ -7,8 +7,8 @@ import kr.codesquad.view.OutputView;
 
 public class LadderGame {
 
-    private static final String END_GAME_COMMAND = "춘식이";
-    private static final String ALL_RESULT_PRINT_COMMAND = "all";
+    public static final String END_GAME_COMMAND = "춘식이";
+    public static final String PRINT_ALL_RESULT_COMMAND = "all";
 
     private final LadderResult ladderResult;
 
@@ -24,13 +24,13 @@ public class LadderGame {
         return new LadderResult(users, results, ladder);
     }
 
-    public void run() {
+    public void start() {
         OutputView.printLadderResult(this.ladderResult);
-        findLadderResult();
-        exit();
+        executeLadderResult();
+        end();
     }
 
-    private void findLadderResult() {
+    private void executeLadderResult() {
         try {
             printResult(InputView.inputUserName());
         } catch (EndGameException e) {
@@ -39,7 +39,7 @@ public class LadderGame {
             System.out.println(e.getMessage());
         }
 
-        findLadderResult();
+        executeLadderResult();
     }
 
     private void printResult(String userName) {
@@ -47,7 +47,7 @@ public class LadderGame {
             throw new EndGameException();
         }
 
-        if (userName.equals(ALL_RESULT_PRINT_COMMAND)) {
+        if (userName.equals(PRINT_ALL_RESULT_COMMAND)) {
             OutputView.printAllUserAndResult(this.ladderResult);
             return;
         }
@@ -56,7 +56,7 @@ public class LadderGame {
         OutputView.printResult(result);
     }
 
-    private void exit() {
+    private void end() {
         OutputView.printExit();
         InputView.close();
     }
