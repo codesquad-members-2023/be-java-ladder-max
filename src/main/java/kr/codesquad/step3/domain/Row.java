@@ -19,6 +19,20 @@ public class Row {
                 .forEach(i -> ladderTypes.add(connectLadderTypes(new RandomConnection())));
     }
 
+    public LadderType connectLadderTypes(RandomConnection randomConnection) {
+        if (ladderTypes.size() == NO_ROW) {
+            return LadderType.DISCONNECT;
+        }
+
+        LadderType prePoint = ladderTypes.get(ladderTypes.size() - GET_LENGTH);
+        if (prePoint.isConnected()) {
+            return LadderType.CONNECT;
+        }
+
+        return LadderType.getLadderType(randomConnection.connect());
+    }
+
+
     public List<LadderType> ladderTypes() {
         return ladderTypes;
     }
