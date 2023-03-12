@@ -12,15 +12,15 @@ public class Ladder {
     private List<List<String>> ladderBoard;
     private List<String> names;
 
-    public void init(int inputerGetLadderNum, ArrayList inputerGetNames) {
-        makeNames(inputerGetNames);
+    public void init(int inputerGetLadderNum, ArrayList inputerGetNameAndCheckNameLength) {
+        makeNames(inputerGetNameAndCheckNameLength);
 //        widthIs();
         height = inputerGetLadderNum;
         makeLadder();
     }
 
-    private void makeNames(ArrayList inputerGetNames) {
-        names = inputerGetNames;
+    private void makeNames(ArrayList inputerGetNameAndCheckNameLength) {
+        names = inputerGetNameAndCheckNameLength;
     }
 
 //    private void widthIs() {
@@ -35,7 +35,6 @@ public class Ladder {
             forInForInMakeLadder(i);
         }
     }
-
     private void forInForInMakeLadder(int i) {
         boolean temp = random.nextBoolean();
         int x = 0;
@@ -94,7 +93,7 @@ public class Ladder {
         sb.append(" ");
         for (int i = 0; i < names.size(); i++) {
             sb.append(" ");
-            sb.append(String.format("%5s", names.get(i)));      // 가운데정렬 안됨
+            sb.append(String.format("%5s", names.get(i)));
         }
         System.out.println(sb);
     }
