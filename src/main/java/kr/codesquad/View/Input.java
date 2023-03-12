@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.View;
 
 import java.util.Scanner;
 
@@ -9,11 +9,11 @@ public class Input {
         this.sc = sc;
     }
 
-    int inputNumberOfPlayers() {
+    public int inputNumberOfPlayers() {
         return sc.nextInt();
     }
 
-    int inputLadderHeight(){
+    public int inputLadderHeight(){
         return sc.nextInt();
     }
 }
