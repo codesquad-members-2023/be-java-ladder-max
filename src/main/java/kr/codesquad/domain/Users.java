@@ -1,39 +1,62 @@
 package kr.codesquad.domain;
 
 import java.util.Arrays;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import kr.codesquad.exception.user.UsersDuplicationUserNameException;
+import kr.codesquad.exception.user.UsersMinSizeException;
 
 public class Users {
 
-    private static final int MIN_USER_NAMES_COUNT = 2;
+    public static final int MIN_USER_NAMES_COUNT = 2;
 
-    private final Set<User> users;
+    private final List<User> users;
 
     public Users(String inputUserNames) {
         String[] userNames = inputUserNames.split(",");
-        validateMinUserNamesCount(userNames);
-        this.users = generate(userNames);
+        validateMinUserCount(userNames);
         validateDuplicationName(userNames);
+        this.users = generate(userNames);
     }
 
-    private void validateMinUserNamesCount(String[] userNames) {
-        if (userNames.length < MIN_USER_NAMES_COUNT) {
-            throw new IllegalArgumentException("참여할 사람의 수는 최소 2명입니다.");
+    private void validateMinUserCount(String[] userNames) {
+        if (getFilterNotBlankStream(userNames).count() < MIN_USER_NAMES_COUNT) {
+            throw new UsersMinSizeException();
         }
     }
 
     private void validateDuplicationName(String[] userNames) {
-        if (this.users.size() != userNames.length) {
-            throw new IllegalArgumentException("참여자 이름 중에 중복된 이름이 있습니다.");
+        long distinctCount = getFilterNotBlankStream(userNames).distinct()
+            .count();
+
+        if (getFilterNotBlankStream(userNames).count() != distinctCount) {
+            throw new UsersDuplicationUserNameException();
         }
     }
 
-    private Set<User> generate(String[] userNames) {
+    private Stream<String> getFilterNotBlankStream(String[] userNames) {
+        return Arrays.stream(userNames)
+            .map(userName -> userName.replace(" ", ""))
+            .filter(userName -> !userName.isBlank());
+    }
+
+    private List<User> generate(String[] userNames) {
         return Arrays.stream(userNames)
             .map(User::new)
-            .collect(Collectors.toCollection(LinkedHashSet::new));
+            .collect(Collectors.toList());
+    }
+
+    public User findByIndex(int index) {
+        return this.users.get(index);
+    }
+
+    public User findByName(String name) {
+        return this.users.stream()
+            .filter(user -> user.equals(name))
+            .findAny()
+            .orElseThrow(() -> new NoSuchElementException("참여한 사람 중에 해당 이름은 없습니다."));
     }
 
     public int count() {
@@ -43,7 +66,7 @@ public class Users {
     @Override
     public String toString() {
         return this.users.stream()
-            .map(User::toString)
+            .map(User::printFormat)
             .collect(Collectors.joining());
     }
 }

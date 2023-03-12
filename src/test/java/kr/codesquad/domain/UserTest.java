@@ -1,7 +1,11 @@
 package kr.codesquad.domain;
 
+import kr.codesquad.exception.user.UserNameMaxLengthException;
+import kr.codesquad.exception.user.UserNameMinLengthException;
+import kr.codesquad.exception.user.UserNameReservedCommand;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -17,9 +21,7 @@ class UserTest {
         // when
 
         // then
-        IllegalArgumentException exception = Assertions.assertThrowsExactly(
-            IllegalArgumentException.class, () -> new User(name));
-        Assertions.assertEquals("참여할 사람의 이름은 최소 1글자입니다.", exception.getMessage());
+        Assertions.assertThrows(UserNameMinLengthException.class, () -> new User(name));
     }
 
     @DisplayName("참여할 유저 이름이 5글자 초과할 경우 생성되지 않는다")
@@ -31,9 +33,23 @@ class UserTest {
         // when
 
         // then
-        IllegalArgumentException exception = Assertions.assertThrowsExactly(
-            IllegalArgumentException.class, () -> new User(name));
-        Assertions.assertEquals("참여할 사람의 이름은 최대 5글자입니다.", exception.getMessage());
+        Assertions.assertThrows(UserNameMaxLengthException.class, () -> new User(name));
+    }
+
+    @DisplayName("참여할 유저 이름 중에 예약된 명령어 있는 경우 생성되지 않는다.")
+    @Test
+    void validateReservedCommand() {
+        // given
+
+        // when
+
+        // then
+        Assertions.assertAll(
+            () -> Assertions.assertThrows(UserNameReservedCommand.class
+                , () -> new User(LadderGame.END_GAME_COMMAND)),
+            () -> Assertions.assertThrows(UserNameReservedCommand.class
+                , () -> new User(LadderGame.PRINT_ALL_RESULT_COMMAND))
+        );
     }
 
     @DisplayName("참여할 유저 이름은 1글자 이상 5글자 이하여야 생성된다")

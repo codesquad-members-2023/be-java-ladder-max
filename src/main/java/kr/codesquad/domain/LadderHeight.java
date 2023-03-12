@@ -1,8 +1,10 @@
 package kr.codesquad.domain;
 
+import kr.codesquad.exception.ladder.LadderMinHeightException;
+
 public class LadderHeight {
 
-    private static final int MIN_HEIGHT = 2;
+    public static final int MIN_HEIGHT = 2;
 
     private final int height;
 
@@ -13,7 +15,7 @@ public class LadderHeight {
 
     private void validateMinHeight(int height) {
         if (height < MIN_HEIGHT) {
-            throw new IllegalArgumentException("사다리 높이는 최소 2이상 입니다.");
+            throw new LadderMinHeightException();
         }
     }
 

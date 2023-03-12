@@ -1,31 +1,55 @@
 package kr.codesquad.domain;
 
 import java.util.Objects;
+import kr.codesquad.exception.user.UserNameReservedCommand;
+import kr.codesquad.exception.user.UserNameMaxLengthException;
+import kr.codesquad.exception.user.UserNameMinLengthException;
 
 public class User {
 
-    private static final int MAX_LENGTH = 5;
-    private static final int MIN_LENGTH = 1;
+    public static final int MAX_LENGTH = 5;
+    public static final int MIN_LENGTH = 1;
 
     private final String name;
 
     public User(String name) {
-        String emptyBlankName = name.replace(" ", "");
-        validateMinLength(emptyBlankName);
-        validateMaxLength(emptyBlankName);
-        this.name = emptyBlankName;
+        String NotBlankName = name.replace(" ", "");
+        validateMinLength(NotBlankName);
+        validateMaxLength(NotBlankName);
+        validateReservedCommand(NotBlankName);
+        this.name = NotBlankName;
     }
+
 
     private void validateMaxLength(String name) {
         if (name.length() > MAX_LENGTH) {
-            throw new IllegalArgumentException("참여할 사람의 이름은 최대 5글자입니다.");
+            throw new UserNameMaxLengthException();
         }
     }
 
     private void validateMinLength(String name) {
         if (name.length() < MIN_LENGTH) {
-            throw new IllegalArgumentException("참여할 사람의 이름은 최소 1글자입니다.");
+            throw new UserNameMinLengthException();
         }
+    }
+
+    private void validateReservedCommand(String name) {
+        if (name.equals(LadderGame.END_GAME_COMMAND) ||
+            name.equals(LadderGame.PRINT_ALL_RESULT_COMMAND)) {
+            throw new UserNameReservedCommand();
+        }
+    }
+
+    public boolean equals(String name) {
+        return this.name.equals(name);
+    }
+
+    public String printFormat() {
+        int totalLength = MAX_LENGTH + 1;
+        int nameLength = this.name.length();
+        int leftPadding = ((totalLength - nameLength) / 2) + ((totalLength - nameLength) % 2);
+        int rightPadding = (totalLength - nameLength) / 2;
+        return String.format("%s%s%s", " ".repeat(leftPadding), this.name, " ".repeat(rightPadding));
     }
 
     @Override
@@ -47,10 +71,6 @@ public class User {
 
     @Override
     public String toString() {
-        int totalLength = 6;
-        int nameLength = this.name.length();
-        int leftPadding = ((totalLength - nameLength) / 2) + ((totalLength - nameLength) % 2);
-        int rightPadding = (totalLength - nameLength) / 2;
-        return String.format("%s%s%s", " ".repeat(leftPadding), this.name, " ".repeat(rightPadding));
+        return this.name;
     }
 }

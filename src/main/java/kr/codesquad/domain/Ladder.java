@@ -2,21 +2,29 @@ package kr.codesquad.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import kr.codesquad.exception.ladder.LadderMinHeightException;
 
 public class Ladder {
 
     private final List<RowLines> ladder;
 
-    public Ladder(Users numberOfUsers, LadderHeight ladderHeight) {
-        this.ladder = generateLadder(numberOfUsers.count(), ladderHeight.getHeight());
+    public Ladder(List<RowLines> rowLinesList) {
+        validateMinSize(rowLinesList);
+        this.ladder = rowLinesList;
     }
 
-    private List<RowLines> generateLadder(int numberOfUsers, int ladderHeight) {
-        RandomRowLinesGenerator randomRowLinesGenerator = new RandomRowLinesGenerator(numberOfUsers);
-        return IntStream.range(0, ladderHeight)
-            .mapToObj(index -> new RowLines(randomRowLinesGenerator))
-            .collect(Collectors.toList());
+    private void validateMinSize(List<RowLines> rowLines) {
+        if (rowLines.size() < LadderHeight.MIN_HEIGHT) {
+            throw new LadderMinHeightException();
+        }
+    }
+
+    public int calculateResultIndex(int columnLineIndex) {
+        for (RowLines rowLines : this.ladder) {
+            columnLineIndex = rowLines.moveDown(columnLineIndex);
+        }
+
+        return columnLineIndex;
     }
 
     @Override
