@@ -10,6 +10,7 @@ public class Line {
 
     public Line(int numberOfBars) {
         this.numberOfBars = numberOfBars;
+        makeLine();
     }
 
     private void makeLine(){
