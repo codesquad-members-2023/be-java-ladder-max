@@ -27,6 +27,7 @@ public class Ladder {
         StringBuilder sb = new StringBuilder();
 
         for(int rowIndex = 0; rowIndex < ROW_SIZE; rowIndex++){
+            sb.append("   ");
             sb.append(ladder.get(rowIndex).toString());
             sb.append("\n");
         }
