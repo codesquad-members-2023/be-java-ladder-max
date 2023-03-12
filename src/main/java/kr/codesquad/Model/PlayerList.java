@@ -1,5 +1,20 @@
 package kr.codesquad.Model;
 
-public class PlayerList{
+import kr.codesquad.Model.Player;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class PlayerList {
+    List<Player> players = new ArrayList<>();
+
+    public PlayerList(String players) {
+        setPlayers(players);
+    }
+
+    private void setPlayers(String players){
+        Arrays.stream(players.split(","))
+                .forEach(p -> this.players.add(new Player(p)));
+    }
 }
