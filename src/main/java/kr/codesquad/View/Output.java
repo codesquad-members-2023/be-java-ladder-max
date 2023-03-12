@@ -13,6 +13,9 @@ public class Output {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
     }
 
+    public static void printPlayerList(String playerList){
+        System.out.println(playerList);
+    }
     public static void printLadder(String ladderString){
         System.out.println(ladderString);
     }
