@@ -10,9 +10,7 @@ public class InputView {
 
     public String[] inputPlayerNames() throws IOException {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
-        String[] playerNames = br.readLine().replace(" ", "").split(",");
-        validatePlayerNames(playerNames);
-        return playerNames;
+        return br.readLine().replace(" ", "").split(",");
     }
 
     public int inputLadderHeight() throws IOException, NumberFormatException {
@@ -20,16 +18,4 @@ public class InputView {
         return Integer.parseInt(br.readLine());
     }
 
-    /* validation */
-    private void validatePlayerNames(String[] playerNames) {
-        for(String playerName : playerNames) {
-            validatePlayerName(playerName);
-        }
-    }
-
-    private void validatePlayerName(String playerName) {
-        if(playerName.length() > 5 || playerName.length() < 1) {
-            throw new IllegalArgumentException("이름은 1글자 이상, 5글자 이하로 입력해 주세요.(※ " + playerName + ")");
-        }
-    }
 }
