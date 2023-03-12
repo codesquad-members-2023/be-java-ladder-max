@@ -1,13 +1,11 @@
 package kr.codesquad;
 
-import java.util.Random;
-
-public enum LadderLine {
+public enum Bar {
     VERTICAL("|"), HORIZONTAL("-----"), BLANK("     ");
     
     private final String line;
 
-    LadderLine(String line) {
+    Bar(String line) {
         this.line = line;
     }
 
