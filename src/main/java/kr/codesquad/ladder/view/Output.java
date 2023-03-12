@@ -11,7 +11,6 @@ public class Output {
     public static void printUser(String user){
         System.out.println(user);
     }
-
     public static void drawLadder(String ladderShape){
         System.out.println(ladderShape);
     }

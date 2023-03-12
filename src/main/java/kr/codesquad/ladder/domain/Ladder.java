@@ -24,7 +24,6 @@ public class Ladder {
         }
         return list;
     }
-
     @Override
     public String toString(){
         StringBuilder stringBuilder = new StringBuilder();

@@ -34,6 +34,4 @@ public class User {
         return stringBuilder.toString();
     }
 
-
-
 }
