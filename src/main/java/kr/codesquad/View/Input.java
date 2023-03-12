@@ -9,6 +9,10 @@ public class Input {
         this.sc = sc;
     }
 
+    public String inputPlayers(){
+        return sc.nextLine();
+    }
+
     public int inputNumberOfPlayers() {
         return sc.nextInt();
     }
