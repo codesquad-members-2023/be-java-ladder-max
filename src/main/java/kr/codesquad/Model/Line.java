@@ -35,4 +35,13 @@ public class Line {
 
         return Bar.BLANK;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < numberOfBars; i++){
+            sb.append(bars.get(i).getBar());
+        }
+        return sb.toString();
+    }
 }
