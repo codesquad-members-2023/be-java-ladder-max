@@ -1,24 +1,24 @@
-package kr.codesquad;
+package kr.codesquad.ladder;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import kr.codesquad.ladder.domain.Names;
+import kr.codesquad.ladder.view.LadderConsoleReader;
+import kr.codesquad.ladder.view.LadderConsoleWriter;
+import kr.codesquad.ladder.view.LadderReader;
+import kr.codesquad.ladder.view.LadderWriter;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-class LadderConsoleReaderTest {
+class LadderGeneratorConsoleReaderTest {
 
     private BufferedReader reader;
-    private LadderValidator validator;
     private LadderWriter ladderWriter;
     private LadderReader ladderReader;
-
 
     @ParameterizedTest
     @DisplayName("사용자 이름들이 제대로 받아지는지 테스트")
@@ -26,29 +26,25 @@ class LadderConsoleReaderTest {
     public void readNameOfPeople_success(String input) {
         //given
         reader = new BufferedReader(new InputStreamReader(toInputStream(input)));
-        validator = new LadderValidator(2, 1);
         ladderWriter = new LadderConsoleWriter();
-        ladderReader = new LadderConsoleReader(reader, validator, ladderWriter);
+        ladderReader = new LadderConsoleReader(reader, ladderWriter);
         //when
-        List<String> actual = ladderReader.readNameOfPeople();
+        Names actual = ladderReader.readNameOfPeople();
         //then
-        List<String> expected = Arrays.stream(input.split("\\s*,\\s*"))
-            .collect(Collectors.toList());
+        Names expected = new Names(input, 2);
         Assertions.assertThat(actual).isEqualTo(expected);
     }
 
     @ParameterizedTest
-    @DisplayName("사용자 이름들이 제대로 받아지는지 테스트")
-    @ValueSource(strings = {"pobi,honux,crong,jkweifojaewiofj", "pobi,honux,crong,jk    ", "pobi"})
+    @DisplayName("사다리 게임 이름 입력중 이름의 글자가 5를 초과하여 예외가 발생하여 실패하는지 테스트")
+    @ValueSource(strings = {"pobi,honux,crong,jkweifojaewiofj", "pobi,honux,crong,jk       "})
     public void readNameOfPeople_fail(String input) {
         //given
         reader = new BufferedReader(new InputStreamReader(toInputStream(input)));
-        validator = new LadderValidator(2, 1);
         ladderWriter = new LadderConsoleWriter();
-        ladderReader = new LadderConsoleReader(reader, validator, ladderWriter);
+        ladderReader = new LadderConsoleReader(reader, ladderWriter);
         //when & then
         Assertions.assertThatThrownBy(() -> ladderReader.readNameOfPeople());
-        Assertions.fail("이 테스트는 실패해야 합니다.");
     }
 
     private InputStream toInputStream(String input) {
