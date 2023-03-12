@@ -3,13 +3,13 @@ package kr.codesquad;
 public enum Bar {
     VERTICAL("|"), HORIZONTAL("-----"), BLANK("     ");
     
-    private final String line;
+    private final String bar;
 
-    Bar(String line) {
-        this.line = line;
+    Bar(String bar) {
+        this.bar = bar;
     }
 
-    public String getLine() {
-        return line;
+    public String getBar() {
+        return bar;
     }
 }
