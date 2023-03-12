@@ -13,20 +13,27 @@ public class Input {
         return  Integer.parseInt(bufferedReader.readLine());
     }
 
+
+
+
     public  String insertUser() throws IOException {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        String result = bufferedReader.readLine();
-        String[] arr = result.split(",");
-        return range(arr,result);
+        return bufferedReader.readLine();
     }
-    public  String range(String[] arr,String re) throws IOException {
-        for(String temp : arr){
-            if(temp.length()>5){
-                return insertUser();
-            }
-        }
-        return re;
-    }
-
+//    public  String insertUser() throws IOException {
+//        System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
+//        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+//        String result = bufferedReader.readLine();
+//        String[] arr = result.split(",");
+//        return range(arr,result);
+//    }
+//    public  String range(String[] arr,String re) throws IOException {
+//        for(String temp : arr){
+//            if(temp.length()>5){
+//                return insertUser();
+//            }
+//        }
+//        return re;
+//    }
 }

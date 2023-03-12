@@ -8,20 +8,15 @@ import java.util.List;
 
 public class Output {
 
-    public static void printUser(User user){
-        for(String temp : user.userList()) {
-            System.out.print(temp);
-        }
+    public static void printUser(String user){
+        System.out.println(user);
     }
 
-    public static void drawLadder(List<Line> ladder){
-        for(Line temp : ladder){
-            System.out.println(temp.toString());
-        }
+    public static void drawLadder(String ladderShape){
+        System.out.println(ladderShape);
     }
-    public static void printAll(User user,List<Line>ladder){
+    public static void printAll(String user,String ladderShape){
         printUser(user);
-        System.out.println();
-        drawLadder(ladder);
+        drawLadder(ladderShape);
     }
 }

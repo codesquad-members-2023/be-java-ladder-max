@@ -11,7 +11,7 @@ public class User {
         this.name = name;
     }
 
-    public List<String> userList(){
+    private List<String> userList(){
         List<String> userList = new ArrayList<>();
         String listArr[] = name.split(",");
         for(String temp : listArr) {
@@ -22,6 +22,16 @@ public class User {
 
     public String formatName(String temp) {
         return String.format("%-6s",temp);
+    }
+
+    @Override
+    public String toString() {
+        List<String> userList = userList();
+        StringBuilder stringBuilder = new StringBuilder();
+        for(String temp : userList) {
+            stringBuilder.append(temp);
+        }
+        return stringBuilder.toString();
     }
 
 
