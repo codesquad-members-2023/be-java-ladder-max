@@ -19,6 +19,10 @@ public class Line {
         }
     }
 
+    private boolean isDrawnBefore(int index){
+        return index > 2 && bars.get(index-2).equals(Bar.HORIZONTAL);
+    }
+
     private Bar getLadderLine(int index){
         Random random = new Random();
 
@@ -29,7 +33,7 @@ public class Line {
             return Bar.VERTICAL;
         }
 
-        if(isRandomPicked){
+        if(!isDrawnBefore(index) && isRandomPicked){
             return Bar.HORIZONTAL;
         }
 
