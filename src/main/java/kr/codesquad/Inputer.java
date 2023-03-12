@@ -9,30 +9,36 @@ public class Inputer {
     private int ladderNum;
 
     public ArrayList<String> seting() {
-        setManValue();
-        ArrayList<String> temp = check();
+        ArrayList<String> namesList = checkNameLength(makeNamesArrayList());
         setLadderValue();
-        return temp;
+        return namesList;
     }
 
-    private void setManValue() {
+    private ArrayList<String> makeNamesArrayList() {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표로 구분하세요)");
+        names = sc.nextLine();
+        ArrayList<String> namesArrayList = new ArrayList<>();
+        for (String j : names.split(",")) {
+            namesArrayList.add(j);
+        }
+        return namesArrayList;
     }
 
-    ArrayList<String> check() {
-        ArrayList<String> arrayList = new ArrayList<>();
-        names = sc.nextLine();
-        String[] str = names.split(",");
-        for (int i = 0; i < str.length; i++) {
-            arrayList.add(str[i]);
-            if (str[i].length() > 5) {
+    private ArrayList<String> checkNameLength(ArrayList<String> ListCheck) {
+        for (int i = 0; i < ListCheck.size(); i++) {
+            if (ListCheck.get(i).length() > 5) {
+                String[] str;
                 System.out.println("이름 1개당 5글자까지만 됩니다. 다시 해주세요. (이름은 쉼표로 구분하세요)");
-                str = null;
-                arrayList = null;
-                check();
+                names = sc.nextLine();
+                str = names.split(",");
+                ArrayList<String> newNames = new ArrayList<>();
+                for (String j : str) {
+                    newNames.add(j);
+                }
+                checkNameLength(newNames);
             }
         }
-        return arrayList;
+        return ListCheck;
     }
 
     private void setLadderValue() {
