@@ -17,4 +17,9 @@ public class PlayerList {
         Arrays.stream(players.split(","))
                 .forEach(p -> this.players.add(new Player(p)));
     }
+
+    public int size(){
+        return players.size();
+    }
+
 }
