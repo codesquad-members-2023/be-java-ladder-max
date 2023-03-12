@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.Model;
 
 public enum Bar {
     VERTICAL("|"), HORIZONTAL("-----"), BLANK("     ");
