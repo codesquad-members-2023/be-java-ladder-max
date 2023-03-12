@@ -1,6 +1,7 @@
 package kr.codesquad.Controller;
 
 import kr.codesquad.Model.Ladder;
+import kr.codesquad.Model.PlayerList;
 import kr.codesquad.View.Input;
 import kr.codesquad.View.Output;
 
@@ -10,11 +11,13 @@ public class LadderGame {
     public void run(){
         Ladder ladder;
         Input input = new Input(new Scanner(System.in));
-        int numberOfPlayers;
+        String allPlayerString;
+        PlayerList playerList;
         int ladderHeight;
 
-        Output.printInputNumberOfPlayerQuestion();
-        numberOfPlayers = input.inputNumberOfPlayers();
+        Output.printInputPlayerQuestion();
+        allPlayerString = input.inputPlayers();
+        playerList = new PlayerList(allPlayerString);
         Output.printInputLadderHeightQuestion();
         ladderHeight = input.inputLadderHeight();
 
