@@ -16,7 +16,7 @@ public class Output {
 
     public static void drawLadder(List<Line> ladder){
         for(Line temp : ladder){
-            System.out.println(temp.horizontalLine());
+            System.out.println(temp.toString());
         }
     }
     public static void printAll(User user,List<Line>ladder){

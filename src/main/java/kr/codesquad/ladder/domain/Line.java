@@ -22,7 +22,8 @@ public class Line {
         return new Random().nextBoolean()&&!point.get(point.size()-1);
     }
 
-    public String horizontalLine() {
+    @Override
+    public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(" |");
         for(int i = 0; i<point.size(); i++) {
