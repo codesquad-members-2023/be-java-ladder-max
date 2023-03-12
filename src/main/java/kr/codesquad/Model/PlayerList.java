@@ -22,4 +22,15 @@ public class PlayerList {
         return players.size();
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        for(Player player : players){
+            sb.append(String.format("%5s ", player));
+        }
+
+        return sb.toString();
+    }
+
 }
