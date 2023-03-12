@@ -24,18 +24,17 @@ public class Line {
 
     public String horizontalLine() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("|");
+        stringBuilder.append(" |");
         for(int i = 0; i<point.size(); i++) {
-            if(point.get(i)){
-                stringBuilder.append("-----|");
-            } else {
-                stringBuilder.append("     |");
-            }
+            drawCheck(point.get(i),stringBuilder);
         }
         return stringBuilder.toString();
     }
 
-    public List<Boolean> getPoint() {
-        return point;
+    public StringBuilder drawCheck(boolean check,StringBuilder stringBuilder) {
+        if(check) {
+            return stringBuilder.append("-----|");
+        }
+        return stringBuilder.append("     |");
     }
 }
