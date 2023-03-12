@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.Model;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -6,12 +6,12 @@ import java.util.Random;
 public class Ladder {
     final int ROW_SIZE;
     final int COLUMN_SIZE;
-    private final LadderLine[][] ladder;
+    private final Bar[][] ladder;
 
     public Ladder(int numberOfPlayer, int ladderHeight) {
         ROW_SIZE = ladderHeight;
         COLUMN_SIZE = numberOfPlayer * 2 - 1;
-        ladder = new LadderLine[ROW_SIZE][COLUMN_SIZE];
+        ladder = new Bar[ROW_SIZE][COLUMN_SIZE];
         initLadder();
     }
 
@@ -27,20 +27,20 @@ public class Ladder {
         }
     }
 
-    private LadderLine getLadderLine(int index){
+    private Bar getLadderLine(int index){
         Random random = new Random();
         boolean isVertical = index%2 == 0;
         boolean isRandomPicked = random.nextBoolean();
 
         if(isVertical){
-            return LadderLine.VERTICAL;
+            return Bar.VERTICAL;
         }
 
         if(isRandomPicked){
-            return LadderLine.HORIZONTAL;
+            return Bar.HORIZONTAL;
         }
 
-        return LadderLine.BLANK;
+        return Bar.BLANK;
     }
 
     @Override
@@ -49,7 +49,7 @@ public class Ladder {
 
         for(int rowIndex = 0; rowIndex < ROW_SIZE; rowIndex++){
             Arrays.stream(ladder[rowIndex])
-                    .forEach(s -> sb.append(s.getLine()));
+                    .forEach(s -> sb.append(s.getBar()));
             sb.append("\n");
         }
 
@@ -60,8 +60,8 @@ public class Ladder {
     public void print(){
         for(int rowIndex = 0; rowIndex < ROW_SIZE; rowIndex++){
             for(int columnIndex = 0; columnIndex < COLUMN_SIZE; columnIndex++){
-                LadderLine line = ladder[rowIndex][columnIndex];
-                System.out.print(line == null ? " " : line.getLine());
+                Bar line = ladder[rowIndex][columnIndex];
+                System.out.print(line == null ? " " : line.getBar());
             }
             System.out.println();
         }
