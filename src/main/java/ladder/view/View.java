@@ -3,9 +3,6 @@ package ladder.view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class View {
     private final BufferedReader bufferedReader;
@@ -14,8 +11,8 @@ public class View {
         bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public List<String> getNamesOfPlayers() {
-        System.out.println("참여할 사람의 이름을 입력하세요. 이름은 쉼표로 구분하세요. 하나의 이름은 최대 5글자까지 입력이 가능합니다.");
+    public String[] getNamesOfPlayers() {
+        System.out.println("\n참여할 사람의 이름을 입력하세요. 이름은 쉼표로 구분하세요. 하나의 이름은 최대 5글자까지 입력이 가능합니다.");
         return divideByComma(readInput());
     }
 
@@ -27,17 +24,28 @@ public class View {
         }
     }
 
-    private List<String> divideByComma(String input) {
-        return Arrays.stream(input.split(",")).collect(Collectors.toList());
+    private String[] divideByComma(String input) {
+        return input.split(",");
     }
 
     public int getLadderHeight() {
-        System.out.println("사다리 높이는 몇 개인가요?");
+        System.out.println("\n사다리 높이는 몇 개인가요?");
         return Integer.parseInt(readInput());
+    }
+
+    public String[] getCategories() {
+        System.out.println("\n카테고리를 입력하세요. 카테고리는 쉼표로 구분하세요. 하나의 카테고리는 최대 5글자까지 입력이 가능합니다.");
+        return divideByComma(readInput());
+    }
+
+    public String getPlayerNameForResult() {
+        System.out.println("\n결과를 확인하고 싶은 참가자 이름을 입력하세요.");
+        return readInput();
     }
 
     public void stop() {
         try {
+            System.out.println("\n게임을 종료합니다.");
             bufferedReader.close();
         } catch (IOException e) {
             throw new RuntimeException("View 종료 시 문제 발생");
