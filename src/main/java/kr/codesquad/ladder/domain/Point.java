@@ -30,6 +30,10 @@ public class Point {
         return value.equals(BRIDGE);
     }
 
+    public boolean isEmpty() {
+        return value.equals(EMPTY);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
