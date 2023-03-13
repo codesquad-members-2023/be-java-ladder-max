@@ -28,7 +28,10 @@ public class Line {
     }
 
     private Point buildRandomBridge(int col, Random random) {
-        if (!existBridgeOnLeft(col) && random.nextBoolean()) {
+        if (!random.nextBoolean()) {
+            return Point.ofEmpty();
+        }
+        if (!existBridgeOnLeft(col)) {
             return Point.ofBridge();
         }
         return Point.ofEmpty();
@@ -36,6 +39,10 @@ public class Line {
 
     private boolean existBridgeOnLeft(int col) {
         return points.existBridgeOnLeft(col);
+    }
+
+    public int climb(int col) {
+        return points.climb(col);
     }
 
     @Override
@@ -63,4 +70,5 @@ public class Line {
         }
         return line.toString();
     }
+
 }
