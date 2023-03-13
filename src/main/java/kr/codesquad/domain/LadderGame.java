@@ -26,7 +26,7 @@ public class LadderGame {
         }
 
         while(checkLadder) {
-            String answer = input.input(br, 1);
+            String answer = input.input(br, 2);
             checkLadder = checkLadder(validator, input, answer);
         }
 
