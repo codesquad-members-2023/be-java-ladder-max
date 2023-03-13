@@ -1,7 +1,7 @@
 package kr.codesquad.domain;
 
 public enum LineDelimiterType {
-    SUCCESS_DELIMITER("-----"),FAIL_DELIMITER("     "),PEOPLE_DELIMITER("|");
+    SUCCESS_DELIMITER("------"),FAIL_DELIMITER("          "),PEOPLE_DELIMITER("|");
 
     private final String value;
 

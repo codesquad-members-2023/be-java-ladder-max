@@ -2,7 +2,10 @@ package kr.codesquad.domain;
 
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class LadderResultRepository {
 
     public static final String NAME_RESULT_DELIMITER = " : ";
@@ -29,5 +32,9 @@ public class LadderResultRepository {
 
     public boolean containsName(String name) {
         return ladderResult.containsKey(name);
+    }
+
+    public void clear() {
+        ladderResult.clear();
     }
 }
