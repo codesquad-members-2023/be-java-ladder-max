@@ -10,8 +10,8 @@ public class Ladder {
     private List<List<String>> ladderBoard;
     private List<String> names;
 
-    public void init(ArrayList<String> returnSeting) {
-        names = returnSeting;
+    public void init(ArrayList<String> returnInit) {
+        names = returnInit;
     }
 
     public void makeLadder(int height) {
@@ -29,10 +29,11 @@ public class Ladder {
         if (tempBoolean) {
             x = 1;
         }
-        switchAndForLoopInForLoopInForLoopInMakeLadder(tempBoolean, i, x);
+        switchInForLoopInForLoopInMakeLadder(i, x);
+        forLoopInForLoopInForLoopInMakeLadder(tempBoolean, i, x);
     }
 
-    private void switchAndForLoopInForLoopInForLoopInMakeLadder(boolean bool, int i, int x) {
+    private void switchInForLoopInForLoopInMakeLadder(int i, int x) {
         switch (x) {
             case 1:
                 ladderBoard.get(i).add("-----");
@@ -43,10 +44,13 @@ public class Ladder {
                 ladderBoard.get(i).add("|");
                 break;
         }
+    }
+
+    private void forLoopInForLoopInForLoopInMakeLadder(boolean tempBoolean, int i, int x) {
         for (int j = 1; j < names.size() - 1; j++) {
-            bool = random.nextBoolean();
+            tempBoolean = random.nextBoolean();
             x = 0;
-            ifStatementInForInForInForInMakeLadder(bool, i, j, x);
+            ifStatementInForInForInForInMakeLadder(tempBoolean, i, j, x);
         }
     }
 
