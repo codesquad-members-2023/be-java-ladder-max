@@ -7,8 +7,15 @@ public class LadderLine {
     private final List<LadderPart> ladderParts;
 
     public LadderLine(List<LadderPart> ladderParts) {
+        validateWidth(ladderParts);
         validateLine(ladderParts);
         this.ladderParts = ladderParts;
+    }
+
+    private void validateWidth(List<LadderPart> ladderParts) {
+        if (ladderParts.size() % 2 == 0) {
+            throw new IllegalArgumentException("사다리 길이가 유효하지 않습니다.");
+        }
     }
 
     public int getSumParts() {
@@ -25,13 +32,13 @@ public class LadderLine {
 
     private void validatePart(List<LadderPart> ladderParts, int width) {
         if (width % 2 == 0 && ladderParts.get(width) != LadderPart.BAR) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("사다리 Bar가 생성될 위치입니다.");
         }
         if (width % 2 == 1 && ladderParts.get(width) == LadderPart.BAR) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("사다리 Bar가 생성될 수 없는 위치입니다.");
         }
         if (width > 2 && ladderParts.get(width - 2) == ladderParts.get(width)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("사다리 Bridge는 연속으로 생성될 수 없습니다.");
         }
     }
 
