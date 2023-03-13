@@ -39,7 +39,23 @@ public class Line {
         return builder.toString();
     }
 
-    public boolean isRungExist(int index) {
-        return rungs.get(index);
+    public int rideLine(int index) {
+        final int FIRST = 0;
+        final int LAST = rungs.size();
+        final int LEFT = index - 1;
+        final int RIGHT = index + 1;
+        if (index == FIRST && rungs.get(FIRST)) {
+            return RIGHT;
+        }
+        if (index != FIRST && index != LAST && rungs.get(index)) {
+            return RIGHT;
+        }
+        if (index != FIRST && index != LAST && rungs.get(LEFT)) {
+            return LEFT;
+        }
+        if (index == LAST && rungs.get(LEFT)) {
+            return LEFT;
+        }
+        return index;
     }
 }
