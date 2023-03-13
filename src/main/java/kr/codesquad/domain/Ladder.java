@@ -32,7 +32,7 @@ public class Ladder {
         ladderResult.add(index);
     }
 
-    public void printRadder() {
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n사다리 출력\n");
         // 이름 row
@@ -44,7 +44,7 @@ public class Ladder {
         }
         // 결과 row
         sb.append(results + "\n");
-        System.out.println(sb);
+        return sb.toString();
     }
 
     public void printPlayerResult(String name) {
