@@ -16,8 +16,7 @@ public class Ladder {
 
     public void makeLadder() {
         for (int i = 0; i < height; i++) {
-            Line line = new Line();
-            line.makeRungs(width);
+            Line line = new Line(width);
             lines.add(line);
         }
     }

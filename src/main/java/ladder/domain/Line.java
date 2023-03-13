@@ -6,9 +6,11 @@ import java.util.List;
 public class Line {
     private final List<Boolean> rungs = new ArrayList<>();
 
-    public Line() { }
+    public Line(int width) {
+        makeRungs(width);
+    }
 
-    public void makeRungs(int width) {
+    private void makeRungs(int width) {
         rungs.add(makeRungRandomly());
         for (int i = 1; i < width; i++) {
             rungs.add(checkContinuousRungs(i));

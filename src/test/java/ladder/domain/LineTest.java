@@ -10,11 +10,10 @@ public class LineTest {
     @DisplayName("같은 높이에 연속된 발판을 생성하지 않음을 검증하는 테스트")
     void checkContinuousRungs() {
         // given
-        Line line = new Line();
         int width = 6;
 
         // when
-        line.makeRungs(width);
+        Line line = new Line(width);
 
         // then
         for (int i = 0; i < width - 1; i++) {
