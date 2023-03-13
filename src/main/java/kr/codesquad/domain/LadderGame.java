@@ -4,31 +4,36 @@ import kr.codesquad.view.Input;
 import kr.codesquad.view.Output;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LadderGame {
 
     private Input input = new Input();
     private Output output = new Output();
     private Ladder ladder;
+    private Names names;
+    private Results results;
 
     public void run() {
         try {
-            ladder = new Ladder(input.inputName(), input.inputResult(), input.inputHeight());
-            output.printLadder(ladder);
-            ladder.playLadderGame();
+            names = new Names(input.inputName());
+            results = new Results(input.inputResult());
+            ladder = new Ladder(names.size(), input.inputHeight());
+
+            output.printLadder(ladder.toString(), names.toString(), results.toString());
 
             while (true) {
-                printResultByInput(input.inputNameCommand());
+                playLadderGameByInput(input.inputNameCommand());
             }
         } catch (IOException e) {
             e.printStackTrace();
-
         }
     }
 
-    public void printResultByInput(String inputName) {
+    public void playLadderGameByInput(String inputName) {
         if (inputName.equals("all")) {
-            ladder.printAllResult();
+            playAllLadderGame();
             return;
         }
         if (inputName.equals("춘식이")) {
@@ -36,6 +41,18 @@ public class LadderGame {
             System.exit(1);
         }
 
-        ladder.printPlayerResult(inputName);
+        playLadderGameByName(inputName);
+    }
+
+    public void playLadderGameByName(String name) {
+        output.printPlayerResult(results.get(ladder.moveDown(names.indexOf(name))));
+    }
+
+    public void playAllLadderGame() {
+        Map<String, String> nameResultPair = new HashMap<>();
+        for (int i = 0; i < names.size(); i++) {
+            nameResultPair.put(names.get(i), results.get(ladder.moveDown(i)));
+        }
+        output.printAllResult(nameResultPair);
     }
 }
