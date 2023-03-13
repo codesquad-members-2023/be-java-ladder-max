@@ -12,20 +12,27 @@ import java.util.Arrays;
 public class LadderGame {
 
     private ArrayList<String> names;
+    private ArrayList<String> results;
     private int countOfLadder;
     public void startLadderGame() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Input input = new Input();
         Validator validator = new Validator();
-        boolean checkName = true, checkLadder = true;
+        boolean checkName = true, checkResult = true, checkLadder = true;
 
-        while(checkName) {
+        while (checkName) {
             String answer = input.input(br, 0);
-            String[] arrayNames = splitNames(answer);
+            String[] arrayNames = splitAnswer(answer);
             checkName = checkNames(validator, arrayNames);
         }
 
-        while(checkLadder) {
+        while (checkResult) {
+            String answer = input.input(br, 1);
+            String[] arrayResults = splitAnswer(answer);
+            checkResult = checkResults(validator, arrayResults);
+        }
+
+        while (checkLadder) {
             String answer = input.input(br, 2);
             checkLadder = checkLadder(validator, input, answer);
         }
@@ -43,6 +50,14 @@ public class LadderGame {
         return true;
     }
 
+    private boolean checkResults(Validator validator, String[] arrayResults) {
+        if(validator.validateResults(arrayResults)) {
+            results = new ArrayList<>(Arrays.asList(arrayResults));
+            return false;
+        }
+        return true;
+    }
+
     private boolean checkLadder(Validator validator, Input input, String answer) {
         if(validator.validateLadder(answer)) {
             countOfLadder = input.inputLadder(answer);
@@ -51,7 +66,7 @@ public class LadderGame {
         return true;
     }
 
-    private String[] splitNames(String answer) {
+    private String[] splitAnswer(String answer) {
         return answer.replaceAll(" ", "").split(",");
     }
 }
