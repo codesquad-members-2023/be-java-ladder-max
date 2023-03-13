@@ -3,9 +3,6 @@ package ladder.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class PlayersTest {
@@ -13,8 +10,7 @@ public class PlayersTest {
     @DisplayName("참가자의 수가 2명 미만일 경우 오류를 발생하는지 검증하는 테스트")
     void checkMinPlayer() {
         // given
-        List<String> names = new ArrayList<>();
-        names.add("alone");
+        String[] names = {"alone"};
 
         // when
         // then
