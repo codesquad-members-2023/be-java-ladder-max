@@ -22,20 +22,20 @@ public class Line {
         return new Random().nextBoolean()&&!point.get(point.size()-1);
     }
 
-    public String horizontalLine() {
+    @Override
+    public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("|");
+        stringBuilder.append(" |");
         for(int i = 0; i<point.size(); i++) {
-            if(point.get(i)){
-                stringBuilder.append("-----|");
-            } else {
-                stringBuilder.append("     |");
-            }
+            drawCheck(point.get(i),stringBuilder);
         }
         return stringBuilder.toString();
     }
 
-    public List<Boolean> getPoint() {
-        return point;
+    public StringBuilder drawCheck(boolean check,StringBuilder stringBuilder) {
+        if(check) {
+            return stringBuilder.append("-----|");
+        }
+        return stringBuilder.append("     |");
     }
 }
