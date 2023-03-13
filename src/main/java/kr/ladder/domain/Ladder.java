@@ -98,7 +98,15 @@ public class Ladder {
         ladderLine.add(ladderLine.get((i * 6) + 1)); // 현재 뭉터기의 첫 부분
     }
 
-    public List<List<String>> getLadder(){
-        return ladder;
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        for (List<String> ladderRow : ladder) {
+            for (String ladderColumn : ladderRow) {
+                sb.append(ladderColumn);
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 }
