@@ -37,9 +37,15 @@ public class LadderLine {
         if (width % 2 == 1 && ladderParts.get(width) == LadderPart.BAR) {
             throw new IllegalArgumentException("사다리 Bar가 생성될 수 없는 위치입니다.");
         }
-        if (width > 2 && ladderParts.get(width - 2) == ladderParts.get(width)) {
+        if (isConnectedBridge(ladderParts, width)) {
             throw new IllegalArgumentException("사다리 Bridge는 연속으로 생성될 수 없습니다.");
         }
+    }
+
+    private boolean isConnectedBridge(List<LadderPart> ladderParts, int width) {
+        return width > 2 &&
+                ladderParts.get(width - 2) == LadderPart.BRIDGE &&
+                ladderParts.get(width) == LadderPart.BRIDGE;
     }
 
     @Override

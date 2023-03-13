@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/dto/LadderInputDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/dto/LadderInputDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderLine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/kr/codesquad/domain/LadderLineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kr/codesquad/domain/LadderLineTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/service/LadderGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/service/LadderGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +112,20 @@
       <recent name="kr.codesquad.view" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LadderLineTest">
+  <component name="RunManager" selected="JUnit.LadderPartTest">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
+      <module name="java-lotto.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kr.codesquad.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LadderLineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-lotto.test" />
       <extension name="coverage">
@@ -159,23 +173,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LadderLineTest.ladderLineConnectBridgeExceptionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-lotto.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="kr.codesquad.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderLineTest" />
-      <option name="METHOD_NAME" value="ladderLineConnectBridgeExceptionTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LadderPartTest.createRandomPartTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LadderPartTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-lotto.test" />
       <extension name="coverage">
         <pattern>
@@ -185,19 +183,18 @@
       </extension>
       <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
       <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderPartTest" />
-      <option name="METHOD_NAME" value="createRandomPartTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LadderPartTest" />
         <item itemvalue="JUnit.LadderLineTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.LadderLineTest.ladderLineConnectBridgeExceptionTest (1)" />
         <item itemvalue="JUnit.LadderLineTest.ladderLineConnectBridgeExceptionTest (2)" />
-        <item itemvalue="JUnit.LadderPartTest.createRandomPartTest" />
-        <item itemvalue="JUnit.LadderLineTest.ladderLineConnectBridgeExceptionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -229,7 +226,8 @@
       <workItem from="1678423594704" duration="9957000" />
       <workItem from="1678671146542" duration="3264000" />
       <workItem from="1678674609746" duration="189000" />
-      <workItem from="1678674803229" duration="11312000" />
+      <workItem from="1678674803229" duration="12922000" />
+      <workItem from="1678713384945" duration="777000" />
     </task>
     <servers />
   </component>
