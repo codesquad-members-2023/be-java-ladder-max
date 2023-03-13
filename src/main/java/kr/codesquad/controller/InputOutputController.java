@@ -17,25 +17,25 @@ public class InputOutputController extends Players {
         this.outputHandler = new OutputView();
     }
 
-    Players getName(){
+    public void setupGame(Players players,LadderHeight ladderHeight,Result result){
+        getName(players);
+        getResult(result,players.getNameList().size());
+        getHeight(ladderHeight);
+    }
+
+    private void getName(Players players){
         inputHandler.playerNamePrompt();
-        Players player = new Players();
-        while(!player.getVaildNameFromUser(inputHandler));
-        return player;
+        while(!players.getVaildNameFromUser(inputHandler));
     }
 
-    LadderHeight getHeight(){
+    private void getHeight(LadderHeight ladderHeight){
         inputHandler.LadderHeightPrompt();
-        LadderHeight ladderHeight = new LadderHeight();
         while(!ladderHeight.getValidHeightFromUser(inputHandler));
-        return ladderHeight;
     }
 
-    Result getResult(int playerNum){
+    private void getResult(Result result,int playerNum){
         inputHandler.resultPrompt();
-        Result result = new Result();
         while(!result.getResult(inputHandler, playerNum));
-        return result;
     }
 
     void getExcutionResult(HashMap<String,Integer> resultMap,Result result) throws IOException {
