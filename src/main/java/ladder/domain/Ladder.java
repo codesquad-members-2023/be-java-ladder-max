@@ -10,8 +10,8 @@ public class Ladder {
     private final int height;
     private final List<Line> lines;
 
-    public Ladder(int width, int height) {
-        this.width = width;
+    public Ladder(int players, int height) {
+        this.width = players - 1;
         this.height = height;
         this.lines = new ArrayList<>();
     }
@@ -32,5 +32,12 @@ public class Ladder {
             builder.append(System.lineSeparator());
         }
         return builder.toString();
+    }
+
+    public int rideLadder(int index) {
+        for (Line line : lines) {
+            index = line.rideLine(index);
+        }
+        return index;
     }
 }
