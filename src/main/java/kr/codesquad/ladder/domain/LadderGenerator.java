@@ -29,7 +29,7 @@ public class LadderGenerator {
 
     private Line createLine(int countOfPerson, Random random) {
         Line line = new Line(new Points());
-        for (int i = 0; i < countOfPerson - 1; i++) {
+        for (int i = 0; i < countOfPerson * 2 - 1; i++) {
             line.addPoint(i, random);
         }
         return line;
