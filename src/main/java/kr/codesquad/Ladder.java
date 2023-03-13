@@ -13,8 +13,9 @@ public class Ladder {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     for (ArrayList<Boolean> row : ladder) {
+      sb.append("  "); // 사람 이름 5글자가 기준이므로 사다리 앞에 2칸의 간격 추가
       for (boolean hasLine : row) {
-        String line = hasLine ? "|-" : "| ";
+        String line = hasLine ? "|-----" : "|     ";
         sb.append(line);
       }
       sb.append("\n");

@@ -10,4 +10,24 @@ public class Player {
     this.col = col;
     this.row = 0;
   }
+
+  public String getName() {
+    return name;
+  }
+
+  public int getCol() {
+    return col;
+  }
+
+  public int getRow() {
+    return row;
+  }
+
+  public void setCol(int col) {
+    this.col = col;
+  }
+
+  public void setRow(int row) {
+    this.row = row;
+  }
 }

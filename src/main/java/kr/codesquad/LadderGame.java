@@ -21,7 +21,25 @@ public class LadderGame implements Runnable {
     int sizeOfLadder = inputToLadderSize("최대 사다리 높이는 몇 개인가요?");
 
     Ladder ladder = generator.generate(playerArrayList.size(),sizeOfLadder);
-    System.out.println(ladder);
+    printPlayerList(playerArrayList); // 사람 이름 출력
+    System.out.println(ladder); // 사다리 출력
+  }
+
+  private void printPlayerList(ArrayList<Player> playerArrayList) {
+    StringBuilder sb = new StringBuilder();
+    for (var player : playerArrayList) {
+      sb.append(alignCenter(player.getName())).append(" ");
+    }
+    System.out.println(sb);
+  }
+
+  // 5글자를 기준으로 이름을 가운데로 정렬하는 메소드
+  private String alignCenter(String name) {
+    StringBuilder sb = new StringBuilder();
+    while(sb.length() < (5-name.length())/2) sb.append(" ");
+    sb.append(name);
+    while(sb.length() < 5) sb.append(" ");
+    return sb.toString();
   }
 
   private ArrayList<Player> inputPlayersToPlayerList(String prompt) {
