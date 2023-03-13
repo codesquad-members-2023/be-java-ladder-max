@@ -1,18 +1,20 @@
 package kr.codesquad.domain;
 
 import kr.codesquad.view.Input;
+import kr.codesquad.view.Output;
 
 import java.io.IOException;
 
 public class LadderGame {
 
     private Input input = new Input();
+    private Output output = new Output();
     private Ladder ladder;
 
     public void run() {
         try {
             ladder = new Ladder(input.inputName(), input.inputResult(), input.inputHeight());
-            System.out.println(ladder);
+            output.printLadder(ladder);
             ladder.playLadderGame();
 
             while (true) {

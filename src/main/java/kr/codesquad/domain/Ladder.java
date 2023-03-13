@@ -34,7 +34,6 @@ public class Ladder {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\n사다리 출력\n");
         // 이름 row
         sb.append(names + "\n");
         // 사다리 row
