@@ -20,8 +20,8 @@ public class LadderGameController {
         }
 
         public void run() throws IOException {
-                String[] peopleNames = inputView.getPeopleName();
-                ladder.makeLadder(peopleNames.length, inputView.getLadderHeight());
-                outputView.printPeopleNameAndLadder(peopleNames, ladder.getLadder());
+                String[] players = inputView.getPlayer();
+                ladder.makeLadder(players.length, inputView.getLadderHeight());
+                outputView.printPlayersAndLadder(players, ladder.toString());
         }
 }
