@@ -111,7 +111,7 @@
       <recent name="kr.codesquad.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LadderLineTest.ladderLineConnectBridgeExceptionTest">
+  <component name="RunManager" selected="JUnit.LadderPartTest.createRandomPartTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
       <module name="java-lotto.main" />
@@ -136,6 +136,22 @@
       <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
       <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderLineTest" />
       <option name="METHOD_NAME" value="ladderLineConnectBridgeExceptionTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LadderPartTest.createRandomPartTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lotto.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kr.codesquad.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderPartTest" />
+      <option name="METHOD_NAME" value="createRandomPartTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -172,29 +188,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScreenTest.inputLadderHeightTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-lotto.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="kr.codesquad.view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="kr.codesquad.view" />
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.view.ScreenTest" />
-      <option name="METHOD_NAME" value="inputLadderHeightTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LadderPartTest.createRandomPartTest" />
         <item itemvalue="JUnit.LadderLineTest.ladderLineConnectBridgeExceptionTest" />
         <item itemvalue="JUnit.ScreenTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ScreenTest.inputLadderHeightTest (1)" />
-        <item itemvalue="JUnit.ScreenTest.inputLadderHeightTest" />
       </list>
     </recent_temporary>
   </component>
