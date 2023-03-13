@@ -16,6 +16,11 @@ public class ResultGroup {
     }
 
     public String getResult(String playerName) {
+        if(playerName.equals("--quit")) {
+            System.out.println("프로그램을 종료합니다.");
+            System.exit(0);
+        }
+
         StringBuilder sb = new StringBuilder();
         if(playerName.equals("all")) {
             for(Result result : results) {
