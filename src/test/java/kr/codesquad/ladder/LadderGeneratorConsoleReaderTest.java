@@ -78,5 +78,4 @@ class LadderGeneratorConsoleReaderTest {
         //when & then
         Assertions.assertThatThrownBy(() -> ladderReader.readLadderResults(4));
     }
-
 }
