@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PlayerValidator {
+public class Player {
 
     private final String ERROR_MESSAGE_FOR_NAME_LENGTH = "5글자 이상인 이름 발견 재입력 할것";
     private final String ERROR_MESSAGE_FOR_PLAYER_NUMBER = "player는 2명이상 필요합니다.재입력 해라";

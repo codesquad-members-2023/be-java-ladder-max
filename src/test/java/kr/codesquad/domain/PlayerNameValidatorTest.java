@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PlayerNameValidatorTest {
 
-    PlayerValidator playerValidator = new PlayerValidator();
+    Player playerValidator = new Player();
     InputView inputHandler = new InputView();
     ArrayList list = new ArrayList<>();
 

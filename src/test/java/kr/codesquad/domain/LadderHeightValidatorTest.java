@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class LadderHeightValidatorTest {
 
-    LadderHeightValidator heightValidator = new LadderHeightValidator();
+    LadderHeight heightValidator = new LadderHeight();
     InputView inputHandler = new InputView();
     ArrayList list = new ArrayList();
     @Test

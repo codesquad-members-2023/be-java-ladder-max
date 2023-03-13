@@ -5,7 +5,7 @@ import kr.codesquad.view.InputView;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class LadderHeightValidator {
+public class LadderHeight {
 
     private final String ERROR_MESSAGE_FOR_LADDER_HEIGHT = "사다리 높이는 1이상으로 입력";
     public boolean getValidHeightFromUser(ArrayList list, InputView inputHandler) {
