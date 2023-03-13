@@ -8,16 +8,19 @@ import java.util.HashMap;
 public class ExecutionResult {
 
     HashMap<String,String> resultMap;
+
     public ExecutionResult(InputView inputHandler) throws IOException {
         resultMap = new HashMap<>();
         inputHandler.selectPlayerPrompt();
-        getExecutionResult(inputHandler.getInput());
-        inputHandler.executionResultPrompt();
+        getExecutionResult(inputHandler,inputHandler.getInput());
     }
 
-    void getExecutionResult(String pickedPerson){
+    void getExecutionResult(InputView inputHandler,String pickedPerson){
+        inputHandler.executionResultPrompt();
         if(pickedPerson.equals("all")){
-            //todo all이면 hashmap다보여주고 아니면 맞는사람보여줘
+            System.out.println(resultMap);
+            return;
         }
+        System.out.println(pickedPerson + ":" + resultMap.get(pickedPerson));
     }
 }

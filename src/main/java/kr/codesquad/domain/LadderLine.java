@@ -1,6 +1,7 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.stream.IntStream;
 
@@ -9,7 +10,7 @@ public class LadderLine {
 
     private final int lineWidth;
     ArrayList<Boolean> points;
-    LinePointsValidator linePointsValidator;
+    private LinePointsValidator linePointsValidator;
 
     public LadderLine(int countOfPeople) {
         this.lineWidth = countOfPeople - 1;
@@ -47,6 +48,18 @@ public class LadderLine {
     private static void drawRung(StringBuilder sb, LadderLine line) {
         for (boolean boolInLine : line.points) {
             sb.append(boolInLine ? "-----|" : "     |");
+        }
+    }
+
+    public void canMove(HashMap<String,Integer> resultMap,ArrayList<String> nameList) {
+        for(String name:nameList){
+            int pos = resultMap.get(name);
+            if (pos > 0 && points.get(pos - 1)) {
+                resultMap.put(name,pos-1);
+            }
+            if (pos < lineWidth && points.get(pos)) { // 오류날수도
+                resultMap.put(name,pos+1);
+            }
         }
     }
 }

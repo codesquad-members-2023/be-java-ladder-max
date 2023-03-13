@@ -8,14 +8,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Player {
+public class Players {
 
     private static final String NAME_LENGTH_ERROR_MESSAGE = "이름은 5글자 이하여야 합니다. 다시 입력해주세요.";
     private static final String PLAYER_NUMBER_ERROR_MESSAGE = "player는 2명 이상이 필요합니다. 다시 입력해주세요.";
 
     private final ArrayList<String> nameList;
 
-    public Player() {
+    public Players() {
         this.nameList = new ArrayList<>();
     }
 

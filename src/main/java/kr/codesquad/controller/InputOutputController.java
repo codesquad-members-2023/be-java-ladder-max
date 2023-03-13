@@ -5,9 +5,8 @@ import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-public class InputOutputController extends Player {
+public class InputOutputController extends Players {
 
     private OutputView outputHandler;
     private InputView inputHandler;
@@ -17,9 +16,9 @@ public class InputOutputController extends Player {
         this.outputHandler = new OutputView();
     }
 
-    Player getName(){
+    Players getName(){
         inputHandler.playerNamePrompt();
-        Player player = new Player();
+        Players player = new Players();
         while(!player.getVaildNameFromUser(inputHandler));
         return player;
     }
@@ -38,11 +37,11 @@ public class InputOutputController extends Player {
         return result;
     }
 
-//    void getExcutionResult() throws IOException {
-//        while(true){
-//            ExecutionResult executionResult = new ExecutionResult(inputHandler);
-//        }
-//    }
+    void getExcutionResult() throws IOException {
+        while(true){
+            ExecutionResult executionResult = new ExecutionResult(inputHandler);
+        }
+    }
 
     void printLadder(Ladder ladder,Result result) {
         outputHandler.printLadder(ladder,result);
