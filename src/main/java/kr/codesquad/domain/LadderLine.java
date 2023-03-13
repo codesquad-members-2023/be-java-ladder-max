@@ -11,30 +11,14 @@ public class LadderLine {
 
     private final int lineWidth;
     ArrayList<Boolean> points;
-    private LinePointsValidator linePointsValidator;
 
     public LadderLine(int countOfPeople) {
         this.lineWidth = countOfPeople - 1;
         this.points = new ArrayList<>();
-        linePointsValidator = new LinePointsValidator();
     }
 
     void createLine(){
-        buildLadderLine();
-    }
-
-    private void buildLadderLine() {
-        IntStream.range(0, lineWidth)
-                .mapToObj(i -> generateRungStatus())
-                .forEach(points::add);
-        linePointsValidator.validatePoints(points);//todo 예외 발생시 어떻게 할건지
-    }
-
-    private boolean generateRungStatus() {
-        if (points.isEmpty()) {
-            return new Random().nextBoolean();
-        }
-        return new Random().nextBoolean() && !points.get(points.size() - 1);
+        points.addAll(new RandomLineGenerator().buildLadderLine(lineWidth));
     }
 
     static void drawLine(List<LadderLine> ladder, StringBuilder sb) {
