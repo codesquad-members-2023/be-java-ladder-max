@@ -5,10 +5,6 @@ import java.util.Random;
 
 public class Line {
 
-    private static final String BRIDGE = "-----";
-    private static final String EMPTY = "     ";
-    private static final String BAR = "|";
-
     private final Points points;
 
     public Line(Points points) {
@@ -16,7 +12,19 @@ public class Line {
     }
 
     public void addPoint(int col, Random random) {
+        if (isBarColumn(col)) {
+            points.add(buildBar());
+            return;
+        }
         points.add(buildRandomBridge(col, random));
+    }
+
+    private boolean isBarColumn(int col) {
+        return col % 2 == 0;
+    }
+
+    private Point buildBar() {
+        return Point.ofBar();
     }
 
     private Point buildRandomBridge(int col, Random random) {
@@ -51,16 +59,8 @@ public class Line {
     public String toString() {
         StringBuilder line = new StringBuilder();
         for (Point point : points) {
-            line.append(BAR).append(toBridge(point));
+            line.append(point);
         }
-        line.append(BAR);
         return line.toString();
-    }
-
-    private String toBridge(Point point) {
-        if (point.isBridge()) {
-            return BRIDGE;
-        }
-        return EMPTY;
     }
 }
