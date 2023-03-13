@@ -10,12 +10,12 @@ import java.io.IOException;
 
 public class Controller {
     public void run() throws IOException {
-        Input input = new Input();
-        String userName = input.insertUser();
+        String userName = Input.insertUser();
         User user = new User(userName);
         Validator validator = new Validator();
         while (!validator.nameValidate(userName.split(","))){
-            userName = input.insertUser();
+            userName = Input.insertUser();
+            user = new User(userName);
         }
         int userCount = userName.split(",").length;
         Ladder ladder = new Ladder(Input.ladderLength(),userCount);
