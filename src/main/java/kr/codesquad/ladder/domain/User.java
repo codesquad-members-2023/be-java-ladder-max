@@ -1,7 +1,9 @@
 package kr.codesquad.ladder.domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class User {
 
@@ -12,12 +14,9 @@ public class User {
     }
 
     private List<String> userList(){
-        List<String> userList = new ArrayList<>();
-        String listArr[] = name.split(",");
-        for(String temp : listArr) {
-            userList.add(formatName(temp));
-        }
-        return userList;
+        return Arrays.stream(name.split(","))
+                .map(this::formatName)
+                .collect(Collectors.toList());
     }
 
     public String formatName(String temp) {
@@ -26,12 +25,8 @@ public class User {
 
     @Override
     public String toString() {
-        List<String> userList = userList();
-        StringBuilder stringBuilder = new StringBuilder();
-        for(String temp : userList) {
-            stringBuilder.append(temp);
-        }
-        return stringBuilder.toString();
+        return userList().stream()
+                .collect(Collectors.joining());
     }
 
 }
