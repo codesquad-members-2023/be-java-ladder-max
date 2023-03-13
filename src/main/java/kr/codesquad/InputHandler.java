@@ -14,6 +14,7 @@ public class InputHandler {
             validator.validatePlayers(players);
         }
         catch (RuntimeException e) {
+            System.out.println(e.getMessage());
             players = inputValidatedPlayers();
         }
         return players;
