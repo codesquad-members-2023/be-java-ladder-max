@@ -49,4 +49,38 @@ public class Points implements Iterable<Point> {
     public Iterator<Point> iterator() {
         return points.iterator();
     }
+
+    public int climb(int col) {
+        boolean[] visited = new boolean[points.size()];
+        return climbUtil(col, visited);
+    }
+
+    // TODO: depth2 -> depth1 줄이기
+    private int climbUtil(int col, boolean[] visited) {
+        visited[col] = true;
+        List<Integer> adjacentColumns = getAdjacentColumns(col);
+
+        for (int adjacentColumn : adjacentColumns) {
+            if (visited[adjacentColumn]) {
+                continue;
+            }
+            if (points.get(adjacentColumn).isEmpty()) {
+                continue;
+            }
+            return climbUtil(adjacentColumn, visited);
+        }
+        return col;
+    }
+
+    private List<Integer> getAdjacentColumns(int col) {
+        List<Integer> adjacentColumns = new ArrayList<>();
+
+        if (col > 0) {
+            adjacentColumns.add(col - 1);
+        }
+        if (col < points.size() - 1) {
+            adjacentColumns.add(col + 1);
+        }
+        return adjacentColumns;
+    }
 }
