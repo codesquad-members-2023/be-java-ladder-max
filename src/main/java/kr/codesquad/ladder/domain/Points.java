@@ -3,6 +3,7 @@ package kr.codesquad.ladder.domain;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 public class Points implements Iterable<Point> {
 
@@ -20,15 +21,28 @@ public class Points implements Iterable<Point> {
         points.add(point);
     }
 
-    public Point get(int index) {
-        return points.get(index);
-    }
-
     public boolean existBridgeOnLeft(int col) {
-        if (col == 0) {
+        if (col == 1) {
             return false;
         }
-        return points.get(col - 1).isBridge();
+        return points.get(col - 2).isBridge();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Points)) {
+            return false;
+        }
+        Points points1 = (Points) o;
+        return Objects.equals(points, points1.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(points);
     }
 
     @Override
