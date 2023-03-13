@@ -33,6 +33,7 @@ public class LadderGame implements Runnable {
     }
     return parsedValue.get();
   }
+
   private Optional<ArrayList<Player>> parsePlayerList(String inputString) {
     String[] playerNames = inputString.split(",");
     if (!isValidPlayer(playerNames)) return Optional.empty();
@@ -61,14 +62,12 @@ public class LadderGame implements Runnable {
   }
 
   private int inputToLadderSize(String prompt) {
-    while (true) {
-      String inputString = console.input(prompt);
-      Optional<Integer> parsedValue = parseLadderSize(inputString);
-      if (parsedValue.isEmpty()) {
-        console.inputError();
-        continue;
-      }
-      return parsedValue.get();
+    String inputString = console.input(prompt);
+    Optional<Integer> parsedValue = parseLadderSize(inputString);
+    if (parsedValue.isEmpty()) {
+      console.inputError();
+      return inputToLadderSize(prompt);
     }
+    return parsedValue.get();
   }
 }
