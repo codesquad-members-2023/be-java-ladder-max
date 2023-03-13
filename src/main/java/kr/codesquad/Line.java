@@ -44,8 +44,7 @@ public class Line {
         return false;
     }
 
-    @Override
-    public String toString() {
-        return line.toString();
+    public List<Boolean> getLine() {
+        return this.line;
     }
 }
