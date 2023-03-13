@@ -23,4 +23,9 @@ public class InputView {
         return Integer.parseInt(br.readLine());
     }
 
+    public String inputSelectPlayer() throws IOException {
+        System.out.println("결과를 보고 싶은 사람은?");
+        return br.readLine();
+    }
+
 }
