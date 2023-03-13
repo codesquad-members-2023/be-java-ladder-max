@@ -3,10 +3,13 @@ package kr.codesquad.ladder.view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Optional;
+import kr.codesquad.ladder.domain.InvalidCountOfLadderResultException;
+import kr.codesquad.ladder.domain.InvalidLengthOfLadderResultException;
 import kr.codesquad.ladder.domain.InvalidNameFormatOfPeopleException;
 import kr.codesquad.ladder.domain.InvalidNumberOfMinimumLadderHeightException;
 import kr.codesquad.ladder.domain.InvalidCountOfPeopleException;
 import kr.codesquad.ladder.domain.LadderGenerator;
+import kr.codesquad.ladder.domain.LadderResults;
 import kr.codesquad.ladder.domain.Names;
 
 public class LadderConsoleReader implements LadderReader {
@@ -69,5 +72,30 @@ public class LadderConsoleReader implements LadderReader {
             throw new RuntimeException(e);
         }
         return optionalLadderGenerator;
+    }
+
+    @Override
+    public LadderResults readLadderResults(int countOfPeople) {
+        Optional<LadderResults> optionalLadderResults = Optional.empty();
+        while (optionalLadderResults.isEmpty()) {
+            ladderWriter.writeLadderResultIntro();
+            optionalLadderResults = readLadderResultsText(countOfPeople);
+        }
+        return optionalLadderResults.get();
+    }
+
+    private Optional<LadderResults> readLadderResultsText(int countOfPeople) {
+        Optional<LadderResults> optionalLadderResults = Optional.empty();
+        try {
+            String text = reader.readLine();
+            optionalLadderResults = Optional.of(new LadderResults(text, countOfPeople));
+        } catch (InvalidLengthOfLadderResultException e) {
+            ladderWriter.write(e.getMessage());
+        } catch (InvalidCountOfLadderResultException e) {
+            ladderWriter.write(e.getMessage());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return optionalLadderResults;
     }
 }
