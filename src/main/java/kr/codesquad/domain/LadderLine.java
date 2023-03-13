@@ -17,7 +17,7 @@ public class LadderLine {
         this.points = new ArrayList<>();
     }
 
-    void createLine(){
+    void createLine() {
         points.addAll(new RandomLineGenerator().buildLadderLine(lineWidth));
     }
 
@@ -35,15 +35,14 @@ public class LadderLine {
         }
     }
 
-    void canMove(HashMap<String,Integer> resultMap, List<String> nameList) {
-        for(String name:nameList){
-            int pos = resultMap.get(name);
-            if (pos > 0 && points.get(pos - 1)) {
-                resultMap.put(name,pos-1);
-            }
-            if (pos < lineWidth && points.get(pos)) {
-                resultMap.put(name,pos+1);
-            }
+    int canMove(int playerNumber) {
+        int pos = playerNumber;
+        if (pos > 0 && points.get(pos - 1)) {
+            return pos - 1;
         }
+        if (pos < lineWidth && points.get(pos)) {
+            return pos + 1;
+        }
+        return pos;
     }
 }

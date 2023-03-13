@@ -21,6 +21,7 @@ public class LadderGameController {
         ioController.setupGame(players,ladderHeight,result);
         Ladder ladder = new Ladder(players.getNameList(), ladderHeight.getLadderHeight());
         ioController.printLadder(ladder,players,result);
-        ioController.getExcutionResult(ladder.generateResultMap(),result);
+        ExcutionResultGenerator excutionResultGenerator = new ExcutionResultGenerator(ladder,players,result);
+        ioController.getExcutionResult(excutionResultGenerator.getResultMap());
     }
 }

@@ -38,9 +38,9 @@ public class InputOutputController extends Players {
         while(!result.getResult(inputHandler, playerNum));
     }
 
-    void getExcutionResult(HashMap<String,Integer> resultMap,Result result) throws IOException {
+    void getExcutionResult(HashMap<String,String> resultMap) throws IOException {
         while(true){
-            new ExecutionResult(inputHandler,resultMap,result);
+            new ExecutionResult(inputHandler,resultMap);
         }
     }
 

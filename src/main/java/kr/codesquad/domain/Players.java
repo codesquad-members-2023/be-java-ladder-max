@@ -23,6 +23,10 @@ public class Players {
         return nameList;
     }
 
+    String getNameFromNameList(int i){
+        return nameList.get(i);
+    }
+
     public boolean getVaildNameFromUser(InputView inputView) {
         try {
             String inputString = inputView.getInput();

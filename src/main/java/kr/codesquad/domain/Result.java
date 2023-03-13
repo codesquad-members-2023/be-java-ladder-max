@@ -12,11 +12,12 @@ public class Result {
 
     ArrayList<String> resultList;
 
-
     public Result() {
         this.resultList = new ArrayList();
     }
-
+    String getResultFromResultList(int i){
+        return resultList.get(i);
+    }
     public boolean getResult(InputView inputHandler, int sizeOfNameList){
         try {
             resultList.addAll(parseInputStringToResultList(inputHandler.getInput()));

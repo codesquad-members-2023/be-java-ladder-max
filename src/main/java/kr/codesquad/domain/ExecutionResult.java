@@ -8,14 +8,12 @@ import java.util.Map;
 
 public class ExecutionResult {
 
-    private HashMap<String,Integer> resultMap;
+    private HashMap<String,String> resultMap;
     private InputView inputHandler;
-    private Result result;
 
-    public ExecutionResult(InputView inputHandler,HashMap<String,Integer> resultMap,Result result) throws IOException {
+    public ExecutionResult(InputView inputHandler,HashMap<String,String> resultMap) throws IOException {
         this.resultMap = resultMap;
         this.inputHandler = inputHandler;
-        this.result = result;
         getNameForExcutionResult();
     }
 
@@ -27,11 +25,11 @@ public class ExecutionResult {
     private void getExecutionResult(InputView inputHandler,String pickedPerson){
         inputHandler.executionResultPrompt();
         if(pickedPerson.equals("all")){
-            for (Map.Entry<String, Integer> entry : resultMap.entrySet()) {
-                System.out.println(entry.getKey() + " : " + result.resultList.get(entry.getValue()));
+            for (Map.Entry<String, String> entry : resultMap.entrySet()) {
+                System.out.println(entry.getKey() + " : " + entry.getValue());
             }
             return;
         }
-        System.out.println(result.resultList.get(resultMap.get(pickedPerson)));
+        System.out.println(resultMap.get(pickedPerson));
     }
 }

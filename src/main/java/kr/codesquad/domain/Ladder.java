@@ -9,16 +9,11 @@ public class Ladder {
     private final int countOfPeople;
     private final int ladderHeight;
     private ArrayList<LadderLine> ladder;
-    private ArrayList<String> nameList;
-    private HashMap<String, Integer> resultMap;
-
 
     public Ladder(ArrayList nameList, int ladderHeight) {
         this.ladderHeight = ladderHeight;
-        this.nameList = nameList;
-        this.countOfPeople = this.nameList.size();
+        this.countOfPeople = nameList.size();
         createLadder();
-        resultMap = new HashMap<>();
     }
 
     private void createLadder() {
@@ -29,19 +24,13 @@ public class Ladder {
             ladder.add(ladderLine);
         }
     }
-    public HashMap<String, Integer> generateResultMap(){
-        makeResultMap();
-        return resultMap;
-    }
 
-    private void makeResultMap() {
-        int i = 0;
-        for (String name : nameList) {
-            resultMap.put(name, i++);
+    public int ladderRide(int playerNumber){
+        int resultPos = playerNumber;
+        for(LadderLine line:ladder){
+            resultPos= line.canMove(resultPos);
         }
-        for (LadderLine line : ladder) {
-            line.canMove(resultMap, nameList);
-        }
+        return resultPos;
     }
 
     @Override
