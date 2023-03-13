@@ -11,7 +11,7 @@ public class LadderGameController {
     public LadderGameController(){
         this.inputOutputcontroller = new InputOutputController();
     }
-    public void startLadderGame() throws IOException {
+    public void startLadderGame(){
         Ladder ladder = getLadder(getNameAndHeightFromInputOutputController());
         printLadder(ladder);
     }
