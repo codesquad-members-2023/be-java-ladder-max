@@ -16,13 +16,8 @@ public class LadderConsoleWriter implements LadderWriter {
     }
 
     @Override
-    public void write(Ladder ladder) {
-        write(ladder.toString());
-    }
-
-    @Override
-    public void write(Names names) {
-        write(names.toString());
+    public void writeLadderResultIntro() {
+        System.out.println("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
     }
 
     @Override

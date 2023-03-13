@@ -9,9 +9,7 @@ public interface LadderWriter {
 
     void writeMaximumLadderHeightIntro();
 
+    void writeLadderResultIntro();
+
     void write(String message);
-
-    void write(Ladder ladder);
-
-    void write(Names names);
 }
