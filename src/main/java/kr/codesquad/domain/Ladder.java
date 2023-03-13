@@ -26,6 +26,15 @@ public class Ladder {
         return ladder;
     }
 
+    public int climbDownLadder(int startIndex) {
+        int currentIndex = startIndex;
+        for(int row = 0; row < height; row++) {
+            // 좌 우로 이동하기
+            currentIndex = ladder.get(row).checkBridgeInBothDirection(currentIndex);
+        }
+        return currentIndex;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
