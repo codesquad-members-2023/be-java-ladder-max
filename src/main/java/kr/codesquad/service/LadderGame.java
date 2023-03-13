@@ -3,19 +3,12 @@ package kr.codesquad.service;
 import kr.codesquad.domain.Ladder;
 import kr.codesquad.domain.LadderLine;
 import kr.codesquad.domain.LadderPart;
-import kr.codesquad.view.Screen;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class LadderGame {
-    private final Screen screen;
     private Ladder ladder;
-
-    public LadderGame(Screen screen) {
-        this.screen = screen;
-    }
 
     public void makeLadder(int playerNumber, int height) {
         final List<LadderLine> ladderLines = new ArrayList<>();
@@ -70,38 +63,7 @@ public class LadderGame {
         return ladderParts.get(width) == ladderParts.get(width + 2);
     }
 
-
-    public void run() {
-        final List<String> playerNames = inputPlayerNames();
-        final int height = inputLadderHeight();
-
-        makeLadder(playerNames.size(), height);
-
-        showResult(playerNames, ladder);
+    public String toLadderShape() {
+        return String.join("\n", ladder.createOutputLines());
     }
-
-    private void showResult(List<String> playerNames, Ladder ladder) {
-        screen.printResult(playerNames, ladder.createOutputLines());
-    }
-
-    private int inputLadderHeight() {
-        Optional<Integer> ladderHeight = Optional.empty();
-
-        while (ladderHeight.isEmpty()) {
-            ladderHeight = screen.inputLadderHeight();
-        }
-
-        return ladderHeight.get();
-    }
-
-    private List<String> inputPlayerNames() {
-        Optional<List<String>> playerNames = Optional.empty();
-
-        while (playerNames.isEmpty()) {
-            playerNames = screen.inputPlayerNames();
-        }
-
-        return playerNames.get();
-    }
-
 }

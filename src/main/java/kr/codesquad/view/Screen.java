@@ -96,10 +96,10 @@ public class Screen {
                 .collect(Collectors.joining());
     }
 
-    public void printResult(List<String> playerNames, List<String> outputLines) {
+    public void printResult(List<String> playerNames, String ladderShape) {
         System.out.println("\n실행결과\n");
 
         System.out.println(toPlayerLine(playerNames));
-        System.out.println(String.join("\n", outputLines));
+        System.out.println(ladderShape);
     }
 }
