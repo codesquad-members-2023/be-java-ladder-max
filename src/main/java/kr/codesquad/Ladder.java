@@ -7,27 +7,14 @@ import java.lang.StringBuilder;
 
 public class Ladder {
     private final Random random = new Random();
-    //    private int width;
-    private int height;
     private List<List<String>> ladderBoard;
     private List<String> names;
 
-    public void init(int inputerGetLadderNum, ArrayList inputerGetNameAndCheckNameLength) {
-        makeNames(inputerGetNameAndCheckNameLength);
-//        widthIs();
-        height = inputerGetLadderNum;
-        makeLadder();
+    public void init(ArrayList<String> returnSeting) {
+        names = returnSeting;
     }
 
-    private void makeNames(ArrayList inputerGetNameAndCheckNameLength) {
-        names = inputerGetNameAndCheckNameLength;
-    }
-
-//    private void widthIs() {
-//        width = (names.size() * 2 - 1);
-//    }
-
-    private void makeLadder() {
+    public void makeLadder(int height) {
         ladderBoard = new ArrayList<>();
         for (int i = 0; i < height; i++) {
             ladderBoard.add(new ArrayList<>());
@@ -35,28 +22,17 @@ public class Ladder {
             forInForInMakeLadder(i);
         }
     }
+
     private void forInForInMakeLadder(int i) {
-        boolean temp = random.nextBoolean();
+        boolean tempBoolean = random.nextBoolean();
         int x = 0;
-        if (temp) {
+        if (tempBoolean) {
             x = 1;
         }
-        switchInForInForInMakeLadder(i, x);
-        for (int j = 1; j < names.size() - 1; j++) {
-            temp = random.nextBoolean();
-            x = 0;
-            ifInForInForInForInMakeLadder(temp, i, j, x);
-        }
+        switchAndForLoopInForLoopInForLoopInMakeLadder(tempBoolean, i, x);
     }
 
-    private void ifInForInForInForInMakeLadder(boolean temp, int i, int j, int x) {
-        if (temp && ladderBoard.get(i).get(j - 1).equals("     ")) {
-            x = 1;
-        }
-        reusedSwitchInForInForInMakeLadder(i, x);
-    }
-
-    private void switchInForInForInMakeLadder(int i, int x) {
+    private void switchAndForLoopInForLoopInForLoopInMakeLadder(boolean bool, int i, int x) {
         switch (x) {
             case 1:
                 ladderBoard.get(i).add("-----");
@@ -67,6 +43,18 @@ public class Ladder {
                 ladderBoard.get(i).add("|");
                 break;
         }
+        for (int j = 1; j < names.size() - 1; j++) {
+            bool = random.nextBoolean();
+            x = 0;
+            ifStatementInForInForInForInMakeLadder(bool, i, j, x);
+        }
+    }
+
+    private void ifStatementInForInForInForInMakeLadder(boolean boolen, int i, int j, int x) {
+        if (boolen && ladderBoard.get(i).get(j - 1).equals("     ")) {
+            x = 1;
+        }
+        reusedSwitchInForInForInMakeLadder(i, x);
     }
 
     private void reusedSwitchInForInForInMakeLadder(int i, int x) {
@@ -85,7 +73,6 @@ public class Ladder {
     public void printResult() {
         printNames();
         printLadder();
-
     }
 
     private void printNames() {
@@ -99,7 +86,7 @@ public class Ladder {
     }
 
     private void printLadder() {
-        for (int i = 0; i < height; i++) {
+        for (int i = 0; i < ladderBoard.size(); i++) {
             System.out.print("    ");
             forLoopInPrintLadder(i);
             System.out.print("\r\n");
