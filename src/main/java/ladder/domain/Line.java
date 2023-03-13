@@ -1,33 +1,29 @@
 package ladder.domain;
 
-import java.util.ArrayList;
+import ladder.random.RandomManager;
+
 import java.util.List;
 
 public class Line {
-    private final List<Boolean> rungs = new ArrayList<>();
+    private final List<Boolean> rungs;
 
     public Line(int width) {
-        makeRungs(width);
+        RandomManager randomManager = new RandomManager();
+        this.rungs = randomManager.makeBooleansRandomly(width);
+        checkContinuousRungs();
     }
 
-    private void makeRungs(int width) {
-        rungs.add(makeRungRandomly());
-        for (int i = 1; i < width; i++) {
-            rungs.add(checkContinuousRungs(i));
+    private void checkContinuousRungs() {
+        for (int index = 1; index < rungs.size(); index++) {
+            removeContinuousRung(index);
         }
     }
 
-    private boolean checkContinuousRungs(int index) {
-        final int LEFT = index - 1;
-        if (rungs.get(LEFT)) {
-            return false;
+    private void removeContinuousRung(int index) {
+        int left = index - 1;
+        if (rungs.get(left) && rungs.get(index)) {
+            rungs.set(index, false);
         }
-        return makeRungRandomly();
-    }
-
-    private boolean makeRungRandomly() {
-        boolean[] random = {false, true};
-        return random[(int) (Math.random() * random.length)];
     }
 
     public String drawLine() {

@@ -7,7 +7,7 @@ import java.util.Random;
 public class RandomManager {
     private Random random = new Random();
 
-    public List<Boolean> makeBooleans(int size) {
+    public List<Boolean> makeBooleansRandomly(int size) {
         List<Boolean> booleans = new ArrayList<>(size);
         for (int i = 0; i < size; i++) {
             booleans.add(random.nextBoolean());
