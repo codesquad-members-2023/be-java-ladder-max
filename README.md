@@ -18,12 +18,31 @@
 
 
 ### 4단계 - 2023.03.09까지
-- [ ] 단위 테스트 하기
+- [x] 단위 테스트 하기
 - [ ] 객체지향생활체조원칙 학습
 - [ ] 접근제어자 학습
 
+### 5단계 - 2023.03.13까지
+- [ ] setp5 구현
+- [ ] generic 학습
+- [ ] JCF 학습
+- [ ] 깃 학습
 
-- Last Update: 2023-03-08
+### 학습할 키워드
+1. Pattern, Matcher 클래스의 차이
+2. 객체지향생활체조원칙 
+3. generic
+4. rebase, merge 차이 및 활용 사례
+5. 값에 의한 호출, 참조에 의한 호출
+6. 접근 제어자
+7. Reflection API(private method를 테스트할 수 있게 함)
+
+- Last Update: 2023-03-13
+
+
+## 참고하기 좋은 자료
+[이유와 솔루션으로 정리하는 객체지향 생활체조 원칙](https://hudi.blog/thoughtworks-anthology-object-calisthenics/)    
+[InteliJ 네이버 Java 코딩 컨벤션 적용하기 + Checkstyle](https://bestinu.tistory.com/64)    
 
 
 ## 코드 리뷰
