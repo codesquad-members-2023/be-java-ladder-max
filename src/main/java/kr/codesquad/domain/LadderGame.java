@@ -19,7 +19,6 @@ public class LadderGame {
         Input input = new Input();
         Validator validator = new Validator();
         boolean checkName = true, checkResult = true, checkLadder = true;
-        int position = -1;
 
         while (checkName) {
             String answer = input.input(br, 0);
@@ -43,6 +42,7 @@ public class LadderGame {
         output.print(names, ladder, results);
 
         while (true) {
+            int position = -1;
             String resultPerson = input.input(br, 3);
             if(resultPerson.equals("춘식이")) {
                 System.out.println("게임을 종료합니다.");
