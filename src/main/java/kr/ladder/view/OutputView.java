@@ -11,22 +11,22 @@ public class OutputView {
     }
 
     public void printPeopleNameAndLadder(String[] peopleNames,int ladderHeight, List<List<String>> ladder){
-        appendPeopleName(peopleNames, ladderHeight);
+        appendPeopleName(peopleNames);
         appendLadder(ladder);
 
         System.out.println(sb); // 모아서 출력
         sb.setLength(0); // stringBuilder 초기화 (리셋)
     }
 
-    public void appendPeopleName(String[] peopleNames, int ladderHeight){
+    public void appendPeopleName(String[] peopleNames){
         for (String peopleName : peopleNames) {
             sb.append(peopleName);
-            addBlank(peopleName, ladderHeight);
+            addBlank(peopleName);
         }
         sb.append("\n");
     }
 
-    public void addBlank(String peopleName, int ladderHeight){
+    public void addBlank(String peopleName){
         for (int i = 0; i < DEFAULT_WIDTH - peopleName.length(); i++) {
             sb.append(" ");
         }
