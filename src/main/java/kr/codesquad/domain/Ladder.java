@@ -23,8 +23,8 @@ public class Ladder {
         this.line = line;
     }
 
-    public List<List<String>> makeLadder(List<String> users, int m) {
-        init(users, m);
+    public List<List<String>> makeLadder(List<String> users, int ladderNumber) {
+        init(users, ladderNumber);
         makeName2Ladder(users);
         makeLine2Ladder();
         return laddersFrame;

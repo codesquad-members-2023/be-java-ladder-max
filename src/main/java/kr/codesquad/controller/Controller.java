@@ -33,7 +33,8 @@ public class Controller {
         output.printMessageLadderNumber();
         String ladderNumber = input.inputLadderNumber();
 
-        List<List<String>> ladders = ladder.makeLadder(validation.validateInputNames(names), validation.validateInputM(ladderNumber));
+        List<List<String>> ladders =
+                ladder.makeLadder(validation.validateInputNames(names), validation.validateInputM(ladderNumber));
 
         String result = encoding.encodeLadder(ladders);
         output.printLadder(result);
