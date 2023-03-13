@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import kr.codesquad.ladder.domain.LadderResults;
 import kr.codesquad.ladder.domain.Names;
 import kr.codesquad.ladder.view.LadderConsoleReader;
 import kr.codesquad.ladder.view.LadderConsoleWriter;
@@ -49,6 +50,33 @@ class LadderGeneratorConsoleReaderTest {
 
     private InputStream toInputStream(String input) {
         return new ByteArrayInputStream(input.getBytes());
+    }
+
+    @ParameterizedTest
+    @DisplayName("인원수에 따른 실행 결과들이 입력되는지 테스트")
+    @ValueSource(strings = {"꽝,5000,꽝,3000"})
+    public void readLadderResults_success(String input) {
+        //given
+        reader = new BufferedReader(new InputStreamReader(toInputStream(input)));
+        ladderWriter = new LadderConsoleWriter();
+        ladderReader = new LadderConsoleReader(reader, ladderWriter);
+        //when
+        LadderResults actual = ladderReader.readLadderResults(4);
+        //then
+        LadderResults expected = new LadderResults(input, 4);
+        Assertions.assertThat(actual).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @DisplayName("인원수에 따른 실행결과 개수가 부족한지, 길이가 너무 긴지 확인하는 테스트")
+    @ValueSource(strings = {"꽝,5000,꽝", "", " ", "꽝,5000,꽝,500000000"})
+    public void readLadderResults_fail(String input) {
+        //given
+        reader = new BufferedReader(new InputStreamReader(toInputStream(input)));
+        ladderWriter = new LadderConsoleWriter();
+        ladderReader = new LadderConsoleReader(reader, ladderWriter);
+        //when & then
+        Assertions.assertThatThrownBy(() -> ladderReader.readLadderResults(4));
     }
 
 }
