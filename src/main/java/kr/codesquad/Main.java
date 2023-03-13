@@ -1,10 +1,10 @@
 package kr.codesquad;
 
-import kr.codesquad.controller.Controller;
+import kr.codesquad.domain.LadderGame;
 
 public class Main {
     public static void main(String[] args) {
-        Controller controller = new Controller();
+        LadderGame controller = new LadderGame();
         controller.run();
     }
 }

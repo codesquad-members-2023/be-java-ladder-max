@@ -1,11 +1,10 @@
-package kr.codesquad.controller;
+package kr.codesquad.domain;
 
-import kr.codesquad.domain.Ladder;
 import kr.codesquad.view.Input;
 
 import java.io.IOException;
 
-public class Controller {
+public class LadderGame {
 
     private Input input = new Input();
     private Ladder ladder;
