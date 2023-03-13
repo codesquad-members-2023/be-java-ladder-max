@@ -11,6 +11,10 @@ public class LadderLine {
         this.ladderParts = ladderParts;
     }
 
+    public int getSumParts() {
+        return ladderParts.size();
+    }
+
     private void validateLine(List<LadderPart> ladderParts) {
         final int maxWidth = ladderParts.size();
 
