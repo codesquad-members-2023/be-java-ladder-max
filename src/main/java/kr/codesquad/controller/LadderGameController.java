@@ -19,8 +19,9 @@ public class LadderGameController {
     public void run() {
         final List<String> playerNames = inputPlayerNames();
         final int height = inputLadderHeight();
+        final LadderInputDto ladderInputDto = new LadderInputDto(playerNames, height);
 
-        final String ladderResult = ladderGame.play(playerNames, new LadderInputDto(playerNames.size(), height));
+        final String ladderResult = ladderGame.play(ladderInputDto);
 
         showResult(playerNames, ladderResult);
     }

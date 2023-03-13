@@ -7,16 +7,16 @@ import kr.codesquad.domain.LadderPart;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class LadderGame {
-
-    public String play(List<String> playerNames, LadderInputDto ladderInputDto) {
-        final Ladder ladder = new Ladder(makeLadderMap(ladderInputDto.getPlayerNumber(), ladderInputDto.getHeight()));
+    public String play(LadderInputDto ladderInputDto) {
+        Ladder ladder = new Ladder(makeLadderMap(ladderInputDto.getPlayerNumber(), ladderInputDto.getHeight()));
 
         return String.join("\n", ladder.createOutputLines());
     }
 
-    public List<LadderLine> makeLadderMap(int playerNumber, int height) {
+    private List<LadderLine> makeLadderMap(int playerNumber, int height) {
         final List<LadderLine> ladderLines = new ArrayList<>();
 
         for (int i = 0; i < height; i++) {
