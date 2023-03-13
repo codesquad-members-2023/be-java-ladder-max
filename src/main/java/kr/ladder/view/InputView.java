@@ -42,17 +42,7 @@ public class InputView {
         if (errors == 0) {
             return true;
         }
-//    Arrays.stream(peopleNameArray).filter(e -> e.length() > 0 && e.length() <= 5).toArray(); // stream 사용 또 실패!!
-    private boolean checkArrayLengthCorrect(String[] peopleNameArray){
-        int correctLength = peopleNameArray.length; // 입력 이름 배열
-        int countLength = 0; // 각 이름이 1~5글자 사이에 있는지 확인
-        for (String peopleName : peopleNameArray) {
-            countLength += isInNumber(peopleName);
-        }
-        if (correctLength != countLength) {
-            return false;
-        }
-        return true;
+        return false;
     }
 
     private int errorCount(String playerName){
