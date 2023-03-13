@@ -9,7 +9,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Screen {
-    private static final String PLAYER_NAME_RULE = "^[a-zA-Z0-9]{1,5}$";
+    private static final String PLAYER_NAME_PATTERN = "^[a-zA-Z0-9]{1,5}$";
+
     private final Scanner scanner = new Scanner(System.in);
 
     public Optional<Integer> inputLadderHeight() {
@@ -86,7 +87,7 @@ public class Screen {
     }
 
     private boolean isInValidName(String name) {
-        return !name.matches(PLAYER_NAME_RULE);
+        return !name.matches(PLAYER_NAME_PATTERN);
     }
 
     public String toPlayerLine(List<String> playerNames) {

@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/kr/codesquad/domain/LadderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/kr/codesquad/view/ScreenTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/kr/codesquad/domain/LadderLineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kr/codesquad/domain/LadderLineTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderPart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/Screen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,8 +67,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -103,38 +105,21 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="kr.codesquad.domain" />
       <recent name="kr.codesquad" />
+      <recent name="kr.codesquad.view" />
+      <recent name="kr.codesquad.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LadderTest">
-    <configuration name="LadderLineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-lotto.test" />
+  <component name="RunManager" selected="JUnit.ScreenTest.inputLadderHeightTest (1)">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
+      <module name="java-lotto.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.domain.*" />
+          <option name="PATTERN" value="kr.codesquad.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderLineTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LadderLineTest.createLadderLineTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-lotto.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="kr.codesquad.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderLineTest" />
-      <option name="METHOD_NAME" value="createLadderLineTest(int)" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -154,33 +139,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LadderTest.createLadderFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MainTest.runTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-lotto.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.domain.*" />
+          <option name="PATTERN" value="kr.codesquad.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderTest" />
-      <option name="METHOD_NAME" value="createLadderFailTest(int,int)" />
+      <option name="PACKAGE_NAME" value="kr.codesquad" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.MainTest" />
+      <option name="METHOD_NAME" value="runTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LadderTest.createOutputLinesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ScreenTest.inputLadderHeightTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-lotto.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.domain.*" />
+          <option name="PATTERN" value="kr.codesquad.view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderTest" />
-      <option name="METHOD_NAME" value="createOutputLinesTest(int,int)" />
+      <option name="PACKAGE_NAME" value="kr.codesquad.view" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.view.ScreenTest" />
+      <option name="METHOD_NAME" value="inputLadderHeightTest(java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScreenTest.inputLadderHeightTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lotto.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kr.codesquad.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kr.codesquad.view" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.view.ScreenTest" />
+      <option name="METHOD_NAME" value="inputLadderHeightTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -188,11 +189,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ScreenTest.inputLadderHeightTest (1)" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ScreenTest.inputLadderHeightTest" />
+        <item itemvalue="JUnit.MainTest.runTest" />
         <item itemvalue="JUnit.LadderTest" />
-        <item itemvalue="JUnit.LadderTest.createOutputLinesTest" />
-        <item itemvalue="JUnit.LadderTest.createLadderFailTest" />
-        <item itemvalue="JUnit.LadderLineTest" />
-        <item itemvalue="JUnit.LadderLineTest.createLadderLineTest (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -221,7 +222,7 @@
       <workItem from="1678357410152" duration="2625000" />
       <workItem from="1678419429706" duration="1235000" />
       <workItem from="1678421329051" duration="2239000" />
-      <workItem from="1678423594704" duration="930000" />
+      <workItem from="1678423594704" duration="9957000" />
     </task>
     <servers />
   </component>

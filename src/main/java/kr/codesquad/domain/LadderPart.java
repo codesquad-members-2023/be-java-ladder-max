@@ -20,6 +20,7 @@ public enum LadderPart {
     }
 
     private static boolean isUpperThanPercent() {
+
         return Math.random() > 0.7;
     }
 
