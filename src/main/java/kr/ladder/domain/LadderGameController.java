@@ -21,8 +21,7 @@ public class LadderGameController {
 
         public void run() throws IOException {
                 String[] peopleNames = inputView.getPeopleName();
-                int ladderHeight = inputView.getLadderHeight();
-                ladder.makeLadder(peopleNames.length, ladderHeight);
-                outputView.printPeopleNameAndLadder(peopleNames,ladderHeight, ladder.getLadder());
+                ladder.makeLadder(peopleNames.length, inputView.getLadderHeight());
+                outputView.printPeopleNameAndLadder(peopleNames, ladder.getLadder());
         }
 }

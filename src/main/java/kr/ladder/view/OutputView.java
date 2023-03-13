@@ -10,7 +10,7 @@ public class OutputView {
          sb = new StringBuilder();
     }
 
-    public void printPeopleNameAndLadder(String[] peopleNames,int ladderHeight, List<List<String>> ladder){
+    public void printPeopleNameAndLadder(String[] peopleNames, List<List<String>> ladder){
         appendPeopleName(peopleNames);
         appendLadder(ladder);
 
