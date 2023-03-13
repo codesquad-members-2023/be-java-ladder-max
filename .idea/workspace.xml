@@ -7,6 +7,7 @@
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="refactor : OutputView 클래스 로직 수정&#10;&#10;1. printLadderState() -&gt; drawLadderDiagram()&#10;  - 접근제어자 변경으로 캡슐화(public -&gt; private)&#10;  - printLadder 메서드를 사용하기 위해 메서드명 정정&#10;2. printLadder 메서드 추가&#10;  - drawLadderDiagram()를 호출하는 public 메서드">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/OutputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/OutputView.java" afterDir="false" />
     </list>
@@ -59,7 +60,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -103,6 +104,8 @@
       <workItem from="1678143731220" duration="25412000" />
       <workItem from="1678289995396" duration="974000" />
       <workItem from="1678324581213" duration="23458000" />
+      <workItem from="1678435271776" duration="3505000" />
+      <workItem from="1678671623118" duration="383000" />
     </task>
     <task id="LOCAL-00001" summary="docs : 1단계 체크리스트 작성">
       <created>1678144272811</created>
@@ -163,7 +166,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feature2" />
+                        <option value="upstream/dokkisan" />
                       </list>
                     </value>
                   </entry>
@@ -183,5 +186,9 @@
     <MESSAGE value="refactor : OutputView 클래스의 메서드명 변경 및 필드 추가&#10;&#10;1. 필드 추가&#10;  - PARTICIPANTS_PROMPT, MAX_HEIGHT_PROMPT&#10;2. 메서드명 변경&#10;  - printJoinMembers() -&gt; printParticipantsPrompt()&#10;  - printMaxHeight() -&gt; printMaxHeightPrompt()" />
     <MESSAGE value="refactor : OutputView 클래스 로직 수정&#10;&#10;1. printLadderState() -&gt; drawLadderDiagram()&#10;  - 접근제어자 변경으로 캡슐화(public -&gt; private)&#10;  - printLadder 메서드를 사용하기 위해 메서드명 정정&#10;2. printLadder 메서드 추가&#10;  - drawLadderDiagram()를 호출하는 public 메서드" />
     <option name="LAST_COMMIT_MESSAGE" value="refactor : OutputView 클래스 로직 수정&#10;&#10;1. printLadderState() -&gt; drawLadderDiagram()&#10;  - 접근제어자 변경으로 캡슐화(public -&gt; private)&#10;  - printLadder 메서드를 사용하기 위해 메서드명 정정&#10;2. printLadder 메서드 추가&#10;  - drawLadderDiagram()를 호출하는 public 메서드" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -20,4 +20,6 @@ public class LadderGameController {
         String[][] ladder = ladderGenerator.generateLadder();
         outputView.printLadder(ladder);
     }
+
+
 }
