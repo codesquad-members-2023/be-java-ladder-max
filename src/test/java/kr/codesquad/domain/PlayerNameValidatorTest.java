@@ -24,7 +24,7 @@ class PlayerNameValidatorTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertTrue(playerValidator.getVaildNameFromUser(list, inputHandler));
+        assertTrue(playerValidator.getVaildNameFromUser(inputHandler));
     }
 
     @Test
@@ -34,7 +34,7 @@ class PlayerNameValidatorTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertFalse(playerValidator.getVaildNameFromUser(list, inputHandler));
+        assertFalse(playerValidator.getVaildNameFromUser(inputHandler));
     }
 
     @Test
@@ -44,7 +44,7 @@ class PlayerNameValidatorTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertFalse(playerValidator.getVaildNameFromUser(list, inputHandler));
+        assertFalse(playerValidator.getVaildNameFromUser(inputHandler));
     }
 
 

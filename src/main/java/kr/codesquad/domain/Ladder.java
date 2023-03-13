@@ -8,7 +8,7 @@ public class Ladder {
     private final int countOfPeople;
     private final int ladderHeight;
     private  ArrayList ladder;
-    private ArrayList<String> nameList = new ArrayList<>();
+    private ArrayList<String> nameList;
 
 
     public Ladder(ArrayList nameList,int ladderHeight) {

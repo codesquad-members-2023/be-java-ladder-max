@@ -10,12 +10,15 @@ import java.util.stream.Collectors;
 
 public class Result {
 
-    public boolean getResult(ArrayList list, InputView inputHandler,int sizeOfNameList){
+    ArrayList resultList;
+
+    public boolean getResult(InputView inputHandler,int sizeOfNameList){
         try {
-            list.addAll(parseInputStringToResultList(inputHandler.getInput()));
-            validateNumOfResultList(list,sizeOfNameList);
+            resultList.addAll(parseInputStringToResultList(inputHandler.getInput()));
+            validateNumOfResultList(resultList,sizeOfNameList);
             return true;
         } catch (IOException | RuntimeException e) {
+            resultList.clear();
             System.out.println(e.getMessage());
         }
         return false;
@@ -30,5 +33,12 @@ public class Result {
         if (list.size() != sizeOfNameList) {
             throw new RuntimeException("실행결과 갯수와 player갯수가 다릅니다");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "resultList=" + resultList +
+                '}';
     }
 }

@@ -23,7 +23,7 @@ class LadderHeightValidatorTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertTrue(heightValidator.getValidHeightFromUser(height,inputHandler));
+        assertTrue(heightValidator.getValidHeightFromUser(inputHandler));
     }
 
     @Test
@@ -33,6 +33,6 @@ class LadderHeightValidatorTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertFalse(heightValidator.getValidHeightFromUser(height,inputHandler));
+        assertFalse(heightValidator.getValidHeightFromUser(inputHandler));
     }
 }

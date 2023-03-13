@@ -1,12 +1,10 @@
 package kr.codesquad.controller;
 
-import kr.codesquad.domain.Ladder;
-import kr.codesquad.domain.LadderHeight;
-import kr.codesquad.domain.Player;
-import kr.codesquad.domain.Result;
+import kr.codesquad.domain.*;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class InputOutputController extends Player {
@@ -19,25 +17,34 @@ public class InputOutputController extends Player {
         this.outputHandler = new OutputView();
     }
 
-    void getName(ArrayList nameList){
+    Player getName(){
         inputHandler.playerNamePrompt();
         Player player = new Player();
-        while(!player.getVaildNameFromUser(nameList, inputHandler));
+        while(!player.getVaildNameFromUser(inputHandler));
+        return player;
     }
 
-    void getHeight(int height){
+    LadderHeight getHeight(){
         inputHandler.LadderHeightPrompt();
         LadderHeight ladderHeight = new LadderHeight();
-        while(!ladderHeight.getValidHeightFromUser(height, inputHandler));
+        while(!ladderHeight.getValidHeightFromUser(inputHandler));
+        return ladderHeight;
     }
 
-    void getResult(ArrayList resultList,int playerNum){
+    Result getResult(int playerNum){
         inputHandler.resultPrompt();
         Result result = new Result();
-        while(!result.getResult(resultList, inputHandler, playerNum));
+        while(!result.getResult(inputHandler, playerNum));
+        return result;
     }
 
-    public void printLadder(Ladder ladder) {
+    void getExcutionResult() throws IOException {
+        while(true){
+            ExecutionResult executionResult = new ExecutionResult(inputHandler);
+        }
+    }
+
+    void printLadder(Ladder ladder) {
         outputHandler.printLadder(ladder);
     }
 }

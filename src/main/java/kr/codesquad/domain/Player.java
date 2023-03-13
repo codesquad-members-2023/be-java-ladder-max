@@ -12,15 +12,20 @@ public class Player {
 
     private final String ERROR_MESSAGE_FOR_NAME_LENGTH = "5글자 이상인 이름 발견 재입력 할것";
     private final String ERROR_MESSAGE_FOR_PLAYER_NUMBER = "player는 2명이상 필요합니다.재입력 해라";
+    ArrayList nameList;
 
-    public boolean getVaildNameFromUser(ArrayList list, InputView inputHandler) {
+    public ArrayList getNameList() {
+        return nameList;
+    }
+
+    public boolean getVaildNameFromUser(InputView inputHandler) {
         try {
             String strContainsName = inputHandler.getInput();
-            list.addAll(parseInputStringToValidNames(strContainsName));
-            validatePlayerNumAndThrowException(list);
+            nameList.addAll(parseInputStringToValidNames(strContainsName));
+            validatePlayerNumAndThrowException();
             return true;
         } catch (RuntimeException | IOException e) {
-            list.clear();
+            nameList.clear();
             System.out.println(e.getMessage());
         }
         return false;
@@ -39,8 +44,8 @@ public class Player {
         return str;
     }
 
-    private void validatePlayerNumAndThrowException(ArrayList list){
-        if(list.size()<2){
+    private void validatePlayerNumAndThrowException(){
+        if(nameList.size()<2){
             throw new RuntimeException(ERROR_MESSAGE_FOR_PLAYER_NUMBER);
         }
     }
