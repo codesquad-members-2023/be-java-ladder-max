@@ -11,10 +11,10 @@ public class Ladder {
     private ArrayList<String> nameList = new ArrayList<>();
 
 
-    public Ladder(ArrayList<String> inputList) {
-        this.ladderHeight = Integer.parseInt(inputList.remove(inputList.size() - 1));
-        this.countOfPeople = inputList.size();
-        this.nameList.addAll(inputList);
+    public Ladder(ArrayList nameList,int ladderHeight) {
+        this.ladderHeight = ladderHeight;
+        this.nameList = nameList;
+        this.countOfPeople = this.nameList.size();
         createLadder();
     }
 

@@ -2,29 +2,42 @@ package kr.codesquad.controller;
 
 import kr.codesquad.domain.Ladder;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class LadderGameController {
-    InputOutputController inputOutputcontroller;
+    InputOutputController controller;
+    private ArrayList nameList;
+    private int ladderHeight;
+    private ArrayList result;
 
     public LadderGameController(){
-        this.inputOutputcontroller = new InputOutputController();
+        this.controller = new InputOutputController();
+        nameList = new ArrayList();
+        result = new ArrayList();
     }
     public void startLadderGame(){
-        Ladder ladder = getLadder(getNameAndHeightFromInputOutputController());
+        getNameFromController();
+        getLadderHeightFromController();
+        getResultFromController();
+        Ladder ladder = getLadder();
         printLadder(ladder);
     }
 
-    private ArrayList getNameAndHeightFromInputOutputController(){
-        return inputOutputcontroller.getNameAndHeightFromUser();
+    private void getNameFromController(){
+        controller.getName(nameList);
+    }
+    private void getLadderHeightFromController(){
+        controller.getHeight(ladderHeight);
+    }
+    private void getResultFromController(){
+        controller.getResult(result,nameList.size());
     }
 
-    private Ladder getLadder(ArrayList listForNameAndHeight){
-        return new Ladder(listForNameAndHeight);
+    private Ladder getLadder(){
+        return new Ladder(nameList,ladderHeight);
     }
 
     private void printLadder(Ladder ladder){
-        inputOutputcontroller.printLadder(ladder);
+        controller.printLadder(ladder);
     }
 }

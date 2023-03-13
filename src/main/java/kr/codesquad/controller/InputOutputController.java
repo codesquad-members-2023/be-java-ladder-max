@@ -3,6 +3,7 @@ package kr.codesquad.controller;
 import kr.codesquad.domain.Ladder;
 import kr.codesquad.domain.LadderHeight;
 import kr.codesquad.domain.Player;
+import kr.codesquad.domain.Result;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
@@ -18,23 +19,22 @@ public class InputOutputController extends Player {
         this.outputHandler = new OutputView();
     }
 
-    public ArrayList getNameAndHeightFromUser(){
-        ArrayList listForNameAndHeight = new ArrayList();
-        getName(listForNameAndHeight);
-        getHeight(listForNameAndHeight);
-        return listForNameAndHeight;
+    void getName(ArrayList nameList){
+        inputHandler.playerNamePrompt();
+        Player player = new Player();
+        while(!player.getVaildNameFromUser(nameList, inputHandler));
     }
 
-    private void getName(ArrayList listForNameAndHeight){
-        inputHandler.ParticipantNamePrompt();
-        Player playerValidator = new Player();
-        while(!playerValidator.getVaildNameFromUser(listForNameAndHeight, inputHandler));
-    }
-
-    private void getHeight(ArrayList listForNameAndHeight){
+    void getHeight(int height){
         inputHandler.LadderHeightPrompt();
-        LadderHeight heightValidator = new LadderHeight();
-        while(!heightValidator.getValidHeightFromUser(listForNameAndHeight, inputHandler));
+        LadderHeight ladderHeight = new LadderHeight();
+        while(!ladderHeight.getValidHeightFromUser(height, inputHandler));
+    }
+
+    void getResult(ArrayList resultList,int playerNum){
+        inputHandler.resultPrompt();
+        Result result = new Result();
+        while(!result.getResult(resultList, inputHandler, playerNum));
     }
 
     public void printLadder(Ladder ladder) {

@@ -8,10 +8,10 @@ import java.util.ArrayList;
 public class LadderHeight {
 
     private final String ERROR_MESSAGE_FOR_LADDER_HEIGHT = "사다리 높이는 1이상으로 입력";
-    public boolean getValidHeightFromUser(ArrayList list, InputView inputHandler) {
+    public boolean getValidHeightFromUser(Integer height, InputView inputHandler) {
         try {
-            String height = inputHandler.getInput();
-            list.add(validateHeightAndThrowException(height));
+            height = Integer.parseInt(inputHandler.getInput());
+            validateHeightAndThrowException(height);
             return true;
         } catch (RuntimeException | IOException e) {
             System.out.println(e.getMessage());
@@ -19,10 +19,9 @@ public class LadderHeight {
         return false;
     }
 
-    private String validateHeightAndThrowException(String height) {
-        if (Integer.parseInt(height) < 1) {
+    private void validateHeightAndThrowException(int height) {
+        if (height < 1) {
             throw new RuntimeException(ERROR_MESSAGE_FOR_LADDER_HEIGHT);
         }
-        return height;
     }
 }
