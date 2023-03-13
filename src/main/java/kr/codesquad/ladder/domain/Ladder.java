@@ -48,7 +48,7 @@ public class Ladder {
         for (Line line : lines) {
             result.append(line).append("\n");
         }
-        return result.toString();
+        return result.toString().trim();
     }
 
 }
