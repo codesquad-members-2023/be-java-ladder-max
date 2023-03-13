@@ -3,63 +3,27 @@ package kr.codesquad.domain;
 import java.util.*;
 
 public class Ladder {
-    private final char PLAYER_LINE = '|';
-    private final char BRIDGE = '-';
-    private final char EMPTY_SPACE = ' ';
-
     private final List<LadderRow> ladder;
-    private final int rowSize;
-    private final int columnSize;
+    private final int height;
+    private final int playerLineSize;
+    private final int bridgeLineSize;
 
     public Ladder(int playerCount, int ladderHeight) {
-        this.rowSize = ladderHeight;
-        this.columnSize = (playerCount * 2) - 1;
+        this.height = ladderHeight;
+        this.playerLineSize = playerCount;
+        this.bridgeLineSize = playerCount - 1;
         this.ladder = makeLadder();
     }
 
     /* private method */
     private List<LadderRow> makeLadder() {
-        List<LadderRow> ladder = new ArrayList<>(rowSize);
+        List<LadderRow> ladder = new ArrayList<>(height);
 
-        initLadder(ladder);
-        for(int row = 0; row < rowSize; row++) {
-            addPlayerLineIntoRow(ladder, row);
-            addBridgeIntoRow(ladder, row);
+        for(int row = 0; row < height; row++) {
+            ladder.add(new LadderRow(bridgeLineSize));
         }
 
         return ladder;
-    }
-
-    private void initLadder(List<LadderRow> ladder) {
-        for(int row = 0; row < rowSize; row++) {
-            ladder.add(row, new LadderRow(columnSize));
-        }
-    }
-
-    private void addPlayerLineIntoRow(List<LadderRow> ladder, int row) {
-        for(int col = 0; col < columnSize; col += 2) {
-            insertPlayerLine(ladder, row, col);
-        }
-    }
-
-    private void addBridgeIntoRow(List<LadderRow> ladder, int row) {
-        for (int col = 1; col < columnSize; col += 2) {
-            insertBridge(ladder, row, col);
-        }
-    }
-
-    private boolean shouldBuildingBridge() {
-        return new Random().nextBoolean();
-    }
-
-    private void insertPlayerLine(List<LadderRow> ladder, int row, int column) {
-        ladder.get(row).setPlayerLine(column);
-    }
-
-    private void insertBridge(List<LadderRow> ladder, int row, int column) {
-        if (shouldBuildingBridge()) {
-            ladder.get(row).setBridge(column);
-        }
     }
 
     @Override
@@ -74,17 +38,18 @@ public class Ladder {
     }
 
     private String buildLadderRow(LadderRow ladderRow) {
+        final String PLAYER_LINE = "|";
+        final String BRIDGE = "-----";
+        final String EMPTY_SPACE = "     ";
         StringBuilder sb = new StringBuilder();
 
         // playerLine(세로줄) 처리
-        for(int col = 0; col < columnSize; col += 2) {
-            sb.append(PLAYER_LINE);
-        }
+        sb.append(PLAYER_LINE.repeat(playerLineSize));
 
         // bridge 구간(가로줄) 처리
         int sbPointer = 1;
-        for (int col = 1; col < columnSize; col += 2) {
-            sb.insert(sbPointer, ladderRow.isBridge(col)? "-----" : "     ");
+        for (int col = 0; col < bridgeLineSize; col++) {
+            sb.insert(sbPointer, ladderRow.isBridge(col)? BRIDGE : EMPTY_SPACE);
             sbPointer += 6;
         }
 

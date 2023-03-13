@@ -2,44 +2,67 @@ package kr.codesquad.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class LadderRow {
-    private List<Boolean> ladderRow;
+    private final int FIRST_LINE = 0;
+    private final int SECOND_LINE = 1;
 
-    public LadderRow(int columnSize) {
-        ladderRow = makeLadderRow(columnSize);
+    private List<LadderUnit> ladderRow;
+    private int size;
+
+    public LadderRow(int size) {
+        this.size = size;
+        this.ladderRow = new ArrayList<>(size);
+        makeLadderRow();
     }
 
-    private List<Boolean> makeLadderRow(int columnSize) {
-        List<Boolean> ladderRow = new ArrayList<>();
-        for(int col = 0; col < columnSize; col++) {
-            ladderRow.add(false);
-        }
-        return ladderRow;
+    private void makeLadderRow() {
+        initialize();
     }
 
-    private boolean validateBridgePlacement(int column) {
-        return column == 1 || (column > 2 && !ladderRow.get(column-2));
+    private void initialize() {
+        fillEmptySpace();
+        fillBridges();
     }
 
-    public void setPlayerLine(int column) {
-        if(column % 2 == 0) {
-            ladderRow.set(column, true);
-        }
-    }
-
-    public void setBridge(int column) {
-        if(column % 2 == 1 && validateBridgePlacement(column)) {
-            ladderRow.set(column, true);
+    private void fillEmptySpace() {
+        for(int lineIndex = 0; lineIndex < size; lineIndex++) {
+            ladderRow.add(new EmptySpace());
         }
     }
 
-    public boolean isPlayerLine(int column) {
-        return column % 2 == 0 && ladderRow.get(column);
+    private void fillBridges() {
+        for(int lineIndex = 0; lineIndex < size; lineIndex++) {
+            setBridgeRandomly(lineIndex);
+        }
     }
 
-    public boolean isBridge(int column) {
-        return column % 2 == 1 && ladderRow.get(column);
+    private void setBridgeRandomly(int lineIndex) {
+        if(new Random().nextBoolean() && validateBridgePlacement(lineIndex)) {
+            ladderRow.set(lineIndex, new Bridge());
+        }
+    }
+
+    private boolean validateBridgePlacement(int lineIndex) {
+        return isFirstLine(lineIndex)
+                || (isMoreThanSecondLine(lineIndex) && !isBridgeOnPreviousLine(lineIndex));
+    }
+
+    private boolean isFirstLine(int lineIndex) {
+        return lineIndex == FIRST_LINE;
+    }
+
+    private boolean isMoreThanSecondLine(int lineIndex) {
+        return lineIndex >= SECOND_LINE;
+    }
+
+    private boolean isBridgeOnPreviousLine(int lineIndex) {
+        return ladderRow.get(lineIndex - 1) instanceof Bridge;
+    }
+
+    public boolean isBridge(int lineIndex) {
+        return ladderRow.get(lineIndex) instanceof Bridge;
     }
 
 }
