@@ -26,14 +26,14 @@ public class InputOutputController extends PlayerValidator {
     }
 
     private void getName(ArrayList listForNameAndHeight){
-        outputHandler.outputParticipantNamePrompt();
+        inputHandler.ParticipantNamePrompt();
         PlayerValidator playerValidator = new PlayerValidator();
         while(!playerValidator.getVaildNameFromUser(listForNameAndHeight, inputHandler));
     }
 
     private void getHeight(ArrayList listForNameAndHeight){
+        inputHandler.LadderHeightPrompt();
         LadderHeightValidator heightValidator = new LadderHeightValidator();
-        outputHandler.outputLadderHeightPrompt();
         while(!heightValidator.getValidHeightFromUser(listForNameAndHeight, inputHandler));
     }
 
