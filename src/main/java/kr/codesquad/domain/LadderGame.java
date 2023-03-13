@@ -29,7 +29,7 @@ public class LadderGame {
         while (checkResult) {
             String answer = input.input(br, 1);
             String[] arrayResults = splitAnswer(answer);
-            checkResult = checkResults(validator, arrayResults);
+            checkResult = checkResults(validator, arrayResults, names.size());
         }
 
         while (checkLadder) {
@@ -50,8 +50,8 @@ public class LadderGame {
         return true;
     }
 
-    private boolean checkResults(Validator validator, String[] arrayResults) {
-        if(validator.validateResults(arrayResults)) {
+    private boolean checkResults(Validator validator, String[] arrayResults, int namesSize) {
+        if(validator.validateResults(arrayResults, namesSize)) {
             results = new ArrayList<>(Arrays.asList(arrayResults));
             return false;
         }
