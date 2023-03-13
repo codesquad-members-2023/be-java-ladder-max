@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Ladder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/service/LadderGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/service/LadderGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +109,7 @@
       <recent name="kr.codesquad.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ScreenTest.inputLadderHeightTest (1)">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
       <module name="java-lotto.main" />
@@ -186,8 +188,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ScreenTest.inputLadderHeightTest (1)" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ScreenTest.inputLadderHeightTest (1)" />
         <item itemvalue="JUnit.ScreenTest.inputLadderHeightTest" />
         <item itemvalue="JUnit.MainTest.runTest" />
         <item itemvalue="JUnit.LadderTest" />
@@ -220,7 +222,7 @@
       <workItem from="1678419429706" duration="1235000" />
       <workItem from="1678421329051" duration="2239000" />
       <workItem from="1678423594704" duration="9957000" />
-      <workItem from="1678671146542" duration="633000" />
+      <workItem from="1678671146542" duration="2620000" />
     </task>
     <servers />
   </component>
