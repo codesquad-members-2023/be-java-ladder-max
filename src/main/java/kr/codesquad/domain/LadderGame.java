@@ -19,6 +19,7 @@ public class LadderGame {
         Input input = new Input();
         Validator validator = new Validator();
         boolean checkName = true, checkResult = true, checkLadder = true;
+        int position = -1;
 
         while (checkName) {
             String answer = input.input(br, 0);
@@ -39,7 +40,25 @@ public class LadderGame {
 
         Ladder ladder = new Ladder(names.size(), countOfLadder);
         Output output = new Output();
-        output.print(names, ladder);
+        output.print(names, ladder, results);
+
+        while (true) {
+            String resultPerson = input.input(br, 3);
+            if(resultPerson.equals("춘식이")) {
+                System.out.println("게임을 종료합니다.");
+                break;
+            }
+            for (int i = 0; i < names.size(); i++) {
+                if(resultPerson.equals(names.get(i))) {
+                    position = i;
+                }
+            }
+            if(position == -1 && !resultPerson.equals("all")) {
+                System.out.println("이름을 다시 입력해주세요.");
+                continue;
+            }
+
+        }
     }
 
     private boolean checkNames(Validator validator, String[] arrayNames) {
@@ -61,6 +80,14 @@ public class LadderGame {
     private boolean checkLadder(Validator validator, Input input, String answer) {
         if(validator.validateLadder(answer)) {
             countOfLadder = input.inputLadder(answer);
+            return false;
+        }
+        return true;
+    }
+
+    private boolean escapeRoof(String resultPerson) {
+        if(resultPerson.equals("춘식이")) {
+            System.out.println("게임을 종료합니다.");
             return false;
         }
         return true;
