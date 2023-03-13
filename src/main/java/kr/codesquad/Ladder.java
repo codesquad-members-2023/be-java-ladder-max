@@ -24,24 +24,16 @@ public class Ladder {
 
     private void buildLadder() {
         for (int cnt = 0; cnt < height; cnt++) {
-            Line l = new Line(players.size());
+            Line l = new Line(players.size() - 1);
             ladder.add(l);
         }
-    }
-
-    public List<List<>> inform() {
-        List<List<>> information = new ArrayList<>();
-
-        information.add(informPlayers());
-        information.add(informLadder());
-        return information
     }
 
     private List<String> informPlayers() {
         return this.players;
     }
 
-    private List<List<Boolean>> informLadder() {
+    public List<List<Boolean>> informLadder() {
         List<List<Boolean>> ladder = new ArrayList<>();
 
         for (Line l : this.ladder) {
