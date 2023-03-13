@@ -38,11 +38,11 @@ public class InputOutputController extends Player {
         return result;
     }
 
-    void getExcutionResult() throws IOException {
-        while(true){
-            ExecutionResult executionResult = new ExecutionResult(inputHandler);
-        }
-    }
+//    void getExcutionResult() throws IOException {
+//        while(true){
+//            ExecutionResult executionResult = new ExecutionResult(inputHandler);
+//        }
+//    }
 
     void printLadder(Ladder ladder,Result result) {
         outputHandler.printLadder(ladder,result);

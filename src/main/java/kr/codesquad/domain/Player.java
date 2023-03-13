@@ -10,48 +10,48 @@ import java.util.stream.Collectors;
 
 public class Player {
 
-    private final String ERROR_MESSAGE_FOR_NAME_LENGTH = "5글자 이상인 이름 발견 재입력 할것";
-    private final String ERROR_MESSAGE_FOR_PLAYER_NUMBER = "player는 2명이상 필요합니다.재입력 해라";
-    ArrayList nameList;
+    private static final String NAME_LENGTH_ERROR_MESSAGE = "이름은 5글자 이하여야 합니다. 다시 입력해주세요.";
+    private static final String PLAYER_NUMBER_ERROR_MESSAGE = "player는 2명 이상이 필요합니다. 다시 입력해주세요.";
 
-    public Player(){
-        this.nameList = new ArrayList();
+    private final ArrayList<String> nameList;
+
+    public Player() {
+        this.nameList = new ArrayList<>();
     }
 
-    public ArrayList getNameList() {
+    public ArrayList<String> getNameList() {
         return nameList;
     }
 
-    public boolean getVaildNameFromUser(InputView inputHandler) {
+    public boolean getVaildNameFromUser(InputView inputView) {
         try {
-            String strContainsName = inputHandler.getInput();
-            nameList.addAll(parseInputStringToValidNames(strContainsName));
+            String inputString = inputView.getInput();
+            nameList.addAll(parseInputStringToValidNames(inputString));
             validatePlayerNumAndThrowException();
             return true;
         } catch (RuntimeException | IOException e) {
             nameList.clear();
             System.out.println(e.getMessage());
+            return false;
         }
-        return false;
     }
 
-    private List<String> parseInputStringToValidNames(String strContainsName) {
-        return Arrays.stream(strContainsName.split(","))
-                .map(str -> validateNameAndThrowException(str))
+    private List<String> parseInputStringToValidNames(String inputString) {
+        return Arrays.stream(inputString.split(","))
+                .map(this::validateNameAndThrowException)
                 .collect(Collectors.toList());
     }
 
-    private String validateNameAndThrowException(String str) {
-        if (str.length() > 5) {
-            throw new RuntimeException(ERROR_MESSAGE_FOR_NAME_LENGTH);
+    private String validateNameAndThrowException(String name) {
+        if (name.length() > 5) {
+            throw new RuntimeException(NAME_LENGTH_ERROR_MESSAGE);
         }
-        return str;
+        return name;
     }
 
-    private void validatePlayerNumAndThrowException(){
-        if(nameList.size()<2){
-            throw new RuntimeException(ERROR_MESSAGE_FOR_PLAYER_NUMBER);
+    private void validatePlayerNumAndThrowException() {
+        if (nameList.size() < 2) {
+            throw new RuntimeException(PLAYER_NUMBER_ERROR_MESSAGE);
         }
     }
-
 }
