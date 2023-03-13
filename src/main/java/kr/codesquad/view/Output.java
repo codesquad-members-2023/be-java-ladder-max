@@ -27,4 +27,23 @@ public class Output {
         results.forEach(result -> System.out.print(String.format("%-5s", blank[result.length() - 1] + result) + " "));
         System.out.println();
     }
+
+    public void printResultPerson(Ladder ladder, ArrayList<String> results
+            , int position, int namesSize, int countOfLadder) {
+        System.out.print("\n실행 결과\n");
+        int index = 2 * position;
+        if(position == -1) { //all일 경우
+            for (int i = 0; i < namesSize; i++) {
+                for (int j = 0; j < countOfLadder; j++) {
+                    index = ladder.moveVertically(j, 2 * i);
+                }
+                System.out.print(results.get(index/2) + "\n\n");
+            }
+        } else {
+            for (int i = 0; i < countOfLadder; i++) {
+                index = ladder.moveVertically(i, index);
+            }
+        }
+        System.out.print(results.get(index/2) + "\n\n");
+    }
 }

@@ -57,7 +57,7 @@ public class LadderGame {
                 System.out.println("이름을 다시 입력해주세요.");
                 continue;
             }
-
+            output.printResultPerson(ladder, results, position, names.size(), countOfLadder);
         }
     }
 
@@ -80,14 +80,6 @@ public class LadderGame {
     private boolean checkLadder(Validator validator, Input input, String answer) {
         if(validator.validateLadder(answer)) {
             countOfLadder = input.inputLadder(answer);
-            return false;
-        }
-        return true;
-    }
-
-    private boolean escapeRoof(String resultPerson) {
-        if(resultPerson.equals("춘식이")) {
-            System.out.println("게임을 종료합니다.");
             return false;
         }
         return true;
