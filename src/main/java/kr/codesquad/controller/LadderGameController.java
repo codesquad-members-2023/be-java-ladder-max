@@ -20,7 +20,7 @@ public class LadderGameController {
     public void startLadderGame() throws IOException {
         ioController.setupGame(players,ladderHeight,result);
         Ladder ladder = new Ladder(players.getNameList(), ladderHeight.getLadderHeight());
-        ioController.printLadder(ladder, result);
+        ioController.printLadder(ladder,players,result);
         ioController.getExcutionResult(ladder.generateResultMap(),result);
     }
 }

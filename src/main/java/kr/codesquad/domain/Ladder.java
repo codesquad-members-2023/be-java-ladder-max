@@ -44,17 +44,9 @@ public class Ladder {
         }
     }
 
-    private void drawName(StringBuilder sb) {
-        for (String name : nameList) {
-            sb.append(String.format(" %1$-5s", name));
-        }
-        sb.append("\n");
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        drawName(sb);
         drawLine(ladder, sb);
         return sb.toString();
     }

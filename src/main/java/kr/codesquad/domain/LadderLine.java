@@ -37,12 +37,11 @@ public class LadderLine {
         return new Random().nextBoolean() && !points.get(points.size() - 1);
     }
 
-    static void drawLine(ArrayList<LadderLine> ladder, StringBuilder sb) {
-        for (int i = 0; i < ladder.size(); i++) {
-            LadderLine line = ladder.get(i);
+    static void drawLine(List<LadderLine> ladder, StringBuilder sb) {
+        for (LadderLine line : ladder) {
             sb.append("  |");
             drawRung(sb, line);
-            sb.append(i == ladder.size() - 1 ? "" : "\n");
+            sb.append("\n");
         }
     }
 
