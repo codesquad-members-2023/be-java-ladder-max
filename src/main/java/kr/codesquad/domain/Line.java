@@ -29,6 +29,16 @@ public class Line {
         points.add(new Random().nextInt(2));
     }
 
+    public int moveHorizontally(int index) {
+        if(index != 0 && points.get(index - 1) == 1) {
+            return index - 2;
+        }
+        if(index + 1 < points.size() && points.get(index + 1) == 1) {
+            return index + 2;
+        }
+        return index;
+    }
+
     @Override
     public String toString() {
         String[] str = {"     ", "-----", "|"};
