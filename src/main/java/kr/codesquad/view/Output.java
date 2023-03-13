@@ -19,7 +19,7 @@ public class Output {
     }
 
     private void printLadder(Ladder ladder) {
-        System.out.print(ladder);
+        System.out.print(ladder + "\n");
     }
 
     private void printResults(ArrayList<String> results) {
@@ -29,21 +29,22 @@ public class Output {
     }
 
     public void printResultPerson(Ladder ladder, ArrayList<String> results
-            , int position, int namesSize, int countOfLadder) {
+            , ArrayList<String> names, int position, int countOfLadder) {
         System.out.print("\n실행 결과\n");
         int index = 2 * position;
         if(position == -1) { //all일 경우
-            for (int i = 0; i < namesSize; i++) {
+            for (int i = 0; i < names.size(); i++) {
                 for (int j = 0; j < countOfLadder; j++) {
                     index = ladder.moveVertically(j, 2 * i);
                 }
-                System.out.print(results.get(index/2) + "\n\n");
+                System.out.print(names.get((i)) + ": " + results.get(index/2) + "\n");
             }
+            System.out.println();
         } else {
             for (int i = 0; i < countOfLadder; i++) {
                 index = ladder.moveVertically(i, index);
             }
+            System.out.print(results.get(index/2) + "\n\n");
         }
-        System.out.print(results.get(index/2) + "\n\n");
     }
 }

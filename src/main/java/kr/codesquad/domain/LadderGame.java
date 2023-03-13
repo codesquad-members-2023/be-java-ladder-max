@@ -57,7 +57,7 @@ public class LadderGame {
                 System.out.println("이름을 다시 입력해주세요.");
                 continue;
             }
-            output.printResultPerson(ladder, results, position, names.size(), countOfLadder);
+            output.printResultPerson(ladder, results, names, position, countOfLadder);
         }
     }
 
