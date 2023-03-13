@@ -1,4 +1,4 @@
-package main.java.kr.ladder.domain;
+package kr.ladder.domain;
 
 import java.util.ArrayList;
 import java.util.List;

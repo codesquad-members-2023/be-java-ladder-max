@@ -1,6 +1,6 @@
-package main.java.kr.ladder;
+package kr.ladder;
 
-import main.java.kr.ladder.domain.LadderGameController;
+import kr.ladder.domain.LadderGameController;
 
 import java.io.IOException;
 

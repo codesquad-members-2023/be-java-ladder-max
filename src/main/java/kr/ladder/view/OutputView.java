@@ -1,4 +1,4 @@
-package main.java.kr.ladder.view;
+package kr.ladder.view;
 
 import java.util.List;
 

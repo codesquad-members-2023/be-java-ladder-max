@@ -1,7 +1,8 @@
-package main.java.kr.ladder.domain;
+package kr.ladder.domain;
 
-import main.java.kr.ladder.view.InputView;
-import main.java.kr.ladder.view.OutputView;
+
+import kr.ladder.view.InputView;
+import kr.ladder.view.OutputView;
 
 import java.io.IOException;
 
