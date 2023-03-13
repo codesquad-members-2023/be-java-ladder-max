@@ -10,9 +10,14 @@ import java.util.stream.Collectors;
 
 public class Result {
 
-    ArrayList resultList;
+    ArrayList<String> resultList;
 
-    public boolean getResult(InputView inputHandler,int sizeOfNameList){
+
+    public Result() {
+        this.resultList = new ArrayList();
+    }
+
+    public boolean getResult(InputView inputHandler, int sizeOfNameList){
         try {
             resultList.addAll(parseInputStringToResultList(inputHandler.getInput()));
             validateNumOfResultList(resultList,sizeOfNameList);
@@ -37,8 +42,10 @@ public class Result {
 
     @Override
     public String toString() {
-        return "Result{" +
-                "resultList=" + resultList +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        for(String result: resultList){
+            sb.append(String.format(" %1$-5s", result));
+        }
+        return sb.toString();
     }
 }

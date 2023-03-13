@@ -22,7 +22,7 @@ public class LadderGameController {
         getResultFromController();
         getLadderHeightFromController();
         Ladder ladder = getLadder();
-        printLadder(ladder);
+        printLadder(ladder,result);
     }
 
     private void getNameFromController(){
@@ -39,8 +39,8 @@ public class LadderGameController {
         return new Ladder(player.getNameList(), ladderheight.getLadderHeight());
     }
 
-    private void printLadder(Ladder ladder){
-        controller.printLadder(ladder);
+    private void printLadder(Ladder ladder,Result result){
+        controller.printLadder(ladder,result);
     }
     private void getExcutionResult() throws IOException {
         controller.getExcutionResult();

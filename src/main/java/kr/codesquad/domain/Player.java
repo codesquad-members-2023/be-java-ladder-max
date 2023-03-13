@@ -14,6 +14,10 @@ public class Player {
     private final String ERROR_MESSAGE_FOR_PLAYER_NUMBER = "player는 2명이상 필요합니다.재입력 해라";
     ArrayList nameList;
 
+    public Player(){
+        this.nameList = new ArrayList();
+    }
+
     public ArrayList getNameList() {
         return nameList;
     }

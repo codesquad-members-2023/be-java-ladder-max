@@ -36,10 +36,11 @@ public class LadderLine {
     }
 
     static void drawLine(ArrayList<LadderLine> ladder, StringBuilder sb) {
-        for (LadderLine line : ladder) {
+        for (int i = 0; i < ladder.size(); i++) {
+            LadderLine line = ladder.get(i);
             sb.append("  |");
             drawRung(sb, line);
-            sb.append("\n");
+            sb.append(i == ladder.size() - 1 ? "" : "\n");
         }
     }
 

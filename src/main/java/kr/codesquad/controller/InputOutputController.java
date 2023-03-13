@@ -44,7 +44,7 @@ public class InputOutputController extends Player {
         }
     }
 
-    void printLadder(Ladder ladder) {
-        outputHandler.printLadder(ladder);
+    void printLadder(Ladder ladder,Result result) {
+        outputHandler.printLadder(ladder,result);
     }
 }
