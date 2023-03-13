@@ -1,16 +1,18 @@
 package kr.codesquad;
 
-public class Ladder {
-  private final boolean[][] ladder;
+import java.util.ArrayList;
 
-  public Ladder(boolean[][] ladder) {
+public class Ladder {
+  private final ArrayList<ArrayList<Boolean>> ladder;
+
+  public Ladder(ArrayList<ArrayList<Boolean>> ladder) {
     this.ladder = ladder;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    for (boolean[] row : ladder) {
+    for (ArrayList<Boolean> row : ladder) {
       for (boolean hasLine : row) {
         String line = hasLine ? "|-" : "| ";
         sb.append(line);
