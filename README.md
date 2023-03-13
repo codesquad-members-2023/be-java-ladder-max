@@ -114,6 +114,9 @@ line 클래스를 담은 리스트를 이용하여 사다리 전체를 만드는
 - 테스트 코드 작성 
 - 메서드 함수형으로 변경
 
+# step-4 클래스 다이어그램
+<img width="681" alt="diagram" src="https://user-images.githubusercontent.com/100547825/224796750-290c1f5a-f92e-4852-9a38-ecc8c679bd58.png">
+
 # 2주차 학습계획
 - [ ]  step-5 설계 및 구현 (2일안에 못하면 포기 후 로또구현)
 - [ ]  오브젝트 책 읽기
