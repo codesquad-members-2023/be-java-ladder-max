@@ -7,14 +7,14 @@ public class DestinationGroup {
     private final Destination[] destinations;
 
     public DestinationGroup(String[] destinationNames) {
-        validateDestinationsLength();
+        validateDestinationsLength(destinationNames);
         destinations = Arrays.stream(destinationNames)
                 .map(Destination::new)
                 .toArray(Destination[]::new);
     }
 
-    private void validateDestinationsLength(String[] playerNames) {
-        if(playerNames.length == 0) {
+    private void validateDestinationsLength(String[] destinationNames) {
+        if(destinationNames.length == 0) {
             throw new IllegalArgumentException("[ERROR] 최소 한명 이상의 플레이어를 입력해 주세요.");
         }
     }
