@@ -12,6 +12,10 @@ public class Ladder {
         }
     }
 
+    public int moveVertically(int index, int position) {
+        return ladder.get(index).moveHorizontally(position);
+    }
+
     @Override
     public String toString() {
         return ladder.stream()

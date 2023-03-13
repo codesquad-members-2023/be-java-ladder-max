@@ -29,14 +29,14 @@ public class Line {
         points.add(new Random().nextInt(2));
     }
 
-    public int moveHorizontally(int index) {
-        if(index != 0 && points.get(index - 1) == 1) {
-            return index - 2;
+    public int moveHorizontally(int position) {
+        if(position != 0 && points.get(position - 1) == 1) {
+            return position - 2;
         }
-        if(index + 1 < points.size() && points.get(index + 1) == 1) {
-            return index + 2;
+        if(position + 1 < points.size() && points.get(position + 1) == 1) {
+            return position + 2;
         }
-        return index;
+        return position;
     }
 
     @Override
