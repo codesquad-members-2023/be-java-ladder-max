@@ -2,6 +2,7 @@ package kr.codesquad.domain;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
 
@@ -51,13 +52,13 @@ public class LadderLine {
         }
     }
 
-    public void canMove(HashMap<String,Integer> resultMap,ArrayList<String> nameList) {
+    void canMove(HashMap<String,Integer> resultMap, List<String> nameList) {
         for(String name:nameList){
             int pos = resultMap.get(name);
             if (pos > 0 && points.get(pos - 1)) {
                 resultMap.put(name,pos-1);
             }
-            if (pos < lineWidth && points.get(pos)) { // 오류날수도
+            if (pos < lineWidth && points.get(pos)) {
                 resultMap.put(name,pos+1);
             }
         }

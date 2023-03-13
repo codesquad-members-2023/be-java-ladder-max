@@ -22,10 +22,10 @@ public class InputView {
         System.out.println(RESULT_MESSAGE);
     }
     public void selectPlayerPrompt(){
-        System.out.println(EXECUTION_SELECT_PLAYER);
+        System.out.println("\n"+EXECUTION_SELECT_PLAYER);
     }
     public void executionResultPrompt(){
-        System.out.println(EXECUTION_RESULT_MESSAGE);
+        System.out.println("\n"+EXECUTION_RESULT_MESSAGE);
     }
 
     public String getInput() throws IOException {

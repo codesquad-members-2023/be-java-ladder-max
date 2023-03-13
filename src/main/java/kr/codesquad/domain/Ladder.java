@@ -10,8 +10,7 @@ public class Ladder {
     private final int ladderHeight;
     private ArrayList<LadderLine> ladder;
     private ArrayList<String> nameList;
-
-    public HashMap<String, Integer> resultMap;
+    private HashMap<String, Integer> resultMap;
 
 
     public Ladder(ArrayList nameList, int ladderHeight) {
@@ -20,7 +19,6 @@ public class Ladder {
         this.countOfPeople = this.nameList.size();
         createLadder();
         resultMap = new HashMap<>();
-        makeResultMap();
     }
 
     private void createLadder() {
@@ -30,6 +28,10 @@ public class Ladder {
             ladderLine.createLine();
             ladder.add(ladderLine);
         }
+    }
+    public HashMap<String, Integer> generateResultMap(){
+        makeResultMap();
+        return resultMap;
     }
 
     private void makeResultMap() {

@@ -5,6 +5,7 @@ import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public class InputOutputController extends Players {
 
@@ -37,9 +38,9 @@ public class InputOutputController extends Players {
         return result;
     }
 
-    void getExcutionResult() throws IOException {
+    void getExcutionResult(HashMap<String,Integer> resultMap,Result result) throws IOException {
         while(true){
-            ExecutionResult executionResult = new ExecutionResult(inputHandler);
+            new ExecutionResult(inputHandler,resultMap,result);
         }
     }
 
