@@ -7,8 +7,8 @@ import java.util.List;
 public class Line {
     private final List<Boolean> rungs;
 
-    public Line(int width) {
-        RandomManager randomManager = new RandomManager();
+    public Line(int width, RandomManager randomManager) {
+
         this.rungs = randomManager.makeBooleansRandomly(width);
         checkContinuousRungs();
     }

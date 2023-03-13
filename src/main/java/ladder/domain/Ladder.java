@@ -1,5 +1,7 @@
 package ladder.domain;
 
+import ladder.random.RandomManager;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +18,7 @@ public class Ladder {
 
     public void makeLadder() {
         for (int i = 0; i < height; i++) {
-            Line line = new Line(width);
+            Line line = new Line(width, new RandomManager());
             lines.add(line);
         }
     }

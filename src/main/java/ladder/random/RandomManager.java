@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class RandomManager {
-    private Random random = new Random();
+    private final Random random = new Random();
 
     public List<Boolean> makeBooleansRandomly(int size) {
         List<Boolean> booleans = new ArrayList<>(size);
