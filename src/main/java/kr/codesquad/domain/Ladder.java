@@ -25,12 +25,11 @@ public class Ladder {
         }
     }
 
-    public int ladderRide(int playerNumber){
-        int resultPos = playerNumber;
-        for(LadderLine line:ladder){
-            resultPos= line.canMove(resultPos);
+    public int ladderRide(int playerNumber) {
+        for (LadderLine line : ladder) {
+            playerNumber = line.canMove(playerNumber);
         }
-        return resultPos;
+        return playerNumber;
     }
 
     @Override

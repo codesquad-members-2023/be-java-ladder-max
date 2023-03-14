@@ -9,15 +9,13 @@ import java.util.Map;
 public class ExecutionResult {
 
     private HashMap<String,String> resultMap;
-    private InputView inputHandler;
 
     public ExecutionResult(InputView inputHandler,HashMap<String,String> resultMap) throws IOException {
         this.resultMap = resultMap;
-        this.inputHandler = inputHandler;
-        getNameForExcutionResult();
+        getNameForExcutionResult(inputHandler);
     }
 
-    private void getNameForExcutionResult() throws IOException {
+    private void getNameForExcutionResult(InputView inputHandler) throws IOException {
         inputHandler.selectPlayerPrompt();
         getExecutionResult(inputHandler,inputHandler.getInput());
     }
@@ -25,11 +23,15 @@ public class ExecutionResult {
     private void getExecutionResult(InputView inputHandler,String pickedPerson){
         inputHandler.executionResultPrompt();
         if(pickedPerson.equals("all")){
-            for (Map.Entry<String, String> entry : resultMap.entrySet()) {
-                System.out.println(entry.getKey() + " : " + entry.getValue());
-            }
+            printAllPlayerResult();
             return;
         }
         System.out.println(resultMap.get(pickedPerson));
+    }
+
+    private void printAllPlayerResult() {
+        for (Map.Entry<String, String> entry : resultMap.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
     }
 }

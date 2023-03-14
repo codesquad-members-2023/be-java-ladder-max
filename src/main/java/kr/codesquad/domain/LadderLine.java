@@ -36,13 +36,12 @@ public class LadderLine {
     }
 
     int canMove(int playerNumber) {
-        int pos = playerNumber;
-        if (pos > 0 && points.get(pos - 1)) {
-            return pos - 1;
+        if (playerNumber > 0 && points.get(playerNumber - 1)) {
+            return playerNumber - 1;
         }
-        if (pos < lineWidth && points.get(pos)) {
-            return pos + 1;
+        if (playerNumber < lineWidth && points.get(playerNumber)) {
+            return playerNumber + 1;
         }
-        return pos;
+        return playerNumber;
     }
 }

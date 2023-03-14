@@ -1,14 +1,13 @@
 package kr.codesquad.domain;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ExcutionResultGenerator {
     private HashMap<String,String> resultMap;
-    Ladder ladder;
-    Players player;
-    Result result;
+    private Ladder ladder;
+    private Players player;
+    private Result result;
 
     public HashMap<String, String> getResultMap() {
         return resultMap;
@@ -23,16 +22,11 @@ public class ExcutionResultGenerator {
     }
 
     private void generateResultMap(int playerCount){
-        HashMap<Integer,Integer> tempResultMap = new HashMap<>();
         for(int i=0;i<playerCount;i++){
-            tempResultMap.put(i,ladder.ladderRide(i));
-        }
-        playerAndResultMatcher(tempResultMap);
-    }
-
-    private void playerAndResultMatcher(HashMap<Integer,Integer> tempResultMap){
-        for(Map.Entry<Integer, Integer> elem : tempResultMap.entrySet()){
-            resultMap.put(player.getNameFromNameList(elem.getKey()),result.getResultFromResultList(elem.getValue()));
+            int ladderRideResult = ladder.ladderRide(i);
+            String playerName = player.getNameFromNameList(i);
+            String resultValue = result.getResultFromResultList(ladderRideResult);
+            resultMap.put(playerName, resultValue);
         }
     }
 }
