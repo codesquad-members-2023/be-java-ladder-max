@@ -13,7 +13,7 @@ public class LadderMaker {
     public void setNamesList(ArrayList<String> returnInit) {
         names = returnInit;
     }
-    void makeFirstBridge(int x, int i){
+    private void makeFirstBridge(int x, int i){
         if (random.nextBoolean()) {
             x = 1;
         }
@@ -38,14 +38,14 @@ public class LadderMaker {
            makeAllExceptLeftSide(x, i);
         }
     }
-    void makeAllExceptLeftSide (int x, int i){
+    private void makeAllExceptLeftSide (int x, int i){
         makeFirstBridge(x, i);
         for (int j = 1; j < names.size() - 1; j++) {
             x = 0;
             makeBridgeValueByBeforeValue(x, j, i);
         }
     }
-    void makeBridgeValueByBeforeValue(int x, int j, int i){
+    private void makeBridgeValueByBeforeValue(int x, int j, int i){
         if (random.nextBoolean() && ladderBoard.get(i).get(j - 1).equals("     ")) {
             x = 1;
         }
