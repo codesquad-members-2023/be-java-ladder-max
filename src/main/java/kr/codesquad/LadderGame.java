@@ -7,6 +7,7 @@ import java.util.Optional;
 public class LadderGame implements Runnable {
   private final int MIN_SIZE_OF_PEOPLE = 2;
   private final int MIN_SIZE_OF_LADDER = 1;
+  private final int MAX_NAME_SIZE = 5;
   private final Console console;
   private final RandomLadderGenerator generator;
 
@@ -36,9 +37,9 @@ public class LadderGame implements Runnable {
   // 5글자를 기준으로 이름을 가운데로 정렬하는 메소드
   private String alignCenter(String name) {
     StringBuilder sb = new StringBuilder();
-    while(sb.length() < (5-name.length())/2) sb.append(" ");
+    while(sb.length() < (MAX_NAME_SIZE-name.length())/2) sb.append(" ");
     sb.append(name);
-    while(sb.length() < 5) sb.append(" ");
+    while(sb.length() < MAX_NAME_SIZE) sb.append(" ");
     return sb.toString();
   }
 
@@ -65,7 +66,7 @@ public class LadderGame implements Runnable {
 
   private boolean isValidPlayer(String[] playerNames) {
     if (playerNames.length < MIN_SIZE_OF_PEOPLE) return false; // 최소 플레이어수 확인
-    var count = Arrays.stream(playerNames).filter(name -> name.length() > 5).count();
+    var count = Arrays.stream(playerNames).filter(name -> name.length() > MAX_NAME_SIZE).count();
     return count == 0;
   }
 
