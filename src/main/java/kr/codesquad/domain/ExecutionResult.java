@@ -21,6 +21,9 @@ public class ExecutionResult {
     }
 
     private void getExecutionResult(InputView inputHandler,String pickedPerson){
+        if(pickedPerson.equals("춘식이")){
+            System.exit(0);
+        }
         inputHandler.executionResultPrompt();
         if(pickedPerson.equals("all")){
             printAllPlayerResult();
