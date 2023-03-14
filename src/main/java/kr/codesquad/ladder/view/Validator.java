@@ -7,7 +7,7 @@ public class Validator {
             checkLimit(name);
             return true;
         } catch (IllegalArgumentException e){
-            System.out.println("이름은 다섯글자 이하로 입력해주세요");
+            System.out.println(e.getMessage());
         }
         return false;
     }
@@ -18,7 +18,7 @@ public class Validator {
     }
     public void statementLimit(String name) {
         if(name.length()>5) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("이름은 다섯글자 이하로 입력해주세요");
         }
     }
 }

@@ -2,6 +2,8 @@ package kr.codesquad.ladder.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Ladder {
 
@@ -17,20 +19,14 @@ public class Ladder {
         ladder = makeLadder();
     }
     private List<Line> makeLadder() {
-        List<Line> list = new ArrayList<>();
-        for (int i = 0; i<length; i++) {
-            Line line = new Line(countOfPerson);
-            list.add(line);
-        }
-        return list;
+        return IntStream.range(0,length)
+                .mapToObj(i->new Line(countOfPerson))
+                .collect(Collectors.toList());
     }
     @Override
     public String toString(){
-        StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0; i<ladder.size(); i++) {
-            stringBuilder.append(ladder.get(i).toString());
-            stringBuilder.append("\n");
-        }
-        return stringBuilder.toString();
+        return ladder.stream()
+                .map(Line::toString)
+                .collect(Collectors.joining("\n"));
     }
 }

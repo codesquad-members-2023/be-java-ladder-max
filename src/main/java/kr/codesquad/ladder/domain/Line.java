@@ -3,19 +3,19 @@ package kr.codesquad.ladder.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 
 public class Line {
     private ArrayList<Boolean> point = new ArrayList<>();
 
     public Line(int countOfPerson) {
-       // point.add(false);
         for(int i = 0; i<countOfPerson; i++){
-            point.add(checkDuplicates(i));
+            point.add(checkDuplicates());
         }
     }
 
-    public boolean checkDuplicates(int i) {
+    public boolean checkDuplicates() {
         if(point.isEmpty()){
             return new Random().nextBoolean();
         }
@@ -24,18 +24,17 @@ public class Line {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(" |");
-        for(int i = 0; i<point.size(); i++) {
-            drawCheck(point.get(i),stringBuilder);
-        }
-        return stringBuilder.toString();
+        return " |" + point.stream()
+                .map(check -> drawCheck(check))
+                .collect(Collectors.joining());
     }
 
-    public StringBuilder drawCheck(boolean check,StringBuilder stringBuilder) {
-        if(check) {
-            return stringBuilder.append("-----|");
-        }
-        return stringBuilder.append("     |");
+    public String drawCheck(boolean check) {
+        return check ? "-----|" : "     |";
+    }
+
+    // 테스트 코드를 위한 getter
+    public ArrayList<Boolean> getPoint() {
+        return point;
     }
 }
