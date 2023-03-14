@@ -23,4 +23,8 @@ public class Ladder {
 
     return String.valueOf(sb);
   }
+
+  public ArrayList<ArrayList<Boolean>> getLadder() {
+    return ladder;
+  }
 }
