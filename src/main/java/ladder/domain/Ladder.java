@@ -1,5 +1,7 @@
 package ladder.domain;
 
+import ladder.random.RandomManager;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,16 +10,15 @@ public class Ladder {
     private final int height;
     private final List<Line> lines;
 
-    public Ladder(int width, int height) {
-        this.width = width;
+    public Ladder(int players, int height) {
+        this.width = players - 1;
         this.height = height;
         this.lines = new ArrayList<>();
     }
 
     public void makeLadder() {
         for (int i = 0; i < height; i++) {
-            Line line = new Line();
-            line.makeRungs(width);
+            Line line = new Line(width, new RandomManager());
             lines.add(line);
         }
     }
@@ -31,5 +32,12 @@ public class Ladder {
             builder.append(System.lineSeparator());
         }
         return builder.toString();
+    }
+
+    public int rideLadder(int index) {
+        for (Line line : lines) {
+            index = line.rideLine(index);
+        }
+        return index;
     }
 }

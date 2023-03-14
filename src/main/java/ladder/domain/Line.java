@@ -1,31 +1,29 @@
 package ladder.domain;
 
-import java.util.ArrayList;
+import ladder.random.RandomManager;
+
 import java.util.List;
 
 public class Line {
-    private final List<Boolean> rungs = new ArrayList<>();
+    private final List<Boolean> rungs;
 
-    public Line() { }
+    public Line(int width, RandomManager randomManager) {
 
-    public void makeRungs(int width) {
-        rungs.add(makeRungRandomly());
-        for (int i = 1; i < width; i++) {
-            rungs.add(checkContinuousRungs(i));
+        this.rungs = randomManager.makeBooleansRandomly(width);
+        checkContinuousRungs();
+    }
+
+    private void checkContinuousRungs() {
+        for (int index = 1; index < rungs.size(); index++) {
+            removeContinuousRung(index);
         }
     }
 
-    private boolean checkContinuousRungs(int index) {
-        final int LEFT = index - 1;
-        if (rungs.get(LEFT)) {
-            return false;
+    private void removeContinuousRung(int index) {
+        int left = index - 1;
+        if (rungs.get(left) && rungs.get(index)) {
+            rungs.set(index, false);
         }
-        return makeRungRandomly();
-    }
-
-    private boolean makeRungRandomly() {
-        boolean[] random = {false, true};
-        return random[(int) (Math.random() * random.length)];
     }
 
     public String drawLine() {
@@ -41,7 +39,23 @@ public class Line {
         return builder.toString();
     }
 
-    public boolean isRungExist(int index) {
-        return rungs.get(index);
+    public int rideLine(int index) {
+        final int FIRST = 0;
+        final int LAST = rungs.size();
+        final int LEFT = index - 1;
+        final int RIGHT = index + 1;
+        if (index == FIRST && rungs.get(FIRST)) {
+            return RIGHT;
+        }
+        if (index != FIRST && index != LAST && rungs.get(index)) {
+            return RIGHT;
+        }
+        if (index != FIRST && index != LAST && rungs.get(LEFT)) {
+            return LEFT;
+        }
+        if (index == LAST && rungs.get(LEFT)) {
+            return LEFT;
+        }
+        return index;
     }
 }

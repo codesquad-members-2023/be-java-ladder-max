@@ -6,8 +6,8 @@ import java.util.List;
 public class Players {
     private final List<Player> players = new ArrayList<>();
 
-    public Players(List<String> names) {
-        checkMinPlayer(names.size());
+    public Players(String[] names) {
+        checkMinPlayer(names.length);
         for (String name : names) {
             players.add(new Player(name));
         }
