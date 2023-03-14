@@ -1,48 +1,31 @@
 package kr.codesquad.ladder.domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class LadderResults {
 
-    private static final Pattern DELIMITER = Pattern.compile("\\s*,\\s*");
-    private static final int LENGTH_LIMIT = 5;
-
     private final List<LadderResult> ladderResults;
 
-    public LadderResults(String text, int countOfPeople) {
-        validateCountOfLadderResult(text, countOfPeople);
-        validateLengthOfLadderResult(text);
-        this.ladderResults = toList(text);
+    public LadderResults(String[] ladderResults, int countOfPeople) {
+        validateCountOfLadderResult(ladderResults, countOfPeople);
+        this.ladderResults = toList(ladderResults);
     }
 
-    private void validateCountOfLadderResult(String text, int countOfPeople) {
-        String[] results = text.split(DELIMITER.pattern());
-        if (results.length != countOfPeople) {
+    private void validateCountOfLadderResult(String[] ladderResults, int countOfPeople) {
+        if (ladderResults.length != countOfPeople) {
             throw new InvalidCountOfLadderResultException(countOfPeople);
         }
     }
 
-    private void validateLengthOfLadderResult(String text) {
-        String[] results = text.split(DELIMITER.pattern());
-        Arrays.stream(results)
-            .filter(result -> result.length() > LENGTH_LIMIT)
-            .forEach(result -> {
-                throw new InvalidLengthOfLadderResultException();
-            });
-    }
-
-    private List<LadderResult> toList(String text) {
-        List<LadderResult> ladderResults = new ArrayList<>();
-        String[] results = text.split(DELIMITER.pattern());
-        for (String result : results) {
-            ladderResults.add(new LadderResult(result));
+    private List<LadderResult> toList(String[] ladderResults) {
+        List<LadderResult> ladderResultList = new ArrayList<>();
+        for (String ladderResult : ladderResults) {
+            ladderResultList.add(new LadderResult(ladderResult));
         }
-        return ladderResults;
+        return ladderResultList;
     }
 
     @Override

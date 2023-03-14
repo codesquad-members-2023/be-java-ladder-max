@@ -4,10 +4,19 @@ import java.util.Objects;
 
 public class LadderResult {
 
+    private static final int LENGTH_LIMIT = 5;
+
     private final String value;
 
     public LadderResult(String value) {
+        validateLengthOfLadderResult(value);
         this.value = value;
+    }
+
+    public void validateLengthOfLadderResult(String value) {
+        if (value.length() > LENGTH_LIMIT) {
+            throw new InvalidLengthOfLadderResultException();
+        }
     }
 
     @Override
