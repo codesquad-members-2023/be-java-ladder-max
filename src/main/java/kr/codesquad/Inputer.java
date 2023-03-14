@@ -5,40 +5,43 @@ import java.util.ArrayList;
 
 public class Inputer {
     Scanner sc = new Scanner(System.in);
-    private String names;
     private int ladderNum;
+    private ArrayList<String> namesList = new ArrayList<>();
+    private boolean trueOrFalse = true;
 
-    public ArrayList<String> seting() {
-        ArrayList<String> namesList = checkNameLength(makeNamesArrayList());
-        setLadderValue();
-        return namesList;
-    }
-
-    private ArrayList<String> makeNamesArrayList() {
+    public void startLadder() {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표로 구분하세요)");
-        names = sc.nextLine();
-        ArrayList<String> namesArrayList = new ArrayList<>();
-        for (String j : names.split(",")) {
-            namesArrayList.add(j);
-        }
-        return namesArrayList;
+        makeNamesList();
+        checkNameLength();
+        ifOver5();
+        setLadderValue();
     }
 
-    private ArrayList<String> checkNameLength(ArrayList<String> ListCheck) {
-        for (int i = 0; i < ListCheck.size(); i++) {
-            if (ListCheck.get(i).length() > 5) {
-                String[] str;
-                System.out.println("이름 1개당 5글자까지만 됩니다. 다시 해주세요. (이름은 쉼표로 구분하세요)");
-                names = sc.nextLine();
-                str = names.split(",");
-                ArrayList<String> newNames = new ArrayList<>();
-                for (String j : str) {
-                    newNames.add(j);
-                }
-                checkNameLength(newNames);
+    private void checkNameLength() {
+        for (int i = 0; i < namesList.size(); i++) {
+            if (namesList.get(i).length() > 5) {
+                trueOrFalse = true;
+                break;
+            }
+            if (namesList.get(i).length() < 6) {
+                trueOrFalse = false;
             }
         }
-        return ListCheck;
+    }
+
+    private void ifOver5() {
+        while (trueOrFalse) {
+            System.out.println("이름 1개당 5글자까지만 됩니다. 다시 해주세요. (이름은 쉼표로 구분하세요)");
+            namesList.clear();
+            makeNamesList();
+            checkNameLength();
+        }
+    }
+
+    private void makeNamesList() {
+        for (String j : sc.nextLine().split(",")) {
+            namesList.add(j);
+        }
     }
 
     private void setLadderValue() {
@@ -48,5 +51,9 @@ public class Inputer {
 
     public int getLadderNum() {
         return ladderNum;
+    }
+
+    public ArrayList<String> getNamesList() {
+        return namesList;
     }
 }

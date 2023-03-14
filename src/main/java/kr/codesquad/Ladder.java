@@ -54,8 +54,8 @@ public class Ladder {
         }
     }
 
-    private void ifStatementInForInForInForInMakeLadder(boolean boolen, int i, int j, int x) {
-        if (boolen && ladderBoard.get(i).get(j - 1).equals("     ")) {
+    private void ifStatementInForInForInForInMakeLadder(boolean bool, int i, int j, int x) {
+        if (bool && ladderBoard.get(i).get(j - 1).equals("     ")) {
             x = 1;
         }
         reusedSwitchInForInForInMakeLadder(i, x);
