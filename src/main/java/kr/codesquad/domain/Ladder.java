@@ -1,20 +1,18 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static kr.codesquad.domain.LadderLine.drawLine;
 
 public class Ladder {
     private final int countOfPeople;
     private final int ladderHeight;
-    private  ArrayList ladder;
-    private ArrayList<String> nameList = new ArrayList<>();
+    private ArrayList<LadderLine> ladder;
 
-
-    public Ladder(ArrayList<String> inputList) {
-        this.ladderHeight = Integer.parseInt(inputList.remove(inputList.size() - 1));
-        this.countOfPeople = inputList.size();
-        this.nameList.addAll(inputList);
+    public Ladder(ArrayList nameList, int ladderHeight) {
+        this.ladderHeight = ladderHeight;
+        this.countOfPeople = nameList.size();
         createLadder();
     }
 
@@ -27,18 +25,17 @@ public class Ladder {
         }
     }
 
-    private void drawName(StringBuilder sb){
-        for(String name: nameList){
-            sb.append(String.format(" %1$-5s", name));
+    public int ladderRide(int playerNumber) {
+        for (LadderLine line : ladder) {
+            playerNumber = line.canMove(playerNumber);
         }
-        sb.append("\n");
+        return playerNumber;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        drawName(sb);
-        drawLine(ladder,sb);
+        drawLine(ladder, sb);
         return sb.toString();
     }
 }

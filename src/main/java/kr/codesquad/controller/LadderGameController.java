@@ -1,30 +1,27 @@
 package kr.codesquad.controller;
 
-import kr.codesquad.domain.Ladder;
+import kr.codesquad.domain.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class LadderGameController {
-    InputOutputController inputOutputcontroller;
+    private final InputOutputController ioController;
+    private final Players players;
+    private final LadderHeight ladderHeight;
+    private final Result result;
 
-    public LadderGameController(){
-        this.inputOutputcontroller = new InputOutputController();
+    public LadderGameController() {
+        this.ioController = new InputOutputController();
+        this.players = new Players();
+        this.result = new Result();
+        this.ladderHeight = new LadderHeight();
     }
+
     public void startLadderGame() throws IOException {
-        Ladder ladder = getLadder(getNameAndHeightFromInputOutputController());
-        printLadder(ladder);
-    }
-
-    private ArrayList getNameAndHeightFromInputOutputController(){
-        return inputOutputcontroller.getNameAndHeightFromUser();
-    }
-
-    private Ladder getLadder(ArrayList listForNameAndHeight){
-        return new Ladder(listForNameAndHeight);
-    }
-
-    private void printLadder(Ladder ladder){
-        inputOutputcontroller.printLadder(ladder);
+        ioController.setupGame(players,ladderHeight,result);
+        Ladder ladder = new Ladder(players.getNameList(), ladderHeight.getLadderHeight());
+        ioController.printLadder(ladder,players,result);
+        ExcutionResultGenerator excutionResultGenerator = new ExcutionResultGenerator(ladder,players,result);
+        ioController.getExcutionResult(excutionResultGenerator.getResultMap());
     }
 }

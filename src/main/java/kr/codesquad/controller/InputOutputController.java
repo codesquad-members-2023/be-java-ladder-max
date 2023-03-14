@@ -1,14 +1,13 @@
 package kr.codesquad.controller;
 
-import kr.codesquad.domain.Ladder;
-import kr.codesquad.domain.LadderHeightValidator;
-import kr.codesquad.domain.PlayerValidator;
+import kr.codesquad.domain.*;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.util.HashMap;
 
-public class InputOutputController extends PlayerValidator {
+public class InputOutputController extends Players {
 
     private OutputView outputHandler;
     private InputView inputHandler;
@@ -18,26 +17,34 @@ public class InputOutputController extends PlayerValidator {
         this.outputHandler = new OutputView();
     }
 
-    public ArrayList getNameAndHeightFromUser(){
-        ArrayList listForNameAndHeight = new ArrayList();
-        getName(listForNameAndHeight);
-        getHeight(listForNameAndHeight);
-        return listForNameAndHeight;
+    public void setupGame(Players players,LadderHeight ladderHeight,Result result){
+        getName(players);
+        getResult(result,players.getNameList().size());
+        getHeight(ladderHeight);
     }
 
-    private void getName(ArrayList listForNameAndHeight){
-        outputHandler.outputParticipantNamePrompt();
-        PlayerValidator playerValidator = new PlayerValidator();
-        while(!playerValidator.getVaildNameFromUser(listForNameAndHeight, inputHandler));
+    private void getName(Players players){
+        inputHandler.playerNamePrompt();
+        while(!players.getVaildNameFromUser(inputHandler));
     }
 
-    private void getHeight(ArrayList listForNameAndHeight){
-        LadderHeightValidator heightValidator = new LadderHeightValidator();
-        outputHandler.outputLadderHeightPrompt();
-        while(!heightValidator.getValidHeightFromUser(listForNameAndHeight, inputHandler));
+    private void getHeight(LadderHeight ladderHeight){
+        inputHandler.LadderHeightPrompt();
+        while(!ladderHeight.getValidHeightFromUser(inputHandler));
     }
 
-    public void printLadder(Ladder ladder) {
-        outputHandler.printLadder(ladder);
+    private void getResult(Result result,int playerNum){
+        inputHandler.resultPrompt();
+        while(!result.getResult(inputHandler, playerNum));
+    }
+
+    void getExcutionResult(HashMap<String,String> resultMap) throws IOException {
+        while(true){
+            new ExecutionResult(inputHandler,resultMap);
+        }
+    }
+
+    void printLadder(Ladder ladder,Players player,Result result) {
+        outputHandler.printLadder(ladder,player,result);
     }
 }

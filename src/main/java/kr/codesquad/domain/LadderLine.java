@@ -1,6 +1,8 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
 
@@ -9,33 +11,17 @@ public class LadderLine {
 
     private final int lineWidth;
     ArrayList<Boolean> points;
-    LinePointsValidator linePointsValidator;
 
     public LadderLine(int countOfPeople) {
         this.lineWidth = countOfPeople - 1;
         this.points = new ArrayList<>();
-        linePointsValidator = new LinePointsValidator();
     }
 
-    void createLine(){
-        buildLadderLine();
+    void createLine() {
+        points.addAll(new RandomLineGenerator().buildLadderLine(lineWidth));
     }
 
-    private void buildLadderLine() {
-        IntStream.range(0, lineWidth)
-                .mapToObj(i -> generateRungStatus())
-                .forEach(points::add);
-        linePointsValidator.validatePoints(points);//todo 예외 발생시 어떻게 할건지
-    }
-
-    private boolean generateRungStatus() {
-        if (points.isEmpty()) {
-            return new Random().nextBoolean();
-        }
-        return new Random().nextBoolean() && !points.get(points.size() - 1);
-    }
-
-    static void drawLine(ArrayList<LadderLine> ladder, StringBuilder sb) {
+    static void drawLine(List<LadderLine> ladder, StringBuilder sb) {
         for (LadderLine line : ladder) {
             sb.append("  |");
             drawRung(sb, line);
@@ -47,5 +33,15 @@ public class LadderLine {
         for (boolean boolInLine : line.points) {
             sb.append(boolInLine ? "-----|" : "     |");
         }
+    }
+
+    int canMove(int playerNumber) {
+        if (playerNumber > 0 && points.get(playerNumber - 1)) {
+            return playerNumber - 1;
+        }
+        if (playerNumber < lineWidth && points.get(playerNumber)) {
+            return playerNumber + 1;
+        }
+        return playerNumber;
     }
 }

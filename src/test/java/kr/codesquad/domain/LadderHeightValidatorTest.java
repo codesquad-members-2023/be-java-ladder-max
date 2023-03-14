@@ -13,9 +13,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class LadderHeightValidatorTest {
 
-    LadderHeightValidator heightValidator = new LadderHeightValidator();
+    LadderHeight heightValidator = new LadderHeight();
     InputView inputHandler = new InputView();
-    ArrayList list = new ArrayList();
+    Integer height;
     @Test
     @DisplayName("사다리 높이가 >0 일때 test")
     void heightValidateSuccessTest(){
@@ -23,7 +23,7 @@ class LadderHeightValidatorTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertTrue(heightValidator.getValidHeightFromUser(list,inputHandler));
+        assertTrue(heightValidator.getValidHeightFromUser(inputHandler));
     }
 
     @Test
@@ -33,6 +33,6 @@ class LadderHeightValidatorTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        assertFalse(heightValidator.getValidHeightFromUser(list,inputHandler));
+        assertFalse(heightValidator.getValidHeightFromUser(inputHandler));
     }
 }

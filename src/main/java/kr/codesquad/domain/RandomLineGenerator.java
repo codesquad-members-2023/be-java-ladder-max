@@ -1,12 +1,31 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.stream.IntStream;
 
-public class LinePointsValidator {
+public class RandomLineGenerator {
 
     private final String ERROR_MESSAGE_FOR_CONSECUTIVE_POINTS = "연속적인 true 존재";
-    boolean validatePoints(ArrayList<Boolean> points) {
+
+    public ArrayList buildLadderLine(int lineWidth) {
+        ArrayList<Boolean> points = new ArrayList<>();
+        IntStream.range(0, lineWidth)
+                .mapToObj(i -> generateRungStatus(points))
+                .forEach(points::add);
+        validatePoints(points);//todo 예외 발생시 어떻게 할건지
+        return points;
+    }
+
+    private boolean generateRungStatus(List<Boolean> points) {
+        if (points.isEmpty()) {
+            return new Random().nextBoolean();
+        }
+        return new Random().nextBoolean() && !points.get(points.size() - 1);
+    }
+
+    private boolean validatePoints(ArrayList<Boolean> points) {
         try {
             validatePointsAndThrowException(points);
             return true;
@@ -24,4 +43,5 @@ public class LinePointsValidator {
                     throw new IllegalStateException(ERROR_MESSAGE_FOR_CONSECUTIVE_POINTS);
                 });
     }
+
 }
