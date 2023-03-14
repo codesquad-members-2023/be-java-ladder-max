@@ -36,7 +36,7 @@ public class LadderGame {
         } catch (EndGameException e) {
             return;
         } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
+            OutputView.printErrorMessage(e);
         }
 
         executeLadderResult();
