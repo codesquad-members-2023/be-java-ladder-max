@@ -1,49 +1,54 @@
 package kr.codesquad.service;
 
 import kr.codesquad.domain.Ladder;
-import kr.codesquad.view.Screen;
+import kr.codesquad.controller.dto.LadderInputDto;
+import kr.codesquad.domain.LadderLine;
+import kr.codesquad.domain.LadderPart;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Stream;
 
 public class LadderGame {
-    private final Screen screen;
+    public String play(LadderInputDto ladderInputDto) {
+        Ladder ladder = new Ladder(makeLadderMap(ladderInputDto.getPlayerNumber(), ladderInputDto.getHeight()));
 
-    public LadderGame(Screen screen) {
-        this.screen = screen;
+        return String.join("\n", ladder.createOutputLines());
     }
 
-    public void run() {
-        final List<String> playerNames = inputPlayerNames();
-        final int height = inputLadderHeight();
+    private List<LadderLine> makeLadderMap(int playerNumber, int height) {
+        final List<LadderLine> ladderLines = new ArrayList<>();
 
-        final Ladder ladder = new Ladder(playerNames.size(), height);
-
-        showResult(playerNames, ladder);
-    }
-
-    private void showResult(List<String> playerNames, Ladder ladder) {
-        screen.printResult(playerNames, ladder.createOutputLines());
-    }
-
-    private int inputLadderHeight() {
-        Optional<Integer> ladderHeight = Optional.empty();
-
-        while (ladderHeight.isEmpty()) {
-            ladderHeight = screen.inputLadderHeight();
+        for (int i = 0; i < height; i++) {
+            ladderLines.add(makeLadderLine(playerNumber));
         }
 
-        return ladderHeight.get();
+        return ladderLines;
     }
 
-    private List<String> inputPlayerNames() {
-        Optional<List<String>> playerNames = Optional.empty();
+    private LadderLine makeLadderLine(int playerNumber) {
+        final List<LadderPart> ladderParts = new ArrayList<>();
+        int maxWidth = playerNumber * 2 - 1;
 
-        while (playerNames.isEmpty()) {
-            playerNames = screen.inputPlayerNames();
+        for (int width = 0; width < maxWidth; width++) {
+            ladderParts.add(makeLadderPart(ladderParts, width));
         }
 
-        return playerNames.get();
+        return new LadderLine(ladderParts);
     }
 
+    private LadderPart makeLadderPart(List<LadderPart> ladderParts, int width) {
+        if (width % 2 == 0) {
+            return LadderPart.BAR;
+        }
+        if (existBridgeOnLeft(ladderParts, width)) {
+            return LadderPart.EMPTY;
+        }
+
+        return LadderPart.makeRandomBridge();
+    }
+
+    private boolean existBridgeOnLeft(List<LadderPart> ladderParts, int width) {
+        return width > 2 && ladderParts.get(width - 2) == LadderPart.BRIDGE;
+    }
 }

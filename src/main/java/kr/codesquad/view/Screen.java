@@ -9,6 +9,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Screen {
+    private static final String PLAYER_NAME_PATTERN = "^[a-zA-Z0-9]{1,5}$";
+
     private final Scanner scanner = new Scanner(System.in);
 
     public Optional<Integer> inputLadderHeight() {
@@ -85,7 +87,7 @@ public class Screen {
     }
 
     private boolean isInValidName(String name) {
-        return !name.matches("^[a-zA-Z0-9]{1,5}$");
+        return !name.matches(PLAYER_NAME_PATTERN);
     }
 
     public String toPlayerLine(List<String> playerNames) {
@@ -94,10 +96,10 @@ public class Screen {
                 .collect(Collectors.joining());
     }
 
-    public void printResult(List<String> playerNames, List<String> outputLines) {
+    public void printResult(List<String> playerNames, String ladderShape) {
         System.out.println("\n실행결과\n");
 
         System.out.println(toPlayerLine(playerNames));
-        System.out.println(String.join("\n", outputLines));
+        System.out.println(ladderShape);
     }
 }

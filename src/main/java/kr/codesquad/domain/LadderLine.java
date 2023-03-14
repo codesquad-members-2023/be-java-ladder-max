@@ -1,42 +1,57 @@
 package kr.codesquad.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class LadderLine {
-    private final List<LadderPart> ladderParts = new ArrayList<>();
+    private final List<LadderPart> ladderParts;
 
-    public LadderLine(int playerNumber) {
-        if (playerNumber < 1) {
-            throw new IllegalArgumentException("사다리 라인을 만들 수 없습니다.");
-        }
-
-        addParts(playerNumber * 2 - 1);
+    public LadderLine(List<LadderPart> ladderParts) {
+        validateWidth(ladderParts);
+        validateLine(ladderParts);
+        this.ladderParts = ladderParts;
     }
 
-    private void addParts(int width) {
-        for (int x = 0; x < width; x++) {
-            ladderParts.add(makePart(x));
+    private void validateWidth(List<LadderPart> ladderParts) {
+        if (ladderParts.size() % 2 == 0) {
+            throw new IllegalArgumentException("사다리 길이가 유효하지 않습니다.");
         }
     }
 
-    private LadderPart makePart(int x) {
-        if (isExistCrossBarOnLeft(x)) {
-            return LadderPart.EMPTY;
-        }
-
-        return LadderPart.from(x);
+    public int getSumParts() {
+        return ladderParts.size();
     }
 
-    private boolean isExistCrossBarOnLeft(int x) {
-        return x > 2 && ladderParts.get(x - 2) == LadderPart.CROSSBAR;
+    private void validateLine(List<LadderPart> ladderParts) {
+        final int maxWidth = ladderParts.size();
+
+        for (int width = 0; width < maxWidth; width++) {
+            validatePart(ladderParts, width);
+        }
+    }
+
+    private void validatePart(List<LadderPart> ladderParts, int width) {
+        if (width % 2 == 0 && ladderParts.get(width) != LadderPart.BAR) {
+            throw new IllegalArgumentException("사다리 Bar가 생성될 위치입니다.");
+        }
+        if (width % 2 == 1 && ladderParts.get(width) == LadderPart.BAR) {
+            throw new IllegalArgumentException("사다리 Bar가 생성될 수 없는 위치입니다.");
+        }
+        if (isConnectedBridge(ladderParts, width)) {
+            throw new IllegalArgumentException("사다리 Bridge는 연속으로 생성될 수 없습니다.");
+        }
+    }
+
+    private boolean isConnectedBridge(List<LadderPart> ladderParts, int width) {
+        return width > 2 &&
+                ladderParts.get(width - 2) == LadderPart.BRIDGE &&
+                ladderParts.get(width) == LadderPart.BRIDGE;
     }
 
     @Override
     public String toString() {
         return ladderParts.stream()
-                .map(LadderPart::getShape)
+                .map(LadderPart::toString)
                 .collect(Collectors.joining());
     }
 }
