@@ -14,8 +14,9 @@ public class Output {
     public static void drawLadder(String ladderShape){
         System.out.println(ladderShape);
     }
-    public static void printAll(String user,String ladderShape){
+    public static void printAll(String user,String ladderShape,String result){
         printUser(user);
         drawLadder(ladderShape);
+        System.out.println(result);
     }
 }
