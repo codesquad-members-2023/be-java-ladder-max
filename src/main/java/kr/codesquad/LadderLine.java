@@ -21,20 +21,20 @@ public class LadderLine {
         return ladder;
     }
     private String randomLadder(int index, List<String> ladder) {
-        String[] indexRandom = {"      ", "------"};
+        String[] indexRandom = {"     ", "-----"};
         Random random = new Random();
         if (index == 0) {
             return indexRandom[random.nextInt(2)];
         }
-        if (ladder.get(index-1).equals("      ")) {
+        if (ladder.get(index-1).equals("     ")) {
             return indexRandom[random.nextInt(2)];
         }
-        return "      ";
+        return "     ";
     }
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("|");
+        sb.append("  |");
         for (int i = 0; i < ladder.size(); i++) {
             sb.append(ladder.get(i))
                     .append("|");

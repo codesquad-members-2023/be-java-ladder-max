@@ -31,4 +31,24 @@ public class Players {
     public int getCountOfPerson() {
         return players.size();
     }
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        players.forEach(name -> sb.append(center(name)));
+        return sb.toString();
+    }
+    // 이름을 가운데로 정렬하는 메서드
+    public String center (String name) {
+        if (name.length() == 5) {
+            return String.format("%s ", name);
+        }
+        if (name.length() == 4) {
+            return String.format(" %s ", name);
+        }
+        if (name.length() == 2) {
+            return String.format("  %s  ", name);
+        }
+        int padding = (5 - name.length()) / 2;
+        return String.format("%" + padding + "s%s%" + padding + "s ", "", name, "");
+    }
 }

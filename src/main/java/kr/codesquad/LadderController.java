@@ -9,6 +9,7 @@ public class LadderController {
         int countOfPerson = userNames.getCountOfPerson();
         int heightOfLadder = getHeightOfLadder();
         Ladder ladder = new Ladder(countOfPerson, heightOfLadder);
+        outputView.printNames(userNames.toString());
         outputView.printLadder(ladder);
     }
     private Players getPlayers() {

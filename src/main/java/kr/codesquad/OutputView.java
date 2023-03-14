@@ -10,4 +10,7 @@ public class OutputView {
     public void printLadder(Ladder ladder) {
         System.out.println(ladder);
     }
+    public void printNames(String names) {
+        System.out.println(names);
+    }
 }
