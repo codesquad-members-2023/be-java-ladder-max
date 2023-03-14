@@ -12,7 +12,6 @@ public class Line {
     private final List<String> lines = new ArrayList<>();
 
     public void fillLadder(int ladderWidth) {
-
         lines.add(VERTICAL_LINE);
         String before = EMPTY_STRING;
         for (int j = ODD_INDEX_START; j < ladderWidth; j += ODD_INDEX_JUMP) {
