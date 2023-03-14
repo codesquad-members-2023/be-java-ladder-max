@@ -3,34 +3,34 @@ package kr.codesquad;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Inputer {
+public class InputReader {
     Scanner sc = new Scanner(System.in);
-    private int ladderNum;
+    private int ladderHeight;
     private ArrayList<String> namesList = new ArrayList<>();
-    private boolean trueOrFalse = true;
+    private boolean continueUntilAllNameIn5 = true;
 
-    public void startLadder() {
+    public void startLadderGame() {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표로 구분하세요)");
         makeNamesList();
         checkNameLength();
-        ifOver5();
-        setLadderValue();
+        reInputIfNameOver5();
+        setLadderHeight();
     }
 
     private void checkNameLength() {
         for (int i = 0; i < namesList.size(); i++) {
             if (namesList.get(i).length() > 5) {
-                trueOrFalse = true;
+                continueUntilAllNameIn5 = true;
                 break;
             }
             if (namesList.get(i).length() < 6) {
-                trueOrFalse = false;
+                continueUntilAllNameIn5 = false;
             }
         }
     }
 
-    private void ifOver5() {
-        while (trueOrFalse) {
+    private void reInputIfNameOver5() {
+        while (continueUntilAllNameIn5) {
             System.out.println("이름 1개당 5글자까지만 됩니다. 다시 해주세요. (이름은 쉼표로 구분하세요)");
             namesList.clear();
             makeNamesList();
@@ -44,16 +44,18 @@ public class Inputer {
         }
     }
 
-    private void setLadderValue() {
+    private void setLadderHeight() {
         System.out.println("사다리 층 수는 몇인가요?");
-        ladderNum = sc.nextInt();
+        ladderHeight = sc.nextInt();
     }
 
-    public int getLadderNum() {
-        return ladderNum;
+    public int getLadderHeight() {
+
+        return ladderHeight;
     }
 
     public ArrayList<String> getNamesList() {
+
         return namesList;
     }
 }
