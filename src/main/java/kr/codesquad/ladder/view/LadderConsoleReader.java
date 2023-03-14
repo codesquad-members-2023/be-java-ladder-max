@@ -3,6 +3,7 @@ package kr.codesquad.ladder.view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Optional;
+import java.util.regex.Pattern;
 import kr.codesquad.ladder.domain.InvalidCountOfLadderResultException;
 import kr.codesquad.ladder.domain.InvalidLengthOfLadderResultException;
 import kr.codesquad.ladder.domain.InvalidNameFormatOfPeopleException;
@@ -14,8 +15,7 @@ import kr.codesquad.ladder.domain.Names;
 
 public class LadderConsoleReader implements LadderReader {
 
-    private static final int MINIMUM_PERSON = 2;
-    private static final int MINIMUM_HEIGHT = 1;
+    private static final Pattern DELIMITER = Pattern.compile("\\s*,\\s*");
 
     private final BufferedReader reader;
     private final LadderWriter ladderWriter;
@@ -37,16 +37,17 @@ public class LadderConsoleReader implements LadderReader {
     }
 
     private Optional<Names> readNamesOfPeopleTextAndToStringList() {
-        Optional<Names> names = Optional.empty();
+        Optional<Names> optionalNames = Optional.empty();
         try {
             String text = reader.readLine();
-            names = Optional.of(new Names(text, MINIMUM_PERSON));
+            String[] names = text.split(DELIMITER.pattern());
+            optionalNames = Optional.of(new Names(names));
         } catch (InvalidNameFormatOfPeopleException | InvalidCountOfPeopleException e) {
             ladderWriter.write(e.getMessage());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return names;
+        return optionalNames;
     }
 
     @Override
@@ -65,7 +66,7 @@ public class LadderConsoleReader implements LadderReader {
             String text = reader.readLine();
             int maximumHeight = Integer.parseInt(text);
             optionalLadderGenerator = Optional.of(
-                new LadderGenerator(maximumHeight, MINIMUM_HEIGHT));
+                new LadderGenerator(maximumHeight));
         } catch (InvalidNumberOfMinimumLadderHeightException | NumberFormatException e) {
             ladderWriter.write(e.getMessage());
         } catch (IOException e) {
@@ -88,10 +89,9 @@ public class LadderConsoleReader implements LadderReader {
         Optional<LadderResults> optionalLadderResults = Optional.empty();
         try {
             String text = reader.readLine();
-            optionalLadderResults = Optional.of(new LadderResults(text, countOfPeople));
-        } catch (InvalidLengthOfLadderResultException e) {
-            ladderWriter.write(e.getMessage());
-        } catch (InvalidCountOfLadderResultException e) {
+            String[] ladderResults = text.split(DELIMITER.pattern());
+            optionalLadderResults = Optional.of(new LadderResults(ladderResults, countOfPeople));
+        } catch (InvalidLengthOfLadderResultException | InvalidCountOfLadderResultException e) {
             ladderWriter.write(e.getMessage());
         } catch (IOException e) {
             throw new RuntimeException(e);

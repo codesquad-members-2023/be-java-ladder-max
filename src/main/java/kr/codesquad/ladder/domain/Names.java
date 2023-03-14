@@ -9,32 +9,27 @@ import java.util.stream.Collectors;
 
 public class Names {
 
-    private static final Pattern NAME_FORMAT = Pattern.compile("[a-zA-Z]{1,5}");
-    private static final Pattern DELIMITER = Pattern.compile("\\s*,\\s*");
+    private static final int MINIMUM_PERSON = 2;
 
-    private final List<String> names;
+    private final List<Name> names;
 
-    public Names(String text, int minimumNumberOfPeople) {
-        validateNameFormat(text);
-        validateNumberOfPeople(text, minimumNumberOfPeople);
-        this.names = new ArrayList<>(List.of(text.split(DELIMITER.pattern())));
+    public Names(String[] names) {
+        validateNumberOfPeople(names);
+        this.names = toList(names);
     }
 
-    // text 형식이 "pobi,hounx,jk, ..., crong"와 같은 형식인지 검사합니다.
-    private void validateNameFormat(String text) {
-        String[] names = text.split(DELIMITER.pattern());
-        Arrays.stream(names)
-            .filter(name -> !NAME_FORMAT.matcher(name).matches())
-            .forEach(name -> {
-                throw new InvalidNameFormatOfPeopleException();
-            });
-    }
-
-    private void validateNumberOfPeople(String text, int minimumNumberOfPeople) {
-        String[] names = text.split(DELIMITER.pattern());
-        if (names.length < minimumNumberOfPeople) {
+    private void validateNumberOfPeople(String[] names) {
+        if (names.length < MINIMUM_PERSON) {
             throw new InvalidCountOfPeopleException();
         }
+    }
+
+    private List<Name> toList(String[] names) {
+        List<Name> nameList = new ArrayList<>();
+        for (String name : names) {
+            nameList.add(new Name(name));
+        }
+        return nameList;
     }
 
     public int size() {

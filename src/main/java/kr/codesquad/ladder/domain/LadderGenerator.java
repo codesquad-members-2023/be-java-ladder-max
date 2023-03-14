@@ -6,15 +6,16 @@ import java.util.Random;
 
 public class LadderGenerator {
 
+    private static final int MINIMUM_HEIGHT = 1;
     private final int maximumHeight;
 
-    public LadderGenerator(int maximumHeight, int minimumHeight) {
-        validateMinimumHeight(maximumHeight, minimumHeight);
+    public LadderGenerator(int maximumHeight) {
+        validateMinimumHeight(maximumHeight);
         this.maximumHeight = maximumHeight;
     }
 
-    private void validateMinimumHeight(int maximumHeight, int minLadderHeight) {
-        if (maximumHeight < minLadderHeight) {
+    private void validateMinimumHeight(int maximumHeight) {
+        if (maximumHeight < MINIMUM_HEIGHT) {
             throw new InvalidNumberOfMinimumLadderHeightException();
         }
     }
