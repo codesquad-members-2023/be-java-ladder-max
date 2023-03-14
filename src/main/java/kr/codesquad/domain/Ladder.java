@@ -1,22 +1,23 @@
-package kr.codesquad;
+package kr.codesquad.domain;
+
+import kr.codesquad.Player;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class Ladder2 {
+public class Ladder {
 
     private int row;
     private int column;
-    private ArrayList<ArrayList<String>> ladder;
+    private ArrayList<Line> ladder;
 
-    public Ladder2(){}
-    public Ladder2(int row, Player player){
+    public Ladder(){}
+    public Ladder(int row, Player player){
         this.row = row;
         this.column = player.getHeadCount()*2-1;
-        ladder = new ArrayList<ArrayList<String>>();;
+        ladder = new ArrayList<Line>();;
     }
 
     private void makeRandom(){ // 랜덤으로 사다리 내부 만들기
@@ -45,11 +46,17 @@ public class Ladder2 {
             ladder.set(k,array);
         }
     }
-    public ArrayList<ArrayList<String>> makeLadder(){
+    public String makeLadder(){
         makeBasic();
         makeRandom();
         checkLadder();
 
-        return ladder;
+        return printLadder();
+    }
+    private String printLadder(){ // 사다리 출력하기
+        for (Line str : ladder){
+            String tmp = str.toString().replaceAll("\\[|\\]|,", "");
+            System.out.println(tmp);
+        }
     }
 }
