@@ -9,13 +9,14 @@ public class RandomLineGenerator {
 
     private static final String ERROR_MESSAGE_FOR_CONSECUTIVE_POINTS = "연속적인 true 존재";
 
-    public ArrayList buildLadderLine(int lineWidth) {
-        ArrayList<Boolean> points = new ArrayList<>();
+    public Boolean buildLadderLine(int lineWidth,ArrayList<Boolean> points) {
         IntStream.range(0, lineWidth)
                 .mapToObj(i -> generateRungStatus(points))
                 .forEach(points::add);
-        validatePoints(points);//todo 예외 발생시 어떻게 할건지
-        return points;
+        if(!validatePoints(points)){
+            return false;
+        }
+        return true;
     }
 
     private boolean generateRungStatus(List<Boolean> points) {

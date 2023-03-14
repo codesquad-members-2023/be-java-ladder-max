@@ -18,7 +18,7 @@ public class LadderLine {
     }
 
     void createLine() {
-        points.addAll(new RandomLineGenerator().buildLadderLine(lineWidth));
+        new RandomLineGenerator().buildLadderLine(lineWidth,points);
     }
 
     static void drawLine(List<LadderLine> ladder, StringBuilder sb) {
