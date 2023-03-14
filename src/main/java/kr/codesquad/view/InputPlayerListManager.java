@@ -11,6 +11,7 @@ public class InputPlayerListManager {
     static final String GET_PLAYER_LIST_MESSAGE = "플레이어들의 이름을 입력해주세요 ex) a,b,c";
 
     static final int MINIMUM_PLAYER = 2;
+    static final int MAXIMUM_PLAYER_NAME_LENGTH = 5;
     public List<String> playerList;
 
 
@@ -43,7 +44,7 @@ public class InputPlayerListManager {
     }
 
     public boolean isCorrectNameLength(String playerName, boolean isValid) {
-        return playerName.length() <= 5 && isValid;
+        return playerName.length() <= MAXIMUM_PLAYER_NAME_LENGTH && isValid;
     }
 
     public String getStringInput(){
