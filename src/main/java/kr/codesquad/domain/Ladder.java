@@ -1,6 +1,4 @@
-package kr.codesquad;
-
-import kr.codesquad.view.InputView;
+package kr.codesquad.domain;
 
 import java.util.ArrayList;
 import java.util.List;
