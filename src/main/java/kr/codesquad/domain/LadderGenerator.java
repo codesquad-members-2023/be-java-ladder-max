@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +29,7 @@ public class LadderGenerator {
         return maxWidth;
     }
 
+    // 수정 필요
     private void generateLadderArray() {
         for (rowIndex = 0; rowIndex < ladder.length; rowIndex++) {
             for (columnIndex = 0; columnIndex < ladder[rowIndex].length; columnIndex++) {
