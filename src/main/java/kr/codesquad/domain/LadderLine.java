@@ -1,30 +1,29 @@
 package kr.codesquad.domain;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class LadderLine {
-    private List<String> ladderRow;
-    private LadderColumn ladderColumn = new LadderColumn();
-    /*
-    어떤 상태와 행위를 가지고 있어야하는가?
-    -> 질문을 해봤을 때,
-
-    |  |  |
-    |  |  |
-    |  |  |
-     */
+    private List<String> ladderline;
 
 
-    LadderLine(){
-        this.ladderRow = new ArrayList<>();
+    LadderLine() {
+        this.ladderline = new ArrayList<>();
     }
 
-
-    public void makeLadderRow(int ladderHeight){
-        for (int row = 0; row < ladderHeight; row++) {
-            ladderRow.add()
+    public List<String> makeLadderLine(int numberOfPeople) {
+        for (int column = 0; column < 2 * numberOfPeople - 1; column++) {
+            makeBasicLadderRow(column);
         }
+        return ladderline;
+    }
 
+    private void makeBasicLadderRow(int column) {
+        if (column % 2 == 0) {
+            ladderline.add("|");
+            return;
+        }
+        ladderline.add("     ");
     }
 }
