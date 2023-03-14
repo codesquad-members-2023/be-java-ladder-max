@@ -38,3 +38,8 @@
 
 추가로 고민해 볼 사항 : checkLadder()에서 .forEach(i -> array[i] = "     ");를 i번째가 아니라 랜덤으로 바꿀 수 있는지
 
+### step4. 리팩토링2
+추가사항
+1. ArrayList<ArrayList<String>> -> ArrayList<Line>
+2. 단위테스트 추가
+3. 역할에 맞게 패키지 분리하기

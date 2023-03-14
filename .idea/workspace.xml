@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/학습계획.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/PrintLadder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/PrintLadder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +100,8 @@
       <workItem from="1678116989078" duration="2197000" />
       <workItem from="1678151606985" duration="20729000" />
       <workItem from="1678238903787" duration="9131000" />
+      <workItem from="1678684891994" duration="213000" />
+      <workItem from="1678685108045" duration="1558000" />
     </task>
     <servers />
   </component>
