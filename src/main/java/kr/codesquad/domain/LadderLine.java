@@ -2,8 +2,8 @@ package kr.codesquad.domain;
 
 public enum LadderLine {
     VerticalLine("|"),
-    StraightLine("-"),
-    BlankLine(" ");
+    StraightLine("-----"),
+    BlankLine("     ");
 
     private String value;
 
