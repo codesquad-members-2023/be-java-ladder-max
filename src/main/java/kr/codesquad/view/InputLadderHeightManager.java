@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class InputLadderHeightManager {
 
-    private Scanner scanner;
+    private  Scanner scanner;
 
     static final String GET_LADDER_HEIGHT_MESSAGE = "최대 사다리 높이는 몇 개 인가요?";
     static final String LADDER_HEIGHT_INPUT_ERROR_MESSAGE = "입력이 틀렸습니다. 1 이상의 정수형을 입력해주세요";
@@ -36,7 +36,7 @@ public class InputLadderHeightManager {
     }
 
     public boolean checkNullLadderHeight(int ladderHeight){
-        return ladderHeight == LADDER_HEIGHT_NULL_CODE;
+        return ladderHeight != LADDER_HEIGHT_NULL_CODE;
     }
 
     public int getIntegerInput() {
