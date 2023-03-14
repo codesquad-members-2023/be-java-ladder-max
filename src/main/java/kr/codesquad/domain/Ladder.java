@@ -7,16 +7,16 @@ import java.util.Random;
 public class Ladder {
 
 
-    private List<List<String>> ladder;
+    private List<LadderRow> ladder;
     private static final int LADDER_LNE_LENGTH = 5;
 
 
-    Ladder() {
+    public Ladder() {
         // 생성자 통해 ladder 배열 초기
         this.ladder = new ArrayList<>();
     }
 
-    public List<List<String>> makeLadder(int peopleNumber, int ladderHeight) {
+    public List<LadderRow> makeLadder(int peopleNumber, int ladderHeight) {
         makeLadderRow(peopleNumber, ladderHeight);
         return this.ladder;
     }
@@ -27,7 +27,6 @@ public class Ladder {
             makeLadderColumn(peopleNumber, ladderRow);
             ladder.add(ladderRow);
         }
-
     }
 
     private void makeLadderColumn(int peoleNumber, List<String> ladderRow) {
@@ -49,8 +48,6 @@ public class Ladder {
             return;
         }
         ladderRow.add("     ");
-
-
     }
 
     private void makeRandomLadderLine(List<String> ladderRow, int column) {
@@ -60,7 +57,7 @@ public class Ladder {
         }
     }
 
-    public List<List<String>> getLadder() {
+    public List<LadderRow> getLadder() {
         return ladder;
     }
 
