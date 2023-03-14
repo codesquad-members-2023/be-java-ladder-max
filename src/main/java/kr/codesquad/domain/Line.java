@@ -7,23 +7,26 @@ public class Line {
     private final String LEG = "-----";
     private final String BLANK = "     ";
 
-    public Line() {
+    public Line(int totalPoints) {
         this.points = new ArrayList<>();
+        for(int idx = 0; idx < totalPoints; idx++) {
+            drawLine(new RandomUtil().getBoolean(), idx);
+        }
     }
 
     private boolean canDraw (int countOfPerson) {
         return countOfPerson == 0 || !points.get(countOfPerson - 1).booleanValue();
     }
 
-    public void drawLine(boolean draw, int countOfPerson) {
+    private void drawLine(boolean draw, int countOfPerson) {
         if(draw && canDraw(countOfPerson)) {
-            addLine(true);
+            addPoint(true);
             return;
         }
-        addLine(false);
+        addPoint(false);
     }
 
-    private void addLine(boolean b) {
+    private void addPoint(boolean b) {
         points.add(b);
     }
 

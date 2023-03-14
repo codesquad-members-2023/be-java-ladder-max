@@ -14,8 +14,8 @@ public class LineTest {
 
     @BeforeEach
     void setUp() throws NoSuchMethodException {
-        this.line = new Line();
-        this.addMethod = Line.class.getDeclaredMethod("addLine", boolean.class);
+        this.line = new Line(0);
+        this.addMethod = Line.class.getDeclaredMethod("addPoint", boolean.class);
         this.addMethod.setAccessible(true);
     }
 

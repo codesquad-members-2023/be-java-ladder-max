@@ -39,16 +39,8 @@ public class Ladder {
 
     private void makeLadder() {
         for(int idx = 0; idx < height; idx++) {
-            lines.add(makeLine());
+            lines.add(new Line(people.size() - 1));
         }
-    }
-
-    private Line makeLine() {
-        Line line = new Line();
-        for(int idx = 0; idx < people.size() - 1; idx++) {
-            line.drawLine(new RandomUtil().getBoolean(), idx);
-        }
-        return line;
     }
 
     public List<String> getPeople() {
