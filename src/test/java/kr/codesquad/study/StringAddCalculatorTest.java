@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
-class Calculator {
+class StringCalculator {
 
     public int calculate(String text) {
         if (text == null || text.isEmpty()) {
@@ -20,11 +20,11 @@ class Calculator {
 
 public class StringAddCalculatorTest {
 
-    private Calculator calculator;
+    private StringCalculator calculator;
 
     @BeforeEach
     public void setup() {
-        calculator = new Calculator();
+        calculator = new StringCalculator();
     }
 
     @Test
