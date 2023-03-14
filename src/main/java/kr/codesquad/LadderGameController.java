@@ -11,7 +11,7 @@ public class LadderGameController {
     }
 
     public void startLadderGame() {
-        outputView.printParticipantsPrompt();
+        outputView.printPlayersPrompt();
         int joinMembers = inputView.userInput();
         outputView.printMaxHeightPrompt();
         int maxHeight = inputView.userInput();
