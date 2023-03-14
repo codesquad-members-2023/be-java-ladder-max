@@ -6,10 +6,12 @@ public class ValidationPlayerName {
 
     /*
     정규표현식에서 ^는 시작, $는 끝을 알리는 표시
-    a-z 영문 소문자, A-Z 영문 대문자, 0-9 숫자, 가-힣 한글
-    1,5 : 글자수 1~5 사이의 문자열
+    a-z 영문 소문자, A-Z 영문 대문자, 0-9 숫자, \p{IsHangul} 한글
+    " + min_length + "," + max_length + " : 글자수 min~max length 사이의 문자열
  */
-    private static final String VALID_PLAYER_NAME = "^[a-zA-Z0-9\\p{IsHangul}]{1,5}$";
+    private static final int MIN_LENGTH = 1;
+    private static final int MAX_LENGTH = 5;
+    private static final String VALID_PLAYER_NAME = "^[a-zA-Z0-9\\p{IsHangul}]{" + MIN_LENGTH + "," + MAX_LENGTH + "}$";
 
     public void checkNameFormat(String parsingNames) {
         if (!parsingNames.matches(VALID_PLAYER_NAME)) {
