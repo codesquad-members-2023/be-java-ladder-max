@@ -1,25 +1,32 @@
 package kr.codesquad.controller;
 
 import kr.codesquad.domain.Ladder;
-import kr.codesquad.util.Encoding;
+import kr.codesquad.domain.LadderGenerator;
+import kr.codesquad.domain.Users;
 import kr.codesquad.util.Validation;
 
 import java.io.IOException;
-import java.util.List;
 
 public class GameController {
+    private final Users users;
+    private final int ladderHeight;
     public GameController(String names, String ladderNumber) throws IOException {
         Validation validation = new Validation();
-        validation.validateInputNames(names);
-        validation.validateInputLadderNumber(ladderNumber);
+        users = validation.validateInputNames(names);
+        ladderHeight = validation.validateInputLadderNumber(ladderNumber);
     }
 
-    public String showShape(Ladder ladder) {
-        Encoding encoding = new Encoding();
-        return encoding.encodeLadder(ladder);
+    public String start() {
+        LadderGenerator ladderGenerator = new LadderGenerator();
+        Ladder ladder = ladderGenerator.make(users, ladderHeight);
+        ladder.play();
+        return show(users, ladder);
     }
 
-    public void makeLadder() {
-        List<List<String>>
+    private String show(Users users, Ladder ladder) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(users.show());
+        sb.append(ladder.show());
+        return sb.toString();
     }
 }

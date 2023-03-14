@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class LadderGame {
 
-    public void run() throws IOException { 
+    public void run() throws IOException {
         OutputView.printMessageNames();
         String names = InputView.inputNames();
 
@@ -17,8 +17,8 @@ public class LadderGame {
         String ladderNumber = InputView.inputLadderNumber();
 
         GameController gameController = new GameController(names, ladderNumber);
-        Ladder<Line> ladder = gameController.makeLadder();
+        String result = gameController.start();
 
-        OutputView.printLadder(gameController.showShape(ladder));
+        OutputView.printLadder(result);
     }
 }
