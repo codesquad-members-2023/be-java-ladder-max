@@ -1,9 +1,9 @@
 package kr.codesquad.domain;
 
 public class PlayerName {
-    private final String name;
+    private final PlayerName name;
 
-    public PlayerName(String name) {
+    public PlayerName(PlayerName name) {
         this.name = name;
     }
 }

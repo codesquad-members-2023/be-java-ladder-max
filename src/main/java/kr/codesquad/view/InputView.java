@@ -3,10 +3,14 @@ package kr.codesquad.view;
 import java.util.Scanner;
 
 public class InputView {
-    private Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
 
-    public String userInput() {
-        return sc.next();
+    public String inputNames() {
+        return sc.nextLine().trim();
+    }
+
+    public int inputLadderHeight() {
+        return sc.nextInt();
     }
 
 

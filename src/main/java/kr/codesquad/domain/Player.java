@@ -5,7 +5,7 @@ public class Player {
     private final int position;
 
     public Player(PlayerName name, int position) {
-        this.name = name;
+        this.name = new PlayerName(name);
         this.position = position;
     }
 }

@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="refactor : OutputView 클래스 로직 수정&#10;&#10;1. printLadderState() -&gt; drawLadderDiagram()&#10;  - 접근제어자 변경으로 캡슐화(public -&gt; private)&#10;  - printLadder 메서드를 사용하기 위해 메서드명 정정&#10;2. printLadder 메서드 추가&#10;  - drawLadderDiagram()를 호출하는 public 메서드">
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/strategy/LinkStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/strategy/RandomLinkStrategy.java" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="add: Player 클래스 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Line.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LinkStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/LadderGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/LadderGameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/PlayerName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/PlayerName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/InputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/InputView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +111,7 @@
       <workItem from="1678435271776" duration="3505000" />
       <workItem from="1678671623118" duration="10047000" />
       <workItem from="1678702219396" duration="3147000" />
-      <workItem from="1678756565441" duration="12717000" />
+      <workItem from="1678756565441" duration="14730000" />
     </task>
     <task id="LOCAL-00001" summary="docs : 1단계 체크리스트 작성">
       <created>1678144272811</created>
@@ -156,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678351466174</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add: Player 클래스 추가">
+      <created>1678775859370</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678775859370</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,7 +198,8 @@
     <MESSAGE value="refactor : calculateMaxWidth() 메서드 추가 및 변수명 변경&#10;&#10;1. 변수명 변경&#10;  - column -&gt; maxWidth&#10;2. calculateMaxWidth() 메서드 추가&#10;  - 생성자에서 계산하던 로직을 메서드 분리를 통해 수정" />
     <MESSAGE value="refactor : OutputView 클래스의 메서드명 변경 및 필드 추가&#10;&#10;1. 필드 추가&#10;  - PARTICIPANTS_PROMPT, MAX_HEIGHT_PROMPT&#10;2. 메서드명 변경&#10;  - printJoinMembers() -&gt; printParticipantsPrompt()&#10;  - printMaxHeight() -&gt; printMaxHeightPrompt()" />
     <MESSAGE value="refactor : OutputView 클래스 로직 수정&#10;&#10;1. printLadderState() -&gt; drawLadderDiagram()&#10;  - 접근제어자 변경으로 캡슐화(public -&gt; private)&#10;  - printLadder 메서드를 사용하기 위해 메서드명 정정&#10;2. printLadder 메서드 추가&#10;  - drawLadderDiagram()를 호출하는 public 메서드" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor : OutputView 클래스 로직 수정&#10;&#10;1. printLadderState() -&gt; drawLadderDiagram()&#10;  - 접근제어자 변경으로 캡슐화(public -&gt; private)&#10;  - printLadder 메서드를 사용하기 위해 메서드명 정정&#10;2. printLadder 메서드 추가&#10;  - drawLadderDiagram()를 호출하는 public 메서드" />
+    <MESSAGE value="add: Player 클래스 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: Player 클래스 추가" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

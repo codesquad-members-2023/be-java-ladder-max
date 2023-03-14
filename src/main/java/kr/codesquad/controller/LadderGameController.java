@@ -1,6 +1,7 @@
 package kr.codesquad.controller;
 
 import kr.codesquad.domain.LadderGenerator;
+import kr.codesquad.domain.Players;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
@@ -17,11 +18,13 @@ public class LadderGameController {
 
     public void startLadderGame() {
         outputView.printPlayersPrompt();
-        String joinMembers = inputView.userInput();
-        outputView.printMaxHeightPrompt();
-        int maxHeight = Integer.parseInt(inputView.userInput());
+//        String[] names = inputView.inputNames().split(",");
+//        Players players = new Players(names);
 
-        this.ladderGenerator = new LadderGenerator(joinMembers, maxHeight); // 다른 방법 찾아보기
+        outputView.printMaxHeightPrompt();
+        int ladderHeight = inputView.inputLadderHeight();
+
+        this.ladderGenerator = new LadderGenerator(ladderHeight, ladderHeight); // 다른 방법 찾아보기
         String[][] ladder = ladderGenerator.generateLadder();
         outputView.printLadder(ladder);
     }
