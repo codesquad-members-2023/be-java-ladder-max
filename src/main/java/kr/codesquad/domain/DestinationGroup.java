@@ -6,16 +6,16 @@ public class DestinationGroup {
 
     private final Destination[] destinations;
 
-    public DestinationGroup(String[] destinationNames) {
-        validateDestinationsLength(destinationNames);
+    public DestinationGroup(String[] destinationNames, int count) {
+        validateDestinationsLength(destinationNames, count);
         destinations = Arrays.stream(destinationNames)
                 .map(Destination::new)
                 .toArray(Destination[]::new);
     }
 
-    private void validateDestinationsLength(String[] destinationNames) {
-        if(destinationNames.length == 0) {
-            throw new IllegalArgumentException("[ERROR] 최소 한명 이상의 플레이어를 입력해 주세요.");
+    private void validateDestinationsLength(String[] destinationNames, int count) {
+        if(destinationNames.length != count) {
+            throw new IllegalArgumentException("[ERROR] " + count + "명의 결과를 입력해 주세요.");
         }
     }
 
