@@ -11,8 +11,6 @@ import java.io.IOException;
 import java.util.List;
 
 public class LadderGame {
-
-    private Output output;
     private Input input;
     private Validation validation;
     private Ladder ladder;
@@ -20,23 +18,24 @@ public class LadderGame {
 
     public LadderGame() {
         this.ladder = new Ladder(new Line());
-        this.output = new Output();
         this.validation = new Validation();
         this.input = new Input();
         this.encoding = new Encoding();
     }
 
     public void run() throws IOException {
-        output.printMessageNames();
+        Output.printMessageNames();
         String names = input.inputNames();
 
-        output.printMessageLadderNumber();
+        Output.printMessageLadderNumber();
         String ladderNumber = input.inputLadderNumber();
+
+
 
         List<List<String>> ladders =
                 ladder.makeLadder(validation.validateInputNames(names), validation.validateInputLadderNumber(ladderNumber));
 
         String result = encoding.encodeLadder(ladders);
-        output.printLadder(result);
+        Output.printLadder(result);
     }
 }
