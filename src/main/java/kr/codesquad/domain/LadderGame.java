@@ -12,32 +12,66 @@ import java.util.Arrays;
 public class LadderGame {
 
     private ArrayList<String> names;
+    private ArrayList<String> results;
     private int countOfLadder;
     public void startLadderGame() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Input input = new Input();
         Validator validator = new Validator();
-        boolean checkName = true, checkLadder = true;
+        boolean checkName = true, checkResult = true, checkLadder = true;
 
-        while(checkName) {
+        while (checkName) {
             String answer = input.input(br, 0);
-            String[] arrayNames = splitNames(answer);
+            String[] arrayNames = splitAnswer(answer);
             checkName = checkNames(validator, arrayNames);
         }
 
-        while(checkLadder) {
+        while (checkResult) {
             String answer = input.input(br, 1);
+            String[] arrayResults = splitAnswer(answer);
+            checkResult = checkResults(validator, arrayResults, names.size());
+        }
+
+        while (checkLadder) {
+            String answer = input.input(br, 2);
             checkLadder = checkLadder(validator, input, answer);
         }
 
         Ladder ladder = new Ladder(names.size(), countOfLadder);
         Output output = new Output();
-        output.print(names, ladder);
+        output.print(names, ladder, results);
+
+        while (true) {
+            int position = -1;
+            String resultPerson = input.input(br, 3);
+            if(resultPerson.equals("춘식이")) {
+                System.out.println("게임을 종료합니다.");
+                break;
+            }
+            for (int i = 0; i < names.size(); i++) {
+                if(resultPerson.equals(names.get(i))) {
+                    position = i;
+                }
+            }
+            if(position == -1 && !resultPerson.equals("all")) {
+                System.out.println("이름을 다시 입력해주세요.");
+                continue;
+            }
+            output.printResultPerson(ladder, results, names, position, countOfLadder);
+        }
     }
 
     private boolean checkNames(Validator validator, String[] arrayNames) {
         if(validator.validateNames(arrayNames)) {
             names = new ArrayList<>(Arrays.asList(arrayNames));
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkResults(Validator validator, String[] arrayResults, int namesSize) {
+        if(validator.validateResults(arrayResults, namesSize)) {
+            results = new ArrayList<>(Arrays.asList(arrayResults));
             return false;
         }
         return true;
@@ -51,7 +85,7 @@ public class LadderGame {
         return true;
     }
 
-    private String[] splitNames(String answer) {
+    private String[] splitAnswer(String answer) {
         return answer.replaceAll(" ", "").split(",");
     }
 }

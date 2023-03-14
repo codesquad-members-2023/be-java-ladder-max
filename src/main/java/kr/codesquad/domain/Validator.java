@@ -21,6 +21,36 @@ public class Validator {
             throw new IllegalArgumentException(name+ "은 형식에 맞지 않습니다.");
         }
     }
+
+    public boolean validateResults(String[] results, int namesSize) {
+        try {
+            ResultsToResult(results , namesSize);
+            return true;
+        } catch (IllegalArgumentException e) {
+            System.out.println("결과는 1글자부터 최대 5글자까지 가능하고 결과 개수는 플레이어 명 수와 같아야 합니다.");
+            return false;
+        }
+    }
+
+    private void ResultsToResult(String[] results, int nameSize) {
+        for (String result : results) {
+            limitResultSize(result);
+            isSameSize(results.length, nameSize);
+        }
+    }
+
+    private void limitResultSize(String result) {
+        if (result.length() > 5 || result.length() == 0) {
+            throw new IllegalArgumentException(result+ "은 형식에 맞지 않습니다.");
+        }
+    }
+
+    private void isSameSize(int resultsSize, int namesSize) {
+        if (resultsSize != namesSize) {
+            throw new IllegalArgumentException("플레이어 명 수와 결과 개수가 같지 않습니다.");
+        }
+    }
+
     public boolean validateLadder(String answer) {
         try {
             limitLadderSize(Integer.parseInt(answer));
