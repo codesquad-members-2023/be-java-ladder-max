@@ -16,7 +16,6 @@ public class Ladder {
     private List<List<String>> laddersFrame = new ArrayList<>();
     private int length;
     private int width;
-
     private Line line;
 
     public Ladder(Line line) {
@@ -30,9 +29,9 @@ public class Ladder {
         return laddersFrame;
     }
 
-    private void init(List<String> users, int m) {
+    private void init(List<String> users, int ladderNumber) {
         width = users.size() + (users.size() - LAST_INDEX);
-        length = m;
+        length = ladderNumber;
     }
 
     // 유저 이름들을 사다리 리스트에 넣는 메서드, 이름이 들어가지 않는 부분은 (6-이름길이)만큼 공백 넣어줌

@@ -55,7 +55,7 @@ class ValidationTest {
     void checkLadderNumber() {
         // given
         String beforeInput = "5";
-        int afterInput = validation.validateInputM(beforeInput);
+        int afterInput = validation.validateInputLadderNumber(beforeInput);
 
         // when
         int inputToCompare = 5;
@@ -72,7 +72,7 @@ class ValidationTest {
 
         // when
         // then
-        assertThrows(NumberFormatException.class, () -> validation.validateInputM(beforeInput));
+        assertThrows(NumberFormatException.class, () -> validation.validateInputLadderNumber(beforeInput));
     }
 
     @Test
@@ -82,6 +82,6 @@ class ValidationTest {
         String beforeInput = "0.25";
         // when
         // then
-        assertThrows(NumberFormatException.class, () -> validation.validateInputM(beforeInput));
+        assertThrows(NumberFormatException.class, () -> validation.validateInputLadderNumber(beforeInput));
     }
 }

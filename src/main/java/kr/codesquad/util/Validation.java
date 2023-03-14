@@ -39,8 +39,8 @@ public class Validation {
         }
     }
 
-    public int validateInputM(String m) {
-        int input = validateInputInteger(m);
+    public int validateInputLadderNumber(String ladderNumber) {
+        int input = validateInputInteger(ladderNumber);
         return validateInputPositive(input);
     }
 
