@@ -5,7 +5,7 @@ public enum LadderLine {
     StraightLine("-----"),
     BlankLine("     ");
 
-    private String value;
+    private final String value;
 
     LadderLine(String value) {
         this.value = value;
