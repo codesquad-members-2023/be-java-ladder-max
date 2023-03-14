@@ -67,12 +67,12 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.view.Client" />
       <module name="java-lotto.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.*" />
+          <option name="PATTERN" value="kr.codesquad.domain.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,6 +99,7 @@
       <workItem from="1678684891994" duration="213000" />
       <workItem from="1678685108045" duration="1558000" />
       <workItem from="1678694140925" duration="948000" />
+      <workItem from="1678761660878" duration="17567000" />
     </task>
     <servers />
   </component>
