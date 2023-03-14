@@ -1,5 +1,10 @@
 ## 사다리 게임
 
+<details>
+<summary>사다리게임 1주차 계획</summary>
+<div markdown="1">
+
+
 **구현 사항**
 
 - [x] [사다리게임 Step1 기본기능 구현(2023.3.6)](#사다리-게임-step1)
@@ -12,7 +17,7 @@
 
 - [x] [사다리게임 Step4 v2(리팩토링) (2023.3.9)](#사다리게임-step4-v2)
 
-- [ ] [사다리게임 Step4 v3(리팩토링) (2023.3.10)](#사다리-게임-step4-v3)
+- [x] [사다리게임 Step4 v3(리팩토링) (2023.3.10)](#사다리-게임-step4-v3)
 
 - [ ] [사다리게임 Step5]()
 
@@ -210,5 +215,44 @@
 ### Step4 v2와 비교했을때 개선 또는 구현사항
 
 - 메서드명만보고 동작을 유추할수 있도록 메서드명을 수정했다.
-- LadderLine에 존재하는 validator를 포함하는 LinePointsValidator클래스를 만들어 주었다.  
+- LadderLine에 존재하는 validator를 포함하는 LinePointsValidator클래스를 만들어 주었다.
 
+
+</div>
+</details>
+
+## 사다리게임 2주차 계획
+
+### **주간계획**
+
+- [ ] Java Programming 개념
+- [ ] Object Chapter10까지 읽기
+- [x] 사다리게임 5단계까지 구현
+- [ ] (선택) 로또 게임
+- [ ] Spring 복습
+
+### **3.13 계획**
+
+- [x] 사다리게임 Step5
+- [ ] Java Programming 개념 10 까지
+- [ ] Object Chapter4
+
+
+
+## 사다리게임 Step5
+
+- [x] 사다리 게임 결과 출력
+
+
+
+## Step5 다이어그램
+
+![step5_diagram](https://raw.githubusercontent.com/CDBchan/Typora-img/main/img/step5_diagram.PNG)
+
+
+
+### Step4와 비교했을때 개선 또는 구현 사항
+
+Line을 생성하는 일을 LadderLine이아닌 RandomLineGenerator클래스가 하도록 했다.
+
+ExcutionResult 클래스에 LadderGame에 대한 결과를 Map형태로 가지고 있으며, user의 input에 따라 사다리게임 결과를 출력한다. 
