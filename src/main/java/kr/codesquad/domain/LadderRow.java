@@ -5,35 +5,48 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class LadderLine {
-    private final List<String> ladderline;
+public class LadderRow {
+    private final List<String> ladderRow;
+    private final int numberOfPeople;
 
 
-    LadderLine() {
-        this.ladderline = new ArrayList<>();
+    LadderRow(int numberOfPeople) {
+        this.numberOfPeople = numberOfPeople;
+        this.ladderRow = new ArrayList<>(numberOfPeople);
     }
 
-    public List<String> makeLadderLine(int numberOfPeople) {
+    public List<String> makeLadderColumn() {
         for (int column = 0; column < 2 * numberOfPeople - 1; column++) {
-            makeBasicLadderRow(column);
+            makeBasicLadderColumn(column);
             /*
             재귀적으로 호출?
             아니면, try-catch문?
 
              */
-            if (validateLadderLine(column)) ;
+            generateRandomLadderLine(column);
+            ensureLadderLine(column);
 
         }
 
-        return ladderline;
+        return ladderRow;
     }
 
-    private void makeBasicLadderRow(int column) {
+    private void makeBasicLadderColumn(int column) {
         if (column % 2 == 0) {
-            ladderline.add("|");
+            ladderRow.add("|");
             return;
         }
-        ladderline.add("     ");
+        ladderRow.add("     ");
+    }
+
+
+    public void generateRandomLadderLine() {
+        for (int column = 0; column < 2 * numberOfPeople - 1; column++) {
+            if (validateLadderLine(column)) {
+                generateRandomLadderLine(column);
+
+            }
+        }
     }
 
     /*
@@ -44,14 +57,16 @@ public class LadderLine {
 
      */
     private boolean validateLadderLine(int column) {
-        if (!ladderline.contains("-----")) {
+//        for (int column = 0; column < 2 * numberOfPeople - 1; column++) {
+//
+//        }
+        if (!ladderRow.contains("-----") || column/2>1) {
+            return true;
+        }
+//        if (column / 2 >= 3) {
 //            makeRandomLadderLine(column);
-            return true;
-        }
-        if (column / 2 >= 3) {
-            makeRandomLadderLine(column);
-            return true;
-        }
+//            return true;
+//        }
         return false;
     }
 
@@ -67,22 +82,27 @@ public class LadderLine {
 앞에 컬럼이
  */
 //        if (column)
-    private void makeRandomLadderLine(int column) {
+    private void generateRandomLadderLine(int column) {
         Random random = new Random();
         if (column % 2 != 0 && random.nextBoolean()) {
-            ladderline.set(column, "-----");
+            ladderRow.set(column, "-----");
         }
 
     }
 
+    /*
+    해당 column 전까지 "-----"가 없고,
+     */
     private void ensureLadderLine(int column) {
-        if(validateLadderLine(column))
+        if(!validateLadderLine(column) || column/2>=1){
+            generateRandomLadderLine(column);
+        }
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (String s : ladderline) {
+        for (String s : ladderRow) {
             sb.append(s);
         }
         return sb.toString();
