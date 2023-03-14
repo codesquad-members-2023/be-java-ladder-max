@@ -33,10 +33,13 @@
 
 **학습**
 
-5단계에서는 사다리 결과 입력을 추가하고 계속해서 플레이어 이름을 입력 받아서 사다리 결과를 받아오기 때문에 LadderGame 인스턴스가 살아있어야 합니다. 
+~~5단계에서는 사다리 결과 입력을 추가하고 계속해서 플레이어 이름을 입력 받아서 사다리 결과를 받아오기 때문에 LadderGame 인스턴스가 살아있어야 합니다. 
 기존에는 하나의 LadderGame 인스턴스에서 입력을 받을때마다 사다리를 생성하고 결과를 반환하는 방식으로 구현하려고 했지만 
 LadderGame이 Ladder, Player의 정보를 가지고 있어야 하기 때문에 Ladder, Player 같은 필드를 final로 선언하고 
-Controller에서 새로운 게임마다 LadderGame을 생성하도록 하는 것이 좋을 것 같습니다.
+Controller에서 새로운 게임마다 LadderGame을 생성하도록 하는 것이 좋을 것 같습니다.~~
+
+-> LadderGame을 Controler 내부에서 인스턴스로 계속 생성하면 내부에서 new 생성자로 생성을 하기 때문에 결합력이 높아지고 유연하지 DIP도 깨지게 될 것 같습니다. 
+그래서 LadderGame을 필드 변수로 주입 받고 InputDto를 전달해서 GameResultDto를 전달 받도록 해야될 것 같습니다.  
 
 예외 처리는 Controller에서 LadderGame으로 Dto를 전달하면 LadderGame에서 Domain 객체를 생성하면서 예외 발생 시 throw를 합니다. 
 그러면 Controller는 예외를 try-catch하고 다시 Dto를 전달하도록 하고 싶은데 이렇게 하면 처음부터 다시 입력을 받아야 하는 것이 문제입니다.
