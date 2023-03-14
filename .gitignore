@@ -46,3 +46,15 @@ bin/
 .idea/vcs.xml
 
 .idea/uiDesigner.xml
+
+gradle/wrapper/gradle-wrapper.jar
+
+gradle/wrapper/gradle-wrapper.properties
+
+gradlew
+
+.idea/.name
+
+.idea/gradle.xml
+
+.idea/misc.xml

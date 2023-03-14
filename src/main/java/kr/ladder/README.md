@@ -1,4 +1,4 @@
-# 1️⃣ 미션 정리1
+# 1️⃣ 미션 정리 1
 label 명 step-1, branch 명 feature1
 ## 설계 순서
 1. 사다리를 담을 2차원 배열을 만든다
@@ -22,7 +22,7 @@ label 명 step-1, branch 명 feature1
 4. Application : InputView, Ladder, OutputView 를 관리한다.
 
 -----
-# 2️⃣ 미션 정리2
+# 2️⃣ 미션 정리 2
 label 명 step-2, branch 명 feature2
 
 ## 설계 순서
@@ -40,7 +40,7 @@ label 명 step-2, branch 명 feature2
 5. depth 2단계에서 1단계로 수정하기.
 
 -----
-# 3️⃣ 미션 정리3
+# 3️⃣ 미션 정리 3
 label 명 step-3, branch 명 feature3
 
 ## 설계 순서
@@ -68,7 +68,7 @@ label 명 step-3, branch 명 feature3
 3. 배열 대신 ArrayList와 Generic 사용
 
 -----
-# 4️⃣ 미션 정리4
+# 4️⃣ 미션 정리 4-1
 label 명 step-4, branch 명 feature4
 ## 구현 순서
 1. 나의 코드를 한번 찬찬히 살펴본다.
@@ -86,3 +86,16 @@ label 명 step-4, branch 명 feature4
 #### 코스의 호눅스 피드백 기반으로 step3 리팩토링
 
 #### step4의 요구사항에 맞게 리팩토링
+
+-----
+# 4️⃣ 미션 정리 4-2
+label 명 step-4, branch 명 feature4
+## 리팩토링
+1. 복잡한 사다리 만드는 로직 수정
+   1. random.nextBoolean()의 결과로, 문자열 5개씩 받기 ("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" 혹은 "-----")
+   2. List<List\<String>> 부분 클래스로 나누기
+   3. getLadder() 에서 toString()을 오버라이딩 하는 것으로 바꾸기.
+      - OutputView의 메서드도 변경
+2. 메서드 이름 변경
+3. 테스트 코드 작성
+

@@ -1,7 +1,8 @@
-package main.java.kr.ladder.domain;
+package kr.ladder.domain;
 
-import main.java.kr.ladder.view.InputView;
-import main.java.kr.ladder.view.OutputView;
+
+import kr.ladder.view.InputView;
+import kr.ladder.view.OutputView;
 
 import java.io.IOException;
 
@@ -19,9 +20,8 @@ public class LadderGameController {
         }
 
         public void run() throws IOException {
-                String[] peopleNames = inputView.getPeopleName();
-                int ladderHeight = inputView.getLadderHeight();
-                ladder.makeLadder(peopleNames.length, ladderHeight);
-                outputView.printPeopleNameAndLadder(peopleNames,ladderHeight, ladder.getLadder());
+                String[] players = inputView.getPlayer();
+                ladder.makeLadder(players.length, inputView.getLadderHeight());
+                outputView.printPlayersAndLadder(players, ladder.toString());
         }
 }
