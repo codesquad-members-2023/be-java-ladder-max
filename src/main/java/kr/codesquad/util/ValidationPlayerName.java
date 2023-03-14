@@ -9,8 +9,8 @@ public class ValidationPlayerName {
     a-z 영문 소문자, A-Z 영문 대문자, 0-9 숫자, \p{IsHangul} 한글
     " + min_length + "," + max_length + " : 글자수 min~max length 사이의 문자열
  */
-    private static final int MIN_LENGTH = 1;
-    private static final int MAX_LENGTH = 5;
+    public static final int MIN_LENGTH = 1;
+    public static final int MAX_LENGTH = 5;
     private static final String VALID_PLAYER_NAME = "^[a-zA-Z0-9\\p{IsHangul}]{" + MIN_LENGTH + "," + MAX_LENGTH + "}$";
 
     public void checkNameFormat(String parsingNames) {

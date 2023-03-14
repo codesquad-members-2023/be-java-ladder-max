@@ -13,7 +13,7 @@ public class Ladder {
         this.ladder = generateLadder();
     }
 
-    private String[][] generateLadder() {
+    public String[][] generateLadder() {
         String[][] ladderFrame = new String[rowNum][columnNum];
         for(int i = 0; i < rowNum; i++) {
             generateVerticalOfLadder(ladderFrame, i);
@@ -38,21 +38,5 @@ public class Ladder {
         Random random = new Random();
         boolean isThereLine = random.nextBoolean();
         return isThereLine ? LadderLine.StraightLine.getValue() : LadderLine.BlankLine.getValue();
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for(String[] row : ladder) {
-            appendRow(sb, row);
-        }
-        return sb.toString();
-    }
-
-    private static void appendRow(StringBuilder sb, String[] row) {
-        for(String cell : row) {
-            sb.append(cell);
-        }
-        sb.append("\n");
     }
 }
