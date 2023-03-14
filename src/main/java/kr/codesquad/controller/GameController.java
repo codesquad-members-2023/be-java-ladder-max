@@ -20,10 +20,10 @@ public class GameController {
         LadderGenerator ladderGenerator = new LadderGenerator();
         Ladder ladder = ladderGenerator.make(users, ladderHeight);
         ladder.play();
-        return show(users, ladder);
+        return show(ladder);
     }
 
-    private String show(Users users, Ladder ladder) {
+    private String show(Ladder ladder) {
         StringBuilder sb = new StringBuilder();
         sb.append(users.show());
         sb.append(ladder.show());
