@@ -2,8 +2,8 @@ package kr.codesquad.controller;
 
 import kr.codesquad.domain.Line;
 import kr.codesquad.util.Encoding;
-import kr.codesquad.view.Input;
-import kr.codesquad.view.Output;
+import kr.codesquad.view.InputView;
+import kr.codesquad.view.OutputView;
 import kr.codesquad.util.Validation;
 import kr.codesquad.domain.Ladder;
 
@@ -22,11 +22,11 @@ public class LadderGame {
     }
 
     public void run() throws IOException {
-        Output.printMessageNames();
-        String names = Input.inputNames();
+        OutputView.printMessageNames();
+        String names = InputView.inputNames();
 
-        Output.printMessageLadderNumber();
-        String ladderNumber = Input.inputLadderNumber();
+        OutputView.printMessageLadderNumber();
+        String ladderNumber = InputView.inputLadderNumber();
 
 
 
@@ -34,6 +34,6 @@ public class LadderGame {
                 ladder.makeLadder(validation.validateInputNames(names), validation.validateInputLadderNumber(ladderNumber));
 
         String result = encoding.encodeLadder(ladders);
-        Output.printLadder(result);
+        OutputView.printLadder(result);
     }
 }
