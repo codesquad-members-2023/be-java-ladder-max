@@ -22,7 +22,7 @@ public class Line {
             }
             boolean current = random.nextBoolean();
             String str = current? "-----":"     ";
-            line.add(i,str);
+            line.set(i,str);
             front = current;
         }
     }

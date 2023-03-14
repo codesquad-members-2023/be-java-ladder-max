@@ -12,27 +12,9 @@ public class LadderGame {
         System.out.println(ladder);
     }
     private void printPlayers(){
-        // 첫번째 플레이어 이름 출력
-        System.out.print(players[0]);
-        System.out.print(" ".repeat(6-players[0].length()));
-
-        // 가운데 플레이어 이름 출력
-        int endIdx = players.length-1;
-        for (int i=1;i<endIdx;i++){
-            String str = players[i];
-            int space = (5-str.length());
-            System.out.print(" ".repeat(space/2));
-            System.out.print(str);
-            System.out.print(" ".repeat((space-space/2)));
-            System.out.print(" ".repeat(3));
+        for (String name : players){
+            System.out.printf("%-6s", name); // 각 이름당 주어진 자리는 6자리
         }
-        // 마지막 플레이어 이름 출력
-        if (players[endIdx].length() < 3){
-            System.out.print(" ".repeat(3-players[endIdx].length()));
-            System.out.println(players[endIdx]);
-            return;
-        }
-        System.out.println(players[endIdx]);
-
+        System.out.println();
     }
 }
