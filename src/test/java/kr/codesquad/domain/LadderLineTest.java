@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.*;
+
 class LadderLineTest {
     @DisplayName("LadderLine의 열 개수 체크하는 Test 코드 작성")
     @Test
@@ -15,10 +17,25 @@ class LadderLineTest {
         LadderRow ladderLine = new LadderRow();
 
         //when
-        List<String> ladderLineTest = ladderLine.makeLadderRow(number);
+        List<String> ladderLineTest = ladderLine.makeLadderColumn(number);
 
         //then
-        org.assertj.core.api.Assertions.assertThat(ladderLineTest.size()).isEqualTo(7);
+        assertThat(ladderLineTest.size()).isEqualTo(7);
+    }
+
+    @DisplayName("LadderLine의 Element를 일부로 틀리는 Test 코드 작성")
+    @Test
+    void ladderLineTest2() {
+        //given
+        int number = 3;
+        LadderRow ladderRow = new LadderRow();
+
+        //when
+        List<String> ladderColumn = ladderRow.makeLadderColumn(3);
+
+        //then
+        assertThat(!ladderColumn.contains("|")).isFalse();
+
     }
 
 }
