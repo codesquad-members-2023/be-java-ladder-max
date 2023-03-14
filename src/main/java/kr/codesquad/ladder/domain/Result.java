@@ -1,21 +1,21 @@
 package kr.codesquad.ladder.domain;
 
-import java.util.ArrayList;
+import kr.codesquad.ladder.domain.dto.ResultDto;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class User {
+public class Result {
 
-    private String name;
+    private String resultName;
 
-    public User(String name) {
-        this.name = name;
+    public Result(String resultName) {
+        this.resultName = resultName;
     }
 
-    public List<String> userList(){
-        return Arrays.stream(name.split(","))
-                .map(this::formatName)
+    public List<String> resultList(){
+        return Arrays.stream(resultName.split(","))
                 .collect(Collectors.toList());
     }
 
@@ -25,8 +25,8 @@ public class User {
 
     @Override
     public String toString() {
-        return userList().stream()
+        return resultList().stream()
+                .map(this::formatName)
                 .collect(Collectors.joining());
     }
-
 }
