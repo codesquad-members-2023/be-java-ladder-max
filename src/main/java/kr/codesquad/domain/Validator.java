@@ -1,6 +1,6 @@
-package kr.codesquad.util;
+package kr.codesquad.domain;
 
-public class Validation {
+public class Validator {
     public static String validateName(String inputData) {
         if(!inputData.matches(".+,.+")){
             throw new RuntimeException("참여할 사람은 2명 이상 이어야 합니다.");

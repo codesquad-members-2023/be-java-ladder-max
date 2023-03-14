@@ -3,10 +3,11 @@ package kr.codesquad.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Elements {
-    private List<String> elements = new ArrayList<>();
+public abstract class Elements {
+    protected List<String> elements = new ArrayList<>();
 
-    public Elements(String[] inputArr) {
+    public Elements(String inputData) {
+        String[] inputArr = inputData.split(",");
         for (String element : inputArr) {
             elements.add(element);
         }
@@ -20,15 +21,12 @@ public class Elements {
         return elements.get(index);
     }
 
-    public int indexOf(String element) {
-        return elements.indexOf(element);
-    }
-
     public String toString() {
         String row = "";
         for (String element : elements) {
             row += setFormat(element) + " ";
         }
+        row += "\n";
 
         return row;
     }
