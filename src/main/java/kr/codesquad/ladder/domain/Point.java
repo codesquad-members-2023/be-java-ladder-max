@@ -4,22 +4,34 @@ import java.util.Objects;
 
 public class Point {
 
-    private final boolean bridge;
+    private static final String BRIDGE = "-----";
+    private static final String EMPTY = "     ";
+    private static final String BAR = "|";
 
-    public Point(boolean bridge) {
-        this.bridge = bridge;
+    private final String value;
+
+    private Point(String value) {
+        this.value = value;
     }
 
-    public boolean isBridge() {
-        return bridge;
+    public static Point ofBar() {
+        return new Point(BAR);
     }
 
     public static Point ofBridge() {
-        return new Point(true);
+        return new Point(BRIDGE);
     }
 
     public static Point ofEmpty() {
-        return new Point(false);
+        return new Point(EMPTY);
+    }
+
+    public boolean isBridge() {
+        return value.equals(BRIDGE);
+    }
+
+    public boolean isEmpty() {
+        return value.equals(EMPTY);
     }
 
     @Override
@@ -31,11 +43,16 @@ public class Point {
             return false;
         }
         Point point = (Point) o;
-        return isBridge() == point.isBridge();
+        return Objects.equals(value, point.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(isBridge());
+        return Objects.hash(value);
+    }
+
+    @Override
+    public String toString() {
+        return value;
     }
 }
