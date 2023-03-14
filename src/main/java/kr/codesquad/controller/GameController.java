@@ -1,6 +1,7 @@
 package kr.codesquad.controller;
 
 import kr.codesquad.domain.*;
+import kr.codesquad.exception.GameProgressException;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
@@ -14,7 +15,7 @@ public class GameController {
     private Ladder ladder;
     private ResultGroup resultGroup;
 
-    public void runLadderGame() throws IOException {
+    public void runLadderGame() throws IOException, GameProgressException {
         playerGroup = new PlayerGroup(inputView.inputPlayerNames());
 
         while(true) {
