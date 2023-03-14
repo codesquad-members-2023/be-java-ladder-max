@@ -258,5 +258,16 @@ Line을 생성하는 일을 LadderLine이아닌 RandomLineGenerator클래스가 
 ExcutionResult 클래스에 LadderGame에 대한 결과를 Map형태로 가지고 있으며, user의 input에 따라 사다리게임 결과를 출력한다. 
 
 ### Step5 결과
-![step5](https://raw.githubusercontent.com/CDBchan/Typora-img/main/img/step5.PNG)
+![step5_결과](https://raw.githubusercontent.com/CDBchan/Typora-img/main/img/step5_결과.PNG)
 
+### 3.14 계획
+
+- [ ] Java Programming 개념 10 까지
+    - [ ] Java Collection Framework
+    - [ ] TDD Basic
+    - [ ] Java Exception
+    - [ ] Java Enum
+    - [ ] SparkJava
+    - [ ] JVM
+- [ ] Object Chapter4
+- [x] 사다리게임 Step5 테스트 코드
