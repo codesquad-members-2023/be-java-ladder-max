@@ -12,13 +12,15 @@ public class InputPlayerListManager {
 
     static final int MINIMUM_PLAYER = 2;
     static final int MAXIMUM_PLAYER_NAME_LENGTH = 5;
-    public List<String> playerList;
 
+    public List<String> playerList;
 
 
     public InputPlayerListManager(Scanner scanner){
         this.scanner = scanner;
     }
+
+    // 콘솔로 String 을 입력 받고 , 를 기준으로 split 해준 배열을 List<String> 으로 반환
     public List<String> inputPlayerList(){
         playerList = stringToList(getStringInput());
         return playerList;
@@ -28,6 +30,7 @@ public class InputPlayerListManager {
         return Arrays.asList(inputPlayerString.split(","));
     }
 
+    // 최소 2인 이상의 플레이어 인지, 정해진 형식의 플레이어 이름인지 검사하고 이상 없을 경우 true 를 리턴
     public boolean isValidPlayerInput(){
         if(!checkMinimumPlayerNumber()){
             return false;

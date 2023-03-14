@@ -1,8 +1,5 @@
 package kr.codesquad.domain;
 
-
-import kr.codesquad.view.InputView;
-
 import java.util.List;
 
 public class Ladder {

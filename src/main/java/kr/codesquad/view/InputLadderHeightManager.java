@@ -17,7 +17,7 @@ public class InputLadderHeightManager {
          this.scanner = scanner;
     }
 
-
+    // scanner.nextInt() 메소드를 통해 정수를 입력 받고, 정수가 아니거나 형식에 적합하지 않을 경우 상수로 지정된 LADDER_HEIGHT_NULL_CODE 반환
     public int inputLadderHeight() {
         try {
             return isValidLadderHeight(getIntegerInput());
@@ -28,6 +28,7 @@ public class InputLadderHeightManager {
         }
     }
 
+    // 사다리 높이 최소치인 1을 넘지 않을 경우 LADDER_HEIGHT_NULL_CODE 반환
     public int isValidLadderHeight(int ladderHeight) {
         if (ladderHeight >= MINIMUM_LADDER_HEIGHT) {
             return ladderHeight;
@@ -35,6 +36,7 @@ public class InputLadderHeightManager {
         return LADDER_HEIGHT_NULL_CODE;
     }
 
+    // LADDER_HEIGHT_NULL_CODE 이 아닐 경우 true 반환해서 반복문을 중단시킨다.
     public boolean checkNullLadderHeight(int ladderHeight){
         return ladderHeight != LADDER_HEIGHT_NULL_CODE;
     }
