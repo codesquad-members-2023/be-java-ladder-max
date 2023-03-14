@@ -16,9 +16,6 @@ public class InputInformation {
     ValidationPlayerName validationPlayerName = new ValidationPlayerName();
     ValidationHeight validationHeight = new ValidationHeight();
 
-    public InputInformation() {
-    }
-
     public List<String> putPlayerNames() throws IOException {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
         try {
@@ -34,7 +31,7 @@ public class InputInformation {
     }
 
     private List<String> checkListPlayerNames(String[] parsingNames) {
-        Set<String> listPlayerNames = new HashSet<>();
+        Set<String> listPlayerNames = new LinkedHashSet<>();
         for(String name : parsingNames) {
             validationPlayerName.checkNameFormat(name.trim());
             listPlayerNames.add(name.trim());
@@ -52,6 +49,5 @@ public class InputInformation {
             System.out.println(ex.getMessage());
             return putMaxHeight();
         }
-
     }
 }
