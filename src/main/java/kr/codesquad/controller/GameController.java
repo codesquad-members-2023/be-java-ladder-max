@@ -9,12 +9,26 @@ import java.io.IOException;
 public class GameController {
     private InputView inputView = new InputView();
     private OutputView outputView = new OutputView();
+    private PlayerGroup playerGroup;
+    private DestinationGroup destinationGroup;
+    private Ladder ladder;
+    private ResultGroup resultGroup;
 
     public void runLadderGame() throws IOException {
-        PlayerGroup playerGroup = new PlayerGroup(inputView.inputPlayerNames());
-        DestinationGroup destinationGroup = new DestinationGroup(inputView.inputDestinationNames());
-        Ladder ladder = new Ladder(playerGroup.getPlayerCount(), inputView.inputLadderHeight());
-        ResultGroup resultGroup = makeResultGroup(playerGroup, destinationGroup, ladder);
+        playerGroup = new PlayerGroup(inputView.inputPlayerNames());
+
+        while(true) {
+            try {
+                destinationGroup = new DestinationGroup(inputView.inputDestinationNames(), playerGroup.getPlayerCount());
+            } catch(IllegalArgumentException e) {
+                System.out.println(e.getMessage() + System.lineSeparator());
+                continue;
+            }
+            break;
+        }
+
+        ladder = new Ladder(playerGroup.getPlayerCount(), inputView.inputLadderHeight());
+        resultGroup = makeResultGroup(playerGroup, destinationGroup, ladder);
         outputView.printPlayerNames(playerGroup);
         outputView.printLadder(ladder);
         outputView.printDestination(destinationGroup);
