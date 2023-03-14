@@ -27,7 +27,16 @@ public class GameController {
             break;
         }
 
-        ladder = new Ladder(playerGroup.getPlayerCount(), inputView.inputLadderHeight());
+        while(true) {
+            try {
+                ladder = new Ladder(playerGroup.getPlayerCount(), inputView.inputLadderHeight());
+            } catch(IllegalArgumentException e) {
+                System.out.println(e.getMessage() + System.lineSeparator());
+                continue;
+            }
+            break;
+        }
+
         resultGroup = makeResultGroup(playerGroup, destinationGroup, ladder);
         outputView.printPlayerNames(playerGroup);
         outputView.printLadder(ladder);
