@@ -16,21 +16,17 @@ public class Line {
         lines.add(VERTICAL_LINE);
         String before = EMPTY_STRING;
         for (int j = ODD_INDEX_START; j < ladderWidth; j += ODD_INDEX_JUMP) {
-            before = fillLadderRandomOrStick(before);
+            before = putBlankOrRandom(before);
             lines.add(before);
             lines.add(VERTICAL_LINE);
         }
     }
 
-    private String fillLadderRandomOrStick(String before) {
-        if (isLine(before)) {
+    public static String putBlankOrRandom(String before) {
+        if (LadderLine.isLine(before)) {
             return LadderLine.blank.getValue();
         }
         return LadderLine.takeRandom();
-    }
-
-    public boolean isLine(String before) {
-        return before.equals(LadderLine.stick.getValue());
     }
 
     public String show() {
