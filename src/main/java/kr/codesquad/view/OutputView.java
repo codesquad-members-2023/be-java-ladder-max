@@ -7,7 +7,7 @@ import java.util.List;
 
 public class OutputView {
 
-    public void printLadder(Ladder ladder) {
+    public void printLadderStatus(Ladder ladder) {
         List<String> people = ladder.getPeople();
         List<Line> lines = ladder.getLines();
         List<String> results = ladder.getResults();
@@ -35,22 +35,6 @@ public class OutputView {
                         , StringBuilder::append));
     }
 
-    public void printResults() {
-        System.out.println();
-        System.out.println("실행 결과");
-    }
-
-    public void insertError() {
-        System.out.println();
-        System.out.println("잘못된 사람을 입력하셨습니다. 다시 입력해주세요.");
-    }
-
-    public void exit() {
-        System.out.println();
-        System.out.print("게임을 종료합니다.");
-        System.exit(0);
-    }
-
     public void printOne(List<String> finals, String input) {
         System.out.println(finals
                 .stream().map(o -> o.split( " : "))
@@ -59,8 +43,11 @@ public class OutputView {
                 .orElse(new String[] {"", "없는 이름이 로직을 탐."})[1]);
     }
 
-    public void wantPerson() {
+    public void endGame() {
         System.out.println();
-        System.out.println("결과를 보고 싶은 사람은?");
+        System.out.print("게임을 종료합니다.");
+        System.exit(0);
     }
+
+
 }

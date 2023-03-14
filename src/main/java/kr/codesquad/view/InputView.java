@@ -15,7 +15,7 @@ public class InputView {
         this.sc = new Scanner(System.in);
     }
 
-    public Ladder enterCommand() {
+    public Ladder createLadder() {
         List<String> people = insertNames();
         int peopleLen = people.size();
         return new Ladder(people, insertResults(peopleLen), insertHeight());
@@ -44,7 +44,7 @@ public class InputView {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
         int height;
         try {
-            height = Integer.parseInt(insertInput());
+            height = Integer.parseInt(this.sc.nextLine());
             checkMinus(height);
         } catch (NumberFormatException e) {
             System.out.println("올바른 int 숫자 형식이 아니거나 음수를 입력하셨습니다.");
@@ -81,21 +81,23 @@ public class InputView {
     }
 
     private List<String> parseInput() {
-        List<String> list = Arrays.stream(insertInput()
+        List<String> list = Arrays.stream(this.sc.nextLine()
                 .split(",")).collect(Collectors.toList());
-        if(!isValidNames(list)) {
+        if(isAnyOverFive(list)) {
             throw new IllegalArgumentException();
         }
         return list;
     }
 
-    public boolean isValidNames(List<String> people) {
+    public boolean isAnyOverFive(List<String> people) {
         return people.stream()
                 .filter(o -> o.length() > maxLength)
-                .findFirst().isEmpty();
+                .findFirst().isPresent();
     }
 
-    public String insertInput() {
+    public String insertResultName() {
+        System.out.println();
+        System.out.println("결과를 보고 싶은 사람은?");
         return this.sc.nextLine();
     }
 

@@ -21,8 +21,8 @@ public class InputViewTest {
     void isValidNames_test() {
         List<String> names = new ArrayList<>();
         names.add("abcde");
-        assertThat(inputView.isValidNames(names)).isTrue();
+        assertThat(inputView.isAnyOverFive(names)).isFalse();
         names.add("abcdef");
-        assertThat(inputView.isValidNames(names)).isFalse();
+        assertThat(inputView.isAnyOverFive(names)).isTrue();
     }
 }
