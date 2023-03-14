@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.view;
 
 import kr.codesquad.domain.InputLadder;
 import kr.codesquad.domain.LadderGame;
