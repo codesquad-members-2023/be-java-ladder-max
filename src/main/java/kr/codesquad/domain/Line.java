@@ -1,5 +1,7 @@
 package kr.codesquad.domain;
 
+import kr.codesquad.strategy.RandomLinkStrategy;
+
 import java.util.List;
 
 import static kr.codesquad.domain.Direction.LEFT;
@@ -19,7 +21,7 @@ public class Line {
         this.size = size;
     }
 
-    private void link(LinkStrategy strategy) {
+    private void link(RandomLinkStrategy strategy) {
         directions.addAll(strategy);    // 결정된 라인의 이동 방향 추가
     }
 

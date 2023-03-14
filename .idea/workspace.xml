@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="refactor : OutputView 클래스 로직 수정&#10;&#10;1. printLadderState() -&gt; drawLadderDiagram()&#10;  - 접근제어자 변경으로 캡슐화(public -&gt; private)&#10;  - printLadder 메서드를 사용하기 위해 메서드명 정정&#10;2. printLadder 메서드 추가&#10;  - drawLadderDiagram()를 호출하는 public 메서드">
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Line.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LineType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LinkStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/service/LadderGameService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/strategy/LinkStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/strategy/RandomLinkStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/InputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/InputView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/LadderGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/LadderGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/OutputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/OutputView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Line.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LinkStrategy.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +112,7 @@
       <workItem from="1678435271776" duration="3505000" />
       <workItem from="1678671623118" duration="10047000" />
       <workItem from="1678702219396" duration="3147000" />
-      <workItem from="1678756565441" duration="8807000" />
+      <workItem from="1678756565441" duration="12717000" />
     </task>
     <task id="LOCAL-00001" summary="docs : 1단계 체크리스트 작성">
       <created>1678144272811</created>
