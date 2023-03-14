@@ -10,7 +10,7 @@ import kr.codesquad.domain.Ladder;
 import java.io.IOException;
 import java.util.List;
 
-public class Controller {
+public class LadderGame {
 
     private Output output;
     private Input input;
@@ -18,7 +18,7 @@ public class Controller {
     private Ladder ladder;
     private Encoding encoding;
 
-    public Controller() {
+    public LadderGame() {
         this.ladder = new Ladder(new Line());
         this.output = new Output();
         this.validation = new Validation();
@@ -34,7 +34,7 @@ public class Controller {
         String ladderNumber = input.inputLadderNumber();
 
         List<List<String>> ladders =
-                ladder.makeLadder(validation.validateInputNames(names), validation.validateInputM(ladderNumber));
+                ladder.makeLadder(validation.validateInputNames(names), validation.validateInputLadderNumber(ladderNumber));
 
         String result = encoding.encodeLadder(ladders);
         output.printLadder(result);
