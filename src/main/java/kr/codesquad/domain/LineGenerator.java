@@ -5,10 +5,11 @@ import java.util.List;
 import java.util.Random;
 
 public class LineGenerator {
-    List<Boolean> line = new ArrayList<>();
+    List<Boolean> line;
 
     public Line execute(int playerSize){
-        for(int i = 0; i < playerSize; i++){
+        line = new ArrayList<>();
+        for(int i = 0; i < playerSize-1; i++){
             randomGenerateLine(i);
         }
         return new Line(line);

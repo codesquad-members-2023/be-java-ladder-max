@@ -9,7 +9,7 @@ public class Line {
         this.line = line;
     }
 
-    public List<Boolean> getLine(int playerSize){
+    public List<Boolean> getLine(){
         return line;
     }
 }
