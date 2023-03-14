@@ -5,7 +5,7 @@
 
 # Java Ladder
 
-- Last Update: 2022-3-10
+- Last Update: 2022-3-14
 
 ## Todolist
 
@@ -192,13 +192,14 @@ $ java -jar ./build/libs/java-lotto-1.0-SNAPSHOT.jar
 - [x] [클린 코딩 기초 학습](#클린-코딩-기초)
 - [x] [static 메서드와 인스턴스 메서드의 비교](#static-메서드와-인스턴스-메서드의-비교)
 - [x] [객체지향생활체조 원칙](#객체지향생활체조-원칙)
-- [ ] TDD Basic
+- [x] TDD Basic
 - [ ] Java Exception
 - [ ] Java Enum
 - [ ] SparkJava
 - [ ] JVM
-- [ ] http network 5장, 6장
-- [ ] 이것이 안드로이드다, 스레드와 코루틴
+- [x] http network 5장
+- [ ] http network 6장
+- [x] 이것이 안드로이드다, 스레드와 코루틴
 - [ ] 이것이 안드로이드다, 서비스와 콘텐트 리졸버
 
 ## String, StringBuilder, StringBuffer 비교
