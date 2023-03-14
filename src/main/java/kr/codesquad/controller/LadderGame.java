@@ -1,7 +1,5 @@
 package kr.codesquad.controller;
 
-import kr.codesquad.domain.Ladder;
-import kr.codesquad.domain.Line;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
