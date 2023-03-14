@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 
 public class RandomLineGenerator {
 
-    private final String ERROR_MESSAGE_FOR_CONSECUTIVE_POINTS = "연속적인 true 존재";
+    private static final String ERROR_MESSAGE_FOR_CONSECUTIVE_POINTS = "연속적인 true 존재";
 
     public ArrayList buildLadderLine(int lineWidth) {
         ArrayList<Boolean> points = new ArrayList<>();

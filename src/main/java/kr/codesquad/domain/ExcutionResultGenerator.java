@@ -1,7 +1,6 @@
 package kr.codesquad.domain;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class ExcutionResultGenerator {
     private HashMap<String,String> resultMap;
@@ -23,7 +22,7 @@ public class ExcutionResultGenerator {
 
     private void generateResultMap(int playerCount){
         for(int i=0;i<playerCount;i++){
-            int ladderRideResult = ladder.ladderRide(i);
+            int ladderRideResult = ladder.rideLadder(i);
             String playerName = player.getNameFromNameList(i);
             String resultValue = result.getResultFromResultList(ladderRideResult);
             resultMap.put(playerName, resultValue);

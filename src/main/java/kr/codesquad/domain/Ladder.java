@@ -1,7 +1,6 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static kr.codesquad.domain.LadderLine.drawLine;
 
@@ -25,7 +24,7 @@ public class Ladder {
         }
     }
 
-    public int ladderRide(int playerNumber) {
+    public int rideLadder(int playerNumber) {
         for (LadderLine line : ladder) {
             playerNumber = line.canMove(playerNumber);
         }

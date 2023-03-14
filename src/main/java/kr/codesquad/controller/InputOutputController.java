@@ -1,6 +1,7 @@
 package kr.codesquad.controller;
 
 import kr.codesquad.domain.*;
+import kr.codesquad.view.ExecutionResult;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 

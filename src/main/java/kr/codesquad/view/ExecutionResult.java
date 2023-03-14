@@ -1,4 +1,4 @@
-package kr.codesquad.domain;
+package kr.codesquad.view;
 
 import kr.codesquad.view.InputView;
 
@@ -22,6 +22,7 @@ public class ExecutionResult {
 
     private void getExecutionResult(InputView inputHandler,String pickedPerson){
         if(pickedPerson.equals("춘식이")){
+            System.out.println("게임을 종료합니다.");
             System.exit(0);
         }
         inputHandler.executionResultPrompt();
