@@ -5,6 +5,8 @@ public class LadderGame {
     public void start(String players, int row){
         this.players = players.split(",");
         Ladder ladder = new Ladder(row,this.players.length);
-        ladder.makeLadder();
+        ladder.make();
     }
+    private void printLadder(){}
+    private void printPlayers(){}
 }

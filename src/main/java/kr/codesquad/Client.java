@@ -1,12 +1,12 @@
 package kr.codesquad;
 
-import kr.codesquad.domain.Input;
+import kr.codesquad.domain.InputLadder;
 import kr.codesquad.domain.LadderGame;
 
 public class Client {
     public void startGame(){
-        Input input = new Input();
+        InputLadder input = new InputLadder();
         LadderGame ladderGame = new LadderGame();
-        ladderGame.start(input.getPlayers(),input.getRow());
+        ladderGame.start(input.inputPlayers(),input.inputRow());
     }
 }
