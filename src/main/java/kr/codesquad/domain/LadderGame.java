@@ -1,7 +1,10 @@
 package kr.codesquad.domain;
 
 public class LadderGame {
-    public LadderGame(String players, int row){
-
+    private String[] players;
+    public void start(String players, int row){
+        this.players = players.split(",");
+        Ladder ladder = new Ladder(row,this.players.length);
+        ladder.makeLadder();
     }
 }

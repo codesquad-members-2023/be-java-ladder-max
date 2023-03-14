@@ -14,10 +14,10 @@ public class Ladder {
     private ArrayList<Line> ladder;
 
     public Ladder(){}
-    public Ladder(int row, Player player){
+    public Ladder(int row, int column){
         this.row = row;
-        this.column = player.getHeadCount()*2-1;
-        ladder = new ArrayList<Line>();;
+        this.column = column;
+        this.ladder = new ArrayList<>();
     }
 
     private void makeRandom(){ // 랜덤으로 사다리 내부 만들기
