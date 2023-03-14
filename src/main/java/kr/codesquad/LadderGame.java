@@ -1,26 +1,30 @@
 package kr.codesquad;
 
 import kr.codesquad.domain.Ladder;
-import kr.codesquad.view.Input;
-import kr.codesquad.view.Output;
+import kr.codesquad.view.InputInformation;
+import kr.codesquad.view.OutputLadder;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LadderGame {
-    private Input input;
-    private Output output;
+    private final InputInformation inputInformation;
+    private final OutputLadder outputLadder;
 
-    public LadderGame(Input input, Output output) {
-        this.input = input;
-        this.output = output;
+    public LadderGame(InputInformation inputInformation, OutputLadder outputLadder) {
+        this.inputInformation = inputInformation;
+        this.outputLadder = outputLadder;
     }
 
     public void run() throws IOException {
-        int numberOfPlayer = input.countPlayerNum();
-        int maximumHeight = input.countMaxHeight();
+        List<String> playerList = inputInformation.putPlayerNames();
+        int numberOfPlayer = playerList.size();
+        int maximumHeight = inputInformation.putMaxHeight();
         Ladder ladder = new Ladder(numberOfPlayer, maximumHeight);
-        String finishedLadder = ladder.toString();
-        output.printLadder(finishedLadder);
+        String[][] finishedLadder = ladder.generateLadder();
+        outputLadder.printPlayerNames(playerList);
+        outputLadder.printLadder(finishedLadder);
     }
 
 }
