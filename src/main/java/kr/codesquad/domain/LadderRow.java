@@ -17,6 +17,30 @@ public class LadderRow {
         makeLadderRow();
     }
 
+    public int checkBridgeInBothDirection(int startIndex) {
+        if(startIndex == 0) {
+            if(ladderRow.get(startIndex) instanceof Bridge) {
+               return startIndex + 1;
+            }
+            return startIndex;
+        }
+
+        if(startIndex == ladderRow.size()) {
+            if(ladderRow.get(startIndex - 1) instanceof Bridge) {
+                return startIndex - 1;
+            }
+            return startIndex;
+        }
+
+        if(ladderRow.get(startIndex) instanceof Bridge) {
+            return startIndex + 1;
+        }
+        if(ladderRow.get(startIndex - 1) instanceof Bridge) {
+            return startIndex - 1;
+        }
+        return startIndex;
+    }
+
     private void makeLadderRow() {
         initialize();
     }

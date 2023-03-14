@@ -16,6 +16,10 @@ public class Player {
     }
 
     public String getName() {
+        return name;
+    }
+
+    public String getCenterAlignedName() {
         return String.format("%"+MAX_NAME_LENGTH+"s"
                 , String.format("%-" + (((MAX_NAME_LENGTH - name.length()) / 2) + name.length()) + "s", name));
     }

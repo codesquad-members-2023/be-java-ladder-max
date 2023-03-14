@@ -24,11 +24,18 @@ public class PlayerGroup {
         return players.length;
     }
 
+    public String getName(int index) {
+        if(index >= players.length) {
+            return null;
+        }
+        return players[index].getName();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for(Player player : players) {
-            sb.append(player.getName()).append(" ");
+            sb.append(player.getCenterAlignedName()).append(" ");
         }
 
         return sb.toString();
