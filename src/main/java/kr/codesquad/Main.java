@@ -1,7 +1,10 @@
 package kr.codesquad;
 
+import kr.codesquad.domain.LadderApplication;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        LadderApplication ladderApplication = new LadderApplication();
+        ladderApplication.startLadderGame();
     }
 }
