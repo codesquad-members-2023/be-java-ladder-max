@@ -15,7 +15,7 @@ public class RandomRowLinesGenerator {
         this.numberOfUsers = numberOfUsers;
     }
 
-    public List<Boolean> generate() {
+    public RowLines generate() {
         List<Boolean> result = new ArrayList<>();
         result.add(random.nextBoolean());
 
@@ -24,7 +24,7 @@ public class RandomRowLinesGenerator {
                 Boolean previousLine = result.get(index - 1);
                 result.add(getLine(previousLine));
             });
-        return result;
+        return new RowLines(result);
     }
 
     private boolean getLine(boolean previousLine) {
