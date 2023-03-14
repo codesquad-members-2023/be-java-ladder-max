@@ -1,6 +1,7 @@
 package kr.codesquad.domain;
 
 public class User {
+    private final int Blank_Number = 6;
     private final String user;
     public User(String userName) {
         this.user = userName;
@@ -12,6 +13,6 @@ public class User {
     }
 
     public int findNamesBlank() {
-        return 6 - user.length();
+        return Blank_Number - user.length();
     }
 }
