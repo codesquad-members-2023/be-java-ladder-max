@@ -35,12 +35,7 @@ public class Ladder {
         return sb.toString();
     }
 
-    public static void main(String[] args) {
-        Ladder ladder = new Ladder();
-        ladder.makeLadder(4,5);
-        System.out.println(ladder);
 
-    }
 
 
 }
