@@ -23,4 +23,8 @@ public class OutputView {
     public static void printExit() {
         System.out.println("\n프로그램을 종료합니다.");
     }
+
+    public static void printErrorMessage(RuntimeException e) {
+        System.out.println(e.getMessage());
+    }
 }

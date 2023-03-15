@@ -19,8 +19,8 @@ public class LadderGame {
     private LadderResult generateLadderResult() {
         Users users = InputView.inputUserNames();
         Results results = InputView.inputResults(users.count());
-        Ladder ladder = new Ladder(RandomLadderGenerator.generate(users.count()
-            , InputView.inputLadderHeight().getHeight()));
+        Ladder ladder = RandomLadderGenerator.generate(users.count()
+            , InputView.inputLadderHeight().getHeight());
         return new LadderResult(users, results, ladder);
     }
 
@@ -36,7 +36,7 @@ public class LadderGame {
         } catch (EndGameException e) {
             return;
         } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
+            OutputView.printErrorMessage(e);
         }
 
         executeLadderResult();

@@ -3,6 +3,7 @@ package kr.codesquad.util;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import kr.codesquad.domain.Ladder;
 import kr.codesquad.domain.RandomRowLinesGenerator;
 import kr.codesquad.domain.RowLines;
 
@@ -11,16 +12,16 @@ public class RandomLadderGenerator {
     private RandomLadderGenerator() {
     }
 
-    public static List<RowLines> generate(int numberOfUsers, int ladderHeight) {
+    public static Ladder generate(int numberOfUsers, int ladderHeight) {
         List<RowLines> ladder = createLadder(numberOfUsers, ladderHeight);
         connectEmptyColumnLineRandomly(ladder, numberOfUsers);
-        return ladder;
+        return new Ladder(ladder);
     }
 
     private static List<RowLines> createLadder(int numberOfUsers, int ladderHeight) {
         RandomRowLinesGenerator rowLinesGenerator = new RandomRowLinesGenerator(numberOfUsers);
         return IntStream.range(0, ladderHeight)
-            .mapToObj(index -> new RowLines(rowLinesGenerator.generate()))
+            .mapToObj(index -> rowLinesGenerator.generate())
             .collect(Collectors.toList());
     }
 
