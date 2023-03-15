@@ -12,11 +12,10 @@ class MainTest {
     @DisplayName("통합 테스트")
     public void mainTest() {
         //given
-        String input = "pobi,honux,crong,jk\n꽝,5000,꽝,3000\n5";
+        String input = "pobi,honux,crong,jk\n꽝,5000,꽝,3000\n5\npobi\nall\n춘식이";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         //when
         Main.main(new String[0]);
         //then
     }
-
 }

@@ -18,11 +18,11 @@ public class Ladder {
      * @return 타고 내려온 열
      */
     public int climb(int col) {
-        int selectedCol = col;
+        int selectedCol = col * 2;
         for (Line line : lines) {
             selectedCol = line.climb(selectedCol);
         }
-        return selectedCol;
+        return selectedCol / 2;
     }
 
     @Override

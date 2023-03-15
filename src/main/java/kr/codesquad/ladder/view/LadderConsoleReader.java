@@ -4,13 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Optional;
 import java.util.regex.Pattern;
-import kr.codesquad.ladder.domain.InvalidCountOfLadderResultException;
-import kr.codesquad.ladder.domain.InvalidLengthOfLadderResultException;
-import kr.codesquad.ladder.domain.InvalidNameFormatOfPeopleException;
-import kr.codesquad.ladder.domain.InvalidNumberOfMinimumLadderHeightException;
-import kr.codesquad.ladder.domain.InvalidCountOfPeopleException;
+import kr.codesquad.ladder.exception.InvalidNameFormatOfPeopleException;
+import kr.codesquad.ladder.exception.InvalidNumberOfMinimumLadderHeightException;
 import kr.codesquad.ladder.domain.LadderGenerator;
-import kr.codesquad.ladder.domain.LadderResults;
+import kr.codesquad.ladder.domain.Name;
 import kr.codesquad.ladder.domain.Names;
 
 public class LadderConsoleReader implements LadderReader {
@@ -27,75 +24,40 @@ public class LadderConsoleReader implements LadderReader {
     }
 
     @Override
-    public Names readNameOfPeople() {
-        Optional<Names> optionalNames = Optional.empty();
-        while (optionalNames.isEmpty()) {
-            ladderWriter.writeNamesOfPeopleIntro();
-            optionalNames = readNamesOfPeopleTextAndToStringList();
-        }
-        return optionalNames.get();
-    }
-
-    private Optional<Names> readNamesOfPeopleTextAndToStringList() {
-        Optional<Names> optionalNames = Optional.empty();
-        try {
-            String text = reader.readLine();
-            String[] names = text.split(DELIMITER.pattern());
-            optionalNames = Optional.of(new Names(names));
-        } catch (InvalidNameFormatOfPeopleException | InvalidCountOfPeopleException e) {
-            ladderWriter.write(e.getMessage());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return optionalNames;
+    public String[] readNamesOfPeoples() {
+        ladderWriter.writeNamesOfPeopleIntro();
+        String names = readLine();
+        return splitTextByDelimiterPattern(names, DELIMITER.pattern());
     }
 
     @Override
-    public LadderGenerator readMaximumLadderHeight() {
-        Optional<LadderGenerator> optionalLadderGenerator = Optional.empty();
-        while (optionalLadderGenerator.isEmpty()) {
-            ladderWriter.writeMaximumLadderHeightIntro();
-            optionalLadderGenerator = readMaximumLadderHeightTextAndToInt();
-        }
-        return optionalLadderGenerator.get();
-    }
-
-    private Optional<LadderGenerator> readMaximumLadderHeightTextAndToInt() {
-        Optional<LadderGenerator> optionalLadderGenerator = Optional.empty();
-        try {
-            String text = reader.readLine();
-            int maximumHeight = Integer.parseInt(text);
-            optionalLadderGenerator = Optional.of(
-                new LadderGenerator(maximumHeight));
-        } catch (InvalidNumberOfMinimumLadderHeightException | NumberFormatException e) {
-            ladderWriter.write(e.getMessage());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return optionalLadderGenerator;
+    public int readMaximumLadderHeight() {
+        ladderWriter.writeMaximumLadderHeightIntro();
+        return Integer.parseInt(readLine());
     }
 
     @Override
-    public LadderResults readLadderResults(int countOfPeople) {
-        Optional<LadderResults> optionalLadderResults = Optional.empty();
-        while (optionalLadderResults.isEmpty()) {
-            ladderWriter.writeLadderResultIntro();
-            optionalLadderResults = readLadderResultsText(countOfPeople);
-        }
-        return optionalLadderResults.get();
+    public String[] readDestinations() {
+        ladderWriter.writeLadderResultIntro();
+        String destinationsText = readLine();
+        return splitTextByDelimiterPattern(destinationsText, DELIMITER.pattern());
     }
 
-    private Optional<LadderResults> readLadderResultsText(int countOfPeople) {
-        Optional<LadderResults> optionalLadderResults = Optional.empty();
+    @Override
+    public String readNameOfPeopleForLadderResult(Names names) {
+        ladderWriter.writeNameForLadderResultIntro(names);
+        return readLine();
+    }
+
+    private String readLine() {
         try {
-            String text = reader.readLine();
-            String[] ladderResults = text.split(DELIMITER.pattern());
-            optionalLadderResults = Optional.of(new LadderResults(ladderResults, countOfPeople));
-        } catch (InvalidLengthOfLadderResultException | InvalidCountOfLadderResultException e) {
-            ladderWriter.write(e.getMessage());
+            return reader.readLine();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return optionalLadderResults;
+    }
+
+    private String[] splitTextByDelimiterPattern(String text, String delimiterPattern) {
+        return text.split(delimiterPattern);
     }
 }
