@@ -14,6 +14,7 @@ public class OutputView {
 
     public void getExecutionResult(String pickedPerson,Map<String,String> resultMap){
         InputView inputView = new InputView();
+        inputView.selectPlayerPrompt();
         if(pickedPerson.equals("춘식이")){
             System.out.println("게임을 종료합니다.");
             System.exit(0);

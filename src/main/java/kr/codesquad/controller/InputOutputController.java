@@ -21,7 +21,7 @@ public class InputOutputController {
 
     void setupGame(Players players, LadderHeight ladderHeight, Results result) {
         getPlayers(players);
-        getResults(result, players.getPlayersList().size());
+        getResults(result, players.getCountOfPlayers());
         getHeight(ladderHeight);
     }
 
@@ -43,7 +43,6 @@ public class InputOutputController {
 
     void getExecutionResult(HashMap<String, String> resultMap){
         while (true) {
-            inputView.selectPlayerPrompt();
             outputView.getExecutionResult(inputView.getInput(),resultMap);
         }
     }

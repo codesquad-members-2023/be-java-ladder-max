@@ -2,8 +2,6 @@ package kr.codesquad.controller;
 
 import kr.codesquad.domain.*;
 
-import java.io.IOException;
-
 public class LadderGameController {
     private final InputOutputController ioController;
     private final Players players;
@@ -19,7 +17,7 @@ public class LadderGameController {
 
     public void startLadderGame(){
         ioController.setupGame(players, ladderHeight, result);
-        Ladder ladder = new Ladder(players.getPlayersList().size(), ladderHeight.getLadderHeight());
+        Ladder ladder = new Ladder(players.getCountOfPlayers(), ladderHeight.getLadderHeight());
         ioController.printLadder(ladder, players, result);
         ExecutionResultGenerator executionResultGenerator = new ExecutionResultGenerator(ladder, players, result);
         ioController.getExecutionResult(executionResultGenerator.getResultMap());

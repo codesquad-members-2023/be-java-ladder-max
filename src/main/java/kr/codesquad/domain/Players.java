@@ -1,8 +1,5 @@
 package kr.codesquad.domain;
 
-import kr.codesquad.view.InputView;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,17 +10,17 @@ public class Players {
     private static final String NAME_LENGTH_ERROR_MESSAGE = "이름은 5글자 이하여야 합니다. 다시 입력해주세요.";
     private static final String PLAYER_NUMBER_ERROR_MESSAGE = "player는 2명 이상이 필요합니다. 다시 입력해주세요.";
 
-    private  ArrayList<String> playersList;
+    private final ArrayList<String> playersList;
 
     public Players() {
         playersList = new ArrayList<>();
     }
 
-    public ArrayList<String> getPlayersList() {
-        return playersList;
+    public int getCountOfPlayers() {
+        return playersList.size();
     }
 
-    String getNameFromNameList(int i){
+    String getPlayer(int i){
         return playersList.get(i);
     }
 

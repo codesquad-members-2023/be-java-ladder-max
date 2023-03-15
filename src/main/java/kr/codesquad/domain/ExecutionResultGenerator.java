@@ -14,11 +14,9 @@ public class ExecutionResultGenerator {
     }
 
     private void generateResultMap(Ladder ladder, Players player, Results result){
-        for(int i=0;i<player.getPlayersList().size();i++){
+        for(int i = 0; i<player.getCountOfPlayers(); i++){
             int ladderRideResult = ladder.rideLadder(i);
-            String playerName = player.getNameFromNameList(i);
-            String resultValue = result.getResultFromResultList(ladderRideResult);
-            resultMap.put(playerName, resultValue);
+            resultMap.put(player.getPlayer(i),result.getResultFromResultList(ladderRideResult));
         }
     }
 }
