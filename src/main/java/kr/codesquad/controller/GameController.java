@@ -11,14 +11,18 @@ public class GameController {
     public void run() {
         InputView inputView = new InputView();
         OutputView outputView = new OutputView(); // 멤버변수로 빼는 게 좋나..?
-        List<String> people = inputView.insertNames();
-        int peopleLen = people.size();
-        Ladder ladder = new Ladder(people, inputView.insertResults(peopleLen), inputView.insertHeight());
-        outputView.printLadderStatus(ladder);
-        printLadderResult(inputView, outputView, ladder);
+        try {
+            List<String> people = inputView.insertNames();
+            int peopleLen = people.size();
+            Ladder ladder = new Ladder(people, inputView.insertResults(peopleLen), inputView.insertHeight());
+            printLadderResult(inputView, outputView, ladder);
+        } catch (NumberFormatException e) {
+            System.out.println("숫자 형식은 int 형식만 지원합니다.");
+        } catch (Exception e) {}
     }
 
     private void printLadderResult(InputView inputView, OutputView outputView, Ladder ladder) {
+        outputView.printLadderStatus(ladder);
         String input = inputView.insertResultName();
         while (!input.equals("춘식이")) {
             printAllOrPersonResult(input, outputView, ladder);
