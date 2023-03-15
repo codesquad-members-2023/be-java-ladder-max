@@ -1,14 +1,19 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Ladder {
 
-    private String[][] ladder;
+    private ArrayList<String> ladder;
 
     public void makeLadderShape(UserInput userInput) {
-        ladder = new String[userInput[1]][userInput[0] * 2 - 1];
-        for (String[] strings : ladder) {
-            fillLadderLine(strings);
-        }
+        List<String> playerList = Arrays.asList(userInput.names.split(","));
+        System.out.println(playerList);
+//        for (String[] strings : ladder) {
+//            fillLadderLine(strings);
+//        }
     }
 
     private void fillLadderLine(String[] customLadderLine) {
@@ -23,7 +28,7 @@ public class Ladder {
         customLadderLine[index] = (index % 2 == 0) ? "|" : randomStep;
     }
 
-    public String[][] getLadder() {
+    public ArrayList<String> getLadder() {
         return this.ladder;
     }
 }
