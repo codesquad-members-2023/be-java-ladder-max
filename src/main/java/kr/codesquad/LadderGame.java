@@ -1,12 +1,15 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class LadderGame {
     private final Output output = new Output();
     private final Input input = new Input();
 
 
     public void start() {
-        int[] userInput = getLadderInput();
+        ArrayList<Object> userInput = getLadderInput();
 
         Ladder ladder = new Ladder();
 
@@ -15,14 +18,18 @@ public class LadderGame {
         output.printLadder(ladder.getLadder());
     }
 
-    private int[] getLadderInput() {
-        output.printNumberOfPeople();
-        int people = Integer.parseInt(input.getInput());
+    private ArrayList<Object> getLadderInput() {
+        ArrayList<Object> userInput = new ArrayList<>();
+
+        output.printNameOfPeople();
+        String peopleName = input.getInput();
+        userInput.add(peopleName);
 
         output.printHeightOfLadder();
         int height = Integer.parseInt(input.getInput());
+        userInput.add(height);
 
-        return new int[]{people, height};
+        return userInput;
     }
 
 }
