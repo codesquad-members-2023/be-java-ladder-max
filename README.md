@@ -172,6 +172,67 @@ all : 전체 결과 보기, 춘식이 : 프로그램 종료, 이름 : pobi  honu
 게임을 종료합니다. 
 ```
 
+## 패키지 구조
+```shell
+├─main
+│  └─java
+│      │  .gitkeep
+│      │
+│      └─kr
+│          └─codesquad
+│              └─ladder
+│                  │  Main.java
+│                  │
+│                  ├─controller
+│                  │      LadderConsoleReaderController.java
+│                  │      LadderGame.java
+│                  │
+│                  ├─domain
+│                  │      Destination.java
+│                  │      Destinations.java
+│                  │      Ladder.java
+│                  │      LadderGenerator.java
+│                  │      LadderResult.java
+│                  │      Name.java
+│                  │      Names.java
+│                  │      Point.java
+│                  │      Points.java
+│                  │
+│                  ├─exception
+│                  │      InvalidContainOfNamesException.java
+│                  │      InvalidCountOfLadderResultException.java
+│                  │      InvalidCountOfPeopleException.java
+│                  │      InvalidFormatOfDestinationException.java
+│                  │      InvalidNameFormatOfPeopleException.java
+│                  │      InvalidNumberOfMinimumLadderHeightException.java
+│                  │
+│                  └─view
+│                          LadderConsoleReader.java
+│                          LadderConsoleWriter.java
+│                          LadderReader.java
+│                          LadderWriter.java
+│
+└─test
+    └─java
+        │  .gitkeep
+        │
+        └─kr
+            └─codesquad
+                └─ladder
+                    │  MainTest.java
+                    │
+                    ├─controller
+                    ├─domain
+                    │      DestinationsTest.java
+                    │      LadderGeneratorTest.java
+                    │      LadderTest.java
+                    │      NamesTest.java
+                    │      NameTest.java
+                    │
+                    └─view
+                            LadderConsoleReaderTest.java
+```
+
 ## 도메인 모델
 
 ![](img/img_7.png)
