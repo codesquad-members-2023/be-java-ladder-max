@@ -1,5 +1,7 @@
 package kr.codesquad.view;
 
+import kr.codesquad.domain.LadderResult;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -100,10 +102,14 @@ public class Screen {
                 .collect(Collectors.joining());
     }
 
-    public void printResult(List<String> playerNames, String ladderShape) {
+    public void printLadder(List<String> playerNames, String ladderShape) {
         System.out.println("\n실행결과\n");
 
         System.out.println(toPlayerLine(playerNames));
         System.out.println(ladderShape);
+    }
+
+    public void printResult(LadderResult ladderResult) {
+        System.out.println(ladderResult.toAllResult());
     }
 }

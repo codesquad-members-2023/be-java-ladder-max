@@ -11,6 +11,19 @@ public class LadderResult {
         this.results = results;
     }
 
+    public String toAllResult() {
+        final StringBuilder builder = new StringBuilder();
+
+        for (var result : results.entrySet()) {
+            builder.append(result.getKey())
+                    .append(" : ")
+                    .append(result.getValue())
+                    .append("\n");
+        }
+
+        return builder.toString();
+    }
+
     public static LadderResult of(List<String> playerNames, List<String> goals, List<Point> points) {
         Map<String, String> results = new HashMap<>();
         for (Point point : points) {
