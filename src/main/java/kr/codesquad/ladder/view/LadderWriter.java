@@ -19,4 +19,6 @@ public interface LadderWriter {
     void writeLadderResults(LadderResults ladderResults);
 
     void writeLadderResult(LadderResult ladderResult);
+
+    void writeExitIntro();
 }

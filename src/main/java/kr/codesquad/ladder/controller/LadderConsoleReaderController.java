@@ -113,6 +113,7 @@ public class LadderConsoleReaderController {
         while (true) {
             String nameText = ladderReader.readNameOfPeopleForLadderResult(names);
             if (nameText.equals(EXIT)) {
+                ladderWriter.writeExitIntro();
                 break;
             }
             if (nameText.equals(ALL)) {
