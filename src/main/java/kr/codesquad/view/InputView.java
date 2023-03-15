@@ -28,8 +28,12 @@ public class InputView {
         System.out.println("\n"+EXECUTION_RESULT_MESSAGE);
     }
 
-    public String getInput() throws IOException {
+    public String getInput() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        return br.readLine();
+        try {
+            return br.readLine();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

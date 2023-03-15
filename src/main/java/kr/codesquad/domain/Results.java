@@ -18,12 +18,13 @@ public class Results {
     String getResultFromResultList(int i){
         return resultList.get(i);
     }
-    public boolean getResultsFromUser(InputView inputHandler, int sizeOfNameList){
+
+    public boolean getResultsFromUser(String strResults, int sizeOfNameList){
         try {
-            resultList.addAll(parseInputStringToResultList(inputHandler.getInput()));
+            resultList.addAll(parseInputStringToResultList(strResults));
             validateNumOfResultList(resultList,sizeOfNameList);
             return true;
-        } catch (IOException | RuntimeException e) {
+        } catch (RuntimeException e) {
             resultList.clear();
             System.out.println(e.getMessage());
         }

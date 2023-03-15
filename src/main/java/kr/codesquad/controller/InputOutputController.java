@@ -7,8 +7,9 @@ import kr.codesquad.view.OutputView;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Optional;
 
-public class InputOutputController extends Players {
+public class InputOutputController {
 
     private OutputView outputHandler;
     private InputView inputHandler;
@@ -18,34 +19,35 @@ public class InputOutputController extends Players {
         this.outputHandler = new OutputView();
     }
 
-    void setupGame(Players players, LadderHeight ladderHeight, Results result){
+    void setupGame(Players players, LadderHeight ladderHeight, Results result) {
         getPlayers(players);
-        getResults(result,players.getPlayersList().size());
+        getResults(result, players.getPlayersList().size());
         getHeight(ladderHeight);
     }
 
-    private void getPlayers(Players players){
+    private void getPlayers(Players players) {
         inputHandler.playerNamePrompt();
-        while(!players.getValidPlayerFromUser(inputHandler));
+        while (!players.getValidPlayerFromUser(inputHandler.getInput())) {
+        }
     }
 
-    private void getHeight(LadderHeight ladderHeight){
+    private void getHeight(LadderHeight ladderHeight) {
         inputHandler.LadderHeightPrompt();
-        while(!ladderHeight.getValidHeightFromUser(inputHandler));
+        while (!ladderHeight.getValidHeightFromUser(Integer.parseInt(inputHandler.getInput()))) ;
     }
 
-    private void getResults(Results result, int playerNum){
+    private void getResults(Results result, int playerNum) {
         inputHandler.resultPrompt();
-        while(!result.getResultsFromUser(inputHandler, playerNum));
+        while (!result.getResultsFromUser(inputHandler.getInput(), playerNum)) ;
     }
 
-    void getExecutionResult(HashMap<String,String> resultMap) throws IOException {
-        while(true){
-            new ExecutionResult(inputHandler,resultMap);
+    void getExecutionResult(HashMap<String, String> resultMap) throws IOException {
+        while (true) {
+            new ExecutionResult(inputHandler, resultMap);
         }
     }
 
     void printLadder(Ladder ladder, Players player, Results result) {
-        outputHandler.printLadder(ladder,player,result);
+        outputHandler.printLadder(ladder, player, result);
     }
 }

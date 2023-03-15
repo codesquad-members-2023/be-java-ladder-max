@@ -14,11 +14,11 @@ public class LadderHeight {
     }
 
     private final String ERROR_MESSAGE_FOR_LADDER_HEIGHT = "사다리 높이는 1이상으로 입력";
-    public boolean getValidHeightFromUser(InputView inputHandler) {
+    public boolean getValidHeightFromUser(int ladderHeight) {
         try {
-            this.ladderHeight =validateHeightAndThrowException(Integer.parseInt(inputHandler.getInput())) ;
+            this.ladderHeight =validateHeightAndThrowException(ladderHeight) ;
             return true;
-        } catch (RuntimeException | IOException e) {
+        } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
         return false;

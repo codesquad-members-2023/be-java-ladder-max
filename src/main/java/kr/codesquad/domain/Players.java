@@ -13,10 +13,10 @@ public class Players {
     private static final String NAME_LENGTH_ERROR_MESSAGE = "이름은 5글자 이하여야 합니다. 다시 입력해주세요.";
     private static final String PLAYER_NUMBER_ERROR_MESSAGE = "player는 2명 이상이 필요합니다. 다시 입력해주세요.";
 
-    private final ArrayList<String> playersList;
+    private  ArrayList<String> playersList;
 
     public Players() {
-        this.playersList = new ArrayList<>();
+        playersList = new ArrayList<>();
     }
 
     public ArrayList<String> getPlayersList() {
@@ -27,17 +27,16 @@ public class Players {
         return playersList.get(i);
     }
 
-    public boolean getValidPlayerFromUser(InputView inputView) {
+    public boolean getValidPlayerFromUser(String players) {
         try {
-            String inputString = inputView.getInput();
-            playersList.addAll(parseInputStringToValidNames(inputString));
+            playersList.addAll(parseInputStringToValidNames(players));
             validatePlayerNumAndThrowException();
             return true;
-        } catch (RuntimeException | IOException e) {
+        } catch (RuntimeException e) {
             playersList.clear();
             System.out.println(e.getMessage());
-            return false;
         }
+        return false;
     }
 
     private List<String> parseInputStringToValidNames(String inputString) {
