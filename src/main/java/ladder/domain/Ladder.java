@@ -1,4 +1,4 @@
-package kr.codesquad;
+package ladder.domain;
 
 public class Ladder {
     private int countOfPerson;

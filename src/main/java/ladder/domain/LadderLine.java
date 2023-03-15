@@ -1,4 +1,4 @@
-package kr.codesquad;
+package ladder.domain;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,7 @@
-package kr.codesquad;
+package ladder.domain;
+
+import ladder.view.InputView;
+import ladder.view.OutputView;
 
 public class LadderController {
     private OutputView outputView = new OutputView();

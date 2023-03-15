@@ -1,4 +1,6 @@
-package kr.codesquad;
+package ladder.view;
+
+import ladder.domain.Ladder;
 
 public class OutputView {
     public void inputPeople() {
