@@ -8,9 +8,9 @@ public class Ladder {
     private int column;
     private ArrayList<Line> ladder;
 
-    public Ladder(int row, int column){
+    public Ladder(int row, int headCount){
         this.row = row;
-        this.column = column*2-1;
+        this.column = headCount*2-1;
         this.ladder = new ArrayList<>();
     }
 

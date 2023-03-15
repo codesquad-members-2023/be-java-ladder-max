@@ -3,7 +3,6 @@ package kr.codesquad.view;
 import kr.codesquad.domain.InputLadder;
 import kr.codesquad.domain.LadderGame;
 
-import java.util.NoSuchElementException;
 
 public class Client {
     public void startGame(){
