@@ -1,6 +1,7 @@
 package kr.codesquad.ladder.view;
 
-import kr.codesquad.ladder.domain.Ladder;
+import kr.codesquad.ladder.domain.LadderResult;
+import kr.codesquad.ladder.domain.LadderResults;
 import kr.codesquad.ladder.domain.Names;
 
 public class LadderConsoleWriter implements LadderWriter {
@@ -18,6 +19,24 @@ public class LadderConsoleWriter implements LadderWriter {
     @Override
     public void writeLadderResultIntro() {
         System.out.println("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
+    }
+
+    @Override
+    public void writeNameForLadderResultIntro(Names names) {
+        System.out.println("결과를 보고 싶은 사람은?");
+        System.out.println("all : 전체 결과 보기, 춘식이 : 프로그램 종료, 이름 : " + names);
+    }
+
+    @Override
+    public void writeLadderResults(LadderResults ladderResults) {
+        System.out.println("실행 결과");
+        System.out.println(ladderResults);
+    }
+
+    @Override
+    public void writeLadderResult(LadderResult ladderResult) {
+        System.out.println("실행 결과");
+        System.out.println(ladderResult);
     }
 
     @Override
