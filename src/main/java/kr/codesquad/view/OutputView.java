@@ -9,15 +9,15 @@ import kr.codesquad.exception.GameProgressException;
 public class OutputView {
 
     public void printLadder(Ladder ladder) {
-        System.out.print(ladder.toString());
+        System.out.print(ladder);
     }
 
     public void printPlayerNames(PlayerGroup playerGroup) {
-        System.out.println(playerGroup.toString());
+        System.out.println(playerGroup);
     }
 
     public void printDestination(DestinationGroup destinationGroup) {
-        System.out.println(destinationGroup.toString());
+        System.out.println(destinationGroup);
     }
 
     public void printResult(ResultGroup resultGroup, String playerName) throws GameProgressException {
