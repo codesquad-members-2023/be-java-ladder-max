@@ -3,6 +3,7 @@ package kr.codesquad;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class Ladder {
 
@@ -29,6 +30,15 @@ public class Ladder {
             return "|";
         }
         return (Math.random() > 0.5) ? "|-----" : "|     ";
+    }
+
+    private List<Boolean> generateRandomStepList(int numberOfPlayer) {
+        List<Boolean> booleanStepList = new ArrayList<>();
+        Random random = new Random();
+        for (int i = 0; i < numberOfPlayer; i++) {
+            booleanStepList.add(random.nextBoolean());
+        }
+        return booleanStepList;
     }
 
     public ArrayList<String> getLadder() {
