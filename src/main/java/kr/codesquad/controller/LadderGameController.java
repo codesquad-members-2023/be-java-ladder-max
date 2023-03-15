@@ -17,11 +17,11 @@ public class LadderGameController {
         this.ladderHeight = new LadderHeight();
     }
 
-    public void startLadderGame() throws IOException {
-        ioController.setupGame(players,ladderHeight,result);
+    public void startLadderGame(){
+        ioController.setupGame(players, ladderHeight, result);
         Ladder ladder = new Ladder(players.getPlayersList().size(), ladderHeight.getLadderHeight());
-        ioController.printLadder(ladder,players,result);
-        ExecutionResultGenerator executionResultGenerator = new ExecutionResultGenerator(ladder,players,result);
+        ioController.printLadder(ladder, players, result);
+        ExecutionResultGenerator executionResultGenerator = new ExecutionResultGenerator(ladder, players, result);
         ioController.getExecutionResult(executionResultGenerator.getResultMap());
     }
 }
