@@ -27,7 +27,7 @@ public class Application {
         ladder.makeLadder(inputView.inputPeopleSize(), inputView.inputLadderHeight());
         OutputView outputview = new OutputView();
         outputview.printPeopleList(inputView.getInputPeopleList());
-        outputview.printLadder(ladder.getLadder());
+        outputview.printLadder(ladder);
         inputView.close();
 
 

@@ -1,7 +1,6 @@
 package kr.codesquad.view;
 
 import kr.codesquad.domain.Ladder;
-import kr.codesquad.domain.LadderLine;
 
 import java.util.List;
 
@@ -9,11 +8,7 @@ public class OutputView {
 
     public void printLadder(Ladder ladder) {
         System.out.println(ladder);
-//        for (LadderLine ladderRow : ladder) {
-////            for (String s : ladderRow) {
-////                System.out.print(s);
-////            }
-//            System.out.println();
+
         }
 
 

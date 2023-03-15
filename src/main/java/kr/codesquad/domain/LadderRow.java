@@ -4,6 +4,7 @@ package kr.codesquad.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.IntStream;
 
 public class LadderRow {
     private final List<String> ladderRow;
@@ -16,18 +17,7 @@ public class LadderRow {
     }
 
     public List<String> makeLadderColumn() {
-        for (int column = 0; column < 2 * numberOfPeople - 1; column++) {
-            makeBasicLadderColumn(column);
-            /*
-            재귀적으로 호출?
-            아니면, try-catch문?
-
-             */
-            generateRandomLadderLine(column);
-            ensureLadderLine(column);
-
-        }
-
+        IntStream.range(0, 2 * numberOfPeople - 1).forEach(this::makeBasicLadderColumn);
         return ladderRow;
     }
 
@@ -41,63 +31,37 @@ public class LadderRow {
 
 
     public void generateRandomLadderLine() {
-        for (int column = 0; column < 2 * numberOfPeople - 1; column++) {
-            if (validateLadderLine(column)) {
-                generateRandomLadderLine(column);
-
-            }
-        }
+        IntStream.range(0, 2 * numberOfPeople - 1).forEach(this::hasLadderLine);
     }
 
-    /*
-    ladderLine에서 "-----"가 있는지 확인하고, 없으면 makeRandomLadderLine을 호출한다.
-    현재 verifyLadderLine에서는 LadderLine에서 "-----"가 없으면 makeRandomLadderLine을 호출
-    그런데 이 메서드가 과연 맞을까?
 
-
-     */
-    private boolean validateLadderLine(int column) {
-//        for (int column = 0; column < 2 * numberOfPeople - 1; column++) {
-//
-//        }
-        if (!ladderRow.contains("-----") || column/2>1) {
+    private boolean hasLadderLine(int column) {
+        if (!ladderRow.contains("-----")) { // 사다리의 행에서 "-----"가 하나도 없을경우 Ramdom하게 생성
+            generateLadderLineRandomly(column);
             return true;
         }
-//        if (column / 2 >= 3) {
-//            makeRandomLadderLine(column);
-//            return true;
-//        }
+        if (column % 2 != 0 && column >= 3) { // 사다리의 행에 "-----"가 하나 이상은 존재하고 현재 컬럼이 홀수 번호이고, column이 3이상일 경우
+            generateLadderLineEnsure(column);       // ladderLine을 확실해 생성한다.
+        }
         return false;
     }
 
 
-    /*
-컬럼이
-|---|   |   | (X)
-|---|---|   | (O)
-구분점은?
+    private void generateLadderLineEnsure(int column) {
+        int prevColumn = column - 2;
+        if (prevColumn >= 0 && !(ladderRow.get(prevColumn).contains("-----"))) { // prevColumn이 공백일경우, 현재 column에 "----" 추가
+            ladderRow.set(column, "-----");
+        }
+    }
 
 
-위와 같은 경우는 어떻게 방지해줄까?
-앞에 컬럼이
- */
-//        if (column)
-    private void generateRandomLadderLine(int column) {
+    private void generateLadderLineRandomly(int column) {
         Random random = new Random();
         if (column % 2 != 0 && random.nextBoolean()) {
             ladderRow.set(column, "-----");
         }
-
     }
 
-    /*
-    해당 column 전까지 "-----"가 없고,
-     */
-    private void ensureLadderLine(int column) {
-        if(!validateLadderLine(column) || column/2>=1){
-            generateRandomLadderLine(column);
-        }
-    }
 
     @Override
     public String toString() {
@@ -108,3 +72,4 @@ public class LadderRow {
         return sb.toString();
     }
 }
+

@@ -1,14 +1,12 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class Ladder {
 
 
-    private final List<LadderLine> ladderLines;
+    private final List<LadderRow> ladderLines;
 
 
     public Ladder() {
@@ -16,11 +14,12 @@ public class Ladder {
 
     }
 
-    public List<LadderLine> makeLadder(int numberOfPeople, int ladderHeight) {
+    public List<LadderRow> makeLadder(int numberOfPeople, int ladderHeight) {
         for (int row = 0; row < ladderHeight; row++) {
-            LadderLine ladderLine = new LadderLine();
-            ladderLine.makeLadderLine(numberOfPeople);
-            ladderLines.add(ladderLine);
+            LadderRow ladderRow = new LadderRow(numberOfPeople);
+            ladderRow.makeLadderColumn();
+            ladderRow.generateRandomLadderLine();
+            ladderLines.add(ladderRow);
         }
         return this.ladderLines;
     }
@@ -28,7 +27,7 @@ public class Ladder {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (LadderLine ladderLine : ladderLines) {
+        for (LadderRow ladderLine : ladderLines) {
             sb.append(ladderLine.toString());
             sb.append("\n");
         }
