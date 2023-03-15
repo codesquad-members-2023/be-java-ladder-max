@@ -14,6 +14,14 @@ public class Point {
         return startWidth;
     }
 
+    public int getStartLadderNumber() {
+        return startWidth / 2;
+    }
+
+    public int getFinalLadderNumber() {
+        return currentWidth / 2;
+    }
+
     public int getCurrentWidth() {
         return currentWidth;
     }

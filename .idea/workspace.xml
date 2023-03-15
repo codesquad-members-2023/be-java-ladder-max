@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Ladder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/service/LadderGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/service/LadderGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +66,8 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -192,7 +194,6 @@
         <item itemvalue="JUnit.ScreenTest.inputLadderHeightTest" />
         <item itemvalue="JUnit.LadderPartTest" />
         <item itemvalue="JUnit.LadderLineTest" />
-        <item itemvalue="JUnit.LadderLineTest.ladderLineConnectBridgeExceptionTest (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -229,7 +230,8 @@
       <workItem from="1678762788633" duration="8094000" />
       <workItem from="1678843113833" duration="842000" />
       <workItem from="1678844211619" duration="648000" />
-      <workItem from="1678844865152" duration="4115000" />
+      <workItem from="1678844865152" duration="5054000" />
+      <workItem from="1678861081556" duration="306000" />
     </task>
     <servers />
   </component>
