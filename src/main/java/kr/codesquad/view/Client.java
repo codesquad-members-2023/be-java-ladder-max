@@ -7,6 +7,6 @@ public class Client {
     public void startGame(){
         InputLadder input = new InputLadder();
         LadderGame ladderGame = new LadderGame();
-        ladderGame.start(input.inputPlayers(),input.inputRow());
+        ladderGame.start(input.inputPlayers(),input.inputResult(),input.inputRow());
     }
 }
