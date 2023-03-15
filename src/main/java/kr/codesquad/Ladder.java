@@ -4,7 +4,7 @@ public class Ladder {
 
     private String[][] ladder;
 
-    public void makeLadderShape(int[] userInput) {
+    public void makeLadderShape(UserInput userInput) {
         ladder = new String[userInput[1]][userInput[0] * 2 - 1];
         for (String[] strings : ladder) {
             fillLadderLine(strings);
