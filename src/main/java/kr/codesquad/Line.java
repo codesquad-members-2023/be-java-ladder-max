@@ -5,46 +5,32 @@ import java.util.List;
 import java.util.Random;
 
 public class Line {
-    private final List<Boolean> line = new ArrayList<>();
-    private int width;
+    private static final String RUNG = "=".repeat(5);
+    private static final String BLANK = " ".repeat(5);
+    private static final String POLE = "|";
+    private final List<Boolean> line;
+    private final int width;
 
-    public Line(int width) {
-        this.width = width;
-        generateLine();
+    public Line (List<Boolean> line) {
+        this.line = line;
+        this.width = line.size();
     }
 
-    public Line(List<Boolean> input) {
-        this.line.addAll(input);
-        this.width = input.size();
-    }
+    public String drawLine() {
+        StringBuilder sb = new StringBuilder();
 
-    private void generateLine() {
-        Random r = new Random();
-
-        for (int count = 0; count < width; count++) {
-            addWithoutContinuity(line, r.nextBoolean());
+        sb.append(POLE);
+        for (Boolean rung : line) {
+            sb.append(drawRung(rung));
+            sb.append(POLE);
         }
+        return sb.toString();
     }
 
-    private void addWithoutContinuity(List<Boolean> line, boolean leg) {
-        if (isLegContinuous(line, leg)) {
-            line.add(false);
-            return;
+    private String drawRung(boolean rung) {
+        if (rung) {
+            return RUNG;
         }
-        line.add(leg);
-    }
-
-    private boolean isLegContinuous(List<Boolean> line, boolean leg) {
-        if (line.isEmpty()) {
-            return false;
-        }
-        if (line.get(line.size() - 1) && leg) {
-            return true;
-        }
-        return false;
-    }
-
-    public List<Boolean> getLine() {
-        return this.line;
+        return BLANK;
     }
 }
