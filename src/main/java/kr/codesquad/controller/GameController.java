@@ -18,48 +18,37 @@ public class GameController {
     public void runLadderGame() throws IOException, GameProgressException {
         System.out.println("-----[사다리 게임 시작]-----");
         PlayerGroup playerGroup = new PlayerGroup(inputView.inputPlayerNames());
-        DestinationGroup destinationGroup = makeDestinationGroup(inputView, playerGroup.getPlayerCount());
-        Ladder ladder = makeLadder(inputView, playerGroup.getPlayerCount());
-        ResultGroup resultGroup = makeResultGroup(playerGroup, destinationGroup, ladder);
+        DestinationGroup destinationGroup = createDestinationGroup(playerGroup.getPlayerCount());
+        Ladder ladder = createLadder(playerGroup.getPlayerCount());
+        ResultGroup resultGroup = createResultGroup(playerGroup, destinationGroup, ladder);
 
         outputView.printPlayerNames(playerGroup);
         outputView.printLadder(ladder);
         outputView.printDestination(destinationGroup);
-
-        while(true) {
-            try {
-                outputView.printResult(resultGroup, inputView.inputSelectPlayer());
-            } catch(IllegalArgumentException e) {
-                System.out.println(e.getMessage() + System.lineSeparator());
-            }
-        }
+        runPrintResultLoop(resultGroup);
     }
 
-    private DestinationGroup makeDestinationGroup(InputView inputView, int playerCount) {
+    private DestinationGroup createDestinationGroup(int playerCount) throws IOException {
         while(true) {
             try {
                 return new DestinationGroup(inputView.inputDestinationNames(), playerCount);
             } catch(IllegalArgumentException e) {
                 System.out.println(e.getMessage() + System.lineSeparator());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
         }
     }
 
-    private Ladder makeLadder(InputView inputView, int playerCount) {
+    private Ladder createLadder(int playerCount) throws IOException {
         while(true) {
             try {
                 return new Ladder(playerCount, inputView.inputLadderHeight());
             } catch(IllegalArgumentException e) {
                 System.out.println(e.getMessage() + System.lineSeparator());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
         }
     }
 
-    private ResultGroup makeResultGroup(PlayerGroup playerGroup, DestinationGroup destinationGroup, Ladder ladder) {
+    private ResultGroup createResultGroup(PlayerGroup playerGroup, DestinationGroup destinationGroup, Ladder ladder) {
         ResultGroup resultGroup = new ResultGroup();
         int playerCount = playerGroup.getPlayerCount();
 
@@ -71,4 +60,13 @@ public class GameController {
         return resultGroup;
     }
 
+    private void runPrintResultLoop(ResultGroup resultGroup) throws IOException, GameProgressException {
+        while(true) {
+            try {
+                outputView.printResult(resultGroup, inputView.inputSelectPlayer());
+            } catch(IllegalArgumentException e) {
+                System.out.println(e.getMessage() + System.lineSeparator());
+            }
+        }
+    }
 }
