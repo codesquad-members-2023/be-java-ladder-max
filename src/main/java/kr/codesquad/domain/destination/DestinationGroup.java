@@ -1,4 +1,4 @@
-package kr.codesquad.domain;
+package kr.codesquad.domain.destination;
 
 import java.util.Arrays;
 

@@ -1,6 +1,10 @@
 package kr.codesquad.controller;
 
-import kr.codesquad.domain.*;
+import kr.codesquad.domain.destination.DestinationGroup;
+import kr.codesquad.domain.ladder.Ladder;
+import kr.codesquad.domain.player.PlayerGroup;
+import kr.codesquad.domain.result.Result;
+import kr.codesquad.domain.result.ResultGroup;
 import kr.codesquad.exception.GameProgressException;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
@@ -16,6 +20,7 @@ public class GameController {
     private ResultGroup resultGroup;
 
     public void runLadderGame() throws IOException, GameProgressException {
+        System.out.println("-----[사다리 게임 시작]-----");
         playerGroup = new PlayerGroup(inputView.inputPlayerNames());
 
         while(true) {

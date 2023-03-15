@@ -1,4 +1,4 @@
-package kr.codesquad.domain;
+package kr.codesquad.domain.result;
 
 import kr.codesquad.exception.GameProgressException;
 

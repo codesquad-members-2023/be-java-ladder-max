@@ -1,4 +1,4 @@
-package kr.codesquad.domain;
+package kr.codesquad.domain.destination;
 
 public class Destination {
     private final int MAX_NAME_LENGTH = 5;

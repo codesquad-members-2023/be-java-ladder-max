@@ -1,4 +1,4 @@
-package kr.codesquad.domain;
+package kr.codesquad.domain.player;
 
 public class Player {
     private final int MAX_NAME_LENGTH = 5;
