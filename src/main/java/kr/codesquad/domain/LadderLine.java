@@ -19,4 +19,8 @@ public enum LadderLine {
     public static String takeRandom() {
         return LadderLine.values()[new Random().nextInt(LadderLine.values().length)].getValue();
     }
+
+    public static boolean isLine(String before) {
+        return before.equals(LadderLine.stick.getValue());
+    }
 }

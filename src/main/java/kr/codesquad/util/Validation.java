@@ -1,6 +1,8 @@
 package kr.codesquad.util;
 
 
+import kr.codesquad.domain.Users;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -12,11 +14,11 @@ public class Validation {
     private final int MAX_NAME_SIZE = 5;
     private final int MIN_NUMBER_SIZE = 0;
 
-    public List<String> validateInputNames(String names) throws IOException {
+    public Users validateInputNames(String names) throws IOException {
         String[] userNames = names.split(STRING_SPLIT);
         validateInputString(userNames);
         validateInputNameSize(userNames);
-        return List.of(userNames);
+        return new Users(userNames);
     }
 
     private void validateInputString(String[] userNames) throws IOException {
@@ -39,8 +41,8 @@ public class Validation {
         }
     }
 
-    public int validateInputM(String m) {
-        int input = validateInputInteger(m);
+    public int validateInputLadderNumber(String ladderNumber) {
+        int input = validateInputInteger(ladderNumber);
         return validateInputPositive(input);
     }
 
