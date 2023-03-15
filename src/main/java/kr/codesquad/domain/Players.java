@@ -10,16 +10,16 @@ public class Players {
     private List<String> result;
     public Players(List<String> playersList,String result, String ladder){
         this.players = playersList;
-        for(String player : players) {
-            playerResult.put(player, "");
-        }
         this.result = Arrays.asList(result.split(","));
         trim(players);
         trim(this.result);
         getResult(ladder);
     }
     private void getResult(String ladder){
-
+        for (int i=0;i< players.size();i++){
+            String result = getOneResult(ladder,i);
+            playerResult.put(players.get(i),result);
+        }
     }
     private String getOneResult(String ladder, int idx){
         String[] lines = ladder.split("\n"); // 사다리 한 줄이 요소 하나
@@ -36,14 +36,14 @@ public class Players {
         }
         return result.get(idx);
     }
-    private boolean checkLeft(String[] point,int idx){
+    private boolean checkLeft(String[] point,int idx){ // 사다리 왼쪽에 줄이 있는지 검사
         if (idx==0) {return false;}
         if ("-----".equals(point[idx-1])){
             return true;
         }
         return false;
     }
-    private boolean checkRight(String[] point, int idx){
+    private boolean checkRight(String[] point, int idx){ // 사다리 오른쪽에 줄이 있는지 검사
         if (idx==players.size()-1) {return false;}
         if ("-----".equals(point[idx])){
             return true;
