@@ -15,7 +15,21 @@ public class GameController {
     private InputView inputView = new InputView();
     private OutputView outputView = new OutputView();
 
-    public void runLadderGame() throws IOException, GameProgressException {
+    public void runLadderGame() {
+        while(true) {
+            try {
+                assembleLadderGameLogic();
+            } catch (GameProgressException e) {
+                System.out.println(e.getMessage());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }finally {
+                System.out.println();
+            }
+        }
+    }
+
+    private void assembleLadderGameLogic() throws IOException, GameProgressException {
         System.out.println("-----[사다리 게임 시작]-----");
         PlayerGroup playerGroup = createPlayerGroup();
         DestinationGroup destinationGroup = createDestinationGroup(playerGroup.getPlayerCount());
@@ -52,6 +66,8 @@ public class GameController {
         while(true) {
             try {
                 return new Ladder(playerCount, inputView.inputLadderHeight());
+            } catch (NumberFormatException e) {
+                System.out.println("최대 사다리 높이는 정수만 입력해 주세요.");
             } catch(IllegalArgumentException e) {
                 System.out.println(e.getMessage() + System.lineSeparator());
             }
@@ -79,4 +95,5 @@ public class GameController {
             }
         }
     }
+
 }
