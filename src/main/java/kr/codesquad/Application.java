@@ -1,16 +1,16 @@
 package kr.codesquad;
 
 import kr.codesquad.view.InputInformation;
-import kr.codesquad.view.OutputLadder;
+import kr.codesquad.view.OutputInformation;
 
 import java.io.IOException;
 
 public class Application {
     public static void main(String[] args) throws IOException {
         InputInformation inputInformation = new InputInformation();
-        OutputLadder outputLadder = new OutputLadder();
+        OutputInformation outputInformation = new OutputInformation();
 
-        LadderGame ladderGame = new LadderGame(inputInformation, outputLadder);
+        LadderGame ladderGame = new LadderGame(inputInformation, outputInformation);
         ladderGame.run();
     }
 }
