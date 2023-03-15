@@ -262,12 +262,28 @@ ExcutionResult 클래스에 LadderGame에 대한 결과를 Map형태로 가지�
 
 ### 3.14 계획
 
-- [ ] Java Programming 개념 10 까지
-    - [ ] Java Collection Framework
-    - [ ] TDD Basic
-    - [ ] Java Exception
-    - [ ] Java Enum
-    - [ ] SparkJava
-    - [ ] JVM
-- [ ] Object Chapter4
+- [x] Java Programming 개념
+    - [x] Java Collection Framework
+        - [x] equals
+        - [x] hashCode
+
+    - [x] TDD Basic
+
+- [ ] ~~Object Chapter4~~
+- [x] Solid
+- [x] OOP 4원칙
 - [x] 사다리게임 Step5 테스트 코드
+
+
+
+
+
+### 3.15 계획
+
+- [ ] OOP 원칙,Solid 원칙, Object책에 의거한 코드 리팩토링
+    - [ ] 네이밍 중복되지않게 수정
+    - [ ] while 루프 수정
+    - [ ] 일급 컬렉션
+- [ ] Object chapter 4,5
+- [ ] Dao
+- [ ] Optional

@@ -56,6 +56,8 @@ public class CollectionTest {
         points.add(Point.of(1, 1));
         points.add(Point.of(2, 2));
         points.add(Point.of(3, 3));
+        points.add(Point.of(3, 3));
+
 
         //1. HashSet의 모든 element를 출력한다.
         System.out.println(points);
