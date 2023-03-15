@@ -12,6 +12,8 @@ public class LadderGame {
     public String play(LadderInputDto ladderInputDto) {
         Ladder ladder = new Ladder(makeLadderMap(ladderInputDto.getPlayerNumber(), ladderInputDto.getHeight()));
 
+        ladder.makeResult();
+
         return String.join("\n", ladder.createOutputLines());
     }
 
