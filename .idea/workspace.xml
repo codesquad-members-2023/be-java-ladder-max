@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs : 학습계획 정리">
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs : README 작성">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,10 +18,28 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="java-lotto" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -45,6 +60,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/kang-yejin/be-java-ladder-max&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -55,13 +72,21 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="kr.codesquad" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
+      <option name="MAIN_CLASS_NAME" value="ladder.Main" />
       <module name="java-lotto.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.*" />
+          <option name="PATTERN" value="view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,6 +125,9 @@
       <workItem from="1678237933089" duration="948000" />
       <workItem from="1678238909599" duration="534000" />
       <workItem from="1678239464067" duration="4429000" />
+      <workItem from="1678850713355" duration="4590000" />
+      <workItem from="1678861987430" duration="1762000" />
+      <workItem from="1678864699444" duration="2231000" />
     </task>
     <task id="LOCAL-00001" summary="docs : 학습계획 정리">
       <created>1678244485492</created>
@@ -108,7 +136,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678244485492</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="refactor : 접근제어자 수정, 불필요한 주석제거 등&#10;&#10;코딩컨벤션을 준수하기 위한 메서드간의 개행, 빼먹었던 접근제어자 수정, 불필요한 주석 제거">
+      <created>1678862878908</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678862878908</updated>
+    </task>
+    <task id="LOCAL-00003" summary="chore : 패키지 분리&#10;&#10;핵심로직과,view 를 분리">
+      <created>1678867086193</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678867086193</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +169,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="docs : 학습계획 정리" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs : 학습계획 정리" />
+    <MESSAGE value="refactor : 접근제어자 수정, 불필요한 주석제거 등&#10;&#10;코딩컨벤션을 준수하기 위한 메서드간의 개행, 빼먹었던 접근제어자 수정, 불필요한 주석 제거" />
+    <MESSAGE value="chore : 패키지 분리&#10;&#10;핵심로직과,view 를 분리" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore : 패키지 분리&#10;&#10;핵심로직과,view 를 분리" />
   </component>
 </project>
