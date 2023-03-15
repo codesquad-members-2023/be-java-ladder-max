@@ -9,6 +9,7 @@ public class Ladder {
     private ArrayList<String> ladder;
 
     public void makeLadderShape(UserInput userInput) {
+        this.ladder = new ArrayList<>();
         List<String> playerList = Arrays.asList(userInput.names.split(","));
         for (int i = 0; i < userInput.height; i++) {
             this.ladder.add(fillLadderLine(playerList.size()));

@@ -16,7 +16,7 @@ public class Output {
 
     public void printLadder(ArrayList<String> ladder) {
         for (String line : ladder) {
-            System.out.printf(line);
+            System.out.println(line);
         }
     }
 

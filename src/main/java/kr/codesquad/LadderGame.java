@@ -12,7 +12,7 @@ public class LadderGame {
 
         ladder.makeLadderShape(userInput);
 
-        //output.printLadder(ladder.getLadder());
+        output.printLadder(ladder.getLadder());
     }
 
     private UserInput getLadderInput() {
