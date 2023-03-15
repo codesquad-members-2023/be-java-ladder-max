@@ -16,8 +16,7 @@ public class Ladder {
         }
         return ladderList;
     }
-
-
+    
     public String format(List<String> ladderList) {
         StringBuffer ladderSb = new StringBuffer();
         for(String row : ladderList) {
