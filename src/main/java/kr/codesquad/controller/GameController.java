@@ -14,16 +14,14 @@ import java.io.IOException;
 public class GameController {
     private InputView inputView = new InputView();
     private OutputView outputView = new OutputView();
-    private Ladder ladder;
-    private ResultGroup resultGroup;
 
     public void runLadderGame() throws IOException, GameProgressException {
         System.out.println("-----[사다리 게임 시작]-----");
         PlayerGroup playerGroup = new PlayerGroup(inputView.inputPlayerNames());
         DestinationGroup destinationGroup = makeDestinationGroup(inputView, playerGroup.getPlayerCount());
         Ladder ladder = makeLadder(inputView, playerGroup.getPlayerCount());
+        ResultGroup resultGroup = makeResultGroup(playerGroup, destinationGroup, ladder);
 
-        resultGroup = makeResultGroup(playerGroup, destinationGroup, ladder);
         outputView.printPlayerNames(playerGroup);
         outputView.printLadder(ladder);
         outputView.printDestination(destinationGroup);
