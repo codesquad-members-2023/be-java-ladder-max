@@ -19,17 +19,14 @@ public class Ladder {
 
     private String fillLadderLine(int numberOfPlayer) {
         StringBuilder ladderLine = new StringBuilder();
-        for (int i = 0; i < numberOfPlayer; i++){
-           ladderLine.append(fillRandomLadderStep(i, numberOfPlayer));
+        List<Boolean> stepLayoutList = generateRandomStepList(numberOfPlayer);
+
+        for (Boolean isExistStep : stepLayoutList) {
+            ladderLine.append((isExistStep) ? "|-----" : "|     ");
         }
+        ladderLine.append("|");
+
         return ladderLine.toString();
-    }
-    
-    private String fillRandomLadderStep(int index, int numberOfPlayer) {
-        if (index == numberOfPlayer - 1) {
-            return "|";
-        }
-        return (generateBoolean()) ? "|-----" : "|     ";
     }
 
     private List<Boolean> generateRandomStepList(int numberOfPlayer) {
