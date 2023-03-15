@@ -40,8 +40,8 @@ public class Input {
 
     public int inputHeight() {
         System.out.println("얼마나 길게 만들길 원하시오?");
-        int height = this.sc.nextInt();
+        String height = sc.nextLine();
 
-        return height;
+        return Integer.parseInt(height);
     }
 }
