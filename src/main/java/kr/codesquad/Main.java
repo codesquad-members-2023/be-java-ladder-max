@@ -4,16 +4,13 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        InputHandler handler = new InputHandler();
-        List<String> players = handler.inputValidatedPlayers();
-        int height = handler.inputValidatedHeight();
-        Ladder ladder = new Ladder(players, height);
-        List<List<Boolean>> ladderInformation = ladder.informLadder();
+        Input input = new Input();
+        List<String> players = input.inputValidatedPlayers();
+        int height = input.inputHeight();
+        LadderMaker maker = new LadderMaker();
+        Ladder ladder = maker.makeRandomLadder(players.size() - 1, height);
+        String ladderFigure = ladder.drawLadder();
         Output output = new Output();
-        List<String> ladderShape = output.lineToString(ladderInformation);
-        output.printPlayers(players);
-        for (String shape : ladderShape) {
-            System.out.println(shape.toString());
-        }
+        output.printWholeFigure(players, ladderFigure);
     }
 }
