@@ -2,22 +2,22 @@ package kr.codesquad.domain;
 
 import java.util.HashMap;
 
-public class ExcutionResultGenerator {
+public class ExecutionResultGenerator {
     private HashMap<String,String> resultMap;
     private Ladder ladder;
     private Players player;
-    private Result result;
+    private Results result;
 
     public HashMap<String, String> getResultMap() {
         return resultMap;
     }
 
-    public ExcutionResultGenerator(Ladder ladder, Players player, Result result) {
+    public ExecutionResultGenerator(Ladder ladder, Players player, Results result) {
         this.resultMap = new HashMap<>();
         this.ladder = ladder;
         this.player = player;
         this.result = result;
-        generateResultMap(player.getNameList().size());
+        generateResultMap(player.getPlayersList().size());
     }
 
     private void generateResultMap(int playerCount){

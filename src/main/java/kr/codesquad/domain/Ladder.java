@@ -9,9 +9,9 @@ public class Ladder {
     private final int ladderHeight;
     private ArrayList<LadderLine> ladder;
 
-    public Ladder(ArrayList nameList, int ladderHeight) {
+    public Ladder(ArrayList playerList, int ladderHeight) {
         this.ladderHeight = ladderHeight;
-        this.countOfPeople = nameList.size();
+        this.countOfPeople = playerList.size();
         createLadder();
     }
 

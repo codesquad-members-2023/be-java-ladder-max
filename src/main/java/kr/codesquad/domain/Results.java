@@ -8,17 +8,17 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Result {
+public class Results {
 
     ArrayList<String> resultList;
 
-    public Result() {
+    public Results() {
         this.resultList = new ArrayList();
     }
     String getResultFromResultList(int i){
         return resultList.get(i);
     }
-    public boolean getResult(InputView inputHandler, int sizeOfNameList){
+    public boolean getResultsFromUser(InputView inputHandler, int sizeOfNameList){
         try {
             resultList.addAll(parseInputStringToResultList(inputHandler.getInput()));
             validateNumOfResultList(resultList,sizeOfNameList);

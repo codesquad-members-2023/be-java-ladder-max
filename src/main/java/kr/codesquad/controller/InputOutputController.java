@@ -18,15 +18,15 @@ public class InputOutputController extends Players {
         this.outputHandler = new OutputView();
     }
 
-    public void setupGame(Players players,LadderHeight ladderHeight,Result result){
-        getName(players);
-        getResult(result,players.getNameList().size());
+    public void setupGame(Players players, LadderHeight ladderHeight, Results result){
+        getPlayers(players);
+        getResults(result,players.getPlayersList().size());
         getHeight(ladderHeight);
     }
 
-    private void getName(Players players){
+    private void getPlayers(Players players){
         inputHandler.playerNamePrompt();
-        while(!players.getVaildNameFromUser(inputHandler));
+        while(!players.getValidPlayerFromUser(inputHandler));
     }
 
     private void getHeight(LadderHeight ladderHeight){
@@ -34,18 +34,18 @@ public class InputOutputController extends Players {
         while(!ladderHeight.getValidHeightFromUser(inputHandler));
     }
 
-    private void getResult(Result result,int playerNum){
+    private void getResults(Results result, int playerNum){
         inputHandler.resultPrompt();
-        while(!result.getResult(inputHandler, playerNum));
+        while(!result.getResultsFromUser(inputHandler, playerNum));
     }
 
-    void getExcutionResult(HashMap<String,String> resultMap) throws IOException {
+    void getExecutionResult(HashMap<String,String> resultMap) throws IOException {
         while(true){
             new ExecutionResult(inputHandler,resultMap);
         }
     }
 
-    void printLadder(Ladder ladder,Players player,Result result) {
+    void printLadder(Ladder ladder, Players player, Results result) {
         outputHandler.printLadder(ladder,player,result);
     }
 }

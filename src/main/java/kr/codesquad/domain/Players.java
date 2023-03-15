@@ -13,28 +13,28 @@ public class Players {
     private static final String NAME_LENGTH_ERROR_MESSAGE = "이름은 5글자 이하여야 합니다. 다시 입력해주세요.";
     private static final String PLAYER_NUMBER_ERROR_MESSAGE = "player는 2명 이상이 필요합니다. 다시 입력해주세요.";
 
-    private final ArrayList<String> nameList;
+    private final ArrayList<String> playersList;
 
     public Players() {
-        this.nameList = new ArrayList<>();
+        this.playersList = new ArrayList<>();
     }
 
-    public ArrayList<String> getNameList() {
-        return nameList;
+    public ArrayList<String> getPlayersList() {
+        return playersList;
     }
 
     String getNameFromNameList(int i){
-        return nameList.get(i);
+        return playersList.get(i);
     }
 
-    public boolean getVaildNameFromUser(InputView inputView) {
+    public boolean getValidPlayerFromUser(InputView inputView) {
         try {
             String inputString = inputView.getInput();
-            nameList.addAll(parseInputStringToValidNames(inputString));
+            playersList.addAll(parseInputStringToValidNames(inputString));
             validatePlayerNumAndThrowException();
             return true;
         } catch (RuntimeException | IOException e) {
-            nameList.clear();
+            playersList.clear();
             System.out.println(e.getMessage());
             return false;
         }
@@ -54,7 +54,7 @@ public class Players {
     }
 
     private void validatePlayerNumAndThrowException() {
-        if (nameList.size() < 2) {
+        if (playersList.size() < 2) {
             throw new RuntimeException(PLAYER_NUMBER_ERROR_MESSAGE);
         }
     }
@@ -63,7 +63,7 @@ public class Players {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (String name : nameList) {
+        for (String name : playersList) {
             sb.append(String.format(" %1$-5s", name));
         }
         sb.append("\n");

@@ -1,7 +1,5 @@
 package kr.codesquad.view;
 
-import kr.codesquad.view.InputView;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,13 +25,13 @@ public class ExecutionResult {
         }
         inputHandler.executionResultPrompt();
         if(pickedPerson.equals("all")){
-            printAllPlayerResult();
+            printResultMap();
             return;
         }
         System.out.println(resultMap.get(pickedPerson));
     }
 
-    private void printAllPlayerResult() {
+    private void printResultMap() {
         for (Map.Entry<String, String> entry : resultMap.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
