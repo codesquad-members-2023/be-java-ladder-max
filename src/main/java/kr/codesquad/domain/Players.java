@@ -1,8 +1,6 @@
 package kr.codesquad.domain;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class Players {
     private List<String> players;
@@ -13,15 +11,46 @@ public class Players {
         this.result = Arrays.asList(result.split(","));
         trim(players);
         trim(this.result);
-        getResult(ladder);
+        calculateResult(ladder);
     }
-    private void getResult(String ladder){
+    public String getNames(){
+        StringBuilder sb = new StringBuilder();
+        for (String name : players){
+            sb.append(String.format("%-6s ", name)); // 각 이름당 주어진 자리는 6자리
+        }
+        return sb.toString();
+    }
+    public String getResult(){ // 결과를 사다리 간격에 맞게 반환
+        StringBuilder sb = new StringBuilder();
+        for (String s : result){
+            sb.append(String.format("%-6s ",s));
+        }
+        return sb.toString();
+    }
+    public String searchResult(String id) {
+        if ("all".equals(id)){
+            return getAllResult();
+        }
+        return getOneResult(id);
+    }
+    private String getAllResult(){
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<String,String> entry : playerResult.entrySet()){
+            sb.append(entry.getKey()).append(" : ").append(entry.getValue()).append("\n");
+        }
+        return sb.toString();
+    }
+    private String getOneResult(String id){
+        String value = playerResult.get(id);
+        return id +" : "+value;
+    }
+    private void calculateResult(String ladder){
         for (int i=0;i< players.size();i++){
-            String result = getOneResult(ladder,i);
+            String result = calculateOneResult(ladder,i);
             playerResult.put(players.get(i),result);
         }
     }
-    private String getOneResult(String ladder, int idx){
+    private String calculateOneResult(String ladder, int idx){
         String[] lines = ladder.split("\n"); // 사다리 한 줄이 요소 하나
 
         for (String row : lines) {
