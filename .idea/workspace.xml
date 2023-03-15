@@ -8,6 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/InputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/InputView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/OutputView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/OutputViewTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,11 +196,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.InputViewTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.OutputViewTest.printPeople_test" />
         <item itemvalue="Gradle.OutputViewTest" />
         <item itemvalue="Gradle.LineTest" />
-        <item itemvalue="Gradle.InputViewTest" />
       </list>
     </recent_temporary>
   </component>
@@ -212,7 +214,7 @@
       <updated>1678084957113</updated>
       <workItem from="1678084958330" duration="1724000" />
       <workItem from="1678782212339" duration="7000000" />
-      <workItem from="1678846854926" duration="11382000" />
+      <workItem from="1678846854926" duration="26003000" />
     </task>
     <servers />
   </component>
