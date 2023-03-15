@@ -15,13 +15,7 @@ public class InputView {
         this.sc = new Scanner(System.in);
     }
 
-    public Ladder createLadder() {
-        List<String> people = insertNames();
-        int peopleLen = people.size();
-        return new Ladder(people, insertResults(peopleLen), insertHeight());
-    }
-
-    private List<String> insertResults(int len) {
+    public List<String> insertResults(int len) {
         System.out.println("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
         List<String> results;
         try {
@@ -40,7 +34,7 @@ public class InputView {
         }
     }
 
-    private int insertHeight() {
+    public int insertHeight() {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
         int height;
         try {
@@ -59,12 +53,12 @@ public class InputView {
         }
     }
 
-    private List<String> insertNames() {
+    public List<String> insertNames() {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
         List<String> people;
         try {
             people = parseInput();
-            validateNames(people);
+            checkDuplicatedNameOrEnd(people);
         } catch (IllegalArgumentException e) {
             System.out.println("각 이름의 길이는 5 이하여야 합니다. 중복된 이름이 들어가거나 \"춘식이\"란 이름은 사용하실 수 없습니다.");
             return insertNames();
@@ -72,8 +66,8 @@ public class InputView {
         return people;
     }
 
-    private void validateNames(List<String> people) {
-        Set<String> peopleSet = people.stream().collect(Collectors.toSet());
+    private void checkDuplicatedNameOrEnd(List<String> people) {
+        Set<String> peopleSet = new HashSet<>(people);
         if(peopleSet.size() != people.size()
         || peopleSet.contains("춘식이")) { // 중복된 이름 있거나 춘식이가 있는지 검증
             throw new IllegalArgumentException();

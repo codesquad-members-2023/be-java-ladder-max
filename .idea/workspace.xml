@@ -6,14 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Ladder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Type.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Line.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/RandomUtil.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/InputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/InputView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/OutputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/OutputView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/InputViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/InputViewTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TypeTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +90,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.InputViewTest.isValidNames_test">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
       <module name="java-lotto.main" />
@@ -217,7 +215,8 @@
       <option name="presentableId" value="Default" />
       <updated>1678084957113</updated>
       <workItem from="1678084958330" duration="1724000" />
-      <workItem from="1678782212339" duration="6155000" />
+      <workItem from="1678782212339" duration="7000000" />
+      <workItem from="1678846854926" duration="8052000" />
     </task>
     <servers />
   </component>

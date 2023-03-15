@@ -7,7 +7,6 @@ import java.util.List;
 
 public class Ladder {
     private final List<Line> lines;
-    private final int height;
     private final List<String> people;
     private final List<String> results;
     private final List<String> finalPositions;
@@ -15,10 +14,11 @@ public class Ladder {
     public Ladder(List<String> people, List<String> results, int height) {
         this.people = people;
         this.results = results;
-        this.height = height;
         this.lines = new ArrayList<>(); // 출력할 때 | 추가할거임
         this.finalPositions = new ArrayList<>();
-        makeLadder();
+        for(int idx = 0; idx < height; idx++) {
+            lines.add(new Line(people.size()));
+        }
         saveResults();
     }
 
@@ -35,12 +35,6 @@ public class Ladder {
             curr = line.goLine(curr);
         }
         return curr;
-    }
-
-    private void makeLadder() {
-        for(int idx = 0; idx < height; idx++) {
-            lines.add(new Line(people.size() - 1));
-        }
     }
 
     public List<String> getPeople() {

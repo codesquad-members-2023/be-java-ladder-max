@@ -35,7 +35,7 @@ public class OutputView {
                         , StringBuilder::append));
     }
 
-    public void printOne(List<String> finals, String input) {
+    public void printPersonResult(List<String> finals, String input) {
         System.out.println(finals
                 .stream().map(o -> o.split( " : "))
                 .filter(o -> o[0].equals(input))
@@ -46,8 +46,15 @@ public class OutputView {
     public void endGame() {
         System.out.println();
         System.out.print("게임을 종료합니다.");
-        System.exit(0);
     }
 
+    public void printNoNameError() {
+        System.out.println();
+        System.out.println("잘못된 사람을 입력하셨습니다. 다시 입력해주세요.");
+    }
 
+    public void printAllResults(List<String> finalPositions) {
+        finalPositions.stream()
+                .forEach(System.out::println);
+    }
 }

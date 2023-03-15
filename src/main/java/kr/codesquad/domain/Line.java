@@ -1,16 +1,18 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Line {
-    private final ArrayList<Boolean> points;
-    private final String LEG = "-----";
-    private final String BLANK = "     ";
+    private final List<Boolean> points;
+    private static final String LEG = "-----";
+    private static final String BLANK = "     "; // 한번만 생성 보장
 
     public Line(int totalPoints) {
         this.points = new ArrayList<>();
-        for(int idx = 0; idx < totalPoints; idx++) {
-            drawLine(new RandomUtil().getBoolean(), idx);
+        for(int idx = 0; idx < totalPoints - 1; idx++) {
+            drawLine(new Random().nextBoolean(), idx);
         }
     }
 
