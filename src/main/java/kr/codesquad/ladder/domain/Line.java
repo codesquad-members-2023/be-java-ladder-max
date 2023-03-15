@@ -15,7 +15,7 @@ public class Line {
         }
     }
 
-    public boolean checkDuplicates() {
+    private boolean checkDuplicates() {
         if(point.isEmpty()){
             return new Random().nextBoolean();
         }
@@ -29,9 +29,21 @@ public class Line {
                 .collect(Collectors.joining());
     }
 
-    public String drawCheck(boolean check) {
+    private String drawCheck(boolean check) {
         return check ? "-----|" : "     |";
     }
+
+    public int moveLine(int userNumber,int countOfPerson){
+        if(userNumber>0 && point.get(userNumber-1)){
+            return userNumber-1;
+        }
+        if(userNumber<countOfPerson && point.get(userNumber)) {
+            return userNumber+1;
+        }
+        return userNumber;
+    }
+
+
 
     // 테스트 코드를 위한 getter
     public ArrayList<Boolean> getPoint() {

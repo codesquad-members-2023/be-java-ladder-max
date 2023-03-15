@@ -1,6 +1,5 @@
 package kr.codesquad.ladder.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -23,10 +22,19 @@ public class Ladder {
                 .mapToObj(i->new Line(countOfPerson))
                 .collect(Collectors.toList());
     }
+
+    public int ladderMove(int userNumber) {
+        for(Line temp : ladder) {
+            userNumber = temp.moveLine(userNumber, countOfPerson);
+        }
+        return userNumber;
+    }
+
     @Override
     public String toString(){
         return ladder.stream()
                 .map(Line::toString)
                 .collect(Collectors.joining("\n"));
     }
+
 }
