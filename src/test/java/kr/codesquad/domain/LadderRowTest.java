@@ -1,7 +1,7 @@
 package kr.codesquad.domain;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import kr.codesquad.domain.ladder.LadderRow;
+import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,11 +15,13 @@ public class LadderRowTest {
         int ladderRowSize = 100;
         LadderRow ladderRow = new LadderRow(ladderRowSize);
 
+        SoftAssertions softAssertions = new SoftAssertions();
         for(int i = 0; i < ladderRowSize - 1; i++) {
             if(ladderRow.isBridge(i)) {
-                assertThat(ladderRow.isBridge(i)).isTrue().isNotEqualTo(ladderRow.isBridge(i + 1));
+                softAssertions.assertThat(ladderRow.isBridge(i)).isTrue().isNotEqualTo(ladderRow.isBridge(i + 1));
             }
         }
+        softAssertions.assertAll();
     }
 
 }
