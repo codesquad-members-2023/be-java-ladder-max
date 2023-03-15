@@ -30,7 +30,7 @@ public class Ladder {
 
     private void generateHorizonOfLadder(String[][] ladderFrame, int row) {
         for(int j = 1; j < columnNum; j += 2) {
-            ladderFrame[row][j] = selectHorizonLine();
+           ladderFrame[row][j] = selectHorizonLine();
         }
     }
 
@@ -39,4 +39,6 @@ public class Ladder {
         boolean isThereLine = random.nextBoolean();
         return isThereLine ? LadderLine.StraightLine.getValue() : LadderLine.BlankLine.getValue();
     }
+
+    
 }
