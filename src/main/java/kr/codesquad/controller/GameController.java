@@ -28,7 +28,7 @@ public class GameController {
     }
 
     private void printAllOrPersonResult(String input, OutputView outputView, Ladder ladder) {
-        System.out.println("\n실행 결과");
+        System.out.println("\r\n실행 결과");
         if(input.equals("all")) {
             outputView.printAllResults(ladder.getFinalPositions());
             return;

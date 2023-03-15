@@ -31,7 +31,7 @@ public class OutputViewTest {
         people.add("crong");
         people.add("jk");
         outputView.printPeople(people);
-        assertThat(outputMessage.toString()).isEqualTo("\r\n실행결과\r\n\r\n" + "  pobi  honux crong   jk    \r\n");
+        assertThat(outputMessage.toString()).isEqualTo("\r\n사다리 결과\r\n\r\n" + "  pobi  honux crong   jk   \r\n");
     }
 
 }
