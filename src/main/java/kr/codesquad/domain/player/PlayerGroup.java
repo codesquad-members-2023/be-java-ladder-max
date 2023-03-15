@@ -14,8 +14,8 @@ public class PlayerGroup {
     }
 
     private void validatePlayerNamesLength(String[] playerNames) {
-        if(playerNames.length == 0) {
-            throw new IllegalArgumentException("[ERROR] 최소 한명 이상의 플레이어를 입력해 주세요.");
+        if(playerNames.length < 2) {
+            throw new IllegalArgumentException("[ERROR] 최소 두 명 이상의 플레이어를 입력해 주세요.");
         }
     }
 
