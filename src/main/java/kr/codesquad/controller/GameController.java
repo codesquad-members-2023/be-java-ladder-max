@@ -14,24 +14,13 @@ import java.io.IOException;
 public class GameController {
     private InputView inputView = new InputView();
     private OutputView outputView = new OutputView();
-    private PlayerGroup playerGroup;
-    private DestinationGroup destinationGroup;
     private Ladder ladder;
     private ResultGroup resultGroup;
 
     public void runLadderGame() throws IOException, GameProgressException {
         System.out.println("-----[사다리 게임 시작]-----");
-        playerGroup = new PlayerGroup(inputView.inputPlayerNames());
-
-        while(true) {
-            try {
-                destinationGroup = new DestinationGroup(inputView.inputDestinationNames(), playerGroup.getPlayerCount());
-            } catch(IllegalArgumentException e) {
-                System.out.println(e.getMessage() + System.lineSeparator());
-                continue;
-            }
-            break;
-        }
+        PlayerGroup playerGroup = new PlayerGroup(inputView.inputPlayerNames());
+        DestinationGroup destinationGroup = makeDestinationGroup(inputView, playerGroup.getPlayerCount());
 
         while(true) {
             try {
@@ -53,6 +42,18 @@ public class GameController {
                 outputView.printResult(resultGroup, inputView.inputSelectPlayer());
             } catch(IllegalArgumentException e) {
                 System.out.println(e.getMessage() + System.lineSeparator());
+            }
+        }
+    }
+
+    private DestinationGroup makeDestinationGroup(InputView inputView, int playerCount) {
+        while(true) {
+            try {
+                return new DestinationGroup(inputView.inputDestinationNames(), playerCount);
+            } catch(IllegalArgumentException e) {
+                System.out.println(e.getMessage() + System.lineSeparator());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }
