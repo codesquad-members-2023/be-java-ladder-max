@@ -7,10 +7,10 @@ import java.util.Random;
 public class RandomBooleanGenerator {
     private final Random rnd = new Random();
 
-    public List<Boolean> generate(int length) {
+    public List<Boolean> generate(int size) {
         List randomBoolean = new ArrayList();
 
-        for (int cnt = 0; cnt < length; cnt++) {
+        for (int cnt = 0; cnt < size; cnt++) {
             boolean whatToAdd = rnd.nextBoolean();
             addBooleanWithoutContinuity(randomBoolean, whatToAdd);
         }
