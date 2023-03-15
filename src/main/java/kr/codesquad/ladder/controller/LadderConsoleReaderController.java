@@ -92,10 +92,18 @@ public class LadderConsoleReaderController {
     public LadderGenerator getLadderGenerator() {
         Optional<LadderGenerator> optionalLadderGenerator = Optional.empty();
         while (optionalLadderGenerator.isEmpty()) {
-            int maximumLadderHeight = ladderReader.readMaximumLadderHeight();
+            int maximumLadderHeight = getMaximumLadderHeight();
             optionalLadderGenerator = getLadderGeneratorInstance(maximumLadderHeight);
         }
         return optionalLadderGenerator.get();
+    }
+
+    private int getMaximumLadderHeight() {
+        try {
+            return ladderReader.readMaximumLadderHeight();
+        } catch (NumberFormatException ignored) {
+        }
+        return 0;
     }
 
     private Optional<LadderGenerator> getLadderGeneratorInstance(int maximumLadderHeight) {

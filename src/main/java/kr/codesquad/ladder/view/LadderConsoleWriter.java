@@ -24,22 +24,19 @@ public class LadderConsoleWriter implements LadderWriter {
     @Override
     public void writeNameForLadderResultIntro(Names names) {
         System.out.println("결과를 보고 싶은 사람은?");
-        System.out.printf("all : 전체 결과 보기, 춘식이 : 프로그램 종료, 이름 : %s", names);
-        System.out.println();
+        System.out.printf("all : 전체 결과 보기, 춘식이 : 프로그램 종료, 이름 : %s%n", names);
     }
 
     @Override
     public void writeLadderResults(LadderResults ladderResults) {
         System.out.println("실행 결과");
         System.out.println(ladderResults);
-        System.out.println();
     }
 
     @Override
     public void writeLadderResult(LadderResult ladderResult) {
         System.out.println("실행 결과");
         System.out.println(ladderResult);
-        System.out.println();
     }
 
     @Override
