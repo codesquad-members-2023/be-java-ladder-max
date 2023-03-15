@@ -43,6 +43,7 @@ public class InputOutputController {
 
     void getExecutionResult(HashMap<String, String> resultMap){
         while (true) {
+            inputView.selectPlayerPrompt();
             outputView.getExecutionResult(inputView.getInput(),resultMap);
         }
     }

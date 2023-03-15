@@ -1,6 +1,7 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 
 public class LadderLine {
@@ -18,6 +19,12 @@ public class LadderLine {
         for (boolean boolInLine : line.points) {
             sb.append(boolInLine ? "-----|" : "     |");
         }
+    }
+
+     void markConnectedPoints(Boolean[] checkHung, LadderLine line) {
+        IntStream.range(0, line.points.size())
+                .filter(i -> line.points.get(i))
+                .forEach(i -> checkHung[i] = true);
     }
 
     int getNextPosition(int currentPosition) {

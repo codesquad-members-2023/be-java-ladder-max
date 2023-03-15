@@ -1,13 +1,20 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Ladder {
     private ArrayList<LadderLine> ladder;
 
-    public Ladder(int countOfPlayers, int ladderHeight) {
+    public Ladder() {
         ladder = new ArrayList<>();
-        createLadder(countOfPlayers,ladderHeight);
+    }
+
+    public void createValidLadder(int countOfPlayers, int ladderHeight){
+        while(!validateLadderConnectivity(countOfPlayers)){
+            ladder.clear();
+            createLadder(countOfPlayers,ladderHeight);
+        }
     }
 
     private void createLadder(int countOfPlayers,int ladderHeight) {
@@ -23,7 +30,19 @@ public class Ladder {
         }
         return destination;
     }
-    
+
+    private boolean validateLadderConnectivity(int countOfPlayers) {
+        Boolean[] checkHung = new Boolean[countOfPlayers - 1];
+        Arrays.fill(checkHung,false);
+        for (LadderLine line : ladder) {
+            line.markConnectedPoints(checkHung, line);
+        }
+        if(Arrays.stream(checkHung).allMatch(b -> b == true)){
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

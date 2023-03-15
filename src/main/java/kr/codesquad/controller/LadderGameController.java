@@ -8,16 +8,19 @@ public class LadderGameController {
     private final LadderHeight ladderHeight;
     private final Results result;
 
+    private final Ladder ladder;
+
     public LadderGameController() {
         this.ioController = new InputOutputController();
         this.players = new Players();
         this.result = new Results();
         this.ladderHeight = new LadderHeight();
+        this.ladder  = new Ladder();
     }
 
     public void startLadderGame(){
         ioController.setupGame(players, ladderHeight, result);
-        Ladder ladder = new Ladder(players.getCountOfPlayers(), ladderHeight.getLadderHeight());
+        ladder.createValidLadder(players.getCountOfPlayers(), ladderHeight.getLadderHeight());
         ioController.printLadder(ladder, players, result);
         ExecutionResultGenerator executionResultGenerator = new ExecutionResultGenerator(ladder, players, result);
         ioController.getExecutionResult(executionResultGenerator.getResultMap());
