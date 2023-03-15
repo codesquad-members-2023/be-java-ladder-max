@@ -7,17 +7,17 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
-class LadderLineTest {
+class LadderRowTest {
     @DisplayName("LadderLine의 열 개수 체크하는 Test 코드 작성")
     @Test
     void ladderLineTest(){
         //given
         int number = 4;
         //4가 입력되었으므로 4*2 -1 = 7
-        LadderRow ladderLine = new LadderRow();
+        LadderRow ladderLine = new LadderRow(number);
 
         //when
-        List<String> ladderLineTest = ladderLine.makeLadderColumn(number);
+        List<String> ladderLineTest = ladderLine.makeLadderColumn();
 
         //then
         assertThat(ladderLineTest.size()).isEqualTo(7);
@@ -28,14 +28,13 @@ class LadderLineTest {
     void ladderLineTest2() {
         //given
         int number = 3;
-        LadderRow ladderRow = new LadderRow();
+        LadderRow ladderRow = new LadderRow(number);
 
         //when
-        List<String> ladderColumn = ladderRow.makeLadderColumn(3);
+        List<String> ladderColumn = ladderRow.makeLadderColumn();
 
         //then
         assertThat(!ladderColumn.contains("|")).isFalse();
-
     }
 
 }
