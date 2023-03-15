@@ -1,8 +1,7 @@
 package ladder;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import kr.ladder.view.OutputView;
+import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,14 +12,15 @@ public class PlayerTest {
     void testPlayerName(){
         //given
         OutputView outputView = new OutputView();
+        SoftAssertions softAssertions = new SoftAssertions();
 
         //when
         String playerName = "하이";
         int blankRepeatNumber = outputView.insertBlank(playerName.length()).length();
 
         //then
-        assertEquals(blankRepeatNumber, 6 - playerName.length());
-
+        softAssertions.assertThat(blankRepeatNumber).isPositive().isGreaterThan(1).isLessThan(5)
+                .isEqualTo(6 - playerName.length());
     }
 
 }
