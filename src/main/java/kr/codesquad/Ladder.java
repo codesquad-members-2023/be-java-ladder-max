@@ -34,8 +34,14 @@ public class Ladder {
 
     private List<Boolean> generateRandomStepList(int numberOfPlayer) {
         List<Boolean> booleanStepList = new ArrayList<>();
-        for (int i = 0; i < numberOfPlayer; i++) {
+        for (int i = 0; i < numberOfPlayer - 1; i++) {
             booleanStepList.add(generateBoolean());
+        }
+
+        for (int i = 1; i < numberOfPlayer - 1; i++) {
+            if (booleanStepList.get(i) && booleanStepList.get(i - 1)) {
+                booleanStepList.set(i, false);
+            }
         }
         return booleanStepList;
     }
