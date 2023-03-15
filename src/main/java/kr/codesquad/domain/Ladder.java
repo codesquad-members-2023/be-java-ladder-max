@@ -1,5 +1,6 @@
 package kr.codesquad.domain;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -39,33 +40,38 @@ public class Ladder {
                 .collect(Collectors.toList());
     }
 
-    public void makeResult() {
+    public List<Point> makeResult() {
+        final Queue<Point> points = getStartPoints();
+        int maxHeight = ladderLines.size();
+        int height = 0;
+
+        while (height < maxHeight) {
+            goDownLadderLine(points, height);
+            ++height;
+        }
+
+        return new ArrayList<>(points);
+    }
+
+    private void goDownLadderLine(Queue<Point> points, int height) {
+        final int pointCount = points.size();
+        final LadderLine ladderLine = ladderLines.get(height);
+
+        for (int i = 0 ; i < pointCount; i++) {
+            Point point = points.poll();
+            final Direction direction = ladderLine.findCanMoveDirection(point);
+            point.move(direction.getUnitVector());
+            points.offer(point);
+        }
+    }
+
+    private Queue<Point> getStartPoints() {
         final Queue<Point> points = new LinkedList<>();
         final int maxWidth = ladderLines.get(0).getSumParts();
 
         for (int width = 0 ; width < maxWidth; width += 2) {
             points.offer(new Point(width));
         }
-
-        int maxHeight = ladderLines.size();
-        int height = 0;
-        while (height < maxHeight) {
-            final int size = points.size();
-            final LadderLine ladderLine = ladderLines.get(height);
-            for (int i = 0 ; i < size; i++) {
-                Point point = points.poll();
-
-                final Direction direction = ladderLine.findCanMoveDirection(point);
-
-                point.move(direction.getUnitVector());
-
-                points.offer(point);
-            }
-            ++height;
-        }
-
-        for (Point point : points) {
-            System.out.println("start = " + point.getStartWidth() + " end = " + point.getCurrentWidth());
-        }
+        return points;
     }
 }

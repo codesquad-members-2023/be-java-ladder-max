@@ -4,6 +4,7 @@ import kr.codesquad.domain.Ladder;
 import kr.codesquad.controller.dto.LadderInputDto;
 import kr.codesquad.domain.LadderLine;
 import kr.codesquad.domain.LadderPart;
+import kr.codesquad.domain.Point;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class LadderGame {
     public String play(LadderInputDto ladderInputDto) {
         Ladder ladder = new Ladder(makeLadderMap(ladderInputDto.getPlayerNumber(), ladderInputDto.getHeight()));
 
-        ladder.makeResult();
+        final List<Point> points = ladder.makeResult();
 
         return String.join("\n", ladder.createOutputLines());
     }
