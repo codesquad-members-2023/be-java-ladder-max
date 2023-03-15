@@ -13,7 +13,7 @@ public class LadderHeight {
         return ladderHeight;
     }
 
-    private final String ERROR_MESSAGE_FOR_LADDER_HEIGHT = "사다리 높이는 1이상으로 입력";
+    private final String ERROR_MESSAGE_FOR_LADDER_HEIGHT = "사다리 높이는 2이상으로 입력";
     public boolean getValidHeightFromUser(int ladderHeight) {
         try {
             this.ladderHeight =validateHeightAndThrowException(ladderHeight) ;
@@ -25,7 +25,7 @@ public class LadderHeight {
     }
 
     private int validateHeightAndThrowException(int height) {
-        if (height < 1) {
+        if (height < 2) {
             throw new RuntimeException(ERROR_MESSAGE_FOR_LADDER_HEIGHT);
         }
         return height;
