@@ -280,10 +280,11 @@ ExcutionResult 클래스에 LadderGame에 대한 결과를 Map형태로 가지�
 
 ### 3.15 계획
 
-- [ ] OOP 원칙,Solid 원칙, Object책에 의거한 코드 리팩토링
-    - [ ] 네이밍 중복되지않게 수정
-    - [ ] while 루프 수정
-    - [ ] 일급 컬렉션
-- [ ] Object chapter 4,5
-- [ ] Dao
-- [ ] Optional
+### 3.15 계획
+
+- [x] OOP 원칙,Solid 원칙, Object책에 의거한 코드 리팩토링
+    - [x] 네이밍 중복되지않게 수정
+    - [x] 각 클래스별 기능 정리
+    - [x] SRP
+- [x] 사다리 생성시 연결 안되는 곳이 있으면 연결할수 있는 기능 추가
+
