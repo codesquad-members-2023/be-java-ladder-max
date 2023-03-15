@@ -8,80 +8,77 @@ import java.lang.StringBuilder;
 public class LadderMaker {
     private final Random random = new Random();
     private List<List<String>> ladderBoard;
-    private List<String> names;
+    private List<String> namesList;
 
-    public void setNamesList(ArrayList<String> returnInit) {
-        names = returnInit;
-    }
-    private void makeFirstBridge(int x, int i){
-        if (random.nextBoolean()) {
-            x = 1;
-        }
-
-        switch (x) {
-            case 1:
-                ladderBoard.get(i).add("-----");
-                ladderBoard.get(i).add("|");
-                break;
-            case 0:
-                ladderBoard.get(i).add("     ");
-                ladderBoard.get(i).add("|");
-                break;
-        }
-    }
-    public void make(int height) {
-        int x = 0;
+    public void make(ArrayList<String> namesInput, int LadderHeight) {
+        namesList = namesInput;
+        int bridgeOrSpace = 0;
         ladderBoard = new ArrayList<>();
-        for (int i = 0; i < height; i++) {
+        for (int ladderFloorNum = 0; ladderFloorNum < LadderHeight; ladderFloorNum++) {
             ladderBoard.add(new ArrayList<>());
-            ladderBoard.get(i).add("|");
-           makeAllExceptLeftSide(x, i);
+            ladderBoard.get(ladderFloorNum).add("|");
+           makeRemainParts(bridgeOrSpace, ladderFloorNum);
         }
     }
-    private void makeAllExceptLeftSide (int x, int i){
-        makeFirstBridge(x, i);
-        for (int j = 1; j < names.size() - 1; j++) {
-            x = 0;
-            makeBridgeValueByBeforeValue(x, j, i);
+    private void  makeRemainParts (int bridgeOrSpace, int ladderFloorsNum){
+        makeIndexNumber1(bridgeOrSpace, ladderFloorsNum);
+        for (int LadderFloorIndex = 1; LadderFloorIndex < namesList.size() - 1; LadderFloorIndex++) {
+            bridgeOrSpace = 0;
+            makeBridgeNotSecond(bridgeOrSpace, LadderFloorIndex, ladderFloorsNum);
         }
     }
-    private void makeBridgeValueByBeforeValue(int x, int j, int i){
-        if (random.nextBoolean() && ladderBoard.get(i).get(j - 1).equals("     ")) {
-            x = 1;
+    private void makeIndexNumber1(int bridgeOrSpace, int ladderFloorsNum){
+        if (random.nextBoolean()) {
+            bridgeOrSpace = 1;
         }
-        switch (x) {
+        switch (bridgeOrSpace) {
             case 1:
-                ladderBoard.get(i).add("-----");
-                ladderBoard.get(i).add("|");
+                ladderBoard.get(ladderFloorsNum).add("-----");
+                ladderBoard.get(ladderFloorsNum).add("|");
                 break;
             case 0:
-                ladderBoard.get(i).add("     ");
-                ladderBoard.get(i).add("|");
+                ladderBoard.get(ladderFloorsNum).add("     ");
+                ladderBoard.get(ladderFloorsNum).add("|");
+                break;
+        }
+    }
+    private void makeBridgeNotSecond(int bridgeOrSpace, int LadderFloorIndex, int ladderFloors){
+        if (random.nextBoolean() && ladderBoard.get(ladderFloors).get(LadderFloorIndex - 1).equals("     ")) {
+            bridgeOrSpace = 1;
+        }
+        switch (bridgeOrSpace) {
+            case 1:
+                ladderBoard.get(ladderFloors).add("-----");
+                ladderBoard.get(ladderFloors).add("|");
+                break;
+            case 0:
+                ladderBoard.get(ladderFloors).add("     ");
+                ladderBoard.get(ladderFloors).add("|");
                 break;
         }
     }
     public void printResult() {
         printNames();
-        printLadderFloor();
+        printLadder();
     }
     private void printNames() {
-        StringBuilder generateAllNameString = new StringBuilder();
-        generateAllNameString.append(" ");
-        for (int i = 0; i < names.size(); i++) {
-            generateAllNameString.append(" ");
-            generateAllNameString.append(String.format("%5s", names.get(i)));
+        StringBuilder makeNamesOneString = new StringBuilder();
+        makeNamesOneString.append(" ");
+        for (int namesListIndex = 0; namesListIndex < namesList.size(); namesListIndex++) {
+            makeNamesOneString.append(" ");
+            makeNamesOneString.append(String.format("%5s", namesList.get(namesListIndex)));
         }
-        System.out.println(generateAllNameString);
+        System.out.println(makeNamesOneString);
     }
-    private void printLadderFloor() {
-        for (int i = 0; i < ladderBoard.size(); i++) {
-            printPillarAndBridges(i);
+    private void printLadder() {
+        for (int LadderFloorNum = 0; LadderFloorNum < ladderBoard.size(); LadderFloorNum++) {
+            printLadderFloorElements(LadderFloorNum);
         }
     }
-    private void printPillarAndBridges(int i) {
+    private void  printLadderFloorElements(int LadderFloorNum) {
         System.out.print("    ");
-        for (String j : ladderBoard.get(i)) {
-            System.out.print(j);
+        for (String LadderFloorElements : ladderBoard.get(LadderFloorNum)) {
+            System.out.print(LadderFloorElements);
         }
         System.out.print("\r\n");
     }
