@@ -1,12 +1,14 @@
 package kr.codesquad;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Ladder {
-    private final List<Line> ladder;
+    private final List<Line> ladder = new ArrayList<>();
 
-    public Ladder(List<Line> ladder) {
-        this.ladder = ladder;
+    public void addLine(List<Boolean> bool) {
+        Line line = new Line(bool);
+        ladder.add(line);
     }
 
     public String drawLadder() {
