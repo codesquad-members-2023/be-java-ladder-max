@@ -29,16 +29,20 @@ public class Ladder {
         if (index == numberOfPlayer - 1) {
             return "|";
         }
-        return (Math.random() > 0.5) ? "|-----" : "|     ";
+        return (generateBoolean()) ? "|-----" : "|     ";
     }
 
     private List<Boolean> generateRandomStepList(int numberOfPlayer) {
         List<Boolean> booleanStepList = new ArrayList<>();
-        Random random = new Random();
         for (int i = 0; i < numberOfPlayer; i++) {
-            booleanStepList.add(random.nextBoolean());
+            booleanStepList.add(generateBoolean());
         }
         return booleanStepList;
+    }
+
+    private Boolean generateBoolean() {
+        Random random = new Random();
+        return random.nextBoolean();
     }
 
     public ArrayList<String> getLadder() {
