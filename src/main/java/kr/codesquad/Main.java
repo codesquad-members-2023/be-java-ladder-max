@@ -6,7 +6,6 @@ public class Main {
         InputReader inputReader = new InputReader();
         inputReader.startLadderGame();
         ladderMaker.make(inputReader.getNamesList(), inputReader.getLadderHeight());
-        ladderMaker.printResult();
     }
 }
 
