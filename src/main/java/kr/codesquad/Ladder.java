@@ -29,13 +29,19 @@ public class Ladder {
         return ladderLine.toString();
     }
 
+    // TODO: 현재 각 발판이 동일한 확률로 생성되지 않음.
+    //  ex) 좌측 2번째 발판의 경우, 첫발판이 생기지 않고, 두번째 발판이 생겨야하는 25%의 확률.
     private List<Boolean> generateRandomStepList(int numberOfPlayer) {
         List<Boolean> booleanStepList = new ArrayList<>();
         for (int i = 0; i < numberOfPlayer - 1; i++) {
             booleanStepList.add(generateBoolean());
         }
 
-        for (int i = 1; i < numberOfPlayer - 1; i++) {
+        return checkContinuousStep(booleanStepList);
+    }
+
+    private List<Boolean> checkContinuousStep(List<Boolean> booleanStepList) {
+        for (int i = 1; i < booleanStepList.size(); i++){
             if (booleanStepList.get(i) && booleanStepList.get(i - 1)) {
                 booleanStepList.set(i, false);
             }
