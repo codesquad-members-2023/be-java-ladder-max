@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/dto/LadderOutputDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/LadderGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/LadderGameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/service/LadderGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/service/LadderGame.java" afterDir="false" />
@@ -232,7 +232,7 @@
       <workItem from="1678843113833" duration="842000" />
       <workItem from="1678844211619" duration="648000" />
       <workItem from="1678844865152" duration="5054000" />
-      <workItem from="1678861081556" duration="809000" />
+      <workItem from="1678861081556" duration="2280000" />
     </task>
     <servers />
   </component>

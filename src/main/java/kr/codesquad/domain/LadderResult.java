@@ -11,7 +11,11 @@ public class LadderResult {
         this.results = results;
     }
 
-    public String toAllResult() {
+    public String getResult(String playerName) {
+        return results.get(playerName);
+    }
+
+    public String getAllResults() {
         final StringBuilder builder = new StringBuilder();
 
         for (var result : results.entrySet()) {
