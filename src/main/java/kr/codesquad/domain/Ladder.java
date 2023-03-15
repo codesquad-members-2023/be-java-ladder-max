@@ -5,20 +5,16 @@ import java.util.ArrayList;
 import static kr.codesquad.domain.LadderLine.drawLine;
 
 public class Ladder {
-    private final int countOfPeople;
-    private final int ladderHeight;
     private ArrayList<LadderLine> ladder;
 
-    public Ladder(ArrayList playerList, int ladderHeight) {
-        this.ladderHeight = ladderHeight;
-        this.countOfPeople = playerList.size();
-        createLadder();
+    public Ladder(int countOfPlayers, int ladderHeight) {
+        createLadder(countOfPlayers,ladderHeight);
     }
 
-    private void createLadder() {
+    private void createLadder(int countOfPlayers,int ladderHeight) {
         ladder = new ArrayList<>();
         for (int i = 0; i < ladderHeight; i++) {
-            LadderLine ladderLine = new LadderLine(countOfPeople);
+            LadderLine ladderLine = new LadderLine(countOfPlayers);
             ladderLine.createLine();
             ladder.add(ladderLine);
         }

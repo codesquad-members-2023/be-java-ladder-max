@@ -18,7 +18,7 @@ public class InputOutputController extends Players {
         this.outputHandler = new OutputView();
     }
 
-    public void setupGame(Players players, LadderHeight ladderHeight, Results result){
+    void setupGame(Players players, LadderHeight ladderHeight, Results result){
         getPlayers(players);
         getResults(result,players.getPlayersList().size());
         getHeight(ladderHeight);

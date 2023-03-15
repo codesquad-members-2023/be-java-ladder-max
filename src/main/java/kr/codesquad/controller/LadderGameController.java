@@ -19,9 +19,9 @@ public class LadderGameController {
 
     public void startLadderGame() throws IOException {
         ioController.setupGame(players,ladderHeight,result);
-        Ladder ladder = new Ladder(players.getPlayersList(), ladderHeight.getLadderHeight());
+        Ladder ladder = new Ladder(players.getPlayersList().size(), ladderHeight.getLadderHeight());
         ioController.printLadder(ladder,players,result);
-        ExecutionResultGenerator excutionResultGenerator = new ExecutionResultGenerator(ladder,players,result);
-        ioController.getExecutionResult(excutionResultGenerator.getResultMap());
+        ExecutionResultGenerator executionResultGenerator = new ExecutionResultGenerator(ladder,players,result);
+        ioController.getExecutionResult(executionResultGenerator.getResultMap());
     }
 }
