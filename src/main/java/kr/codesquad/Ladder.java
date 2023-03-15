@@ -10,22 +10,24 @@ public class Ladder {
 
     public void makeLadderShape(UserInput userInput) {
         List<String> playerList = Arrays.asList(userInput.names.split(","));
-        System.out.println(playerList);
-//        for (String[] strings : ladder) {
-//            fillLadderLine(strings);
-//        }
-    }
-
-    private void fillLadderLine(String[] customLadderLine) {
-        for (int i = 0; i < customLadderLine.length; i++){
-            fillRandomLadderStep(i, customLadderLine);
+        for (int i = 0; i < userInput.height; i++) {
+            this.ladder.add(fillLadderLine(playerList.size()));
         }
     }
-    
-    private void fillRandomLadderStep(int index, String[] customLadderLine) {
-        String randomStep = (Math.random() > 0.5) ? " " : "-";
 
-        customLadderLine[index] = (index % 2 == 0) ? "|" : randomStep;
+    private String fillLadderLine(int numberOfPlayer) {
+        StringBuilder ladderLine = new StringBuilder();
+        for (int i = 0; i < numberOfPlayer; i++){
+           ladderLine.append(fillRandomLadderStep(i, numberOfPlayer));
+        }
+        return ladderLine.toString();
+    }
+    
+    private String fillRandomLadderStep(int index, int numberOfPlayer) {
+        if (index == numberOfPlayer - 1) {
+            return "|";
+        }
+        return (Math.random() > 0.5) ? "|-----" : "|     ";
     }
 
     public ArrayList<String> getLadder() {
