@@ -1,44 +1,31 @@
 package kr.codesquad.domain;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
+
+import static kr.codesquad.util.ValidationPlayerName.MAX_LENGTH;
 
 public class Ladder {
-    private String[][] ladder;
-    private int columnNum;
-    private int rowNum;
 
-    public Ladder(int numberOfPlayer, int maximumHeight) {
-        this.columnNum = numberOfPlayer + (numberOfPlayer - 1);
-        this.rowNum = maximumHeight;
-        this.ladder = generateLadder();
-    }
-
-    public String[][] generateLadder() {
-        String[][] ladderFrame = new String[rowNum][columnNum];
-        for(int i = 0; i < rowNum; i++) {
-            generateVerticalOfLadder(ladderFrame, i);
-            generateHorizonOfLadder(ladderFrame, i);
+    public List<String> generateLadder(int numOfPlayer, int columnLength) {
+        int rowLength = numOfPlayer + (numOfPlayer - 1);
+        LadderLine ladderLine = new LadderLine();
+        List<String> ladderList = new ArrayList<>();
+        for(int i = 0; i < columnLength; i++) {
+            ladderList.add(ladderLine.drawEachLine(rowLength));
         }
-        return ladderFrame;
+        return ladderList;
     }
 
-    private void generateVerticalOfLadder(String[][] ladderFrame, int row) {
-        for(int j = 0; j < columnNum; j += 2) {
-            ladderFrame[row][j] = LadderLine.VerticalLine.getValue();
+
+    public String format(List<String> ladderList) {
+        StringBuffer ladderSb = new StringBuffer();
+        for(String row : ladderList) {
+            ladderSb.append(" ".repeat((MAX_LENGTH + 1) / 2));
+            ladderSb.append(row);
+            ladderSb.append("\n");
         }
+        return ladderSb.toString();
     }
-
-    private void generateHorizonOfLadder(String[][] ladderFrame, int row) {
-        for(int j = 1; j < columnNum; j += 2) {
-           ladderFrame[row][j] = selectHorizonLine();
-        }
-    }
-
-    private String selectHorizonLine() {
-        Random random = new Random();
-        boolean isThereLine = random.nextBoolean();
-        return isThereLine ? LadderLine.StraightLine.getValue() : LadderLine.BlankLine.getValue();
-    }
-
-    
 }
+
