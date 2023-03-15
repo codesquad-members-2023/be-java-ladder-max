@@ -7,17 +7,27 @@ import java.util.Set;
 
 public class Validation {
 
-    private static final int maxLength = 5;
-    private static final int minLimit = 0;
+    private static final int MAX_LEN = 5;
+    private static final int MIN_LIMIT = 0;
 
     public static boolean checkValidName(Optional<List<String>> opPeople) {
-        if(opPeople.isEmpty()) {
+        if(!checkEmptyInput(opPeople)) {
             return false;
         }
         List<String> people = opPeople.get();
         Set<String> peopleSet = new HashSet<>(people);
         if(peopleSet.size() != people.size() || peopleSet.contains("춘식이")) {
             System.out.println("중복된 이름이 들어가거나 \"춘식이\"란 이름은 사용하실 수 없습니다.");
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean checkEmptyInput(Optional<List<String>> opList) {
+        if(opList.isEmpty()) {
+            return false;
+        }
+        if(opList.get().isEmpty() || opList.get().get(0).equals("")) {
             return false;
         }
         return true;
@@ -37,7 +47,7 @@ public class Validation {
     }
 
     public static boolean checkValidResults(Optional<List<String>> opResults, int len) {
-        if(opResults.isEmpty()) {
+        if(!checkEmptyInput(opResults)) {
             return false;
         }
         List<String> results = opResults.get();
@@ -48,8 +58,8 @@ public class Validation {
         return true;
     }
 
-    public static boolean checkLimit(int num) {
-        if(num < minLimit) {
+    private static boolean checkLimit(int num) {
+        if(num < MIN_LIMIT) {
             System.out.println("입력되는 숫자는 0보다 작을 수 없습니다.");
             return false;
         }
@@ -58,6 +68,6 @@ public class Validation {
 
     public static boolean isAnyOverFive(List<String> people) {
         return people.stream()
-                .anyMatch(o -> o.length() > maxLength);
+                .anyMatch(o -> o.length() > MAX_LEN);
     }
 }
