@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class LadderGame {
-
+    private Players players;
     public void start(String list,String result, int row){
         List<String> playersList = Arrays.asList(list.split(","));
         Ladder ladder = new Ladder(row,playersList.size());
-        Players players = new Players(playersList,result);
+        Players players = new Players(playersList,result,ladder.make());
     }
     private void printLadder(String ladder){
         System.out.println(ladder);
