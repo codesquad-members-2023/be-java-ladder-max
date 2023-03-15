@@ -17,7 +17,7 @@ public class Input {
         }
         catch (RuntimeException e){
             System.out.println(e.getMessage());
-            inputValidatedPlayers();
+            return inputValidatedPlayers();
         }
         return Arrays.asList(players);
     }
