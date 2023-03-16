@@ -315,3 +315,5 @@ all : 전체 결과 보기, 춘식이 : 프로그램 종료, 이름 : pobi  houn
 - [ ] http network 6장
 - [x] 이것이 안드로이드다, 스레드와 코루틴
 - [ ] 이것이 안드로이드다, 서비스와 콘텐트 리졸버
+- [ ] modelMapper
+- [ ] thymeleaf string format
