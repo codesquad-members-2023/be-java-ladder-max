@@ -1,50 +1,54 @@
 package kr.codesquad.controller;
 
-import kr.codesquad.domain.*;
+import kr.codesquad.domain.Ladder;
+import kr.codesquad.domain.LadderHeight;
+import kr.codesquad.domain.Players;
+import kr.codesquad.domain.Results;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
-import java.io.IOException;
 import java.util.HashMap;
 
-public class InputOutputController extends Players {
+public class InputOutputController {
 
-    private OutputView outputHandler;
-    private InputView inputHandler;
+    private OutputView outputView;
+    private InputView inputView;
 
     public InputOutputController() {
-        this.inputHandler = new InputView();
-        this.outputHandler = new OutputView();
+        this.inputView = new InputView();
+        this.outputView = new OutputView();
     }
 
-    public void setupGame(Players players,LadderHeight ladderHeight,Result result){
-        getName(players);
-        getResult(result,players.getNameList().size());
+    void setupGame(Players players, LadderHeight ladderHeight, Results result) {
+        getPlayers(players);
+        getResults(result, players.getCountOfPlayers());
         getHeight(ladderHeight);
     }
 
-    private void getName(Players players){
-        inputHandler.playerNamePrompt();
-        while(!players.getVaildNameFromUser(inputHandler));
-    }
-
-    private void getHeight(LadderHeight ladderHeight){
-        inputHandler.LadderHeightPrompt();
-        while(!ladderHeight.getValidHeightFromUser(inputHandler));
-    }
-
-    private void getResult(Result result,int playerNum){
-        inputHandler.resultPrompt();
-        while(!result.getResult(inputHandler, playerNum));
-    }
-
-    void getExcutionResult(HashMap<String,String> resultMap) throws IOException {
-        while(true){
-            new ExecutionResult(inputHandler,resultMap);
+    private void getPlayers(Players players) {
+        inputView.playerNamePrompt();
+        while (!players.getValidPlayerFromUser(inputView.getInput())) {
         }
     }
 
-    void printLadder(Ladder ladder,Players player,Result result) {
-        outputHandler.printLadder(ladder,player,result);
+    private void getHeight(LadderHeight ladderHeight) {
+        inputView.LadderHeightPrompt();
+        while (!ladderHeight.getValidHeightFromUser(Integer.parseInt(inputView.getInput()))) ;
+    }
+
+    private void getResults(Results result, int playerNum) {
+        inputView.resultPrompt();
+        while (!result.getResultsFromUser(inputView.getInput(), playerNum)) ;
+    }
+
+    void getExecutionResult(HashMap<String, String> resultMap){
+        while (true) {
+            inputView.selectPlayerPrompt();
+            outputView.getExecutionResult(inputView.getInput(),resultMap);
+        }
+    }
+
+    void printLadder(Ladder ladder, Players player, Results result) {
+        outputView.printLadder(ladder, player, result);
     }
 }

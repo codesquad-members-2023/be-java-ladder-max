@@ -1,8 +1,5 @@
 package kr.codesquad.domain;
 
-import kr.codesquad.view.InputView;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,31 +10,30 @@ public class Players {
     private static final String NAME_LENGTH_ERROR_MESSAGE = "이름은 5글자 이하여야 합니다. 다시 입력해주세요.";
     private static final String PLAYER_NUMBER_ERROR_MESSAGE = "player는 2명 이상이 필요합니다. 다시 입력해주세요.";
 
-    private final ArrayList<String> nameList;
+    private final ArrayList<String> playersList;
 
     public Players() {
-        this.nameList = new ArrayList<>();
+        playersList = new ArrayList<>();
     }
 
-    public ArrayList<String> getNameList() {
-        return nameList;
+    public int getCountOfPlayers() {
+        return playersList.size();
     }
 
-    String getNameFromNameList(int i){
-        return nameList.get(i);
+    String getPlayer(int i){
+        return playersList.get(i);
     }
 
-    public boolean getVaildNameFromUser(InputView inputView) {
+    public boolean getValidPlayerFromUser(String players) {
         try {
-            String inputString = inputView.getInput();
-            nameList.addAll(parseInputStringToValidNames(inputString));
+            playersList.addAll(parseInputStringToValidNames(players));
             validatePlayerNumAndThrowException();
             return true;
-        } catch (RuntimeException | IOException e) {
-            nameList.clear();
+        } catch (RuntimeException e) {
+            playersList.clear();
             System.out.println(e.getMessage());
-            return false;
         }
+        return false;
     }
 
     private List<String> parseInputStringToValidNames(String inputString) {
@@ -54,16 +50,18 @@ public class Players {
     }
 
     private void validatePlayerNumAndThrowException() {
-        if (nameList.size() < 2) {
+        if (playersList.size() < 2) {
             throw new RuntimeException(PLAYER_NUMBER_ERROR_MESSAGE);
         }
     }
 
 
+
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (String name : nameList) {
+        for (String name : playersList) {
             sb.append(String.format(" %1$-5s", name));
         }
         sb.append("\n");

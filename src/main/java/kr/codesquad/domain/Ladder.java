@@ -1,41 +1,56 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import static kr.codesquad.domain.LadderLine.drawLine;
+import java.util.Arrays;
 
 public class Ladder {
-    private final int countOfPeople;
-    private final int ladderHeight;
     private ArrayList<LadderLine> ladder;
 
-    public Ladder(ArrayList nameList, int ladderHeight) {
-        this.ladderHeight = ladderHeight;
-        this.countOfPeople = nameList.size();
-        createLadder();
-    }
-
-    private void createLadder() {
+    public Ladder() {
         ladder = new ArrayList<>();
-        for (int i = 0; i < ladderHeight; i++) {
-            LadderLine ladderLine = new LadderLine(countOfPeople);
-            ladderLine.createLine();
-            ladder.add(ladderLine);
+    }
+
+    public void createValidLadder(int countOfPlayers, int ladderHeight){
+        while(!validateLadderConnectivity(countOfPlayers)){
+            ladder.clear();
+            createLadder(countOfPlayers,ladderHeight);
         }
     }
 
-    public int ladderRide(int playerNumber) {
-        for (LadderLine line : ladder) {
-            playerNumber = line.canMove(playerNumber);
+    private void createLadder(int countOfPlayers,int ladderHeight) {
+        for (int i = 0; i < ladderHeight; i++) {
+            ladder.add(new LadderLine(countOfPlayers));
         }
-        return playerNumber;
+    }
+
+    public int rideLadder(int playerLocation) {
+        int destination = playerLocation;
+        for (LadderLine line : ladder) {
+            destination = line.getNextPosition(destination);
+        }
+        return destination;
+    }
+
+    private boolean validateLadderConnectivity(int countOfPlayers) {
+        Boolean[] checkHung = new Boolean[countOfPlayers - 1];
+        Arrays.fill(checkHung,false);
+        for (LadderLine line : ladder) {
+            line.markConnectedPoints(checkHung, line);
+        }
+        if(Arrays.stream(checkHung).allMatch(b -> b == true)){
+            return true;
+        }
+        return false;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        drawLine(ladder, sb);
+        for (LadderLine line : ladder) {
+            sb.append("  |");
+            line.drawLine(sb, line);
+            sb.append("\n");
+        }
         return sb.toString();
     }
 }

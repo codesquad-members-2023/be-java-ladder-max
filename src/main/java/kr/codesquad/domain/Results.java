@@ -8,22 +8,23 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Result {
+public class Results {
 
-    ArrayList<String> resultList;
+    private ArrayList<String> resultList;
 
-    public Result() {
+    public Results() {
         this.resultList = new ArrayList();
     }
     String getResultFromResultList(int i){
         return resultList.get(i);
     }
-    public boolean getResult(InputView inputHandler, int sizeOfNameList){
+
+    public boolean getResultsFromUser(String strResults, int sizeOfNameList){
         try {
-            resultList.addAll(parseInputStringToResultList(inputHandler.getInput()));
+            resultList.addAll(parseInputStringToResultList(strResults));
             validateNumOfResultList(resultList,sizeOfNameList);
             return true;
-        } catch (IOException | RuntimeException e) {
+        } catch (RuntimeException e) {
             resultList.clear();
             System.out.println(e.getMessage());
         }
