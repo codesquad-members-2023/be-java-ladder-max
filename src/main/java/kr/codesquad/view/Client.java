@@ -8,7 +8,13 @@ public class Client {
         InputLadder input = new InputLadder();
         LadderGame ladderGame = new LadderGame();
         ladderGame.start(input.inputPlayers(),input.inputResult(),input.inputRow());
-        String id = input.inputSearch();
-        ladderGame.searchResult(id);
+        while (true){
+            try {
+                String id = input.inputSearch();
+                ladderGame.searchResult(id);
+            } catch (IllegalArgumentException e){
+                break;
+            }
+        }
     }
 }
