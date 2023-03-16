@@ -16,6 +16,7 @@ public class OutputView {
         sb.setLength(0); // stringBuilder 초기화 (리셋)
     }
 
+    // 이 부분은 OutputView 의 일이 아니지 않나 고민중...
     public void printPlayersName(String[] players){
         for (String player : players) {
             sb.append(player).append(insertBlank(player.length()));
