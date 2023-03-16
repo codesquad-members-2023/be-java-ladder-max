@@ -1,10 +1,10 @@
-package kr.codesquad;
+package kr.codesquad.view;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class Input {
+public class View {
     private static final int PLAYER_MAX_LENGTH = 5;
     private final Scanner sc = new Scanner(System.in);
 
@@ -43,5 +43,20 @@ public class Input {
         String height = sc.nextLine();
 
         return Integer.parseInt(height);
+    }
+
+    public void printWholeFigure(List<String> players, String ladderFigure) {
+        String playersFigure = drawPlayers(players);
+        System.out.println(playersFigure);
+        System.out.println(ladderFigure);
+    }
+
+    private String drawPlayers(List<String> players) {
+        StringBuilder sb = new StringBuilder();
+
+        for (String player : players) {
+            sb.append(String.format("%-6s", player));
+        }
+        return sb.toString();
     }
 }
