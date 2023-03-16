@@ -28,7 +28,7 @@ public class LadderLine {
             return Direction.RIGHT;
         }
 
-        return Direction.STRAIGHT;
+        return Direction.NONE;
     }
 
     public int getSumParts() {

@@ -1,6 +1,5 @@
 package kr.codesquad.controller.dto;
 
-import java.util.Collections;
 import java.util.List;
 
 public class LadderInputDto {

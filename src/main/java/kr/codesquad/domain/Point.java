@@ -10,10 +10,6 @@ public class Point {
         this.currentWidth = startWidth;
     }
 
-    public int getStartWidth() {
-        return startWidth;
-    }
-
     public int getStartLadderNumber() {
         return startWidth / 2;
     }

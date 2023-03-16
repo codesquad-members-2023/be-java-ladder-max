@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 public class LadderResult {
+    private static final String ALL_RESULT = "all";
+
     private final Map<String, String> results; // String,String은 뭐가 뭔지 알기가 어렵다
 
     private LadderResult(Map<String, String> results) {
@@ -12,7 +14,7 @@ public class LadderResult {
     }
 
     public String getResult(String selectResult) {
-        if ("all".equals(selectResult)) {
+        if (ALL_RESULT.equals(selectResult)) {
             return getAllResults();
         }
         if (results.containsKey(selectResult)) {
