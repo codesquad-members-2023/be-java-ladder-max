@@ -10,6 +10,7 @@
 - 스탭3에서 배열 부분을 리스트로 변경
 - 가로줄 연속으로 나오지 않게 변경
 - 입력받을 때 이름 1개당 5글자로 제한하는 기능 구현
+- 네이밍 업데이트
 
 ### step3
 > [ㅇ] 입력 받기 정상적<br>
@@ -23,12 +24,13 @@
 > [ㅇ] 메소드 이름<br>
 > [] getter+setter<br>
 > [] List<String> 을 멤버로 가지는 새로운 클래스
+> [] 결과가 너무 규칙적
 - 단위테스트
 > [] gradle 학습<br>
 > [] junit 학습<br>
 > [] +실습<br>
-> [] ladderTest<br>
-> [] InputerTest<br>
+> [] ladderMakerTest<br>
+> [] InputReaderTest<br>
 
 - [] 객체지향 생활체조 원칙 확인
 - [] 5단계
