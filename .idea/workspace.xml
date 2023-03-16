@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/LadderGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LadderGameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,20 +69,7 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.view.Client" />
-      <module name="java-lotto.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="kr.codesquad.view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LadderTest.makeLadderTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="LadderGameTest.testExit" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -95,7 +82,30 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;LadderTest.makeLadderTest&quot;" />
+            <option value="&quot;LadderGameTest.testExit&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="LadderTest.testCalculate" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;LadderTest.testCalculate&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -151,7 +161,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="LadderTest.testRowColumn" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PlayersTest.testTmp" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -164,7 +174,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;LadderTest.testRowColumn&quot;" />
+            <option value="&quot;PlayersTest.testTmp&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -176,10 +186,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.LadderTest.testCalculate" />
+        <item itemvalue="Gradle.PlayersTest.testTmp" />
+        <item itemvalue="Gradle.LadderGameTest.testExit" />
         <item itemvalue="Gradle.LadderTest.testColumn" />
         <item itemvalue="Gradle.LadderTest.testRow" />
-        <item itemvalue="Gradle.LadderTest.testRowColumn" />
-        <item itemvalue="Gradle.LadderTest.makeLadderTest" />
       </list>
     </recent_temporary>
   </component>
@@ -210,6 +221,7 @@
       <workItem from="1678890957500" duration="2767000" />
       <workItem from="1678893779941" duration="2775000" />
       <workItem from="1678930557283" duration="13048000" />
+      <workItem from="1678951913792" duration="6190000" />
     </task>
     <servers />
   </component>

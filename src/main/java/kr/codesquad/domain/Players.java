@@ -18,14 +18,14 @@ public class Players {
     public String getNames(){
         StringBuilder sb = new StringBuilder();
         for (String name : players){
-            sb.append(String.format("%-6s ", name)); // 각 이름당 주어진 자리는 6자리
+            sb.append(String.format("%-6s", name)); // 각 이름당 주어진 자리는 6자리
         }
         return sb.toString();
     }
     public String getResultList(){ // 결과를 사다리 간격에 맞게 반환
         StringBuilder sb = new StringBuilder();
         for (String s : resultList){
-            sb.append(String.format("%-6s ",s));
+            sb.append(String.format("%-6s",s));
         }
         return sb.toString();
     }

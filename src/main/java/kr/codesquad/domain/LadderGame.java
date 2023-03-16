@@ -12,12 +12,12 @@ public class LadderGame {
         this.players = new Players(playersList,resultList,ladder.calculateResult());
         printAll(players,ladder);
     }
-    public String searchResult(String id) {
+    public void searchResult(String id) {
         if ("춘식이".equals(id)){
             System.out.println("게임을 종료합니다.");
+            throw new IllegalArgumentException();
         }
-//        System.out.println(players.searchResult(id));
-        return players.searchResult(id);
+        System.out.println(players.searchResult(id));
     }
     private void printAll(Players players, Ladder ladder){ // 플레이어 이름, 사다리 모양, 결과
         System.out.println(players.getNames());
