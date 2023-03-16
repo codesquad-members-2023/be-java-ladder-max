@@ -1,5 +1,6 @@
 package kr.codesquad;
 
+import kr.codesquad.controller.GUIGameController;
 import kr.codesquad.domain.destination.DestinationGroup;
 import kr.codesquad.domain.ladder.Ladder;
 import kr.codesquad.domain.player.PlayerGroup;
@@ -49,39 +50,24 @@ public class MainForGUI extends JFrame {
          * [시작하기] 버튼 클릭
          */
         startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+            public String makeInputValue() {
                 StringBuilder sb = new StringBuilder();
                 sb.append(playerNamesTextField.getText()).append(System.lineSeparator())
                         .append(destinationNamesTextField.getText()).append(System.lineSeparator())
                         .append(heightTextField.getText());
+                return sb.toString();
+            }
 
-                InputStream is = new ByteArrayInputStream(sb.toString().getBytes());
-
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 try {
-                    inputView.changeInputStream(is);
-                    PlayerGroup playerGroup = new PlayerGroup(inputView.inputPlayerNames());
-                    DestinationGroup destinationGroup = new DestinationGroup(inputView.inputDestinationNames(), playerGroup.getPlayerCount());
-                    Ladder ladder = new Ladder(playerGroup.getPlayerCount(), inputView.inputLadderHeight());
-                    ResultGroup resultGroup = new ResultGroup(playerGroup, destinationGroup, ladder);
-
-                    sb.setLength(0);
-                    sb.append(System.lineSeparator())
-                            .append(playerGroup).append(System.lineSeparator())
-                            .append(ladder)
-                            .append(destinationGroup).append(System.lineSeparator());
-                    System.out.println(sb);
-                    ladderTextArea.setText(sb.toString());
-
-                    resultTextArea.setText(resultGroup.getResult("all"));
-
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                } catch (GameProgressException ex) {
-                    throw new RuntimeException(ex);
+                    InputStream is = new ByteArrayInputStream(makeInputValue().getBytes());
+                    GUIGameController controller = new GUIGameController(is);
+                    ladderTextArea.setText(controller.renderLadder());
+                    resultTextArea.setText(controller.renderResults());
+                } catch (Exception ex) {
+                    System.out.println(ex.getMessage());
                 }
-
-
             }
         });
 
