@@ -120,14 +120,25 @@ public class Screen {
     }
 
     public void printLadder(List<String> playerNames, String ladderShape, List<String> goals) {
-        System.out.println("\n실행결과\n");
+        System.out.println("\n사다리 결\n");
 
         System.out.println(toFormattedString(playerNames));
         System.out.println(ladderShape);
         System.out.println(toFormattedString(goals));
     }
 
-    public void printResult(String result) {
-        System.out.println(result);
+    public void printResult(LadderResult ladderResult, String selectResult) {
+        try {
+            final String result = ladderResult.getResult(selectResult);
+            System.out.println("\n실행 결과");
+            System.out.println(result);
+        } catch (IllegalArgumentException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public String inputSelectResult() {
+        System.out.println("\n결과를 보고 싶은 사람은?");
+        return scanner.nextLine();
     }
 }

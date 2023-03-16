@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class LadderGameController {
+    private static final String EXIT_INPUT = "춘식이";
+
     private final LadderGame ladderGame;
     private final Screen screen;
 
@@ -25,11 +27,17 @@ public class LadderGameController {
         final LadderOutputDto ladderOutputDto = ladderGame.play(new LadderInputDto(playerNames, height, goals));
 
         screen.printLadder(playerNames, ladderOutputDto.getLadderShape(), goals);
-        showWinningResult(ladderOutputDto.getLadderResult());
+        printResult(ladderOutputDto.getLadderResult());
     }
 
-    private void showWinningResult(LadderResult ladderResult) {
-        screen.printResult(ladderResult.getAllResults());
+    private void printResult(LadderResult ladderResult) {
+        String selectResult;
+
+        while (!EXIT_INPUT.equals(selectResult = screen.inputSelectResult())) {
+            screen.printResult(ladderResult, selectResult);
+        }
+
+        System.out.println("게임을 종료합니다.");
     }
 
     private List<String> inputGoals() {

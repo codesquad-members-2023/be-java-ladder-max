@@ -11,11 +11,18 @@ public class LadderResult {
         this.results = results;
     }
 
-    public String getResult(String playerName) {
-        return results.get(playerName);
+    public String getResult(String selectResult) {
+        if ("all".equals(selectResult)) {
+            return getAllResults();
+        }
+        if (results.containsKey(selectResult)) {
+            return results.get(selectResult);
+        }
+
+        throw new IllegalArgumentException("잘못된 입력입니다.");
     }
 
-    public String getAllResults() {
+    private String getAllResults() {
         final StringBuilder builder = new StringBuilder();
 
         for (var result : results.entrySet()) {
