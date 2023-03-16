@@ -18,37 +18,41 @@ public class LadderGame {
 	private final OutputView outputView = new OutputView();
 
 	public void startLadderGame() {
-		try {
-			final Participants participants = getParticipantsFromUser();
-			final Results results = getResultsFromUser();
-			final Height height = getHeightFromUser();
+		Participants participants = getParticipantsFromUser();
+		Results results = getResultsFromUser();
+		Height height = getHeightFromUser();
 
-			final Ladder ladder = createLadder(participants.getParticipants().size(), height.getValue());
-			printStateOfLadder(participants.getParticipants(), results.getResults(), ladder.toString());
+		Ladder ladder = createLadder(participants.getParticipants().size(), height.getValue());
+		printStateOfLadder(participants.getParticipants(), results.getResults(), ladder.toString());
 
-			rideLadderExecutionResult(rideLadder(ladder, participants, results));
-		} catch (final IllegalArgumentException e) {
-			outputView.printErrorMsg(e);
-			startLadderGame();
-		}
+		rideLadderExecutionResult(rideLadder(ladder, participants, results));
 	}
 
 	private Participants getParticipantsFromUser() {
-		final String namesOfPerson = inputView.getParticipantNames();
-
-		return new Participants(namesOfPerson);
+		try {
+			return new Participants(inputView.getParticipantNames());
+		} catch (final IllegalArgumentException e) {
+			outputView.printErrorMsg(e);
+			return getParticipantsFromUser();
+		}
 	}
 
 	private Results getResultsFromUser() {
-		final String results = inputView.getExecutionResults();
-
-		return new Results(results);
+		try {
+			return new Results(inputView.getExecutionResults());
+		} catch (final IllegalArgumentException e) {
+			outputView.printErrorMsg(e);
+			return getResultsFromUser();
+		}
 	}
 
 	private Height getHeightFromUser() {
-		final String heightOfLadder = inputView.getHeightOfLadder();
-
-		return new Height(heightOfLadder);
+		try {
+			return new Height(inputView.getHeightOfLadder());
+		} catch (final IllegalArgumentException e) {
+			outputView.printErrorMsg(e);
+			return getHeightFromUser();
+		}
 	}
 
 	private Ladder createLadder(final int countOfPerson, final int height) {
