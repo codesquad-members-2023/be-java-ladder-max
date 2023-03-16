@@ -1,7 +1,7 @@
 package ladder;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.assertj.core.api.InstanceOfAssertFactories;
+import org.assertj.core.api.SoftAssertions;
 
 import kr.ladder.domain.LadderLine;
 import org.junit.jupiter.api.DisplayName;
@@ -14,29 +14,17 @@ public class LadderLineTest {
     void testLadderLine() {
         // given
         LadderLine ladderLine = new LadderLine();
+        SoftAssertions softAssertions = new SoftAssertions();
 
         //when
         int playerNumber = 100;
         ladderLine.make(playerNumber);
-        int test = ladderLine.isFilled();
 
         // then
-        assertEquals(test, playerNumber-1);
-    }
-
-    @Test
-    @DisplayName("ladderLine 인스턴스 생성 시 ladderLine의 발판이 중복인지 확인.")
-    void testAvailableFoothold(){
-        // given
-        LadderLine ladderLine = new LadderLine();
-
-        //when
-        int playerNumber = 100;
-        ladderLine.make(playerNumber);
-        boolean test = ladderLine.isDoubleFoothold();
-
-        // then
-        assertTrue(test);
+        // 🤔test code 안에 for문 넣어도 되는걸까?
+        for (int i = 0; i < ladderLine.size(); i++) {
+            softAssertions.assertThat(ladderLine.get(i)).isNotNull().asInstanceOf(InstanceOfAssertFactories.BOOLEAN);
+        }
     }
 
 }

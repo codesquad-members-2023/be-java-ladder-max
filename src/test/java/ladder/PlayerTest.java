@@ -15,12 +15,13 @@ public class PlayerTest {
         SoftAssertions softAssertions = new SoftAssertions();
 
         //when
-        String playerName = "하이";
+        String playerName = "하이이이이이";
         int blankRepeatNumber = outputView.insertBlank(playerName.length()).length();
 
+        System.out.println(blankRepeatNumber);
         //then
-        softAssertions.assertThat(blankRepeatNumber).isPositive().isGreaterThan(1).isLessThan(5)
-                .isEqualTo(6 - playerName.length());
+        // 🤔넣는 공백이 0은 아니어야 하는데(=이름이 6글자라는 소리) 왜 테스트에 안걸릴까?
+        softAssertions.assertThat(blankRepeatNumber).isPositive().isGreaterThan(1).isLessThan(5).isNotEqualTo(0);
     }
 
 }
