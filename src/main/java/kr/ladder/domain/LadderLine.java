@@ -11,7 +11,7 @@ public class LadderLine {
         this.ladderLine = new ArrayList<>();
     }
 
-    public void makeLadderLine(int playerNumber){
+    public void make(int playerNumber){
         for (int i = 0; i < playerNumber-1; i++) { // 열 넣기 (그룹 개수)
             ladderLine.add(randomBoolean());
         }
@@ -40,8 +40,7 @@ public class LadderLine {
         }
     }
 
-    @Override
-    public String toString() {
+    public String generate() {
         StringBuilder sb = new StringBuilder();
         sb.append("|");
 

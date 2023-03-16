@@ -79,12 +79,12 @@ public class Ladder {
 //
 //    }
     
-    @Override
-    public String toString(){
+    public String generate(){
         StringBuilder sb = new StringBuilder();
         for (LadderLine ladderLine : ladder) {
-            sb.append(ladderLine.toString()).append("\n");
+            sb.append(ladderLine.generate()).append("\n");
         }
         return sb.toString();
     }
+
 }
