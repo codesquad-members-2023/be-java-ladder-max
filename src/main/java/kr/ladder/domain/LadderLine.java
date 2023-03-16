@@ -16,7 +16,6 @@ public class LadderLine {
             ladderLine.add(randomBoolean());
         }
         checkDoubleFoothold();
-        checkEmptyFoothold();
     }
 
     private Boolean randomBoolean(){
@@ -28,14 +27,6 @@ public class LadderLine {
         for (int i = 0; i < ladderLine.size()-1; i++) {
             if (ladderLine.get(i) && ladderLine.get(i+1)) {
                 ladderLine.set(i+1, false);
-            }
-        }
-    }
-
-    private void checkEmptyFoothold(){ // 3연속 false (공백)일 때 가운데 true (하이픈)으로 바꾸기
-        for (int i = 1; i < ladderLine.size()-1; i++) {
-            if (!ladderLine.get(i-1) && !ladderLine.get(i) && !ladderLine.get(i+1)) {
-                ladderLine.set(i, true);
             }
         }
     }
