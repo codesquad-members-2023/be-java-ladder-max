@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/kr/codesquad/domain/LadderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/kr/codesquad/domain/LadderLineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kr/codesquad/domain/LadderLineTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,16 +110,34 @@
       <recent name="kr.codesquad.view" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LadderTest.makeResultTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
-      <module name="java-lotto.main" />
+  <component name="RunManager" selected="JUnit.LadderLineTest">
+    <configuration name="LadderLineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lotto.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.*" />
+          <option name="PATTERN" value="kr.codesquad.domain.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderLineTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LadderLineTest.findDirectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lotto.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kr.codesquad.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderLineTest" />
+      <option name="METHOD_NAME" value="findDirectionTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -171,29 +189,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScreenTest.inputLadderHeightTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-lotto.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="kr.codesquad.view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="kr.codesquad.view" />
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.view.ScreenTest" />
-      <option name="METHOD_NAME" value="inputLadderHeightTest(java.lang.String)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LadderLineTest" />
+        <item itemvalue="JUnit.LadderLineTest.findDirectionTest" />
         <item itemvalue="JUnit.LadderTest.makeResultTest" />
         <item itemvalue="JUnit.LadderTest" />
         <item itemvalue="JUnit.LadderTest.LadderCreateFailTest" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.ScreenTest.inputLadderHeightTest" />
       </list>
     </recent_temporary>
   </component>
@@ -233,7 +235,7 @@
       <workItem from="1678844865152" duration="5054000" />
       <workItem from="1678861081556" duration="3166000" />
       <workItem from="1678887161707" duration="225000" />
-      <workItem from="1678931567501" duration="7083000" />
+      <workItem from="1678931567501" duration="8440000" />
     </task>
     <servers />
   </component>
