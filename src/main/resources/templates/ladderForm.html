@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>사다리 게임</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+  <link crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+        rel="stylesheet">
+  <script crossorigin="anonymous"
+          integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+          src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script crossorigin="anonymous"
+          integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+          src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script crossorigin="anonymous"
+          integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+          src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script crossorigin="anonymous"
+          integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+          src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    .header {
+      background-color: rgb(87, 125, 196);
+      height: 75px;
+
+    }
+
+    .header a {
+      color: white;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 80px;
+    }
+  </style>
+</head>
+<body>
+<div class="h-100">
+  <div class="d-flex justify-content-center header">
+    <h1>
+      <a th:href="@{/}">사다리 타기 게임</a>
+    </h1>
+  </div>
+
+  <form method="post" th:action="@{/start}" th:class="form-group">
+    <div class="row" style="margin-bottom: 50px;">
+      <div class="col-2">
+        <label>이름</label>
+      </div>
+      <th:block th:each="num : ${#numbers.sequence(1,countOfPeople)}">
+        <div class="col">
+          <input class="form-control" maxlength="5" name="nameOfPeople" type="text">
+        </div>
+      </th:block>
+    </div>
+
+    <div class="row" style="margin-bottom: 50px;">
+      <div class="col-2">
+        <label>당첨 내용</label>
+      </div>
+      <th:block th:each="num : ${#numbers.sequence(1,countOfPeople)}">
+        <div class="col">
+          <input class="form-control" maxlength="5" name="destination" type="text">
+        </div>
+      </th:block>
+    </div>
+
+    <div style="margin-bottom: 50px;" th:class="row">
+      <div th:class="col-2">
+        <label>사다리 높이</label>
+      </div>
+      <div th:class="col">
+        <input class="form-control" min="1" name="maximumLadderHeight" type="number">
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-primary" type="submit">확인</button>
+      <a class="btn btn-secondary" th:href="@{/}">취소</a>
+    </div>
+  </form>
+</div>
+</body>
+</html>
