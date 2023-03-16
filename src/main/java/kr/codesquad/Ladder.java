@@ -7,14 +7,32 @@ import java.util.Random;
 
 public class Ladder {
 
+    private final int MAX_LEN = 5;
+
     private ArrayList<String> ladder;
 
     public void makeLadderShape(UserInput userInput) {
         this.ladder = new ArrayList<>();
         List<String> playerList = Arrays.asList(userInput.names.split(","));
+
+        this.ladder.add(fillNameLine(playerList));
+
         for (int i = 0; i < userInput.height; i++) {
             this.ladder.add(fillLadderLine(playerList.size()));
         }
+    }
+
+    private String fillNameLine(List<String> playerList) {
+        StringBuilder nameLine = new StringBuilder();
+
+        for (String player : playerList) {
+            nameLine.append(" " + makeFormalName(player));
+        }
+
+        return nameLine.toString();
+    }
+
+    private String makeFormalName (String player) {
     }
 
     private String fillLadderLine(int numberOfPlayer) {

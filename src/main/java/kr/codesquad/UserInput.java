@@ -8,12 +8,4 @@ public class UserInput {
         this.names = names;
         this.height = height;
     }
-
-//    public String getNames() {
-//        return names;
-//    }
-//
-//    public int getHeight() {
-//        return height;
-//    }
 }
