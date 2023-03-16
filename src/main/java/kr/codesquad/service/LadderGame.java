@@ -1,19 +1,23 @@
 package kr.codesquad.service;
 
+import kr.codesquad.controller.dto.LadderOutputDto;
 import kr.codesquad.domain.Ladder;
 import kr.codesquad.controller.dto.LadderInputDto;
 import kr.codesquad.domain.LadderLine;
 import kr.codesquad.domain.LadderPart;
+import kr.codesquad.domain.LadderResult;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class LadderGame {
-    public String play(LadderInputDto ladderInputDto) {
+    public LadderOutputDto play(LadderInputDto ladderInputDto) {
         Ladder ladder = new Ladder(makeLadderMap(ladderInputDto.getPlayerNumber(), ladderInputDto.getHeight()));
 
-        return String.join("\n", ladder.createOutputLines());
+        final LadderResult ladderResult = LadderResult.of(ladderInputDto.getPlayerNames(), ladderInputDto.getGoals(), ladder.makeResult());
+
+
+        return new LadderOutputDto(ladder.createOutputLines(), ladderResult);
     }
 
     private List<LadderLine> makeLadderMap(int playerNumber, int height) {

@@ -1,7 +1,10 @@
 package kr.codesquad.view;
 
+import kr.codesquad.domain.LadderResult;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -9,9 +12,11 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Screen {
-    private static final String PLAYER_NAME_PATTERN = "^[a-zA-Z0-9]{1,5}$";
+    private final Scanner scanner;
 
-    private final Scanner scanner = new Scanner(System.in);
+    public Screen(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     public Optional<Integer> inputLadderHeight() {
         System.out.println("\n최대 사다리 높이는 몇 개인가요?");
@@ -53,28 +58,44 @@ public class Screen {
         return Optional.empty();
     }
 
+    public Optional<List<String>> inputGoals() {
+        System.out.println("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
+
+        try {
+            return Optional.of(readGoals(scanner.nextLine()));
+        } catch (IllegalArgumentException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return Optional.empty();
+    }
+
+    private List<String> readGoals(String input) {
+        return parseValidNames(input.split(","));
+    }
+
     private List<String> readPlayerNames(String input) {
         return toPlayerNames(input.split(","));
     }
 
     private List<String> toPlayerNames(String[] inputNames) {
-        final Set<String> validPlayerNames = parseValidNames(inputNames);
+        final List<String> validPlayerNames = parseValidNames(inputNames);
 
-        if (hasDuplicateName(inputNames, validPlayerNames)) {
+        if (hasDuplicateName(validPlayerNames)) {
             throw new IllegalArgumentException("중복된 이름이 있습니다.");
         }
 
         return new ArrayList<>(validPlayerNames);
     }
 
-    private boolean hasDuplicateName(String[] inputNames, Set<String> validPlayerNames) {
-        return inputNames.length != validPlayerNames.size();
+    private boolean hasDuplicateName(List<String> validPlayerNames) {
+        return new HashSet<>(validPlayerNames).size() != validPlayerNames.size();
     }
 
-    private Set<String> parseValidNames(String[] names) {
+    private List<String> parseValidNames(String[] names) {
         return Arrays.stream(names)
                 .map(this::parseValidName)
-                .collect(Collectors.toSet());
+                .collect(Collectors.toList());
     }
 
     private String parseValidName(String input) {
@@ -87,19 +108,26 @@ public class Screen {
     }
 
     private boolean isInValidName(String name) {
-        return !name.matches(PLAYER_NAME_PATTERN);
+        final String playerNamePattern = "^[a-zA-Z0-9]{1,5}$";
+
+        return !name.matches(playerNamePattern);
     }
 
-    public String toPlayerLine(List<String> playerNames) {
-        return playerNames.stream()
-                .map(name -> String.format("%-6s", name))
+    public String toFormattedString(List<String> lists) {
+        return lists.stream()
+                .map(str -> String.format("%-6s", str))
                 .collect(Collectors.joining());
     }
 
-    public void printResult(List<String> playerNames, String ladderShape) {
+    public void printLadder(List<String> playerNames, String ladderShape, List<String> goals) {
         System.out.println("\n실행결과\n");
 
-        System.out.println(toPlayerLine(playerNames));
+        System.out.println(toFormattedString(playerNames));
         System.out.println(ladderShape);
+        System.out.println(toFormattedString(goals));
+    }
+
+    public void printResult(String result) {
+        System.out.println(result);
     }
 }

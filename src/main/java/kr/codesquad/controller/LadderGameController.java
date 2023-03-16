@@ -1,6 +1,8 @@
 package kr.codesquad.controller;
 
 import kr.codesquad.controller.dto.LadderInputDto;
+import kr.codesquad.controller.dto.LadderOutputDto;
+import kr.codesquad.domain.LadderResult;
 import kr.codesquad.service.LadderGame;
 import kr.codesquad.view.Screen;
 
@@ -19,11 +21,25 @@ public class LadderGameController {
     public void run() {
         final List<String> playerNames = inputPlayerNames();
         final int height = inputLadderHeight();
-        final LadderInputDto ladderInputDto = new LadderInputDto(playerNames, height);
+        final List<String> goals = inputGoals();
+        final LadderOutputDto ladderOutputDto = ladderGame.play(new LadderInputDto(playerNames, height, goals));
 
-        final String ladderResult = ladderGame.play(ladderInputDto);
+        screen.printLadder(playerNames, ladderOutputDto.getLadderShape(), goals);
+        showWinningResult(ladderOutputDto.getLadderResult());
+    }
 
-        showResult(playerNames, ladderResult);
+    private void showWinningResult(LadderResult ladderResult) {
+        screen.printResult(ladderResult.getAllResults());
+    }
+
+    private List<String> inputGoals() {
+        Optional<List<String>> goals = Optional.empty();
+
+        while (goals.isEmpty()) {
+            goals = screen.inputGoals();
+        }
+
+        return goals.get();
     }
 
     private int inputLadderHeight() {
@@ -44,9 +60,5 @@ public class LadderGameController {
         }
 
         return playerNames.get();
-    }
-
-    private void showResult(List<String> playerNames, String ladderResult) {
-        screen.printResult(playerNames, ladderResult);
     }
 }

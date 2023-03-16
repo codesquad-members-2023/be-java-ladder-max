@@ -18,6 +18,19 @@ public class LadderLine {
         }
     }
 
+    public Direction findCanMoveDirection(Point point) {
+        int currentWidth = point.getCurrentWidth();
+
+        if (currentWidth > 0 && ladderParts.get(currentWidth - 1) == LadderPart.BRIDGE) {
+            return Direction.LEFT;
+        }
+        if (currentWidth < ladderParts.size() - 1 && ladderParts.get(currentWidth + 1) == LadderPart.BRIDGE) {
+            return Direction.RIGHT;
+        }
+
+        return Direction.STRAIGHT;
+    }
+
     public int getSumParts() {
         return ladderParts.size();
     }
