@@ -7,8 +7,9 @@ public class Results {
     private final String[] categories;
     private final Map<String, Integer> results = new HashMap<>();
 
-    public Results(String[] categories) {
+    public Results(String[] categories, int players) {
         this.categories = categories;
+        checkNumberOfCategories(players);
     }
 
     public void addResult(String name, int index) {
@@ -33,6 +34,12 @@ public class Results {
         }
         checkIsPlayerName(name);
         return categories[results.get(name)];
+    }
+
+    private void checkNumberOfCategories(int players) {
+        if (categories.length != players) {
+            throw new IllegalArgumentException("카테고리의 수가 참가자의 수와 일치하지 않습니다.");
+        }
     }
 
     private void checkIsPlayerName(String name) {
