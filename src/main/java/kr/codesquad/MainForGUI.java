@@ -66,7 +66,7 @@ public class MainForGUI extends JFrame {
                     ladderTextArea.setText(controller.renderLadder());
                     resultTextArea.setText(controller.renderResults());
                 } catch (Exception ex) {
-                    System.out.println(ex.getMessage());
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "[ERROR]", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });
