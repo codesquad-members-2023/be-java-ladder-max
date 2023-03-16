@@ -28,6 +28,6 @@ public class LadderGameController {
                 // 사다리 만들기
                 ladder.make(players.length, ladderHeight);
                 // 출력
-                outputView.printPlayersAndLadder(players, ladder.toString());
+                outputView.printPlayersAndLadder(players, ladder.generate());
         }
 }

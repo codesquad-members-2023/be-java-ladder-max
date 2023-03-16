@@ -58,4 +58,26 @@ public class LadderLine {
         return "     ";
     }
 
+    public int size(){
+        return ladderLine.size();
+    }
+
+    public boolean get(int i){
+        return ladderLine.get(i);
+    }
+
+    // Test
+    public int isFilled(){
+        return ladderLine.size();
+    }
+
+    public boolean isDoubleFoothold(){
+        for (int i = 0; i < ladderLine.size()-1; i++) {
+            if (ladderLine.get(i) && ladderLine.get(i+1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
