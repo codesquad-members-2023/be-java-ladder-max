@@ -1,8 +1,9 @@
 import kr.codesquad.domain.Line;
 import org.assertj.core.api.SoftAssertions;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class LineTest {
     @Test
@@ -20,8 +21,28 @@ public class LineTest {
     void testColumn() {
         Line line = new Line(11);
         String str = line.toString();
-        String[] columns = str.split("\\|");
-        //@ToDo static, assertThat
-        Assertions.assertEquals(11, columns.length*2-1);
+        String[] headCount = str.split("\\|");
+        assertEquals(11, headCount.length*2-1);
+    }
+    @Test
+    @DisplayName("좌표이동의 총합이 0인지 확인")
+    void testMoveTotal(){
+        Line line = new Line(7);
+        int[] move = line.move();
+        int total = 0;
+        for (int i : move){
+            total += i;
+        }
+        assertEquals(0,total);
+    }
+    @Test
+    @DisplayName("좌표이동이 -1,0,1인지 확인")
+    void testMovePoint(){
+        Line line = new Line(7);
+        int[] move = line.move();
+        SoftAssertions softly = new SoftAssertions();
+        for (int i : move){
+            softly.assertThat(i).isBetween(-1,1);
+        }
     }
 }
