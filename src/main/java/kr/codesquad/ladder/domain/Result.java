@@ -14,9 +14,12 @@ public class Result {
         this.resultName = resultName;
     }
 
-    public List<String> resultList(){
+    private List<String> resultList(){
         return Arrays.stream(resultName.split(","))
                 .collect(Collectors.toList());
+    }
+    public String individualResult(int i) {
+        return resultList().get(i);
     }
 
     private String formatName(String temp) {
