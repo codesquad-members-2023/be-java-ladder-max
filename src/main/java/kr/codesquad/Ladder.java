@@ -26,13 +26,27 @@ public class Ladder {
         StringBuilder nameLine = new StringBuilder();
 
         for (String player : playerList) {
-            nameLine.append(" " + makeFormalName(player));
+            nameLine.append(" ").append(makeFormalName(player));
         }
 
         return nameLine.toString();
     }
 
     private String makeFormalName (String player) {
+        StringBuilder formalName = new StringBuilder();
+        int diff = MAX_LEN - player.length();
+
+        int left = diff / 2;
+        int right = diff - left;
+
+        for (int i = 0; i < left; i++) {
+            formalName.append(' ');
+        }
+        formalName.append(player);
+        for (int i = 0; i < right; i++) {
+            formalName.append(' ');
+        }
+        return formalName.toString();
     }
 
     private String fillLadderLine(int numberOfPlayer) {
