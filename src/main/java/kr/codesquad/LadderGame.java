@@ -66,8 +66,7 @@ public class LadderGame implements Runnable {
 
   private boolean isValidPlayer(String[] playerNames) {
     if (playerNames.length < MIN_SIZE_OF_PEOPLE) return false; // 최소 플레이어수 확인
-    var count = Arrays.stream(playerNames).filter(name -> name.length() > MAX_NAME_SIZE).count();
-    return count == 0;
+    return Arrays.stream(playerNames).allMatch(name -> name.length() > MAX_NAME_SIZE);
   }
 
   private Optional<Integer> parseLadderSize(String inputString) {
