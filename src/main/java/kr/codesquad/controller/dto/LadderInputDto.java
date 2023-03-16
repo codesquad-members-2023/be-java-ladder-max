@@ -16,10 +16,6 @@ public class LadderInputDto {
         this.goals = goals;
     }
 
-    public LadderInputDto(List<String> playerNames, int height) {
-        this(playerNames, height, Collections.emptyList());
-    }
-
     public int getPlayerNumber() {
         return playerNumber;
     }

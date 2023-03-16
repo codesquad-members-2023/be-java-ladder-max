@@ -23,7 +23,7 @@ public class LadderGameController {
     public void run() {
         final List<String> playerNames = inputPlayerNames();
         final int height = inputLadderHeight();
-        final List<String> goals = inputGoals();
+        final List<String> goals = inputGoals(playerNames.size());
         final LadderOutputDto ladderOutputDto = ladderGame.play(new LadderInputDto(playerNames, height, goals));
 
         screen.printLadder(playerNames, ladderOutputDto.getLadderShape(), goals);
@@ -40,14 +40,21 @@ public class LadderGameController {
         System.out.println("게임을 종료합니다.");
     }
 
-    private List<String> inputGoals() {
+    private List<String> inputGoals(int playerNumber) {
         Optional<List<String>> goals = Optional.empty();
-
         while (goals.isEmpty()) {
             goals = screen.inputGoals();
         }
+        if (isNotMatchOfPlayerNumber(playerNumber, goals.get())) {
+            System.out.println("플레이어 수만큼 결과를 입력하세요.");
+            return inputGoals(playerNumber);
+        }
 
         return goals.get();
+    }
+
+    private boolean isNotMatchOfPlayerNumber(int playerNumber, List<String> goals) {
+        return goals.size() != playerNumber;
     }
 
     private int inputLadderHeight() {
