@@ -1,5 +1,8 @@
 package kr.codesquad.domain.result;
 
+import kr.codesquad.domain.destination.DestinationGroup;
+import kr.codesquad.domain.ladder.Ladder;
+import kr.codesquad.domain.player.PlayerGroup;
 import kr.codesquad.exception.GameProgressException;
 
 import java.util.ArrayList;
@@ -9,13 +12,20 @@ public class ResultGroup {
 
     private final List<Result> results;
 
-    public ResultGroup() {
+    public ResultGroup(PlayerGroup playerGroup, DestinationGroup destinationGroup, Ladder ladder) {
         this.results = new ArrayList<>();
+
+        int playerCount = playerGroup.getPlayerCount();
+
+        for(int i = 0; i < playerCount; i++) {
+            int resultIndex = ladder.climbDownLadder(i);
+            results.add(new Result(playerGroup.getName(i), destinationGroup.getName(resultIndex)));
+        }
     }
 
-    public void add(Result result) {
-        results.add(result);
-    }
+    //public void add(Result result) {
+    //    results.add(result);
+    //}
 
     public String getResult(String playerName) throws GameProgressException {
         if(playerName.equals("--quit")) {
