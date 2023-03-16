@@ -11,6 +11,9 @@ public class OutputView {
     public void printPlayersAndLadder(String[] players, String ladder){
         printPlayersName(players);
         printLadder(ladder);
+
+        System.out.println(sb);
+        sb.setLength(0); // stringBuilder 초기화 (리셋)
     }
 
     public void printPlayersName(String[] players){
@@ -18,9 +21,6 @@ public class OutputView {
             sb.append(player).append(insertBlank(player.length()));
         }
         sb.append("\n");
-
-        System.out.println(sb);
-        sb.setLength(0); // stringBuilder 초기화 (리셋)
     }
 
     public String insertBlank(int playerNameLength){
@@ -29,8 +29,5 @@ public class OutputView {
 
     public void printLadder(String ladder){
         sb.append(ladder);
-
-        System.out.println(sb);
-        sb.setLength(0); // stringBuilder 초기화 (리셋)
     }
 }
