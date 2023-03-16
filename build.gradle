@@ -23,6 +23,6 @@ test {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'kr.codesquad.Main'
+        attributes 'Main-Class': 'kr.codesquad.ladder.Main'
     }
 }

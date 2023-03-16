@@ -1,44 +1,48 @@
 package kr.codesquad.ladder.domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import kr.codesquad.ladder.exception.InvalidContainOfNamesException;
+import kr.codesquad.ladder.exception.InvalidCountOfPeopleException;
 
-public class Names {
+public class Names implements Iterable<Name> {
 
-    private static final Pattern NAME_FORMAT = Pattern.compile("[a-zA-Z]{1,5}");
-    private static final Pattern DELIMITER = Pattern.compile("\\s*,\\s*");
+    private static final int MINIMUM_PERSON = 2;
 
-    private final List<String> names;
+    private final List<Name> names;
 
-    public Names(String text, int minimumNumberOfPeople) {
-        validateNameFormat(text);
-        validateNumberOfPeople(text, minimumNumberOfPeople);
-        this.names = new ArrayList<>(List.of(text.split(DELIMITER.pattern())));
+    public Names(List<Name> names) {
+        validateNumberOfPeople(names);
+        this.names = new ArrayList<>(names);
     }
 
-    // text 형식이 "pobi,hounx,jk, ..., crong"와 같은 형식인지 검사합니다.
-    private void validateNameFormat(String text) {
-        String[] names = text.split(DELIMITER.pattern());
-        Arrays.stream(names)
-            .filter(name -> !NAME_FORMAT.matcher(name).matches())
-            .forEach(name -> {
-                throw new InvalidNameFormatOfPeopleException();
-            });
-    }
-
-    private void validateNumberOfPeople(String text, int minimumNumberOfPeople) {
-        String[] names = text.split(DELIMITER.pattern());
-        if (names.length < minimumNumberOfPeople) {
+    private void validateNumberOfPeople(List<Name> names) {
+        if (names.size() < MINIMUM_PERSON) {
             throw new InvalidCountOfPeopleException();
         }
     }
 
     public int size() {
         return names.size();
+    }
+
+    public int findIndexByName(Name name) {
+        if (isNotContains(name)) {
+            throw new InvalidContainOfNamesException();
+        }
+        return names.indexOf(name);
+    }
+
+    private boolean isNotContains(Name name) {
+        return names.indexOf(name) == -1;
+    }
+
+    @Override
+    public Iterator<Name> iterator() {
+        return names.iterator();
     }
 
     @Override
@@ -64,4 +68,6 @@ public class Names {
             .map(name -> String.format("%-5s", name))
             .collect(Collectors.joining(" "));
     }
+
+
 }

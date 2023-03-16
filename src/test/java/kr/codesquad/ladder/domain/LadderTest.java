@@ -14,7 +14,7 @@ class LadderTest {
     @DisplayName("랜덤한 사다리가 주어졌을때 사다리 타기가 되는지 테스트")
     public void climb_testcase1() {
         //given
-        LadderGenerator generator = new LadderGenerator(2, 1);
+        LadderGenerator generator = new LadderGenerator(2);
         //mocking
         Random mockRandom = mock(Random.class);
         when(mockRandom.nextBoolean()).thenReturn(true, false);
@@ -29,7 +29,7 @@ class LadderTest {
     @DisplayName("4명과 사다리 높이 5가 주어졌을때 사다리 타기가 되는지 테스트")
     public void climb_testcase2() {
         //given
-        LadderGenerator generator = new LadderGenerator(5, 1);
+        LadderGenerator generator = new LadderGenerator(5);
         //mocking
         Random mockRandom = mock(Random.class);
         when(mockRandom.nextBoolean()).thenReturn(
@@ -42,14 +42,14 @@ class LadderTest {
         Ladder ladder = generator.createLines(4, mockRandom);
         //when
         int actual1 = ladder.climb(0);
-        int actual2 = ladder.climb(2);
-        int actual3 = ladder.climb(4);
-        int actual4 = ladder.climb(6);
+        int actual2 = ladder.climb(1);
+        int actual3 = ladder.climb(2);
+        int actual4 = ladder.climb(3);
         //then
         Assertions.assertThat(actual1).isEqualTo(0);
-        Assertions.assertThat(actual2).isEqualTo(6);
-        Assertions.assertThat(actual3).isEqualTo(4);
-        Assertions.assertThat(actual4).isEqualTo(2);
+        Assertions.assertThat(actual2).isEqualTo(3);
+        Assertions.assertThat(actual3).isEqualTo(2);
+        Assertions.assertThat(actual4).isEqualTo(1);
     }
 
 }

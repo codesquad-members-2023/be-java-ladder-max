@@ -64,7 +64,7 @@ public class Points implements Iterable<Point> {
             if (visited[adjacentColumn]) {
                 continue;
             }
-            if (points.get(adjacentColumn).isEmpty()) {
+            if (isEmptyColumn(adjacentColumn)) {
                 continue;
             }
             return climbUtil(adjacentColumn, visited);
@@ -82,5 +82,9 @@ public class Points implements Iterable<Point> {
             adjacentColumns.add(col + 1);
         }
         return adjacentColumns;
+    }
+
+    private boolean isEmptyColumn(int col) {
+        return points.get(col).isEmpty();
     }
 }
