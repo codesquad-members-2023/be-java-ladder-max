@@ -112,7 +112,7 @@
           </grid>
         </constraints>
         <properties>
-          <background color="-7181"/>
+          <background color="-2888761"/>
           <dropMode value="USE_SELECTION"/>
           <editable value="false"/>
           <enabled value="true"/>
