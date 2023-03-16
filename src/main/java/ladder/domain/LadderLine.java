@@ -9,30 +9,11 @@ public class LadderLine {
     // 한줄씩 사다리 만들어내기
     private List<String> ladder;
     private int countOfPerson;
-    public LadderLine (int countOfPerson) {
+    public LadderLine (int countOfPerson,RandomGenerator generator) {
         this.countOfPerson = countOfPerson;
-        this.ladder = remakeLadder();
+        this.ladder = generator.remakeLadder(countOfPerson);
     }
 
-    public List<String> remakeLadder() {
-        List<String> ladder = new ArrayList<>();
-        for (int i = 0; i < countOfPerson- 1; i++) {
-            ladder.add(randomLadder(i, ladder));
-        }
-        return ladder;
-    }
-
-    private String randomLadder(int index, List<String> ladder) {
-        String[] indexRandom = {"     ", "-----"};
-        Random random = new Random();
-        if (index == 0) {
-            return indexRandom[random.nextInt(2)];
-        }
-        if (ladder.get(index-1).equals("     ")) {
-            return indexRandom[random.nextInt(2)];
-        }
-        return "     ";
-    }
 
     @Override
     public String toString() {

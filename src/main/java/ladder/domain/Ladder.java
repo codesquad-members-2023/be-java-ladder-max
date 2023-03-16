@@ -13,8 +13,9 @@ public class Ladder {
     @Override
     public String toString(){
         StringBuilder sbr = new StringBuilder();
+        RandomGenerator randomGenerator = new RandomGenerator();
         for (int i = 0; i < height; i++) {
-            sbr.append(new LadderLine(countOfPerson));
+            sbr.append(new LadderLine(countOfPerson,randomGenerator));
             sbr.append("\n");
         }
         return sbr.toString();
