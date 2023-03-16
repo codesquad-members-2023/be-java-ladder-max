@@ -68,6 +68,4 @@ public class Names implements Iterable<Name> {
             .map(name -> String.format("%-5s", name))
             .collect(Collectors.joining(" "));
     }
-
-
 }

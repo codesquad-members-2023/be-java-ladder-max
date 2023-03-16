@@ -1,9 +1,10 @@
 package kr.codesquad.ladder.domain;
 
+import java.util.Iterator;
 import java.util.Objects;
 import java.util.Random;
 
-public class Line {
+public class Line implements Iterable<Point> {
 
     private final Points points;
 
@@ -46,6 +47,11 @@ public class Line {
     }
 
     @Override
+    public Iterator<Point> iterator() {
+        return points.iterator();
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -70,5 +76,4 @@ public class Line {
         }
         return line.toString();
     }
-
 }
