@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/kr/codesquad/domain/LadderLineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/kr/codesquad/domain/LadderLineTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/LadderGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/LadderGameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/Screen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +111,20 @@
       <recent name="kr.codesquad.view" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LadderLineTest">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
+      <module name="java-lotto.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kr.codesquad.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LadderLineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-lotto.test" />
       <extension name="coverage">
@@ -157,22 +171,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LadderTest.LadderCreateFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-lotto.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="kr.codesquad.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderTest" />
-      <option name="METHOD_NAME" value="LadderCreateFailTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LadderTest.makeResultTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-lotto.test" />
       <extension name="coverage">
@@ -191,11 +189,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.LadderLineTest" />
         <item itemvalue="JUnit.LadderLineTest.findDirectionTest" />
         <item itemvalue="JUnit.LadderTest.makeResultTest" />
         <item itemvalue="JUnit.LadderTest" />
-        <item itemvalue="JUnit.LadderTest.LadderCreateFailTest" />
       </list>
     </recent_temporary>
   </component>
@@ -235,7 +233,7 @@
       <workItem from="1678844865152" duration="5054000" />
       <workItem from="1678861081556" duration="3166000" />
       <workItem from="1678887161707" duration="225000" />
-      <workItem from="1678931567501" duration="8440000" />
+      <workItem from="1678931567501" duration="10558000" />
     </task>
     <servers />
   </component>
