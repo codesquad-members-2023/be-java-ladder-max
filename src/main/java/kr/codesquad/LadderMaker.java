@@ -12,50 +12,42 @@ public class LadderMaker {
 
     public void make(ArrayList<String> namesInput, int ladderHeight) {
         namesList = namesInput;
-        int bridgeOrSpace = 0;
+
         ladderBoard = new ArrayList<>();
         for (int ladderFloorNum = 0; ladderFloorNum < ladderHeight; ladderFloorNum++) {
             ladderBoard.add(new ArrayList<>());
             ladderBoard.get(ladderFloorNum).add("|");
-           makeRemainParts(bridgeOrSpace, ladderFloorNum);
+            makeRemainParts(ladderFloorNum);
         }
         printer.printResult(ladderBoard, namesList);
     }
-    private void  makeRemainParts (int bridgeOrSpace, int ladderFloorsNum){
-        makeIndexNumber1(bridgeOrSpace, ladderFloorsNum);
-        for (int ladderFloorIndex = 1; ladderFloorIndex < namesList.size() - 1; ladderFloorIndex++) {
-            bridgeOrSpace = 0;
-            makeBridgeNotSecond(bridgeOrSpace, ladderFloorIndex, ladderFloorsNum);
+
+    private void makeRemainParts(int ladderFloorNum) {
+        makeIndexNumber1(ladderFloorNum);
+        for (int ladderFloorIndex = 2; ladderFloorIndex < namesList.size(); ladderFloorIndex++) {
+            makeBridgeNotSecond(ladderFloorIndex, ladderFloorNum);
         }
     }
-    private void makeIndexNumber1(int bridgeOrSpace, int ladderFloorsNum){
+
+    private void makeIndexNumber1(int ladderFloorsNum) {
         if (random.nextBoolean()) {
-            bridgeOrSpace = 1;
+            ladderBoard.get(ladderFloorsNum).add("-----");
+            ladderBoard.get(ladderFloorsNum).add("|");
         }
-        switch (bridgeOrSpace) {
-            case 1:
-                ladderBoard.get(ladderFloorsNum).add("-----");
-                ladderBoard.get(ladderFloorsNum).add("|");
-                break;
-            case 0:
-                ladderBoard.get(ladderFloorsNum).add("     ");
-                ladderBoard.get(ladderFloorsNum).add("|");
-                break;
+        if (!random.nextBoolean()) {
+            ladderBoard.get(ladderFloorsNum).add("     ");
+            ladderBoard.get(ladderFloorsNum).add("|");
         }
     }
-    private void makeBridgeNotSecond(int bridgeOrSpace, int ladderFloorIndex, int ladderFloors){
-        if (random.nextBoolean() && ladderBoard.get(ladderFloors).get(ladderFloorIndex - 1).equals("     ")) {
-            bridgeOrSpace = 1;
+
+    private void makeBridgeNotSecond(int ladderFloorIndex, int ladderFloorsNum) {
+        if (random.nextBoolean() == true && ladderBoard.get(ladderFloorsNum).get(ladderFloorIndex - 1).equals("     ")) {
+            ladderBoard.get(ladderFloorsNum).add("-----");
+            ladderBoard.get(ladderFloorsNum).add("|");
         }
-        switch (bridgeOrSpace) {
-            case 1:
-                ladderBoard.get(ladderFloors).add("-----");
-                ladderBoard.get(ladderFloors).add("|");
-                break;
-            case 0:
-                ladderBoard.get(ladderFloors).add("     ");
-                ladderBoard.get(ladderFloors).add("|");
-                break;
+        if (random.nextBoolean() == false && ladderBoard.get(ladderFloorsNum).get(ladderFloorIndex - 1).equals("     ")) {
+            ladderBoard.get(ladderFloorsNum).add("     ");
+            ladderBoard.get(ladderFloorsNum).add("|");
         }
     }
 }
