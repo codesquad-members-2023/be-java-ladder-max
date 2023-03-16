@@ -17,7 +17,7 @@ public class OutputView {
     }
 
     // 이 부분은 OutputView 의 일이 아니지 않나 고민중...
-    public void printPlayersName(String[] players){
+    private void printPlayersName(String[] players){
         for (String player : players) {
             sb.append(player).append(insertBlank(player.length()));
         }
@@ -28,7 +28,7 @@ public class OutputView {
         return " ".repeat(DEFAULT_WIDTH - playerNameLength);
     }
 
-    public void printLadder(String ladder){
+    private void printLadder(String ladder){
         sb.append(ladder);
     }
 }
