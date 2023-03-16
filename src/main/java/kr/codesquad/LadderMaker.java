@@ -12,42 +12,44 @@ public class LadderMaker {
 
     public void make(ArrayList<String> namesInput, int ladderHeight) {
         namesList = namesInput;
-
         ladderBoard = new ArrayList<>();
         for (int ladderFloorNum = 0; ladderFloorNum < ladderHeight; ladderFloorNum++) {
             ladderBoard.add(new ArrayList<>());
-            ladderBoard.get(ladderFloorNum).add("|");
+            ladderBoard.get(ladderFloorNum).add("|"); //makeFirstStick
             makeRemainParts(ladderFloorNum);
         }
         printer.printResult(ladderBoard, namesList);
     }
 
     private void makeRemainParts(int ladderFloorNum) {
-        makeIndexNumber1(ladderFloorNum);
-        for (int ladderFloorIndex = 2; ladderFloorIndex < namesList.size(); ladderFloorIndex++) {
+        makeFirstBridge(ladderFloorNum);
+        for (int ladderFloorIndex = 1; ladderFloorIndex < namesList.size()-1; ladderFloorIndex++) {
             makeBridgeNotSecond(ladderFloorIndex, ladderFloorNum);
         }
     }
 
-    private void makeIndexNumber1(int ladderFloorsNum) {
-        if (random.nextBoolean()) {
-            ladderBoard.get(ladderFloorsNum).add("-----");
-            ladderBoard.get(ladderFloorsNum).add("|");
+    private void makeFirstBridge(int ladderFloorNum) {
+        boolean bool = random.nextBoolean();
+        if (bool == true) {
+            ladderBoard.get(ladderFloorNum).add("-----|");
         }
-        if (!random.nextBoolean()) {
-            ladderBoard.get(ladderFloorsNum).add("     ");
-            ladderBoard.get(ladderFloorsNum).add("|");
+        if (bool == false) {
+            ladderBoard.get(ladderFloorNum).add("     |");
         }
     }
 
     private void makeBridgeNotSecond(int ladderFloorIndex, int ladderFloorsNum) {
-        if (random.nextBoolean() == true && ladderBoard.get(ladderFloorsNum).get(ladderFloorIndex - 1).equals("     ")) {
-            ladderBoard.get(ladderFloorsNum).add("-----");
-            ladderBoard.get(ladderFloorsNum).add("|");
+        boolean bool = random.nextBoolean();
+        if (ladderBoard.get(ladderFloorsNum).get(ladderFloorIndex - 1).equals("-----|")) {
+            ladderBoard.get(ladderFloorsNum).add("     |");
         }
-        if (random.nextBoolean() == false && ladderBoard.get(ladderFloorsNum).get(ladderFloorIndex - 1).equals("     ")) {
-            ladderBoard.get(ladderFloorsNum).add("     ");
-            ladderBoard.get(ladderFloorsNum).add("|");
+        if (bool == true && ladderBoard.get(ladderFloorsNum).get(ladderFloorIndex - 1).equals("     |")) {
+            ladderBoard.get(ladderFloorsNum).add("-----|");
+        }
+        if (bool == false && ladderBoard.get(ladderFloorsNum).get(ladderFloorIndex - 1).equals("     |")) {
+            ladderBoard.get(ladderFloorsNum).add("     |");
         }
     }
 }
+
+
