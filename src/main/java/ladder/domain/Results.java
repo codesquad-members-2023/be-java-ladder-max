@@ -20,10 +20,9 @@ public class Results {
         for (String category : categories) {
             int frontBlank = (size - category.length()) / 2;
             int backBlank = (size - category.length()) % 2;
-            boolean isNotMaxLength = category.length() < size;
             builder.append(" ".repeat(frontBlank));
             builder.append(category);
-            builder.append(" ".repeat(frontBlank == 0 && isNotMaxLength ? backBlank : frontBlank));
+            builder.append(" ".repeat(frontBlank + backBlank));
         }
         return builder.toString();
     }
@@ -32,7 +31,14 @@ public class Results {
         if (name.equals("all")) {
             return findAllResults();
         }
+        checkIsPlayerName(name);
         return categories[results.get(name)];
+    }
+
+    private void checkIsPlayerName(String name) {
+        if (!results.containsKey(name)) {
+            throw new IllegalArgumentException("참여자 목록에 없는 이름입니다.");
+        }
     }
 
     private String findAllResults() {

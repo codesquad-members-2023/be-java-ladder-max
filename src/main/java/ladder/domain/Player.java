@@ -19,10 +19,9 @@ public class Player {
         StringBuilder builder = new StringBuilder();
         int frontBlank = (size - name.length()) / 2;
         int backBlank = (size - name.length()) % 2;
-        boolean isNotMaxLength = name.length() < size;
         builder.append(" ".repeat(frontBlank));
         builder.append(name);
-        builder.append(" ".repeat(frontBlank == 0 && isNotMaxLength ? backBlank : frontBlank));
+        builder.append(" ".repeat(frontBlank + backBlank));
         return builder.toString();
     }
 }
