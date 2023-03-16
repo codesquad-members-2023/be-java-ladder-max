@@ -1,10 +1,12 @@
 package kr.codesquad;
 
-import kr.codesquad.controller.LadderGameController;
+import kr.codesquad.contoroller.LadderGameController;
+import kr.codesquad.view.InputView;
+import kr.codesquad.view.OutputView;
 
 public class Main {
     public static void main(String[] args) {
-        LadderGameController gameController = new LadderGameController();
-        gameController.startLadderGame();
+        LadderGameController controller = new LadderGameController(new InputView(), new OutputView());
+        controller.run();
     }
 }
