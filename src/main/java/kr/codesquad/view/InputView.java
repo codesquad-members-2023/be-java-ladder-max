@@ -41,13 +41,7 @@ public class InputView {
     }
 
     private boolean validateNameSize(String input) {
-        String []nameArr = input.split(DELIMITER);
-        for (String s : nameArr) {
-            if(s.length()>5){
-                return false;
-            }
-        }
-        return true;
+        return Arrays.stream(input.split(DELIMITER)).noneMatch(name -> name.length()>5);
     }
 
     public int inputLadderHeight() {
