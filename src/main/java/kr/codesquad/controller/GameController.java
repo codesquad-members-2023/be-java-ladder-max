@@ -18,7 +18,7 @@ public class GameController {
     public void runLadderGame() {
         while(true) {
             try {
-                assembleLadderGameLogic();
+                executeLadderGameCycle();
             } catch (GameProgressException e) {
                 System.out.println(e.getMessage());
             } catch (IOException e) {
@@ -29,7 +29,7 @@ public class GameController {
         }
     }
 
-    private void assembleLadderGameLogic() throws IOException, GameProgressException {
+    private void executeLadderGameCycle() throws IOException, GameProgressException {
         System.out.println("-----[사다리 게임 시작]-----");
         PlayerGroup playerGroup = createPlayerGroup();
         DestinationGroup destinationGroup = createDestinationGroup(playerGroup.getPlayerCount());
