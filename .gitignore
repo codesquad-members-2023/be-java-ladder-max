@@ -5,7 +5,7 @@ build/
 !**/src/test/**/build/
 
 ### IntelliJ IDEA ###
-.ieda/uiDesigner.xml
+.idea/uiDesigner.xml
 .idea/gradle.xml
 .idea/workspace.xml
 .idea/modules.xml
