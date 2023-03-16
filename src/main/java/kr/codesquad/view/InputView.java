@@ -24,7 +24,7 @@ public class InputView {
     }
 
     public String inputSelectPlayer() throws IOException {
-        System.out.println("결과를 보고 싶은 사람은?");
+        System.out.println("결과를 보고 싶은 사람은? (프로그램 종료 : --quit, 다시 시작: --restart)");
         return br.readLine();
     }
 

@@ -1,4 +1,6 @@
-package kr.codesquad.domain;
+package kr.codesquad.domain.result;
+
+import kr.codesquad.exception.GameProgressException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,16 @@ public class ResultGroup {
         results.add(result);
     }
 
-    public String getResult(String playerName) {
+    public String getResult(String playerName) throws GameProgressException {
+        if(playerName.equals("--quit")) {
+            System.out.println("프로그램을 종료합니다.");
+            System.exit(0);
+        }
+
+        if(playerName.equals("--restart")) {
+            throw new GameProgressException("게임을 다시 시작합니다.");
+        }
+
         StringBuilder sb = new StringBuilder();
         if(playerName.equals("all")) {
             for(Result result : results) {

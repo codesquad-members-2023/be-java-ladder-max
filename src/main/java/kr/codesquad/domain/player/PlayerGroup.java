@@ -1,4 +1,4 @@
-package kr.codesquad.domain;
+package kr.codesquad.domain.player;
 
 import java.util.Arrays;
 

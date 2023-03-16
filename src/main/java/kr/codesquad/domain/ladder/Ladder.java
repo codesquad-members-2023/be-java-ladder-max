@@ -1,4 +1,4 @@
-package kr.codesquad.domain;
+package kr.codesquad.domain.ladder;
 
 import java.util.*;
 
@@ -9,13 +9,19 @@ public class Ladder {
     private final int bridgeLineSize;
 
     public Ladder(int playerCount, int ladderHeight) {
+        validateLadderHeight(ladderHeight);
         this.height = ladderHeight;
         this.playerLineSize = playerCount;
         this.bridgeLineSize = playerCount - 1;
         this.ladder = makeLadder();
     }
 
-    /* private method */
+    private void validateLadderHeight(int height) {
+        if(height < 0 || height > 20) {
+            throw new IllegalArgumentException("사다리 높이는 1 이상, 20 이하로 입력해 주세요.");
+        }
+    }
+
     private List<LadderRow> makeLadder() {
         List<LadderRow> ladder = new ArrayList<>(height);
 

@@ -1,4 +1,4 @@
-package kr.codesquad.domain;
+package kr.codesquad.domain.player;
 
 public class Player {
     private final int MAX_NAME_LENGTH = 5;
@@ -20,7 +20,11 @@ public class Player {
     }
 
     public String getCenterAlignedName() {
-        return String.format("%"+MAX_NAME_LENGTH+"s"
-                , String.format("%-" + (((MAX_NAME_LENGTH - name.length()) / 2) + name.length()) + "s", name));
+        return String.format("%"+MAX_NAME_LENGTH+"s", appendPaddingToEndOf(name));
+    }
+
+    private String appendPaddingToEndOf(String name) {
+        int paddingSize = (MAX_NAME_LENGTH - name.length()) / 2;
+        return name + " ".repeat(paddingSize);
     }
 }
