@@ -13,7 +13,7 @@ public class Line {
         makeLine(column);
         this.column = column;
     }
-    public int[] move(){
+    public int[] move(){ // [1,0,-1,0,1,0,-1]
         int[] move = new int[column];
         for (int i=1;i<column;i+=2){ // 홀수 인덱스만 반복
             if ("-----".equals(line.get(i))){
