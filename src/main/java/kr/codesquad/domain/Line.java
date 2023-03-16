@@ -1,12 +1,13 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Line {
-    private ArrayList<String> line;
+    private List<String> line;
     public Line(int column){
         makeLine(column);
     }

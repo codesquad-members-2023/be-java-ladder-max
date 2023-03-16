@@ -1,20 +1,25 @@
 package kr.codesquad.domain;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.NoSuchElementException;
+
 public class LadderGame {
-    private String[] players;
-    public void start(String players, int row){
-        this.players = players.split(",");
-        Ladder ladder = new Ladder(row,this.players.length);
-        printPlayers();
-        printLadder(ladder.make());
+    private Players players;
+    public void start(String list,String result, int row){
+        List<String> playersList = Arrays.asList(list.split(","));
+
+        Ladder ladder = new Ladder(row,playersList.size());
+        this.players = new Players(playersList,result,ladder.make());
+
+        System.out.println(players.getNames()); // 플레이어 이름
+        System.out.println(ladder.make()); // 사다리 모양
+        System.out.println(players.getResult()); // 결과
     }
-    private void printLadder(String ladder){
-        System.out.println(ladder);
-    }
-    private void printPlayers(){
-        for (String name : players){
-            System.out.printf("%-6s", name); // 각 이름당 주어진 자리는 6자리
+    public void searchResult(String id) {
+        if ("춘식이".equals(id)){
+            throw new IllegalArgumentException();
         }
-        System.out.println();
+        System.out.println(players.searchResult(id));
     }
 }

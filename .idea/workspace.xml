@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/InputLadder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/InputLadder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Players.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Players.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/Client.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,12 +72,12 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.view.Client" />
       <module name="java-lotto.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.*" />
+          <option name="PATTERN" value="kr.codesquad.domain.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,6 +104,10 @@
       <workItem from="1678684891994" duration="213000" />
       <workItem from="1678685108045" duration="1558000" />
       <workItem from="1678694140925" duration="948000" />
+      <workItem from="1678761660878" duration="17567000" />
+      <workItem from="1678786449921" duration="2015000" />
+      <workItem from="1678795032879" duration="8375000" />
+      <workItem from="1678862964960" duration="8377000" />
     </task>
     <servers />
   </component>
