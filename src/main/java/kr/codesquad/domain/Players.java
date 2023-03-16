@@ -9,6 +9,7 @@ public class Players {
     public Players(List<String> playersList,String result, String ladder){
         this.players = playersList;
         this.result = Arrays.asList(result.split(","));
+        playerResult = new HashMap<>();
         trim(players);
         trim(this.result);
         calculateResult(ladder);

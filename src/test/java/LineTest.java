@@ -21,6 +21,7 @@ public class LineTest {
         Line line = new Line(11);
         String str = line.toString();
         String[] columns = str.split("\\|");
+        //@ToDo static, assertThat
         Assertions.assertEquals(11, columns.length*2-1);
     }
 }

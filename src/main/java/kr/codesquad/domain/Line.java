@@ -11,6 +11,7 @@ public class Line {
     public Line(int column){
         makeLine(column);
     }
+
     private void makeLine(int column){
         makeBasicLine(column);
         boolean front = false; // 왼쪽에 사다리 가로선이 있으면 true
