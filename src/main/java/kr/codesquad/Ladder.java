@@ -26,7 +26,7 @@ public class Ladder {
         StringBuilder nameLine = new StringBuilder();
 
         for (String player : playerList) {
-            nameLine.append(" ").append(makeFormalName(player));
+            nameLine.append(makeFormalName(player)).append(" ");
         }
 
         return nameLine.toString();
@@ -52,6 +52,10 @@ public class Ladder {
     private String fillLadderLine(int numberOfPlayer) {
         StringBuilder ladderLine = new StringBuilder();
         List<Boolean> stepLayoutList = generateRandomStepList(numberOfPlayer);
+
+        for(int i = 0; i < MAX_LEN / 2 ; i++) {
+            ladderLine.append(' ');
+        }
 
         for (Boolean isExistStep : stepLayoutList) {
             ladderLine.append((isExistStep) ? "|-----" : "|     ");
