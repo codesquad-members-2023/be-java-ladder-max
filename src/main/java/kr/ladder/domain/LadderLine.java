@@ -15,6 +15,7 @@ public class LadderLine {
         for (int i = 0; i < playerNumber-1; i++) { // 열 넣기 (그룹 개수)
             ladderLine.add(randomBoolean());
         }
+
         checkDoubleFoothold();
     }
 
@@ -25,9 +26,13 @@ public class LadderLine {
 
     private void checkDoubleFoothold(){ // "-----" + "-----" 일 때 발판 바꾸기
         for (int i = 0; i < ladderLine.size()-1; i++) {
-            if (ladderLine.get(i) && ladderLine.get(i+1)) {
-                ladderLine.set(i+1, false);
-            }
+            fixDoubleFoothold(i);
+        }
+    }
+
+    private void fixDoubleFoothold(int i){
+        if (ladderLine.get(i) && ladderLine.get(i+1)) {
+            ladderLine.set(i, false);
         }
     }
 
@@ -54,20 +59,6 @@ public class LadderLine {
 
     public boolean get(int i){
         return ladderLine.get(i);
-    }
-
-    // Test
-    public int isFilled(){
-        return ladderLine.size();
-    }
-
-    public boolean isDoubleFoothold(){
-        for (int i = 0; i < ladderLine.size()-1; i++) {
-            if (ladderLine.get(i) && ladderLine.get(i+1)) {
-                return false;
-            }
-        }
-        return true;
     }
 
 }
