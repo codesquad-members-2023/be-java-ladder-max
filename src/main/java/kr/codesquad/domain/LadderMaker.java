@@ -1,6 +1,5 @@
 package kr.codesquad;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LadderMaker {

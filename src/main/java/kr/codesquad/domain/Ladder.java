@@ -20,4 +20,8 @@ public class Ladder {
         }
         return sb.toString();
     }
+
+    public int getLadderSize() {
+        return this.ladder.size();
+    }
 }
