@@ -6,17 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ladder {
-    private final int width;
-    private final int height;
-    private final List<Line> lines;
+    private final List<Line> lines = new ArrayList<>();
 
     public Ladder(int players, int height) {
-        this.width = players - 1;
-        this.height = height;
-        this.lines = new ArrayList<>();
+        checkMinHeight(height);
+        int width = players - 1;
+        makeLadder(width, height);
     }
 
-    public void makeLadder() {
+    private void checkMinHeight(int height) {
+        if (height < 1) {
+            throw new IllegalArgumentException("사다리의 최소 높이는 1개입니다.");
+        }
+    }
+
+    private void makeLadder(int width, int height) {
         for (int i = 0; i < height; i++) {
             Line line = new Line(width, new RandomManager());
             lines.add(line);
