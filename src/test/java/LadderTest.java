@@ -41,5 +41,18 @@ class LadderTest {
         softly.assertThat(result).doesNotContain("-----|-----");
         softly.assertAll();
     }
+    @Test
+    @DisplayName("결과 int[]의 인덱스 검사")
+    void testCalculateResult(){
+        Ladder ladder = new Ladder(5,4);
+        ladder.make();
+        int[] ans = ladder.calculateResult();
+
+        SoftAssertions softly = new SoftAssertions();
+        int[] test = {4};
+        softly.assertThat(ans).doesNotContain(4);
+        softly.assertThat(ans.length).isEqualTo(7);
+        softly.assertAll();
+    }
 }
 

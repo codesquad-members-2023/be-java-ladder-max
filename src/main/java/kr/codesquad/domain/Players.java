@@ -14,6 +14,7 @@ public class Players {
         trim(this.resultList);
         sortResult(result);
     }
+
     public String getNames(){
         StringBuilder sb = new StringBuilder();
         for (String name : players){
@@ -45,10 +46,10 @@ public class Players {
         String value = result.get(id);
         return id +" : "+value;
     }
-    private void sortResult(int[] result){
-        for (int i=0;i<result.length;i+=2){
+    private void sortResult(int[] tmp){
+        for (int i=0;i<tmp.length;i+=2){
             String key = players.get(i/2);
-            String value = resultList.get(result[i]);
+            String value = resultList.get(tmp[i]);
             this.result.put(key,value);
         }
     }

@@ -3,6 +3,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PlayersTest {
@@ -17,7 +18,14 @@ public class PlayersTest {
         int[] result = {3,0,1,0,0,0,2};
 
         Players players = new Players(list,"꽝,5000,꽝,3000",result);
-        String ans = players.searchResult("honux");
-        assertEquals("honux : 5000",ans);
+        String ans1 = players.searchResult("pobi");
+        String ans2 = players.searchResult("honux");
+        String ans3 = players.searchResult("crong");
+        String ans4 = players.searchResult("jk");
+        assertEquals("pobi : 3000",ans1);
+        assertEquals("honux : 5000",ans2);
+        assertEquals("crong : 꽝",ans3);
+        assertEquals("jk : 꽝",ans4);
+
     }
 }
