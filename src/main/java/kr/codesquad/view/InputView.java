@@ -16,7 +16,7 @@ public class InputView {
 
     public List<String> insertResults(int len) {
         Optional<List<String>> results = Optional.empty();
-        while(!checkValidResults(results, len)) {
+        while(!checkValidResults(results.orElse(new ArrayList<>()), len)) {
             System.out.println("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
             results = parseInput();
         }
@@ -25,7 +25,7 @@ public class InputView {
 
     public int insertHeight() {
         Optional<String> input = Optional.empty();
-        while(!checkValidNumber(input)) {
+        while(!checkValidNumber(input.orElse(null))) {
             System.out.println("최대 사다리 높이는 몇 개인가요?");
             input = Optional.of(this.sc.nextLine());
         }
@@ -34,7 +34,7 @@ public class InputView {
 
     public List<String> insertNames() {
         Optional<List<String>> people = Optional.empty();
-        while(!checkValidName(people)) {
+        while(!checkValidName(people.orElse(new ArrayList<>()))) {
             System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
             people = parseInput();
         }
