@@ -4,8 +4,6 @@ import kr.codesquad.ladder.exception.InvalidCountOfDestinationsException;
 import kr.codesquad.ladder.exception.InvalidCountOfPeopleException;
 import kr.codesquad.ladder.exception.InvalidFormatOfDestinationException;
 import kr.codesquad.ladder.exception.InvalidNameFormatOfPeopleException;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,20 +18,20 @@ public class LadderExceptionHandler {
     }
 
     @ExceptionHandler
-    public ResponseEntity<String> handleInvalidCountOfPeopleException(
+    public ModelAndView handleInvalidCountOfPeopleException(
         InvalidCountOfPeopleException exception) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
+        return new ModelAndView("redirect:/ladder");
     }
 
     @ExceptionHandler
-    public ResponseEntity<String> handleInvalidCountOfDestinationException(
+    public ModelAndView handleInvalidCountOfDestinationException(
         InvalidCountOfDestinationsException exception) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
+        return new ModelAndView("redirect:/ladder/form");
     }
 
     @ExceptionHandler
-    public ResponseEntity<String> handleInvalidFormatOfDestinationException(
+    public ModelAndView handleInvalidFormatOfDestinationException(
         InvalidFormatOfDestinationException exception) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
+        return new ModelAndView("redirect:/ladder/form");
     }
 }
