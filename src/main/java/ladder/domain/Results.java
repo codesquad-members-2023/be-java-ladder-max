@@ -7,8 +7,9 @@ public class Results {
     private final String[] categories;
     private final Map<String, Integer> results = new HashMap<>();
 
-    public Results(String[] categories) {
+    public Results(String[] categories, int players) {
         this.categories = categories;
+        checkNumberOfCategories(players);
     }
 
     public void addResult(String name, int index) {
@@ -20,10 +21,9 @@ public class Results {
         for (String category : categories) {
             int frontBlank = (size - category.length()) / 2;
             int backBlank = (size - category.length()) % 2;
-            boolean isNotMaxLength = category.length() < size;
             builder.append(" ".repeat(frontBlank));
             builder.append(category);
-            builder.append(" ".repeat(frontBlank == 0 && isNotMaxLength ? backBlank : frontBlank));
+            builder.append(" ".repeat(frontBlank + backBlank));
         }
         return builder.toString();
     }
@@ -32,7 +32,20 @@ public class Results {
         if (name.equals("all")) {
             return findAllResults();
         }
+        checkIsPlayerName(name);
         return categories[results.get(name)];
+    }
+
+    private void checkNumberOfCategories(int players) {
+        if (categories.length != players) {
+            throw new IllegalArgumentException("카테고리의 수가 참가자의 수와 일치하지 않습니다.");
+        }
+    }
+
+    private void checkIsPlayerName(String name) {
+        if (!results.containsKey(name)) {
+            throw new IllegalArgumentException("참여자 목록에 없는 이름입니다.");
+        }
     }
 
     private String findAllResults() {

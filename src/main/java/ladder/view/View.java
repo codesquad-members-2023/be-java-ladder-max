@@ -20,7 +20,7 @@ public class View {
         try {
             return bufferedReader.readLine();
         } catch (IOException e) {
-            throw new RuntimeException("입력 형식이 올바르지 않습니다.");
+            throw new IllegalArgumentException("입력 형식이 올바르지 않습니다.");
         }
     }
 
