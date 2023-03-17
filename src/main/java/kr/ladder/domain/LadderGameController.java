@@ -7,21 +7,27 @@ import kr.ladder.view.OutputView;
 import java.io.IOException;
 
 public class LadderGameController {
-        private InputView inputView;
+        private final InputView inputView;
 
-        private Ladder ladder;
+        private final Ladder ladder;
 
-        private OutputView outputView;
+        private final OutputView outputView;
+        private final InputValidation validation;
 
         public LadderGameController() {
                 this.inputView = new InputView();
                 this.ladder = new Ladder();
                 this.outputView = new OutputView();
+                this.validation = new InputValidation();
         }
 
         public void run() throws IOException {
-                String[] players = inputView.getPlayer();
-                ladder.makeLadder(players.length, inputView.getLadderHeight());
-                outputView.printPlayersAndLadder(players, ladder.toString());
+                // 입력
+                String[] players = validation.inspectPlayers(inputView.getPlayer());
+                int ladderHeight = validation.inspectLadderHeight(inputView.getLadderHeight());
+                // 사다리 만들기
+                ladder.make(players.length, ladderHeight);
+                // 출력
+                outputView.printPlayersAndLadder(players, ladder.generate());
         }
 }

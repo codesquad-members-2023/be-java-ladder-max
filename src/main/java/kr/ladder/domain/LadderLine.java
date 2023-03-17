@@ -11,12 +11,12 @@ public class LadderLine {
         this.ladderLine = new ArrayList<>();
     }
 
-    public void makeLadderLine(int playerNumber){
+    public void make(int playerNumber){
         for (int i = 0; i < playerNumber-1; i++) { // 열 넣기 (그룹 개수)
             ladderLine.add(randomBoolean());
         }
+
         checkDoubleFoothold();
-        checkEmptyFoothold();
     }
 
     private Boolean randomBoolean(){
@@ -26,22 +26,17 @@ public class LadderLine {
 
     private void checkDoubleFoothold(){ // "-----" + "-----" 일 때 발판 바꾸기
         for (int i = 0; i < ladderLine.size()-1; i++) {
-            if (ladderLine.get(i) && ladderLine.get(i+1)) {
-                ladderLine.set(i+1, false);
-            }
+            fixDoubleFoothold(i);
         }
     }
 
-    private void checkEmptyFoothold(){ // 3연속 false (공백)일 때 가운데 true (하이픈)으로 바꾸기
-        for (int i = 1; i < ladderLine.size()-1; i++) {
-            if (!ladderLine.get(i-1) && !ladderLine.get(i) && !ladderLine.get(i+1)) {
-                ladderLine.set(i, true);
-            }
+    private void fixDoubleFoothold(int i){
+        if (ladderLine.get(i) && ladderLine.get(i+1)) {
+            ladderLine.set(i, false);
         }
     }
 
-    @Override
-    public String toString() {
+    public String generate() {
         StringBuilder sb = new StringBuilder();
         sb.append("|");
 
@@ -56,6 +51,14 @@ public class LadderLine {
             return "-----";
         }
         return "     ";
+    }
+
+    public int size(){
+        return ladderLine.size();
+    }
+
+    public boolean get(int i){
+        return ladderLine.get(i);
     }
 
 }

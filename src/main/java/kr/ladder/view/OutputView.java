@@ -1,7 +1,5 @@
 package kr.ladder.view;
 
-import java.util.List;
-
 public class OutputView {
     private static final int DEFAULT_WIDTH = 6;
     StringBuilder sb;
@@ -13,29 +11,24 @@ public class OutputView {
     public void printPlayersAndLadder(String[] players, String ladder){
         printPlayersName(players);
         printLadder(ladder);
+
+        System.out.println(sb);
+        sb.setLength(0); // stringBuilder 초기화 (리셋)
     }
 
-    public void printPlayersName(String[] players){
+    // 이 부분은 OutputView 의 일이 아니지 않나 고민중...
+    private void printPlayersName(String[] players){
         for (String player : players) {
-            sb.append(player);
-            insertBlank(player);
+            sb.append(player).append(insertBlank(player.length()));
         }
         sb.append("\n");
-
-        System.out.println(sb);
-        sb.setLength(0); // stringBuilder 초기화 (리셋)
     }
 
-    public void insertBlank(String player){
-        for (int i = 0; i < DEFAULT_WIDTH - player.length(); i++) {
-            sb.append(" ");
-        }
+    public String insertBlank(int playerNameLength){
+        return " ".repeat(DEFAULT_WIDTH - playerNameLength);
     }
 
-    public void printLadder(String ladder){
+    private void printLadder(String ladder){
         sb.append(ladder);
-
-        System.out.println(sb);
-        sb.setLength(0); // stringBuilder 초기화 (리셋)
     }
 }
