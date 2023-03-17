@@ -1,11 +1,12 @@
 package kr.codesquad.application;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import kr.codesquad.domain.Height;
 import kr.codesquad.domain.Ladder;
+import kr.codesquad.domain.LadderRideResult;
 import kr.codesquad.domain.Participants;
 import kr.codesquad.domain.Results;
 import kr.codesquad.generator.RandomLineGenerator;
@@ -18,37 +19,44 @@ public class LadderGame {
 	private final OutputView outputView = new OutputView();
 
 	public void startLadderGame() {
-		try {
-			final Participants participants = getParticipantsFromUser();
-			final Results results = getResultsFromUser();
-			final Height height = getHeightFromUser();
+		Participants participants = getParticipantsFromUser();
+		Results results = getResultsFromUser();
+		Height height = getHeightFromUser();
 
-			final Ladder ladder = createLadder(participants.getParticipants().size(), height.getValue());
-			printStateOfLadder(participants.getParticipants(), results.getResults(), ladder.toString());
+		Ladder ladder = createLadder(participants.getParticipants().size(), height.getValue());
+		printStateOfLadder(participants.getParticipants(), results.getResults(), ladder.toString());
 
-			rideLadderExecutionResult(rideLadder(ladder, participants, results));
-		} catch (final IllegalArgumentException e) {
-			outputView.printErrorMsg(e);
-			startLadderGame();
-		}
+		LadderRideResult ladderRideResult = new LadderRideResult(participants.getParticipants(),
+			rideLadder(ladder, participants), results.getResults());
+
+		rideLadderExecutionResult(ladderRideResult.getLadderRideResult());
 	}
 
 	private Participants getParticipantsFromUser() {
-		final String namesOfPerson = inputView.getParticipantNames();
-
-		return new Participants(namesOfPerson);
+		try {
+			return new Participants(inputView.getParticipantNames());
+		} catch (final IllegalArgumentException e) {
+			outputView.printErrorMsg(e);
+			return getParticipantsFromUser();
+		}
 	}
 
 	private Results getResultsFromUser() {
-		final String results = inputView.getExecutionResults();
-
-		return new Results(results);
+		try {
+			return new Results(inputView.getExecutionResults());
+		} catch (final IllegalArgumentException e) {
+			outputView.printErrorMsg(e);
+			return getResultsFromUser();
+		}
 	}
 
 	private Height getHeightFromUser() {
-		final String heightOfLadder = inputView.getHeightOfLadder();
-
-		return new Height(heightOfLadder);
+		try {
+			return new Height(inputView.getHeightOfLadder());
+		} catch (final IllegalArgumentException e) {
+			outputView.printErrorMsg(e);
+			return getHeightFromUser();
+		}
 	}
 
 	private Ladder createLadder(final int countOfPerson, final int height) {
@@ -61,23 +69,12 @@ public class LadderGame {
 		outputView.printResultsOfGame(results);
 	}
 
-	private Map<String, String> rideLadder(final Ladder ladder, final Participants participants,
-		final Results results) {
-		Map<String, String> executionResult = new HashMap<>();
-		for (String participant : participants.getParticipants()) {
-			int rideResultPos = ladder.ride(participants.findPosOfParticipant(participant));
-			executionResult.put(participant, results.getResultOfPos(rideResultPos));
+	private List<Integer> rideLadder(final Ladder ladder, final Participants participants) {
+		List<Integer> ladderRidePos = new ArrayList<>();
+		for (String name : participants.getParticipants()) {
+			ladderRidePos.add(ladder.ride(participants.findPosOfParticipant(name)));
 		}
-		storeTotalResultOfGame(executionResult);
-		return executionResult;
-	}
-
-	private void storeTotalResultOfGame(final Map<String, String> executionResult) {
-		StringBuilder totalResultBuilder = new StringBuilder();
-		for (Map.Entry<String, String> entry : executionResult.entrySet()) {
-			totalResultBuilder.append(entry.getKey()).append(" : ").append(entry.getValue()).append("\n");
-		}
-		executionResult.put("all", totalResultBuilder.toString());
+		return ladderRidePos;
 	}
 
 	private void rideLadderExecutionResult(final Map<String, String> executionResult) {
