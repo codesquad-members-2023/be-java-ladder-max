@@ -56,3 +56,32 @@
 - 종료 처리 메서드를 만들고 InputView의 각 입력 메서드마다 종료 처리 메서드를 호출하도록 한다.
   - 입력값이 `춘식이`이면 프로그램 종료, 아니면 계속 다음 로직을 진행하도록 한다.
   - 종료 명령어를 `--quit`으로 변경
+
+# 코드 리뷰 반영
+## [1] 유효성 검사 추가 및 검사 실패시 반복 입력 받기 ✅
+1. 도착지 개수가 플레이어 수와 일치하는지 검사
+  - PlayerGroup에서 플레이어 수를 받아와 DestinationGroup을 생성할 때 생성자 매개변수로 넣어 준다
+  - DestinationGroup 내부에서 유효성 검사
+2. 사다리 높이 유효성 검사
+  - Ladder 객체 생성자에서 사다리 높이를 1 이상, 20 이하로만 생성할 수 있도록 한다
+
+## [2] GameController 메서드 분리 ✅
+- PlayerGroup, DestinationGroup, Ladder, ResultGroup을 생성하는 부분을 각각 메서드로 분리
+- 메서드 명은 `create*()`으로 한다
+
+## [3] main에 있던 예외 처리 및 로직 이동 ✅
+1. 예외 처리 로직은 어디에 위임할 것인가? (발생한 곳에서 처리가 가능한가?)
+2. while문은 어디에서 처리할 것인가
+
+## [4] test 코드 SoftAssertion 사용 ✅
+- SoftAssertion을 사용하여 앞쪽에서 테스트 코드가 실패해도 테스트가 끝나지 않고 계속 이어나갈 수 있도록 한다
+
+## [5] test 코드 정확한 예외를 지정해 주기 ✅
+- Exception -> IllegalArgumentException 사용
+
+## [6] Player name 출력 로직 간소화 하기 ✅
+- 다른 사람들은 어떻게 했는지 살펴보기
+- 중첩된 String.format()을 제거하고 " "를 직접 붙여주는 형태로 변경
+
+## [7] 패키지 분리 ✅
+- domain을 destination, ladder, player, result로 나누기
