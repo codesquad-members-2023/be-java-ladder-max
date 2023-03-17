@@ -2,7 +2,7 @@ package kr.codesquad.ladder.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import kr.codesquad.ladder.exception.InvalidCountOfLadderResultException;
+import kr.codesquad.ladder.exception.InvalidCountOfDestinationsException;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ class DestinationsTest {
         Throwable actual = Assertions.catchThrowable(
             () -> new Destinations(dstList, countOfPeople));
         //then
-        Assertions.assertThat(actual).isInstanceOf(InvalidCountOfLadderResultException.class);
+        Assertions.assertThat(actual).isInstanceOf(InvalidCountOfDestinationsException.class);
     }
 
     private List<Destination> createDestinationList(String[] inputs) {
