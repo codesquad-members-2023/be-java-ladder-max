@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs : 학습계획 정리">
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/Ladder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="docs : step4 구현계획&#10;&#10;README 작성">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ladder/domain/RandomGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ladder/domain/RandomGeneratorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ladder/domain/Ladder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ladder/domain/Ladder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ladder/domain/LadderLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ladder/domain/LadderLine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,10 +22,28 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="java-lotto" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -45,6 +64,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/kang-yejin/be-java-ladder-max&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -55,13 +76,22 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="ladder.domain" />
+      <recent name="kr.codesquad" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.RandomGeneratorTest.randomLine">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.Main" />
+      <option name="MAIN_CLASS_NAME" value="ladder.Main" />
       <module name="java-lotto.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.*" />
+          <option name="PATTERN" value="view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -76,9 +106,60 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PlayersTest.failTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lotto.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ladder.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ladder.domain" />
+      <option name="MAIN_CLASS_NAME" value="ladder.domain.PlayersTest" />
+      <option name="METHOD_NAME" value="failTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayersTest.playerNameCheckTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lotto.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ladder.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ladder.domain" />
+      <option name="MAIN_CLASS_NAME" value="ladder.domain.PlayersTest" />
+      <option name="METHOD_NAME" value="playerNameCheckTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RandomGeneratorTest.randomLine" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lotto.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ladder.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ladder.domain" />
+      <option name="MAIN_CLASS_NAME" value="ladder.domain.RandomGeneratorTest" />
+      <option name="METHOD_NAME" value="randomLine" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RandomGeneratorTest.randomLine" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.PlayersTest.failTest" />
+        <item itemvalue="JUnit.PlayersTest.playerNameCheckTest" />
       </list>
     </recent_temporary>
   </component>
@@ -100,6 +181,12 @@
       <workItem from="1678237933089" duration="948000" />
       <workItem from="1678238909599" duration="534000" />
       <workItem from="1678239464067" duration="4429000" />
+      <workItem from="1678850713355" duration="4590000" />
+      <workItem from="1678861987430" duration="1762000" />
+      <workItem from="1678864699444" duration="2231000" />
+      <workItem from="1678867298473" duration="685000" />
+      <workItem from="1678889685122" duration="3912000" />
+      <workItem from="1678929470483" duration="13463000" />
     </task>
     <task id="LOCAL-00001" summary="docs : 학습계획 정리">
       <created>1678244485492</created>
@@ -108,7 +195,28 @@
       <option name="project" value="LOCAL" />
       <updated>1678244485492</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="refactor : 접근제어자 수정, 불필요한 주석제거 등&#10;&#10;코딩컨벤션을 준수하기 위한 메서드간의 개행, 빼먹었던 접근제어자 수정, 불필요한 주석 제거">
+      <created>1678862878908</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678862878908</updated>
+    </task>
+    <task id="LOCAL-00003" summary="chore : 패키지 분리&#10;&#10;핵심로직과,view 를 분리">
+      <created>1678867086193</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678867086193</updated>
+    </task>
+    <task id="LOCAL-00004" summary="docs : step4 구현계획&#10;&#10;README 작성">
+      <created>1678867382187</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678867382187</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +235,25 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="docs : 학습계획 정리" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs : 학습계획 정리" />
+    <MESSAGE value="refactor : 접근제어자 수정, 불필요한 주석제거 등&#10;&#10;코딩컨벤션을 준수하기 위한 메서드간의 개행, 빼먹었던 접근제어자 수정, 불필요한 주석 제거" />
+    <MESSAGE value="chore : 패키지 분리&#10;&#10;핵심로직과,view 를 분리" />
+    <MESSAGE value="docs : step4 구현계획&#10;&#10;README 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs : step4 구현계획&#10;&#10;README 작성" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ladder/domain/RandomGenerator.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ladder/domain/RandomGenerator.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

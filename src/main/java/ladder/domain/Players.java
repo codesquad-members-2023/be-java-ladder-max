@@ -1,4 +1,4 @@
-package kr.codesquad;
+package ladder.domain;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 public class Players {
     private static final int OVER_LENGTH = 5;
     private static final int UNDER_LENGTH = 1;
+
     private final List<String> players;
 
     public Players(String names) {
@@ -31,6 +32,7 @@ public class Players {
     public int getCountOfPerson() {
         return players.size();
     }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

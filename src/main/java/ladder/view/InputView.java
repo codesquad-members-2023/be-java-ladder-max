@@ -1,4 +1,4 @@
-package kr.codesquad;
+package ladder.view;
 
 import java.util.Scanner;
 

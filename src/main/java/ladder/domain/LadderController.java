@@ -1,8 +1,11 @@
-package kr.codesquad;
+package ladder.domain;
+
+import ladder.view.InputView;
+import ladder.view.OutputView;
 
 public class LadderController {
-    OutputView outputView = new OutputView();
-    InputView inputView = new InputView();
+    private OutputView outputView = new OutputView();
+    private InputView inputView = new InputView();
 
     public void run() {
         Players userNames = getPlayers();
@@ -12,6 +15,7 @@ public class LadderController {
         outputView.printNames(userNames.toString());
         outputView.printLadder(ladder);
     }
+
     private Players getPlayers() {
         try {
             outputView.inputPeople();
@@ -23,6 +27,7 @@ public class LadderController {
             return getPlayers();
         }
     }
+
     private int getHeightOfLadder() {
         outputView.inputLadder();
         return Integer.parseInt(inputView.getInput());
