@@ -15,7 +15,10 @@
 - [x] 개인별 이름 입력시 개인 사다리 결과 출력
 - [x] 전체 참여자 실행 결과 출력
 - [x] 프로그램 종료기능
-- [x] 사다리 타기 알고리즘 depth2->depth1로 줄이기
+- [ ] 사다리 타기 알고리즘 depth2->depth1로 줄이기
+- [x] 웹에서 인원수 0을 입력하고 Enter시 예외처리
+- [x] 사다리 입력정보 도착정보 입력시 빈칸인 경우 예외처리
+- [ ] 예외 발생시 alert 발생후 페이지로 다시 이동
 
 ## 기능요구사항
 
@@ -172,122 +175,15 @@ all : 전체 결과 보기, 춘식이 : 프로그램 종료, 이름 : pobi  honu
 게임을 종료합니다. 
 ```
 
-## 패키지 구조
-
-```shell
-├─main
-│  └─java
-│      │  .gitkeep
-│      │
-│      └─kr
-│          └─codesquad
-│              └─ladder
-│                  │  Main.java
-│                  │
-│                  ├─controller
-│                  │      LadderConsoleReaderController.java
-│                  │      LadderGame.java
-│                  │
-│                  ├─domain
-│                  │      Destination.java
-│                  │      Destinations.java
-│                  │      Ladder.java
-│                  │      LadderGenerator.java
-│                  │      LadderResult.java
-│                  │      Name.java
-│                  │      Names.java
-│                  │      Point.java
-│                  │      Points.java
-│                  │
-│                  ├─exception
-│                  │      InvalidContainOfNamesException.java
-│                  │      InvalidCountOfLadderResultException.java
-│                  │      InvalidCountOfPeopleException.java
-│                  │      InvalidFormatOfDestinationException.java
-│                  │      InvalidNameFormatOfPeopleException.java
-│                  │      InvalidNumberOfMinimumLadderHeightException.java
-│                  │
-│                  └─view
-│                          LadderConsoleReader.java
-│                          LadderConsoleWriter.java
-│                          LadderReader.java
-│                          LadderWriter.java
-│
-└─test
-    └─java
-        │  .gitkeep
-        │
-        └─kr
-            └─codesquad
-                └─ladder
-                    │  MainTest.java
-                    │
-                    ├─controller
-                    ├─domain
-                    │      DestinationsTest.java
-                    │      LadderGeneratorTest.java
-                    │      LadderTest.java
-                    │      NamesTest.java
-                    │      NameTest.java
-                    │
-                    └─view
-                            LadderConsoleReaderTest.java
-```
-
 ## 도메인 모델
 
 ![](img/img_7.png)
 
-## 빌드 및 실행
+## 웹 환경 기반 실행 결과
 
-```shell
-$ ./gradlew build
-$ java -jar ./build/libs/java-lotto-1.0-SNAPSHOT.jar
-참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)
-pobi
-참여할 사람은 최소 2명 이상이어야 합니다. 다시 입력해주세요.
-참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)
-pobi,houawioefjoawie
-참여할 사람의 이름은 영어 최대 5글자로 구성되어야 합니다. 다시 입력해주세요
-참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)
-pobi,hounx
-실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)
-1000
-실행결과의 개수는 참여할 사람 이름수와 동일해야 합니다. 개수 : 2
-실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)
-1000, awioefjoaw
-실행결과의 길이는 최대 5글자입니다. 다시 입력해주세요.
-실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)
-1000, 2000
-최대 사다리 높이는 몇 개인가요?
--1
-적절하지 않은 입력입니다. 1 이상의 사다리 높이를 입력해주세요.
-최대 사다리 높이는 몇 개인가요?
-5
-pobi  hounx
-|-----|
-|     |
-|     |
-|     |
-|-----|
-1000 2000 
-결과를 보고 싶은 사람은?
-all : 전체 결과 보기, 춘식이 : 프로그램 종료, 이름 : pobi  hounx
-pobi
-실행 결과
-pobi  : 1000
-결과를 보고 싶은 사람은?
-all : 전체 결과 보기, 춘식이 : 프로그램 종료, 이름 : pobi  hounx
-all
-실행 결과
-pobi  : 1000
-hounx : 2000
-
-결과를 보고 싶은 사람은?
-all : 전체 결과 보기, 춘식이 : 프로그램 종료, 이름 : pobi  hounx
-춘식이
-프로그램을 종료합니다.
-```
+![](img/img.png)
+![](img/img_1.png)
+![](img/img_2.png)
 
 ## 어려웠던 점 혹은 고민점
 
