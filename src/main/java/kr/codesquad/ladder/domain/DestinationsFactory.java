@@ -3,20 +3,14 @@ package kr.codesquad.ladder.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import kr.codesquad.ladder.exception.InvalidCountOfLadderResultException;
-import kr.codesquad.ladder.exception.InvalidFormatOfDestinationException;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DestinationsFactory {
 
-    public Optional<Destinations> getDestinationsInstance(String[] dstArray, int countOfPeople) {
-        Optional<Destinations> optionalDestinations = Optional.empty();
-        try {
-            List<Destination> dstList = createDestinationList(dstArray);
-            optionalDestinations = Optional.of(new Destinations(dstList, countOfPeople));
-        } catch (InvalidCountOfLadderResultException | InvalidFormatOfDestinationException e) {
-//            ladderWriter.write(e.getMessage());
-        }
-        return optionalDestinations;
+    public Destinations createDestinations(String[] dstArray, int countOfPeople) {
+        List<Destination> dstList = createDestinationList(dstArray);
+        return new Destinations(dstList, countOfPeople);
     }
 
     private List<Destination> createDestinationList(String[] dstArray) {
