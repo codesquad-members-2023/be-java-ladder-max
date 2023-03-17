@@ -3,7 +3,7 @@ package kr.codesquad.domain;
 public enum Direction {
     LEFT(-2),
     RIGHT(2),
-    STRAIGHT(0);
+    NONE(0);
 
     private final int unitVector;
 

@@ -4,11 +4,11 @@ import kr.codesquad.domain.LadderResult;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Screen {
@@ -46,28 +46,28 @@ public class Screen {
         return number;
     }
 
-    public Optional<List<String>> inputPlayerNames() {
+    public List<String> inputPlayerNames() {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
 
         try {
-            return Optional.of(readPlayerNames(scanner.nextLine()));
+            return readPlayerNames(scanner.nextLine());
         } catch (IllegalArgumentException ex) {
             System.out.println(ex.getMessage());
         }
 
-        return Optional.empty();
+        return Collections.emptyList();
     }
 
-    public Optional<List<String>> inputGoals() {
+    public List<String> inputGoals() {
         System.out.println("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
 
         try {
-            return Optional.of(readGoals(scanner.nextLine()));
+            return readGoals(scanner.nextLine());
         } catch (IllegalArgumentException ex) {
             System.out.println(ex.getMessage());
         }
 
-        return Optional.empty();
+        return Collections.emptyList();
     }
 
     private List<String> readGoals(String input) {
@@ -120,14 +120,26 @@ public class Screen {
     }
 
     public void printLadder(List<String> playerNames, String ladderShape, List<String> goals) {
-        System.out.println("\n실행결과\n");
+        System.out.println("\n사다리 결과\n");
 
         System.out.println(toFormattedString(playerNames));
         System.out.println(ladderShape);
         System.out.println(toFormattedString(goals));
     }
 
-    public void printResult(String result) {
-        System.out.println(result);
+    public void printResult(LadderResult ladderResult, String selectResult) {
+        try {
+            final String result = ladderResult.getResult(selectResult);
+            System.out.println("\n실행 결과");
+            System.out.println(result);
+        } catch (IllegalArgumentException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public String inputSelectResult() {
+        System.out.println("\n결과를 보고 싶은 사람은?");
+
+        return scanner.nextLine();
     }
 }

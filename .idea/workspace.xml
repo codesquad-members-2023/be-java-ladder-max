@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/LadderGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/controller/LadderGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/domain/LadderResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/service/LadderGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/service/LadderGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/codesquad/view/Screen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,10 +61,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -142,7 +138,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LadderLineTest.ladderLineConnectBridgeExceptionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LadderLineTest.findDirectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-lotto.test" />
       <extension name="coverage">
         <pattern>
@@ -152,13 +148,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
       <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderLineTest" />
-      <option name="METHOD_NAME" value="ladderLineConnectBridgeExceptionTest(java.util.List)" />
+      <option name="METHOD_NAME" value="findDirectionTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LadderPartTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LadderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-lotto.test" />
       <extension name="coverage">
         <pattern>
@@ -167,23 +163,23 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderPartTest" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScreenTest.inputLadderHeightTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LadderTest.makeResultTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-lotto.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="kr.codesquad.view.*" />
+          <option name="PATTERN" value="kr.codesquad.domain.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="kr.codesquad.view" />
-      <option name="MAIN_CLASS_NAME" value="kr.codesquad.view.ScreenTest" />
-      <option name="METHOD_NAME" value="inputLadderHeightTest(java.lang.String)" />
+      <option name="PACKAGE_NAME" value="kr.codesquad.domain" />
+      <option name="MAIN_CLASS_NAME" value="kr.codesquad.domain.LadderTest" />
+      <option name="METHOD_NAME" value="makeResultTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -192,9 +188,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.ScreenTest.inputLadderHeightTest" />
-        <item itemvalue="JUnit.LadderPartTest" />
         <item itemvalue="JUnit.LadderLineTest" />
+        <item itemvalue="JUnit.LadderLineTest.findDirectionTest" />
+        <item itemvalue="JUnit.LadderTest.makeResultTest" />
+        <item itemvalue="JUnit.LadderTest" />
       </list>
     </recent_temporary>
   </component>
@@ -232,7 +229,9 @@
       <workItem from="1678843113833" duration="842000" />
       <workItem from="1678844211619" duration="648000" />
       <workItem from="1678844865152" duration="5054000" />
-      <workItem from="1678861081556" duration="2280000" />
+      <workItem from="1678861081556" duration="3166000" />
+      <workItem from="1678887161707" duration="225000" />
+      <workItem from="1678931567501" duration="11328000" />
     </task>
     <servers />
   </component>

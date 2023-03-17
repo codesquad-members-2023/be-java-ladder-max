@@ -6,10 +6,12 @@ import kr.codesquad.domain.LadderResult;
 import kr.codesquad.service.LadderGame;
 import kr.codesquad.view.Screen;
 
+import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 public class LadderGameController {
+    private static final String EXIT_INPUT = "춘식이";
+
     private final LadderGame ladderGame;
     private final Screen screen;
 
@@ -19,46 +21,54 @@ public class LadderGameController {
     }
 
     public void run() {
-        final List<String> playerNames = inputPlayerNames();
-        final int height = inputLadderHeight();
-        final List<String> goals = inputGoals();
+        final List<String> playerNames = readPlayerNames();
+        final int height = readLadderHeight();
+        final List<String> goals = readGoals(playerNames.size());
         final LadderOutputDto ladderOutputDto = ladderGame.play(new LadderInputDto(playerNames, height, goals));
 
         screen.printLadder(playerNames, ladderOutputDto.getLadderShape(), goals);
-        showWinningResult(ladderOutputDto.getLadderResult());
+        printResult(ladderOutputDto.getLadderResult());
     }
 
-    private void showWinningResult(LadderResult ladderResult) {
-        screen.printResult(ladderResult.getAllResults());
+    private void printResult(LadderResult ladderResult) {
+        String selectResult;
+
+        while (!EXIT_INPUT.equals(selectResult = screen.inputSelectResult())) {
+            screen.printResult(ladderResult, selectResult);
+        }
+
+        System.out.println("게임을 종료합니다.");
     }
 
-    private List<String> inputGoals() {
-        Optional<List<String>> goals = Optional.empty();
-
+    private List<String> readGoals(int playerNumber) {
+        List<String> goals = Collections.emptyList();
         while (goals.isEmpty()) {
             goals = screen.inputGoals();
         }
 
-        return goals.get();
+        checkMatchNumberOf(playerNumber, goals);
+
+        return goals;
     }
 
-    private int inputLadderHeight() {
-        Optional<Integer> ladderHeight = Optional.empty();
-
-        while (ladderHeight.isEmpty()) {
-            ladderHeight = screen.inputLadderHeight();
+    private void checkMatchNumberOf(int playerNumber, List<String> goals) {
+        if (playerNumber != goals.size()) {
+            System.out.println("플레이어 수만큼 결과를 입력하세요.");
+            readGoals(playerNumber);
         }
-
-        return ladderHeight.get();
     }
 
-    private List<String> inputPlayerNames() {
-        Optional<List<String>> playerNames = Optional.empty();
+    private int readLadderHeight() {
+        return screen.inputLadderHeight().orElseGet(this::readLadderHeight);
+    }
+
+    private List<String> readPlayerNames() {
+        List<String> playerNames = Collections.emptyList();
 
         while (playerNames.isEmpty()) {
             playerNames = screen.inputPlayerNames();
         }
 
-        return playerNames.get();
+        return playerNames;
     }
 }

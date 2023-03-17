@@ -16,7 +16,6 @@ public class LadderGame {
 
         final LadderResult ladderResult = LadderResult.of(ladderInputDto.getPlayerNames(), ladderInputDto.getGoals(), ladder.makeResult());
 
-
         return new LadderOutputDto(ladder.createOutputLines(), ladderResult);
     }
 

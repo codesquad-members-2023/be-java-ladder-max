@@ -5,17 +5,26 @@ import java.util.List;
 import java.util.Map;
 
 public class LadderResult {
+    private static final String ALL_RESULT = "all";
+
     private final Map<String, String> results; // String,String은 뭐가 뭔지 알기가 어렵다
 
     private LadderResult(Map<String, String> results) {
         this.results = results;
     }
 
-    public String getResult(String playerName) {
-        return results.get(playerName);
+    public String getResult(String selectResult) {
+        if (ALL_RESULT.equals(selectResult)) {
+            return getAllResults();
+        }
+        if (results.containsKey(selectResult)) {
+            return results.get(selectResult);
+        }
+
+        throw new IllegalArgumentException("잘못된 입력입니다.");
     }
 
-    public String getAllResults() {
+    private String getAllResults() {
         final StringBuilder builder = new StringBuilder();
 
         for (var result : results.entrySet()) {

@@ -1,6 +1,5 @@
 package kr.codesquad.controller.dto;
 
-import java.util.Collections;
 import java.util.List;
 
 public class LadderInputDto {
@@ -14,10 +13,6 @@ public class LadderInputDto {
         this.playerNumber = playerNames.size();
         this.height = height;
         this.goals = goals;
-    }
-
-    public LadderInputDto(List<String> playerNames, int height) {
-        this(playerNames, height, Collections.emptyList());
     }
 
     public int getPlayerNumber() {
