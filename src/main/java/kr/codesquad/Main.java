@@ -1,19 +1,19 @@
 package kr.codesquad;
 
+import kr.codesquad.domain.Ladder;
+import kr.codesquad.domain.LadderMaker;
+import kr.codesquad.view.View;
+
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        InputHandler handler = new InputHandler();
-        List<String> players = handler.inputValidatedPlayers();
-        int height = handler.inputValidatedHeight();
-        Ladder ladder = new Ladder(players, height);
-        List<List<Boolean>> ladderInformation = ladder.informLadder();
-        Output output = new Output();
-        List<String> ladderShape = output.lineToString(ladderInformation);
-        output.printPlayers(players);
-        for (String shape : ladderShape) {
-            System.out.println(shape.toString());
-        }
+        View view = new View();
+        List<String> players = view.inputValidatedPlayers();
+        int height = view.inputHeight();
+        LadderMaker maker = new LadderMaker();
+        Ladder ladder = maker.makeRandomLadder(players.size() - 1, height);
+        String ladderFigure = ladder.drawLadder();
+        view.printWholeFigure(players, ladderFigure);
     }
 }
