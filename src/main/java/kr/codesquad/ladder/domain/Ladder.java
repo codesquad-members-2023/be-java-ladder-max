@@ -1,9 +1,10 @@
 package kr.codesquad.ladder.domain;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
-public class Ladder {
+public class Ladder implements Iterable<Line> {
 
     private final List<Line> lines;
 
@@ -23,6 +24,11 @@ public class Ladder {
             selectedCol = line.climb(selectedCol);
         }
         return selectedCol / 2;
+    }
+
+    @Override
+    public Iterator<Line> iterator() {
+        return lines.iterator();
     }
 
     @Override
@@ -50,5 +56,4 @@ public class Ladder {
         }
         return result.toString().trim();
     }
-
 }

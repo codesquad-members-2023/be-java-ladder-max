@@ -1,14 +1,20 @@
 package kr.codesquad.ladder.domain;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class LadderResults {
+public class LadderResults implements Iterable<LadderResult> {
 
     private final List<LadderResult> ladderResults;
 
     public LadderResults(List<LadderResult> ladderResults) {
         this.ladderResults = new ArrayList<>(ladderResults);
+    }
+
+    @Override
+    public Iterator<LadderResult> iterator() {
+        return ladderResults.iterator();
     }
 
     @Override

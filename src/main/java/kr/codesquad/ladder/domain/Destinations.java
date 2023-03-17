@@ -1,11 +1,12 @@
 package kr.codesquad.ladder.domain;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import kr.codesquad.ladder.exception.InvalidCountOfLadderResultException;
 
-public class Destinations {
+public class Destinations implements Iterable<Destination> {
 
     private final List<Destination> destinations;
 
@@ -22,6 +23,11 @@ public class Destinations {
 
     public Destination get(int index) {
         return destinations.get(index);
+    }
+
+    @Override
+    public Iterator<Destination> iterator() {
+        return destinations.iterator();
     }
 
     @Override
@@ -47,4 +53,6 @@ public class Destinations {
             .map(ladderResult -> String.format("%-5s", ladderResult.toString()))
             .collect(Collectors.joining());
     }
+
+
 }
