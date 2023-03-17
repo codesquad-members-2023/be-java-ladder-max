@@ -73,11 +73,11 @@
 <div class="h-100">
   <div class="d-flex justify-content-center header">
     <h1>
-      <a th:href="@{/}">사다리 타기 게임</a>
+      <a th:href="@{/ladder}">사다리 타기 게임</a>
     </h1>
   </div>
   <div class="d-flex justify-content-center align-items-center" id="countOfPeopleContainer">
-    <form th:action="@{/}" th:method="post">
+    <form th:action="@{/ladder/form}" th:method="get">
       <div class="form-group d-flex justify-content-center" style="margin-bottom: 130px">
         <input class="border-0" id="countOfPeople" min="2" name="countOfPeople" type="text"
                value="2">
