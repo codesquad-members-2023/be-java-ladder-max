@@ -33,7 +33,7 @@ public class Players {
         }
     }
 
-    public List<String> getNames() {
-        return names;
+    public int getSize() {
+        return names.size();
     }
 }

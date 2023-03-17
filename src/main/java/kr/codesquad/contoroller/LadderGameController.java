@@ -1,5 +1,6 @@
 package kr.codesquad.contoroller;
 
+import kr.codesquad.domain.Ladder;
 import kr.codesquad.view.InputView;
 import kr.codesquad.domain.Line;
 import kr.codesquad.view.OutputView;
@@ -18,12 +19,14 @@ public class LadderGameController {
         outputView.printInputPlayers();
         String inputPlayers = inputView.userInput();
         outputView.printInputHeight();
-        int inputHeight = Integer.parseInt(inputView.userInput());
+        int height = Integer.parseInt(inputView.userInput());
 
         Players players = new Players(inputPlayers);
-        Line line = new Line(inputHeight);
-        line.generateLine(inputHeight);
-        outputView.printLadderResult(line);
+        Line line = new Line(height);
+        line.generateLine(height);
+
+        Ladder ladder = new Ladder(players.getSize(), height);
+        outputView.printLadderResult(ladder);
 
     }
 }

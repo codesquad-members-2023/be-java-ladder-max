@@ -1,6 +1,10 @@
 package kr.codesquad.view;
 
+import kr.codesquad.domain.Ladder;
 import kr.codesquad.domain.Line;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class OutputView {
     public void printInputPlayers() {
@@ -11,8 +15,12 @@ public class OutputView {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
     }
 
-    public void printLadderResult(Line line) {
+    public void printLineResult(Line line) {
         System.out.println("실행결과");
         System.out.println(line.getLine());
+    }
+
+    public void printLadderResult(Ladder ladder) {
+        ladder.getLadder().stream().forEach(this::printLineResult);
     }
 }
