@@ -8,8 +8,20 @@ import java.util.stream.IntStream;
 
 public class Line {
     private List<String> line;
+    private int column;
     public Line(int column){
         makeLine(column);
+        this.column = column;
+    }
+    public int[] move(){ // [1,0,-1,0,1,0,-1]
+        int[] move = new int[column];
+        for (int i=1;i<column;i+=2){ // 홀수 인덱스만 반복
+            if ("-----".equals(line.get(i))){
+                move[i-1]++;
+                move[i+1]--;
+            }
+        }
+        return move;
     }
     private void makeLine(int column){
         makeBasicLine(column);

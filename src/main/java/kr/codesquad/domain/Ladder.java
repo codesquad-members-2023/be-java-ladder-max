@@ -1,16 +1,16 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Ladder {
-
     private int row;
     private int column;
     private ArrayList<Line> ladder;
 
-    public Ladder(int row, int column){
+    public Ladder(int row, int headCount){
         this.row = row;
-        this.column = column*2-1;
+        this.column = headCount*2-1;
         this.ladder = new ArrayList<>();
     }
 
@@ -19,6 +19,17 @@ public class Ladder {
             ladder.add(new Line(column));
         }
         return toStringLadder();
+    }
+    public int[] calculateResult(){
+        int[] result = new int[column];
+        Arrays.setAll(result,i->i/2);
+        for (Line line : ladder){
+            int[] move = line.move();
+            for (int i=0;i<column;i+=2){ // 찍수 인덱스만 반복
+                result[i] += move[result[i]];
+            }
+        }
+        return result;
     }
 
     private String toStringLadder(){ // 사다리 출력하기

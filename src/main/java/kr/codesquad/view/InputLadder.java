@@ -1,4 +1,4 @@
-package kr.codesquad.domain;
+package kr.codesquad.view;
 
 import java.util.Scanner;
 
