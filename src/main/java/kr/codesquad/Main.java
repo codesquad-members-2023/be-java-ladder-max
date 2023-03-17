@@ -1,11 +1,13 @@
 package kr.codesquad;
 
+import kr.codesquad.view.InputView;
+
 public class Main {
     public static void main(String[] args) {
         LadderMaker ladderMaker = new LadderMaker();
-        InputReader inputReader = new InputReader();
-        inputReader.startLadderGame();
-        ladderMaker.make(inputReader.getNamesList(), inputReader.getLadderHeight());
+        InputView inputView = new InputView();
+        inputView.startLadderGame();
+        ladderMaker.make(inputView.getNamesList(), inputView.getLadderHeight());
     }
 }
 
