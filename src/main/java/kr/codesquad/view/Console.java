@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.view;
 
 import java.io.BufferedReader;
 import java.io.IOException;

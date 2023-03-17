@@ -1,5 +1,7 @@
 package kr.codesquad;
 
+import kr.codesquad.domain.Line;
+import kr.codesquad.domain.RandomLadderGenerator;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

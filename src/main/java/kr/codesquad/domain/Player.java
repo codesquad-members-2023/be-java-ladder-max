@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.domain;
 
 public class Player {
   private final String name;
