@@ -1,5 +1,7 @@
 package kr.codesquad.ladder.view;
 
+import kr.codesquad.ladder.domain.Destinations;
+import kr.codesquad.ladder.domain.Ladder;
 import kr.codesquad.ladder.domain.LadderResult;
 import kr.codesquad.ladder.domain.LadderResults;
 import kr.codesquad.ladder.domain.Names;
@@ -47,5 +49,20 @@ public class LadderConsoleWriter implements LadderWriter {
     @Override
     public void writeExitIntro() {
         System.out.println("프로그램을 종료합니다.");
+    }
+
+    @Override
+    public void writeNamesOfPeoples(Names names) {
+        System.out.println(names);
+    }
+
+    @Override
+    public void writeLadder(Ladder ladder) {
+        System.out.println(ladder);
+    }
+
+    @Override
+    public void writeDestinations(Destinations destinations) {
+        System.out.println(destinations);
     }
 }
