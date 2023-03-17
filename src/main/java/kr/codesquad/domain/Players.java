@@ -9,8 +9,8 @@ public class Players {
     private static final String MAX_NAME_LENGTH_ERROR = "플레이어의 이름은 5글자 이하로 입력해주세요.";
     private static final int MIN_NUM_OF_PLAYERS = 2;
     public static final int MAX_NAME_LENGTH = 6;
-    private List<String> names;
-    public final int longestNameSize;  // 입력된 플레이어 이름 중 가장 긴 이름의 길이
+    private final List<String> names;
+    public final int longestNameLength;  // 입력된 플레이어 이름 중 가장 긴 이름의 길이
 
 
     public Players(final String players) {
@@ -18,7 +18,24 @@ public class Players {
                 .map(String::new)
                 .collect(Collectors.toList());
         validateCount(names);
-        this.longestNameSize = validateName(names);
+        validateNames(names);
+        this.longestNameLength = findLongestNameLength(names);
+    }
+
+    private int findLongestNameLength(List<String> names) {
+        int longestNameSize = 0;
+        for (String name : names) {
+            longestNameSize = Math.max(longestNameSize, name.length());
+        }
+        return longestNameSize;
+    }
+
+    public String getNames() {
+        return names.stream().collect(Collectors.joining(" "));
+    }
+
+    public int getSize() {
+        return names.size();
     }
 
     private void validateCount(List<String> names) {
@@ -27,22 +44,15 @@ public class Players {
         }
     }
 
-    private int validateName(List<String> names) {
-        int longestNameSize = 0;
+    private void validateNames(List<String> names) {
         for (String name : names) {
-            if (name.length() > MAX_NAME_LENGTH) {
-                throw new IllegalArgumentException(MAX_NAME_LENGTH_ERROR);
-            }
-            longestNameSize = Math.max(longestNameSize, name.length());
+            validateNameLength(name);
         }
-        return longestNameSize;
     }
 
-    public int getSize() {
-        return names.size();
-    }
-
-    public List<String> getNames() {
-        return names;
+    private void validateNameLength(String name) {
+        if (name.length() > MAX_NAME_LENGTH) {
+            throw new IllegalArgumentException(MAX_NAME_LENGTH_ERROR);
+        }
     }
 }

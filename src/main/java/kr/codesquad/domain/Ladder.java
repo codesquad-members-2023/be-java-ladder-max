@@ -1,11 +1,8 @@
 package kr.codesquad.domain;
 
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
-import static kr.codesquad.domain.Line.lineSize;
 
 public class Ladder {
     private List<Line> ladder;
@@ -16,11 +13,15 @@ public class Ladder {
 
     public List<Line> generate(int numOfPlayers, int height) {
         return IntStream.range(0, height)
-                .mapToObj(i -> new Line(numOfPlayers))
+                .mapToObj(l -> new Line(numOfPlayers))
                 .collect(Collectors.toList());
     }
 
-    public List<Line> getLadder() {
-        return ladder;
+    public Line getOneLine(int index) {
+        return ladder.get(index);
+    }
+
+    public int getSize() {
+        return ladder.size();
     }
 }

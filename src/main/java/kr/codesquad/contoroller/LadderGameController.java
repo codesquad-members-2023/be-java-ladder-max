@@ -23,8 +23,7 @@ public class LadderGameController {
 
         Players players = new Players(inputPlayers);
         Line line = new Line(height);
-        line.generateLine(height);
-
+        line.generate(height);
         Ladder ladder = new Ladder(players.getSize(), height);
         outputView.printLadderResult(ladder, players);
     }
