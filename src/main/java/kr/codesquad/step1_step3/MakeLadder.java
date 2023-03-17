@@ -1,4 +1,4 @@
-package kr.codesquad;
+package kr.codesquad.step1_step3;
 
 import java.util.ArrayList;
 import java.util.List;

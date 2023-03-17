@@ -1,7 +1,6 @@
-package kr.codesquad;
+package kr.codesquad.step1_step3;
 
 import java.io.IOException;
-import java.util.Random;
 
 public class Main {
     public static void main(String[] args) throws IOException {
