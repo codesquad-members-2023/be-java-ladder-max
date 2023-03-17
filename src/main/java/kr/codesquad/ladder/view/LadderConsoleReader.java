@@ -25,8 +25,8 @@ public class LadderConsoleReader implements LadderReader {
 
     @Override
     public String[] readNamesOfPeoples() {
-        ladderWriter.writeNamesOfPeopleIntro();
-        String names = readLine();
+        ladderWriter.writeNamesOfPeopleIntro(); // 입력 안내문 소개
+        String names = readLine(); // "pobi, hounx"
         return splitTextByDelimiterPattern(names, DELIMITER.pattern());
     }
 
