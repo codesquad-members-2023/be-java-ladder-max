@@ -8,7 +8,7 @@ public class Players {
     private static final String MIN_PLAYERS_ERROR = "최소 2명 이상의 참여자가 필요합니다.";
     private static final String MAX_NAME_LENGTH_ERROR = "플레이어의 이름은 5글자 이하로 입력해주세요.";
     private static final int MIN_NUM_OF_PLAYERS = 2;
-    private static final int MAX_NAME_LENGTH = 5;
+    private static final int MAX_NAME_LENGTH = 6;
     private List<String> names;
 
     public Players(final String players) {

@@ -17,6 +17,7 @@ public class Ladder {
                 .collect(Collectors.toList());
     }
 
+
     public List<Line> getLadder() {
         return ladder;
     }

@@ -16,11 +16,13 @@ public class OutputView {
     }
 
     public void printLineResult(Line line) {
-        System.out.println("실행결과");
         System.out.println(line.getLine());
     }
 
     public void printLadderResult(Ladder ladder) {
-        ladder.getLadder().stream().forEach(this::printLineResult);
+        System.out.println("실행결과");
+        ladder.getLadder().stream()
+                .map(line -> String.join("", line.getLine()))
+                .forEach(System.out::println);
     }
 }
