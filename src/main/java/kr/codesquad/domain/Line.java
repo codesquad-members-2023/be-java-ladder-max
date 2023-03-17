@@ -1,6 +1,7 @@
 package kr.codesquad.domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -15,6 +16,7 @@ public class Line {
     }
     public int[] move(){ // [1,0,-1,0,1,0,-1]
         int[] move = new int[column];
+        Arrays.fill(move,0);
         for (int i=1;i<column;i+=2){ // 홀수 인덱스만 반복
             if ("-----".equals(line.get(i))){
                 move[i-1]++;
