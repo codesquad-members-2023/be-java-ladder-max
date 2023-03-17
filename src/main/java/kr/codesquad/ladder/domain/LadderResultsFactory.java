@@ -5,7 +5,7 @@ import java.util.List;
 
 public class LadderResultsFactory {
 
-    public LadderResults getAllLadderResult(Names names, Ladder ladder,
+    public LadderResults getLadderResults(Names names, Ladder ladder,
         Destinations destinations) {
         List<LadderResult> ladderResultList = new ArrayList<>();
         for (Name name : names) {
