@@ -1,7 +1,10 @@
 package kr.codesquad;
 
+import kr.codesquad.view.Client;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Client client = new Client();
+        client.startGame();
     }
 }
