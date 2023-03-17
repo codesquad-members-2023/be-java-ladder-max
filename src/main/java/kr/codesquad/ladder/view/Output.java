@@ -19,4 +19,8 @@ public class Output {
         drawLadder(ladderShape);
         System.out.println(result);
     }
+
+    public static void resultAll(String name){
+        System.out.println(name);
+    }
 }
