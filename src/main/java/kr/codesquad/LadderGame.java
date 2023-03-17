@@ -6,7 +6,7 @@ public class LadderGame {
 
 
     public void start() {
-        int[] userInput = getLadderInput();
+        UserInput userInput = getLadderInput();
 
         Ladder ladder = new Ladder();
 
@@ -15,14 +15,15 @@ public class LadderGame {
         output.printLadder(ladder.getLadder());
     }
 
-    private int[] getLadderInput() {
-        output.printNumberOfPeople();
-        int people = Integer.parseInt(input.getInput());
+    private UserInput getLadderInput() {
+
+        output.printNameOfPeople();
+        String names = input.getInput();
 
         output.printHeightOfLadder();
         int height = Integer.parseInt(input.getInput());
 
-        return new int[]{people, height};
+        return new UserInput(names, height);
     }
 
 }
