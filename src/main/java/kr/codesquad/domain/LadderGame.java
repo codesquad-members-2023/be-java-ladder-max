@@ -20,26 +20,10 @@ public class LadderGame implements Runnable {
 
     @Override
     public void run() {
-        ArrayList<Player> players;
-        int LadderSize;
+        ArrayList<Player> players = inputNamesToPlayers();
+        int ladderSize = inputNumberToLadderSize();
 
-        while (true) {
-            Optional<ArrayList<Player>> inputPlayers = inputNamesToPlayers();
-            if (inputPlayers.isPresent()) {
-                players = inputPlayers.get();
-                break;
-            }
-        }
-
-        while (true) {
-            Optional<Integer> inputLadderSize = inputNumberToLadderSize();
-            if (inputLadderSize.isPresent()) {
-                LadderSize = inputLadderSize.get();
-                break;
-            }
-        }
-
-        Ladder ladder = generator.generate(players.size(), LadderSize);
+        Ladder ladder = generator.generate(players.size(), ladderSize);
         printPlayerList(players); // 사람 이름 출력
         System.out.println(ladder); // 사다리 출력
     }
@@ -61,10 +45,11 @@ public class LadderGame implements Runnable {
         return sb.toString();
     }
 
-    private Optional<ArrayList<Player>> inputNamesToPlayers() {
+    private ArrayList<Player> inputNamesToPlayers() {
         var input = console.input("참여할 사람 이름을 입력하세요. (이름은 쉼표(,)로 구분하세요)");
-        if (input.isEmpty()) return Optional.empty();
-        return parsePlayerList(input.get());
+        if (input.isEmpty()) return inputNamesToPlayers();
+        var parsedValue = parsePlayerList(input.get());
+        return parsedValue.orElseGet(this::inputNamesToPlayers);
     }
 
     private Optional<ArrayList<Player>> parsePlayerList(String inputString) {
@@ -93,9 +78,10 @@ public class LadderGame implements Runnable {
         }
     }
 
-    private Optional<Integer> inputNumberToLadderSize() {
+    private int inputNumberToLadderSize() {
         var input = console.input("최대 사다리 높이는 몇 개인가요?");
-        if (input.isEmpty()) return Optional.empty();
-        return parseLadderSize(input.get());
+        if (input.isEmpty()) return inputNumberToLadderSize();
+        var parsedValue = parseLadderSize(input.get());
+        return parsedValue.orElseGet(this::inputNumberToLadderSize);
     }
 }
