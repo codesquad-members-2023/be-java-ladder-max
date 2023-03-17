@@ -7,6 +7,7 @@ public class Printer {
         printNames(namesList);
         printLadder(ladderBoard);
     }
+
     private void printNames(List<String> namesList) {
         StringBuilder makeNamesOneString = new StringBuilder();
         makeNamesOneString.append(" ");
@@ -16,15 +17,17 @@ public class Printer {
         }
         System.out.println(makeNamesOneString);
     }
+
     private void printLadder(List<List<String>> ladderBoard) {
-        for (int LadderFloorNum = 0; LadderFloorNum < ladderBoard.size(); LadderFloorNum++) {
-            printLadderFloorElements(ladderBoard, LadderFloorNum);
+        for (int ladderFloorNum = 0; ladderFloorNum < ladderBoard.size(); ladderFloorNum++) {
+            printLadderFloorElements(ladderBoard, ladderFloorNum);
         }
     }
-    private void  printLadderFloorElements(List<List<String>> ladderBoard, int LadderFloorNum) {
+
+    private void printLadderFloorElements(List<List<String>> ladderBoard, int ladderFloorNum) {
         System.out.print("    ");
-        for (String LadderFloorElements : ladderBoard.get(LadderFloorNum)) {
-            System.out.print(LadderFloorElements);
+        for (String ladderFloorElements : ladderBoard.get(ladderFloorNum)) {
+            System.out.print(ladderFloorElements);
         }
         System.out.print("\r\n");
     }
