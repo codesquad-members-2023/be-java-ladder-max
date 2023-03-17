@@ -2,9 +2,9 @@ package kr.codesquad.view;
 
 import kr.codesquad.domain.Ladder;
 import kr.codesquad.domain.Line;
+import kr.codesquad.domain.Players;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.stream.Collectors;
 
 public class OutputView {
     public void printInputPlayers() {
@@ -19,10 +19,16 @@ public class OutputView {
         System.out.println(line.getLine());
     }
 
-    public void printLadderResult(Ladder ladder) {
+    public void printLadderResult(Ladder ladder, Players players) {
         System.out.println("실행결과");
+        printPlayers(players);
         ladder.getLadder().stream()
-                .map(line -> String.join("", line.getLine()))
+                .map(line -> String.join("",line.getLine()))
                 .forEach(System.out::println);
     }
+
+    public void printPlayers(Players players) {
+        System.out.println(players.getNames());
+    }
+
 }
