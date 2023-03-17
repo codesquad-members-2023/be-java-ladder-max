@@ -49,7 +49,6 @@ class LadderTest {
         int[] ans = ladder.calculateResult();
 
         SoftAssertions softly = new SoftAssertions();
-        int[] test = {4};
         softly.assertThat(ans).doesNotContain(4);
         softly.assertThat(ans).doesNotContain(5);
         softly.assertThat(ans).doesNotContain(6);

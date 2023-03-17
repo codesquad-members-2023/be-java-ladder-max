@@ -25,8 +25,8 @@ public class Ladder {
         Arrays.setAll(result,i->i/2);
         for (Line line : ladder){
             int[] move = line.move();
-            for (int i=0;i<column;i+=2){ // 찍수 인덱스만 반복
-                result[i] += move[result[i]];
+            for (int i=0;i<column;i+=2){ // 짝수 인덱스만 반복
+                result[i] += move[result[i]*2];
             }
         }
         return result;

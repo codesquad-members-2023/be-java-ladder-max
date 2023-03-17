@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/LadderGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/LadderGameTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="75cfef9c-bc50-442b-99d5-2d9016fefebb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -186,9 +184,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.LadderGameTest.testExit" />
         <item itemvalue="Gradle.LadderTest.testCalculate" />
         <item itemvalue="Gradle.PlayersTest.testTmp" />
-        <item itemvalue="Gradle.LadderGameTest.testExit" />
         <item itemvalue="Gradle.LadderTest.testColumn" />
         <item itemvalue="Gradle.LadderTest.testRow" />
       </list>
@@ -222,6 +220,7 @@
       <workItem from="1678893779941" duration="2775000" />
       <workItem from="1678930557283" duration="13048000" />
       <workItem from="1678951913792" duration="6190000" />
+      <workItem from="1678982355629" duration="2629000" />
     </task>
     <servers />
   </component>
@@ -244,5 +243,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/kr/codesquad/domain/Players.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
