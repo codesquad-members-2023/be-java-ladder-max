@@ -4,20 +4,20 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import kr.codesquad.ladder.exception.InvalidCountOfLadderResultException;
+import kr.codesquad.ladder.exception.InvalidCountOfDestinationsException;
 
 public class Destinations implements Iterable<Destination> {
 
     private final List<Destination> destinations;
 
     public Destinations(List<Destination> destinations, int countOfPeople) {
-        validateCountOfLadderResult(destinations, countOfPeople);
+        validateCountOfDestinations(destinations, countOfPeople);
         this.destinations = destinations;
     }
 
-    private void validateCountOfLadderResult(List<Destination> ladderResults, int countOfPeople) {
+    private void validateCountOfDestinations(List<Destination> ladderResults, int countOfPeople) {
         if (ladderResults.size() != countOfPeople) {
-            throw new InvalidCountOfLadderResultException(countOfPeople);
+            throw new InvalidCountOfDestinationsException(countOfPeople);
         }
     }
 
