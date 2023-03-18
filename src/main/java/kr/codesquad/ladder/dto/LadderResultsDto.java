@@ -12,6 +12,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LadderResultsDto {
+
     private List<LadderResultDto> ladderResults;
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (LadderResultDto ladderResult : ladderResults) {
+            sb.append(ladderResult).append("\n");
+        }
+        return sb.toString();
+    }
 }

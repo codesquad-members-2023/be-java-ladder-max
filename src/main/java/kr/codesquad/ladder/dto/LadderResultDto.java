@@ -13,4 +13,9 @@ public class LadderResultDto {
 
     private NameDto name;
     private DestinationDto destination;
+
+    @Override
+    public String toString() {
+        return String.format("%s : %s", name, destination);
+    }
 }
