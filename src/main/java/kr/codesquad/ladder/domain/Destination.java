@@ -10,12 +10,19 @@ public class Destination {
     private final String value;
 
     public Destination(String value) {
-        validateLengthOfLadderResult(value);
+        validateLengthOfDestination(value);
+        validateBlankOfDestination(value);
         this.value = value;
     }
 
-    public void validateLengthOfLadderResult(String value) {
+    private void validateLengthOfDestination(String value) {
         if (value.length() > LENGTH_LIMIT) {
+            throw new InvalidFormatOfDestinationException();
+        }
+    }
+
+    private void validateBlankOfDestination(String value) {
+        if (value.isBlank()) {
             throw new InvalidFormatOfDestinationException();
         }
     }

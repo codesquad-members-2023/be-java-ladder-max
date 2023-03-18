@@ -5,14 +5,17 @@ import java.util.List;
 import java.util.Optional;
 import kr.codesquad.ladder.domain.Destination;
 import kr.codesquad.ladder.domain.Destinations;
+import kr.codesquad.ladder.domain.DestinationsFactory;
 import kr.codesquad.ladder.domain.Ladder;
 import kr.codesquad.ladder.domain.LadderGenerator;
+import kr.codesquad.ladder.domain.LadderGeneratorFactory;
 import kr.codesquad.ladder.domain.LadderResult;
 import kr.codesquad.ladder.domain.LadderResults;
 import kr.codesquad.ladder.domain.Name;
 import kr.codesquad.ladder.domain.Names;
+import kr.codesquad.ladder.domain.NamesFactory;
 import kr.codesquad.ladder.exception.InvalidContainOfNamesException;
-import kr.codesquad.ladder.exception.InvalidCountOfLadderResultException;
+import kr.codesquad.ladder.exception.InvalidCountOfDestinationsException;
 import kr.codesquad.ladder.exception.InvalidCountOfPeopleException;
 import kr.codesquad.ladder.exception.InvalidFormatOfDestinationException;
 import kr.codesquad.ladder.exception.InvalidNameFormatOfPeopleException;
@@ -20,7 +23,7 @@ import kr.codesquad.ladder.exception.InvalidNumberOfMinimumLadderHeightException
 import kr.codesquad.ladder.view.LadderReader;
 import kr.codesquad.ladder.view.LadderWriter;
 
-public class LadderConsoleReaderController {
+public class LadderGameManager {
 
     private static final String ALL = "all";
     private static final String EXIT = "춘식이";
@@ -28,7 +31,7 @@ public class LadderConsoleReaderController {
     private final LadderReader ladderReader;
     private final LadderWriter ladderWriter;
 
-    public LadderConsoleReaderController(LadderReader ladderReader, LadderWriter ladderWriter) {
+    public LadderGameManager(LadderReader ladderReader, LadderWriter ladderWriter) {
         this.ladderReader = ladderReader;
         this.ladderWriter = ladderWriter;
     }
@@ -37,79 +40,70 @@ public class LadderConsoleReaderController {
         Optional<Names> optionalNames = Optional.empty();
         while (optionalNames.isEmpty()) {
             String[] nameArray = ladderReader.readNamesOfPeoples();
-            optionalNames = getNamesInstance(nameArray);
+            optionalNames = createNames(nameArray);
         }
         return optionalNames.get();
     }
 
-    private Optional<Names> getNamesInstance(String[] nameArray) {
+    // nameArray = ["pobi", "hounx"], -> Names = [new Name("pobi"), new Name("hounx")]
+    private Optional<Names> createNames(String[] nameArray) {
         Optional<Names> optionalNames = Optional.empty();
+        NamesFactory namesFactory = new NamesFactory();
         try {
-            List<Name> nameList = createNameOfPeopleListInstance(nameArray);
-            optionalNames = Optional.of(new Names(nameList));
+            Names names = namesFactory.createNames(nameArray);
+            optionalNames = Optional.of(names);
         } catch (InvalidNameFormatOfPeopleException | InvalidCountOfPeopleException e) {
             ladderWriter.write(e.getMessage());
         }
         return optionalNames;
     }
 
-    private List<Name> createNameOfPeopleListInstance(String[] nameArray) {
-        List<Name> nameList = new ArrayList<>();
-        for (String name : nameArray) {
-            nameList.add(new Name(name));
-        }
-        return nameList;
-    }
-
     public Destinations getDestinations(int countOfPeople) {
         Optional<Destinations> optionalDestinations = Optional.empty();
         while (optionalDestinations.isEmpty()) {
             String[] dstArray = ladderReader.readDestinations();
-            optionalDestinations = getDestinationsInstance(dstArray, countOfPeople);
+            optionalDestinations = createDestinations(dstArray, countOfPeople);
         }
         return optionalDestinations.get();
     }
 
-    private Optional<Destinations> getDestinationsInstance(String[] dstArray, int countOfPeople) {
+    private Optional<Destinations> createDestinations(String[] dstArray, int countOfPeople) {
         Optional<Destinations> optionalDestinations = Optional.empty();
+        DestinationsFactory destinationsFactory = new DestinationsFactory();
         try {
-            List<Destination> dstList = createDestinationList(dstArray);
-            optionalDestinations = Optional.of(new Destinations(dstList, countOfPeople));
-        } catch (InvalidCountOfLadderResultException | InvalidFormatOfDestinationException e) {
+            Destinations destinations =
+                destinationsFactory.createDestinations(dstArray, countOfPeople);
+            optionalDestinations = Optional.of(destinations);
+        } catch (InvalidCountOfDestinationsException | InvalidFormatOfDestinationException e) {
             ladderWriter.write(e.getMessage());
         }
         return optionalDestinations;
     }
 
-    private List<Destination> createDestinationList(String[] dstArray) {
-        List<Destination> dstList = new ArrayList<>();
-        for (String dst : dstArray) {
-            dstList.add(new Destination(dst));
-        }
-        return dstList;
-    }
-
     public LadderGenerator getLadderGenerator() {
         Optional<LadderGenerator> optionalLadderGenerator = Optional.empty();
         while (optionalLadderGenerator.isEmpty()) {
-            int maximumLadderHeight = getMaximumLadderHeight();
-            optionalLadderGenerator = getLadderGeneratorInstance(maximumLadderHeight);
+            int maximumLadderHeight = readMaximumLadderHeight();
+            optionalLadderGenerator = createLadderGenerator(maximumLadderHeight);
         }
         return optionalLadderGenerator.get();
     }
 
-    private int getMaximumLadderHeight() {
+    private int readMaximumLadderHeight() {
         try {
             return ladderReader.readMaximumLadderHeight();
         } catch (NumberFormatException ignored) {
+            ladderWriter.write(new InvalidNumberOfMinimumLadderHeightException().getMessage());
         }
         return 0;
     }
 
-    private Optional<LadderGenerator> getLadderGeneratorInstance(int maximumLadderHeight) {
+    private Optional<LadderGenerator> createLadderGenerator(int maximumLadderHeight) {
         Optional<LadderGenerator> optionalLadderGenerator = Optional.empty();
+        LadderGeneratorFactory ladderGeneratorFactory = new LadderGeneratorFactory();
         try {
-            optionalLadderGenerator = Optional.of(new LadderGenerator(maximumLadderHeight));
+            LadderGenerator ladderGenerator = ladderGeneratorFactory.create(maximumLadderHeight);
+            optionalLadderGenerator = Optional.of(ladderGenerator);
         } catch (InvalidNumberOfMinimumLadderHeightException e) {
             ladderWriter.write(e.getMessage());
         }
@@ -159,5 +153,12 @@ public class LadderConsoleReaderController {
         int dstIndex = ladder.climb(columnByName);
         Destination destination = destinations.get(dstIndex);
         return new LadderResult(name, destination);
+    }
+
+    public void writeLadderGameStatus(Names namesOfPeoples, Ladder ladder,
+        Destinations destinations) {
+        ladderWriter.writeNamesOfPeoples(namesOfPeoples);
+        ladderWriter.writeLadder(ladder);
+        ladderWriter.writeDestinations(destinations);
     }
 }
