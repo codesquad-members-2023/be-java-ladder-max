@@ -93,7 +93,7 @@
 
     // 캔버스의 너비와 높이를 계산합니다.
     const canvasWidth = cols * gap + lineWidth + canvas_x + 20;
-    const canvasHeight = rows * gap + lineWidth + canvas_y + 20;
+    const canvasHeight = rows * gap + lineWidth + canvas_y + 100;
 
     // 캔버스의 너비와 높이를 설정합니다.
     canvas.width = canvasWidth;
@@ -103,11 +103,11 @@
     ctx.beginPath();
     // 맨 왼쪽 세로줄 그리기
     ctx.moveTo(canvas_x, canvas_y);
-    ctx.lineTo(canvas_x, (rows * gap) + canvas_y);
+    ctx.lineTo(canvas_x, ((rows + 1) * gap) + canvas_y);
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < cols; j++) {
         // 가로줄 그리기
-        if (ladder.lines[i].points.points[j * 2 + 1].value === '-----' && i < rows - 1) {
+        if (ladder.lines[i].points.points[j * 2 + 1].value === '-----') {
           ctx.moveTo((j * gap) + canvas_x, (i + 1) * gap + canvas_y);
           ctx.lineTo(((j + 1) * gap) + canvas_x, (i + 1) * gap + canvas_y);
         }
@@ -116,6 +116,13 @@
         ctx.lineTo(((j + 1) * gap) + canvas_x, (i + 1) * gap + canvas_y);
       }
     }
+    // 마지막 세로 줄 그리기
+    for (let j = 0; j < cols; j++) {
+      // 오른쪽 세로줄 그리기
+      ctx.moveTo(((j + 1) * gap) + canvas_x, rows * gap + canvas_y);
+      ctx.lineTo(((j + 1) * gap) + canvas_x, (rows + 1) * gap + canvas_y);
+    }
+
     ctx.lineWidth = lineWidth;
     ctx.stroke();
 
@@ -140,7 +147,7 @@
     ctx.textAlign = "center";
     for (let i = 0; i < destinations.destinations.length; i++) {
       let x = gap * i;
-      ctx.fillText(destinations.destinations[i].value, x + canvas_x, rows * gap + canvas_y + 15);
+      ctx.fillText(destinations.destinations[i].value, x + canvas_x, rows * gap + canvas_y + 80);
     }
     ctx.stroke();
   </script>
