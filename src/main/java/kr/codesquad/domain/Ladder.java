@@ -1,35 +1,27 @@
 package kr.codesquad.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Ladder {
-    private final String MINIMUM_HEIGHT_ERROR = "사다리 높이는 1부터 입력 가능합니다.";
-    private final int MINIMUM_HEIGHT = 1;
-    private List<Line> lines;
+    private List<Line> ladder;
 
-    public Ladder(int maxHeight, int playersCount) {
-//        validateRandomLine(lines);         // 열 검사(column에 최소 1개 이상의 라인 생성)
-//        validateContinuousLine(lines);     // 행 검사(row의 line이 연속되는 것 제한)
-        validateMinimumHeight(maxHeight);
-        this.lines = generateLadder(maxHeight, playersCount);
+    public Ladder(int numOfPlayers, int height) {
+        this.ladder = generate(numOfPlayers, height);
     }
 
-
-    private void validateMinimumHeight(int ladderHeight) {
-        if (MINIMUM_HEIGHT > ladderHeight) {
-            throw new IllegalArgumentException(MINIMUM_HEIGHT_ERROR);
-        }
+    public List<Line> generate(int numOfPlayers, int height) {
+        return IntStream.range(0, height)
+                .mapToObj(l -> new Line(numOfPlayers))
+                .collect(Collectors.toList());
     }
 
-    private List<Line> generateLadder(int ladderHeight, int countOfPlayers) {
-        return lines;
+    public Line getOneLine(int index) {
+        return ladder.get(index);
     }
 
-//    private void validateRandomLine(List<Line> ladderLines) {
-//
-//    }
-//
-//    private void validateContinuousLine(List<Line> ladderLines) {
-//
-//    }
+    public int getSize() {
+        return ladder.size();
+    }
 }
