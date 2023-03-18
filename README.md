@@ -9,7 +9,7 @@
 
 ### step4
 - 리팩토링
-> [] 매직 넘버<br>
+> [ㅇ] 매직 넘버<br>
 > [ㅇ] 메소드 이름<br>
 > [] getter+setter<br>
 > [] List<String> 을 멤버로 가지는 새로운 클래스
