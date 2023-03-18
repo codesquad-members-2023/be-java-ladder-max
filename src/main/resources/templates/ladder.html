@@ -13,24 +13,55 @@
           src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <style>
+    .header {
+      background-color: rgb(87, 125, 196);
+      height: 75px;
+
+    }
+
+    .header a {
+      color: white;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 80px;
+    }
+
     canvas {
       border: 1px solid black;
+    }
+
+    #allResult_container {
+      font-family: Arial;
+      font-size: 14px;
+      text-align: left;
     }
   </style>
 </head>
 <body>
 <div>
-  <label>사다리 게임 결과</label>
-  <div>
-    <!-- 사다리 -->
+  <div class="d-flex justify-content-center header">
+    <h1>
+      <a th:href="@{/ladder}">사다리 타기 결과</a>
+    </h1>
+  </div>
+
+  <!-- 사다리 -->
+  <div class="d-flex justify-content-center">
     <canvas id="ladder-canvas"
-            style="border: none; margin-left: 50px; margin-top: 50px;"></canvas>
+            style="border: none; margin-top: 50px;"></canvas>
   </div>
 
   <!-- 전체 결과 -->
-  <div th:each="ladderResult : ${ladderResults.ladderResults}">
+  <div class="d-flex justify-content-center" id="allResult_container"
+       th:each="ladderResult : ${ladderResults.ladderResults}">
     <span th:text="${ladderResult}"/><br/>
   </div>
+
+  <!--버튼 메뉴-->
+  <div class="d-flex justify-content-center" style="margin-top: 20px;">
+    <a class="btn btn-secondary" th:href="@{/ladder}">다시하기</a>
+  </div>
+
 
   <script th:inline="javascript">
     const names = [[${names}]];
