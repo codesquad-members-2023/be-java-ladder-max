@@ -1,9 +1,9 @@
-package kr.codesquad;
+package kr.codesquad.view;
 
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class InputReader {
+public class InputView {
     Scanner namesReader = new Scanner(System.in);
     private int ladderHeight;
     private ArrayList<String> namesList = new ArrayList<>();
@@ -27,7 +27,7 @@ public class InputReader {
         for (int namesListIndex = 0; namesListIndex < namesList.size(); namesListIndex++) {
             if (namesList.get(namesListIndex).length() > 5) {
                 continueUntilAllNameMax5 = true;
-                break;
+                return;
             }
             if (namesList.get(namesListIndex).length() < 6) {
                 continueUntilAllNameMax5 = false;

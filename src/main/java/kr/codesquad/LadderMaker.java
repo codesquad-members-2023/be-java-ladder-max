@@ -1,14 +1,18 @@
+
 package kr.codesquad;
+
+
+import kr.codesquad.view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class LadderMaker {
-    private final Random random = new Random();
+    private Random random = new Random();
     private List<List<String>> ladderBoard;
     private List<String> namesList;
-    private Printer printer = new Printer();
+    private OutputView printer = new OutputView();
 
     public void make(ArrayList<String> namesInput, int ladderHeight) {
         namesList = namesInput;
@@ -20,33 +24,29 @@ public class LadderMaker {
         }
         printer.printResult(ladderBoard, namesList);
     }
-
     private void makeRemainParts(int ladderFloorNum) {
         makeFirstBridge(ladderFloorNum);
-        for (int ladderFloorIndex = 1; ladderFloorIndex < namesList.size()-1; ladderFloorIndex++) {
-            makeBridgeNotSecond(ladderFloorIndex, ladderFloorNum);
+        for (int ladderFloorIndex = 1; ladderFloorIndex < namesList.size() - 1; ladderFloorIndex++) {
+            makeBridgeNotContinuous(ladderFloorIndex, ladderFloorNum);
         }
     }
-
     private void makeFirstBridge(int ladderFloorNum) {
-        boolean bool = random.nextBoolean();
-        if (bool == true) {
+        boolean trueOrFalse = random.nextBoolean();
+        if (trueOrFalse){
             ladderBoard.get(ladderFloorNum).add("-----|");
+            return;
         }
-        if (bool == false) {
             ladderBoard.get(ladderFloorNum).add("     |");
-        }
     }
-
-    private void makeBridgeNotSecond(int ladderFloorIndex, int ladderFloorsNum) {
-        boolean bool = random.nextBoolean();
+    private void makeBridgeNotContinuous(int ladderFloorIndex, int ladderFloorsNum) {
+        boolean ifDashBridgeBefore = random.nextBoolean();
         if (ladderBoard.get(ladderFloorsNum).get(ladderFloorIndex - 1).equals("-----|")) {
             ladderBoard.get(ladderFloorsNum).add("     |");
         }
-        if (bool == true && ladderBoard.get(ladderFloorsNum).get(ladderFloorIndex - 1).equals("     |")) {
+        if (ifDashBridgeBefore && ladderBoard.get(ladderFloorsNum).get(ladderFloorIndex - 1).equals("     |")) {
             ladderBoard.get(ladderFloorsNum).add("-----|");
         }
-        if (bool == false && ladderBoard.get(ladderFloorsNum).get(ladderFloorIndex - 1).equals("     |")) {
+        if (!ifDashBridgeBefore && ladderBoard.get(ladderFloorsNum).get(ladderFloorIndex - 1).equals("     |")) {
             ladderBoard.get(ladderFloorsNum).add("     |");
         }
     }

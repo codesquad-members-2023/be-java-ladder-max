@@ -15,7 +15,7 @@
 > [] List<String> 을 멤버로 가지는 새로운 클래스
 - 단위테스트
 > [] gradle 학습<br>
-> [] junit 학습<br>
+> [ㅇ] junit 학습<br>
 > [] +실습<br>
 > [] ladderMakerTest<br>
 > [] InputReaderTest<br>
