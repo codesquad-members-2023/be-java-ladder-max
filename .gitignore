@@ -12,6 +12,7 @@ build/
 .idea/uiDesigner.xml
 .idea/workspace.xml
 .idea/uiDesigner.xml
+.idea/inspectionProfiles/
 *.iws
 *.iml
 *.ipr
