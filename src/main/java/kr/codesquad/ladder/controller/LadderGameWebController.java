@@ -66,15 +66,11 @@ public class LadderGameWebController {
     }
 
     @PostMapping("/ladder/result")
-    public Map<String, Object> ladderResultView(@RequestBody Map<String, Object> dataMap) {
-        log.info("dataMap : " + dataMap);
-        List<String> nameOfPeople = (List<String>) dataMap.get("nameOfPeople");
-        List<String> destinationArray = (List<String>) dataMap.get("destination");
-        int maximumLadderHeight =
-            Integer.parseInt(String.valueOf(dataMap.get("maximumLadderHeight")));
-
+    public ModelAndView ladderResultView(@RequestParam String[] nameOfPeople,
+        @RequestParam String[] destination,
+        @RequestParam Integer maximumLadderHeight) {
         BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(
-            toInputStream(nameOfPeople, destinationArray, maximumLadderHeight))));
+            toInputStream(nameOfPeople, destination, maximumLadderHeight))));
         LadderWriter ladderWriter = new LadderConsoleWriter();
         LadderReader ladderReader = new LadderConsoleReader(br, ladderWriter);
         LadderGameManager consoleController = new LadderGameManager(
@@ -89,20 +85,20 @@ public class LadderGameWebController {
         LadderResults ladderResults =
             ladderResultsFactory.getLadderResults(names, ladder, destinations);
 
-        Map<String, Object> res = new HashMap<>();
-
         NamesDto namesDto = modelMapper.map(names, NamesDto.class);
         DestinationsDto destinationsDto = modelMapper.map(destinations, DestinationsDto.class);
         LadderDto ladderDto = modelMapper.map(ladder, LadderDto.class);
         LadderResultsDto ladderResultsDto = modelMapper.map(ladderResults, LadderResultsDto.class);
-        res.put("names", namesDto);
-        res.put("destinations", destinationsDto);
-        res.put("ladder", ladderDto);
-        res.put("ladderResults", ladderResultsDto);
-        return res;
+
+        mav.getModelMap().addAttribute("names", namesDto);
+        mav.getModelMap().addAttribute("destinations", destinationsDto);
+        mav.getModelMap().addAttribute("ladder", ladderDto);
+        mav.getModelMap().addAttribute("ladderResults", ladderResultsDto);
+
+        return mav;
     }
 
-    private byte[] toInputStream(List<String> nameOfPeople, List<String> destinations,
+    private byte[] toInputStream(String[] nameOfPeople, String[] destinations,
         int maximumLadderHeight) {
         StringBuilder sb = new StringBuilder();
         sb.append(String.join(",", nameOfPeople)).append("\n");
