@@ -3,6 +3,9 @@ package kr.codesquad.ladder.controller;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import kr.codesquad.ladder.domain.Destinations;
 import kr.codesquad.ladder.domain.Ladder;
@@ -10,14 +13,21 @@ import kr.codesquad.ladder.domain.LadderGenerator;
 import kr.codesquad.ladder.domain.LadderResults;
 import kr.codesquad.ladder.domain.LadderResultsFactory;
 import kr.codesquad.ladder.domain.Names;
+import kr.codesquad.ladder.dto.DestinationsDto;
+import kr.codesquad.ladder.dto.LadderDto;
+import kr.codesquad.ladder.dto.LadderResultsDto;
+import kr.codesquad.ladder.dto.NamesDto;
 import kr.codesquad.ladder.exception.InvalidCountOfPeopleException;
 import kr.codesquad.ladder.view.LadderConsoleReader;
 import kr.codesquad.ladder.view.LadderConsoleWriter;
 import kr.codesquad.ladder.view.LadderReader;
 import kr.codesquad.ladder.view.LadderWriter;
 import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.config.Configuration.AccessLevel;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,7 +36,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Slf4j
 public class LadderGameWebController {
 
-    private final Random random = new Random();
+    private final Random random;
+    private final ModelMapper modelMapper;
+
+    public LadderGameWebController() {
+        random = new Random();
+        modelMapper = new ModelMapper();
+        modelMapper.getConfiguration()
+            .setFieldAccessLevel(AccessLevel.PRIVATE)
+            .setFieldMatchingEnabled(true);
+    }
 
     @GetMapping("/ladder")
     public ModelAndView ladderCountOfPeopleForm() {
@@ -47,10 +66,13 @@ public class LadderGameWebController {
     }
 
     @PostMapping("/ladder/result")
-    public ModelAndView ladderResultView(
-        @RequestParam("nameOfPeople") String[] nameOfPeople,
-        @RequestParam("destination") String[] destinationArray,
-        @RequestParam("maximumLadderHeight") int maximumLadderHeight) {
+    public Map<String, Object> ladderResultView(@RequestBody Map<String, Object> dataMap) {
+        log.info("dataMap : " + dataMap);
+        List<String> nameOfPeople = (List<String>) dataMap.get("nameOfPeople");
+        List<String> destinationArray = (List<String>) dataMap.get("destination");
+        int maximumLadderHeight =
+            Integer.parseInt(String.valueOf(dataMap.get("maximumLadderHeight")));
+
         BufferedReader br = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(
             toInputStream(nameOfPeople, destinationArray, maximumLadderHeight))));
         LadderWriter ladderWriter = new LadderConsoleWriter();
@@ -67,18 +89,24 @@ public class LadderGameWebController {
         LadderResults ladderResults =
             ladderResultsFactory.getLadderResults(names, ladder, destinations);
 
-        mav.getModelMap().addAttribute("names", names);
-        mav.getModelMap().addAttribute("ladder", ladder);
-        mav.getModelMap().addAttribute("destinations", destinations);
-        mav.getModelMap().addAttribute("ladderResults", ladderResults);
-        return mav;
+        Map<String, Object> res = new HashMap<>();
+
+        NamesDto namesDto = modelMapper.map(names, NamesDto.class);
+        DestinationsDto destinationsDto = modelMapper.map(destinations, DestinationsDto.class);
+        LadderDto ladderDto = modelMapper.map(ladder, LadderDto.class);
+        LadderResultsDto ladderResultsDto = modelMapper.map(ladderResults, LadderResultsDto.class);
+        res.put("names", namesDto);
+        res.put("destinations", destinationsDto);
+        res.put("ladder", ladderDto);
+        res.put("ladderResults", ladderResultsDto);
+        return res;
     }
 
-    private byte[] toInputStream(String[] nameOfPeople, String[] destinationArray,
+    private byte[] toInputStream(List<String> nameOfPeople, List<String> destinations,
         int maximumLadderHeight) {
         StringBuilder sb = new StringBuilder();
         sb.append(String.join(",", nameOfPeople)).append("\n");
-        sb.append(String.join(",", destinationArray)).append("\n");
+        sb.append(String.join(",", destinations)).append("\n");
         sb.append(maximumLadderHeight);
         return sb.toString().getBytes();
     }
