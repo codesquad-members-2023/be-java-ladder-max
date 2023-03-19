@@ -10,6 +10,7 @@
     <title>Document</title>
 </head>
 <body>
+<form action="result" method="POST" id="form">
     <div id = "wrap">
         <h1>결과</h1>
         <div id="resultLadder" name = "resultLadder" >
@@ -17,13 +18,9 @@
             <pre> <div th:text="${value}">username</div></pre>
             <pre><span th:each = "temp:${resultName}">&nbsp&nbsp[[${temp}]]&nbsp</span></pre>
         </div>
-     
-            <input type="text">
-            <button type="button">검색</button>
-
-        
-
+                <input type="text" name="search" id="resultInput">
+                <button type="submit" >검색</button>
     </div>
-    
+</form>
 </body>
 </html>
