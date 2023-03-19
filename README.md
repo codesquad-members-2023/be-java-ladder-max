@@ -1,4 +1,10 @@
-# Java Ladder
+# 사다리 게임
+
+## 목차
+
+- [요구사항 분석](https://github.com/yonghwankim-dev/be-java-ladder-max/wiki/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD-%EB%B6%84%EC%84%9D)
+- [해결 시도](https://github.com/yonghwankim-dev/be-java-ladder-max/wiki/%ED%95%B4%EA%B2%B0-%EC%8B%9C%EB%8F%84)
+- [학습 목표 및 내용](https://github.com/yonghwankim-dev/be-java-ladder-max/wiki/%ED%95%99%EC%8A%B5-%EB%AA%A9%ED%91%9C-%EB%B0%8F-%EB%82%B4%EC%9A%A9)
 
 ## 콘솔 기반 사다리 게임 실행 결과
 
