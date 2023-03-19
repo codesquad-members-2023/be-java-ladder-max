@@ -12,7 +12,7 @@ public class InputView {
     public void startLadderGame() {
         System.out.println("참여할 사람 이름을 입력하세요. (이름은 쉼표로 구분하세요)");
         makeNamesList();
-        checkNameLength();
+        checkNameLengthMax5();
         nameLengthValidation();
         setLadderHeight();
     }
@@ -23,11 +23,11 @@ public class InputView {
         }
     }
 
-    private void checkNameLength() {
+    private void checkNameLengthMax5() {
         for (int namesListIndex = 0; namesListIndex < namesList.size(); namesListIndex++) {
             if (namesList.get(namesListIndex).length() > 5) {
                 continueUntilAllNameMax5 = true;
-                return;
+                break;
             }
             if (namesList.get(namesListIndex).length() < 6) {
                 continueUntilAllNameMax5 = false;
@@ -40,7 +40,7 @@ public class InputView {
             System.out.println("이름 1개당 5글자까지만 됩니다. 다시 해주세요. (이름은 쉼표로 구분하세요)");
             namesList.clear();
             makeNamesList();
-            checkNameLength();
+            checkNameLengthMax5();
         }
     }
 
