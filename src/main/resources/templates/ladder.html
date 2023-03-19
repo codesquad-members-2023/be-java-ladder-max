@@ -64,40 +64,49 @@
 
 
   <script th:inline="javascript">
-    const names = [[${names}]];
-    const destinations = [[${destinations}]];
+    // 도메인 객체들을 저장합니다.
+    const names = [[${names}]].names;
+    const destinations = [[${destinations}]].destinations;
     const ladder = [[${ladder}]];
-    const ladderResults = [[${ladderResults}]];
-
-    console.log(names);
-    console.log(destinations);
-    console.log(ladder);
-    console.log(ladderResults);
 
     // canvas 요소를 가져옵니다.
     const canvas = document.getElementById("ladder-canvas");
     // 컨텍스트를 가져옵니다.
     const ctx = canvas.getContext("2d");
+    const font = "14px Arial";
+    const black = "black";
+    const center = "center";
 
     // 가로줄 개수와 세로줄 개수를 지정합니다.
     const rows = ladder.lines.length;
-    const cols = names.names.length - 1;
+    const cols = names.length - 1;
 
-    // 가로줄과 세로줄의 간격을 지정합니다.
-    const lineWidth = 2;
+    // 사다리 각 행간의 간격
     const gap = 60;
 
-    // 캔버스 사다리 시작 y 위치
+    // 캔버스 사다리 시작 x, y 위치
     const canvas_x = 20;
     const canvas_y = 50;
 
     // 캔버스의 너비와 높이를 계산합니다.
-    const canvasWidth = cols * gap + lineWidth + canvas_x + 20;
-    const canvasHeight = rows * gap + lineWidth + canvas_y + 100;
+    const canvasWidth = cols * gap + canvas_x + 20;
+    const canvasHeight = rows * gap + canvas_y + 100;
 
     // 캔버스의 너비와 높이를 설정합니다.
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
+
+    ctx.font = font;
+    ctx.fillStyle = black;
+    ctx.textAlign = center;
+
+    // 이름 그리기
+    ctx.beginPath();
+    for (let i = 0; i < names.length; i++) {
+      let x = gap * i;
+      ctx.fillText(names[i].name, x + canvas_x, 30);
+    }
+    ctx.stroke();
 
     // 사다리 그리기
     ctx.beginPath();
@@ -122,32 +131,13 @@
       ctx.moveTo(((j + 1) * gap) + canvas_x, rows * gap + canvas_y);
       ctx.lineTo(((j + 1) * gap) + canvas_x, (rows + 1) * gap + canvas_y);
     }
-
-    ctx.lineWidth = lineWidth;
     ctx.stroke();
 
-    // draw dots
-    const nameOfPeople = names.names;
-
-    // draw nameOfPeople
+    // 도착지 그리기
     ctx.beginPath();
-    ctx.font = "14px Arial";
-    ctx.fillStyle = "black";
-    ctx.textAlign = "center";
-    for (let i = 0; i < nameOfPeople.length; i++) {
+    for (let i = 0; i < destinations.length; i++) {
       let x = gap * i;
-      ctx.fillText(nameOfPeople[i].name, x + canvas_x, 30);
-    }
-    ctx.stroke();
-
-    // draw destinations
-    ctx.beginPath();
-    ctx.font = "14px Arial";
-    ctx.fillStyle = "black";
-    ctx.textAlign = "center";
-    for (let i = 0; i < destinations.destinations.length; i++) {
-      let x = gap * i;
-      ctx.fillText(destinations.destinations[i].value, x + canvas_x, rows * gap + canvas_y + 80);
+      ctx.fillText(destinations[i].value, x + canvas_x, rows * gap + canvas_y + 80);
     }
     ctx.stroke();
   </script>
