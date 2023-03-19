@@ -18,7 +18,6 @@
 - [ ] 사다리 타기 알고리즘 depth2->depth1로 줄이기
 - [x] 웹에서 인원수 0을 입력하고 Enter시 예외처리
 - [x] 사다리 입력정보 도착정보 입력시 빈칸인 경우 예외처리
-- [ ] 예외 발생시 alert 발생후 페이지로 다시 이동
 
 ## 기능요구사항
 
@@ -211,5 +210,4 @@ all : 전체 결과 보기, 춘식이 : 프로그램 종료, 이름 : pobi  honu
 - [ ] http network 6장
 - [x] 이것이 안드로이드다, 스레드와 코루틴
 - [ ] 이것이 안드로이드다, 서비스와 콘텐트 리졸버
-- [ ] modelMapper
-- [ ] thymeleaf string format
+- [x] modelMapper
