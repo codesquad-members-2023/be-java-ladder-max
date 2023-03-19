@@ -16,7 +16,6 @@
 - 단위테스트
 > [] gradle 학습<br>
 > [ㅇ] junit 학습<br>
-> [ㅇ]테스트 코드 작성에 대해 살펴보자
 > [ㅇ] ladderMakerTest<br>
 > [] InputReaderTest<br>
 > [] PrinterTest
