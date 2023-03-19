@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 public class LadderLine {
 
     private final int lineWidth;
-    private ArrayList<Boolean> points;
+    private  ArrayList<Boolean> points;
 
     public LadderLine(int countOfPeople) {
         this.lineWidth = countOfPeople - 1;

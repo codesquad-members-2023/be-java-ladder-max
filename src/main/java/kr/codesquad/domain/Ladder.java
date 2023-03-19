@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Ladder {
-    private ArrayList<LadderLine> ladder;
+    private final ArrayList<LadderLine> ladder;
 
     public Ladder() {
         ladder = new ArrayList<>();
@@ -37,10 +37,7 @@ public class Ladder {
         for (LadderLine line : ladder) {
             line.markConnectedPoints(checkHung, line);
         }
-        if(Arrays.stream(checkHung).allMatch(b -> b == true)){
-            return true;
-        }
-        return false;
+        return Arrays.stream(checkHung).allMatch(b -> b);
     }
 
     @Override

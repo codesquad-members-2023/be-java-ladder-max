@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class Results {
 
-    private ArrayList<String> resultList;
+    private final ArrayList<String> resultList;
 
     public Results() {
         this.resultList = new ArrayList();
