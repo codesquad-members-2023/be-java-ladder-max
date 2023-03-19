@@ -37,17 +37,17 @@ public class LadderMaker {
         }
             ladderBoard.get(ladderFloorNum).add("     |");
     }
-    private void makeBridgeNotContinuous(int ladderFloorIndex, int ladderFloorsNum) {
+    private void makeBridgeNotContinuous(int ladderFloorIndex, int ladderFloorNum) {
         int beforeIndex = ladderFloorIndex - 1;
-        if (ladderBoard.get(ladderFloorsNum).get(beforeIndex).equals("-----|")) {
-            ladderBoard.get(ladderFloorsNum).add("     |");
+        if (ladderBoard.get(ladderFloorNum).get(beforeIndex).equals("-----|")) {
+            ladderBoard.get(ladderFloorNum).add("     |");
             return;
         }
-        if (random.nextBoolean() && ladderBoard.get(ladderFloorsNum).get(beforeIndex).equals("     |")) {
-            ladderBoard.get(ladderFloorsNum).add("-----|");
+        if (random.nextBoolean() && ladderBoard.get(ladderFloorNum).get(beforeIndex).equals("     |")) {
+            ladderBoard.get(ladderFloorNum).add("-----|");
             return;
         }
-            ladderBoard.get(ladderFloorsNum).add("     |");
+            ladderBoard.get(ladderFloorNum).add("     |");
     }
 }
 

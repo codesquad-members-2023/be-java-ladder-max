@@ -1,9 +1,10 @@
 package kr.codesquad;
-
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class PrinterTest {
+class OutputViewTest {
+
+
     @Test
     void printResult() {
     }
