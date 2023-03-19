@@ -310,6 +310,34 @@ map과 비교했을 때 dto는 setter 메서드를 사용하지 않으면 생성
 이번주 안에 목표했던 5단계를 끝내서 후련하다. 
 
 
+# step - 6 구현 결과
+
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/100547825/226191921-d3a32a24-2c92-424d-a43d-d0442cad6d14.png">
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/100547825/226191984-6a814c54-12af-4063-8033-fd5b2d96bb5b.png">
+
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/100547825/226192029-79ce9f45-b583-4539-b124-e36f19cf02a5.png">
+
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/100547825/226192073-7e7776dd-dec1-41d8-a6f4-974244053552.png">
+
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/100547825/226192095-a056fb25-8e05-4d21-ac34-f7b6ee75704d.png">
+
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/100547825/226192122-6c5ebf3a-5d7a-44c0-891d-542711afd955.png">
+
+## 구현 과정
+Input 클래스를 이용해 콘솔에서 input 받는 부분을 빼고는 쓰던 로직들을 사용했고, 컨트롤러에서 매핑을 통해 웹 input에서 값들을 받아와서 서비스에서 가공하여 다시 웹으로 출력했다.
+
+템플릿 엔진 타임리프를 통해 자바에서 던진 객체들을 받아 html에 뿌렸다.
+
+예외 처리 같은 경우는 자바에서 쓴 Exception 부분을 어떻게 처리할지 몰라 완벽하게 구현하지 못하고 실패 값을 따로 지정해 줘서 출력시켰다.
+
+## 아쉬운 점
+비동기로 구현해 보고 싶었으나 form 액션만을 사용해서 페이지와 데이터를 넘기는 것도 익숙하지 않아 구현하지 못했다.
+
+예외 처리 부분을 어떻게 처리해야 할지 몰라서 처리하지 못한 부분이 아쉽다.
+
+컨트롤러와 서비스를 나눈다고 나눴지만 한 가지 메서드가 한 가지 일만 하지 않고 여러 일을 하는 느낌이다. 수정하려면 사다리게임 로직을 건드려야 할 거 같아 시간 관계상 시도하지 못했다.
+
+
 
 
 
