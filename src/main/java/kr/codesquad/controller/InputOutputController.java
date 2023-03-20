@@ -1,15 +1,12 @@
 package kr.codesquad.controller;
 
 import kr.codesquad.domain.Ladder;
-import kr.codesquad.domain.LadderHeight;
 import kr.codesquad.domain.Players;
 import kr.codesquad.domain.Results;
 import kr.codesquad.util.Validator;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
-import java.beans.VetoableChangeListener;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 

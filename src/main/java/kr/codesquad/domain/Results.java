@@ -1,12 +1,6 @@
 package kr.codesquad.domain;
 
-import kr.codesquad.view.InputView;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Results {
 

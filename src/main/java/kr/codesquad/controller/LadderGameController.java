@@ -14,9 +14,9 @@ public class LadderGameController {
 
     public void startLadderGame(){
         Players players = new Players(ioController.getPlayers());
-        LadderHeight ladderHeight = new LadderHeight(ioController.getHeight());
+        int ladderHeight = ioController.getHeight();
         Results results = new Results(ioController.getResults(players.getCountOfPlayers()));
-        ladder.createValidLadder(players.getCountOfPlayers(), ladderHeight.getLadderHeight());
+        ladder.createValidLadder(players.getCountOfPlayers(), ladderHeight);
         ioController.printLadder(ladder, players, results);
         ExecutionResultGenerator executionResultGenerator = new ExecutionResultGenerator(ladder, players, results);
         ioController.getExecutionResult(executionResultGenerator.getResultMap());
