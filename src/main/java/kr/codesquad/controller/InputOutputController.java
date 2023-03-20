@@ -24,8 +24,8 @@ public class InputOutputController {
 
     List<String> getPlayers() {
         List<String> playersList;
+        inputView.playerNamePrompt();
         do {
-            inputView.playerNamePrompt();
             playersList = validator.getValidPlayerFromUser(inputView.getInput());
         } while (playersList == null);
         return playersList;
@@ -34,8 +34,8 @@ public class InputOutputController {
     int  getHeight() {
         int tempHeight;
         boolean validHeight;
+        inputView.LadderHeightPrompt();
         do {
-            inputView.LadderHeightPrompt();
             tempHeight = Integer.parseInt(inputView.getInput());
             validHeight = validator.getValidHeightFromUser(tempHeight);
         } while (!validHeight);
@@ -44,8 +44,8 @@ public class InputOutputController {
 
      List getResults(int playerNum) {
          List<String> resultsList;
+         inputView.resultPrompt();
          do {
-             inputView.resultPrompt();
              resultsList = validator.getResultsFromUser(inputView.getInput(), playerNum);
          } while (resultsList == null);
          return resultsList;
