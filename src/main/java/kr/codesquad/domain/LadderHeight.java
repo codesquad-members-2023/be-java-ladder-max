@@ -9,25 +9,12 @@ public class LadderHeight {
 
     private int ladderHeight;
 
+    public LadderHeight(int ladderHeight){
+        this.ladderHeight=ladderHeight;
+    }
+
     public int getLadderHeight() {
         return ladderHeight;
     }
 
-    private final String ERROR_MESSAGE_FOR_LADDER_HEIGHT = "사다리 높이는 2이상으로 입력";
-    public boolean getValidHeightFromUser(int ladderHeight) {
-        try {
-            this.ladderHeight =validateHeightAndThrowException(ladderHeight) ;
-            return true;
-        } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
-        }
-        return false;
-    }
-
-    private int validateHeightAndThrowException(int height) {
-        if (height < 2) {
-            throw new RuntimeException(ERROR_MESSAGE_FOR_LADDER_HEIGHT);
-        }
-        return height;
-    }
 }

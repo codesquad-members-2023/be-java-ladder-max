@@ -1,5 +1,6 @@
 package kr.codesquad.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -42,7 +43,7 @@ public class Validator {
 
     public boolean getValidHeightFromUser(int ladderHeight) {
         try {
-            validateHeightAndThrowException(ladderHeight) ;
+            validateHeightAndThrowException(ladderHeight);
             return true;
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
@@ -50,11 +51,32 @@ public class Validator {
         return false;
     }
 
-    private int validateHeightAndThrowException(int height) {
+    private void validateHeightAndThrowException(int height) {
         if (height < 2) {
             throw new RuntimeException(ERROR_MESSAGE_FOR_LADDER_HEIGHT);
         }
-        return height;
+    }
+
+    public List getResultsFromUser(String strResults, int sizeOfNameList){
+        try {
+            List<String> tempResult = parseInputStringToResultList(strResults);
+            validateNumOfResultList(tempResult,sizeOfNameList);
+            return tempResult;
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    private List<String> parseInputStringToResultList(String strContainsName) {
+        return Arrays.stream(strContainsName.split(","))
+                .collect(Collectors.toList());
+    }
+
+    private void validateNumOfResultList(List list, int sizeOfNameList) {
+        if (list.size() != sizeOfNameList) {
+            throw new RuntimeException("실행결과 갯수와 player갯수가 다릅니다");
+        }
     }
 
 }
