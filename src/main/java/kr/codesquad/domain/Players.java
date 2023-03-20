@@ -16,7 +16,7 @@ public class Players {
         return playersList.size();
     }
 
-    String getPlayer(int i){
+    public String getPlayer(int i){
         return playersList.get(i);
     }
 

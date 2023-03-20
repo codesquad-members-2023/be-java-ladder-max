@@ -1,5 +1,7 @@
 package kr.codesquad.domain;
 
+import kr.codesquad.util.RandomLineGenerator;
+
 import java.util.ArrayList;
 import java.util.stream.IntStream;
 

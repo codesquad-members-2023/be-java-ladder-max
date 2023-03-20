@@ -15,10 +15,9 @@ public class Results {
     public Results(List results) {
         this.resultList = results;
     }
-    String getResultFromResultList(int i){
+    public String getResultFromResultList(int i){
         return resultList.get(i);
     }
-
 
     @Override
     public String toString() {

@@ -1,4 +1,8 @@
-package kr.codesquad.domain;
+package kr.codesquad.util;
+
+import kr.codesquad.domain.Ladder;
+import kr.codesquad.domain.Players;
+import kr.codesquad.domain.Results;
 
 import java.util.HashMap;
 

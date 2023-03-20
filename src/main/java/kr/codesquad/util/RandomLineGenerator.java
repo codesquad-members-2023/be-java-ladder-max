@@ -1,4 +1,4 @@
-package kr.codesquad.domain;
+package kr.codesquad.util;
 
 import java.util.ArrayList;
 import java.util.List;

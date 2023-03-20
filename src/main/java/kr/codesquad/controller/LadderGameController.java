@@ -1,6 +1,7 @@
 package kr.codesquad.controller;
 
 import kr.codesquad.domain.*;
+import kr.codesquad.util.ExecutionResultGenerator;
 
 public class LadderGameController {
     private final InputOutputController ioController;
