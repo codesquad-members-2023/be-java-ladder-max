@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Validator {
 
     private static final String NAME_LENGTH_ERROR_MESSAGE = "이름은 5글자 이하여야 합니다. 다시 입력해주세요.";
     private static final String PLAYER_NUMBER_ERROR_MESSAGE = "player는 2명 이상이 필요합니다. 다시 입력해주세요.";
     private final String ERROR_MESSAGE_FOR_LADDER_HEIGHT = "사다리 높이는 2이상으로 입력";
+    private static final String ERROR_MESSAGE_FOR_CONSECUTIVE_POINTS = "연속적인 true 존재";
 
     public List<String> getValidPlayerFromUser(String players) {
         try {
@@ -77,6 +79,25 @@ public class Validator {
         if (list.size() != sizeOfNameList) {
             throw new RuntimeException("실행결과 갯수와 player갯수가 다릅니다");
         }
+    }
+
+    boolean validatePoints(ArrayList<Boolean> points) {
+        try {
+            validatePointsAndThrowException(points);
+            return true;
+        }catch (IllegalStateException e){
+            System.out.println(e);
+        }
+        return false;
+    }
+
+    private void validatePointsAndThrowException(ArrayList<Boolean> points){
+        IntStream.range(0, points.size()-1)
+                .filter(i ->points.get(i) && points.get(i + 1))
+                .findFirst()
+                .ifPresent(i -> {
+                    throw new IllegalStateException(ERROR_MESSAGE_FOR_CONSECUTIVE_POINTS);
+                });
     }
 
 }
