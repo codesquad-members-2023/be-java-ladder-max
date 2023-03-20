@@ -27,38 +27,31 @@ public class InputOutputController {
 
     List<String> getPlayers() {
         List<String> playersList;
-        while (true) {
+        do {
             inputView.playerNamePrompt();
             playersList = validator.getValidPlayerFromUser(inputView.getInput());
-            if(playersList != null){
-                break;
-            }
-        }
+        } while (playersList == null);
         return playersList;
     }
 
     int  getHeight() {
         int tempHeight;
-        while (true){
+        boolean validHeight;
+        do {
             inputView.LadderHeightPrompt();
             tempHeight = Integer.parseInt(inputView.getInput());
-            if(validator.getValidHeightFromUser(tempHeight)){
-                break;
-            }
-        }
+            validHeight = validator.getValidHeightFromUser(tempHeight);
+        } while (!validHeight);
         return tempHeight;
     }
 
      List getResults(int playerNum) {
-        List<String> resultsList;
-        while (true) {
-            inputView.resultPrompt();
-            resultsList = validator.getResultsFromUser(inputView.getInput(),playerNum);
-            if(resultsList != null){
-                break;
-            }
-        }
-        return resultsList;
+         List<String> resultsList;
+         do {
+             inputView.resultPrompt();
+             resultsList = validator.getResultsFromUser(inputView.getInput(), playerNum);
+         } while (resultsList == null);
+         return resultsList;
     }
 
     void getExecutionResult(HashMap<String, String> resultMap){
