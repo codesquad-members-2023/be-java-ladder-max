@@ -23,7 +23,10 @@ button {
     border-radius: 10px;
     border: none;
 }
-#resultLadder{
-    display: flex;
-    flex-direction: column;
+#result{
+    font-size: 30px;
 }
+#resultLadder{
+    font-size: 20px;
+}
+

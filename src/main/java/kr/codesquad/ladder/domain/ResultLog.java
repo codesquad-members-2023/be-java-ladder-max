@@ -30,7 +30,7 @@ public class ResultLog {
     private String findResult(String name) {
         for (ResultDto temp : resultLog) {
             if(temp.getUserName().equals(String.format("%-6s",name))) {
-                return "실행결과\n"+temp.getResult();
+                return temp.getUserName()+"\n실행결과\n"+temp.getResult();
             }
         }
         throw new IllegalArgumentException("해당 유저 존재하지 않음");
@@ -52,6 +52,21 @@ public class ResultLog {
         return existValidate(input.insertFindUser(),input);
     }
 
+    public String existValidate(String name) {
+        if(name.equals("춘식이")){
+            return "춘식이 입력 게임종료";
+        }
+        if(name.equals("all")){
+            return toString();
+        }
+        try {
+            return findResult(name);
+        } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
+        return "해당유저 존재하지 않음";
+    }
+
 
 
     @Override
@@ -59,10 +74,10 @@ public class ResultLog {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("실행결과\n");
         for(ResultDto temp : resultLog) {
-           stringBuilder.append(temp.getUserName());
-           stringBuilder.append(" : ");
-           stringBuilder.append(temp.getResult());
-           stringBuilder.append("\n");
+            stringBuilder.append(temp.getUserName());
+            stringBuilder.append(" : ");
+            stringBuilder.append(temp.getResult());
+            stringBuilder.append("\n");
         }
         return stringBuilder.toString();
     }
