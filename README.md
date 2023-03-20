@@ -221,6 +221,10 @@
 </div>
 </details>
 
+<details>
+<summary>사다리게임 2주차 계획</summary>
+<div markdown="1">
+
 ## 사다리게임 2주차 계획
 
 ### **주간계획**
@@ -275,11 +279,6 @@ ExcutionResult 클래스에 LadderGame에 대한 결과를 Map형태로 가지�
 - [x] 사다리게임 Step5 테스트 코드
 
 
-
-
-
-### 3.15 계획
-
 ### 3.15 계획
 
 - [x] OOP 원칙,Solid 원칙, Object책에 의거한 코드 리팩토링
@@ -288,3 +287,50 @@ ExcutionResult 클래스에 LadderGame에 대한 결과를 Map형태로 가지�
     - [x] SRP
 - [x] 사다리 생성시 연결 안되는 곳이 있으면 연결할수 있는 기능 추가
 
+</div>
+</details>
+
+## LadderGame
+
+| 클래스                   | 필드                                            | 기능                                                         |
+| ------------------------ | ----------------------------------------------- | ------------------------------------------------------------ |
+| Players                  | playersList                                     | ~~User로부터 players를 입력받고~~ player에 대한 유효성 검사  |
+| Results                  | resultList                                      | ~~User로부터 results를 입력받고~~ result에 대한 유효성 검사  |
+| LadderHeight             | ladderHeight                                    | ~~User로부터 ladderHeight를 입력받고~~ ladderHeight에 대한 유효성 검사 |
+| InputOutputController    | inputHandler,outputHandler                      | 모든 input과 output을 처리                                   |
+| LadderGameController     | ioController,players,ladderHeight,result,ladder | ladderGame을 control                                         |
+| Ladder                   | ladder, ~~ladderHeight~~, ~~countOfPeople~~     | 사다리를 만들며, 사다를 탈수 있는 기능을 가지고 있다.        |
+| LadderLine               | points,lineWidth                                | RandomLineGenerator를 통해 사다리 Line을 만들며, player의 위치를 기준으로 좌우로 연결된 사다리의 유무를 판단하는 기능을 가지고 있다. |
+| RandomLineGenerator      |                                                 | 사다리 Line을 생성하는 기능 및 유효성 검사를 한다.           |
+| ExecutionResultGenerator | resultMap, ~~ladder,player,result~~             | 사다리 게임의 결과를 Map형태로 저장한다.                     |
+| InputView                |                                                 | console을 통해 입력을 받는 기능을 담당한다.                  |
+| OutputView               |                                                 | 모든 출력을 담당한다.                                        |
+| ~~ExecutionResult~~      | ~~resultMap~~                                   | ~~User로부터 player를 입력으로 받아 결과를 출력하는 기능을 가지고 있다.~~ |
+
+
+
+![최종](https://raw.githubusercontent.com/CDBchan/Typora-img/main/img/최종.PNG)
+
+
+
+### 예외처리
+
+player가 1명일때
+
+player 이름이 6이상 일때
+
+Ladder height가 1 이하일때
+
+Results의 갯수가 player명수와 다를때
+
+Ladder생성시 이어지지 않는 부분이 존재할때
+
+
+
+### 개선점
+
+InputOutputController에 존재하는 메서드를 public으로 만들고 각 객체 players,ladderHeight,Results의 생성자를 통해 값을 초기화 한다. 이렇게하면 InputOutputController와 Players,LadderHeight,Results의 의존성이 사라질수 있다.
+
+
+
+Validator만을 모아둔 class을 두자, 어차피 input에 대해서만 Validate를 해주니 하나의 클래스에 Validate를 모아두자.

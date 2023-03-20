@@ -13,10 +13,7 @@ public class RandomLineGenerator {
         IntStream.range(0, lineWidth)
                 .mapToObj(i -> generateRungStatus(points))
                 .forEach(points::add);
-        if(!validatePoints(points)){
-            return false;
-        }
-        return true;
+        return validatePoints(points);
     }
 
     private boolean generateRungStatus(List<Boolean> points) {

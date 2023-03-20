@@ -1,12 +1,7 @@
 package kr.codesquad.domain;
 
-import kr.codesquad.view.InputView;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -14,8 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class PlayerNameValidatorTest {
 
     Players playerValidator = new Players();
-    InputView inputHandler = new InputView();
-    ArrayList list = new ArrayList<>();
 
     @Test
     @DisplayName("모든 playerName이 5글자 이하일떄 test")

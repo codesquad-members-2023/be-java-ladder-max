@@ -11,8 +11,8 @@ import java.util.HashMap;
 
 public class InputOutputController {
 
-    private OutputView outputView;
-    private InputView inputView;
+    private final OutputView outputView;
+    private final InputView inputView;
 
     public InputOutputController() {
         this.inputView = new InputView();

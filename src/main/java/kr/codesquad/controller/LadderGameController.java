@@ -7,7 +7,6 @@ public class LadderGameController {
     private final Players players;
     private final LadderHeight ladderHeight;
     private final Results result;
-
     private final Ladder ladder;
 
     public LadderGameController() {

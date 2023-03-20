@@ -3,7 +3,7 @@ package kr.codesquad.domain;
 import java.util.HashMap;
 
 public class ExecutionResultGenerator {
-    private HashMap<String,String> resultMap;
+    private final HashMap<String,String> resultMap;
     public HashMap<String, String> getResultMap() {
         return resultMap;
     }
