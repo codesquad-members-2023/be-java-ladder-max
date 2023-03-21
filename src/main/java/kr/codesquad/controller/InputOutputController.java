@@ -1,44 +1,54 @@
 package kr.codesquad.controller;
 
 import kr.codesquad.domain.Ladder;
-import kr.codesquad.domain.LadderHeight;
 import kr.codesquad.domain.Players;
 import kr.codesquad.domain.Results;
+import kr.codesquad.util.Validator;
 import kr.codesquad.view.InputView;
 import kr.codesquad.view.OutputView;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class InputOutputController {
 
     private final OutputView outputView;
     private final InputView inputView;
+    private final Validator validator;
 
     public InputOutputController() {
+        this.validator = new Validator();
         this.inputView = new InputView();
         this.outputView = new OutputView();
     }
 
-    void setupGame(Players players, LadderHeight ladderHeight, Results result) {
-        getPlayers(players);
-        getResults(result, players.getCountOfPlayers());
-        getHeight(ladderHeight);
-    }
-
-    private void getPlayers(Players players) {
+    List<String> getPlayers() {
+        List<String> playersList;
         inputView.playerNamePrompt();
-        while (!players.getValidPlayerFromUser(inputView.getInput())) {
-        }
+        do {
+            playersList = validator.getValidPlayerFromUser(inputView.getInput());
+        } while (playersList == null);
+        return playersList;
     }
 
-    private void getHeight(LadderHeight ladderHeight) {
+    int  getHeight() {
+        int tempHeight;
+        boolean validHeight;
         inputView.LadderHeightPrompt();
-        while (!ladderHeight.getValidHeightFromUser(Integer.parseInt(inputView.getInput()))) ;
+        do {
+            tempHeight = Integer.parseInt(inputView.getInput());
+            validHeight = validator.getValidHeightFromUser(tempHeight);
+        } while (!validHeight);
+        return tempHeight;
     }
 
-    private void getResults(Results result, int playerNum) {
-        inputView.resultPrompt();
-        while (!result.getResultsFromUser(inputView.getInput(), playerNum)) ;
+     List getResults(int playerNum) {
+         List<String> resultsList;
+         inputView.resultPrompt();
+         do {
+             resultsList = validator.getResultsFromUser(inputView.getInput(), playerNum);
+         } while (resultsList == null);
+         return resultsList;
     }
 
     void getExecutionResult(HashMap<String, String> resultMap){

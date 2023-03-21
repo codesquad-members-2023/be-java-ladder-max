@@ -4,7 +4,6 @@ import kr.codesquad.domain.Ladder;
 import kr.codesquad.domain.Players;
 import kr.codesquad.domain.Results;
 
-import java.io.IOException;
 import java.util.Map;
 
 public class OutputView {

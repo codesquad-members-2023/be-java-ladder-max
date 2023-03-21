@@ -6,8 +6,9 @@ import java.util.Arrays;
 public class Ladder {
     private final ArrayList<LadderLine> ladder;
 
-    public Ladder() {
+    public Ladder(int countOfPlayers,int ladderHeight) {
         ladder = new ArrayList<>();
+        createValidLadder(countOfPlayers,ladderHeight);
     }
 
     public void createValidLadder(int countOfPlayers, int ladderHeight){

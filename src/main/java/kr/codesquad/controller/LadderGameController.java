@@ -1,27 +1,23 @@
 package kr.codesquad.controller;
 
 import kr.codesquad.domain.*;
+import kr.codesquad.util.ExecutionResultGenerator;
 
 public class LadderGameController {
     private final InputOutputController ioController;
-    private final Players players;
-    private final LadderHeight ladderHeight;
-    private final Results result;
-    private final Ladder ladder;
 
     public LadderGameController() {
         this.ioController = new InputOutputController();
-        this.players = new Players();
-        this.result = new Results();
-        this.ladderHeight = new LadderHeight();
-        this.ladder  = new Ladder();
     }
 
     public void startLadderGame(){
-        ioController.setupGame(players, ladderHeight, result);
-        ladder.createValidLadder(players.getCountOfPlayers(), ladderHeight.getLadderHeight());
-        ioController.printLadder(ladder, players, result);
-        ExecutionResultGenerator executionResultGenerator = new ExecutionResultGenerator(ladder, players, result);
+        Players players = new Players(ioController.getPlayers());
+        int ladderHeight = ioController.getHeight();
+        Results results = new Results(ioController.getResults(players.getCountOfPlayers()));
+        Ladder ladder = new Ladder(players.getCountOfPlayers(), ladderHeight);
+        ExecutionResultGenerator executionResultGenerator = new ExecutionResultGenerator(ladder, players, results);
+
+        ioController.printLadder(ladder, players, results);
         ioController.getExecutionResult(executionResultGenerator.getResultMap());
     }
 }
