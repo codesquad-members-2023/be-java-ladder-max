@@ -14,7 +14,7 @@ public class Ladder {
         // 1. 사다리를 만든다
         makeLadderLine(playerNumber, ladderHeight);
         // 2. 유효성 검사를 한다 (세로줄 공백인지 확인하고, 사다리 재입력 받음)
-        while (!available()){
+        while (!available() && ladderHeight != 1){
             ladder.clear();
             makeLadderLine(playerNumber, ladderHeight);
         }
