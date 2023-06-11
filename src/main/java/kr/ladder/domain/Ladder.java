@@ -58,6 +58,7 @@ public class Ladder {
     public String generate(){
         StringBuilder sb = new StringBuilder();
         for (LadderLine ladderLine : ladder) {
+            sb.append("  "); // player name과 맞추기 위해서
             sb.append(ladderLine.generate()).append("\n");
         }
         return sb.toString();
