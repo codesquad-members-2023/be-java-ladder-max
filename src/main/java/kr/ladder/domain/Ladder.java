@@ -15,13 +15,14 @@ public class Ladder {
         makeLadderLine(playerNumber, ladderHeight);
         // 2. 유효성 검사를 한다 (세로줄 공백인지 확인하고, 사다리 재입력 받음)
         while (!available()){
+            ladder.clear();
             makeLadderLine(playerNumber, ladderHeight);
         }
         // 3. OutputView에 넘겨서 바로 출력 가능하게 만들어준다.
 //        generate();
     }
-    
-    private void makeLadderLine(int playerNumber, int ladderHeight){
+
+    private void makeLadderLine(int playerNumber, int ladderHeight) {
         for (int i = 0; i < ladderHeight; i++) { // 행 넣기
             LadderLine ladderLine = new LadderLine();
             ladderLine.make(playerNumber);
