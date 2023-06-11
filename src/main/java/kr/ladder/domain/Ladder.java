@@ -30,7 +30,7 @@ public class Ladder {
     }
 
     private boolean available(){
-        int[] countBlanks = new int[ladder.size()];
+        int[] countBlanks = new int[ladder.get(0).size()];
         for (LadderLine ladderLine : ladder){
             countBlank(countBlanks, ladderLine);
         }
