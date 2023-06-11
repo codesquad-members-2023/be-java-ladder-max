@@ -6,6 +6,8 @@ import java.io.IOException;
 
 public class InputValidation {
     public static final String ERROR_MASSAGE_PLAYER_NAME = "정해진 형식에 맞지 않습니다. 다시 입력해주세요";
+    public static final String ERROR_MESSAGE_LADDER_HEIGHT = "다시 입력해주세요. 최소 사다리 높이는 1입니다.";
+    public static final String ERROR_MESSAGE_LADDER_TYPE = "정수를 입력해 주세요.";
     public static final int MIN_NAME_LENGTH = 1;
     public static final int MAX_NAME_LENGTH = 5;
     private final InputView inputView;
@@ -37,16 +39,16 @@ public class InputValidation {
         return players;
     }
 
-    private boolean correctLength(String[] players){
+    private boolean correctLength(String[] words){
         int errors = 0; // 이름이 1~5글자 사이에 있지 않으면 count
-        for (String playerName : players) {
-            errors += countOverScopeName(playerName);
+        for (String word : words) {
+            errors += countOverScopeName(word);
         }
         return (errors == 0);
     }
 
-    private int countOverScopeName(String playerName){
-        if (playerName.length() >= MIN_NAME_LENGTH && playerName.length() <= MAX_NAME_LENGTH){
+    private int countOverScopeName(String word){
+        if (word.length() >= MIN_NAME_LENGTH && word.length() <= MAX_NAME_LENGTH){
             return 0;
         }
         return 1;
@@ -55,14 +57,33 @@ public class InputValidation {
     /* 사다리 높이 검사()
      while 정상적인 사다리 높이가 아니라면
          1. 사다리 높이가 0 이하 ✅
-         2. int가 아닌 경우
+         2. int가 아닌 경우 ✅
         -> 입력을 다시 받는다
      return 정상적인 사다리 높이
      */
-    public int inspectLadderHeight(int ladderHeight) throws IOException {
-        if (ladderHeight < 1) {
+    public int inspectLadderHeight(String ladderHeight) throws IOException {
+        while (!isInteger(ladderHeight) || !isAvailableHeight(Integer.parseInt(ladderHeight))) {
             ladderHeight = inputView.getLadderHeight();
         }
-        return ladderHeight;
+        return Integer.parseInt(ladderHeight);
     }
+
+    private boolean isAvailableHeight(int ladderHeight){
+        if (ladderHeight < 1) {
+            System.out.println(ERROR_MESSAGE_LADDER_HEIGHT);
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isInteger(String ladderHeight) {
+        try {
+            Integer.parseInt(ladderHeight);
+            return true;
+        } catch (NumberFormatException e) {
+            System.out.println(ERROR_MESSAGE_LADDER_TYPE);
+            return false;
+        }
+    }
+
 }

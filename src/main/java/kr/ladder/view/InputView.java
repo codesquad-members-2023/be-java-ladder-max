@@ -18,8 +18,9 @@ public class InputView {
         return br.readLine().split(",");
     }
 
-    public int getLadderHeight() throws IOException {
+    public String getLadderHeight() throws IOException {
         System.out.println(ASKING_LADDER_HEIGHT);
-        return Integer.parseInt(br.readLine());
+        return br.readLine();
+    }
     }
 }
