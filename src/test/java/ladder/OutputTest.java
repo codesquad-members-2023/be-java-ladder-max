@@ -22,7 +22,7 @@ public class OutputTest {
 
         //when
         String playerName = "이지안";
-        String playerNameWithBlanks = outputView.insertBlankAroundPlayerName(playerName);
+        String playerNameWithBlanks = outputView.insertBlankAroundName(playerName);
 
         //then
         softAssertions.assertThat(playerNameWithBlanks).isEqualTo(" 이지안  ");

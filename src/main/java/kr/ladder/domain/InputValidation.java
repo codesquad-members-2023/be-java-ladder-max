@@ -8,6 +8,7 @@ public class InputValidation {
     public static final String ERROR_MASSAGE_PLAYER_NAME = "정해진 형식에 맞지 않습니다. 다시 입력해주세요";
     public static final String ERROR_MESSAGE_LADDER_HEIGHT = "다시 입력해주세요. 최소 사다리 높이는 1입니다.";
     public static final String ERROR_MESSAGE_LADDER_TYPE = "정수를 입력해 주세요.";
+    public static final String ERROR_MASSAGE_PRIZES_NUMBER = "경품을 다시 입력해주세요. 인원 수와 같은 수가 들어와야 합니다.";
     public static final int MIN_NAME_LENGTH = 1;
     public static final int MAX_NAME_LENGTH = 5;
     private final InputView inputView;
@@ -86,4 +87,35 @@ public class InputValidation {
         }
     }
 
+    /*
+    상품 목록 검사
+    while 정상적인 경품 목록이 아니라면
+        1. 1~5 글자 사이가 아닌 경우 ✅(사람 이름 검사 로직 재사용)
+        2. 플레이어 숫자와 동일한 갯수가 아닐 경우
+        -> 경품 입력을 다시 받는다.
+    return 정상적인 경품 목록
+     */
+
+    public String[] inspectPrizes(String[] prizes, int playersNumber) throws IOException {
+        while (!correctPrizeLength(prizes) || !sameNumberAsPlayers(prizes.length, playersNumber)){
+            prizes = inputView.getPrizes();
+        }
+        return prizes;
+    }
+
+    private boolean correctPrizeLength(String[] prizes) throws IOException {
+        if (!correctLength(prizes))  {// 각 이름이 1~5 글자 사이가 아니면
+            System.out.println(ERROR_MASSAGE_PLAYER_NAME);
+            return false;
+        }
+        return true;
+    }
+
+    private boolean sameNumberAsPlayers(int prizesNumber, int playersNumber){
+        if (prizesNumber != playersNumber) {
+            System.out.println(ERROR_MASSAGE_PRIZES_NUMBER);
+            return false;
+        }
+        return true;
+    }
 }

@@ -25,9 +25,10 @@ public class LadderGameController {
                 // 입력
                 String[] players = validation.inspectPlayers(inputView.getPlayer());
                 int ladderHeight = validation.inspectLadderHeight(inputView.getLadderHeight());
+                String[] prizes = validation.inspectPrizes(inputView.getPrizes(), players.length);
                 // 사다리 만들기
                 ladder.make(players.length, ladderHeight);
                 // 출력
-                outputView.printPlayersAndLadder(players, ladder.generate());
+                outputView.printResult(players, ladder.generate(), prizes);
         }
 }
