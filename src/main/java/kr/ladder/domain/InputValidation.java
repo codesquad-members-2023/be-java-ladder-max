@@ -3,12 +3,17 @@ package kr.ladder.domain;
 import kr.ladder.view.InputView;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class InputValidation {
     public static final String ERROR_MASSAGE_PLAYER_NAME = "정해진 형식에 맞지 않습니다. 다시 입력해주세요";
     public static final String ERROR_MESSAGE_LADDER_HEIGHT = "다시 입력해주세요. 최소 사다리 높이는 1입니다.";
     public static final String ERROR_MESSAGE_LADDER_TYPE = "정수를 입력해 주세요.";
     public static final String ERROR_MASSAGE_PRIZES_NUMBER = "경품을 다시 입력해주세요. 인원 수와 같은 수가 들어와야 합니다.";
+    private static final String ERROR_MASSAGE_NO_PLAYER_NAME = "해당 참가자가 없습니다.";
     public static final int MIN_NAME_LENGTH = 1;
     public static final int MAX_NAME_LENGTH = 5;
     private final InputView inputView;
@@ -24,12 +29,13 @@ public class InputValidation {
             - 각 이름중에 null이 있는 경우
         3. 쉼표로 끝난 경우
         4. 영어, 한글이 아닌 문자가 들어온 경우
+        5. 같은 이름을 가진 플레이어가 있을 경우
        -> player 입력을 다시 받는다
     // 🤔InputView에서 요청해서 다시 받는게 맞나??
     return 위에서 검증을 마친(정상적인) 플레이어 이름 배열
      */
-    public String[] inspectPlayers(String[] players) throws IOException {
-        return inspectPlayersNameLength(players);
+    public String[] inspectPlayers() throws IOException {
+        return inspectPlayersNameLength(inputView.getPlayer());
     }
 
     private String[] inspectPlayersNameLength(String[] players) throws IOException {
@@ -62,7 +68,8 @@ public class InputValidation {
         -> 입력을 다시 받는다
      return 정상적인 사다리 높이
      */
-    public int inspectLadderHeight(String ladderHeight) throws IOException {
+    public int inspectLadderHeight() throws IOException {
+        String ladderHeight = inputView.getLadderHeight();
         while (!isInteger(ladderHeight) || !isAvailableHeight(Integer.parseInt(ladderHeight))) {
             ladderHeight = inputView.getLadderHeight();
         }
@@ -96,8 +103,9 @@ public class InputValidation {
     return 정상적인 경품 목록
      */
 
-    public String[] inspectPrizes(String[] prizes, int playersNumber) throws IOException {
-        while (!correctPrizeLength(prizes) || !sameNumberAsPlayers(prizes.length, playersNumber)){
+    public String[] inspectPrizes(int playersNumber) throws IOException {
+        String[] prizes = inputView.getPrizes();
+        while (!correctPrizeLength(prizes) || !sameNumberAsPlayers(prizes.length, playersNumber)) {
             prizes = inputView.getPrizes();
         }
         return prizes;
@@ -117,5 +125,24 @@ public class InputValidation {
             return false;
         }
         return true;
+    }
+
+    /*
+    결과를 보고 싶은 사람 검사
+        players에 있는 사람만 입력받을 수 있도록 한다.
+     */
+    public String inspectCommand(String[] players) throws IOException {
+        String command = inputView.getCommand();
+
+        if (command.equals("all") || command.equals("춘식이")) { // 모두 출력하거나 실행 종료하는 로직은 다른 클래스에 위임한다.
+            return command;
+        }
+        Optional<String> matchedPlayer = Arrays.stream(players).filter(p -> p.equals(command)).findFirst();
+        while (matchedPlayer.isEmpty()){
+            System.out.println(ERROR_MASSAGE_NO_PLAYER_NAME);
+            String newCommand = inputView.getCommand();
+            matchedPlayer = Arrays.stream(players).filter(p -> p.equals(newCommand)).findFirst();
+        }
+        return command;
     }
 }

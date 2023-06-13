@@ -2,23 +2,25 @@ package kr.ladder.view;
 
 public class OutputView {
     private static final int DEFAULT_WIDTH = 6;
+    private static final String EXIT_MASSAGE = "게임을 종료합니다.";
+    private static final String RESULT_MESSAGE = "실행 결과";
     StringBuilder sb;
 
     public OutputView(){
          sb = new StringBuilder();
     }
 
-    public void printResult(String[] players, String ladder, String[] prizes){
+    public void printAll(String[] players, String ladder, String[] prizes) {
+        sb.append("\n").append("사다리 결과").append("\n").append("\n");
         printName(players);
         printLadder(ladder);
         printName(prizes);
 
-        sb.deleteCharAt(sb.length()-1); // 마지막 개행 제거
+        sb.deleteCharAt(sb.length() - 1); // 마지막 개행 제거
         System.out.println(sb);
         sb.setLength(0); // stringBuilder 초기화 (리셋)
     }
 
-    // 이 부분은 OutputView 의 일이 아니지 않나 고민중...
     private void printName(String[] words){
         for (String word : words) {
             sb.append(insertBlankAroundName(word));
@@ -42,5 +44,14 @@ public class OutputView {
 
     private void printLadder(String ladder){
         sb.append(ladder);
+    }
+
+    public void printExitMassage() {
+        System.out.println(EXIT_MASSAGE);
+    }
+
+    public void print(String str) {
+        System.out.println("\n" + RESULT_MESSAGE);
+        System.out.println(str);
     }
 }
