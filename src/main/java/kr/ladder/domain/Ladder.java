@@ -1,7 +1,9 @@
 package kr.ladder.domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Ladder {
     private final List<LadderLine> ladder;
@@ -14,14 +16,15 @@ public class Ladder {
         // 1. 사다리를 만든다
         makeLadderLine(playerNumber, ladderHeight);
         // 2. 유효성 검사를 한다 (세로줄 공백인지 확인하고, 사다리 재입력 받음)
-        while (!available()){
+        while (!available() && ladderHeight != 1){
+            ladder.clear();
             makeLadderLine(playerNumber, ladderHeight);
         }
         // 3. OutputView에 넘겨서 바로 출력 가능하게 만들어준다.
 //        generate();
     }
-    
-    private void makeLadderLine(int playerNumber, int ladderHeight){
+
+    private void makeLadderLine(int playerNumber, int ladderHeight) {
         for (int i = 0; i < ladderHeight; i++) { // 행 넣기
             LadderLine ladderLine = new LadderLine();
             ladderLine.make(playerNumber);
@@ -30,7 +33,7 @@ public class Ladder {
     }
 
     private boolean available(){
-        int[] countBlanks = new int[ladder.size()];
+        int[] countBlanks = new int[ladder.get(0).size()];
         for (LadderLine ladderLine : ladder){
             countBlank(countBlanks, ladderLine);
         }
@@ -54,37 +57,47 @@ public class Ladder {
         }
         return true;
     }
-
-//    욕심 시작...
-//    private void rebuildColumn(int ladderHeight){
-//        int[] columnFalses = new int[ladder.size()];
-//        for (LadderLine ladderLine : ladder) {
-//            List<Boolean> booleans = ladderLine.ladderLine;
-//            for (int i = 0; i < booleans.size(); i++) {
-//                if (!booleans.get(i)){
-//                    columnFalses[i]++;
-//                }
-//            }
-//        }
-//
-//        for (int i = 0; i < columnFalses.length; i++) {
-//            if (columnFalses[i] == ladderHeight) {
-//                changeLadderColumn(i);
-//            }
-//        }
-//    }
-
-    // 하드 코딩해서 마지막 열에서 추가하는 것으로 생각중..
-//    private void changeLadderColumn(int falseIndex){
-//
-//    }
     
     public String generate(){
         StringBuilder sb = new StringBuilder();
         for (LadderLine ladderLine : ladder) {
+            sb.append("  "); // player name과 맞추기 위해서
             sb.append(ladderLine.generate()).append("\n");
         }
         return sb.toString();
+    }
+
+    public List<Integer> play(){
+        List<Integer> mappingIndex = new ArrayList<>();
+        int playerNum = ladder.get(0).size()+1;
+        for (int i = 0; i < playerNum; i++) { // player 수
+            int nowIndex = i;
+            for (int j = 0; j < ladder.size(); j++) { // 사다리 높이
+                nowIndex += compareRight(nowIndex, playerNum, j) + compareLeft(nowIndex, j);
+            }
+            mappingIndex.add(nowIndex);
+        }
+        return mappingIndex;
+    }
+
+    private int compareRight(int nowIndex, int playerNum, int height) {
+        if (nowIndex == playerNum-1) { // 오른쪽 끝
+            return 0;
+        }
+        if (ladder.get(height).get(nowIndex)) { // 오른쪽 발판 있으면
+            return 1;
+        }
+        return 0;
+    }
+
+    private int compareLeft(int nowIndex, int height){
+        if (nowIndex == 0) { // 왼쪽 끝
+            return 0;
+        }
+        if (ladder.get(height).get(nowIndex-1)) { // 왼쪽 발판 있으면
+            return -1;
+        }
+        return 0;
     }
 
 }
